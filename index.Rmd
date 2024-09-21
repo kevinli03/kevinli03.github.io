@@ -3,11 +3,23 @@ title: "Kevin Lingfeng Li"
 output:
   html_document:
     df_print: paged
+    toc: yes
+    toc_float:
+      collapsed: true
+    toc_depth: 4
+    theme: lumen
 ---
 
+```{=html}
+<style>
+  body .main-container {
+    max-width: 1100px;
+  }
+</style>
+```
 **Hello!**
 
-I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of quantitative methods and data to evaluate phenomena in the field of Political Economy. More specifically, I am interested in the use of statistical learning and machine learning to model political phenomena and analyse textual data.
+I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of quantitative methods and data to evaluate phenomena in the field of Political Economy.
 
 Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London, receiving First Class Honours (US Equivalent: Summa Cum Laude). During my undergraduate degree, I also took summer courses in Data Science and Machine Learning at the London School of Economics.
 
@@ -15,25 +27,29 @@ One of my main hobbies is using statistics to evaluate NBA player impact. The go
 
 This is my personal website. I don't really have a purpose for this site, besides using it to post some of my accomplishments or what I find interesting!
 
+<br />
+
 ------------------------------------------------------------------------
 
 ## Publications
 
 Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.” *United Nations Development Programme*, (May 2024). <https://www.undp.org/publications/sids-looking-back-and-forward>
 
+<br />
+
 ------------------------------------------------------------------------
 
 ## Projects
 
-**Political Science - Quantitative Methods in R Handbook**
+#### **Political Science - Quantitative Methods in R Handbook**
 
 -   <http://politicalscience.github.io>
 
 -   This is a handbook I created to help fellow classmates implement political science statistical techniques in R.
 
-------------------------------------------------------------------------
+<br />
 
-**Varieties of Capitalism and Tax Dataset**
+#### **Varieties of Capitalism and Tax Dataset**
 
 -   <https://github.com/kevinli03/VocTaxDataset>
 
@@ -41,22 +57,10 @@ Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. �
 
 ------------------------------------------------------------------------
 
-**TIE (Tree Impact Estimate) Advanced Statistic for NBA**
+## Notes
 
--   [link goes here] (Currently being updated)
+To see my notes for class, see the link below.
 
--   This is my attempt to create an advanced statistic for the impact of NBA players. The gold standard of impact, RAPM data, is only available since 1997.
+-   Note: these notes are not meant to be "publishable", they may contain mistakes, and may not be organised perfectly. They were taken during lectures/videos/readings that I have done.
 
--   To get a metric we can compare current players to players prior to 1997, we need to use box-score stats available prior to 1997, and create models using those stats that predict RAPM.
-
--   I used common box-score statistics to train a model that predicts RAPM, so we can compare players after 1997 and prior to 1997.
-
--   I used tree-based Random Forest methods to approximate RAPM, hence the "Tree" in the title of the metric.
-
-------------------------------------------------------------------------
-
-**2024 US Presidential Election Prediction Model**
-
--   This is a model I created in an attempt to predict the 2024 US Presidential Election popular vote share.
-
--   NOTE: This is something I did quickly in my free time. It is not meant to be an incredibly accurate model, so please, don't judge me if I got things completely wrong, and don't use this for betting.
+kevinli03.github.io/notes
