@@ -1,11 +1,12 @@
 ---
 title: "Kevin Lingfeng Li"
+subtitle: "MSc Student, London School of Economics"
 output:
   html_document:
     df_print: paged
     toc: yes
     toc_float:
-      collapsed: true
+      collapsed: false
     toc_depth: 4
     theme: lumen
 ---
@@ -18,7 +19,11 @@ output:
   }
 </style>
 ```
+<br />
+
 # **Hello!**
+
+### About me
 
 I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of statistics and formal mathematical modelling to study political science and political economy.
 
@@ -40,13 +45,23 @@ This is my personal website. I don't really have a purpose for this site, beside
 
 <br />
 
+### Contact
+
+LinkedIn: <https://www.linkedin.com/in/kevinlingfengli/>
+
+Email: k.l.li1\@lse.ac.uk
+
+<br />
+
 ------------------------------------------------------------------------
 
-# Publications
+# **Publications**
 
 ### Co-Authored
 
 Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.” *United Nations Development Programme*, (May 2024). <https://www.undp.org/publications/sids-looking-back-and-forward>
+
+Internal Site Link: <https://kevinli03.github.io/publications/undp-sids.pdf>
 
 <br />
 
@@ -56,13 +71,15 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam>
 
+Internal Site Link: <https://kevinli03.github.io/publications/undp-climatemigration.pdf>
+
 <br />
 
 ------------------------------------------------------------------------
 
-# Projects
+# **Projects/Cool Stuff**
 
-### Kevin's Political Science Handbook
+### Political Science Handbook
 
 -   <http://politicalscience.github.io>
 
@@ -70,7 +87,7 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
-### Varieties of Capitalism and Tax Dataset
+### VOC and Tax Dataset
 
 -   <https://github.com/kevinli03/VocTaxDataset>
 
@@ -90,15 +107,15 @@ To see my notes for the 2024-2025 school year, see the link below.
 
 ------------------------------------------------------------------------
 
-# Full Academic History
+# **Full Academic History**
 
 ### London School of Economics (MSc)
 
 [**Programme Details**]{.underline}:
 
--   Programme: **MSc Political Science and Political Economy (Specialisation in Applied Statistics/Econometrics)**
+Programme: **MSc Political Science and Political Economy (Specialisation in Applied Statistics/Econometrics)**
 
--   Institution: **London School of Economics**
+Institution: **London School of Economics and Political Science (LSE)**
 
 -   Dates: September 2024 - September 2025
 
@@ -150,13 +167,13 @@ Pre-Sessional Courses:
 
 <br />
 
-### London School of Economics (Summer)
+### LSE Summer School
 
 [**Programme Details**]{.underline}:
 
--   Programme: **LSE Summer School**
+Programme: **LSE Summer School - Data Science and Accounting**
 
--   Institution: **London School of Economics**
+Institution: **London School of Economics and Political Science (LSE)**
 
 -   Dates: July 2024 - August 2024
 
@@ -176,9 +193,9 @@ Pre-Sessional Courses:
 
 [**Programme Details**]{.underline}:
 
--   Programme: **BSc (Honours) in Politics**
+Programme: **BSc (Honours) in Politics**
 
--   Institution: **King's College London**
+Institution: **King's College London**
 
 -   Dates: September 2021 - July 2024
 
@@ -248,9 +265,9 @@ Pre-Sessional Courses:
 
 [**Programme Details**]{.underline}:
 
--   Programme: **High School Diploma, Advanced Placement (AP), ACT**
+Programme: **High School Diploma, Advanced Placement (AP), ACT**
 
--   Institution: **King's College London**
+Institution: **King's College London**
 
 -   Dates: September 2017 - June 2021
 
@@ -260,15 +277,15 @@ Pre-Sessional Courses:
 
 **ACT Standardised Test**:
 
--   Overall score: 35/36
+Overall score: 35/36
 
-    -   Reading: 35/36
+-   Reading: 35/36
 
-    -   English: 35/36
+-   English: 35/36
 
-    -   Math: 35/36
+-   Math: 35/36
 
-    -   Science: 36/36
+-   Science: 36/36
 
 <br />
 
