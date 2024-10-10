@@ -1,8 +1,9 @@
 ---
 title: "Kevin Lingfeng Li"
-subtitle: "MSc Student, London School of Economics"
+subtitle: "Postgraduate Student, London School of Economics"
 format:
     html:
+        theme: cosmo
         max-width: 800px
         toc: TRUE
         toc-expand: TRUE
@@ -16,7 +17,7 @@ format:
 
 ### About me
 
-I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of statistics and formal mathematical modelling to study political science and political economy.
+I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of statistics and formal mathematical modelling to study Political Science and Political Economy.
 
 Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London, receiving First Class Honours (US Equivalent: Summa Cum Laude). During my undergraduate degree, I also took summer courses in Data Science and Machine Learning at the London School of Economics.
 
@@ -38,7 +39,7 @@ This is my personal website. I don't really have a purpose for this site, beside
 
 <br />
 
-### Contact
+### Contact Details
 
 LinkedIn: <https://www.linkedin.com/in/kevinlingfengli/>
 
@@ -60,9 +61,7 @@ Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. â€
 
 ### Contributed/Acknowledged
 
-Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresign Process", *United Nations Development Programme*, (Sep 2024).
-
-<https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam>
+Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresign Process", *United Nations Development Programme*, (Sep 2024). <https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam>
 
 -   Internal Site Link: <https://kevinli03.github.io/publications/undp-climatemigration.pdf>
 
@@ -94,7 +93,7 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### Political Science Handbook
+### Kevin's Political Science Handbook
 
 -   IN PROGRESS
 
@@ -104,7 +103,7 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### VOC and Tax Dataset
+### Varieties of Capitalism and Tax Dataset
 
 -   <https://github.com/kevinli03/VocTaxDataset>
 
@@ -112,13 +111,12 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### 2024-2025 Notes
+### 2024-2025 Lecture Notes
 
 To see my notes for the 2024-2025 school year, see the link below.
 
+-   [kevinli03.github.io/notes](https://kevinli03.github.io/notes/)
 -   Note: these notes are not meant to be "publishable", they may contain mistakes, and may not be organised perfectly. They were taken during lectures/videos/readings that I have done.
-
-[kevinli03.github.io/notes](https://kevinli03.github.io/notes/)
 
 <br />
 
@@ -126,19 +124,13 @@ To see my notes for the 2024-2025 school year, see the link below.
 
 # **Full Academic History**
 
-### London School of Economics (MSc)
+### London School of Economics (MSc Political Science and Political Economy)
 
-[**Programme Details**]{.underline}:
+Focus: Applied Statistics/Econometrics
 
-Programme: MSc Political Science and Political Economy
+Dates: September 2024 - September 2025
 
--   Focus: Applied Statistics/Econometrics
-
-Institution: London School of Economics and Political Science (LSE)
-
--   Dates: September 2024 - September 2025
-
--   Final Classification: N/A (no predicted grades yet)
+Final Classification: N/A (no predicted grades yet)
 
 -   Dissertation Topic:
 
@@ -166,15 +158,11 @@ Registered Modules:
 
 -   GV499 Dissertation
 
-<br />
-
 Audited Modules
 
 -   MY470 Computer Programming (Dr. Milena Tsvetkova)
 
 -   ST304 Time Series and Forecasting
-
-<br />
 
 Pre-Sessional Courses:
 
@@ -186,17 +174,13 @@ Pre-Sessional Courses:
 
 <br />
 
-### LSE Summer School
+### London School of Economics (Summer School)
 
-[**Programme Details**]{.underline}:
+Summer Courses: Data Science and Machine Learning, Principles of Accounting
 
-Programme: LSE Summer School - Data Science and Accounting
+Dates: July 2024 - August 2024
 
-Institution: London School of Economics and Political Science (LSE)
-
--   Dates: July 2024 - August 2024
-
--   Final Classification: A+ (First Class)
+Final Classification: A+ (First Class)
 
 <br />
 
@@ -208,19 +192,13 @@ Institution: London School of Economics and Political Science (LSE)
 
 <br />
 
-### King's College London (BSc)
+### King's College London (BSc Politics)
 
-[**Programme Details**]{.underline}:
+Focuses: Quantitative Methods, Public Policy
 
-Programme: BSc (Honours) in Politics
+Dates: September 2021 - July 2024
 
--   Focuses: Quantitative Methods, Public Policy
-
-Institution: King's College London
-
--   Dates: September 2021 - July 2024
-
--   Final Classification: First Class Honours
+Final Classification: First Class Honours
 
 -   Academic Mentor: Dr. James Scott, Dr. Teresa Esteban-Casanelles
 
@@ -246,8 +224,6 @@ Institution: King's College London
 
 -   6SSPP360 Elections and Voting Behaviour (Dr. Krzysztof Krakowski)
 
-<br />
-
 2nd Year Courses:
 
 -   5SSPP241 Statistics for Political Science II (Dr. Damien Bol)
@@ -266,8 +242,6 @@ Institution: King's College London
 
 -   5SSPP242 British Politics (Prof. Peter John)
 
-<br />
-
 1st Year Courses:
 
 -   4SSPP111 Statistics for Political Science (Dr. Adam Chalmers)
@@ -282,31 +256,17 @@ Institution: King's College London
 
 <br />
 
-### Canyon Crest Academy (ACT, AP)
+### Canyon Crest Academy (High School Diploma, ACT, AP)
 
-[**Programme Details**]{.underline}:
+Dates: September 2017 - June 2021
 
-Programme: High School Diploma, Advanced Placement (AP), ACT
-
-Institution: King's College London
-
--   Dates: September 2017 - June 2021
-
--   Awards: National AP Scholar, AP Scholar with Distinction (3x), President's Volunteer Service Award (2x)
+Awards: National AP Scholar, AP Scholar with Distinction (3x), President's Volunteer Service Award (2x)
 
 <br />
 
 **ACT Standardised Test**:
 
 Overall score: 35/36
-
--   Reading: 35/36
-
--   English: 35/36
-
--   Math: 35/36
-
--   Science: 36/36
 
 <br />
 
