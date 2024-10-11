@@ -1,0 +1,91 @@
+---
+title: "Introduction to Political Economy"
+subtitle: "A guide to the application of Economic Tools to study Political Phenomena"
+author: "Kevin Lingfeng Li"
+format:
+    pdf:
+        toc: true
+        toc-depth: 2
+        documentclass: report
+        papersize: A4
+        number-sections: true
+        number-depth: 3
+        top-level-division: part
+        linestretch: 1.25
+---
+## Preface {.unnumbered}
+
+This book is an introduction to the field of Political Economy - the use of economic tools, such as econometrics and game theory, applied to the study of political topics.
+
+The book starts with a fundmental background on the idea of Political Economy, as well as some neccessary Probability Theory. Next, I provide an introduction to the classic econometric/statistical techniques in the field. Then, I introduce the field of formal mathematical modelling, also called game theory. Finally, I combine the econometric techniques and formal models in the study of a few common topics in Political Economy.  
+
+This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companian manual - Essential Mathematics for Political Economy. It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background neccesary to suceed.
+
+I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
+
+# Fundamentals and Background
+## Introduction to Political Economy
+
+Political Economy is a term that has many different uses. Historically, the term Political Economy was used to describe the field we know today as Economics. This was particuarly the case prior to the mathematical turn that the field of Economics took starting in the 20th century. Famous writers such as Adam Smith, Karl Marx, and John Locke, often identified themselves as Political Economists.
+
+Today, Political Economy still has many different meanings. There are currently three major approaches to Political Economy - who all agree that Political Economy is somewhere between Political Science and Economics - but disagree on the approaches to studying this intersection of disciplines. First, there is the more "economics" side of Political Economy, focusing on how government and power inequalities affect economics and the distribution of resources. Second, there is the field of International Political Economy, which studies how economics interacts with International Relations. Finally, there is the field that applies economic models and methods to the study of Political and Economic phenomena.
+
+This book mainly focuses on the third approach of Political Economy. For this book, Political Economy is a field that uses tools from economics, primarily econometrics and game theory, and applies these tools to study how political institutions, actors, and choices affect political and economic outcomes.
+
+However, just because this book focuses on the third approach, does not mean it has no value to understanding the other approaches of Political Economy. After all, all three of the main approaches to Political Economy share many of the core principles, methods, and ideas. All three approaches developed as a result of scholars realising that Economics cannot be studied properly without considering Political Factors, and Politics cannot be studies properly without considering Economic Factors.
+
+As I mentioned previously, the approach of Political Economy that we are focusing on, is regarding how we use the tools of economics in studying Political and Economic phenomena. However, what exactly does that mean?
+
+In the Social Sciences, there are two parts to any research - the hypothesis/theory, and the empirical data that either supports or refutes the theory. Economic tools perfectly fit into this framework. Political Economists will often use game theory and formal mathematical models to make predictions about potential outcomes of political situations. Then, Political Economists will gather real-world data, and test their hypothesis with statistical/econometric methods.
+
+This book is laid out as following: First, I introduce the methods of Political Economy, then, we apply these methods to major topics in Political Economy. However, before we can start learning any methods, we need to first refresh the basics of Probability - which will be the next chapter. I also recommend anyone who does not have a strong background in mathematics to review the companian manual: Essential Mathematics for Political Science, which will provide some important mathematical concepts behind both the Probability Theory and Methods that we will use.
+
+After the review of probability, then we will move into the section on Econometrics/Statistical Methods. This section will first discuss some simple statistical inference concepts. Then, we will move onto linear regression, the key tool of econometrics. Finally, we will explore Causal Inference, and several quasi-experimental methods that can help estimate causal effects.
+
+After the statistical methods, we move onto the section on Formal Mathematical Modelling, also called game theory. We will first introduce a few core solution concepts for static games. Then, we will move onto Dynamic Games of Complete Information. Finally, we conclude with Bayesian Games.
+
+Finally, we combine the econometrics and game theory we have learned, and study a few major topics in Political Economy research. Here, we will show how the methods we have studied come together in creating current research in Political Economy.
+
+Let us begin!
+
+## Concepts in Probability
+
+# Econometrics
+
+## Inference and Correlation
+
+## Linear Regression Model
+
+## Extensions of the Linear Model
+
+## Causal Frameworks
+
+## Randomised Experiments
+
+## Selection on Observables
+
+## Instrumental Variables
+
+## Regression Discontinuity
+
+## Differences in Differences
+
+## Survey Experiments
+
+# Formal Mathematical Models
+
+## Static Games and Nash Equilibria
+
+## Downsian Spatial Models
+
+## Mixed Strategies
+
+## Dynamic Games of Complete Information
+
+## Elections as Incentive Devices
+
+## Bayesian Games
+
+## Signalling Games
+
+# Topics in Political Economy
