@@ -93,13 +93,19 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
+### Introduction to Political Economy
+
+-   This will be updated later
+
+<br />
+
 ### Kevin's Political Science Handbook
 
 -   IN PROGRESS
 
 -   <http://politicalscience.github.io>
 
--   This is a handbook of all the methods I have learned throughout my years studying political science, all in one place that I and others can reference.
+-   This is a collection of notes on statistical methods in political science and the social science
 
 <br />
 
