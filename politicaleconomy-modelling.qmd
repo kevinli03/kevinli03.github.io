@@ -1,0 +1,178 @@
+---
+title: "An Introduction to Political Economy: Economic Models of Politics"
+subtitle: "The first book in the series: An Introduction to Political Economy. This book covers the use of economic and formal mathematical models in studying political phenomena"
+author: "Kevin Lingfeng Li"
+format:
+    pdf:
+        toc: true
+        toc-depth: 1
+        documentclass: report
+        papersize: A4
+        number-sections: true
+        number-depth: 3
+        top-level-division: part
+        linestretch: 1.25
+---
+
+## Preface {.unnumbered}
+
+This book is the first book in an introduction to the field of Political Economy - the use of economic tools, such as econometrics and game theory, applied to the study of political topics.
+
+This first book in the series focuses on how we can use economic and formal mathematical models to explore political phenomena. The book starts out with an introduction to the field of Political Economy, as well as some neccesary probability theory. Then, I introduce the concept of economic modelling, also called formal mathematical modelling, game theory, or formal theory. Finally, I apply the models we have covered to selected topics in Political Economy research.
+
+This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - Essential Mathematics for Political Economy. It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+
+I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
+
+# Fundamentals and Background
+
+## Introduction to Political Economy
+
+Political Economy is a term that has many different uses. Historically, the term Political Economy was used to describe the field we know today as Economics. This was particularly the case prior to the mathematical turn that the field of Economics took starting in the 20th century. Famous writers such as Adam Smith, Karl Marx, and John Locke, often identified themselves as Political Economists.
+
+Today, Political Economy still has many different meanings. There are currently three major approaches to Political Economy - who all agree that Political Economy is somewhere between Political Science and Economics - but disagree on the approaches to studying this intersection of disciplines. First, there is the more "economics" side of Political Economy, focusing on how government and power inequalities affect economics and the distribution of resources. Second, there is the field of International Political Economy, which studies how economics interacts with International Relations. Finally, there is the field that applies economic models and methods to the study of Political and Economic phenomena.
+
+This book mainly focuses on the third approach of Political Economy. For this book, Political Economy is a field that uses tools from economics, primarily game theory and econometrics, and applies these tools to study how political institutions, actors, and choices affect political and economic outcomes.
+
+However, what exactly does that mean? How do we use these methods?
+
+In the Social Sciences, there are two parts to any research - the hypothesis/theory, and the empirical data that either supports or refutes the theory. Economic tools perfectly fit into this framework. Political Economists will often use game theory and formal mathematical models to make predictions about potential outcomes of political situations. Then, Political Economists will gather real-world data, and test their hypothesis with statistical/econometric methods.
+
+This first book is just one of three in the series: An Introduction to Political Economy. The first book focuses on the economic modelling and creating hypotheses part of Political Economy Research. The next two books in the series focus on the other side of Political Economy Research - testing our hypotheses with empirical data using econometric methods.
+
+This first book begins by exploring the funamentals of Game Theory and Formal Mathematical Modelling. These include the properties of games, solution concepts, as well as different types of common games. After the introduction to economic modelling, we will apply what we have learned to model current issues in Political Economy reseearch.
+
+Let us begin!
+
+## Concepts in Probability
+
+Game Theory and Mathematical Models depend on many aspects of probability. This chapter will go through what I consider the "essential" probability you must know to understand the later chapters. It is highly recommended to read more about probability theory (and Calculus), either through a math textbook, or through consulting the "Essential Mathematics for Political Economy" companion manual.
+
+### Basics of Sets
+
+A **set** is the collection of objects, while the **elements** of the set are the specific objects within a set. A capital letter is used to represent a set, for example, set $A$. A lowercase letter represents an element within the set. For example, element $a$ is a part of set $A$.
+
+There are a few common types of sets we use often:
+
+-   $N$ is the set of natural numbers - the numbers we use to count from 1: $\{1,2,3...\}$
+
+-   $Z$ is the set of integers - non-decimal numbers both negative and positive: $\{...,-2,-1,0,1,2...\}$
+
+-   $R$ is the set of all real numbers - any numbers that are on the number line, including decimals
+
+We can define sets in multiple ways.
+
+-   We can list out each element of a set. For example $A = \{1,2,4,6\}$
+
+-   We can define them with an interval. For example, $A = [0,1]$ means all values within the range of 0 to 1, including 0 and 1.
+
+-   We can define them in formal notation. For example, $A = \{ x:0≤x≤1, x \in R \}$. This literally means: $x$ such that $x$ is between 0 and 1, including 0 and 1, and $x$ is in the set of all real numbers $R$.
+
+Useful notation tips:
+
+-   The semicolon $:$ means "such that", and the sign $\in$ means "in" or "belongs to".
+
+-   When we put absolute value bars around a set, like $|A|$, that refers to the number of elements within that set.
+
+### Set Operators
+
+There are a few different set operators that are important to understand.
+
+An **intersection** of sets $A$ and $B$, formally notated $A \cap B$, indicates the elements that are both within $A$ and $B$ at the same time.
+
+-   For example, if $A = \{1,2,3\}$ and $B = \{2,3,4\}$, then $A \cap B = \{2, 3\}$, since those are the elements that are contained in both $A$ and $B$ at the same time.
+
+A **union** of sets $A$ and $B$, formally notated as $A \cup B$, indicates elements that are in either $A$, $B$, or both $A$ and $B$.
+
+-   For example, if $A = \{1,2,3\}$ and $B = \{2,3,4\}$, then $A \cap B = \{1,2, 3,4\}$.
+
+<!-- -->
+
+-   Another property is that the union $A \cup B = A + B -A \cap B$. We subtract $A \cap B$ since that part is counted twice in both $A$ and $B$, so we need to get rid of it once to avoid over-counting.
+
+The **complement** of set $A$ is everything that is not in $A$, but still within the universal set. The complement is denoted as $A'$ or $A^c$.
+
+-   For example, if the universal set contains $\{1,2,3,4,5\}$, and $A = \{1,2\}$, then $A' = \{3,4,5\}$
+
+A **subset** $A$ has all its elements belonging to another set $B$. This is notated $A \subset B$.
+
+-   For example, if $A = \{1,2\}$, and $B = \{1,2,3\}$, then $A$ is a subset of $B$ since all of $A$'s elements belong to set $B$ as well.
+
+### Basic Properties of Probability
+
+**Kolmogrov's Axioms**, also known as the axioms of probability, form the backbones of probability theory. The axioms are as follows:
+
+1.  For any event $A$, the probability of $A$ occurring is between 0 and 1. Mathematically: $0 ≤ Pr(A) ≤ 1$
+2.  The probability of all events in the sample space $S$ is 1. Mathematically: $Pr(S) = 1$. The sample space is the set of all possible events.
+3.  If we have a group of mutually exclusive events $A_1, A_2, ... , A_k$, then the probability of those events all occurring is the sum of their probabilities. Mathematically, $Pr \left( \bigcup A_i \right) = \sum Pr(A_i)$
+    -   Note: mutually exclusive events are events that cannot occur at the same time together.
+
+Other important properties to note include:
+
+-   $Pr(A') = 1 - Pr(A)$ - the probability of the complement of $A$, is equal to 1 minus the probability of $A$
+
+-   $Pr(A \cup B) = Pr(A) + Pr(B) - Pr(A \cap B)$ - this is because of a property of unions, as shown in section 2.2
+
+### Joint and Conditional Probability
+
+**Joint Probability** is the probability of two or more events occurring simultaneously. The joint probability of events $A$ and $B$ is notated $Pr(A \cap B)$.
+
+-   For example, in a deck of cards, $A$ could be the event of drawing an ace, and $B$ could be the event of drawing a spade. Thus, $Pr(A \cap B)$ would be the probability of drawing a card that was both an ace and a spade.
+
+**Conditional Probability** is the probability of one event occurring, given another has already occurred. Probability of event $A$, given event $B$ has occurred, is notated as $Pr(A|B)$
+
+To calculate the conditional probability, we use the following formula:
+
+$$
+Pr(A|B) = \frac{Pr(A \cap B)}{Pr(B)}
+$$
+
+### Bayes' Theorem
+
+Bayes' theorem is arguable the most important theorem in all of probability and statistics. Thus, instead of just telling you Bayes' theorem, we will actually derive it.
+
+We start with the definition of conditional probability, as seen in the last lesson
+
+$$
+Pr(A|B) = \frac{Pr(A \cap B)}{Pr(B)}
+$$
+
+Let us rearrange the equation by solving for $Pr(A \cap B)$. We will get:
+
+$$
+Pr(A \cap B) = Pr(A|B) \times P(B)
+$$
+
+Now, let us consider the conditional probability of $B|A$ (the opposite way around). We use the same conditional probability formula, but switch the $B$ and $A$. We get:
+
+$$
+Pr(B|A) = \frac{Pr(B \cap A)}{Pr(A)}
+$$
+
+Let us rearrange the equation by solving for $Pr(B \cap A)$. We will get:
+
+$$
+Pr(B \cap A) = P(B|A) \times P(A)
+$$
+
+Now we have two different equations, one for $Pr(A \cap B)$, and one for $Pr(B \cap A)$. Based on the commutative property of sets, we know that $Pr(A \cap B) = Pr(B \cap A)$. Thus, the other parts of the equation must also be equal to each other:
+
+$$
+Pr(A|B) \times Pr(B) = Pr(B|A) \times Pr(A)
+$$
+
+Now, let us solve for $Pr(A|B)$. After we do this, we will get the final form of **Bayes' Theorem**:
+
+$$
+Pr(A|B) = \frac{Pr(B|A) \times Pr(A)}{Pr(B)}
+$$
+
+Each part of Bayes' Theorem has a name. They are commonly referenced, so it is useful to know their names:
+
+-   $Pr(A|B)$ is the [conditional]{.underline} probability
+
+-   $Pr(B|A)$ is the [posterior]{.underline} probability
+
+-   $Pr(A)$ is the [prior]{.underline} probability
+
+-   $Pr(B)$ is the [marginal]{.underline} probability
