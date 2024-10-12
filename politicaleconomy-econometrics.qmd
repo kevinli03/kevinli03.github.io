@@ -1,6 +1,6 @@
 ---
-title: "An Introduction to Political Economy: Economic Models of Politics"
-subtitle: "The first book in an Introduction to Political Economy, covering the use of economic and formal mathematical modelling in studying political phenomena"
+title: "An Introduction to Political Economy: Econometric Methods"
+subtitle: "The second book in the series: An Introduction to Political Economy"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -235,9 +235,7 @@ The Best Linear Predictor is a form of Linear Regression, the primary topic we w
 
 ## Linear Regression Model
 
-## Linear Regression: Transformations
-
-## Linear Regression: Assumptions and Data
+## Extensions of the Linear Model
 
 ## Binomial Logistic Regression
 
@@ -248,5 +246,18 @@ The Best Linear Predictor is a form of Linear Regression, the primary topic we w
 
 # Causal Inference
 
+## Causal Frameworks
+
+## Random Experiements
+
+## Selection on Observables
+
+## Instrumental Variables
+
+## Regression Discontinuity
+
+## Differences-in-Differences
+
+## Survey Experiments
 
 

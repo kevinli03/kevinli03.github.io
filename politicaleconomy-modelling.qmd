@@ -1,6 +1,6 @@
 ---
 title: "An Introduction to Political Economy: Economic Models of Politics"
-subtitle: "The first book in the series: An Introduction to Political Economy. This book covers the use of economic and formal mathematical models in studying political phenomena"
+subtitle: "The first book in the series: An Introduction to Political Economy"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -85,10 +85,7 @@ An **intersection** of sets $A$ and $B$, formally notated $A \cap B$, indicates 
 A **union** of sets $A$ and $B$, formally notated as $A \cup B$, indicates elements that are in either $A$, $B$, or both $A$ and $B$.
 
 -   For example, if $A = \{1,2,3\}$ and $B = \{2,3,4\}$, then $A \cap B = \{1,2, 3,4\}$.
-
-<!-- -->
-
--   Another property is that the union $A \cup B = A + B -A \cap B$. We subtract $A \cap B$ since that part is counted twice in both $A$ and $B$, so we need to get rid of it once to avoid over-counting.
+-   $A \cup B = A + B -A \cap B$. We subtract $A \cap B$ since that part is counted twice in both $A$ and $B$, so we need to get rid of it once to avoid over-counting.
 
 The **complement** of set $A$ is everything that is not in $A$, but still within the universal set. The complement is denoted as $A'$ or $A^c$.
 
@@ -100,7 +97,7 @@ A **subset** $A$ has all its elements belonging to another set $B$. This is nota
 
 ### Basic Properties of Probability
 
-**Kolmogrov's Axioms**, also known as the axioms of probability, form the backbones of probability theory. The axioms are as follows:
+**Kolmogrov's Axioms** are the key properties of probability:
 
 1.  For any event $A$, the probability of $A$ occurring is between 0 and 1. Mathematically: $0 ≤ Pr(A) ≤ 1$
 2.  The probability of all events in the sample space $S$ is 1. Mathematically: $Pr(S) = 1$. The sample space is the set of all possible events.
@@ -117,7 +114,7 @@ Other important properties to note include:
 
 **Joint Probability** is the probability of two or more events occurring simultaneously. The joint probability of events $A$ and $B$ is notated $Pr(A \cap B)$.
 
--   For example, in a deck of cards, $A$ could be the event of drawing an ace, and $B$ could be the event of drawing a spade. Thus, $Pr(A \cap B)$ would be the probability of drawing a card that was both an ace and a spade.
+For example, in a deck of cards, $A$ could be the event of drawing an ace, and $B$ could be the event of drawing a spade. Thus, $Pr(A \cap B)$ would be the probability of drawing a card that was both an ace and a spade.
 
 **Conditional Probability** is the probability of one event occurring, given another has already occurred. Probability of event $A$, given event $B$ has occurred, is notated as $Pr(A|B)$
 
@@ -176,3 +173,25 @@ Each part of Bayes' Theorem has a name. They are commonly referenced, so it is u
 -   $Pr(A)$ is the [prior]{.underline} probability
 
 -   $Pr(B)$ is the [marginal]{.underline} probability
+
+# Formal Mathematical Models
+
+## Introduction to Game Theory
+
+## Dominant Strategy and Nash Equilibrium
+
+## Downsian Spatial Models
+
+## Mixed Strategies
+
+## Dynamic Games of Complete Information
+
+## Elections as Incentive Devices
+
+## Dynamic Games of Incomplete Information
+
+## Perfect Bayesian Equilibrium
+
+## Signalling Games
+
+# Topics in Political Economy
