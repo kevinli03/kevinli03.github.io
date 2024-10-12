@@ -5,7 +5,7 @@ author: "Kevin Lingfeng Li"
 format:
     pdf:
         toc: true
-        toc-depth: 1
+        toc-depth: 2
         documentclass: report
         papersize: A4
         number-sections: true
