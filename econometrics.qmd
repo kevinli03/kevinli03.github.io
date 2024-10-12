@@ -1,6 +1,6 @@
 ---
 title: "Introductory Econometrics for Political Economy"
-subtitle: "The second book in the series: An Introduction to Political Economy"
+subtitle: "An introduction to statistical inference and causal inference for the Social Sciences"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -27,6 +27,7 @@ I created this book as a way to revise for my exams, as well as provide a handy 
 This book will use the R language for some examples, as well as providing code for some other languages (Stata, Python). This is not a coding course, so I will not introduce the basics of R.
 
 # Probability and Statistical Theory
+
 ## Concepts in Probability
 
 Econometrics depends on many aspects of probability. This chapter will go through what I consider the "essential" probability you must know to understand the later chapters. It is highly recommended to read more about probability theory, either through a math textbook, or through consulting the "Essential Mathematics for Political Economy" companion manual.
@@ -157,7 +158,6 @@ Each part of Bayes' Theorem has a name. They are commonly referenced, so it is u
 
 -   $Pr(B)$ is the [marginal]{.underline} probability
 
-
 ## Random Variables
 
 Random Variables are the core of statistical techniques. This section builds on what we have learned in probability from above, and applies it to random variables and distributions.
@@ -225,7 +225,6 @@ This is important, because the area under the distribution curve is actually the
 Any normal distribution can be described with 2 features: mean $\mu$ and variance $\sigma^2$ in the following form: $X \sim \mathcal{N}(\mu, \sigma^2)$. For example, $X \sim \mathcal{N} (30, 4)$ means a normal distribution with mean 30 and variance 4.
 
 The T distribution is a distribution very similar to the shape and size of the normal distribution, however, generally has thicker tails and a lower peak. The key difference is that t-distributions are defined with only one parameter - degrees of freedom $DF$.
-
 
 ## Basics of Inference and Correlation
 

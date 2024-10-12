@@ -105,17 +105,17 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### Introduction to Political Economy Series
+### Political Economy Short Books Series
 
 This is a series of 4 short books I created to consolidate all the information I have learned into one place.
 
 **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
-1.  [An Introduction to Political Economy: Economic Models of Politics](https://kevinli03.github.io/politicaleconomy-modelling.pdf)
-2.  [An Introduction to Political Economy: Econometric Methods](https://kevinli03.github.io/politicaleconomy-econometrics.pdf)
-3.  [An Introduction to Political Economy: Advanced Econometric Methods](https://kevinli03.github.io/politicaleconomy-advanced.pdf)
+1.  [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy.pdf): This book covers how economic models and formal mathematical models can be applied to the study of political phenomena. Topics include nash equilibrium, static games, dynamic games of complete information, and bayesian games.
+2.  [Introductory Econometrics for Political Economy](https://kevinli03.github.io/econometrics.pdf): This book focuses on the key techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly. Topics include statistical inference, linear regression, logistic regression, causal frameworks, randomised experiments, instrumental variables, and quasi-experimental techniques.
+3.  [Advanced Econometrics for Political Economy](https://kevinli03.github.io/advanced.pdf): This book focuses on advanced techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly. Topics include machine learning prediction methods, multivariate analysis, latent variable modelling, time series analysis, and quantitative text mining.
 
--   Finally, a companion book: [An Introduction to Political Economy: Essential Mathematics](https://kevinli03.github.io/politicaleconomy-maths.pdf)
+-   Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf)
 
 <br />
 

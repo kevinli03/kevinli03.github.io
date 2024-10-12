@@ -288,7 +288,7 @@ Preferences are represented by a payoff function $u_i(a_i, a_{-i})$
 
 -   Essentially, $u_i$ is a function with the inputs of player $i$'s actions $a_i$, and the actions of everyone else $a_{-i}$
 
-## Dominant Strategy and Nash Equilibrium
+## Dominant Strategy Equilibrium
 
 ### Dominant Strategies
 
@@ -305,6 +305,8 @@ u_i(s_i^D, s{-i}) > u_i (s_i', s_{-i})
 $$
 
 Which translates into words as - the utility of player $i$ choosing their dominant strategy $s_i^D$, is always greater than the utility of player $i$ choosing another strategy $s_i'$, no matter the strategies chosen by the opponents $s_{-i}$
+
+If player $i$ has a dominant strategy $s_i^D$, then their other strategies $s_i'$ are considered to be **dominated**.
 
 ### Dominant Strategies in Prisoner's Dilemma
 
@@ -369,13 +371,29 @@ Formally, a strategy profile of all players $S^D = (S^D_1, S^D_2, ..., S^D_N)$ i
 
 For example, take the **prisoner's dilemma**. We have already established that for both players, defect is a dominant strategy. [Thus, if both players play defect, that is a dominant strategy equilibrium]{.underline}.
 
-### Best Response
+There, at most, can only be one dominant strategy equilibrium in a game. This makes dominant strategy equilibrium a great solution concept for predicting - as there will always only be one solution.
 
-However, an issue with the dominant strategy equilibrium, is that dominant strategies do not appear in most games.
+However, many games do not have any dominant strategies, and thus, many games do not have a dominant strategy equilibrium. As a result, this solution concept is not possible on a vast majority of games.
 
 -   After all, if all games had one strategy that was better than the rest, no matter what the opponents did, game theory would be trivially easy, and a pointless exercise.
 
+## Nash Equilibrium
+
+### Best Response
+
+We previously discussed that dominant strategies do not appear in most games, and thus, we need an alternate way of determining a solution.
+
 Thus, we need to introduce the concept of a **best response**. We already introduced the intuition of a best response in the section on the prisoner's dilemma.
+
+### Finding Best Responses
+
+### Nash Equilibrium
+
+### Finding Nash Equilibrium
+
+### Multiple Nash Equilibrium and Focal Points
+
+### Trembling Hand Perfect Equilibrium
 
 ## Downsian Spatial Models
 
