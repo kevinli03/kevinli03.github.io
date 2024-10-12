@@ -288,6 +288,93 @@ Preferences are represented by a payoff function $u_i(a_i, a_{-i})$
 
 ## Dominant Strategy and Nash Equilibrium
 
+### Dominant Strategies
+
+As we have established, game theory is when one person's actions affect another's payoffs. Thus, players have to anticipate what other players will do, and act accordingly.
+
+However, sometimes, one of the actions available to a player $i$, is always better than any of the other actions available to them, no matter what their opponent decides to do. This strategy that is always better than the alternatives, no matter what the other player does, is called a **dominant strategy**.
+
+Formally, a dominant strategy, notated $s_i^D$, is a dominant strategy, if it is player $i$'s best strategy, no matter the strategies the other players pick. No matter what the opponent does, the payoff is highest for player $i$ when they play $s_i^D$
+
+Mathematically, we can represent that statement as following:
+
+$$
+u_i(s_i^D, s{-i}) > u_i (s_i', s_{-i})
+$$
+
+Which translates into words as - the utility of player $i$ choosing their dominant strategy $s_i^D$, is always greater than the utility of player $i$ choosing another strategy $s_i'$, no matter the strategies chosen by the opponents $s_{-i}$
+
+### Dominant Strategies in Prisoner's Dilemma
+
+An example of a dominant strategy is the famous game: prisoner's dilemma. The story is as follows:
+
+*Two suspects are arrested. The police holds the suspects in separate cells and explains the consequences of their actions. If they both remain quiet (cooperate with each other), then both will be convicted for minor offences and sentenced to 1 month in jail. If both rat each other out (defect), then both will be sentenced to jail for 8 months. Finally, if one defects but the other does not, then the confessor is immediately released and the other is sentenced to 10 months, 8 for the crime and 2 for obstructing justice.*
+
+We can represent this game in a matrix, which is often called the normal form of the game. Note, the first value in each cell is the payoff of player 1 (p1), and the second value in each cell is the payoff of player 2 (p2).
+
+|                    | Cooperate (p2) | Defect (p2) |
+|--------------------|----------------|-------------|
+| **Cooperate (p1)** | -1, -1         | -10, 0      |
+| **Defect (p1)**    | 0, -10         | -8, -8      |
+
+Let us look at player 1. What is the best move for player 1?
+
+Pretend player 2 plays cooperate. Thus, we can hide the defect column:
+
+|                    | Cooperate (p2) |
+|--------------------|----------------|
+| **Cooperate (p1)** | -1, -1         |
+| **Defect (p1)**    | 0, -10         |
+
+What is player 1's best strategy? Well, it is to defect, since a payoff of 0 is greater than a payoff of 1. [So, when player 2 picks cooperate, player 1 should pick defect]{.underline}.
+
+Now, pretend player 2 plays defect. Thus, we can hide the cooperate column:
+
+|                    | Defect (p2) |
+|--------------------|-------------|
+| **Cooperate (p1)** | -10, 0      |
+| **Defect (p1)**    | -8, -8      |
+
+What is player 1's best strategy? Well, it is to defect, since a payoff of -8 is greater than a pyoff of 1. [So, when player 2 picks defect, player 1 should pick defect]{.underline}.
+
+So, we have established that player 1 will pick strategy defect, for both the scenarios that player 2 picks cooperate or player 2 picks defect. So, player 1 should always pick defect.
+
+Thus, player 1's strategy of defect is the strategy that maximises their payoff, regardless of the strategy of player 2. Thus, [player 1's strategy of defect is a dominant strategy.]{.underline}
+
+We can do the same thing for player 2. We first pretend player 1 will pick cooperate, and we find player 2 should pick defect as their best strategy. Then we pretend player 1 will play defect, and we find player 2 should also pick defect as their best strategy. [Thus, player 2 also has a dominant strategy of defect.]{.underline}
+
+The Prisoner's Dilemma thus has a dominant strategy for both players - defect.
+
+### Solution Concepts
+
+One of the key things about modelling situations is that, well, we want to find a likely outcome. An equilibrium solution concept is a concept that shows a likely solution to a game, by restricting potential strategies being played to the most reasonable one.
+
+Any equilibrium solution concept has a few assumptions:
+
+1.  Players are rational - they choose actions that maximise their own payoffs. Without this assumption, it is very difficult to find a likely outcome
+2.  Structure of the game and player's rationality is common knowledge. If players do not know about the structure of the game, they well, cannot make best response decisions to their opponents
+3.  Any predictions must be self-enforcing - essentially, if we end up in a solution outcome, the players should not have any reason to want to leave that outcome, or else it would not be a final solution.
+
+### Dominant Strategy Equilibrium
+
+A dominant strategy equilibrium is a solution concept where all players play dominant strategies.
+
+-   After all, if everyone has a best response to all other strategies of other players, and everyone is playing their best response, that is a very likely outcome of the game.
+
+Formally, a strategy profile of all players $S^D = (S^D_1, S^D_2, ..., S^D_N)$ is a dominant strategy equilibrium, if for all players $i$, $u_i(S^D_i, s_{-i}) > u_i(s_i',s_{-i})$ for all $s_{-i}$
+
+-   Thie second part is the definition of dominant strategy. So, this basically says that a a set of strategies (strategy profile) is a dominant strategy equilibrium, given every player is playing a dominant strategy.
+
+For example, take the **prisoner's dilemma**. We have already established that for both players, defect is a dominant strategy. [Thus, if both players play defect, that is a dominant strategy equilibrium]{.underline}.
+
+### Best Response
+
+However, an issue with the dominant strategy equilibrium, is that dominant strategies do not appear in most games.
+
+-   After all, if all games had one strategy that was better than the rest, no matter what the opponents did, game theory would be trivially easy, and a pointless exercise.
+
+Thus, we need to introduce the concept of a **best response**. We already introduced the intuition of a best response in the section on the prisoner's dilemma.
+
 ## Downsian Spatial Models
 
 ## Mixed Strategies
