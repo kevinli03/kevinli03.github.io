@@ -598,16 +598,24 @@ The expected utility of player 2, when they play right, is defined as $u_2(R, s_
 Thus, when player 2 plays left, they expect a utility of $1-\epsilon$, and when the play right, they expect a utility of $2\epsilon$. The Nash Equilibrium (Up, Left) is only true of player 2 plays left, it is only true of $1-\epsilon > 2\epsilon$. Let us solve for $\epsilon$
 
 $$
-1-\epsilon > 2 \epsilon
+1 > 3\epsilon \space \rightarrow \epsilon < 1/3
 $$
 
+Thus, the Nash Equilibrium (Up, Left) remains true as long as player 1 is rational with probability $2/3$ or more of the time.
+
+We can test the other Nash Equilibrium (Down, Right) with the same parameters:
+
+-   When player 2 plays left, $u_2(L, s_1^{\epsilon}) = 1\epsilon + 2(1-\epsilon) = 2-\epsilon$
+
+-   When player 2 plays right, $u_2(R, s_1^{\epsilon}) = 0\epsilon + 2(1-\epsilon) = 2-2\epsilon$
+
+(Down, Right) is only a Nash Equilibrium when player 2 plays right. Thus, $2-2\epsilon>2-\epsilon$. Let us solve for $\epsilon$:
+
 $$
-\epsilon < 1/3
+2 - 2 > -\epsilon + 2\epsilon \space \rightarrow \epsilon < 0
 $$
 
-Thus, the Nash Equilibrium remains true as long as player 1 is rational with probability $1/3$
-
--   This is generally considered quite robust. We typically assume epsilon is somewhere between $0.01$ to $0.05$, with $0.1$ generally the highest value used.
+So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less than 0% of the time, which is impossible. Thus, (Down, Right) is not a robust Nash Equilibrium
 
 ## Downsian Spatial Models
 
