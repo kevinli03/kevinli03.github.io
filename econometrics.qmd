@@ -327,6 +327,8 @@ A way to estimate the magnitude of the relationship between $X$ and $Y$ is the *
 
 In this equation, the $\beta$ term in the best fit line is the slope of the linear equation. Essentially, it tells us for every increase in one unit of $X$, how much do we expect $Y$ to increase by?
 
+-   In a linear model, the $X$ variable is considered the **explanatory** or **independent** variable, while the $Y$ is the **response** or **dependent** variable.
+
 However, how do we draw a best fit line that fits the data? After all, if we can't figure out what is the best fit, we cannot get a $\beta$ value to interpret.
 
 -   The solution is the Ordinary Least Squares estimator, a way to esimtate $\beta$, $\alpha$ ,and all other parameters of the linear line
@@ -337,9 +339,116 @@ The Best Linear Predictor is a form of Linear Regression, the primary topic we w
 
 ## Linear Model, Estimation, and Interpretation
 
+### Specification of the Linear Model
+
+Before we dive into the linear model, here are some conventional notation that is important:
+
+-   The **response variable** (dependent variable) is notated $Y$. There is only one response variable throughout this course - multivariate models with multiple $Y$ are covered in the Advanced Econometrics for Political Economy book.
+
+-   The **explanatory variable** (independent variable) is notated $X$. There is often more than one explanatory variable, so we denote them with subscripts $X_1, X_2, ..., X_k$. We sometimes also denote all explanatory variables as the vector $\overrightarrow{X}$
+
+In formal statistical terminology, a regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. Essentially, it is stating that the distribution of possible $Y$ outcomes depends on the value of $\overrightarrow{X}$.
+
+-   I say conditional **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$, and a different distribution with different mean for $X=20, X=25$, etc.
+
+The linear regression model focuses on the **expected value** of the conditional distribution of $Y$ given $\overrightarrow{X}$. Essentially, the model outputs the expected value/mean of the distribution of $Y$ given any set of $\overrightarrow{X}$.
+
+Suppose we have a set of observed data, with response variable $Y$, and a number of $X$ variables for $n$ number of observations. Thus, we will have $n$ number of pairs of $(X_i, Y_i)$ observations. The linear model takes the following form:
+
+$$
+E[Y_i|\overrightarrow{X}_i] = \alpha + \beta_1 X_{1i} + ... + \beta_k X_{ki}
+$$
+
+-   Where $E[Y_i|\overrightarrow{X}_i]$ is the expected value of the conditional distribution of some $Y$ value $Y_i$, given some $\overrightarrow{X}$ values $\overrightarrow{X}_i$.
+
+-   The distribution of $Y_i|\overrightarrow{X}_i$ has a variance $Var(Y_i|\overrightarrow{X}_i) = \sigma^2$.
+
+-   The parameters of the model are the denoted by the vector $\overrightarrow{\beta}$, and contain $\alpha, \beta_1, ..., \beta_k$
+
+The above form of the linear model is solved for the expected value of the conditional distribution $Y_i|\overrightarrow{X}_i$. However, we can also solve for the value of any point $Y_i$ in our data:
+
+$$
+Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
+$$
+
+-   Where $\epsilon_i$ is the error term function - that determines the error for each point. We will go into detail on this later.
+
+-   A key assumption (that we will discuss later) is that the error function overall is normally distributed: $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$
+
+-   Essentially, $\epsilon_i$ is another way to think about the conditional distribution of $Y_i|\overrightarrow{X}_i$, and how not every 30 year old makes the exact same income - there is some variation and error.
+
+### Estimation of Parameters
+
+In our model, we have parameters $\alpha, \beta_1, ..., \beta_k$ and variance $\sigma^2$ that need to be estimated, in order to create a best-fit line we can actually use for prediction and statistical inference. Our best estimates of these parameters will be denoted with a hat: $\hat{\alpha}, \hat{\beta}_1, ...$
+
+Estimating the parameters is also called **fitting the model**. We estimate the parameters by using our observed data points $(Y_i, \overrightarrow{X}_i)$, and fitting a best fit line to these points. Our result should take the following form:
+
+$$
+\hat{Y}_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + ... + \hat{\beta}_k X_{ki}
+$$
+
+-   Where $\hat{Y}_i$ is our prediction of the value of $Y$, given any set of $\overrightarrow{X}$ values.
+
+-   Notice the error term $\epsilon_i$ is not present. This is because of our prior assumption that the error term $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, which says the expected value of $\epsilon_i$ is $E[\epsilon_i]=0$. So on average, error is 0, so our predictions do not include the error term.
+
+However, how do we determine the best estimates of our parameters $\alpha, \beta_1, ..., \beta_k$? There are actually several ways to do this, including Bayesian Linear Regression. We will focus on the most popular method: **The Ordinary Least Squares Estimator (OLS).**
+
+OLS estimation attempts to **minimise the sum of squared errors** of our predicted line to our actual observed data. The estimation processes is as follows.
+
+1.  First, we propose some coefficient values to test. Let $\tilde{\beta}$ represent the vector of our proposed coefficient values $\tilde{\alpha}, \tilde{\beta}_1, ..., \tilde{\beta}_k$
+2.  Then, we use these proposed coefficients in our prediction line: $\hat{Y}_i (\tilde{\beta}) = \tilde{\alpha} + \tilde{\beta}_1 X_{1i},...  ,\tilde{\beta}_k X_{ki}$
+3.  Then, we calculate the residuals $e_i$ of our predictions of $Y$ using our proposed coefficients, compared to the actual values of $Y_i$ : $e_i (\tilde{\beta}) = Y_i - \hat{Y}_i (\tilde{\beta})$
+4.  Then, we calculate the sum of squared errors (SSE) for all residuals: $SSE(\tilde{\beta}) = \sum (Y_i - \hat{Y}_i (\tilde{\beta}))^2$
+
+The set of proposed $\tilde{\beta}$ coefficients that produces the lowest SSE is chosen as our estimated parameters.
+
+Of course, testing every possible set of proposed coefficients $\tilde{\beta}$ is quite time-consuming. Luckily, through calculus and linear algebra (which we will not explain here), you can derive the parameters that minimise the SSE of a simple linear regression with a formula.
+
+For a simple linear regression with one $X$ variable, the formula for $\hat{\beta}$ is as follows:
+
+$$
+\hat{\beta} = \frac{\sum(X_i - \bar{X})(Y_i - \bar{Y})}{\sum(X_i - \bar{X})^2}
+$$
+
+For more than one $X$ variable, it is nearly impossible to hand calculate the estimated parameters. Luckily, the computer does this very quickly for us (we will show how to implement this in R and STATA later).
+
+We can also derive the estimate of the **residual variance** $\sigma^2$ with this formula:
+
+$$
+\hat{\sigma}^2 = \frac{\sum(Y_i - \hat{Y}_i)^2}{n-k-1}
+$$
+
+The standard deviation of the residuals is simply the square root of the variance.
+
+### Interpretations of Parameters
+
+### Model Statistics
+
+### Linear Regression in R
+
 ## Hypothesis Testing
 
-## Transformations and Interactions
+### Confidence Intervals
+
+### Parameter Hypothesis Testing
+
+### F-Tests
+
+### Hypothesis Testing in R
+
+## Interactions and Transformations
+
+### Binary Interaction Effect
+
+### Continuous Interaction Effect
+
+### Interactions in R
+
+### Logarithmic Transformations
+
+### Polynomial Transformations
+
+### Transformations in R
 
 ## Panel and Clustered Data
 
