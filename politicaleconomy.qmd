@@ -377,7 +377,7 @@ However, many games do not have any dominant strategies, and thus, many games do
 
 -   After all, if all games had one strategy that was better than the rest, no matter what the opponents did, game theory would be trivially easy, and a pointless exercise.
 
-## Nash Equilibrium
+## Nash Equilibrium and Pareto Efficiency
 
 ### Best Response
 
@@ -390,6 +390,10 @@ Thus, we need to introduce the concept of a **best response**. We already introd
 ### Nash Equilibrium
 
 ### Finding Nash Equilibrium
+
+### Pareto Efficiency
+
+### Prisoner's Dilemma as a Category of Games
 
 ### Multiple Nash Equilibrium and Focal Points
 
