@@ -178,6 +178,114 @@ Each part of Bayes' Theorem has a name. They are commonly referenced, so it is u
 
 ## Introduction to Game Theory
 
+### The Importance of Modelling
+
+Game Theory, also called Formal Theory, is a way to use models to represent the world around us.
+
+A model is a simplified version of reality to help us understand the complex world around us. This is especially useful in the exceedingly complex world of the social sciences.
+
+To simplify reality, models make **assumptions**. These assumptions should be similar to reality, so we can draw conclusions from our model to the real world. However, these assumptions should also make the model simple, and only focus on the relevant features and details.
+
+For example, a driving map is a model. It does not contain all the information in the world - it does not record the height of buildings, the colour of the terrain, and so on. It only contains streets, street names, and addresses. It even simplifies the spherical earth into a 2-dimensional flat map.
+
+However, despite its simplifications of reality, a driving map is amazing for navigation. If you are trying to get from point A to point B by car, you do not care about the spherical nature of the globe. The simplifying assumptions on a driving map allow us to navigate the world around us, without being a perfect copy of reality.
+
+There are several different approaches to modelling:
+
+-   Decision theory focuses on one individual, who aims to take actions to maximise their objective.
+
+-   Competitive equilibrium focuses on prices and quantities, unaffected by individual actions, such that a market clears and hits equilibrium
+
+-   Game theory focuses on social interactions that are characterised by strategic interdependence - one person's actions affect another's outcomes
+
+### Game Theory
+
+Game Theory is the study of mathematical models of conflict and cooperation between rational players. The key property of game theory is that one player's actions, affect another player's outcomes/gains/payoffs.
+
+Other key properties of Game Theory include:
+
+-   There is **common knowledge** of the rules of the game. This basically means that every player knows that every other player knows the rules of the game.
+
+-   A player will predict what their opponents will do, and will react to their opponents.
+
+-   The optimal decision of a player, depends on their beliefs on what the other players will do.
+
+### Properties of Games
+
+Games are the environment in which strategic interaction between players occurs. For each game, it must consist of:
+
+1.  A set of **players**
+2.  For each player, a set of **actions** and **strategies**
+3.  For each player, **preferences** over the outcomes associated with the actions, such that they have an opinion on every possible outcome of the game
+
+Players will take actions, and they yield some outcomes. The pathway between actions and outcomes is the **environment** - essentially the function that takes your action input, and outputs your outcome.
+
+A player's belief on the environment - which includes the rules of the game, the other players' strategies, and the other players' beliefs, influence a player's choice of actions.
+
+A player's preferences over the outcomes of games, in game theory, must be both **complete** and **transitive**.
+
+-   Complete preferences means that given any 2 outcomes, you can always compare them. Or in more intuitive terms, the player always has an opinion on the outcome - they are never "not sure" about how they feel about one outcome compared to another (however, they can be indifferent).
+
+-   Transtive preferences means that if you prefer $a$ over $b$, and $b$ over $c$, then you prefer $a$ over $c$. It is basically that your preferences make sense and are consistent.
+
+Preferences over outcomes can either be **ordinal** or **cardinal**
+
+-   Ordinal preferences means that you can rank your preferences of the potential outcomes, but you cannot give a specific value to that preference. For example, you can say you like $a$ more than $b$, but you cannot say exactly how much you like $a$ over $b$
+
+-   Cardinal preferences means that not only can you rank your preferences, you can also describe the magnitude of your preferences. For example, if you say you like $a$ 3 times better than $b$, then you have cardinal preferences
+
+We can assign numbers to both cardinal and ordinal preferences. Just be aware, if preferences are ordinal (and they often are), the numbers represent relative rankings, not specific magnitudes of preference.
+
+-   For example, if preferences are ordinal, the "distance" between preference values $1$ and $2$, may not be equal to the distance between $2$ and $3$
+
+### Types of Games
+
+Games in Game Theory can be categorised according to two key properties: the **timing** of a game, and the **availability of information** in the game.
+
+The timing of the game determines how players move relative to each other:
+
+-   A **static game** is when all players move "simultaneously". This does not actually mean they have to move at the exact same moment - it simply means that when one player moves, they cannot yet observe how the other player has moved. Thus, the players must anticipate the other players moves.
+
+-   A **dynamic game** is when players move sequentially, in an order. These are also called extensive form games. This means that players can see how their opponents moved, before they choose their move. For example, Chess is a dynamic game.
+
+The availability of information is another distinction between types of games:
+
+-   A game of **complete information** is one where all payoffs are known to all players.
+
+-   A game of **incomplete information** is when some payoffs or some actions are not common knowledge. These games are quite a bit more complex.
+
+We will start with static games of complete information - the simplest form and the best type of game to introduce core concepts.
+
+### Game Theory Notation
+
+Before we start discussing games, we need to discuss notation. Notation is key, because it allows us to be very precise and concise in defining our games.
+
+Players are denoted $i = 1,2,...N$.
+
+-   When we say player $i$, we are referring to any specific player in the game.
+
+-   When we say player 1, or player 2..., we are referring to a specific player in the game.
+
+-   $N$ represents the total number of players in a game.
+
+The actions of a player $i$ are denoted $a_i$
+
+-   So, the actions of player 1 are denoted $a_1$, and so on
+
+The strategies of a player $i$ are denoted $s_i$
+
+-   A player's selected strategy, if applicable, is denoted with a star: $s_i^*$
+
+-   All other strategies are denoted with an apostrophe (more specifically, a set complement sign): $s'_i$
+
+The action profile (of all players' actions) is a vector $a = (a_1, a_2, ..., a_N)$
+
+-   We can split this vector into 2 different parts. $a_i$ denotes player $i$'s actions, while $a_{-i}$ denotes the action profiles of all other players not player $i$
+
+Preferences are represented by a payoff function $u_i(a_i, a_{-i})$
+
+-   Essentially, $u_i$ is a function with the inputs of player $i$'s actions $a_i$, and the actions of everyone else $a_{-i}$
+
 ## Dominant Strategy and Nash Equilibrium
 
 ## Downsian Spatial Models

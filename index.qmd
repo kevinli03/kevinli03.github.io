@@ -67,6 +67,18 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
+### Introduction to Political Economy Series
+
+This is a series of 4 short books I created to consolidate all the information I have learned into one place.
+
+**NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
+
+1.  [An Introduction to Political Economy: Economic Models of Politics](https://kevinli03.github.io/politicaleconomy-modelling.pdf)
+2.  [An Introduction to Political Economy: Econometric Methods](https://kevinli03.github.io/politicaleconomy-econometrics.pdf)
+3.  [An Introduction to Political Economy: Advanced Econometric Methods](https://kevinli03.github.io/politicaleconomy-advanced.pdf)
+
+-   Finally, a companion book: [An Introduction to Political Economy: Essential Mathematics](https://kevinli03.github.io/politicaleconomy-maths.pdf)
+
 ------------------------------------------------------------------------
 
 # **Projects/Cool Stuff**
@@ -93,19 +105,17 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### Introduction to Political Economy
+### Introduction to Political Economy Series
 
--   This will be updated later
+This is a series of 4 short books I created to consolidate all the information I have learned into one place.
 
-<br />
+**NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
-### Kevin's Political Science Handbook
+1.  [An Introduction to Political Economy: Economic Models of Politics](https://kevinli03.github.io/politicaleconomy-modelling.pdf)
+2.  [An Introduction to Political Economy: Econometric Methods](https://kevinli03.github.io/politicaleconomy-econometrics.pdf)
+3.  [An Introduction to Political Economy: Advanced Econometric Methods](https://kevinli03.github.io/politicaleconomy-advanced.pdf)
 
--   IN PROGRESS
-
--   <http://politicalscience.github.io>
-
--   This is a collection of notes on statistical methods in political science and the social science
+-   Finally, a companion book: [An Introduction to Political Economy: Essential Mathematics](https://kevinli03.github.io/politicaleconomy-maths.pdf)
 
 <br />
 

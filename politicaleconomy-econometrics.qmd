@@ -16,15 +16,15 @@ format:
 
 ## Preface {.unnumbered}
 
-This book is an introduction to the field of Political Economy - the use of economic tools, such as econometrics and game theory, applied to the study of political topics.
+This book is the second book in an introduction to the field of Political Economy - the use of economic tools, such as econometrics and game theory, applied to the study of political topics.
 
-The book starts with a fundamental background on the idea of Political Economy, as well as some necessary Probability Theory. Next, I provide an introduction to the classic econometric/statistical techniques in the field. Then, I introduce the field of formal mathematical modelling, also called game theory. Finally, I combine the econometric techniques and formal models in the study of a few common topics in Political Economy.
+This second book in the series focuses on how we can use econometrics to analyse empirical data to prove or reject our hypotheses. This book starts out with the fundamentals of probability and inference. Then, it moves to regression anlaysis. Finally, it moves to methods regarding causal inference.
 
 This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - Essential Mathematics for Political Economy. It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
 I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
 
-For the econometrics sections of this book, I will also use the R language for some examples, as well as providing code for some other languages (Stata, Python). This is not a coding course, so I will not introduce the basics of R.
+This book will use the R language for some examples, as well as providing code for some other languages (Stata, Python). This is not a coding course, so I will not introduce the basics of R.
 
 # Fundamentals and Background
 
@@ -32,24 +32,17 @@ For the econometrics sections of this book, I will also use the R language for s
 
 Political Economy is a term that has many different uses. Historically, the term Political Economy was used to describe the field we know today as Economics. This was particularly the case prior to the mathematical turn that the field of Economics took starting in the 20th century. Famous writers such as Adam Smith, Karl Marx, and John Locke, often identified themselves as Political Economists.
 
-
 Today, Political Economy still has many different meanings. There are currently three major approaches to Political Economy - who all agree that Political Economy is somewhere between Political Science and Economics - but disagree on the approaches to studying this intersection of disciplines. First, there is the more "economics" side of Political Economy, focusing on how government and power inequalities affect economics and the distribution of resources. Second, there is the field of International Political Economy, which studies how economics interacts with International Relations. Finally, there is the field that applies economic models and methods to the study of Political and Economic phenomena.
-
 
 This book mainly focuses on the third approach of Political Economy. For this book, Political Economy is a field that uses tools from economics, primarily game theory and econometrics, and applies these tools to study how political institutions, actors, and choices affect political and economic outcomes.
 
-
 However, what exactly does that mean? How do we use these methods?
-
 
 In the Social Sciences, there are two parts to any research - the hypothesis/theory, and the empirical data that either supports or refutes the theory. Economic tools perfectly fit into this framework. Political Economists will often use game theory and formal mathematical models to make predictions about potential outcomes of political situations. Then, Political Economists will gather real-world data, and test their hypothesis with statistical/econometric methods.
 
-
 This book is the second of three in the series: An Introduction to Political Economy. The first book focuses on the economic modelling and creating hypotheses part of Political Economy Research. The next two books in the series focus on the other side of Political Economy Research - testing our hypotheses with empirical data using econometric methods.
 
-
 This second book of the series begins by exploring the funamentals of Econometrics, which allow us to test the theories and hypotheses derived from our formal mathematical models. Then, we discuss regression, arguably the most important tool in Econometrics. Then, we move onto Causal Inference, and how we can make causal conclusions from empirical observational data.
-
 
 Let us begin!
 
@@ -67,7 +60,7 @@ Random variables are often called distributions - because there are a distributi
 
 For example, take this probability distribution of a die - there are 6 sides that you could land on, and each has an equal probability of occurring:
 
-![](figures/2.1.png){fig-align="center" width="60%"}
+![](figures/econometrics/2.1.png){fig-align="center" width="60%"}
 
 The **probability density function** $f(y)$ takes a potential outcome of an event as an input, and outputs the respective probability.
 
@@ -105,7 +98,7 @@ Where $\sigma^2$ is the variance, $n$ is the number of observations, and $\mu$ i
 
 A **normal distribution** is in the shape of a bell curve. The mean $\mu$, mode, and median are all the same value at the centre, and the distribution is symmetrical on both sides. The figure below shows the typical shape of a normal distribution
 
-![](figures/2.2.png){fig-align="center" width="70%"}
+![](figures/econometrics/2.2.png){fig-align="center" width="70%"}
 
 All Normal Distributions, as shown in the image above, follow the 68-95-99.7 rule:
 
@@ -158,7 +151,7 @@ The **Central Limit Theorem** states that the distribution of sample means of a 
 
 From chapter 2, we know of the 68-95-99.7 rule of normal distributions, and how normal distributions have a systemic relationship between the standard deviation $\sigma$ and the probabilities. The figure below reminds us of the properties of normal distributions:
 
-![](figures/2.2.png){fig-align="center" width="70%"}
+![](figures/econometrics/2.2.png){fig-align="center" width="70%"}
 
 Since the distribution of sample means tells us the probability of getting some sample mean, and Central Limit Theorem tells us that distribution is normally distributed, we can now tell how likely a sample mean is to occur if a sample was drawn from the population.
 
@@ -182,7 +175,7 @@ The relationship between two features, also called correlation, is the extent to
 
 We can also visualise these graphically:
 
-![](figures/3.1.png){fig-align="center" width="80%"}
+![](figures/econometrics/3.1.png){fig-align="center" width="80%"}
 
 **Covariance** is a way to measure the relationship between two variables. Covariance is the extent that $X$ and $Y$ vary together. Mathematically:
 
@@ -230,7 +223,6 @@ However, how do we draw a best fit line that fits the data? After all, if we can
 
 The Best Linear Predictor is a form of Linear Regression, the primary topic we will cover in the next two chapters.
 
-
 # Regression Anlaysis
 
 ## Linear Regression Model
@@ -242,7 +234,6 @@ The Best Linear Predictor is a form of Linear Regression, the primary topic we w
 ## Multinomial and Ordinal Logistic Regression
 
 ## Regression for Counts
-
 
 # Causal Inference
 
@@ -259,5 +250,3 @@ The Best Linear Predictor is a form of Linear Regression, the primary topic we w
 ## Differences-in-Differences
 
 ## Survey Experiments
-
-
