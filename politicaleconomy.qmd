@@ -16,7 +16,7 @@ format:
 
 ## Preface {.unnumbered}
 
-This book is tan introduction to the field of Political Economy - the use of economic tools, such as econometrics and game theory, applied to the study of political topics.
+This book is an introduction to the field of Political Economy - the use of economic tools, such as econometrics and game theory, applied to the study of political topics.
 
 This book in focuses on how we can use economic and formal mathematical models to explore political phenomena. The book starts out with an introduction to the field of Political Economy, as well as some neccesary probability theory. Then, I introduce the concept of economic modelling, also called formal mathematical modelling, game theory, or formal theory. Finally, I apply the models we have covered to selected topics in Political Economy research.
 

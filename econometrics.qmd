@@ -333,11 +333,19 @@ However, how do we draw a best fit line that fits the data? After all, if we can
 
 The Best Linear Predictor is a form of Linear Regression, the primary topic we will cover in the next two chapters.
 
-# Regression Anlaysis
+# Linear Regression Anlaysis
 
-## Linear Regression Model
+## Linear Model, Estimation, and Interpretation
 
-## Extensions of the Linear Model
+## Hypothesis Testing
+
+## Transformations and Interactions
+
+## Panel and Clustered Data
+
+## Model Selection for Inference
+
+# Further Regression Models
 
 ## Binomial Logistic Regression
 
@@ -345,11 +353,13 @@ The Best Linear Predictor is a form of Linear Regression, the primary topic we w
 
 ## Regression for Counts
 
-# Causal Inference
+# Causal Inference for Experiments
 
 ## Causal Frameworks
 
 ## Random Experiements
+
+# Causal Inference for Observational Studies
 
 ## Selection on Observables
 
