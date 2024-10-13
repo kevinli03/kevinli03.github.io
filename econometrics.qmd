@@ -416,17 +416,17 @@ For more than one $X$ variable, it is nearly impossible to hand calculate the es
 
 Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated?
 
-$\hat{\beta}$ is the slope of the the linear model. More formally, [$\hat{\beta}$ is the expected change in $Y$, corresponding to a one-unit increase in $X$. Or in other words, as $X$ increases by 1 unit, the expected value $Y$ increases by $\hat{\beta}$ units.]{.underline}
+$\hat{\beta}$ is the slope of the the linear model. More formally, [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}. Or in other words, as $X$ increases by 1 unit, the expected value $Y$ increases by $\hat{\beta}$ units.
 
 -   A positive $\hat{\beta}$ means a positive relationship, a negative $\hat{\beta}$ means a negative relationship, and $\hat{\beta} = 0$ means no relationship.
 
-$\hat{\alpha}$ is the y-intercept of the linear model. More formally, $\hat{\alpha}$ **is the expected value of** $\hat{Y}$**, given** $X=0$.
+$\hat{\alpha}$ is the y-intercept of the linear model. More formally, $\hat{\alpha}$ is the expected value of $\hat{Y}$, given $X=0$.
 
 #### Multiple Linear Regression
 
 Multiple linear regression is when there are multiple explanatory variables $X_1, X_2, ..., X_k$. How do we interpret these parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$ that we have calculated?
 
--   Note, I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ (the interpretation is all the same). In the model, $\hat{\beta}_j$ will be multiplied to variable $X_j$.
+-   Note: I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ (the interpretation is all the same). In the model, $\hat{\beta}_j$ will be multiplied to variable $X_j$.
 
 Formally, [any coefficient $\hat{\beta}_j$ is the expected change in $Y$, corresponding to a one unit increase in $X_j$, holding all other explanatory variables $X_1, ..., X_k$ that are not $X_j$ constant.]{.underline}
 
