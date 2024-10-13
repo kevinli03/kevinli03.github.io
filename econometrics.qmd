@@ -466,9 +466,9 @@ How do we calculate this? There is a formula! $Y$ changes by $(SD_{X_j} \times \
 
 If our explanatory variable(s) are binary, (i.e. $X_j$ only has two values, 0 and 1), then our interpretation differs slightly.
 
-We essentially treat the explanatory variable as a variable of 2 different categories, $X_j=0$, and $X_j=1$
+We essentially treat the explanatory variable as a variable of 2 different categories, category $X_j=0$, and category $X_j=1$
 
-Now, [$\hat{\alpha}$ is the expected value of $Y$ for an observation in category $X = 0$.]{.underline}
+Now, [$\hat{\alpha}$ is the expected value of $Y$ for an observation in category $X_j = 0$.]{.underline}
 
 -   If you have more explanatory variables, remember to add - holding all other explanatory variables constant.
 
@@ -476,7 +476,7 @@ Now, [$\hat{\alpha}$ is the expected value of $Y$ for an observation in category
 
 -   If you have more explanatory variables, remember to add - holding all other explanatory variables constant.
 
-[To find the expected value of $Y$ for an observation in $X=1$, you would need to do $\hat{\alpha} + \hat{\beta}_j$.]{.underline}
+[To find the expected value of $Y$ for an observation in $X_j=1$, you would need to do $\hat{\alpha} + \hat{\beta}_j$.]{.underline}
 
 You might wonder, why are these interpretations the way they are? Well, let us take a simple linear regression that has a binary $X$ variable. The fitted model takes the following form:
 
@@ -514,7 +514,7 @@ $$
 
 The standard deviation of the residuals is simply the square root of the variance.
 
-But what is the residual variance and residual standard deviation. Recall the way we write our regression model:
+But what is the residual variance and residual standard deviation? Recall the way we write our regression model:
 
 $$
 Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
@@ -600,7 +600,7 @@ We can see the output. In the coefficients table:
 
 -   For interpretation, see the preceding section on interpretation.
 
-Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the Multiple R-Squared is the $R^2$ value.
+Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value.
 
 #### Multiple Linear Regression
 
@@ -629,7 +629,7 @@ We can see the output. In the coefficients table:
 
 -   For interpretation, see the preceding section on interpretation.
 
-Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the Multiple R-Squared is the $R^2$ value.
+Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value.
 
 ## Hypothesis Testing
 
@@ -645,7 +645,7 @@ $$
 \hat{\beta}_j ± \approx 1.96 \times \hat{se}(\hat{\beta}_j)
 $$
 
--   $\hat{se}(\hat{\beta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\beta_j$. Smaller values indicate more precise estimates, and generally occur when either residual variance is low $\hat{\sigma}^2$, or when sample size $n$ is large. We let the computer solve for this as well.
+-   $\hat{se}(\hat{\beta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\beta_j$. Smaller values indicate more precise estimates, and generally occur when either residual variance is low $\hat{\sigma}^2$, or when sample size $n$ is large. We let the computer solve for this.
 
 -   The $\approx 1.96$ means approximately 1.96, however, this will slightly deviate depending on the sample size and number of variables (do not worry, the computer will solve this for us). This is because this value is taken from a $t$ distribution, which depends on the degrees of freedom, and $DF = n - k - 1$.
 
@@ -696,9 +696,9 @@ $$
 
 The t-test statistic basically tells us how far the parameter we tested is from 0, in terms of standard errors of the parameter.
 
-Then, we have to consult a t-distribution. If we recall from Section 2.4, the t distribution is a distribution that is similar to a normal distribution in shape (just less pronounced peak and thicker tails). Notably, the t-distribution only has one parameter - degrees of freedom, which is calculated by the number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$
+Then, we have to consult a t-distribution. If we recall from Section 2.4, the t distribution is a distribution that is similar to a normal distribution in shape (just with a less pronounced peak and thicker tails). Notably, the t-distribution only has one parameter - degrees of freedom, which is calculated by the number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$
 
-With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides of the middle of the t-distribution.
+With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides from the middle of the t-distribution.
 
 Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below, with its blue highlighted area, shows this probability:
 
