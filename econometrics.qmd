@@ -8,6 +8,9 @@ format:
         toc-depth: 2
         documentclass: report
         papersize: A4
+        geometry:
+            - width=150mm
+            - height=210mm
         number-sections: true
         number-depth: 3
         top-level-division: part
@@ -172,7 +175,7 @@ Random variables are often called distributions - because there are a distributi
 
 For example, take this probability distribution of a die - there are 6 sides that you could land on, and each has an equal probability of occurring:
 
-![](figures/econometrics/2.1.png){fig-align="center" width="60%"}
+![](figures/econometrics/2.1.png){fig-align="center" width="50%"}
 
 The **probability density function** $f(y)$ takes a potential outcome of an event as an input, and outputs the respective probability.
 
@@ -210,7 +213,7 @@ Where $\sigma^2$ is the variance, $n$ is the number of observations, and $\mu$ i
 
 A **normal distribution** is in the shape of a bell curve. The mean $\mu$, mode, and median are all the same value at the centre, and the distribution is symmetrical on both sides. The figure below shows the typical shape of a normal distribution
 
-![](figures/econometrics/2.2.png){fig-align="center" width="70%"}
+![](figures/econometrics/2.2.png){fig-align="center" width="60%"}
 
 All Normal Distributions, as shown in the image above, follow the 68-95-99.7 rule:
 
@@ -261,7 +264,7 @@ The **Central Limit Theorem** states that the distribution of sample means of a 
 
 From chapter 2, we know of the 68-95-99.7 rule of normal distributions, and how normal distributions have a systemic relationship between the standard deviation $\sigma$ and the probabilities. The figure below reminds us of the properties of normal distributions:
 
-![](figures/econometrics/2.2.png){fig-align="center" width="70%"}
+![](figures/econometrics/2.2.png){fig-align="center" width="60%"}
 
 Since the distribution of sample means tells us the probability of getting some sample mean, and Central Limit Theorem tells us that distribution is normally distributed, we can now tell how likely a sample mean is to occur if a sample was drawn from the population.
 
@@ -285,7 +288,7 @@ The relationship between two features, also called correlation, is the extent to
 
 We can also visualise these graphically:
 
-![](figures/econometrics/3.1.png){fig-align="center" width="80%"}
+![](figures/econometrics/3.1.png){fig-align="center" width="70%"}
 
 **Covariance** is a way to measure the relationship between two variables. Covariance is the extent that $X$ and $Y$ vary together. Mathematically:
 

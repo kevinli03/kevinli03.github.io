@@ -8,6 +8,9 @@ format:
         toc-depth: 2
         documentclass: report
         papersize: A4
+        geometry:
+            - width=150mm
+            - height=210mm
         number-sections: true
         number-depth: 3
         top-level-division: part
@@ -30,17 +33,13 @@ I created this book as a way to revise for my exams, as well as provide a handy 
 
 ## Introduction to Political Economy
 
-Political Economy is a term that has many different uses. Historically, the term Political Economy was used to describe the field we know today as Economics. This was particularly the case prior to the mathematical turn that the field of Economics took starting in the 20th century. Famous writers such as Adam Smith, Karl Marx, and John Locke, often identified themselves as Political Economists.
+There are currently three major approaches to Political Economy - who all agree that Political Economy is somewhere between Political Science and Economics - but disagree on the approaches to studying this intersection of disciplines. First, there is the more "economics" side of Political Economy, focusing on how government and power inequalities affect economics and the distribution of resources. Second, there is the field of International Political Economy, which studies how economics interacts with International Relations. Finally, there is the field that applies economic models and methods to the study of Political phenomena.
 
-Today, Political Economy still has many different meanings. There are currently three major approaches to Political Economy - who all agree that Political Economy is somewhere between Political Science and Economics - but disagree on the approaches to studying this intersection of disciplines. First, there is the more "economics" side of Political Economy, focusing on how government and power inequalities affect economics and the distribution of resources. Second, there is the field of International Political Economy, which studies how economics interacts with International Relations. Finally, there is the field that applies economic models and methods to the study of Political and Economic phenomena.
-
-This book mainly focuses on the third approach of Political Economy. For this book, Political Economy is a field that uses tools from economics, primarily game theory and econometrics, and applies these tools to study how political institutions, actors, and choices affect political and economic outcomes.
-
-However, what exactly does that mean? How do we use these methods?
+This book mainly focuses on the third approach of Political Economy. For this book, Political Economy is a field that uses tools from economics, primarily game theory and econometrics, and applies these tools to study how political institutions, actors, and choices. However, what exactly does that mean? How do we use these methods?
 
 In the Social Sciences, there are two parts to any research - the hypothesis/theory, and the empirical data that either supports or refutes the theory. Economic tools perfectly fit into this framework. Political Economists will often use game theory and formal mathematical models to make predictions about potential outcomes of political situations. Then, Political Economists will gather real-world data, and test their hypothesis with statistical/econometric methods.
 
-This book focuses on the economic modelling and creating hypotheses part of Political Economy Research. I start with exploring the funamentals of Game Theory and Formal Mathematical Modelling. These include the properties of games, solution concepts, as well as different types of common games. After the introduction to economic modelling, we will apply what we have learned to model current issues in Political Economy reseearch.
+This book focuses on the economic modelling and creating hypotheses part of Political Economy Research. I start with exploring the funamentals of Game Theory and Formal Mathematical Modelling. These include the properties of games, solution concepts, as well as different types of common games. Then, we will apply what we have learned to model current issues in Political Economy reseearch.
 
 While this book goes over the creation of economic models of political situations, it does not go over how we use empirical data to prove/reject our models. The subsequent book, Introductory Econometrics for Political Economy, covers these methods in detail.
 
@@ -522,19 +521,15 @@ Prisoner's Dilemma games are used to show how individual rationality and group r
 
 -   Thus, it is in individual's incentives to always defect.
 
-The Prisoner's Dilemma is frequently used to explain issues of **Public Goods**. Public goods are both non-excludable - you cannot exclude people from using the good, while also being non-rivalrous - one person's usage of it does not reduce the availability for everyone else.
+The Prisoner's Dilemma is frequently used to explain issues of **Public Goods**. Public goods are non-excludable - you cannot exclude people from using the good. An example of a Public Good is National Defence, or the air around us.
 
--   An example of a Public Good is National Defence, or the air around us.
+-   Since these goods are non-excludable, people cannot be prevented from using the good, even if they do not contribute to the upkeep. Thus, there is a incentive for individuals to under-invest in the upkeep of public goods, reducing the quality for everyone.
 
--   Since these goods are non-excludable, people cannot be prevented from using the good, even if they do not contribute to the upkeep of the good.
-
--   Thus, there is a tendency for individuals to under-invest in the upkeep of public goods, reducing the quality for everyone.
-
--   A great example is Air Quality - individuals and companies poluate and refuse to contribute to the upkeep of good air quality, despite the fact that poor air quality is worse for everyone (pareto inefficient)
+-   An example is Air Quality - individuals and companies poluate and refuse to contribute to the upkeep of good air quality, despite the fact that poor air quality is worse for everyone (pareto inefficient)
 
 Other examples of the application of Prisoner's Dilemmas include:
 
--   Overuse of common resources (like fishing), due to individual incentives, resulting in a pareto-inefficient outcome
+-   Overuse of common resources (like fisheries), due to individual incentives, resulting in a pareto-inefficient outcome
 
 -   Training of workers - because firms are afraid that workers will leave and join a rival, firms do not train their workers properly, resulting in a less-than-optimal economy for everyone.
 
