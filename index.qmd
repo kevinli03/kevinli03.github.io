@@ -73,8 +73,8 @@ This is a series of 4 short books I created to consolidate all the information I
 
 **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
-1.  [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy.pdf): This book covers how economic models and formal mathematical models can be applied to the study of political phenomena. Topics include nash equilibrium, static games, dynamic games of complete information, and bayesian games.
-2.  [Introductory Econometrics for Political Economy](https://kevinli03.github.io/econometrics.pdf): This book focuses on the key techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly. Topics include statistical inference, linear regression, logistic regression, causal frameworks, randomised experiments, instrumental variables, and quasi-experimental techniques.
+1.  [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy.pdf): This book covers how economic models and formal mathematical models can be applied to the study of political phenomena.
+2.  [Introductory Econometrics for Political Economy](https://kevinli03.github.io/econometrics.pdf): This book focuses on the key techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly, covering statistical inference, regression, and causal inference techniques.
 3.  [Advanced Econometrics for Political Economy](https://kevinli03.github.io/advanced.pdf): This book focuses on advanced techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly. Topics include machine learning prediction methods, multivariate analysis, latent variable modelling, time series analysis, and quantitative text mining.
 
 -   Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf)
