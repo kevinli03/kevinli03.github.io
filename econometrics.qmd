@@ -651,9 +651,7 @@ By doing both + and -, we will get lower and upper bounds on the confidence inte
 
 The most important thing is if the value 0 is included within the confidence interval. Remember from previously, that $\beta_j = 0$ means that there is no relationship between $X_j$ and $Y$. If our confidence interval contains 0, that means we cannot be confident that there is no relationship between $X_j$ and $Y$.
 
-### Parameter Hypothesis Testing
-
-#### Introduction to Hypothesis Testing
+### Introduction to Hypothesis Testing
 
 In social sciences (and academia) in general, we are conservative - this means we do not claim we have found a new theory, unless we are quite confident that the old theory was not true.
 
@@ -673,14 +671,12 @@ The new theory we have come up with, and are trying to prove, is called the **al
 
 -   Why 95% confidence? It is just tradition - there have been several studies showing there is nothing special about this value.
 
-#### Types of Errors
-
-Of course, with 95% confidence, we will have errors. There are two types of errors:
+Of course, with 95% confidence, we will have **errors**. There are two types of errors:
 
 1.  **Type-I Error**: This is when the null hypothesis is actually correct in the real world, but we accidentally reject it.
 2.  **Type-II Error**: This is when the null hypothesis is actually wrong in the real world, but we accidentally fail to reject it.
 
-#### Significance Testing of Parameters
+### Significance Testing of Parameters
 
 Like I mentioned previously, generally, for linear regressions, our hypotheses that we test are:
 
