@@ -10,7 +10,8 @@ format:
         papersize: A4
         geometry:
             - width=150mm
-            - height=225mm
+            - height=238mm
+            - top=27mm
         number-sections: true
         number-depth: 3
         top-level-division: part
@@ -19,13 +20,13 @@ format:
 
 ## Preface {.unnumbered}
 
-This book is an introduction to the field of Political Economy - the use of economic tools, such as econometrics and game theory, applied to the study of political topics.
+This book is an introduction to the field of Political Economy - the use of economic tools, such as economic models and econometrics, applied to the study of political topics.
 
 This book in focuses on how we can use economic and formal mathematical models to explore political phenomena. The book starts out with an introduction to the field of Political Economy, as well as some neccesary probability theory. Then, I introduce the concept of economic modelling, also called formal mathematical modelling, game theory, or formal theory. Finally, I apply the models we have covered to selected topics in Political Economy research.
 
-While this book goes over the creation of economic models of political situations, it does not go over how we use empirical data to prove/reject our models. The subsequent book, Introductory Econometrics for Political Economy, covers these methods in detail.
+While this book goes over the creation of economic models of political situations, it does not go over how we use empirical data to prove/reject our models. The subsequent book, [Introductory Econometrics for Political Economy](https://kevinli03.github.io/econometrics.pdf), covers these methods in detail, including Regression and Causal inference. Those who already have a strong understanding of standard econometric tools can also look at the follow up book, [Advanced Econometrics for Political Economy](https://kevinli03.github.io/advanced.pdf). That book covers more advanced topics in multivariate statistics, latent variables, data science and machine learning approaches, and time series analysis.
 
-This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - Essential Mathematics for Political Economy. It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
 I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
 
@@ -35,11 +36,11 @@ I created this book as a way to revise for my exams, as well as provide a handy 
 
 There are currently three major approaches to Political Economy - who all agree that Political Economy is somewhere between Political Science and Economics - but disagree on the approaches to studying this intersection of disciplines. First, there is the more "economics" side of Political Economy, focusing on how government and power inequalities affect economics and the distribution of resources. Second, there is the field of International Political Economy, which studies how economics interacts with International Relations. Finally, there is the field that applies economic models and methods to the study of Political phenomena.
 
-This book mainly focuses on the third approach of Political Economy. For this book, Political Economy is a field that uses tools from economics, primarily game theory and econometrics, and applies these tools to study how political institutions, actors, and choices. However, what exactly does that mean? How do we use these methods?
+This book mainly focuses on the third approach of Political Economy. For this book, Political Economy is a field that uses tools from economics, primarily economic/mathematical models and econometrics, and applies these tools to study how political institutions, actors, and choices. However, what exactly does that mean? How do we use these methods?
 
-In the Social Sciences, there are two parts to any research - the hypothesis/theory, and the empirical data that either supports or refutes the theory. Economic tools perfectly fit into this framework. Political Economists will often use game theory and formal mathematical models to make predictions about potential outcomes of political situations. Then, Political Economists will gather real-world data, and test their hypothesis with statistical/econometric methods.
+In the Social Sciences, there are two parts to any research - the hypothesis/theory, and the empirical data that either supports or refutes the theory. Economic tools perfectly fit into this framework. Political Economists will often use economic and formal mathematical models to make predictions about potential outcomes of political situations. Then, Political Economists will gather real-world data, and test their hypothesis with statistical/econometric methods.
 
-This book focuses on the economic modelling and creating hypotheses part of Political Economy Research. I start with exploring the funamentals of Game Theory and Formal Mathematical Modelling. These include the properties of games, solution concepts, as well as different types of common games. Then, we will apply what we have learned to model current issues in Political Economy reseearch.
+This book focuses on the economic modelling and creating hypotheses part of the Political Economy research process. I start with exploring the fundamentals of Game Theory and Formal Mathematical Modelling. These include the properties of games, solution concepts, as well as different types of common games. Then, we will apply what we have learned to model current issues in Political Economy research.
 
 While this book goes over the creation of economic models of political situations, it does not go over how we use empirical data to prove/reject our models. The subsequent book, Introductory Econometrics for Political Economy, covers these methods in detail.
 
@@ -63,15 +64,11 @@ We can define sets in multiple ways.
 
 -   We can list out each element of a set. For example $A = \{1,2,4,6\}$
 
--   We can define them with an interval. For example, $A = [0,1]$ means all values within the range of 0 to 1, including 0 and 1. Brackets $[]$ mean inclusive of the end points, and parentheses $()$ mean excluding the end points. We can also mix and match brackets and parentheses.
+-   We can define them with an interval. For example, $A = [0,1]$ means all values within the range of 0 to 1, including 0 and 1.
 
 -   We can define them in formal notation. For example, $A = \{ x:0≤x≤1, x \in R \}$. This literally means: $x$ such that $x$ is between 0 and 1, including 0 and 1, and $x$ is in the set of all real numbers $R$.
 
-Useful notation tips:
-
--   The semicolon $:$ means "such that", and the sign $\in$ means "in" or "belongs to".
-
--   When we put absolute value bars around a set, like $|A|$, that refers to the number of elements within that set.
+Useful notation tips: $\in$ means "in" or "belongs to", $:$ means "such that", $|A|$ means number of elements in $A$.
 
 ### Set Operators
 
@@ -93,13 +90,12 @@ The **complement** of set $A$ is everything that is not in $A$, but still within
 A **subset** $A$ has all its elements belonging to another set $B$. This is notated $A \subset B$.
 
 -   For example, if $A = \{1,2\}$, and $B = \{1,2,3\}$, then $A$ is a subset of $B$ since all of $A$'s elements belong to set $B$ as well.
--   There are two types of subsets. **Proper subsets** are subsets when the number of elements in $A$ is less than the number of elements in $B$ : $|A| < |B|$. **Imrpoper subsets** are when the number of elements in $A$ is less than or equal to the number of elements in $B$ : $|A| ≤ |B|$
 
 ### Basic Properties of Probability
 
 **Kolmogrov's Axioms** are the key properties of probability:
 
-1.  For any event $A$, the probability of $A$ occurring is between 0 and 1. Mathematically: $0 ≤ Pr(A) ≤ 1$
+1.  For any event $A$, the probability of $A$ occurring is between 0 and 1.
 2.  The probability of all events in the sample space $S$ is 1. Mathematically: $Pr(S) = 1$. The sample space is the set of all possible events.
 3.  If we have a group of mutually exclusive events $A_1, A_2, ... , A_k$, then the probability of those events all occurring is the sum of their probabilities. Mathematically, $Pr \left( \bigcup A_i \right) = \sum Pr(A_i)$
     -   Note: mutually exclusive events are events that cannot occur at the same time together.
@@ -174,57 +170,23 @@ Each part of Bayes' Theorem has a name. They are commonly referenced, so it is u
 
 -   $Pr(B)$ is the [marginal]{.underline} probability
 
-### Law of Total Probability
-
-The law of total probability helps calculate the probability of an event, by considering mutually exclusive events that completely partition the sample space. For example, if we know the probability of a male (or non-female) being a smoker, and a female being a smoker, we can calculate the probability of all humans for smoking. This is because male (or non-female) and female together contain the entire sample space of humans.
-
-More mathematically, the relationship of the probability of $A$, given conditional probabilities $Pr(A|B_i)$ is as follows:
-
-$$
-Pr(A) = \sum Pr(A|B_i) \times Pr(B_i)
-$$
-
-For a more intuitive example, imagine you have 3 ways, and only 3 ways, you can get to work. That essentially means these 3 ways partition the sample space of getting to work.
-
-Let us define $Pr(A)$ as the probability you arrive on time. $Pr(B_1), Pr(B_2), Pr(B_3)$ are the probabilities you take route 1, route 2, or route 3 to work. $Pr(A|B_1)$ is the probability that you are on time, given you take route 1. A similar thing applies for $Pr(A|B_2), Pr(A|B_3)$
-
-Thus, the total probability of arriving on time $Pr(A)$, given we know the probability of arriving on time for route 1, route 2, and route 3, is:
-
-$$
-Pr(A) = \sum Pr(A|B_i) \times Pr(B_i)
-$$
-
-$$
-Pr(A) = Pr(A|B_1) \times P(B_1) + Pr(A|B_2) \times Pr(B_2) + Pr(A|B_3) \times Pr(B_3)
-$$
-
 # Formal Mathematical Models
 
 ## Introduction to Game Theory
 
-### The Importance of Modelling
+### Modelling and Game Theory
 
-Game Theory, also called Formal Theory, is a way to use models to represent the world around us.
+A model is a simplified version of reality to help us understand the complex world around us. This is especially useful in the complex world of the social sciences.
 
-A model is a simplified version of reality to help us understand the complex world around us. This is especially useful in the exceedingly complex world of the social sciences.
+To simplify reality, models make **assumptions**. These assumptions should be similar to reality, so we can draw conclusions to the real world. However, these assumptions should also make the model simple, and only focus on the relevant features and details.
 
-To simplify reality, models make **assumptions**. These assumptions should be similar to reality, so we can draw conclusions from our model to the real world. However, these assumptions should also make the model simple, and only focus on the relevant features and details.
+For example, a driving map is a model. It does not contain all the information in the world - it does not record the height of buildings, the colour of the terrain, and so on. It even simplifies the spherical earth into a 2-dimensional flat map.
 
-For example, a driving map is a model. It does not contain all the information in the world - it does not record the height of buildings, the colour of the terrain, and so on. It only contains streets, street names, and addresses. It even simplifies the spherical earth into a 2-dimensional flat map.
+However, despite simplifications of reality, a driving map is amazing for navigation. If you are trying to get from point A to point B by car, you do not care about the spherical nature of the globe. The simplifying assumptions on a driving map allow us to navigate the world around us, without being a perfect copy of reality.
 
-However, despite its simplifications of reality, a driving map is amazing for navigation. If you are trying to get from point A to point B by car, you do not care about the spherical nature of the globe. The simplifying assumptions on a driving map allow us to navigate the world around us, without being a perfect copy of reality.
+There are different forms of modelling in the social sciences, including decision theory, competitive equilibrium, and game theory. This book will mainly focus on game theory.
 
-There are several different approaches to modelling:
-
--   Decision theory focuses on one individual, who aims to take actions to maximise their objective.
-
--   Competitive equilibrium focuses on prices and quantities, unaffected by individual actions, such that a market clears and hits equilibrium
-
--   Game theory focuses on social interactions that are characterised by strategic interdependence - one person's actions affect another's outcomes
-
-### Game Theory
-
-Game Theory is the study of mathematical models of conflict and cooperation between rational players. The key property of game theory is that one player's actions, affect another player's outcomes/gains/payoffs.
+**Game Theory** is the study of mathematical models of conflict and cooperation between rational players. The key property of game theory is that [one player's actions, affect another player's outcomes/gains/payoffs]{.underline}.
 
 Other key properties of Game Theory include:
 
@@ -584,11 +546,19 @@ Second, is the concept proposed by Schelling - Focal Points
 
 ### Trembling Hand Perfect Equilibrium
 
-Game theory, as we know, assumes players are rational, and play optimal outcomes. Empirical evidence has shown that this is sort-of true: on average, a large amount of people, when their actions are aggregated and averaged, do tend to make rational decisions. Of course, there are key exceptions to this (which is the topic of Behvioural Economics and Behvaioural Political Economy).
+Game theory, as we know, assumes players are rational, and play optimal outcomes. Empirical evidence has shown that this is sort-of true: on average, a large amount of people, when their actions are aggregated and averaged, do tend to make rational decisions.
+
+-   Of course, there are key exceptions to this (which is the topic of study for the fields of Behvioural Economics and Behvaioural Political Economy).
 
 However, in no world is every single individual a rational one. Since Game Theory and models is often about predicting likely outcomes, we want to make sure our solution concepts, like Nash Equilibria, will survive even in the real world, where not everyone is rational.
 
-The **Trembling Hand Perfect Equilibrium** is a way to test the robustness of Nash Equilibria. Essentially, we assume that one player of a game plays the "suboptimal" strategy at a probability of $\epsilon$. We then see if our Nash Equilibrium is robust, and remains a Nash Equilibria despite this.
+-   Essentially, we want our predictions to have some robustness. We want to make sure our model was not "cherry picked" just to make a certain prediction come true.
+
+The **Trembling Hand Perfect Equilibrium**, proposed by economist Reinhard Selten, is a way to test the robustness of Nash Equilibria.
+
+Essentially, we assume that one player of a game plays the "suboptimal" strategy at a probability of $\epsilon$. Or in other words, they make a "mistake" at probability $\epsilon$, and play the "correct" strategy at probability $1-\epsilon$.
+
+Given one player does this, we see how the other player reacts, and if they still decide to go with the Nash Equilibrium strategy. If the other player decides to still go with the Nash Equilibrium strategy despite the suboptimal strategy of one player, the Nash Equilibrium is robust.
 
 For example, let us take the following game:
 
@@ -599,16 +569,20 @@ For example, let us take the following game:
 
 The two Nash Equilibria of the game are (Up, Left), and (Down, Right).
 
-Let us test the robustness of the (Up, Left) equilibrium. Assume that player 1 might be irrational at probability $\epsilon$ and select "Down". That means they will be rational at probability $1-\epsilon$, and select "Up". Let us call this probability of playing up at $1-\epsilon$ and probability of playing down at $\epsilon$ as the strategy profile $s_1^{\epsilon}$
+Let us test the robustness of the (Up, Left) equilibrium.
+
+Assume that player 1 might be irrational at probability $\epsilon$ and select "Down". That means they will be rational at probability $1-\epsilon$, and select "Up". Let us call this probability of playing up at $1-\epsilon$ and probability of playing down at $\epsilon$ as the strategy profile $s_1^{\epsilon}$
 
 Let us assume player 2 is still rational. Does (Up, Left) remain a Nash Equilibria? To test this, let us find player 2's utilities for playing "left" and "right", given player 1 does what was listed above. If player 2 still prefers "left", then it is a robust Nash Equilibria.
 
-The expected utility of player 2, when they play left, is defined as $u_2(L, s_1^{\epsilon}) = 1 \times Pr(Up) + 2 \times Pr(Down)$, where $Pr(Up) = 1 - \epsilon$ is the probability player 1 plays up, and $Pr(Down) = \epsilon$ is the probability that player 1 plays down.
+The expected utility of player 2, when they play left, is defined as $u_2(L, s_1^{\epsilon}) = 1 \times Pr(Up) + 2 \times Pr(Down)$
 
+-   Where $Pr(Up) = 1 - \epsilon$ is the probability player 1 plays up, and $Pr(Down) = \epsilon$ is the probability that player 1 plays down.
 -   Plugging in the probabilities, we get: $u_2(L, s_1^{\epsilon})=1(1-\epsilon) + 2 \epsilon = 1 + \epsilon$
 
 The expected utility of player 2, when they play right, is defined as $u_2(R, s_1^{\epsilon}) = 0 \times Pr(Up) + 2 \times Pr(Down)$
 
+-   Where $Pr(Up) = 1 - \epsilon$ is the probability player 1 plays up, and $Pr(Down) = \epsilon$ is the probability that player 1 plays down.
 -   Plugging in the probabilities, we get $u_2(R, s_1^{\epsilon}) = 0(1-\epsilon)+2\epsilon = 2\epsilon$
 
 Thus, when player 2 plays left, they expect a utility of $1-\epsilon$, and when the play right, they expect a utility of $2\epsilon$. The Nash Equilibrium (Up, Left) is only true of player 2 plays left, it is only true of $1-\epsilon > 2\epsilon$. Let us solve for $\epsilon$
@@ -617,7 +591,11 @@ $$
 1 > 3\epsilon \space \rightarrow \epsilon < 1/3
 $$
 
-Thus, the Nash Equilibrium (Up, Left) remains true as long as player 1 is rational with probability $2/3$ or more of the time.
+Thus, the Nash Equilibrium (Up, Left) remains true as long as player 1 is irrational less than $1/3$ of the time.
+
+-   This is usually considered quite robust. We usually assume $\epsilon$ is quite a small value, such as 0.01, or perhaps at most, 0.1.
+
+-   Thus, the (Up, Left) Nash Equilibria is quite robust against irrational play.
 
 We can test the other Nash Equilibrium (Down, Right) with the same parameters:
 

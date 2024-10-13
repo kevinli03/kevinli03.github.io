@@ -35,13 +35,15 @@ include-before-body:
 
 This book focuses on how we can use econometrics to analyse empirical data to prove or reject our hypotheses. This book starts out with the fundamentals of probability and inference. Then, it moves to regression anlaysis. Finally, it moves to methods regarding causal inference.
 
-This book expands on my other book, "An Introduction to Political Economy", as this book provides empirical techniques in which we can evaluate the models disucussed in that book. However, this book can also be used as an independent resource for the study of econometric and statistical techniques for Political Science and other Social Sciences.
+This book expands on my other book, [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy.pdf), which discusses how economic models can be used to study political phenomena. This book adds on to that, explaining how we can test those economic models with empirical data. However, this book can also be used as an independent resource for the study of econometric and statistical techniques for Political Science and other Social Sciences.
 
-This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - Essential Mathematics for Political Economy. It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+Those who already have a strong understanding of standard econometric tools can also look at the follow up book, [Advanced Econometrics for Political Economy](https://kevinli03.github.io/advanced.pdf). That book covers more advanced topics in multivariate statistics, latent variables, data science and machine learning approaches, and time series analysis.
+
+This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
 I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
 
-This book will use the R language for some examples, as well as providing code for some other languages (Stata, Python). This is not a coding course, so I will not introduce the basics of R.
+This book will use the R language for some examples. This is not a coding course, so I will not introduce the basics of R.
 
 # Probability and Statistical Theory
 
@@ -347,7 +349,7 @@ The Best Linear Predictor is a form of Linear Regression, the primary topic we w
 
 Before we dive into the linear model, here are some conventional notation that is important:
 
--   The **response variable** (dependent variable) is notated $Y$.
+-   The **response variable** (dependent variable) is notated $Y$. In this book, we will only have one response variable.
 
 -   The **explanatory variable** (independent variable) is notated $X$. There is often more than one explanatory variable, so we denote them with subscripts $X_1, X_2, ..., X_k$. We sometimes also denote all explanatory variables as the vector $\overrightarrow{X}$
 
@@ -406,7 +408,7 @@ $$
 \hat{\beta} = \frac{\sum(X_i - \bar{X})(Y_i - \bar{Y})}{\sum(X_i - \bar{X})^2}
 $$
 
-For more than one $X$ variable, it is nearly impossible to hand calculate the estimated parameters. Luckily, the computer does this very quickly for us (we will show how to implement this in R and STATA later).
+For more than one $X$ variable, it is nearly impossible to hand calculate the estimated parameters. Luckily, the computer does this very quickly for us (we will show how to implement this in the R programming language later).
 
 ### Interpretations of Coefficients
 
