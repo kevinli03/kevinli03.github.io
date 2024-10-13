@@ -10,7 +10,7 @@ format:
         papersize: A4
         geometry:
             - width=150mm
-            - height=210mm
+            - height=225mm
         number-sections: true
         number-depth: 3
         top-level-division: part
@@ -47,8 +47,6 @@ Let us begin!
 
 ## Concepts in Probability
 
-Game Theory and Mathematical Models depend on many aspects of probability. This chapter will go through what I consider the "essential" probability you must know to understand the later chapters. It is highly recommended to read more about probability theory (and Calculus), either through a math textbook, or through consulting the "Essential Mathematics for Political Economy" companion manual.
-
 ### Basics of Sets
 
 A **set** is the collection of objects, while the **elements** of the set are the specific objects within a set. A capital letter is used to represent a set, for example, set $A$. A lowercase letter represents an element within the set. For example, element $a$ is a part of set $A$.
@@ -65,7 +63,7 @@ We can define sets in multiple ways.
 
 -   We can list out each element of a set. For example $A = \{1,2,4,6\}$
 
--   We can define them with an interval. For example, $A = [0,1]$ means all values within the range of 0 to 1, including 0 and 1.
+-   We can define them with an interval. For example, $A = [0,1]$ means all values within the range of 0 to 1, including 0 and 1. Brackets $[]$ mean inclusive of the end points, and parentheses $()$ mean excluding the end points. We can also mix and match brackets and parentheses.
 
 -   We can define them in formal notation. For example, $A = \{ x:0≤x≤1, x \in R \}$. This literally means: $x$ such that $x$ is between 0 and 1, including 0 and 1, and $x$ is in the set of all real numbers $R$.
 
@@ -95,6 +93,7 @@ The **complement** of set $A$ is everything that is not in $A$, but still within
 A **subset** $A$ has all its elements belonging to another set $B$. This is notated $A \subset B$.
 
 -   For example, if $A = \{1,2\}$, and $B = \{1,2,3\}$, then $A$ is a subset of $B$ since all of $A$'s elements belong to set $B$ as well.
+-   There are two types of subsets. **Proper subsets** are subsets when the number of elements in $A$ is less than the number of elements in $B$ : $|A| < |B|$. **Imrpoper subsets** are when the number of elements in $A$ is less than or equal to the number of elements in $B$ : $|A| ≤ |B|$
 
 ### Basic Properties of Probability
 
@@ -174,6 +173,30 @@ Each part of Bayes' Theorem has a name. They are commonly referenced, so it is u
 -   $Pr(A)$ is the [prior]{.underline} probability
 
 -   $Pr(B)$ is the [marginal]{.underline} probability
+
+### Law of Total Probability
+
+The law of total probability helps calculate the probability of an event, by considering mutually exclusive events that completely partition the sample space. For example, if we know the probability of a male (or non-female) being a smoker, and a female being a smoker, we can calculate the probability of all humans for smoking. This is because male (or non-female) and female together contain the entire sample space of humans.
+
+More mathematically, the relationship of the probability of $A$, given conditional probabilities $Pr(A|B_i)$ is as follows:
+
+$$
+Pr(A) = \sum Pr(A|B_i) \times Pr(B_i)
+$$
+
+For a more intuitive example, imagine you have 3 ways, and only 3 ways, you can get to work. That essentially means these 3 ways partition the sample space of getting to work.
+
+Let us define $Pr(A)$ as the probability you arrive on time. $Pr(B_1), Pr(B_2), Pr(B_3)$ are the probabilities you take route 1, route 2, or route 3 to work. $Pr(A|B_1)$ is the probability that you are on time, given you take route 1. A similar thing applies for $Pr(A|B_2), Pr(A|B_3)$
+
+Thus, the total probability of arriving on time $Pr(A)$, given we know the probability of arriving on time for route 1, route 2, and route 3, is:
+
+$$
+Pr(A) = \sum Pr(A|B_i) \times Pr(B_i)
+$$
+
+$$
+Pr(A) = Pr(A|B_1) \times P(B_1) + Pr(A|B_2) \times Pr(B_2) + Pr(A|B_3) \times Pr(B_3)
+$$
 
 # Formal Mathematical Models
 
@@ -373,8 +396,6 @@ For example, take the **prisoner's dilemma**. We have already established that f
 There, at most, can only be one dominant strategy equilibrium in a game. This makes dominant strategy equilibrium a great solution concept for predicting - as there will always only be one solution.
 
 However, many games do not have any dominant strategies, and thus, many games do not have a dominant strategy equilibrium. As a result, this solution concept is not possible on a vast majority of games.
-
--   After all, if all games had one strategy that was better than the rest, no matter what the opponents did, game theory would be trivially easy, and a pointless exercise.
 
 ## Nash Equilibrium and Pareto Efficiency
 
