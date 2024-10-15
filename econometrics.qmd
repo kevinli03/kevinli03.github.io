@@ -1,6 +1,6 @@
 ---
-title: "Political Econometrics"
-subtitle: "Volume I: Introduction to Causal Inference"
+title: "Empirical Political Economy"
+subtitle: "Volume II: Econometric Methods"
 author: "Kevin Lingfeng Li"
 format:
     pdf:

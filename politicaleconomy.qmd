@@ -1,6 +1,6 @@
 ---
-title: "Economic Models of Politics"
-subtitle: "An Introduction to Political Economy and Formal Modelling"
+title: "Empirical Political Economy"
+subtitle: "Volume 1: Economic Models of Politics"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
