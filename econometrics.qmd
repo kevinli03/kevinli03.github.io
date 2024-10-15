@@ -1,5 +1,5 @@
 ---
-title: "Introductory Econometrics for Political Economy"
+title: "Introductory Political Econometrics"
 subtitle: "An introduction to statistical inference and causal inference for the Social Sciences"
 author: "Kevin Lingfeng Li"
 format:
@@ -37,7 +37,7 @@ This book focuses on how we can use econometrics to analyse empirical data to pr
 
 This book expands on my other book, [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy.pdf), which discusses how economic models can be used to study political phenomena. This book adds on to that, explaining how we can test those economic models with empirical data. However, this book can also be used as an independent resource for the study of econometric and statistical techniques for Political Science and other Social Sciences.
 
-Those who already have a strong understanding of standard econometric tools can also look at the follow up book, [Advanced Econometrics for Political Economy](https://kevinli03.github.io/advanced.pdf). That book covers more advanced topics in multivariate statistics, latent variables, data science and machine learning approaches, and time series analysis.
+Those who already have a strong understanding of standard econometric tools can also look at the follow up book, [Advanced Political Econometrics](https://kevinli03.github.io/advanced.pdf). That book covers more advanced topics in multivariate statistics, latent variables, and time series analysis. For any that are interested in modern data science and machine learning approaches, see [Modern Approaches in Political Econometrics](https://kevinli03.github.io/advanced.pdf).
 
 This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
@@ -49,29 +49,11 @@ This book will use the R language for some examples. This is not a coding course
 
 ## Concepts in Probability
 
-### Basics of Sets
+See [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf) for more detailed explanations.
+
+### Sets and Set Operators
 
 A **set** is the collection of objects, while the **elements** of the set are the specific objects within a set. A capital letter is used to represent a set, for example, set $A$. A lowercase letter represents an element within the set. For example, element $a$ is a part of set $A$.
-
-There are a few common types of sets we use often:
-
--   $N$ is the set of natural numbers - the numbers we use to count from 1: $\{1,2,3...\}$
-
--   $Z$ is the set of integers - non-decimal numbers both negative and positive: $\{...,-2,-1,0,1,2...\}$
-
--   $R$ is the set of all real numbers - any numbers that are on the number line, including decimals
-
-We can define sets in multiple ways.
-
--   We can list out each element of a set. For example $A = \{1,2,4,6\}$
-
--   We can define them with an interval. For example, $A = [0,1]$ means all values within the range of 0 to 1, including 0 and 1.
-
--   We can define them in formal notation. For example, $A = \{ x:0≤x≤1, x \in R \}$. This literally means: $x$ such that $x$ is between 0 and 1, including 0 and 1, and $x$ is in the set of all real numbers $R$.
-
-Useful notation tips: $\in$ means "in" or "belongs to", $:$ means "such that", $|A|$ means number of elements in $A$.
-
-### Set Operators
 
 There are a few different set operators that are important to understand.
 
@@ -123,39 +105,7 @@ $$
 
 ### Bayes' Theorem
 
-Bayes' theorem is arguable the most important theorem in all of probability and statistics. Thus, instead of just telling you Bayes' theorem, we will actually derive it.
-
-We start with the definition of conditional probability, as seen in the last lesson
-
-$$
-Pr(A|B) = \frac{Pr(A \cap B)}{Pr(B)}
-$$
-
-Let us rearrange the equation by solving for $Pr(A \cap B)$. We will get:
-
-$$
-Pr(A \cap B) = Pr(A|B) \times P(B)
-$$
-
-Now, let us consider the conditional probability of $B|A$ (the opposite way around). We use the same conditional probability formula, but switch the $B$ and $A$. We get:
-
-$$
-Pr(B|A) = \frac{Pr(B \cap A)}{Pr(A)}
-$$
-
-Let us rearrange the equation by solving for $Pr(B \cap A)$. We will get:
-
-$$
-Pr(B \cap A) = P(B|A) \times P(A)
-$$
-
-Now we have two different equations, one for $Pr(A \cap B)$, and one for $Pr(B \cap A)$. Based on the commutative property of sets, we know that $Pr(A \cap B) = Pr(B \cap A)$. Thus, the other parts of the equation must also be equal to each other:
-
-$$
-Pr(A|B) \times Pr(B) = Pr(B|A) \times Pr(A)
-$$
-
-Now, let us solve for $Pr(A|B)$. After we do this, we will get the final form of **Bayes' Theorem**:
+**Bayes' Theorem** states the following relationship is true:
 
 $$
 Pr(A|B) = \frac{Pr(B|A) \times Pr(A)}{Pr(B)}
@@ -173,13 +123,19 @@ Each part of Bayes' Theorem has a name. They are commonly referenced, so it is u
 
 ## Random Variables
 
+See [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf) for more detailed explanations.
+
 ### Randomness
 
 Random variables are variables that represent unobserved events that have some randomness - a set of potential outcomes, with each outcome having a probability of occurring.
 
 For example, if you flip a coin 10 times, and count the number of heads you get, you could get 5 heads, 6 heads, 4 heads, or any amount between 0 and 10. We are not sure what will happen - however, some outcomes are more likely than others, because of the probabilities associated with each outcome.
 
-There are two types of random variables. **Discrete Random Variables** are random events which have a distinct number of outcomes. For example, rolling a dice has 6 outcomes. A **Continuos Random Variable** are random events which have an infinite amount of outcomes. For example, my drive to work tomorrow could take 5 minutes, 5.123 minutes, 5.234237847 minutes, and so on... there is no distinct outcomes since you can continuously subdivide the gaps between outcomes by adding more decimal points.
+There are two types of random variables:
+
+-   **Discrete Random Variables** are random events which have a distinct number of outcomes. For example, rolling a dice has 6 outcomes.
+
+-   **Continuos Random Variables** are random events which have an infinite amount of outcomes. For example, my drive to work tomorrow could take 5 minutes, 5.123 minutes, 5.234237847 minutes, and so on... there is no distinct outcomes since you can continuously subdivide the gaps between outcomes by adding more decimal points.
 
 ### Distributions and Probability Density Functions
 
@@ -189,9 +145,9 @@ For example, take this probability distribution of a die - there are 6 sides tha
 
 ![](figures/econometrics/2.1.png){fig-align="center" width="50%"}
 
-The **probability density function** $f(y)$ takes a potential outcome of an event as an input, and outputs the respective probability.
+The **probability mass/density function** $f(y)$ takes a potential outcome of an event as an input, and outputs the respective probability.
 
-For example, the probability density function of a dice is $f(y) = 1/6$. This is because every outcome $y$ has the same probability of occurring: $1/6$. So $f(1), f(2)... = 1/6$.
+For example, the probability mass/density function of a dice is $f(y) = 1/6$. This is because every outcome $y$ has the same probability of occurring: $1/6$. So $f(1), f(2)... = 1/6$.
 
 ### Expectation and Variance
 
@@ -199,13 +155,13 @@ Expectation and Variance are two ways we can summarise the distributions of rand
 
 The **expectation**, often called the expected value or mean, is a measurement of the centre of a probability distribution. The expected value is statistically, the best guess of an outcome of a random variable, given no other information except its distribution. We notate expected value of a variable $Y$ as either $E[Y]$, $\bar{Y}$, or $\mu$.
 
-A **discrete random variable** is one that has a countable number of distinct outcomes/categories, like the outcome of rolling a dice (6 distinct outcomes). The expected value for discrete variables is calculated by multiplying each outcome value by its associated probability, then doing that for all outcomes, and summing everything together. In other words, it is a weighted average of the outcomes, with the weights being the probability of each outcome.
+The expected value for discrete variables is calculated by multiplying each outcome value by its associated probability, then doing that for all outcomes, and summing everything together. In other words, it is a weighted average of the outcomes, with the weights being the probability of each outcome.
 
 $$
 E[Y] = y_1 \times f(y_1) + y_2 \times f(y_2)... = \sum [y_j \times f(y_j)]
 $$
 
-For a **continuous random variable**, it is a little more complicated. This is because continuous variables have an infinite number of potential outcomes. For example, if you drive to school, your driving time could be 23 minutes, or 23.12 minutes, or 23.123324 minutes... basically, an infinite amount. As a result, we have to alter the expected value formula a little:
+For a continuous random variable, it is a little more complicated. This is because continuous variables have an infinite number of potential outcomes. For example, if you drive to school, your driving time could be 23 minutes, or 23.12 minutes, or 23.123324 minutes... basically, an infinite amount. As a result, we have to alter the expected value formula a little:
 
 $$
 E[Y] = \int\limits_{-∞}^∞ y \times f(y)dy
@@ -235,7 +191,7 @@ All Normal Distributions, as shown in the image above, follow the 68-95-99.7 rul
 
 -   In fact, any amount of standard deviations $\sigma$, including decimals, is related to a specific percent of total area under the curve, for all normal distributions.
 
-This is important, because the area under the distribution curve is actually the probability. Thus, the normal distribution tells us there is a relationship between the standard deviation and the probability of an action occurring.
+This is important, because the [area under the distribution curve is the probability]{.underline}. Thus, the normal distribution tells us there is a relationship between the standard deviation and the probability of an action occurring.
 
 Any normal distribution can be described with 2 features: mean $\mu$ and variance $\sigma^2$ in the following form: $X \sim \mathcal{N}(\mu, \sigma^2)$. For example, $X \sim \mathcal{N} (30, 4)$ means a normal distribution with mean 30 and variance 4.
 
@@ -245,21 +201,21 @@ The T distribution is a distribution very similar to the shape and size of the n
 
 ### Samples and Population
 
-In political science and the social sciences, we are often interested in studying large groups of people and entities. However, if we are dealing with large population sizes, it is often impossible to ask every single individual in the population. For example, if we wanted to study the average educational level of the UK, we would need to ask nearly 70 million people. This is completely impractical.
+In the social sciences, we are often interested in studying large groups of people and entities. However, it is often impossible to ask every single individual in the population. For example, if we wanted to study the average educational level of the UK, we would need to ask nearly 70 million people.
 
-A **sample** is a subset of a population, which ideally, can tell us something about the population. If our sample can reflect the population, then we can use the sample in our study, instead of the large population.
+A **sample** is a subset of a population, which ideally, can tell us something about the population. If our sample can reflect the population, then we can use the sample in our study, instead of the larger population.
 
-**Sampling** is the process by which we select a sample from a larger population, and we want the sample to be representative of the population. The quality of a sample depends on two major factors: the sampling procedure, and luck.
+**Sampling** is the process by which we select a sample from a larger population, and we want the sample to be representative of the population. [The quality of a sample depends on two major factors: the sampling procedure, and luck]{.underline}.
 
-Let us first talk about sampling procedure. [The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. This is because in a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the common traits of the population.
+[The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the common traits of the population.
 
 ### Central Limit Theorem
 
-Remember how we explained that the quality of a sample depends not just on the sampling procedure, but also, luck? Well, Central Limit Theorem helps account for the luck aspect.
+Remember how we explained that the quality of a sample also depends on luck? Well, Central Limit Theorem helps account for the luck aspect.
 
 Before we introduce the Central Limit Theorem, we need to explain a **distribution of sample means**.
 
--   Imagine that we take a random sample from a population. Then, we find the mean of the variable we are interested in the sample. That is a sample mean.
+-   Imagine that we take a sample from a population. Then, we find the mean of the variable we are interested in the sample. That is a **sample mean**.
 
 -   Then, let us take another sample from the same population, and find the mean. This will be slightly different than the first sample, since we are randomly sampling. That is another sample mean. We keep taking samples from the same population, and getting more and more sample means.
 
@@ -267,7 +223,7 @@ Before we introduce the Central Limit Theorem, we need to explain a **distributi
 
 -   That distribution is the d**istribution of sample means** - it basically measures the frequency of different sample means that we get, given we keep drawing samples from the same population and calculating their means.
 
-[The **Central Limit Theorem** states that the distribution of sample means of a variable, will be approximately normally distributed. This is regardless of the variable’s population distribution shape.]{.underline}
+[The **Central Limit Theorem** states that the distribution of sample means of a variable, will be approximately normally distributed.]{.underline}
 
 From chapter 2, we know of the 68-95-99.7 rule of normal distributions, and how normal distributions have a systemic relationship between the standard deviation $\sigma$ and the probabilities. The figure below reminds us of the properties of normal distributions:
 
@@ -283,9 +239,7 @@ This goes back to the “luck” aspect of sampling. What if we are unlucky in s
 
 ### Covariance and Correlation
 
-In political economy, we are often interested in the relationship between two variables. For example, are oil producers more likely to be democratic? Are more educated voters more likely to turn out and vote?
-
-The relationship between two features, also called correlation, is the extent to which they tend to occur together.
+In political economy, we are often interested in the relationship between two variables. For example, are oil producers more likely to be democratic? Are more educated voters more likely to turn out and vote? The relationship between two features, also called correlation, is the extent to which they tend to occur together.
 
 -   A positive correlation/relationship is when we are more likely to observe feature $Y$, if feature $X$ is present
 
@@ -313,9 +267,9 @@ Or more simply:
 
 -   $n$ is the number of observations (data points) in our data
 
-We can interpret the sign of the covariance: if it is positive, we have a positive relationship. if it is negative, we have a negative relationship. However, [we cannot interpret the size of the covariance]{.underline}.
+We can interpret the sign of the covariance: if it is positive, we have a positive relationship. if it is negative, we have a negative relationship. However, [we cannot interpret the numerical value of the covariance]{.underline}.
 
-If we want to see the strength of a relationship/correlation, we have to find the **correlation coefficient**. We calculate this by taking the covariance, and dividing it by the product of the standard deviation of $X$ and the standard deviation of $Y$. Mathematically:
+To do that, we have to find the **correlation coefficient**. We calculate this by taking the covariance, and dividing it by the product of the standard deviation of $X$ and the standard deviation of $Y$. Mathematically:
 
 $$
 Corr(X,Y) = r = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}
@@ -416,11 +370,12 @@ For more than one $X$ variable, it is nearly impossible to hand calculate the es
 
 Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated?
 
-$\hat{\beta}$ is the slope of the the linear model. More formally, [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}. Or in other words, as $X$ increases by 1 unit, the expected value $Y$ increases by $\hat{\beta}$ units.
+$\hat{\beta}$ is the slope of the the linear model. [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}.
 
 -   A positive $\hat{\beta}$ means a positive relationship, a negative $\hat{\beta}$ means a negative relationship, and $\hat{\beta} = 0$ means no relationship.
+-   Note: If $Y$ is binary (i.e. only 0 or 1), we interpret it as the [expected change in probability of outcome category $Y=1$ occurring]{.underline}.
 
-$\hat{\alpha}$ is the y-intercept of the linear model. More formally, $\hat{\alpha}$ is the expected value of $\hat{Y}$, given $X=0$.
+$\hat{\alpha}$ is the y-intercept of the linear model. $\hat{\alpha}$ is the expected value of $\hat{Y}$, given $X=0$.
 
 #### Multiple Linear Regression
 
@@ -430,27 +385,9 @@ Multiple linear regression is when there are multiple explanatory variables $X_1
 
 Formally, [any coefficient $\hat{\beta}_j$ is the expected change in $Y$, corresponding to a one unit increase in $X_j$, holding all other explanatory variables $X_1, ..., X_k$ that are not $X_j$ constant.]{.underline}
 
--   A positive $\hat{\beta}_j$ means a positive relationship between $X_j$ and $Y$, a negative $\hat{\beta}_j$ means a negative relationship, and $\hat{\beta}J = 0$ means no relationship, given we hold all other explanatory variables $X_1, ..., X_k$ that are not $X_j$ constant.
-
 -   Essentially, we do the same interpretation as the single linear regression, but adding the phrase "**holding all other explanatory variables constant**".
 
 $\hat{\alpha}$ is the expected value of $\hat{Y}$, given all explanatory variables $X_1, ...,X_k$ equal 0.
-
-You might wonder, why is $\hat{\beta}_j$ interpreted in the way it is: "holding other variables constant"? Well, we can actually mathematically prove this by taking the partial derivative in regard to $X_j$ to see the rate of change of $\hat{Y}$ in regards to $X_j$:
-
-$$
-\hat{Y}_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + ...+\hat{\beta}_jX_{ji} +...+ \hat{\beta}_k X_{ki}
-$$
-
-$$
-\frac{ \partial \hat{Y_i}}{\partial X_{ji}} = 0 + 0 + ... + \hat{\beta}_j + ... + 0
-$$
-
-$$
-\frac{ \partial \hat{Y_i}}{\partial X_{ji}} = \hat{\beta}_j
-$$
-
-So we can see, the partial derivative of $\hat{Y}_i$ in regard to explanatory variable $X_{ji}$, holding all others constant, is $\hat{\beta}_j$, as we interpreted above.
 
 #### Interpreting in Terms of Standard Deviation
 
@@ -468,65 +405,37 @@ If our explanatory variable(s) are binary, (i.e. $X_j$ only has two values, 0 an
 
 We essentially treat the explanatory variable as a variable of 2 different categories, category $X_j=0$, and category $X_j=1$
 
-Now, [$\hat{\alpha}$ is the expected value of $Y$ for an observation in category $X_j = 0$.]{.underline}
-
--   If you have more explanatory variables, remember to add - holding all other explanatory variables constant.
+Now, [$\hat{\alpha}$ is the expected value of $Y$ for an observation in category $X_j = 0$]{.underline}.
 
 [$\hat{\beta}_j$ is the expected difference in the value of $Y$, between the categories $X_j = 1$ and $X_j = 0$]{.underline}
 
--   If you have more explanatory variables, remember to add - holding all other explanatory variables constant.
-
 [To find the expected value of $Y$ for an observation in $X_j=1$, you would need to do $\hat{\alpha} + \hat{\beta}_j$.]{.underline}
 
-You might wonder, why are these interpretations the way they are? Well, let us take a simple linear regression that has a binary $X$ variable. The fitted model takes the following form:
-
-$$
-\hat{Y}_i = \hat{\alpha} + \hat{\beta} X_i
-$$
-
-If we want the predicted $Y$ for category $X = 0$, we simply set $X = 0$:
-
-$$
-\hat{Y}_i = \hat{\alpha} + \hat{\beta}(0) = \hat{\alpha}
-$$
-
-Now, what would be the predicted $Y$ for category $X=1$? Let us simply set $X = 1$:
-
-$$
-\hat{Y}_i = \hat{\alpha} + \hat{\beta}(1) = \hat{\alpha} + \hat{\beta}
-$$
-
-Then the predicted difference between the predicted value of $Y$ for categories $X=1$ and $X=0$ would simply be:
-
-$$
-(\hat{\alpha} + \hat{\beta}) - (\hat{\alpha}) = \hat{\beta}
-$$
+You can test these interpretations yourself by plugging in $X=0$ and $X=1$ into a linear model.
 
 ### Model Summary Statistics
 
 #### Estimated Residual Standard Deviation
 
-We can derive the estimate of the **residual variance** $\sigma^2$ (variance of the error term) with this formula:
+We can derive the estimate of the **residual variance** $\sigma^2$ (variance of the error term) with this formula (standard deviation is the square root of it):
 
 $$
 \hat{\sigma}^2 = \frac{\sum(Y_i - \hat{Y}_i)^2}{n-k-1}
 $$
 
-The standard deviation of the residuals is simply the square root of the variance.
-
-But what is the residual variance and residual standard deviation? Recall the way we write our regression model:
+But what is the residual variance? Recall the way we write our regression model:
 
 $$
 Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
 $$
 
-The residual variance refers to the error term $\epsilon_i$. We know that $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Our estimate of the residual variance $\hat{\sigma}^2$ is our estimate of the variance of the error term $\epsilon_i$'s variance. More intuitively, it explains how spread out observed values of $Y$ are from our prediction value $\hat{Y} = E(Y|X)$.
+We know that $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Our estimate of the residual variance $\hat{\sigma}^2$ is our estimate of the variance of the error term $\epsilon_i$'s variance. More intuitively, it explains how spread out observed values of $Y$ are from our prediction value $\hat{Y} = E(Y|X)$.
 
 The figure below better showcases this in 2 different models. The red lines are our predicted regression line, and the green lines represent the distribution of our error term $\epsilon_i$:
 
-![](figures/econometrics/4.1.png){fig-align="center" width="80%"}
+![](figures/econometrics/4.1.png){fig-align="center" width="70%"}
 
-One important thing to note is that the residual standard deviation $\hat{\sigma}$ is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
+The residual standard deviation $\hat{\sigma}$ is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
 
 If $\hat{\sigma}$ varies depending on the value of $X$, then that is called **heteroscedasticity**. When this occurs, it is often a suggestion that our relationship may not be linear - and we perhaps need to try a few transformations. We will get into transformations in a later chapter.
 
@@ -562,9 +471,7 @@ $$
 R^2 = \frac{SSM}{TSS} = \frac{\sum (\hat{Y}_i - \bar{Y})^2}{\sum(Y_i - \bar{Y})^2}
 $$
 
-Since $R^2$ shows how much of the variation in $Y$ our model explains, it is often used as a metric for how good our model is - however, don't overly focus on $R^2$ (as is sometimes the case in many social sciences), it is just one metric with its benefits and drawbacks.
-
-Interestingly, $R^2$ for a simple linear regression is also equal to the square of the correlation coefficient $r$.
+Since $R^2$ shows how much of the variation in $Y$ our model explains, it is often used as a metric for how good our model is - however, don't overly focus on $R^2$, it is just one metric with its benefits and drawbacks.
 
 ### Linear Regression in R
 
@@ -635,9 +542,7 @@ Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\h
 
 ### Confidence Intervals
 
-Statistical inference is used to infer something about the true values of the parameters in some population of interest, given information from our sample data.
-
-Our estimation so far has produced a $\hat{\beta}_j$ based on the data in our sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample. If this confuses you, see Chapter 3 (specifically section 3.1 and 3.2).
+Our estimation so far has produced a $\hat{\beta}_j$ based on the data in our sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample. If this confuses you, see Sections 3.1 and 3.2.
 
 Thus, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95%:
 
@@ -647,15 +552,15 @@ $$
 
 -   $\hat{se}(\hat{\beta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\beta_j$. Smaller values indicate more precise estimates, and generally occur when either residual variance is low $\hat{\sigma}^2$, or when sample size $n$ is large. We let the computer solve for this.
 
--   The $\approx 1.96$ means approximately 1.96, however, this will slightly deviate depending on the sample size and number of variables (do not worry, the computer will solve this for us). This is because this value is taken from a $t$ distribution, which depends on the degrees of freedom, and $DF = n - k - 1$.
+-   The $\approx 1.96$ means approximately 1.96, however, this will slightly deviate depending on the sample size and number of variables (do not worry, the computer will solve this for us). This is because this value is taken from a $t$ distribution, which depends on the degrees of freedom $DF = n - k - 1$.
 
-By doing both + and -, we will get lower and upper bounds on the confidence interval. [This means we are 95% confident, that the true value of $\beta_j$ is within the interval]{.underline}. Every value in the interval is a plausible value of the true $\beta_j$ in the population.
+[We are 95% confident, that the true value of $\beta_j$ is within this interval]{.underline}. Every value in the interval is a plausible value of the true $\beta_j$ in the population.
 
-The most important thing is if the value 0 is included within the confidence interval. Remember from previously, that $\beta_j = 0$ means that there is no relationship between $X_j$ and $Y$. If our confidence interval contains 0, that means we cannot be confident that there is no relationship between $X_j$ and $Y$.
+The most important thing is if 0 is included within the confidence interval. $\beta_j = 0$ means that there is no relationship between $X_j$ and $Y$. If our confidence interval contains 0, that means we cannot be confident that there is no relationship between $X_j$ and $Y$.
 
 ### Introduction to Hypothesis Testing
 
-In social sciences (and academia) in general, we are conservative - this means we do not claim we have found a new theory, unless we are quite confident that the old theory was not true.
+In academia, we are conservative - this means we do not claim we have found a new theory, unless we are quite confident that the old theory was not true.
 
 The old theory is called our **null hypothesis**, often notated $H_0$. This is the old theory that we are trying to disprove.
 
@@ -669,9 +574,7 @@ The new theory we have come up with, and are trying to prove, is called the **al
 
 -   [Thus, the most common alternate hypothesis is $H_1:\beta_j ≠ 0$]{.underline}
 
-[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis (the new theory we proposed).]{.underline}
-
--   Why 95% confidence? It is just tradition - there have been several studies showing there is nothing special about this value.
+[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis (the new theory we proposed)]{.underline}. Why 95% confidence? It is just tradition - there have been several studies showing there is nothing special about this value.
 
 Of course, with 95% confidence, we will have **errors**. There are two types of errors:
 
@@ -680,15 +583,13 @@ Of course, with 95% confidence, we will have **errors**. There are two types of 
 
 ### Significance Testing of Parameters
 
-Like I mentioned previously, generally, for linear regressions, our hypotheses that we test are:
+Like I mentioned previously, generally, for regressions, our hypotheses that we test are:
 
 -   $H_0 : \beta_j = 0$ - i.e. there is no relationship between $X_j$ and $Y$
 
 -   $H_1: \beta_j ≠ 0$ - i.e. there is a relationship between $X_j$ and $Y$
 
-How do we actually test these hypotheses?
-
-First, we have to calculate a t-test statistic. The formula for such a statistic is the parameter divided by its standard error (calculated by the computer):
+How do we actually test these hypotheses? First, we have to calculate a t-test statistic. The formula for such a statistic is the parameter divided by its standard error (calculated by the computer):
 
 $$
 t = \frac{\hat{\beta}_j}{\hat{se}(\hat{\beta}_j)}
@@ -696,7 +597,7 @@ $$
 
 The t-test statistic basically tells us how far the parameter we tested is from 0, in terms of standard errors of the parameter.
 
-Then, we have to consult a t-distribution. If we recall from Section 2.4, the t distribution is a distribution that is similar to a normal distribution in shape (just with a less pronounced peak and thicker tails). Notably, the t-distribution only has one parameter - degrees of freedom, which is calculated by the number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$
+Then, we have to consult a t-distribution (see section 2.4). T-distributions only has one parameter - degrees of freedom, which is calculated by the number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$
 
 With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides from the middle of the t-distribution.
 
@@ -710,27 +611,21 @@ The area highlighted is our p-value. Essentially, a p-value is how likely we are
 
 -   If the p-value is very low, then there is a low chance that the null hypothesis is true
 
-Generally, in Political Economy, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
-
-In social science publications (and R), you will sometimes see stars \* being put next to coefficient figures. Generally, these mean the following:
-
--   One star \* means the coefficient has a p-value of less than 0.05 in the test
-
--   Two stars \*\* means the coefficient has a p-value of less than 0.01 in the test
-
--   Three stars \*\*\* means the coefficient has a p-value of less than 0.001 in the test.
+Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
 
 ### F-Tests
 
 ### Hypothesis Testing in R
 
-## Interactions and Transformations
+## Interaction Effects
 
 ### Binary Interaction Effect
 
 ### Continuous Interaction Effect
 
 ### Interactions in R
+
+## Non-Linear Transformations
 
 ### Logarithmic Transformations
 
@@ -742,25 +637,17 @@ In social science publications (and R), you will sometimes see stars \* being pu
 
 ## Model Selection for Inference
 
-# Further Regression Models
-
-## Binomial Logistic Regression
-
-## Multinomial and Ordinal Logistic Regression
-
-## Regression for Counts
-
-# Causal Inference for Experiments
+# Causality and Experiments
 
 ## Causal Frameworks
 
 ## Random Experiements
 
-# Causal Inference for Observational Studies
+# Selection on Observables
 
-## Selection on Observables
+# Instrumental Variables Estimator
 
-## Instrumental Variables
+# Quasi-Experimental Methods
 
 ## Regression Discontinuity
 

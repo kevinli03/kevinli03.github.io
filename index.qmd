@@ -69,13 +69,14 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 ### Political Economy Short Books Series
 
-This is a series of 4 short books I created to consolidate all the information I have learned into one place.
+This is a series of 5 short books I created to consolidate all the information I have learned into one place.
 
 **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
-1.  [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy.pdf): This book covers how economic models and formal mathematical models can be applied to the study of political phenomena.
-2.  [Introductory Econometrics for Political Economy](https://kevinli03.github.io/econometrics.pdf): This book focuses on the key techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly, covering statistical inference, regression, and causal inference techniques.
-3.  [Advanced Econometrics for Political Economy](https://kevinli03.github.io/advanced.pdf): This book focuses on advanced techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly. Topics include machine learning prediction methods, multivariate analysis, latent variable modelling, time series analysis, and quantitative text mining.
+1.  [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy.pdf): This book covers how economic and mathematical models can be applied to the study of political phenomena.
+2.  [Introductory Political Econometrics](https://kevinli03.github.io/econometrics.pdf): This book focuses on the key techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly, covering statistical inference, regression, and causal inference techniques.
+3.  [Advanced Political Econometrics](https://kevinli03.github.io/advanced.pdf): This book focuses on advanced techniques of econometrics/statistics for research in Political Economy and the social sciences more broadly. Topics include latent variable modelling, structural equation models, and time series analysis.
+4.  [Modern Approaches in Political Econometrics](https://kevinli03.github.io/modern.pdf): This book focuses on modern data science and machine learning approaches in political econometrics.
 
 -   Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf)
 
