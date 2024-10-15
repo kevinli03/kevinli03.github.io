@@ -1,6 +1,6 @@
 ---
 title: "Empirical Political Economy"
-subtitle: "Volume II: Econometric Methods"
+subtitle: "Volume I: Econometric Methods"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -33,15 +33,17 @@ include-before-body:
 
 ## Preface {.unnumbered}
 
-This book focuses on how we can use econometrics to analyse empirical data to prove or reject our hypotheses. This book starts out with the fundamentals of probability and inference. Then, it moves to regression anlaysis. Finally, it moves to methods regarding causal inference.
+**Empirical Political Economy** is a series that goes hand-in-hand with the series: [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy/1.pdf), which introduces the concept of using economic models to study political phenomena. This series focuses on empirical techniques in which we can use real world data to test our Political Economy models.
 
-This book expands on my other book, [An Introduction to Political Economy](https://kevinli03.github.io/politicaleconomy.pdf), which discusses how economic models can be used to study political phenomena. This book adds on to that, explaining how we can test those economic models with empirical data. However, this book can also be used as an independent resource for the study of econometric and statistical techniques for Political Science and other Social Sciences.
+The Empirical Political Economy series has three volumes:
 
-Those who already have a strong understanding of standard econometric tools can also look at the follow up book, [Advanced Political Econometrics](https://kevinli03.github.io/advanced.pdf). That book covers more advanced topics in multivariate statistics, latent variables, and time series analysis. For any that are interested in modern data science and machine learning approaches, see [Modern Approaches in Political Econometrics](https://kevinli03.github.io/advanced.pdf).
+-   **Volume I: Econometric Methods** (this book) focuses on the standard econometric/statistical toolkit of economists and political scientists. We cover standard topics such as statistical inference and sampling, linear regression, randomised experiments, and causal techniques for observational studies.
 
-This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+-   [**Volume II: Further Econometric Methods**](https://kevinli03.github.io/econometrics/2.pdf) extends the techniques learned in the first volume to deal with more complicated questions in Political Economy. Topics include other types of regression, time series analysis, multivariate dimensional reduction, latent variable modelling, and structural equation models.
 
-I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
+-   [**Volume III: Machine Learning Methods**](https://kevinli03.github.io/econometrics/3.pdf) introduces more modern advances in empirical Political Economy, including non-linear and tree-based prediction methods, classification, model validation and regularisation, and quantitative text analysis.
+
+This series is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
 This book will use the R language for some examples. This is not a coding course, so I will not introduce the basics of R.
 
@@ -143,7 +145,7 @@ Random variables are often called distributions - because there are a distributi
 
 For example, take this probability distribution of a die - there are 6 sides that you could land on, and each has an equal probability of occurring:
 
-![](figures/econometrics/2.1.png){fig-align="center" width="50%"}
+![](figures/1/2.1.png){fig-align="center" width="50%"}
 
 The **probability mass/density function** $f(y)$ takes a potential outcome of an event as an input, and outputs the respective probability.
 
@@ -181,7 +183,7 @@ Where $\sigma^2$ is the variance, $n$ is the number of observations, and $\mu$ i
 
 A **normal distribution** is in the shape of a bell curve. The mean $\mu$, mode, and median are all the same value at the centre, and the distribution is symmetrical on both sides. The figure below shows the typical shape of a normal distribution
 
-![](figures/econometrics/2.2.png){fig-align="center" width="60%"}
+![](figures/1/2.2.png){fig-align="center" width="60%"}
 
 All Normal Distributions, as shown in the image above, follow the 68-95-99.7 rule:
 
@@ -227,7 +229,7 @@ Before we introduce the Central Limit Theorem, we need to explain a **distributi
 
 From chapter 2, we know of the 68-95-99.7 rule of normal distributions, and how normal distributions have a systemic relationship between the standard deviation $\sigma$ and the probabilities. The figure below reminds us of the properties of normal distributions:
 
-![](figures/econometrics/2.2.png){fig-align="center" width="60%"}
+![](figures/1/2.2.png){fig-align="center" width="60%"}
 
 Since the distribution of sample means tells us the probability of getting some sample mean, and Central Limit Theorem tells us that distribution is normally distributed, we can now tell how likely a sample mean is to occur if a sample was drawn from the population.
 
@@ -249,7 +251,7 @@ In political economy, we are often interested in the relationship between two va
 
 We can also visualise these graphically:
 
-![](figures/econometrics/3.1.png){fig-align="center" width="70%"}
+![](figures/1/3.1.png){fig-align="center" width="70%"}
 
 **Covariance** is a way to measure the relationship between two variables. Covariance is the extent that $X$ and $Y$ vary together. Mathematically:
 
@@ -433,7 +435,7 @@ We know that $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Our estimate of the res
 
 The figure below better showcases this in 2 different models. The red lines are our predicted regression line, and the green lines represent the distribution of our error term $\epsilon_i$:
 
-![](figures/econometrics/4.1.png){fig-align="center" width="70%"}
+![](figures/1/4.1.png){fig-align="center" width="70%"}
 
 The residual standard deviation $\hat{\sigma}$ is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
 
@@ -603,7 +605,7 @@ With the degrees of freedom, we can find the corresponding t-distribution, label
 
 Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below, with its blue highlighted area, shows this probability:
 
-![](figures/econometrics/5.1.jpeg){fig-align="center" width="80%"}
+![](figures/1/5.1.jpeg){fig-align="center" width="80%"}
 
 The area highlighted is our p-value. Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_j$, given the null hypothesis is true.
 

@@ -67,19 +67,27 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
-### Empirical Political Economy (Short Book Series)
+### Book Series on Political Economy
 
 These are a few books that I am working on to summarise my education in Emprical Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
--   [Volume 1: Economic Models of Politics](https://kevinli03.github.io/politicaleconomy.pdf): Introduction to game theory and formal mathematical modelling for political phenomena.
+**An Introduction to Political Economy**: A series on the use of economic models to study politics
 
--   [Volume 2: Econometric Methods](https://kevinli03.github.io/econometrics.pdf): Introduction to regression analysis and causal inference techniques.
+-   [Volume I: Formal Mathematical Models](https://kevinli03.github.io/politicaleconomy/1.pdf)
 
--   [Volume 3: Advanced Econometric Methods](https://kevinli03.github.io/advanced.pdf): Discussion of higher level econometric methods such as multivariate methods and time series.
+-   [Volume II: Models in Political Economy](https://kevinli03.github.io/politicaleconomy/2.pdf)
 
--   [Volume 4: Machine Learning Approaches](https://kevinli03.github.io/modern.pdf): Discussion of modern machine learning prediction methods and text mining.
+**Empirical Political Economy**: A series on the use of empirical data to validate political economy models.
+
+-   [Volume I: Econometric Methods](https://kevinli03.github.io/econometrics/1.pdf)
+
+-   [Volume II: Further Econometric Methods](https://kevinli03.github.io/econometrics/2.pdf)
+
+-   [Volume III: Machine Learning Methods](https://kevinli03.github.io/econometrics/3.pdf)
 
 Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf)
+
+<br />
 
 ------------------------------------------------------------------------
 
@@ -107,17 +115,23 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### Empirical Political Economy (Short Book Series)
+### Book Series on Political Economy
 
 These are a few books that I am working on to summarise my education in Emprical Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
--   [Volume 1: Economic Models of Politics](https://kevinli03.github.io/politicaleconomy.pdf): Introduction to game theory and formal mathematical modelling for political phenomena.
+**An Introduction to Political Economy**: A series on the use of economic models to study politics
 
--   [Volume 2: Econometric Methods](https://kevinli03.github.io/econometrics.pdf): Introduction to regression analysis and causal inference techniques.
+-   [Volume I: Formal Mathematical Models](https://kevinli03.github.io/politicaleconomy/1.pdf)
 
--   [Volume 3: Advanced Econometric Methods](https://kevinli03.github.io/advanced.pdf): Discussion of higher level econometric methods such as multivariate methods and time series.
+-   [Volume II: Models in Political Economy](https://kevinli03.github.io/politicaleconomy/2.pdf)
 
--   [Volume 4: Machine Learning Approaches](https://kevinli03.github.io/modern.pdf): Discussion of modern machine learning prediction methods and text mining.
+**Empirical Political Economy**: A series on the use of empirical data to validate political economy models.
+
+-   [Volume I: Econometric Methods](https://kevinli03.github.io/econometrics/1.pdf)
+
+-   [Volume II: Further Econometric Methods](https://kevinli03.github.io/econometrics/2.pdf)
+
+-   [Volume III: Machine Learning Methods](https://kevinli03.github.io/econometrics/3.pdf)
 
 Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf)
 

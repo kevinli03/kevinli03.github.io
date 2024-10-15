@@ -1,6 +1,6 @@
 ---
-title: "Empirical Political Economy"
-subtitle: "Volume 1: Economic Models of Politics"
+title: "An Introduction to Political Economy"
+subtitle: "Volume I: Formal Mathematical Models"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -20,11 +20,13 @@ format:
 
 ## Preface {.unnumbered}
 
-This book is an introduction to the field of Political Economy - the use of economic tools, such as economic models and econometrics, applied to the study of political topics.
+This series, **An Introduction to Political Economy**, introduces the use economic models and mathematical models to the study political topics. This series goes hand-in-hand with the [Empirical Political Economy](https://kevinli03.github.io/econometrics/1.pdf) series, which introduces ways to use real-world data to test the models we are developing in this series.
 
-This book in focuses on how we can use economic and formal mathematical models to explore political phenomena. The book starts out with an introduction to the field of Political Economy, as well as some neccesary probability theory. Then, I introduce the concept of economic modelling, also called formal mathematical modelling, game theory, or formal theory. Finally, I apply the models we have covered to selected topics in Political Economy research.
+An Introduction to Political Economy has 2 volumes:
 
-While this book goes over the creation of economic models of political situations, it does not go over how we use empirical data to prove/reject our models. The subsequent book, [Introductory Political Econometrics](https://kevinli03.github.io/econometrics.pdf), covers these methods in detail, including Regression and Causal inference. Those who already have a strong understanding of standard econometric tools can also look at the follow up book, [Advanced Political Econometrics](https://kevinli03.github.io/advanced.pdf). That book covers more advanced topics in multivariate statistics, latent variables, and time series analysis. For any that are interested in modern data science and machine learning approaches, see [Modern Approaches in Political Econometrics](https://kevinli03.github.io/advanced.pdf).
+-   **Volume I: Formal Mathematical Models** (this book) is an introduction to how we model political situations with game theory. Topics include solution concepts like Nash Equilibrium and Dominant Strategy Equilibrium, different types of games like Static Games, Dynamic Games, and Bayesian Games, as well as some coalition theory.
+
+-   **Volume II: Models in Political Economy**, applies these models to actual topics in political economy. Before starting this volume, it is useful to read through the first volume of Empirical Political Economy.
 
 This book is meant to be a relatively approachable introduction to the field. However, as Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is required. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
@@ -40,9 +42,9 @@ This book mainly focuses on the third approach of Political Economy. For this bo
 
 In the Social Sciences, there are two parts to any research - the hypothesis/theory, and the empirical data that either supports or refutes the theory. Economic tools perfectly fit into this framework. Political Economists will often use economic and formal mathematical models to make predictions about potential outcomes of political situations. Then, Political Economists will gather real-world data, and test their hypothesis with statistical/econometric methods.
 
-This book focuses on the economic modelling and creating hypotheses part of the Political Economy research process. I start with exploring the fundamentals of Game Theory and Formal Mathematical Modelling. These include the properties of games, solution concepts, as well as different types of common games. Then, we will apply what we have learned to model current issues in Political Economy research.
+This book focuses on the economic modelling and creating hypotheses part of the Political Economy research process. I explore the fundamentals of Game Theory and Formal Mathematical Modelling. These include the properties of games, solution concepts, as well as different types of common games.
 
-While this book goes over the creation of economic models of political situations, it does not go over how we use empirical data to prove/reject our models. The subsequent book, Introductory Econometrics for Political Economy, covers these methods in detail.
+While this book goes over the creation of economic models of political situations, it does not go over how we use empirical data to prove/reject our models. The sister series - Empirical Political Economy, covers these topics.
 
 Let us begin!
 
@@ -170,8 +172,6 @@ Each part of Bayes' Theorem has a name. They are commonly referenced, so it is u
 
 -   $Pr(B)$ is the [marginal]{.underline} probability
 
-# Formal Mathematical Models
-
 ## Introduction to Game Theory
 
 ### Modelling and Game Theory
@@ -271,6 +271,8 @@ The action profile (of all players' actions) is a vector $a = (a_1, a_2, ..., a_
 Preferences are represented by a payoff function $u_i(a_i, a_{-i})$
 
 -   Essentially, $u_i$ is a function with the inputs of player $i$'s actions $a_i$, and the actions of everyone else $a_{-i}$
+
+# Static Games of Complete Information
 
 ## Dominant Strategy Equilibrium
 
@@ -484,6 +486,8 @@ The opposite of pareto efficient is **pareto inefficient** - an outcome where it
 
 -   In the prisoner's dilemma, (Defect, Defect) is pareto inefficient, since we can move to (Cooperate, Cooperate), which makes both players better off, and no one worse off.
 
+## Applications of Nash Equilibria
+
 ### Prisoner's Dilemma as a Category of Games
 
 A **Prisoner's dilemma** is not just one specific game with the storyline of the prisoners. It refers to all games that meet the following criteria:
@@ -517,6 +521,10 @@ Other examples of the application of Prisoner's Dilemmas include:
 -   Training of workers - because firms are afraid that workers will leave and join a rival, firms do not train their workers properly, resulting in a less-than-optimal economy for everyone.
 
 -   Cartels - cartels can make the most money when everyone makes very little of a product (raising prices). However, if one person defects and makes a lot, they get a huge increase in profits, while every one else loses. Thus, fearful of others defecting, everyone defects, making production very high, and making everyone worse off (pareto inefficient)
+
+### Public Goods Games
+
+### Election Games
 
 ## Extensions of Nash Equilibrium
 
@@ -615,9 +623,13 @@ So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less th
 
 ## Mixed Strategies
 
+# Dynamic Games
+
 ## Dynamic Games of Complete Information
 
 ## Elections as Incentive Devices
+
+# Bayesian Games
 
 ## Dynamic Games of Incomplete Information
 
@@ -625,4 +637,4 @@ So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less th
 
 ## Signalling Games
 
-# Topics in Political Economy
+# Advanced Games
