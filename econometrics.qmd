@@ -1,6 +1,6 @@
 ---
-title: "Introductory Political Econometrics"
-subtitle: "An introduction to statistical inference and causal inference for the Social Sciences"
+title: "Political Econometrics"
+subtitle: "Volume I: Introduction to Causal Inference"
 author: "Kevin Lingfeng Li"
 format:
     pdf:

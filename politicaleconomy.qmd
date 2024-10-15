@@ -1,6 +1,6 @@
 ---
-title: "An Introduction to Political Economy"
-subtitle: "An Introduction to the application of Economic and Formal Mathematical Models to Political Phenomena"
+title: "Economic Models of Politics"
+subtitle: "An Introduction to Political Economy and Formal Modelling"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
