@@ -199,45 +199,9 @@ Any normal distribution can be described with 2 features: mean $\mu$ and varianc
 
 The T distribution is a distribution very similar to the shape and size of the normal distribution, however, generally has thicker tails and a lower peak. The key difference is that t-distributions are defined with only one parameter - degrees of freedom $DF$.
 
-## Basics of Inference and Correlation
+# Linear Regression Anlaysis
 
-### Samples and Population
-
-In the social sciences, we are often interested in studying large groups of people and entities. However, it is often impossible to ask every single individual in the population. For example, if we wanted to study the average educational level of the UK, we would need to ask nearly 70 million people.
-
-A **sample** is a subset of a population, which ideally, can tell us something about the population. If our sample can reflect the population, then we can use the sample in our study, instead of the larger population.
-
-**Sampling** is the process by which we select a sample from a larger population, and we want the sample to be representative of the population. [The quality of a sample depends on two major factors: the sampling procedure, and luck]{.underline}.
-
-[The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the common traits of the population.
-
-### Central Limit Theorem
-
-Remember how we explained that the quality of a sample also depends on luck? Well, Central Limit Theorem helps account for the luck aspect.
-
-Before we introduce the Central Limit Theorem, we need to explain a **distribution of sample means**.
-
--   Imagine that we take a sample from a population. Then, we find the mean of the variable we are interested in the sample. That is a **sample mean**.
-
--   Then, let us take another sample from the same population, and find the mean. This will be slightly different than the first sample, since we are randomly sampling. That is another sample mean. We keep taking samples from the same population, and getting more and more sample means.
-
--   Now, let us plot all our sample means into a “histogram” or density plot. The $x$ axis labels the possible sample means values, and the $y$ axis is how frequently a specific sample mean occurs. We will get a distribution, just like a random variable distribution.
-
--   That distribution is the d**istribution of sample means** - it basically measures the frequency of different sample means that we get, given we keep drawing samples from the same population and calculating their means.
-
-[The **Central Limit Theorem** states that the distribution of sample means of a variable, will be approximately normally distributed.]{.underline}
-
-From chapter 2, we know of the 68-95-99.7 rule of normal distributions, and how normal distributions have a systemic relationship between the standard deviation $\sigma$ and the probabilities. The figure below reminds us of the properties of normal distributions:
-
-![](figures/1/2.2.png){fig-align="center" width="60%"}
-
-Since the distribution of sample means tells us the probability of getting some sample mean, and Central Limit Theorem tells us that distribution is normally distributed, we can now tell how likely a sample mean is to occur if a sample was drawn from the population.
-
--   For example, if a certain sample mean is located 2 standard deviations above the mean, there is only a 2.14% chance that that sample mean would be that value or higher (see figure above)
-
--   For any sample mean, we calculate how many standard deviations away from the mean of the distribution of sample means. Then, we can calculate how likely that sample mean is likely to occur.
-
-This goes back to the “luck” aspect of sampling. What if we are unlucky in sampling, and end up randomly drawing all the tall people? All the smartest people? Well, we don't have to worry, since Central Limit Theorem tells us the likelihood of drawing a certain sample.
+## Relationships Between Variables
 
 ### Covariance and Correlation
 
@@ -296,8 +260,6 @@ In this equation, the $\beta$ term in the best fit line is the slope of the line
 -   In a linear model, the $X$ variable is considered the **explanatory** or **independent** variable, while the $Y$ is the **response** or **dependent** variable.
 
 The Best Linear Predictor is a form of Linear Regression, the primary topic we will cover in the next two chapters.
-
-# Linear Regression Anlaysis
 
 ## Linear Model, Estimation, and Interpretation
 
@@ -542,25 +504,61 @@ Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\h
 
 ## Hypothesis Testing
 
+### Samples and Population
+
+In the social sciences, we are often interested in studying large groups of people and entities. However, it is often impossible to ask every single individual in the population. For example, if we wanted to study the effect of educational level on voter turnout in the UK, we would need to ask nearly 70 million people.
+
+A **sample** is a subset of a population, which ideally, can tell us something about the population. For example, we could use a sample to estimate the relationship between two features $X_j$ and $Y$ with a coefficient $\beta_j$. If our sample can reflect the population, then we can use the sample to learn about the true population $\beta_j$
+
+The quality of a sample depends on two major factors: the sampling procedure, and luck.
+
+-   Sampling procedure can create **bias**: systematic reasons why our samples are not representative of the population.
+
+-   Luck in sampling is called **noise** or **variance**: essentially, even if we have a perfect sampling procedure, every sample will differ slightly just due to luck.
+
+[The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the common traits of the population.
+
+### Sampling Distributions and Standard Error
+
+A sampling distribution is a hypothetical construct that is useful to understanding how many of our statistical techniques work. A sampling distribution is as follows.
+
+-   Imagine that we take a sample from a population. Then, we find the $\hat{\beta}_j$ coefficient between some $X_j$ and $Y$. That is a **sample estimate**.
+
+-   Then, let us take another sample from the same population, and find the sample estimate. This will be slightly different than the first sample, since we are randomly sampling. That is another sample estimate. We keep taking samples from the same population, and getting more and more sample estimates.
+
+-   Now, let us plot all our sample estimates (different $\hat{\beta}_j$ values) into a “histogram” or density plot. The $x$ axis labels the possible $\beta_j$ values, and the $y$ axis is how frequently a specific sample mean occurs. We will get a distribution, just like a random variable distribution.
+
+-   That distribution is the **sampling distribution**
+
+[A Sampling distribution is the imaginary distribution of estimates, if we repeated sampling and estimation process many, many times]{.underline}.
+
+The **standard error** is the standard deviation of the sampling distribution. It is often notated $se(\hat{\beta}_j)$. Our software will calculate an estimate of this value, which will be notated as $\hat{se} ( \hat{\beta}_j)$
+
+-   A smaller standard error generally means a more accurate estimate, and is usually due to a larger sample size $n$ or lower residual standard deviation $\hat{\sigma}^2$
+
 ### Confidence Intervals
 
-Our estimation so far has produced a $\hat{\beta}_j$ based on the data in our sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample. If this confuses you, see Sections 3.1 and 3.2.
+Our estimation so far has produced a $\hat{\beta}_j$ based on the data in our sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample, due to sampling variation.
 
-Thus, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95%:
+Thus, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95% (the standard confidence level):
 
 $$
-\hat{\beta}_j ± \approx 1.96 \times \hat{se}(\hat{\beta}_j)
+\hat{\beta}_j ± 1.96 \times \hat{se}(\hat{\beta}_j)
 $$
 
--   $\hat{se}(\hat{\beta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\beta_j$. Smaller values indicate more precise estimates, and generally occur when either residual variance is low $\hat{\sigma}^2$, or when sample size $n$ is large. We let the computer solve for this.
+-   $\hat{se}(\hat{\beta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\beta_j$, introduced in the previous section.
 
--   The $\approx 1.96$ means approximately 1.96, however, this will slightly deviate depending on the sample size and number of variables (do not worry, the computer will solve this for us). This is because this value is taken from a $t$ distribution, which depends on the degrees of freedom $DF = n - k - 1$.
+-   The 1.96 can slightly deviate depending on the sample size and number of variables (do not worry, the computer will solve this for us).
 
-[We are 95% confident, that the true value of $\beta_j$ is within this interval]{.underline}. Every value in the interval is a plausible value of the true $\beta_j$ in the population.
+-   Why 1.96? It is because in a normal distribution, 95% of the data is contained within 1.96 standard deviations (see section 2.4), and Central Limit Theorem states tells us that sampling distributions are normally distributed (Do not worry too much about this, this is beyond the scope of the course).
+
+What does the confidence interval represent? Essentially, it means if we repeated the sampling and estimation process many many times (like we did for our sampling distribution), 95% of the confidence intervals we construct from our samples, would correctly contain the true $\beta_j$.
+
+Every value in a given confidence interval is a plausible value of the true $\beta_j$ in the population.
 
 The most important thing is if 0 is included within the confidence interval. $\beta_j = 0$ means that there is no relationship between $X_j$ and $Y$. If our confidence interval contains 0, that means we cannot be confident that there is no relationship between $X_j$ and $Y$.
 
-### Introduction to Hypothesis Testing
+### Hypothesis Testing of Parameters
 
 In academia, we are conservative - this means we do not claim we have found a new theory, unless we are quite confident that the old theory was not true.
 
@@ -568,24 +566,13 @@ The old theory is called our **null hypothesis**, often notated $H_0$. This is t
 
 -   Most often, the "old theory" we are trying to disprove is that *there is no relationship between variables* $X_j$ *and* $Y$ (since it is very rare we are studying something that has already been proven). No relationship means that $\beta_j = 0$
 
--   [Thus, the most common null hypothesis is $H_0 : \beta_j = 0$]{.underline}
-
 The new theory we have come up with, and are trying to prove, is called the **alternate hypothesis**, often notated $H_1$ or $H_a$.
 
--   In general, our new hypothesis is that t*here is a relationship between variables* $X_j$ *and* $Y$.
-
--   [Thus, the most common alternate hypothesis is $H_1:\beta_j ≠ 0$]{.underline}
+-   In general, our new hypothesis is that t*here is a relationship between variables* $X_j$ *and* $Y$, or [$\beta_j ≠ 0$]{.underline}
 
 [We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis (the new theory we proposed)]{.underline}. Why 95% confidence? It is just tradition - there have been several studies showing there is nothing special about this value.
 
-Of course, with 95% confidence, we will have **errors**. There are two types of errors:
-
-1.  **Type-I Error**: This is when the null hypothesis is actually correct in the real world, but we accidentally reject it.
-2.  **Type-II Error**: This is when the null hypothesis is actually wrong in the real world, but we accidentally fail to reject it.
-
-### Significance Testing of Parameters
-
-Like I mentioned previously, generally, for regressions, our hypotheses that we test are:
+Generally, for regressions, our hypotheses that we test are:
 
 -   $H_0 : \beta_j = 0$ - i.e. there is no relationship between $X_j$ and $Y$
 
