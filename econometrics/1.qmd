@@ -215,7 +215,7 @@ In political economy, we are often interested in the relationship between two va
 
 We can also visualise these graphically:
 
-![](figures/1/3.1.png){fig-align="center" width="70%"}
+![](figures/1/3.1.png){fig-align="center" width="80%"}
 
 **Covariance** is a way to measure the relationship between two variables. Covariance is the extent that $X$ and $Y$ vary together. Mathematically:
 
