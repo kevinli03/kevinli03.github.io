@@ -467,11 +467,74 @@ Next, let us find the best responses of player 2, while fixing player 1's strate
 
 We can see that the strategy profiles, where both players are playing best responses, are (Swerve, Straight), and (Straight, Swerve). Thus, these are the two Nash Equilibria.
 
+### Public Goods Contribution Games
+
+So far, we have focused on relatively simple 2-player games. However, let us introduce a slightly more complex game: the public goods contribution game. The game takes the following form:
+
+*Each of* $n$ *people chooses whether to contribute a fixed amount toward the provision of a public good. The good is provided if and only if at least k people contribute where* $2 ≤ k ≤ n$*; if it is not provided, contributions are not refunded. Each person ranks outcomes from best to worst as follows:*
+
+-   *(i) any outcome in which the good is provided and she does not contribute*
+
+-   *(ii) any outcome in which the good is provided and she contributes*
+
+-   *(iii) any outcome in which the good is not provided and she does not contribute*
+
+-   *(iv) and outcome in which the good is not provided and she contributes.*
+
+What are the Nash Equilibria of this game? This game is more complex than the previous examples, since it involves both more players, and also, unclear amounts (such as $k$).
+
+To approach this problem, we can do the following:
+
+1.  Divide the problem into different "scenarios", based on number of players that contribute relative to $k$, the threshold of providing the public good. For example, we could split this game into a scenario where less that $k$ people contribute, where exactly $k$ people contribute, and where more than $k$ people contribute.
+2.  Find if there is any Nash Equilibria. While we cannot find the "best responses" as easily, recall that Nash Equilibria also is defined as no player having a profitable deviation. We can look at each player, and ask - *do they have a profitable deviation?* - and if they do not, we can conclude that is a Nash Equilibrium.
+
+First, let us look at the scenario that *less than* $k$ *people contribute*. Is there a Nash Equilibrium?
+
+-   Let us consider that 0 people contribute to the public good. Does any player have any incentive to deviate?
+
+    -   All players are playing "not contribute". Let us assume player $i$ is one of them. Player $i$ does not have a profitable deviation to "contribute", since that $k$, the threshold of the public good, cannot be lower than 2. Thus, deviating to "contribute" would lower player $i$'s payoff from payoff number iii to payoff number iv (see question above)
+
+    -   Thus, [0 people contributing is a Nash Equilibrium]{.underline}, as no player has an incentive to deviate.
+
+-   Let us now consider that 1 person is contributing to the public good. Does any player have an incentive to deviate?
+
+    -   Let us assume player $i$ is the only player that is contributing so far. Player $i$ does have a profitable deviation given his opponents current strategies, since if he changes to "not contribute", he will increase his payoff from outcome iv to outcome iii.
+
+    -   This will be the case for all cases where $k-2$ or less people contribute, since no player's individual action will be able to reach the threshold of the public good, so all players contributing would have an incentive to not contribute.
+
+    -   Thus, 1 person, and anything between and including 1 and $k-2$ people contributing, is not a nash equilibrium, since a profitable deviation exists.
+
+-   What if there are $k-1$ people contributing though?
+
+    -   Well, then if player $i$ is not contributing, he has an incentive to deviate to "contribute", as that will reach the threshold $k$ for the provision of the public good, thus boosting their payoff from outcome iii to outcome ii.
+
+    -   Thus, $k-1$ players contributing is also not a Nash Equilibrium, since a profitable deviation exists.
+
+Now, let us consider that $k$ people contribute to the public good. Does any player have any incentive to deviate?
+
+-   Let us say player $i$ is already contributing. If they were to deviate to "not contribute", the total number of contributors would fall below $k$, thus moving player $i$ from outcome ii to outcome iii, lowering his payoffs.
+
+-   Let us say player $i$ is not-contributing. if they were to deviate to "contribute", the good is already and still being provided, so they would go from outcome i to outcome ii, lowering their payoffs.
+
+-   Thus, [$k$ players contributing is a Nash Equilibrium]{.underline}, since no player has a profitable deviation.
+
+Finally, there is the scenario that more than $k$ people contribute. Does any player have an incentive to deviate?
+
+-   Let us say player $i$ is already contributing. If they were to switch to "not contribute", the public good would still be provided. They would move from outcome ii to outcome i, increasing their payoffs.
+
+-   Thus, there is no Nash Equilibrium when more than $k$ people contribute, since there is a profitable deviation.
+
+[Thus, there are two Nash Equilibria in this game: at 0 people contributing, and at $k$ people contributing]{.underline}. This game shows how you can analyse more complex games and find Nash Equilibria - just divide the game into scenarios, and look for players with profitable deviations.
+
+## Pareto Efficiency and Extensions of Nash Equilibrium
+
 ### Pareto Efficiency
 
 Pareto efficient outcomes are outcomes that may or may not be feasible from a solution concept wise, but in theory, offer the best case for both players.
 
 The definition of a **Pareto Efficient** outcome is that, given that outcome, it is impossible to move to any other outcome that makes at least one player better off, without making anyone else worse off.
+
+-   The key point here is **without making anyone worse off**. For example, if a game had two outcomes (2, 0) and (1, 10000000000), both would be pareto efficient, including (2, 0), since player 1 is made worse off when moving to outcome 2.
 
 For example, let us take the classic prisoner's dilemma game:
 
@@ -485,8 +548,6 @@ The outcomes that are pareto efficient are (Cooperate, Cooperate), (Cooperate, D
 The opposite of pareto efficient is **pareto inefficient** - an outcome where it is possible to make at least one player better off, without making anyone worse off.
 
 -   In the prisoner's dilemma, (Defect, Defect) is pareto inefficient, since we can move to (Cooperate, Cooperate), which makes both players better off, and no one worse off.
-
-## Static Games and Nash Equilibria
 
 ### Prisoner's Dilemma as a Category of Games
 
@@ -502,15 +563,21 @@ A **Prisoner's dilemma** is not just one specific game with the storyline of the
 
 Prisoner's Dilemma games are used to show how individual rationality and group rationality differ.
 
--   The group can get the best outcome if they all cooperate.
+-   The group can get the best outcome (the pareto efficient ones) if they all cooperate.
 
 -   However, if you choose to cooperate, you run the risk that someone else is going to defect, undercutting you and giving you the worst payoff.
 
 -   Thus, it is in individual's incentives to always defect.
 
-The Prisoner's Dilemma is frequently used to explain issues of **Public Goods**. Public goods are non-excludable - you cannot exclude people from using the good. An example of a Public Good is National Defence, or the air around us.
+The Prisoner's Dilemma is frequently used to explain issues of **Public Goods**.
+
+-   Public goods are non-excludable - you cannot exclude people from using the good. An example of a Public Good is National Defence, or the air around us.
+
+<!-- -->
 
 -   Since these goods are non-excludable, people cannot be prevented from using the good, even if they do not contribute to the upkeep. Thus, there is a incentive for individuals to under-invest in the upkeep of public goods, reducing the quality for everyone.
+
+-   Under-invest in this case is considered the "defect" strategy, while invest is the "cooperate" strategy. Individually, you are better off if you defect, as you can still enjoy the benefits of this non-excludable good, without any of the costs. However, when everyone does this rational action, it results in a poor condition of the public good, thus hurting everyone (a non-pareto efficient outcome)
 
 -   An example is Air Quality - individuals and companies poluate and refuse to contribute to the upkeep of good air quality, despite the fact that poor air quality is worse for everyone (pareto inefficient)
 
@@ -521,12 +588,6 @@ Other examples of the application of Prisoner's Dilemmas include:
 -   Training of workers - because firms are afraid that workers will leave and join a rival, firms do not train their workers properly, resulting in a less-than-optimal economy for everyone.
 
 -   Cartels - cartels can make the most money when everyone makes very little of a product (raising prices). However, if one person defects and makes a lot, they get a huge increase in profits, while every one else loses. Thus, fearful of others defecting, everyone defects, making production very high, and making everyone worse off (pareto inefficient)
-
-### Public Goods Games
-
-### Election Games
-
-## Extensions of Nash Equilibrium
 
 ### Multiple Nash Equilibrium and Focal Points
 

@@ -530,7 +530,7 @@ A sampling distribution is a hypothetical construct that is useful to understand
 
 -   That distribution is the **sampling distribution**
 
-[A Sampling distribution is the imaginary distribution of estimates, if we repeated sampling and estimation process many, many times]{.underline}.
+[A Sampling distribution is the imaginary distribution of estimates, if we repeated the sampling and estimation process many, many times]{.underline}.
 
 The **standard error** is the standard deviation of the sampling distribution. It is often notated $se(\hat{\beta}_j)$. Our software will calculate an estimate of this value, which will be notated as $\hat{se} ( \hat{\beta}_j)$
 
@@ -538,7 +538,7 @@ The **standard error** is the standard deviation of the sampling distribution. I
 
 ### Confidence Intervals
 
-Our estimation so far has produced a $\hat{\beta}_j$ based on the data in our sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample, due to sampling variation.
+Our OLS estimation (from chapter 4) has produced a $\hat{\beta}_j$ based on the data in one sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample, due to sampling variation.
 
 Thus, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95% (the standard confidence level):
 
@@ -605,6 +605,36 @@ Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can
 ### F-Tests
 
 ### Hypothesis Testing in R
+
+For hypothesis testing, we just run the regression like we would normally (see section 4.5). For example, let us run a model prediction *polity_2* with 2 explanatory variables
+
+```{r}
+model <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
+    data = democracy_data)
+summary(model)
+```
+
+Now, let us look at the coefficients table:
+
+-   *GPD_Per_Cap_Haber_Men_2* is our first explanatory variable, *Total_Oil_Income_PC* is our second explanatory variable
+
+-   Under the *Std. Error* column is the respective standard errors for both $\beta$ coefficients. This is used to calculate the t-statistic
+
+-   Under the *t value* column is the t-test statistics for both $\beta$ coefficients. - Under the *Pr(\>\|t\|)* column is the p-values for each test statistic.
+
+-   The stars after the p-values are the significance level. One star \* means $p<0.05$, two stars \*\* means $p<0.01$, and three stars \*\*\* means $p<0.001$
+
+-   For more details of interpretation, see the previous sections in this chapter.
+
+Below the coefficient table at the very bottom, we can see the *F-Statistic* section, which provides the f-test statistic and p-value of the f-test.
+
+To calculate confidence intervals, we can use the *confint()* command, and simply input the name of our model within:
+
+```{r}
+confint(model)
+```
+
+As we can see, this command gives us 95% confidence intervals (both lower and upper bounds), for all parameters in our model.
 
 ## Interaction Effects
 
