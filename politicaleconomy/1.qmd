@@ -486,7 +486,7 @@ The opposite of pareto efficient is **pareto inefficient** - an outcome where it
 
 -   In the prisoner's dilemma, (Defect, Defect) is pareto inefficient, since we can move to (Cooperate, Cooperate), which makes both players better off, and no one worse off.
 
-## Applications of Nash Equilibria
+## Static Games and Nash Equilibria
 
 ### Prisoner's Dilemma as a Category of Games
 
