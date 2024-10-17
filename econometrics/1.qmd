@@ -5,7 +5,7 @@ author: "Kevin Lingfeng Li"
 format:
     pdf:
         toc: true
-        toc-depth: 2
+        toc-depth: 1
         documentclass: report
         papersize: A4
         geometry:
@@ -47,7 +47,7 @@ This series is meant to be a relatively approachable introduction to the field. 
 
 This book will use the R language for some examples. This is not a coding course, so I will not introduce the basics of R.
 
-# Probability and Statistical Theory
+# Basics of Probability and Statistics
 
 ## Concepts in Probability
 
@@ -199,9 +199,7 @@ Any normal distribution can be described with 2 features: mean $\mu$ and varianc
 
 The T distribution is a distribution very similar to the shape and size of the normal distribution, however, generally has thicker tails and a lower peak. The key difference is that t-distributions are defined with only one parameter - degrees of freedom $DF$.
 
-# Linear Regression Anlaysis
-
-## Relationships Between Variables
+## Relationships Between Features
 
 ### Covariance and Correlation
 
@@ -260,6 +258,8 @@ In this equation, the $\beta$ term in the best fit line is the slope of the line
 -   In a linear model, the $X$ variable is considered the **explanatory** or **independent** variable, while the $Y$ is the **response** or **dependent** variable.
 
 The Best Linear Predictor is a form of Linear Regression, the primary topic we will cover in the next two chapters.
+
+# Multiple Regression Anlaysis
 
 ## Linear Model, Estimation, and Interpretation
 
@@ -447,42 +447,20 @@ library(tidyverse)
 democracy_data <- read_csv("data/democracy.csv")
 ```
 
-#### Simple Linear Regression
+{{< pagebreak >}}
 
-Let us run a simple linear regression first. The general syntax is as follows - just replace *model_name* with your model name, *Y* with the name of your response variable, *X* with the name of your explanatory variable, and *mydata* with the name of your dataset.
+We use the *lm()* function to run a regression: The general syntax is as follows:
 
-```{r, eval = FALSE}
-model_name <- lm(Y ~ X, data = mydata)
-summary(model_name)
-```
+-   Replace *model_name* with your model name, *Y* with the name of your response variable, *X1, X2...* with the name of your explanatory variable, and *mydata* with the name of your dataset.
 
-For example, let us run a regression from the *democracy_data* data set, with our explanatory variable being *GDP_Per_Cap_Haber_Men_2* and our response variable being *polity_2*. Let us save this model to the variable *model1*.
-
-```{r}
-model1 <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2, data = democracy_data)
-summary(model1)
-```
-
-We can see the output. In the coefficients table:
-
--   The *Intercept - Estimate* is $\hat{\alpha}$
-
--   The *GDP_Per_Cap_Haber_Men_2 - Estimate* is the coefficient $\hat{\beta}$.
-
--   For interpretation, see the preceding section on interpretation.
-
-Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value.
-
-#### Multiple Linear Regression
-
-For multiple linear regression, the syntax is the same as single linear regression, just add additional explanatory variables behind the 1st one with + signs:
+-   Add additional explanatory variables with more $+$ signs, and you can remove them down to a minimum of one $X$
 
 ```{r, eval = FALSE}
 model_name <- lm(Y ~ X1 + X2 + X3, data = mydata)
 summary(model_name)
 ```
 
-For example, let us run a multiple linear regression with the same dataset. Our response variable will be the same, and so will our first explanatory variable, but let us add another explanatory variable T*otal_Oil_Income_PC*:
+For example, let us run a multiple linear regression with two explanatory variables:
 
 ```{r}
 model2 <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
@@ -496,13 +474,13 @@ We can see the output. In the coefficients table:
 
 -   The *GDP_Per_Cap_Haber_Men_2 - Estimate* is the coefficient $\hat{\beta}_1$.
 
--   The *Total_Oil_Income_PC - Estimate* is the coefficient $\hat{\beta}_1$.
+-   The *Total_Oil_Income_PC - Estimate* is the coefficient $\hat{\beta}_2$.
 
 -   For interpretation, see the preceding section on interpretation.
 
 Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value.
 
-## Hypothesis Testing
+## Confidence Intervals and Hypothesis Testing
 
 ### Samples and Population
 
@@ -516,7 +494,7 @@ The quality of a sample depends on two major factors: the sampling procedure, an
 
 -   Luck in sampling is called **noise** or **variance**: essentially, even if we have a perfect sampling procedure, every sample will differ slightly just due to luck.
 
-[The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the common traits of the population.
+[The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the population.
 
 ### Sampling Distributions and Standard Error
 
@@ -550,7 +528,7 @@ $$
 
 -   The 1.96 can slightly deviate depending on the sample size and number of variables (do not worry, the computer will solve this for us).
 
--   Why 1.96? It is because in a normal distribution, 95% of the data is contained within 1.96 standard deviations (see section 2.4), and Central Limit Theorem states tells us that sampling distributions are normally distributed (Do not worry too much about this, this is beyond the scope of the course).
+-   Why 1.96? It is because in a normal distribution, 95% of the data is contained within 1.96 standard deviations (see section 2.4), and Central Limit Theorem states that sampling distributions are normally distributed.
 
 What does the confidence interval represent? Essentially, it means if we repeated the sampling and estimation process many many times (like we did for our sampling distribution), 95% of the confidence intervals we construct from our samples, would correctly contain the true $\beta_j$.
 
@@ -656,17 +634,15 @@ As we can see, this command gives us 95% confidence intervals (both lower and up
 
 ## Model Selection for Inference
 
-# Causality and Experiments
+# Causal Inference for Political Economy
 
 ## Causal Frameworks
 
 ## Random Experiements
 
-# Selection on Observables
+## Selection on Observables
 
-# Instrumental Variables Estimator
-
-# Quasi-Experimental Methods
+## Instrumental Variables Estimator
 
 ## Regression Discontinuity
 
