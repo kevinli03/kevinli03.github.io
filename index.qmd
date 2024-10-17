@@ -67,25 +67,17 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
-### Book Series on Political Economy
+### Political Science and Political Economy Series
 
-These are a few books that I am working on to summarise my education in Emprical Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
+These are a few books that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
-**An Introduction to Political Economy**: A series on the use of economic models to study politics
+1.  [**Fundamentals of Econometrics**: Using Statistics for Political Science and Political Economy](https://kevinli03.github.io/politicaleconomy/1.pdf)
+2.  [**Political Game Theory**: Introduction to Formal Mathematical Models](https://kevinli03.github.io/politicaleconomy/2.pdf)
+3.  [**Political Economy**: Using Economic Models to Study Politics](https://kevinli03.github.io/politicaleconomy/3.pdf)
+4.  [**Advanced Statistical Methods**: Further Regression, Time Series, and Latent Variables](https://kevinli03.github.io/politicaleconomy/4.pdf)
+5.  [**Social Data Science**: Using Machine Learning for Political Science and Political Economy](https://kevinli03.github.io/politicaleconomy/5.pdf)
 
--   [Volume I: Formal Mathematical Models](https://kevinli03.github.io/politicaleconomy/1.pdf)
-
--   [Volume II: Models in Political Economy](https://kevinli03.github.io/politicaleconomy/2.pdf)
-
-**Empirical Political Economy**: A series on the use of empirical data to validate political economy models.
-
--   [Volume I: Econometric Methods](https://kevinli03.github.io/econometrics/1.pdf)
-
--   [Volume II: Further Econometric Methods](https://kevinli03.github.io/econometrics/2.pdf)
-
--   [Volume III: Machine Learning Methods](https://kevinli03.github.io/econometrics/3.pdf)
-
-Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf)
+Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
 
 <br />
 
@@ -115,25 +107,17 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### Book Series on Political Economy
+### Political Science and Political Economy Series
 
-These are a few books that I am working on to summarise my education in Emprical Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
+These are a few books that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
-**An Introduction to Political Economy**: A series on the use of economic models to study politics
+1.  [**Fundamentals of Econometrics**: Using Statistics for Political Science and Political Economy](https://kevinli03.github.io/politicaleconomy/1.pdf)
+2.  [**Political Game Theory**: Introduction to Formal Mathematical Models](https://kevinli03.github.io/politicaleconomy/2.pdf)
+3.  [**Political Economy**: Using Economic Models to Study Politics](https://kevinli03.github.io/politicaleconomy/3.pdf)
+4.  [**Advanced Statistical Methods**: Further Regression, Time Series, and Latent Variables](https://kevinli03.github.io/politicaleconomy/4.pdf)
+5.  [**Social Data Science**: Using Machine Learning for Political Science and Political Economy](https://kevinli03.github.io/politicaleconomy/5.pdf)
 
--   [Volume I: Formal Mathematical Models](https://kevinli03.github.io/politicaleconomy/1.pdf)
-
--   [Volume II: Models in Political Economy](https://kevinli03.github.io/politicaleconomy/2.pdf)
-
-**Empirical Political Economy**: A series on the use of empirical data to validate political economy models.
-
--   [Volume I: Econometric Methods](https://kevinli03.github.io/econometrics/1.pdf)
-
--   [Volume II: Further Econometric Methods](https://kevinli03.github.io/econometrics/2.pdf)
-
--   [Volume III: Machine Learning Methods](https://kevinli03.github.io/econometrics/3.pdf)
-
-Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf)
+Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
 
 <br />
 
