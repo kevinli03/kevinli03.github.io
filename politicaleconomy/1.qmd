@@ -1,5 +1,5 @@
 ---
-title: "Fundamentals of Econometrics"
+title: "Political Econometrics"
 subtitle: "Using Statistics for Political Science and Political Economy"
 author: "Kevin Lingfeng Li"
 format:
@@ -35,7 +35,7 @@ include-before-body:
 
 This book is part of a 5-part series on **Political Science and Political Economy**:
 
-1.  **Fundamentals of Econometrics: Using Statstics for Political Science and Political Economy** (This book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+1.  **Political Econometrics: Using Statstics for Political Science and Political Economy** (This book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
 2.  **Political Game Theory: Introduction to Formal Mathematical Models** introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
 3.  **Political Economy: Using Economic Models to Study Politics** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
 4.  **Advanced Statistical Methods: Further Regression, Time Series, and Latent Variables** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
