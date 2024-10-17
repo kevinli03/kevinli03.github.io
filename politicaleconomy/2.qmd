@@ -28,15 +28,13 @@ This book is part of a 5-part series on **Political Science and Political Econom
 4.  **Advanced Statistical Methods: Further Regression, Time Series, and Latent Variables** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
 5.  **Social Data Science: Using Machine Learning for Political Science and Political Economy** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
 I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
 
-
-
 ## Introduction to Game Theory
 
-Note: This book requires a familiarity with some single variable calculus and probability (specifically, a strong understanding of Bayes' Rule).
+Note: This book requires a familiarity with some single variable calculus and probability (specifically, a strong understanding of Bayes' Rule). See [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf).
 
 ### Modelling and Game Theory
 
@@ -151,7 +149,7 @@ Formally, a dominant strategy, notated $s_i^D$, is a dominant strategy, if it is
 Mathematically, we can represent that statement as following:
 
 $$
-u_i(s_i^D, s{-i}) > u_i (s_i', s_{-i})
+u_i(s_i^D, s_{-i}) > u_i (s_i', s_{-i})
 $$
 
 Which translates into words as - the utility of player $i$ choosing their dominant strategy $s_i^D$, is always greater than the utility of player $i$ choosing another strategy $s_i'$, no matter the strategies chosen by the opponents $s_{-i}$
@@ -544,7 +542,79 @@ $$
 
 So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less than 0% of the time, which is impossible. Thus, (Down, Right) is not a robust Nash Equilibrium
 
-## Downsian Spatial Models
+## Downsian Models of Electoral Competition
+
+### Median Voter Theory
+
+Have you ever noticed that many businesses, that are competitors, are often located in the same place? For example, there are often competing petrol stations all around the same intersection. Or multiple fast food or coffee chains in the same place? Or a bunch of Chinese stores concentrated in one small area?
+
+Hotelling argued this is no accident - these businesses have incentives to locate here. These locations are Nash Equilibriums of the competitive game between businesses.
+
+The **Downsian Model**, also called the **Median Voter Theory**, applies this same logic to political parties. The model takes the following characteristics:
+
+*There are two political parties, who both want to win an election. The only "tool", or more formally, action, the two parties can take is to choose where to position their party's policy platform on a left-right spectrum (between -1 and 1). Citizens also have preferences along this left-right spectrum between -1 and 1, with the median voter's position being defined as* $m$*. Citizens will always vote for the party that is positioned closest to their preference on the left-right spectrum. The party that obtains the most citizens' votes wins. Indifferent citizens (that are equidistant to both party's positions) will have a 50/50 chance to vote for either party. If the parties tie in terms of votes, they each win the election with a 50/50 chance.*
+
+We can formalise this game into a strategic game:
+
+-   There are two players - political parties. Let us label them $A$ and $B$
+
+-   The players actions are to simultaneously choose a policy position between -1 and 1: $p_i \in [-1, 1]$
+
+-   The objective is to attract the most votes (so 50% or above, since there are 2 parties).
+
+What is the Nash Equilibrium of this game?
+
+First, let us think about how any party would win the election: they need 50% of the votes. By definition, the median voter is in the 50th percentile. Thus, to win at least 50 percent of the votes, you must win the median voter. To win the median voter, you must be closer to the median voter's position $m$, than the other party.
+
+Let us look at a few scenarios:
+
+-   What if party $A$ is positioned to the right of the median, so $p_A > m$? Party $B$ can best respond by playing anything closer to the median voter, which are $-p_A < p_B < p_A$. Then, party $A$ can respond to that, and move even closer to the median voter, and so on...
+
+-   The same is the case if party $A$ is positioned to the left of the median. Party $B$ will best respond by playing anything closer to the median voter, and party $A$ will do the same, and so on...
+
+Eventually, the two parties will converge at the median voter's preference $m$. Since you always want to be closer to the median in order to win 50% of the vote, both parties will coverge at $m$.
+
+[Thus, the Nash Equilibrium of the Downsian Model is strategy profile $(p_A = m, p_B = m)$]{.underline}.
+
+-   We can check this by checking profitable deviations. Here, with both players playing $m$, they get a payoff of 0.5 chance of winning the election.
+
+-   If either player $i$ moves away from $m$, they automatically lose the election since they are further from the median voter, thus they get payoff 0. Thus, there is no profitable deviation.
+
+### Evaluating Median Voter Theory
+
+Median Voter Theory predicts that both political parties converge towards the median voter. Is this the case in reality?
+
+-   You probably have heard of the complaint: *"I am not voting, because both parties are essentially the same thing"*. This might be used as evidence supporting Median Voter Theory. A more tangible real world example is the difference between Tony Blair/Gordon Brown and David Cameron, both centrist political figures.
+
+-   However, you might also point to the United States, where we have seen a massive divergence between the parties. Donald Trump and Kamala Harris certainly do not seem to be converging, although they do spend a lot of money trying to flip swing states with many "median voters".
+
+An important thing to understand when evaluating models is that [we do not evaluate models based on their conclusions]{.underline}. This is because the results of a formal mathematical model come directly from the assumptions of the model. To assess any model, we must [critically assess the assumptions on which the model is built on]{.underline}.
+
+Let us look at the assumptions of the Median Voter Theory:
+
+1.  **Bounded and One Dimensional**: Median Voter Theory assumes the policy space is both bounded between -1 and 1, as well as being one dimensional (left-right only, no authoritarian/libertarian and progressive/conservative axis, or other forms of political compass).
+2.  **Distribution of Citizens**: Median Voter Theory assumes that citizens are distributed uniformly along the spectrum. What happens if a society has polarised citizens, or if the citizens lean in one direction?
+3.  **Symmetrical Preferences**: Median Voter Theory assumes that the only thing affected citizen's choice is the distance between their reference and the party, which implies differences in both directions (right and left) are equal in magnitude for the voter.
+4.  **No Cost of Voting and No Abstaining**: Median Voter Theory assumes no costs of voting, and that everyone does vote. What happens if this is not the case?
+5.  **Two Party System**: Median Voter Theory assumes there are only 2 parties. What happens when a 3rd or more enter?
+6.  **Parties are Rent-Seeking**: Median Voter Theory assumes parties only aim to win elections - they do not care about their actual policies, they only use that to win an election. But what if politicians do care about the policies they are promoting?
+7.  Parties can propose any policy, and can commit to implementing these policies - for example, even if Donald Trump promised to become communist, the voters would believe him. If they did not, then that would mean parties cannot freely switch their position on the spectrum to win votes, and the candidate's own background matters more. This introduces the **Citizen-Candidate Model**.
+
+In the rest of the chapter, we will go through each assumption, and see how altering each assumption may affect our predictions.
+
+### Unbounded and Multi-Dimensional Models
+
+### Other Distributions of Citizens
+
+### Asymmetrical Voter Preferences
+
+### Costs of Voting and Abstaining Voters
+
+### Mutli-Party Systems
+
+### Policy-Seeking Parties
+
+### Citizen-Candidate Model
 
 ## Mixed Strategies
 

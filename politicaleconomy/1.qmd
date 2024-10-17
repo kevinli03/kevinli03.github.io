@@ -41,15 +41,15 @@ This book is part of a 5-part series on **Political Science and Political Econom
 4.  **Advanced Statistical Methods: Further Regression, Time Series, and Latent Variables** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
 5.  **Social Data Science: Using Machine Learning for Political Science and Political Economy** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
 This book will use the R language for some examples. This is not a coding course, so I will not introduce the basics of R.
 
 # Basics of Probability and Statistics
 
-## Concepts in Probability
+## Basic Probability
 
-See [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf) for more detailed explanations.
+See [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf) for more detailed explanations.
 
 ### Sets and Set Operators
 
@@ -121,11 +121,11 @@ Each part of Bayes' Theorem has a name. They are commonly referenced, so it is u
 
 -   $Pr(B)$ is the [marginal]{.underline} probability
 
-## Random Variables
+## Basic Statistics
 
 See [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf) for more detailed explanations.
 
-### Randomness
+### Random Variables
 
 Random variables are variables that represent unobserved events that have some randomness - a set of potential outcomes, with each outcome having a probability of occurring.
 
@@ -196,8 +196,6 @@ This is important, because the [area under the distribution curve is the probabi
 Any normal distribution can be described with 2 features: mean $\mu$ and variance $\sigma^2$ in the following form: $X \sim \mathcal{N}(\mu, \sigma^2)$. For example, $X \sim \mathcal{N} (30, 4)$ means a normal distribution with mean 30 and variance 4.
 
 The T distribution is a distribution very similar to the shape and size of the normal distribution, however, generally has thicker tails and a lower peak. The key difference is that t-distributions are defined with only one parameter - degrees of freedom $DF$.
-
-## Relationships Between Features
 
 ### Covariance and Correlation
 
@@ -335,7 +333,7 @@ Simple Linear Regression is a special case of the linear model, when there is on
 $\hat{\beta}$ is the slope of the the linear model. [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}.
 
 -   A positive $\hat{\beta}$ means a positive relationship, a negative $\hat{\beta}$ means a negative relationship, and $\hat{\beta} = 0$ means no relationship.
--   Note: If $Y$ is binary (i.e. only 0 or 1), we interpret it as the [expected change in probability of outcome category $Y=1$ occurring]{.underline}.
+-   This is only for continuous $X$ explanatory variables. See Chapter 5 for categorical/binary explanatory variables.
 
 $\hat{\alpha}$ is the y-intercept of the linear model. $\hat{\alpha}$ is the expected value of $\hat{Y}$, given $X=0$.
 
@@ -361,25 +359,23 @@ So, instead of the expected change of $Y$ given one unit increase of $X$, we ins
 
 How do we calculate this? There is a formula! $Y$ changes by $(SD_{X_j} \times \hat{\beta}_j) / SD_Y$, where $SD$ represents standard deviation, and $X_j$ is the variable whose coefficient we are interpreting.
 
-#### Binary $X$ Variable Interpretation
+#### Binary $Y$ Variable Interpretation
 
-If our explanatory variable(s) are binary, (i.e. $X_j$ only has two values, 0 and 1), then our interpretation differs slightly.
+If our response variable is binary, (i.e. $Y$ only has two values, 0 and 1), then our interpretation differs slightly. We treat $Y$ as a variable of two categories, $Y = 0$ and $Y = 1$.
 
-We essentially treat the explanatory variable as a variable of 2 different categories, category $X_j=0$, and category $X_j=1$
+[$\hat{\beta}_j$ is the expected change in the probability of getting category $Y = 1$, given a one-unit increase in $X_j$]{.underline}. We could multiply this by 100 to get the expected percentage point change.
 
-Now, [$\hat{\alpha}$ is the expected value of $Y$ for an observation in category $X_j = 0$]{.underline}.
+$\hat{\alpha}$ is the expected probability of getting category $Y=1$, when $X_j = 0$.
 
-[$\hat{\beta}_j$ is the expected difference in the value of $Y$, between the categories $X_j = 1$ and $X_j = 0$]{.underline}
+An important note is that, in theory, for a linear regression model, $Y$ should be continuous, not binary. In theory, we should be using logistic regression instead of linear regression (which is covered in the Advanced Statistical Methods book).
 
-[To find the expected value of $Y$ for an observation in $X_j=1$, you would need to do $\hat{\alpha} + \hat{\beta}_j$.]{.underline}
-
-You can test these interpretations yourself by plugging in $X=0$ and $X=1$ into a linear model.
+-   However, in practice, researchers often do use linear regression for binary $Y$, simply because linear regression is easier to interpret, and easier to incorporate into more causal inference methods.
 
 ### Model Summary Statistics
 
 #### Estimated Residual Standard Deviation
 
-We can derive the estimate of the **residual variance** $\sigma^2$ (variance of the error term) with this formula (standard deviation is the square root of it):
+We can derive the estimate of the **residual variance** $\sigma^2$ with this formula:
 
 $$
 \hat{\sigma}^2 = \frac{\sum(Y_i - \hat{Y}_i)^2}{n-k-1}
@@ -397,7 +393,7 @@ The figure below better showcases this in 2 different models. The red lines are 
 
 ![](figures/1/4.1.png){fig-align="center" width="70%"}
 
-The residual standard deviation $\hat{\sigma}$ is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
+The residual standard deviation $\hat{\sigma}$ (square root of variance) is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
 
 If $\hat{\sigma}$ varies depending on the value of $X$, then that is called **heteroscedasticity**. When this occurs, it is often a suggestion that our relationship may not be linear - and we perhaps need to try a few transformations. We will get into transformations in a later chapter.
 
@@ -514,7 +510,7 @@ The **standard error** is the standard deviation of the sampling distribution. I
 
 ### Confidence Intervals
 
-Our OLS estimation (from chapter 4) has produced a $\hat{\beta}_j$ based on the data in one sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample, due to sampling variation.
+Our OLS estimation (from chapter 3) has produced a $\hat{\beta}_j$ based on the data in one sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample, due to sampling variation.
 
 Thus, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95% (the standard confidence level):
 
@@ -612,21 +608,17 @@ confint(model)
 
 As we can see, this command gives us 95% confidence intervals (both lower and upper bounds), for all parameters in our model.
 
-## Interaction Effects
+## Other Explanatory Variables
 
-### Binary Interaction Effect
-
-### Continuous Interaction Effect
-
-### Interactions in R
-
-## Non-Linear Transformations
+### Categorical Dummy Variables
 
 ### Logarithmic Transformations
 
 ### Polynomial Transformations
 
-### Transformations in R
+### Interaction Effects
+
+### Explanatory Variables in R
 
 ## Panel and Clustered Data
 

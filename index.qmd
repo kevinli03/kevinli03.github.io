@@ -77,7 +77,7 @@ These are a few books that I am working on to summarise my education in Politica
 4.  [**Advanced Statistical Methods**: Further Regression, Time Series, and Latent Variables](https://kevinli03.github.io/politicaleconomy/4.pdf)
 5.  [**Social Data Science**: Using Machine Learning for Political Science and Political Economy](https://kevinli03.github.io/politicaleconomy/5.pdf)
 
-Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
+Finally, a companion book: [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
 
 <br />
 
@@ -117,7 +117,7 @@ These are a few books that I am working on to summarise my education in Politica
 4.  [**Advanced Statistical Methods**: Further Regression, Time Series, and Latent Variables](https://kevinli03.github.io/politicaleconomy/4.pdf)
 5.  [**Social Data Science**: Using Machine Learning for Political Science and Political Economy](https://kevinli03.github.io/politicaleconomy/5.pdf)
 
-Finally, a companion book: [Essential Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
+Finally, a companion book: [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
 
 <br />
 
