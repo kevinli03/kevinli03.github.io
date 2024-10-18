@@ -574,8 +574,6 @@ The area highlighted is our p-value. Essentially, a p-value is how likely we are
 
 Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
 
-### F-Tests
-
 ### Hypothesis Testing in R
 
 For hypothesis testing, we just run the regression like we would normally (see section 4.5). For example, let us run a model prediction *polity_2* with 2 explanatory variables
@@ -598,8 +596,6 @@ Now, let us look at the coefficients table:
 
 -   For more details of interpretation, see the previous sections in this chapter.
 
-Below the coefficient table at the very bottom, we can see the *F-Statistic* section, which provides the f-test statistic and p-value of the f-test.
-
 To calculate confidence intervals, we can use the *confint()* command, and simply input the name of our model within:
 
 ```{r}
@@ -608,13 +604,15 @@ confint(model)
 
 As we can see, this command gives us 95% confidence intervals (both lower and upper bounds), for all parameters in our model.
 
-## Other Explanatory Variables
+## Explanatory Variable Analysis
 
-### Categorical Dummy Variables
+### Polynomial Transformations
 
 ### Logarithmic Transformations
 
-### Polynomial Transformations
+### Binary Explanatory Variable
+
+### Polytomous Explanatory Variable
 
 ### Interaction Effects
 
@@ -622,7 +620,23 @@ As we can see, this command gives us 95% confidence intervals (both lower and up
 
 ## Panel and Clustered Data
 
+### Hierarchical Data
+
+### Fixed Effects
+
+### Further Approaches
+
 ## Model Selection for Inference
+
+### Population Inference
+
+### Prediction
+
+### Causal Inference
+
+### Utility of Multiple Regression
+
+### Model Selection
 
 # Causal Inference for Political Economy
 
