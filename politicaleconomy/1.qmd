@@ -1,6 +1,6 @@
 ---
-title: "Political Econometrics"
-subtitle: "Using Statistics for Political Science and Political Economy"
+title: "Econometrics for Political Science: Using Statistics for Causal Inference"
+subtitle: "Kevin's Guide to Political Science and Political Economy"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -33,9 +33,9 @@ include-before-body:
 
 ## Preface {.unnumbered}
 
-This book is part of a 5-part series on **Political Science and Political Economy**:
+This book is part of a 5-part series on **Kevin's Guide to Political Science and Political Economy**:
 
-1.  **Political Econometrics: Using Statstics for Political Science and Political Economy** (This book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+1.  **Econometrics for Political Science: Using Statstics for Causal Inference** (This book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
 2.  **Political Game Theory: Introduction to Formal Mathematical Models** introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
 3.  **Political Economy: Using Economic Models to Study Politics** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
 4.  **Advanced Statistical Methods: Further Regression, Time Series, and Latent Variables** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
@@ -153,7 +153,7 @@ For example, the probability mass/density function of a dice is $f(y) = 1/6$. Th
 
 Expectation and Variance are two ways we can summarise the distributions of random variables.
 
-The **expectation**, often called the expected value or mean, is a measurement of the centre of a probability distribution. The expected value is statistically, the best guess of an outcome of a random variable, given no other information except its distribution. We notate expected value of a variable $Y$ as either $E[Y]$, $\bar{Y}$, or $\mu$.
+The **expectation**, often called the expected value or mean, is the best guess of an outcome of a random variable, given no other information except its distribution. We notate expected value of a variable $Y$ as either $E[Y]$, $\bar{Y}$, or $\mu$.
 
 The expected value for discrete variables is calculated by multiplying each outcome value by its associated probability, then doing that for all outcomes, and summing everything together. In other words, it is a weighted average of the outcomes, with the weights being the probability of each outcome.
 
@@ -245,13 +245,16 @@ The correlation coefficient is always between -1 and 1.
 
 While the correlation coefficient tells us the strength of a correlation, it does not say anything about the magnitude of the relationship. For example, if $X$ increases by one unit, how much does $Y$ increase by? The correlation coefficient does not say.
 
+-   In a linear model, the $X$ variable is considered the **explanatory** or **independent** variable, while the $Y$ is the **response** or **dependent** variable.
+
 Magnitude is quite an important concept. After all, even if two values are very highly correlated, if an increase of one unit in $X$ only leads to a miniscule increase in $Y$, this relationship might not be very important for understanding the world.
 
 A way to estimate the magnitude of the relationship between $X$ and $Y$ is the **best linear predictor.** The best linear predictor is a best fit line for the data, that takes the form of a linear equation: $Y = \alpha + \beta X$.
 
 In this equation, the $\beta$ term in the best fit line is the slope of the linear equation. Essentially, it tells us for every increase in one unit of $X$, how much do we expect $Y$ to increase by?
 
--   In a linear model, the $X$ variable is considered the **explanatory** or **independent** variable, while the $Y$ is the **response** or **dependent** variable.
+-   We can interpret the sign of $\beta$: a positive $\beta$ is a positive relationship, a negative $\beta$ is a negative relationship, and $\beta = 0$ is no relationship.
+-   We can also interpret the magnitude of $\beta$: as $X$ increases by 1 unit, $Y$ is expected to increase by $\beta$ units.
 
 The Best Linear Predictor is a form of Linear Regression, the primary topic we will cover in the next two chapters.
 
@@ -608,13 +611,287 @@ As we can see, this command gives us 95% confidence intervals (both lower and up
 
 ### Polynomial Transformations
 
+Sometimes, a linear (straight-line) best-fit line is a poor description of a relationship. For example, the relationship between two variables could be curved, not straight.
+
+We can model more flexible relationships that are not straight lines, by including a transformation of the variable $X$ that we are interested in. The most common transformations for non-linearity are polynomial transformations, including quadratic and cubic transformations.
+
+#### Quadratic Transformations
+
+Quadratic transformations of $X$ take the following form:
+
+$$
+E[Y] = \alpha + \beta_1 X + \beta_2 X^2
+$$
+
+If you recall from high-school algebra, an equation that takes the form of $y = ax^2 + bx + c$ creates a *parabola*. Indeed, this transformation fits a parabola as the best-fit line. However, there are a few things to consider:
+
+-   A true parabola has a domain of $(-∞, ∞)$. However, our model often does not need to do this. The best-fit parabola is only used for the range of plausible $X$ values, given the nature of our explanatory variable. For example, if $X$ was age, a negative number would make no sense.
+
+-   Because the parabola's domain often exceeds our plausible range of $X$ values, the vertex of the parabola (where it changes directions) may not be in our data.
+
+-   We always include lower degree terms in our model. For example, in this quadratic (power 2) model, we also include the $X$ term without the square.
+
+To fit a model like this, we simply do the same process of minimising the sum of squared errors.
+
+When we run a quadratic model in R, we get two coefficients: $\beta_1$ is attached to the $X$ term, while $\beta_2$ is attached to the $X^2$ term. How do we interpret these coefficients?
+
+-   $\beta_1$'s value is no longer directly interpretable. This is because we cannot "hold all other coefficients constant", since $\beta_2$ also contains the same $X$ variable. Thus, we cannot isolate the effect of $X$ and $\beta_1$.
+
+-   $\beta_2$'s value also cannot be directly interpreted. However, $\beta_2$ can tell us two things. First, [if the coefficient of $\beta_2$ is statistically significant, we can conclude that there is a non-linear relationship between $X$ and $Y$]{.underline}. Second, if $\beta_2$ is negative, the best-fit parabola will open downwards, and if $\beta_2$ is positive, the best-fit parabola will open upwards.
+
+If we want to interpret the magnitude of the model, we are best off using predicted values of $Y$ (obtained using the model equation above).
+
+There is one more thing we can interpret with the quadratic transformation: the **vertex** of the best-fit parabola. The vertex, if we remember our algebra, is either the maximum or minimum point of a parabola. Thus, if we remember from calculus and optimisation, we can find the maximum and minimums through setting the derivative equal to 0. For the quadratic model, this is as follows - we first find the derivative:
+
+$$
+Y = \hat{\alpha} + \hat{\beta}_1X + \hat{\beta}_2 X^2
+$$
+
+$$
+\frac{dY}{dX} = 0 + \hat{\beta}_1 + 2\hat{\beta}_2X
+$$
+
+Then, set the derivative equal to 0.
+
+$$
+0 = \hat{\beta}_1 + 2 \hat{\beta}_2X
+$$
+
+$$
+- \hat{\beta}_1 = 2 \hat{\beta}_2 X
+$$
+
+$$
+X = \frac{-\hat{\beta}_1}{2 \hat{\beta}_2}
+$$
+
+This point is useful, as it is either the maximum or minimum of our best-fit parabola. This means that at the $X$ value we calculate from this equation, we will either see the highest or lowest expected $Y$ value.
+
+#### General Polynomial Models
+
+While quadratic models are the most common polynomial transformation, we do not have to stop there. We can continue to add further polynomials (although anything beyond cubic is exceedingly rare):
+
+-   Cubic: $E[Y] = \alpha + \beta_1 X + \beta_2 X^2 + \beta_3 X^3$
+
+-   Quartic: $E[Y] = \alpha + \beta_1 X + \beta_2 X^2 + \beta_3 X^3 + \beta_4 x^4$
+
+Each higher order coefficient, if statistically significant, indicates that the relationship between $X$ and $Y$, is not of the previous highest power.
+
+-   For example, if the cubic term $\beta_3$ is statistically significant, we can reject a quadratic relationship between $X$ and $Y$
+
+Remember to always include the lower power monomials within our polynomial model. For example, if you have a quartic transformation, you must also have the linear, quadratic, and cubic terms.
+
 ### Logarithmic Transformations
+
+Logarithmic transformations are another form of non-linear transformations. Logarithmic transformations are commonly used for heavily skewed variables, such as when the explanatory variable is income, wealth, and so on.
+
+In situations with heavily skewed variables, we often replace $X$ in our models with $\log(X)$. Note that in statistics, when we refer to logarithms, we are referring to natural logarithms, such that $\log(X) = \ln(X)$.
+
+Thus, the logarithmic transformation takes the following form:
+
+$$
+E[Y] = \alpha + \beta \log(X)
+$$
+
+**Interpretation** of the $\beta$ coefficient can be a little bit trickier for logarithmic transformations. We could interpret it in the same way we interpret linear regressions: given a one unit increase in the log of $X$, there is an expected $\beta$ change in $Y$.
+
+However, this issue is that this does not really say much - I mean, who knows what a *one unit increase in the log of* $X$ even means?
+
+However, with some properties of logarithms, we can actually create a more useful interpretation. Based on logarithm rules, we know the following to be true:
+
+$$
+\log(X) + A = \log(X) + \log(e^A)
+$$
+
+$$
+\log(X) + \log(e^A) = \log(e^A \times X)
+$$
+
+Now, let us plug this into our original regression model:
+
+$$
+E[Y|X] = \alpha + \beta\log(X)
+$$
+
+$$
+E[Y|e^A \times X] = \alpha + \beta \log(e^A \times X)
+$$
+
+$$
+= \alpha + \beta[\log(X) + A] = \alpha + \beta A + \beta \log(X)
+$$
+
+{{< pagebreak >}}
+
+Now find the difference between $E[Y|e^A \times X]$ and $E[Y|X]$:
+
+$$
+E[Y|e^A \times X] - E[Y|X] = [\alpha + \beta A + \beta\log(X)] - [\alpha + \beta\log(X)] 
+$$
+
+$$
+E[Y|e^A \times X] - E[Y|X] = \beta A
+$$
+
+Thus, we can seen that when we multiply $X$ by $e^A$, we get an expected $\beta A$ change in $Y$.
+
+We can make this interpretation more useful by purposely choosing some value $A$ that makes $e^A$ make more sense. For example, if $A = 0.095$, then $e^A = 1.1$. Why is that $A$ value useful? Well, that means when we multiply $X \times e^A$, we are actually doing $X \times 1.1$, which if you remember your percentages, means a 10% increase in $X$. [Thus, increasing $X$ by 10% is associated with an expected change of $0.095 \beta$ units of $Y$.]{.underline}
 
 ### Binary Explanatory Variable
 
+Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$:
+
+$$
+E[Y|X = 0] = \alpha + \beta(0) = \alpha
+$$
+
+$$
+E[Y|X=1] = \alpha + \beta(1) = \alpha + \beta
+$$
+
+$$
+E[Y|X=1] - E[Y|X=0] = (\alpha + \beta) - \alpha = \beta
+$$
+
+From the above, we can see the following interpretations of our coefficients:
+
+-   $\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
+
+-   $\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
+
+-   [$\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$]{.underline}
+
+Thus, we can see that $\beta$ is measuring the difference between the two categories. In fact, $\beta$ actually becomes a difference-in-means test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
+
+Because of the unique coefficient meanings in a regression with binary explanatory variables, the OLS estimator also takes a shortcut when estimated the coefficients $\alpha$ and $\beta$:
+
+-   Coefficient $\alpha$ is estimated as $\hat{\alpha} = \bar{Y}_0$
+
+-   Coefficient $\beta$ is estimated as $\hat{\beta} = \bar{Y}_1 - \bar{Y}_0$
+
+Where $\bar{Y}_1$ is the sample mean of $Y$ for observations in category $X=1$, and $\bar{Y}_0$ is the sample mean of $Y$ for observations in category $X = 0$.
+
 ### Polytomous Explanatory Variable
 
+A **polytomous** variable is one with 3 or more categories that are unranked. A classic example is the variable *country*, which is a categorical variable with all the different countries included in a dataset such as Argentina, France, Mexico, etc.
+
+How do we run a regression with polytomous explanatory variables? What happens is that we divide the variables into a set of dummy binary variables.
+
+-   Dummy binary variables are created for all [except one]{.underline} of the categories in our variable. Each dummy variable has two values - 1 meaning the observation is in the category, and 0 meaning the observation is not in that category.
+
+-   The category without a dummy variable is the **reference/baseline** category. Essentially, when all other dummy variables are equal to 0, that is referring to the reference/baseline category.
+
+Thus, for the $n$ number of categories in $X$, we would create $n-1$ dummy variables, and input it into a regression equation as follows:
+
+$$
+E[Y] = \alpha + \beta_{x=0}X_{x=0} + \beta_{x=1}X_{x=1} + ... + \beta_{x=n-1}X_{x=n-1}
+$$
+
+For example, take the following polytomous variable: *company*, which contains the categories *microsoft, google,* and *apple*.
+
+-   Let us create dummy variables for 2 of the 3 categories.
+
+-   *Google* will become the first dummy variable $X_g$. When $X_g = 1$, that observation is part of the *google* category. When $X_g = 0$, that observation is NOT a part of the *google* category.
+
+-   *Apple* will become the second dummy variable $X_a$. When $X_a = 1$, that observation is part of the *apple* category. When $X_a = 0$, that observation is NOT a part of the *apple* category.
+
+-   *Microsoft* will not get its own dummy variable. This is because when both *apple* and *microsoft* $X_g = X_a = 0$ that is referring to the *microsoft* category (since these are the only observations not a part of either previous category).
+
+Mathematically, this is how it would be represented in a regression equation:
+
+$$
+E[Y] = \alpha + \beta_g X_g + \beta_a X_a
+$$
+
+To find the expected value of each category, we would do the following:
+
+$$
+E[Y|X = \text{Google}] = E[Y|X_g = 1, X_a = 0] = \alpha + \beta_g(1) + \beta_a(0) = \alpha + \beta_g
+$$
+
+$$
+E[Y|X = \text{Apple}] = E[Y|X_g = 0, X_a = 1] = \alpha + \beta_g(0) + \beta_a(1) = \alpha + \beta_a
+$$
+
+$$
+E[Y|X = \text{Microsoft}] = E[Y|X_g = 0, X_a = 0] = \alpha + \beta_g(0) + \beta_a(0) = \alpha
+$$
+
+Thus, from these above equations, we can see the interpretation of the coefficients:
+
+-   $\alpha$ is the expected value of the reference category, in this case, *microsoft*.
+
+-   $\beta_g$ is the expected $Y$ difference between the *google* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+
+-   $\beta_a$ is the expected $Y$ difference between the *apple* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+
+[More generally, the $\beta_j$ of category $j$'s dummy variable, represents the expected difference in $Y$ between category $j$ and the reference/baseline category]{.underline}.
+
+Notice how the coefficient $p$-values are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable *company* that has 3 different categories. To test the statistical significance of the entire categorical variable, we use an F-test.
+
+An F-test, simply, tests a model's explanatory power against the explanatory power of a model where all coefficients $\alpha, \beta_1, ..., \beta_n$ all are equal to 0. Thus, an F-test would allow us to test the significance of the effect of the variable *company* on $Y$, which our individual $\beta$ coefficients do not tell us.
+
 ### Interaction Effects
+
+Interactions, also called moderating effects, means that the effect of some $X_j$ on $Y$ is not constant, and depends on some third variable $X_k$. Essentially, $X_k$'s value changes the relationship between $X_j$ and $Y$.
+
+This is quite common in the real world. For example, imagine outcome variable $Y$ to be the severity of a car crash. $X_1$ can represent the darkness of the road at the time of the car crash. $X_2$ can represent the slipperiness of the road at the time of the car crash. We could quite reasonably expect that as the road is more slippery, i.e. $X_2$ increases, the darkness of the road $X_2$'s effect on the severity of a car crash $Y$ might be stronger, since slippery further enhances the danger of dark roads.
+
+Or for a more political example, $Y$ could be the chance of a civil war occurring, $X_1$ is the severity of an economic crash, and $X_2$ is the development level of a country. We could quite reasonably expect that in the effect of a economic crash on a chance of civil war would be significantly higher in developing nations rather than developed. Or in other words, the chance that a civil war occurs due to a economic rash is higher in countries like Venezuela, North Korea and Eritrea, compared to the that relationship in Norway, Switzerland, and Denmark.
+
+Interaction effects are represented by two variables being multiplied together in a regression equation. In the model below, $X_1$ and $X_2$ are interacting with each other:
+
+$$
+E[Y] = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2
+$$
+
+We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$.
+
+$$
+\hat{Y} = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2
+$$
+
+$$
+\frac{\partial \hat{Y}}{\partial X_1} = 0 + \hat{\beta}_1 + 0 + \hat{\beta}_3X_2
+$$
+
+$$
+\frac{\partial \hat{Y}}{\partial X_1} = \hat{\beta}_1 + \hat{\beta}_3X_2
+$$
+
+As you can see, the relationship between $X_1$ and $Y$ here depends on the value of $X_2$. In more intuitive words, given a one unit increase in $X_1$, there is an expected $\hat{\beta}_1 + \hat{\beta_3}X_2$ increase in $Y$.
+
+We can also find the effect of $X_2$ on $Y$:
+
+$$
+\hat{Y} = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2
+$$
+
+$$
+\frac{\partial \hat{Y}}{\partial X_2} = \hat{\beta}_2 + \hat{\beta}_3X_1
+$$
+
+With these equations, we can interpret the coefficients of our model:
+
+-   $\hat{\beta}_1$ is the relationship between $X_1$ and $Y$, given $X_2 = 0$.
+
+-   $\hat{\beta}_2$ is the relationship between $X_2$ and $Y$, given $X_1 = 0$.
+
+-   $\hat{\beta}_3$ represents two things. For every one unit increase of $X_2$, the magnitude of the relationship between $X_1$ and $Y$ changes by $\hat{\beta}_3$. Similarly, for every one unit increase of $X_1$, the magnitude of the relationship between $X_2$ and $Y$ changes by $\hat{\beta}_3$
+
+-   $\alpha$ is still the expected value of $Y$ when all explanatory variables equal 0.
+
+The coefficient $\beta_3$'s significance level tells us if there is a statistically significant interaction. If $\beta_3$ is not statistically significant, we can often remove the interaction term. However, if $\beta_3$ is statistically significant, that means we have found two terms that interact.
+
+Often times, our [moderating effect $X_2$ is a binary variable]{.underline} (for example, developed/developing country, true/false, yes/no). In this scenario:
+
+-   $\hat{\beta}_1$ is the relationship between $X_1$ and $Y$ when $X_2$ is in the category $X=0$.
+
+-   $\hat{\beta}_1 + \beta_3$ is the relationship between $X_1$ and $Y$ when $X_2$ is in the category $X=1$.
+
+-   $\hat{\beta}_3$ is the difference in the magnitude of the relationship between $X_1$ and $Y$, between the categories $X=1$ and $X=0$.
+
+You can get all of these interpretations above simply by plugging in $X_2 = 0$ and $X_2 = 1$ into the previous equations we have found.
 
 ### Explanatory Variables in R
 
