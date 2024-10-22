@@ -604,7 +604,40 @@ In the rest of the chapter, we will go through each assumption, and see how alte
 
 ### Unbounded and Multi-Dimensional Models
 
+In the Downsian Model, we assumed policy preferences are distributed in an interval $[-1, 1]$. However, even without this assumption, the Downsian Model still has a Nash Equilibrium at the median voter position $m$
+
+-   This is because the median voter is by definition, the 50th percentile. To win a majority, you need to win more than 50%. Thus, any bounds of is policy preferences will still have a Nash Equilibrium at the median voter position $m$
+
+In the Downsian Model, we also assumed policy preferences are only in a one-dimensional plain $R^1$ (the real number line). However, in the real world, policy is often made on many different dimensions, such as a spectrum for environmental policy, immigration policy, social policy, and so on.
+
+[When we extend the model beyond one dimension, there is no Nash Equilibrium]{.underline} at all for the parties. The reason for this is that it imitates another game, called the *Budget Allocatio*n or *Divide the Dollar* game.
+
+In this game, there are 3 "regions" $1, 2, 3$ that want budget from the central government, which has only a limited amount of funds. From each region, a politician is elected to represent them. To approve any budget, 2/3 of the politicians need to agree.
+
+Let us represent the total central government budget as $1$ (100%). Thus, the amount of money distributed to each region $q_i$, must meet the criteria: $q_1 + q_2 + q_3 = 1$. Each politician wants to get the maximum amount of budget for their region.
+
+At first, we might think that a fair distribution between the 3 regions is $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$. However, there is a profitable deviation to this outcome. For example, take the budget $(\frac{1}{2}, \frac{1}{2}, 0)$ - remember, only 2/3 politicians need to agree to approve a budget. In this new budget, politician 1 increases the budget for their region from $1/3$ to $1/2,$, and politician 2 also increases the budget for their region. Thus, 2/3 politicians agree to the new budget, passing it.
+
+However, there is also a profitable deviation to the budget $(\frac{1}{2}, \frac{1}{2}, 0)$ - $(0, \frac{3}{5}, \frac{2}{5})$. Here, politicians 2 and 3 are increasing their allocation of the budget, and thus, will vote in favor of the new budget.
+
+In fact, for every single budget proposal, there is always an incentive for 2 players to deviate. We can actually demonstrate this with a cyclical example:
+
+1.  Let us start with distribution $(\frac{1}{2}, \frac{1}{2}, 0)$
+2.  We can deviate to distribution $(0, \frac{3}{5}, \frac{2}{5})$, as player 2 and 3 improve their payoffs.
+3.  Then, we deviate to $(\frac{2}{5}, 0, \frac{3}{5})$, as player 1 and 3 improve their payoffs.
+4.  Then, we can deviate back to our first distribution $(\frac{1}{2}, \frac{1}{2},0)$, and restart the cycle.
+
+[Essentially, there is never a Nash Equilibrium, because there is always an incentive for 2 players to deviate]{.underline}.
+
+We can model a multidimensional Downsian Model in the same way. Each "dimension" of policy, like environmental, defense, social, etc., is a different budget allocation. Each party will always be able to "outflank" the other party by diverting budget away from one issue and giving it to another, making some citizens happier. Thus, there is no Nash Equilibria is the Downsian Model has multiple policy dimensions.
+
 ### Other Distributions of Citizens
+
+In the Downsian Model, we assumed that citizen/voter preferences are uniformly distributed. However, [with any distribution of voter preferences, the median voter theory still holds]{.underline}. This does not matter if the voters are polarised with very few voters in the middle, if they are normally distributed, if they all lean left or right, etc.
+
+The reason for this is that the median voter position, $m$, by definition, is the 50th percentile - 50% of the citizens are to the right of them, and 50% are to the left of them. Thus, to win any 2-party election, you need to win more than 50% of the votes, and by definition, the 50th percentile must be included in that winning majority.
+
+Note that the median value can change. For example, in a country with very left-leaning citizens, the median position $m$ might not be at 0, it could be $m = -0.5$. However, the optimal positioning of political parties will still be at the median voter $m$, no matter what value $m$ takes.
 
 ### Asymmetrical Voter Preferences
 
