@@ -67,7 +67,7 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
-### Political Science and Political Economy Series
+### Kevin's Guide to Political Science and Political Economy
 
 These are a few books that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
@@ -77,7 +77,7 @@ These are a few books that I am working on to summarise my education in Politica
 4.  [**Advanced Statistical Methods**: Further Regression, Time Series, and Latent Variables](https://kevinli03.github.io/politicaleconomy/4.pdf)
 5.  [**Social Data Science**: Using Machine Learning for Political Science and Political Economy](https://kevinli03.github.io/politicaleconomy/5.pdf)
 
-Finally, a companion book: [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
+Finally, a companion book: [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
 
 <br />
 
@@ -107,7 +107,7 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### Political Science and Political Economy Series
+### Kevin's Guide to Political Science and Political Economy
 
 These are a few books that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
@@ -117,7 +117,7 @@ These are a few books that I am working on to summarise my education in Politica
 4.  [**Advanced Statistical Methods**: Further Regression, Time Series, and Latent Variables](https://kevinli03.github.io/politicaleconomy/4.pdf)
 5.  [**Social Data Science**: Using Machine Learning for Political Science and Political Economy](https://kevinli03.github.io/politicaleconomy/5.pdf)
 
-Finally, a companion book: [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
+Finally, a companion book: [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf)
 
 <br />
 

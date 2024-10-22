@@ -28,13 +28,13 @@ This book is part of a 5-part series: **Kevin's Guide to Political Science and P
 4.  **Advanced Statistical Methods: Further Regression, Time Series, and Latent Variables** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
 5.  **Social Data Science: Using Machine Learning for Political Science and Political Economy** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
 I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
 
 ## Introduction to Game Theory
 
-Note: This book requires a familiarity with some single variable calculus and probability (specifically, a strong understanding of Bayes' Rule). See [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf).
+Note: This book requires a familiarity with some single variable calculus and probability (specifically, a strong understanding of Bayes' Rule). See [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf).
 
 ### Modelling and Game Theory
 

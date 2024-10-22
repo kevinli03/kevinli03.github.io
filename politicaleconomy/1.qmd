@@ -41,7 +41,7 @@ This book is part of a 5-part series: **Kevin's Guide to Political Science and P
 4.  **Advanced Statistical Methods: Further Regression, Time Series, and Latent Variables** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
 5.  **Social Data Science: Using Machine Learning for Political Science and Political Economy** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
 
 This book will use the R language for some examples. This is not a coding course, so I will not introduce the basics of R.
 
@@ -49,7 +49,7 @@ This book will use the R language for some examples. This is not a coding course
 
 ## Basic Probability
 
-See [Mathematics for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf) for more detailed explanations.
+See [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf) for more detailed explanations.
 
 ### Sets and Set Operators
 
