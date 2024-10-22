@@ -33,7 +33,7 @@ include-before-body:
 
 ## Preface {.unnumbered}
 
-This book is part of a 5-part series on **Kevin's Guide to Political Science and Political Economy**:
+This book is part of a 5-part series: **Kevin's Guide to Political Science and Political Economy**:
 
 1.  **Econometrics for Political Science: Using Statstics for Causal Inference** (This book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
 2.  **Political Game Theory: Introduction to Formal Mathematical Models** introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.

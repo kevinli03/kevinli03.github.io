@@ -1,6 +1,6 @@
 ---
-title: "Political Game Theory"
-subtitle: "Introduction to Formal Mathematical Models"
+title: "Political Game Theory: Introduction to Formal Mathematical Models"
+subtitle: "Kevins' Guide to Political Science and Political Economy"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -20,7 +20,7 @@ format:
 
 ## Preface {.unnumbered}
 
-This book is part of a 5-part series on **Political Science and Political Economy**:
+This book is part of a 5-part series: **Kevin's Guide to Political Science and Political Economy**:
 
 1.  **Econometrics for Political Science: Using Statstics for Causal Inference** introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
 2.  **Political Game Theory: Introduction to Formal Mathematical Models** (This book) introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
@@ -641,13 +641,123 @@ Note that the median value can change. For example, in a country with very left-
 
 ### Asymmetrical Voter Preferences
 
+In the Downsian Model, we assumed that citizens will vote for the party whose preferences are closest to them. For example, if the citizen had an option of a party to the left within distance 0.2 and a party to the right within distance 0.3, they would prefer the party to the left.
+
+However, not all real world preferences of voters are symmetrical. For example, a left-wing voter could be uncomfortable with radical-left, so they would actual prefer a candidate 0.2 to the right over a further left candidate 0.1 to the left. This preference would be non-symmetric - i.e. the citizen favours deviations in one direction over another, from their preferred position.
+
+[Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility.
+
 ### Costs of Voting and Abstaining Voters
+
+In the Downsian Model, we assumed that there is no cost to voting for citizens, and all citizens will vote (rather than abstain).
+
+In this scenario, [there is no longer a Nash Equilibrium at the median voter]{.underline}. If both parties are situated at the median, no rational voter will vote if voting is costly - after all, no matter how they vote, the winning party will have the policy platform of the median voter. Thus, their vote is not pivotal to affect the policy actually implemented, and voting (with cost) would simply not be worth it.
+
+Only if parties are somewhat different, will voters be willing to bear the cost of voting to cast a vote. This way, their vote will actually matter, and they will be willing to bear the cost of voting. Thus, there is still a converging force towards the median in this scenario (since more towards the median means a higher chance of winning), but the two party's positions would stay far enough apart to incentivise voters to vote.
 
 ### Mutli-Party Systems
 
+In the Downsian Model, we assumed that there are only 2 parties and candidates. What if there were more than 2 parties (as is frequently the case)?
+
+In a 3 party election, there would no longer be a Nash Equilibrium at the median voter position. This is because any party $i$ has a profitable deviation in this scenario.
+
+If party $i$ were to slightly deviate by $\epsilon$ from the median voter, their new position on the spectrum would be $m + \epsilon$. The figure below shows this scenario:
+
+![](figures/2/5.1.png)
+
+In the figure above, we can see party $i$ that deviates $\epsilon$ from $m$ will win a vote share of $\frac{1}{2} - \frac{1}{2} \epsilon$, while the other two parties combine for $\frac{1}{2} + \frac{1}{2} \epsilon$, which is split between the two parties, so each party has a vote share $\frac{1}{4} + \frac{1}{4}\epsilon$.
+
+Thus, we can write an inequality to see for what deviation $\epsilon$ for player $i$, where player $i$'s vote share will be higher than the other two party's vote share.
+
+$$
+\frac{1}{2} - \frac{1}{2} \epsilon > \frac{1}{4} + \frac{1}{4}\epsilon
+$$
+
+$$
+\frac{1}{4} > \frac{3}{4} \epsilon
+$$
+
+$$
+\epsilon < \frac{1}{3}
+$$
+
+Thus, when $\epsilon < \frac{1}{3}$, then party $i$ gets the most votes of any party. Since if they did not deviate by $\epsilon$ and stayed at the median, they would have tied, that means party $i$ has a profitable deviation when the deviation $\epsilon < \frac{1}{3}$. Since party $i$ has a profitable deviation, we can conclude that [there is no Nash Equilibrium at the median voter in a 3 party election]{.underline}.
+
 ### Policy-Seeking Parties
 
+In the Downsian Model, we assumed that parties only care about winning elections (called rent-seeking behaviour). Thus, they are willing to adopt any policy that will help them win elections.
+
+However, many politicians actually hold strong beliefs over what policies are right and wrong. Thus, it is reasonable to expect that some parties may derive utility from the specific policies that can implement (policy-seeking behaviour). For example, while a socialist candidate may more easily win elections acting as a moderate at the median voter, they might also lose utility because they personally believe strongly in socialist policies.
+
+We can create a model for this situation. Let us pretend there are two parties, the *right* party $R$ and the *left* party $L$, who are on some political spectrum in $[-1, 1]$. Let us assume party $R$ prefers the policy position $p_R = 1$ the most, while party $L$ prefers the policy $p_L = -1$ the most.
+
+-   We can represent this in a utility function - where parties get more utility when the policy implemented by the winning party is closer to their preferred position, and get less utility when the policy implemented by the winning party is further from their preferred position.
+
+-   Mathematically, utility of party $R$ is $u_R(p) = -(p-1)^2$, where $p$ is the implemented policy position. This is because as the implemented policy $p$ goes further from 1, the utility falls in the utility function. The peak utility of this function is at policy position $1$.
+
+-   Similarly, utility of party $L$ is $u_L(p) = -(p+1)^2$, where $p$ is the implemented policy position. This function decreases as you go away from policy position $-1$, and has a maximum utility at policy position $-1$.
+
+We can also define $\pi(p_L, p_R)$ as the probability party $L$ wins the election. Thus, we can write out the utility function of party $L$:
+
+$$
+u_L(p_L, p_R) = \pi(p_L, p_R) \times -(p_L + 1)^2 + [1 - \pi(p_L, p_R)] \times -(p_R + 1)^2
+$$
+
+Let us break this utility function down into its constituent parts to better understand it:
+
+-   The left hand side of the equation, $u_L(p_L, p_R)$, is the utility function of party $L$, given party $L$ plays some position $p_L$, and party $R$ plays some position $p_R$.
+
+-   The first part of the right hand side, $\pi(p_L, p_R) \times -(p_L + 1)^2$, consists of two parts. $\pi(p_L, p_R)$ is the probability party $L$ wins the election. $-(p_L + 1)^2$ is the utility function of party $L$ we created previously, but since party $L$ wins the election, we replace $p$ with $p_L$. These two parts essentially state: given the probability party $L$ wins the election, how does it feel about the own policies it is implementing?
+
+-   The second part of the right hand side, $[1 - \pi(p_L, p_R)] \times -(p_R + 1)^2$, consists of two parts. $[1 - \pi(p_L, p_R)]$ represents the probability that party $R$ wins the election, since $\pi(p_L, p_R)$ is the probability that party $L$ wins the election, and in a two party election, the probability that party $R$ wins the election is simply $1 -$ the probability that party $L$ wins. $-(p_R + 1)^2$ is the utility function of party $L$ we created previously, but since party $R$ wins the election, we replace $p$ with $p_R$. These two parts essentially state: given the probability party $R$ wins the election, how does party $L$ feel about the policies that party $R$ is implementing.
+
+So essentially, the utility function of player $L$ is a expected utility of the probability of party $L$ winning the election and implementing its own policies, and the probability of party $R$ winning the election and implementing their probabilities.
+
+[Despite this additional complexity with the policy-seeking behaviour of policies, the median voter is still the Nash Equilibrium of this game]{.underline}. This is because while both parties would like to implement non-median policies, if they deviate away from the median, they will let the other party win, and thus have to deal with the other party's policies, which they find even worse. If you win the election, you implement your own policy, and deny the opponent their chance of implementing their policy that you disagree with.
+
 ### Citizen-Candidate Model
+
+The Downsian Model assumes that parties can select any policy position on the spectrum that will help them win the election. However, in reality, this is not the case. Let us take Bernie Sanders - pretend he was in a presidential election. Bernie decides that in order to maximise his chances of winning, he is going to move to the very centre of the political spectrum where the median voter is. Do you think the voters will believe Bernie has suddenly became a centrist? Likely not - they will assume that Bernie is still a far-left candidate, and many will still vote as if Bernie was a far-left candidate, despite his changed position.
+
+Now, it is not about the politician's policy promises on the political spectrum. Instead, voters are voting on the politician's personal identity and personal preferences on the political spectrum.
+
+The **Citizen-Candidate Game** is a new strategic game to represent this situation.
+
+-   The players of the game are a continuum of citizens along a spectrum, that are both potential voters and candidates.
+
+-   Each citizen has two actions: either remain a voter, or decide to run for office as a candidate. Citizens who remain voters will vote for the candidate closest to their personal preferences.
+
+-   The utility of a player is determined by how close the personal preferences of the candidate is from their own personal preferences.
+
+-   When no candidate enters the race, some status-quo policy $\hat{p}$ is implemented.
+
+-   There is a cost to choosing the action of becoming a candidate, the cost being some number $\delta$.
+
+-   For simplicity, let us assume the preferred policy of the median citizen is $m=0$, on a spectrum between $[-1, 1]$
+
+Let us find the Nash Equilibria of this game.
+
+First, let us test if there is a Nash Equilibrium at the median voter $m=0$, where only the median voter decides to become a candidate:
+
+-   The median citizen will only enter as a candidate, if the cost of voting $\delta$ is less than their dislike of the status-quo policy $\hat{p}$. After all, if they do not dislike the status-quo policy, why bear the cost of becoming a candidate?
+
+-   Let us say that indeed, $\delta ≤ |\hat{p}|$, and the median voter enters the election. If the median voter enters the election, we know that no other voters will enter the race. This is because the median voter will always beat anyone who is not at the median, so other citizens will have no incentive to bear the cost of entering as a candidate $\delta$ if they know they will lose for sure.
+
+-   [Thus, there is a Nash Equilibrium where the median voter runs, given $\delta ≤ |\hat{p}|$]{.underline}, as no other citizen has an incentive to join the election.
+
+Let us now test if there are any equilibrium with 2 candidates deciding to enter the race:
+
+-   First, we know that any pair of candidates running must be equidistant from the median. After all, if one candidate is closer to the median, they will for sure win the election, and thus, the other candidate will have no incentive to join.
+
+-   Thus, we will have two players (let us call them $R$ and $L$), where their positions are $p_R = \Delta$ and $p_L = - \Delta$ (you could more accurately write them as $m ± \Delta$, but since we assume $m=0$, we do not need to include the $m$).
+
+-   If $L$ does not enter the race, then player $R$ will win the race and implement their policy. Same with the reverse.
+
+-   However, $L$ and $R$ will have no incentive to enter the election, if they do not hate each other's policies that much. More specifically, they will not enter the race if their dislike of each other's policy does not exceed the cost of entry $\delta$
+
+-   Thus, when $\delta ≤ 2 \Delta$ (where $2 \Delta$ is the distance between $\Delta$ and $-\Delta$), both player $L$ and $R$ will join the election. No other candidates will join - citizens closer to the median do not dislike either $L$ or $R$ policies enough to endure the cost of joining $\delta$, and any other citizen further from the median will for sure lose to player $L$ and $R$, thus unwilling to bear the cost $\delta$ if they are guaranteed to lose.
+
+-   [Thus, there is an equilibrium with 2 players becoming candidates, where the two players are equidistant distance $\Delta$ from the median $m$, and when the inequality $\delta ≤ 2 \Delta$ is met]{.underline}.
 
 ## Mixed Strategies
 
