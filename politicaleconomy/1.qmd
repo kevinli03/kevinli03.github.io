@@ -1,6 +1,6 @@
 ---
-title: "Quantitative Methods and Analysis"
-subtitle: "Kevin's Guide to Political Science and Political Economy"
+title: "Econometrics for Political Analysis"
+subtitle: "Part of the series: Introduction to Political Economics"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -33,17 +33,17 @@ include-before-body:
 
 ## Preface {.unnumbered}
 
-This book is part of a 5-part series: **Kevin's Guide to Political Science and Political Economy**:
+This book is part of a 5-part series: **Introduction to Political Economics**, which introduces the main methods and concepts in the growing field of Political Economics.
 
-1.  **Quantitative Methods and Analysis** (This Book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  **Game Theory and Formal Models** introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  **Empirical Political Economy** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  **Advanced Quantitative Methods** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
+1.  **Econometrics for Political Analysis** (This Book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+2.  **Microeconomic Theory for Political Analysis** introduces key concepts in the field of Game Theory, traditionally used in microeconomics, but which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
+3.  **Economic Models of Politics** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
+4.  **Further Statistical Methods** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
 5.  **Data Science and Political Analysis** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-This book on Quantitative Methods focuses on developing the core statistical toolkit of political science and social science research. We start with a brief review of probability and basic statistics. Then, we introduce and rigorously analyse the Linear Regression model, its form, assumptions, extensions, and model selection. Finally, we discuss how we can achieve causal inference through a variety of techniques, such as randomised experiments, selection on observables, instrumental variables, and quasi-experimental methods.
+This book on Econometrics focuses on developing the core statistical toolkit of political science and social science research. We start with a brief review of probability and basic statistics. Then, we introduce and rigorously analyse the Linear Regression model, its form, assumptions, extensions, and model selection. Finally, we discuss how we can achieve causal inference through a variety of techniques, such as randomised experiments, selection on observables, instrumental variables, and quasi-experimental methods.
 
-This book comes with a companion manual - [Mathematical Methods for Political Science](https://kevinli03.github.io/politicaleconomy/maths.pdf), which covers some calculus and linear algebra that may be helpful for understanding some of the concepts and math in this book.
+This book assumes strong knowledge of core mathematical methods (calculus and linear algebra), and basic statistics (probability, random variables, correlation). This course involves much of the mathematical content in the companian book: *Quantitative Methods*. An even deeper understanding of more complex math in *Further Quantitative Methods* and *Introductory Proof and Analysis* are useful but not required.
 
 This book will use the R language for some examples. This is not a coding course, so I will not introduce the basics of R.
 

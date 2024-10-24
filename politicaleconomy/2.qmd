@@ -1,6 +1,6 @@
 ---
-title: "Game Theory and Formal Models"
-subtitle: "Kevins' Guide to Political Science and Political Economy"
+title: "Microeconomic Theory for Political Analysis"
+subtitle: "Part of the series: Introduction to Political Economics"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -13,28 +13,28 @@ format:
             - height=238mm
             - top=27mm
         number-sections: true
-        number-depth: 3
+        number-depth: 1
         top-level-division: part
         linestretch: 1.25
 ---
 
 ## Preface {.unnumbered}
 
-This book is part of a 5-part series: **Kevin's Guide to Political Science and Political Economy**:
+This book is part of a 5-part series: **Introduction to Political Economics**, which introduces the main methods and concepts in the growing field of Political Economics.
 
-1.  **Quantitative Methods and Analysis** introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  **Game Theory and Formal Models** (This Book) introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  **Empirical Political Economy** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  **Advanced Quantitative Methods** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
+1.  **Econometrics for Political Analysis** introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+2.  **Microeconomic Theory for Political Analysis** (This Book) introduces key concepts in the field of Game Theory, traditionally used in microeconomics, but which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
+3.  **Economic Models of Politics** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
+4.  **Further Statistical Methods** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
 5.  **Data Science and Political Analysis** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+This book on Microeconomic Theory and Game Theory focuses on developing an understanding of how economic models and economic thinking works (i.e. utility maximisation, rational-choice), and provide a brief introduction to how this approach can be used for the study of political phenomena. We first start off with a basic introduction to games. Then, we introduce the most common equilibrium concepts. Finally, we discuss more complex dynamic and Bayesian games.
 
-I created this book as a way to revise for my exams, as well as provide a handy booklet where I could reference all the things I learned throughout my undergraduate and postgraduate degrees. I hope that this guide to Political Economy can be useful to not just me, but others also interested in the field.
+This book assumes strong knowledge of core mathematical methods - especially derivation and Bayes' theorem, which will be used throughout the course. This course involves much of the mathematical content in the companian book: *Quantitative Methods*. An even deeper understanding of more complex math in *Further Quantitative Methods* and *Introductory Proof and Analysis* are useful but not required.
 
 ## Introduction to Game Theory
 
-Note: This book requires a familiarity with some single variable calculus and probability (specifically, a strong understanding of Bayes' Rule). See [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf).
+Note: This book requires a strong graps of single variable calculus and probability (specifically, a strong understanding of Bayes' Rule). See [Quantitative Methods](https://kevinli03.github.io/politicaleconomy/maths.pdf).
 
 ### Modelling and Game Theory
 
@@ -58,7 +58,7 @@ Other key properties of Game Theory include:
 
 -   The optimal decision of a player, depends on their beliefs on what the other players will do.
 
-### Properties of Games
+### Properties of Games and Preferences
 
 Games are the environment in which strategic interaction between players occurs. For each game, it must consist of:
 
@@ -223,7 +223,7 @@ There, at most, can only be one dominant strategy equilibrium in a game. This ma
 
 However, many games do not have any dominant strategies, and thus, many games do not have a dominant strategy equilibrium. As a result, this solution concept is not possible on a vast majority of games.
 
-## Nash Equilibrium and Pareto Efficiency
+## Nash Equilibrium
 
 ### Best Response
 
@@ -435,8 +435,6 @@ The Prisoner's Dilemma is frequently used to explain issues of **Public Goods**.
 
 -   Public goods are non-excludable - you cannot exclude people from using the good. An example of a Public Good is National Defence, or the air around us.
 
-<!-- -->
-
 -   Since these goods are non-excludable, people cannot be prevented from using the good, even if they do not contribute to the upkeep. Thus, there is a incentive for individuals to under-invest in the upkeep of public goods, reducing the quality for everyone.
 
 -   Under-invest in this case is considered the "defect" strategy, while invest is the "cooperate" strategy. Individually, you are better off if you defect, as you can still enjoy the benefits of this non-excludable good, without any of the costs. However, when everyone does this rational action, it results in a poor condition of the public good, thus hurting everyone (a non-pareto efficient outcome)
@@ -542,9 +540,9 @@ $$
 
 So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less than 0% of the time, which is impossible. Thus, (Down, Right) is not a robust Nash Equilibrium
 
-## Downsian Models of Electoral Competition
+## Spatial Models
 
-### Median Voter Theory
+### Downsian Model of Electoral Competition
 
 Have you ever noticed that many businesses, that are competitors, are often located in the same place? For example, there are often competing petrol stations all around the same intersection. Or multiple fast food or coffee chains in the same place? Or a bunch of Chinese stores concentrated in one small area?
 
@@ -580,29 +578,13 @@ Eventually, the two parties will converge at the median voter's preference $m$. 
 
 -   If either player $i$ moves away from $m$, they automatically lose the election since they are further from the median voter, thus they get payoff 0. Thus, there is no profitable deviation.
 
-### Evaluating Median Voter Theory
-
-Median Voter Theory predicts that both political parties converge towards the median voter. Is this the case in reality?
-
--   You probably have heard of the complaint: *"I am not voting, because both parties are essentially the same thing"*. This might be used as evidence supporting Median Voter Theory. A more tangible real world example is the difference between Tony Blair/Gordon Brown and David Cameron, both centrist political figures.
-
--   However, you might also point to the United States, where we have seen a massive divergence between the parties. Donald Trump and Kamala Harris certainly do not seem to be converging, although they do spend a lot of money trying to flip swing states with many "median voters".
+Is the Downsian Model correct? Do parties actually converge at the median? There is some mixed evidence.
 
 An important thing to understand when evaluating models is that [we do not evaluate models based on their conclusions]{.underline}. This is because the results of a formal mathematical model come directly from the assumptions of the model. To assess any model, we must [critically assess the assumptions on which the model is built on]{.underline}.
 
-Let us look at the assumptions of the Median Voter Theory:
+### Assumptions of the Downsian Model
 
-1.  **Bounded and One Dimensional**: Median Voter Theory assumes the policy space is both bounded between -1 and 1, as well as being one dimensional (left-right only, no authoritarian/libertarian and progressive/conservative axis, or other forms of political compass).
-2.  **Distribution of Citizens**: Median Voter Theory assumes that citizens are distributed uniformly along the spectrum. What happens if a society has polarised citizens, or if the citizens lean in one direction?
-3.  **Symmetrical Preferences**: Median Voter Theory assumes that the only thing affected citizen's choice is the distance between their reference and the party, which implies differences in both directions (right and left) are equal in magnitude for the voter.
-4.  **No Cost of Voting and No Abstaining**: Median Voter Theory assumes no costs of voting, and that everyone does vote. What happens if this is not the case?
-5.  **Two Party System**: Median Voter Theory assumes there are only 2 parties. What happens when a 3rd or more enter?
-6.  **Parties are Rent-Seeking**: Median Voter Theory assumes parties only aim to win elections - they do not care about their actual policies, they only use that to win an election. But what if politicians do care about the policies they are promoting?
-7.  Parties can propose any policy, and can commit to implementing these policies - for example, even if Donald Trump promised to become communist, the voters would believe him. If they did not, then that would mean parties cannot freely switch their position on the spectrum to win votes, and the candidate's own background matters more. This introduces the **Citizen-Candidate Model**.
-
-In the rest of the chapter, we will go through each assumption, and see how altering each assumption may affect our predictions.
-
-### Unbounded and Multi-Dimensional Models
+#### Unbounded and Multi-Dimensional Models
 
 In the Downsian Model, we assumed policy preferences are distributed in an interval $[-1, 1]$. However, even without this assumption, the Downsian Model still has a Nash Equilibrium at the median voter position $m$
 
@@ -631,7 +613,7 @@ In fact, for every single budget proposal, there is always an incentive for 2 pl
 
 We can model a multidimensional Downsian Model in the same way. Each "dimension" of policy, like environmental, defense, social, etc., is a different budget allocation. Each party will always be able to "outflank" the other party by diverting budget away from one issue and giving it to another, making some citizens happier. Thus, there is no Nash Equilibria is the Downsian Model has multiple policy dimensions.
 
-### Other Distributions of Citizens
+#### Other Distributions of Citizens
 
 In the Downsian Model, we assumed that citizen/voter preferences are uniformly distributed. However, [with any distribution of voter preferences, the median voter theory still holds]{.underline}. This does not matter if the voters are polarised with very few voters in the middle, if they are normally distributed, if they all lean left or right, etc.
 
@@ -639,7 +621,7 @@ The reason for this is that the median voter position, $m$, by definition, is th
 
 Note that the median value can change. For example, in a country with very left-leaning citizens, the median position $m$ might not be at 0, it could be $m = -0.5$. However, the optimal positioning of political parties will still be at the median voter $m$, no matter what value $m$ takes.
 
-### Asymmetrical Voter Preferences
+#### Asymmetrical Voter Preferences
 
 In the Downsian Model, we assumed that citizens will vote for the party whose preferences are closest to them. For example, if the citizen had an option of a party to the left within distance 0.2 and a party to the right within distance 0.3, they would prefer the party to the left.
 
@@ -647,7 +629,7 @@ However, not all real world preferences of voters are symmetrical. For example, 
 
 [Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility.
 
-### Costs of Voting and Abstaining Voters
+#### Costs of Voting and Abstaining Voters
 
 In the Downsian Model, we assumed that there is no cost to voting for citizens, and all citizens will vote (rather than abstain).
 
@@ -655,7 +637,7 @@ In this scenario, [there is no longer a Nash Equilibrium at the median voter]{.u
 
 Only if parties are somewhat different, will voters be willing to bear the cost of voting to cast a vote. This way, their vote will actually matter, and they will be willing to bear the cost of voting. Thus, there is still a converging force towards the median in this scenario (since more towards the median means a higher chance of winning), but the two party's positions would stay far enough apart to incentivise voters to vote.
 
-### Mutli-Party Systems
+### Expanding Downsian Competition to 3 Parties
 
 In the Downsian Model, we assumed that there are only 2 parties and candidates. What if there were more than 2 parties (as is frequently the case)?
 
@@ -663,7 +645,7 @@ In a 3 party election, there would no longer be a Nash Equilibrium at the median
 
 If party $i$ were to slightly deviate by $\epsilon$ from the median voter, their new position on the spectrum would be $m + \epsilon$. The figure below shows this scenario:
 
-![](figures/2/5.1.png)
+![](figures/2/5.1.png){fig-align="center" width="80%"}
 
 In the figure above, we can see party $i$ that deviates $\epsilon$ from $m$ will win a vote share of $\frac{1}{2} - \frac{1}{2} \epsilon$, while the other two parties combine for $\frac{1}{2} + \frac{1}{2} \epsilon$, which is split between the two parties, so each party has a vote share $\frac{1}{4} + \frac{1}{4}\epsilon$.
 
@@ -683,7 +665,7 @@ $$
 
 Thus, when $\epsilon < \frac{1}{3}$, then party $i$ gets the most votes of any party. Since if they did not deviate by $\epsilon$ and stayed at the median, they would have tied, that means party $i$ has a profitable deviation when the deviation $\epsilon < \frac{1}{3}$. Since party $i$ has a profitable deviation, we can conclude that [there is no Nash Equilibrium at the median voter in a 3 party election]{.underline}.
 
-### Policy-Seeking Parties
+### Policy-Seeking Models
 
 In the Downsian Model, we assumed that parties only care about winning elections (called rent-seeking behaviour). Thus, they are willing to adopt any policy that will help them win elections.
 
@@ -735,8 +717,6 @@ The **Citizen-Candidate Game** is a new strategic game to represent this situati
 
 -   For simplicity, let us assume the preferred policy of the median citizen is $m=0$, on a spectrum between $[-1, 1]$
 
-Let us find the Nash Equilibria of this game.
-
 First, let us test if there is a Nash Equilibrium at the median voter $m=0$, where only the median voter decides to become a candidate:
 
 -   The median citizen will only enter as a candidate, if the cost of voting $\delta$ is less than their dislike of the status-quo policy $\hat{p}$. After all, if they do not dislike the status-quo policy, why bear the cost of becoming a candidate?
@@ -759,7 +739,127 @@ Let us now test if there are any equilibrium with 2 candidates deciding to enter
 
 -   [Thus, there is an equilibrium with 2 players becoming candidates, where the two players are equidistant distance $\Delta$ from the median $m$, and when the inequality $\delta ≤ 2 \Delta$ is met]{.underline}.
 
+### Public Finance Model
+
+#### Parameters of the Model
+
+When political parties and candidates run, they often talk about how much taxes they will implement in order to provide government services and public goods. How should political parties decide what tax policy to implement, and how much public goods to provide?
+
+We can represent this situation more formally:
+
+-   Citizens are different from each other, with varying incomes $y_i$. This is become some are "talented" and earn a lot, while others make less income.
+
+-   Citizens care about how much they consume privately $c_i$, and also how much they can enjoy the public good $g$
+
+-   The government provides the public good $g$, but can only pay for this public good through taxes $t$ (we are assuming that there is no borrowing for funding public goods).
+
+-   However, increasing taxes $t$ will be taken from the citizen's income $y_i$, which will reduce the amount they will be able to consume privately $c_i$
+
+The game that follows has the following rules:
+
+-   The government provides a public good $g≥0$, financed by taxes $t \in [0, 1]$
+
+-   The government can only spend money on the public good, and cannot raise money in any other ways than taxes. Thus, $ty_1 + ty_2 + ... + ty_n = nt\bar{y} = g$. More simply, taxes raised is the tax rate times one's individual income, and the aggregate tax collected from everyone is the tax rate, times the average income, times the number of individuals. That is equal to the amount spent on the public good $g$.
+
+-   Finally, we assume the mean of income $E[y_i] = \bar{y}$ is more than the median of income $y_m$, since almost every distribution of income in the world is right-skewed.
+
+The utility of any citizen $i$ is $u_i = c_i + H(g)$, where $c_i$ is the private consumption of the individual (income after taxes), and $H(g)$ is the utility derived from the public good.
+
+-   Since $c_i$ is private consumption, which is income after taxes, we can define it as a function of taxes and individual income: $c_i = (1-t)y_i$, or essentially, all the income left over after taxes.
+
+-   We will assume $H(g)$, the utility derived from the public good, has [decreasing marginal utility]{.underline}. This means that more $g$ will always yield a higher utility, however, with each additional $g$, the gain in utility is smaller.
+
+#### Individual Citizen Preferences
+
+Now the question is, what is each individual citizen's preferred amount of public good $g$? Well, we can solve for this.
+
+Recall that utility of any citizen is $u_i = c_i + H(g)$. We also know that $c_i = (1-t)y_i$. Let us substitute $c_i$ into the utility function:
+
+$$
+u_i = c-I + H(g)
+$$
+
+$$
+u_i = (1-t)y_i + H(g)
+$$
+
+Next, recall that earlier, we determined that $nt\bar{y} = g$, or essentially, aggregate tax income equals public good provision. We can solve for $t$, to get $t = \frac{g}{n \bar{y}}$. We can plug in that $t$ into our utility function:
+
+$$
+u_i = (1-t)y_i + H(g)
+$$
+
+$$
+u_i = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
+$$
+
+Now, notice how we only have one variable left in this equation, $g$, which is good, since we are interested in the citizen's preferred amount of $g$. Let us rewrite the function as a function of $g$:
+
+$$
+u_i(g) = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
+$$
+
+Now, what is each citizen's preferred $g$? Well naturally, it is the amount of $g$ that maximises their utility function. How do we find maximums? By taking the derivative, and setting the derivative equal to 0:
+
+$$
+u_i(g) = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
+$$
+
+$$
+u_i(g) = y_i -\frac{y_i}{n \bar{y}} g + H(g)
+$$
+
+$$
+u_i'(g) = -\frac{y_i}{n \bar{y}} + H'(g)
+$$
+
+Set the derivative equal to 0:
+
+$$
+0 = -\frac{y_i}{n \bar{y}} + H'(g)
+$$
+
+$$
+H'(g) = \frac{y_i}{n \bar{y}}
+$$
+
+What does this equation tell us? First, we know that $H(g)$ had decreasing marginal utility, which means $H'(g)$ must be decreasing as $g$ increases (see blue line below). We also know that when income $y_i$ is high, $H'(g)$ is high as well. When $y_i$ is low, $H'(g)$ is low.
+
+![](figures/2/5.2.png){fig-align="center" width="45%"}
+
+Thus, we can see, when $y_i$ is high $y^H$ (which means $H'(g)$ is high), the corresponding $g$ is quite small. When $y_i$ is low $y^L$ (which means $H'(g)$ is low), the corresponding $g$ is quite large.
+
+This tells us that richer individuals prefer smaller $g$ (less public good, which also implies lower taxes), which poorer individuals prefer larger $g$ (more public good, which also implies higher taxes). This makes sense based on common intuition.
+
+#### Spatial Model
+
+Now, we can model these preferences in a Downsian Game. Two parties $A$ and $B$ compete on the policy position of size of government, choosing positions $p_A$ and $p_B$ on the amount of public good provision (and rate of tax). These parties can either be rent-seeking or policy seeking, this does not matter. The party who wins a majority of the votes implements the public good policy that have chosen.
+
+As we have established before in the Downsian Model, the median voter is the Nash Equilibrium where both parties will converge to. Thus, the median voter's preferences, given their income $y_m$, is the outcome of the game:
+
+$$
+H'(g) = \frac{y_i}{n \bar{y}} = \frac{y_m}{n \bar{y}}
+$$
+
+This model thus makes a few predictions:
+
+-   A more skewed income distribution with a few very very rich people, which would mean a smaller $y_m$, should mean that in a 2-party democracy, we should see a larger government that provides more public goods.
+
+-   A richer country, thus with a higher median income $y_m$, should also have a larger government.
+
+These predictions can be empirically tested. This shows how microeconomic models can be used to create hypotheses and theories regarding political phenomena, which we can then test with econometric methods and data.
+
 ## Mixed Strategies
+
+### Mixed Strategies and Expected Utility
+
+### Mixed Strategy Nash Equilibrium
+
+### Finding Mixed Strategy Nash Equilibria
+
+### Penalty-Goalkeeping Model
+
+### Valence Politics Model
 
 # Dynamic Games
 

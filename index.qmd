@@ -67,17 +67,23 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
-### Kevin's Guide to Political Science and Political Economy
+### Introduction to Political Economics Series
 
-These are a few books that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
+These are a few sets of notes that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
-1.  [Quantitative Methods and Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  [Game Theory and Formal Models](https://kevinli03.github.io/politicaleconomy/2.pdf) introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  [Empirical Political Economy](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  [Advanced Quantitative Methods](https://kevinli03.github.io/politicaleconomy/4.pdf) provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
+1.  [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+2.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf) introduces key concepts in the field of Game Theory, traditionally used in microeconomics, but which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
+3.  [Economic Models of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
+4.  [Further Statistical Methods](https://kevinli03.github.io/politicaleconomy/4.pdf) provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
 5.  [Data Science and Political Analysis](https://kevinli03.github.io/politicaleconomy/5.pdf) introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-Finally, a companion book: [Mathematical Methods for Political Science](https://kevinli03.github.io/politicaleconomy/maths.pdf)
+Plus, a few additional companion mathematics guides (these are not full maths courses, they are tailored to social science research):
+
+-   Quantitative Methods: Pretty much everything in this guide is a pre-requisite for any of the above books. Covers much of single variable calculus and some linear algebra, as well as some basic probability.
+
+-   Further Quantitative Methods: covers more advanced topics in linear algebra and calculus. Not needed for the above books, but definitely helpful.
+
+-   Introductory Proof and Analysis: An introduction into proofs. Can be useful for some of the microeconomic/game theory heavy courses, but not necessary.
 
 <br />
 
@@ -107,17 +113,23 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### Kevin's Guide to Political Science and Political Economy
+### Introduction to Political Economics Series
 
-These are a few books that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
+These are a few sets of notes that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
 
-1.  [Quantitative Methods and Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  [Game Theory and Formal Models](https://kevinli03.github.io/politicaleconomy/2.pdf) introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  [Empirical Political Economy](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  [Advanced Quantitative Methods](https://kevinli03.github.io/politicaleconomy/4.pdf) provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
+1.  [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+2.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf) introduces key concepts in the field of Game Theory, traditionally used in microeconomics, but which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
+3.  [Economic Models of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
+4.  [Further Statistical Methods](https://kevinli03.github.io/politicaleconomy/4.pdf) provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
 5.  [Data Science and Political Analysis](https://kevinli03.github.io/politicaleconomy/5.pdf) introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-Finally, a companion book: [Mathematical Methods for Political Science](https://kevinli03.github.io/politicaleconomy/maths.pdf)
+Plus, a few additional companion mathematics guides (these are not full maths courses, they are tailored to social science research):
+
+-   Quantitative Methods: Pretty much everything in this guide is a pre-requisite for any of the above books. Covers much of single variable calculus and some linear algebra, as well as some basic probability.
+
+-   Further Quantitative Methods: covers more advanced topics in linear algebra and calculus. Not needed for the above books, but definitely helpful.
+
+-   Introductory Proof and Analysis: An introduction into proofs. Can be useful for some of the microeconomic/game theory heavy courses, but not necessary.
 
 <br />
 
