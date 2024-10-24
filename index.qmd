@@ -194,7 +194,7 @@ Audited Modules
 
 -   MA108 Methods in Calculus and Linear Algebra (Dr. Ioannis Kouletsis)
 
--   MY470 Computer Programming (Dr. Milena Tsvetkova)
+-   ST304 Time Series and Forecasting (Dr. Yining Chen)
 
 Pre-Sessional Courses:
 
