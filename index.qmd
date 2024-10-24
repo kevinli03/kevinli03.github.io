@@ -190,9 +190,11 @@ Registered Modules:
 
 Audited Modules
 
--   MY470 Computer Programming (Dr. Milena Tsvetkova)
+-   MA102 Mathematical Proof and Analysis (Prof. Peter Allen)
 
--   ST304 Time Series and Forecasting
+-   MA108 Methods in Calculus and Linear Algebra (Dr. Ioannis Kouletsis)
+
+-   MY470 Computer Programming (Dr. Milena Tsvetkova)
 
 Pre-Sessional Courses:
 
