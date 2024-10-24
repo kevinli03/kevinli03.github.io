@@ -1,5 +1,5 @@
 ---
-title: "Mathematical Methods for Political Economy"
+title: "Mathematical Methods for Political Science"
 subtitle: "Kevins' Guide to Political Science and Political Economy"
 author: "Kevin Lingfeng Li"
 format:
@@ -22,11 +22,11 @@ format:
 
 This book is part of a 5-part series: **Kevin's Guide to Political Science and Political Economy**:
 
-1.  **Econometrics for Political Science: Using Statstics for Causal Inference** introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  **Political Game Theory: Introduction to Formal Mathematical Models** introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  **Political Economy: Using Economic Models to Study Politics** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  **Advanced Statistical Methods: Further Regression, Time Series, and Latent Variables** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
-5.  **Social Data Science: Using Machine Learning for Political Science and Political Economy** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
+1.  **Quantitative Methods and Analysis** introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+2.  **Game Theory and Formal Models** introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
+3.  **Topics in Quantitative Political Research** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
+4.  **Advanced Quantitative Methods** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
+5.  **Data Science and Political Analysis** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
 This book on Mathematical Methods is designed to give the mathematical background neccesary for a rigorous understanding of methods and techniques in Political Science and Political Economy. Not all topics in this book are essential - you can likely get by with only the first few chapters - however, having a strong understanding of mathematics is critical to obtaining a strong understanding of methods, which is an important part of becoming a strong researcher. This book assumes prior knowledge up to High School Algebra.
 

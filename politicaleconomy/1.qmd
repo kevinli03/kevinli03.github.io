@@ -1,5 +1,5 @@
 ---
-title: "Econometrics for Political Science: Using Statistics for Causal Inference"
+title: "Quantitative Methods and Analysis"
 subtitle: "Kevin's Guide to Political Science and Political Economy"
 author: "Kevin Lingfeng Li"
 format:
@@ -35,13 +35,15 @@ include-before-body:
 
 This book is part of a 5-part series: **Kevin's Guide to Political Science and Political Economy**:
 
-1.  **Econometrics for Political Science: Using Statstics for Causal Inference** (This book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  **Political Game Theory: Introduction to Formal Mathematical Models** introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  **Political Economy: Using Economic Models to Study Politics** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  **Advanced Statistical Methods: Further Regression, Time Series, and Latent Variables** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
-5.  **Social Data Science: Using Machine Learning for Political Science and Political Economy** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
+1.  **Quantitative Methods and Analysis** (This Book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+2.  **Game Theory and Formal Models** introduces key concepts in the field of Game Theory, which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
+3.  **Empirical Political Economy** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
+4.  **Advanced Quantitative Methods** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
+5.  **Data Science and Political Analysis** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-This series is meant to be a relatively approachable introduction to the field. However, as Political Science and Political Economy depends on many economic tools, an rough understanding of Algebra, Single Variable Calculus, and simple Linear Algebra is recommended. You do not need to be a math wizard, or even good at solving mathematical problems - you simply need an understanding of the intuition behind some key techniques. This book comes with a companion manual - [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf). It is recommended that anyone interested in Political Economy glance at the topics covered in the manual, to ensure that they have the mathematical background necessary to succeed.
+This book on Quantitative Methods focuses on developing the core statistical toolkit of political science and social science research. We start with a brief review of probability and basic statistics. Then, we introduce and rigorously analyse the Linear Regression model, its form, assumptions, extensions, and model selection. Finally, we discuss how we can achieve causal inference through a variety of techniques, such as randomised experiments, selection on observables, instrumental variables, and quasi-experimental methods.
+
+This book comes with a companion manual - [Mathematical Methods for Political Science](https://kevinli03.github.io/politicaleconomy/maths.pdf), which covers some calculus and linear algebra that may be helpful for understanding some of the concepts and math in this book.
 
 This book will use the R language for some examples. This is not a coding course, so I will not introduce the basics of R.
 
@@ -567,7 +569,7 @@ With the degrees of freedom, we can find the corresponding t-distribution, label
 
 Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below, with its blue highlighted area, shows this probability:
 
-![](figures/1/5.1.jpeg){fig-align="center" width="80%"}
+![](figures/1/5.1.jpeg){fig-align="center" width="70%"}
 
 The area highlighted is our p-value. Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_j$, given the null hypothesis is true.
 
@@ -576,6 +578,60 @@ The area highlighted is our p-value. Essentially, a p-value is how likely we are
 -   If the p-value is very low, then there is a low chance that the null hypothesis is true
 
 Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
+
+### F-Tests of Nested Models
+
+An F-test is a variation on the coefficient significance tests. The standard F-test is quite simple - it tests for the significance of a model across multiple coefficients:
+
+$$
+H_0:\beta_1 = \beta_2 = ... = \beta_k = 0
+$$
+
+$$
+H_1: \text{ at least one of } \beta_1, \beta_2, ..., \beta_k ≠0
+$$
+
+Thus, we assume that all explanatory variables in the model have no relationship to the outcome variable, unless we can reject the null hypothesis and show that at least one coefficient is statistically significant.
+
+For a standard Linear Regression, if we have any significant individual coefficients, then the F-test will also become significant. So what is the point of F-tests? Well, for some models that we will see later, such as categorical explanatory variables, the coefficient's significance levels mean something else. Thus, to see if the model is statistically significant, we need to use the F-test.
+
+The **F-test of Nested Models** is an extension of the standard F-test, that allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically:
+
+$$
+M_0 : E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g
+$$
+
+$$
+M_a : E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g + \beta_{g+1} X_{g+1} + ... + \beta_k X_k
+$$
+
+Importantly, note how the null hypothesis model is entirely contained within the alternate hypothesis model. This must be the case - all explanatory variables in model $M_0$ must also be in $M_a$, along with additional explanatory variables in $M_a$.
+
+The F-test uses the F-test statistic. This statistic compared the $R^2$ values of the two models. Let us say the $R^2$ value of $M_0$ is notated $R^2_0$, and the $R^2$ value of $M_a$ is notated as $R^2_a$. The F-test statistic essentially measures the difference $R^2_a - R^2_0$. If the difference is sufficiently large, that means the $M_a$ model has significantly more explanatory power than $M_0$.
+
+Let $SSE_a$ and $R^2_a$ denote the sum of squared errors and $R^2$ values of model $M_a$, and $SSE_0$ and $R^2_0$ for model $M_0$. The total number of coefficients of $M_a$ are $k_a$, and for $M_0$ is $k_0$. Mathematically, the F-test statistic is as follows:
+
+$$
+F = \frac { (SSE_0 - SSE_a) / (k_a - k_0) } { SSE_a / [n - (k_a + 1)]}
+$$
+
+$$
+F = \frac{ \frac{R^2_a = R^2_0 }{[n - (k_0 + 1)] - [n - (k_a + 1)]} }{ (1 - R^2_a ) / [n - (k_a + 1)]}
+$$
+
+$$
+F = \frac{ R^2_{\text{change}} / df_{\text{change}} }{  (1 - R^2_a ) / [n - (k_a + 1)]}
+$$
+
+The sampling distribution of the F-statistic is the F distribution with parameters $k-a - k_0$ and $n-(k_a + 1)$ degrees of freedom. We then obtain the p-value from this distribution.
+
+The p-values of the F-statistic show the following:
+
+-   If the p-value is very small, that means $R^2_a$ is significantly larger than $R^2_0$. This is evidence against model $M_0$, and in favour of the larger model $M_a$
+
+-   If the p-value is large, that means $R^2_a$ is not much larger than $R^2_0$. This means there is no evidence against $M_0$, and $M_a$ is not the statistically significantly better model.
+
+F-tests of nested models can help us determine if we should include certain extra explanatory variables. If the addition of the explanatory variables does not statistically significantly improve the performance of the model, there is little reason to include them, unless we have some other theoretical reason to include them.
 
 ### Hypothesis Testing in R
 
@@ -915,7 +971,7 @@ You can get all of these interpretations above simply by plugging in $X_2 = 0$ a
 
 ### Model Selection
 
-# Causal Inference for Political Economy
+# Causal Inference
 
 ## Causal Frameworks
 
