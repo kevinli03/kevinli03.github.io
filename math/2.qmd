@@ -1,0 +1,63 @@
+---
+title: "Further Quantitative Methods"
+subtitle: "Companian to the series: Introduction to Political Economics"
+author: "Kevin Lingfeng Li"
+format:
+    pdf:
+        toc: true
+        toc-depth: 2
+        documentclass: report
+        papersize: A4
+        geometry:
+            - width=150mm
+            - height=238mm
+            - top=27mm
+        number-sections: true
+        number-depth: 3
+        top-level-division: part
+        linestretch: 1.25
+---
+
+## Preface {.unnumbered}
+
+This book is one of the 3 **mathematical-companian-guides** of the part of a series: **Introduction to Political Economics**. These companian guides are meant to ensure that one has the proper mathematical training prior to studying Political Economics:
+
+1.  **Quantitative Methods** introduces the essential mathematical concepts that are essential for studying Political Economics. Topics include algebra, single variable calculus, and probability and statistical theory.
+2.  **Further Quantitative Methods** (This Book) expands on the topics taught in the previous book. These topics are not "essential", but it is highly recommended to have some grasp of these topics. Topics include linear algebra and multivariate calculus.
+3.  **Introductory Proofs and Analysis** is a high-level introduction to proofs in mathematics. This is not essential for studying Political Economics, but having a strong idea behind proofs is quite useful for more advanced Microeconomic Models that are used in the study of Political Economics.
+
+This book, Further Quantitative Methods, is a collection of mathematical and statistical topics that I consider to very useful, although not absolutely essential, before instruction of Political Economics. This book assumes a strong understanding of high-school level algebra, as well as the algebra and calculus topics from *Quantitative Methods*. In this book, we first discuss topics in linear algebra, before moving on to multivariate calculus.
+
+# Introductory Linear Algebra
+
+## Matrices
+
+
+### Matrix Operations
+
+topics 3.2-3.3
+
+### Inverse Matrix
+
+### Simple Linear Systems of Square Matrix
+
+### Elementary Row Operations and Reduced Row Echelon Form
+
+### Theorems on Matrix Invertibility
+
+### Determinant of a Matrix
+
+### Linear Systems of Invertible Square Matrix
+
+
+## General Linear Systems
+
+### Geometric Insight of a 2-Dimensional Plane
+
+### K-dimensional Flats
+
+### Solving Lienar Systems of Equations
+
+### Solution Sets and Linearity
+
+### Analysing Solution Sets with the Rank

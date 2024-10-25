@@ -79,11 +79,11 @@ These are a few sets of notes that I am working on to summarise my education in 
 
 Plus, a few additional companion mathematics guides (these are not full maths courses, they are tailored to social science research):
 
--   Quantitative Methods: Pretty much everything in this guide is a pre-requisite for any of the above books. Covers much of single variable calculus and some linear algebra, as well as some basic probability.
+-   [Quantitative Methods](https://kevinli03.github.io/math/1.pdf): Pretty much everything in this guide is a pre-requisite for any of the above books. Covers much of single variable calculus and probability + statistical theory.
 
--   Further Quantitative Methods: covers more advanced topics in linear algebra and calculus. Not needed for the above books, but definitely helpful.
+-   [Further Quantitative Methods](https://kevinli03.github.io/math/2.pdf): covers topics in linear algebra and calculus. Highly recommended, but not a formal prerequisite of the series.
 
--   Introductory Proof and Analysis: An introduction into proofs. Can be useful for some of the microeconomic/game theory heavy courses, but not necessary.
+-   [Introductory Proof and Analysis](https://kevinli03.github.io/math/3.pdf): An introduction into proofs. Can be useful for some of the microeconomic/game theory heavy courses, but not necessary.
 
 <br />
 
@@ -125,11 +125,11 @@ These are a few sets of notes that I am working on to summarise my education in 
 
 Plus, a few additional companion mathematics guides (these are not full maths courses, they are tailored to social science research):
 
--   Quantitative Methods: Pretty much everything in this guide is a pre-requisite for any of the above books. Covers much of single variable calculus and some linear algebra, as well as some basic probability.
+-   [Quantitative Methods](https://kevinli03.github.io/math/1.pdf): Pretty much everything in this guide is a pre-requisite for any of the above books. Covers much of single variable calculus and probability + statistical theory.
 
--   Further Quantitative Methods: covers more advanced topics in linear algebra and calculus. Not needed for the above books, but definitely helpful.
+-   [Further Quantitative Methods](https://kevinli03.github.io/math/2.pdf): covers topics in linear algebra and calculus. Highly recommended, but not a formal prerequisite of the series.
 
--   Introductory Proof and Analysis: An introduction into proofs. Can be useful for some of the microeconomic/game theory heavy courses, but not necessary.
+-   [Introductory Proof and Analysis](https://kevinli03.github.io/math/3.pdf): An introduction into proofs. Can be useful for some of the microeconomic/game theory heavy courses, but not necessary.
 
 <br />
 

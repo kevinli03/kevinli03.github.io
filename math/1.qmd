@@ -13,7 +13,7 @@ format:
             - height=238mm
             - top=27mm
         number-sections: true
-        number-depth: 3
+        number-depth: 1
         top-level-division: part
         linestretch: 1.25
 ---
@@ -22,17 +22,19 @@ format:
 
 This book is one of the 3 **mathematical-companian-guides** of the part of a series: **Introduction to Political Economics**. These companian guides are meant to ensure that one has the proper mathematical training prior to studying Political Economics:
 
-1.  **Quantitative Methods** (This Book) introduces the essential mathematical concepts that are essential for studying Political Economics. Topics include single variable calculus, introductory linear algebra, and introductory probability and statistical theory.
-2.  **Further Quantitative Methods** expands on the topics taught in the previous book. While these topics are not absolutely essential for Political Economics, they can be highly useful for a deeper understanding of Political Economics. Topics include advanced linear algebra and multivariate calculus.
+1.  **Quantitative Methods** (This Book) introduces the essential mathematical concepts that are essential for studying Political Economics. Topics include algebra, single variable calculus, and probability and statistical theory.
+2.  **Further Quantitative Methods** expands on the topics taught in the previous book. These topics are not "essential", but it is highly recommended to have some grasp of these topics. Topics include linear algebra and multivariate calculus.
 3.  **Introductory Proofs and Analysis** is a high-level introduction to proofs in mathematics. This is not essential for studying Political Economics, but having a strong idea behind proofs is quite useful for more advanced Microeconomic Models that are used in the study of Political Economics.
 
-This book, Quantitative Methods, is a collection of mathematical and statistical topics that I consider to be essential to understand prior to starting any serious instruction in Political Economics. The book assumes a solid understanding of high-school level algebra, and discusses topics in single variable calculus, introductory linear algebra, and probability and statistical theory. Note that this book is not a full mathematics course of those topics - topics have been selected based on what is commonly used in Political Economics and other social sciences.
+This book, Quantitative Methods, is a collection of mathematical and statistical topics that I consider to be essential to understand prior to starting any serious instruction in Political Economics. The book assumes a solid understanding of high-school level algebra, and discusses topics in algebra, single variable calculus, and probability and statistical theory. Note that this book is not a full mathematics course of those topics - topics have been selected based on what is commonly used in Political Economics and other social sciences.
 
 # Single Variable Calculus
 
-## Pre-Calculus
+## Algebra and Precalculus
 
 ### Set Theory
+
+#### Introduction to Sets
 
 A **set** is a collection of objects. The objects within a set are the **elements** of that set.
 
@@ -54,13 +56,17 @@ Here are some common notation for sets:
 
 -   If $A \subseteq B$, but $A ≠ B$, then $A$ is a **proper subset** of $B$, notated: $A \subset B$.
 
-There are a few common **operations** of sets:
+#### Set Operations
+
+There are a few common operations of sets:
 
 -   The **union** of sets $A$ and $B$, notated $A \cup B$, is the set of elements that belong to either $A$ [or]{.underline} $B$. For example, if $A = \{1,2,3\}, B = \{3,4,5\}$, then $A \cup B = \{1,2,3,4,5\}$.
 
 -   The **intersection** of sets, notated $A \cap B$, is the set of elements that belong to $A$ [and]{.underline} $B$. For example, if $A = \{1,2,3\}, B = \{3,4,5\}$, then $A \cap B = \{3\}$.
 
 The **cardinality** of a set $A$ is the number of elements within set $A$, and is notated $|A|$. For example, if $A = \{1,2,3\}$, then $|A| = 3$. An **empty set** is a set with a cardinality of 0, or in other words, with no elements. It is notated with $\varnothing$
+
+#### Types of Sets and Notation
 
 A **infinite set** is one with infinitely many elements. Common examples of infinite sets include:
 
@@ -82,14 +88,370 @@ The set of all real numbers $\mathbb{R}$ is the most common used set. A subset o
 
 In all these intervals, $a$ and $b$ are called **endpoints** of the interval. Any point inside of an interval that is not an endpoint is an **interior point**.
 
+### Algebra Review
+
+Before we go into calculus topics, let us introduce a few key properties of algebra that will occur frequently throughout Political Economics.
+
+#### Solving Equations with One Variable
+
+To solve an equation with one variable, we look to isolate the variable on one side. We can do this by either *adding/subtracting* to both sides of the equation, or *multiplying/dividing* the equation on both sides by the same value.
+
+**Example**: Solve for $x$ in the equation: $\frac{x+3}{4} = 6$
+
+1.  Multiply both sides by 4: $4 \left( \frac{x+3}{4}\right) = 6 \times 4$
+2.  Simplify to get: $x+3 - 24$
+3.  Now, subtract 3 from both sides: $x+3 - 3 = 24 -3$
+4.  Thus, we get $x = 21$
+
+#### Solving Inequalities
+
+Solving inequalities is the same as solving equations (for both one variable, and more, as we will see later). There is only one difference: [if we multiply both sides by a negative number, we flip the direction of the inequality sign]{.underline}.
+
+#### Solving System of Equations
+
+To solve a system of equations (such as 2 different equations with 2 variables $x$ and $y$), we do the following procedure:
+
+1.  With one of the equations, solve for one of the variables (either $x$ or $y$ generally)
+2.  Substitute that equation that we just solved, into the other equation. This will make that equation only have one variable. Solve that equation for the remaining variable.
+3.  Then, plug the variable we have found, into either of the original equations, and find the value of the other variable.
+
+The solution to a system of equations is the point where the two lines meet on a graph.
+
+**Example**: Solve the system of equations: $3x + 2y = 13$, $x - 2y = 3$.
+
+1.  First, solve one of the equations for one of the variables.
+    -   Let us take $x - 2y = 3$.
+    -   We can solve for $x$ to get: $x = 2y+3$
+2.  Now, plug the equation we just got into the other equation
+    -   The other equation is $3x + 2y = 13$
+    -   Plug in the $x$ we found: $3(2y+3) + 2y = 13$
+3.  Now, solve that equation for the remaining variable:
+    -   $3(2y+3)+2y = 13$
+    -   $6y + 9 +2y = 13$
+    -   $8y = 4$
+    -   $y = \frac{1}{2}$
+4.  Now, plug $y$ back into either equation to find $x$:
+    -   Let us use the equation $x = 2y+3$ that we solved for earlier
+    -   Plug in $y$ to get $x =2(\frac{1}{2}) +3 = 4$
+
+Thus, the solution to the system of equations is $x=4, y = \frac{1}{2}$
+
+#### Linear Equations and Slope
+
+Linear equations take the form $y = mx+b$, where $m$ is the slope. The slope is the amount $y$ changes, for every increase of one unit of $x$.
+
+More formally, slope is the change in $y$ over the change in $x$. We can calculate the slope between two points $(x_1, y_1)$ and $(x_2, y_2)$ as follows:
+
+$$
+m = \Delta y / \Delta x = \frac{y_2 - y_1}{x_2 - x_1}
+$$
+
+#### Factoring and Difference of Squares
+
+Factorisation is the process of changing an equation from the form $ax^2+bx+c$ to the form $(x+i)(x+j)$. To do this, we need to:
+
+1.  Find 2 numbers $i$ and $j$, that sum to $b$, and multiply to $c$
+2.  Once we have done that, simply put it into the form $(x+i)(x+j)$
+
+{{< pagebreak >}}
+
+**Example**: Factor $x^2 + 5x + 6$
+
+1.  We need to find two numbers $i$ and $j$, that add to 5, and multiply to 6. How do we do this? Well, think about the factors of 6 - what two numbers multiply to 6. This can include {1,6}, {2,3}, {-1,-6}, and {-2, -3}.
+2.  Clearly, $2$ and $3$ are two numbers that add to 5, while multiplying to 6.
+3.  Now, put it into the factored form: $(x+2)(x+3)$
+
+There is a special form of factoring: **difference of squares**. Essentially, any expression that takes the form of $a^2 - b^2$ can be rewritten as $(a+b)(a-b)$
+
+-   For example, $x^2 - 9$ is in that form where $a = x$ and $b = 3$, so it can be rewritten as $(x+3)(x-3)$
+
+#### Multiplication Expansion
+
+Multiplication expansion undoes factoring. To do this, we must multiply each term of one section by each other term of the other section. Or in other words:
+
+1.  Multiply the 1st element of the first group, by the 1st element of the second group
+2.  Multiply the 1st element of the first group, by the 2nd element of the second group
+3.  Multiply the 2nd element of the first group, by the 1st element of the second group
+4.  Multiply the 2nd element of the first group, by the 2nd element of the 2nd group
+
+**Example**: let us prove the difference of squares idea we saw earlier - multiply out $(x+3)(x-3)$:
+
+$$
+(x+3)(x-3) = (x \times x) + (x \times -3) + (3 \times x) + (3 \times -3)
+$$
+
+$$
+= x^2 - 3x + 3x -9
+$$
+
+$$
+= x^2 - 9
+$$
+
+So we can see, that indeed, difference of squares is true, and $x^2 - 9 = (x+3)(x-3)$.
+
 ### Exponents, Logarithms, Sum and Product Notation
+
+#### Exponent Rules
+
+Here are a few key properties of exponents that are important to note:
+
+1.  $a^x \times a^y = a^{x+y}$
+2.  $a^{-x} = \frac{1}{a^x}$
+3.  $a^x / a^y = a^{x-y}$
+4.  $(a^x)^y = a^{xy}$
+5.  $a^0 = 1$
+6.  $(a \times b)^n = a^n \times b^n$
+7.  $(a/b)^n = a^n / b^n$
+
+#### Solving Equations with Exponents
+
+Sometimes, you will have an equation that takes the form $x^n = a$, where $n$ is some number.
+
+To solve for $x$, the solution is $x = a^{(1/n)}$.
+
+**Proof**:
+
+We start with $x^n = a$. How to get rid of $n$ to isolate $x$?
+
+We know that $n \times (1/n) = 1$. We also know that $(a^x)^y = a^{xy}$. Thus:
+
+$$
+(x^n)^{(1/n)} = a^{(1/n)}
+$$
+
+$$
+x^{n \times (1/n)} =x^1 = x = a^{(1/n)}
+$$
+
+#### Logarithms
+
+Logarithms are the inverse for exponential functions. The relationship is as follows:
+
+$$
+y = \log_a(x) \Longrightarrow a^y = x
+$$
+
+Or more intuitively, take the example $y = \log_2(8)$ is basically asking, what power $y$ should I take base 2 to, in order to get an answer of $8$. Of course, $2^3 = 8$, so the answer is $y=3$.
+
+Here are a few key properties to know about logarithms.
+
+1.  $\log(xy) = \log(x) + \log(y)$
+2.  $\log(x^y) = y \times \log(x)$
+3.  $-\log(x) = \log(1/x)$
+4.  $\log(x/y) = \log(x) - \log(y)$
+5.  $\log(1) = \log(e^0) = 0$
+
+Note that in statistics, political science, and economics, when we say $\log(x)$, we are talking about natural logs, such that $\log(x) = \ln(x) = \log_e(x)$. We can change the base of logarithms:
+
+$$
+\log_b(x) = \frac{\log_a(x)}{\log_a(b)}
+$$
+
+#### Summation Notation
+
+Summation Notation is a way of expressing the sums of many values, and is commonly used in statistical techniques. Summation notation is defined as the following:
+
+$$
+\sum\limits_{i=1}^n x_i = x_1 + x_2 + ... + x_n
+$$
+
+-   $i = 1$ indicates that we start summing from index $i=1$, or basically, we start with $x_1$. Sometimes, you will see $i=0$, but it will rarely be anything else.
+
+-   $n$ is the value of the index at which we stop summing. This is often the sample size, where we have no more observations.
+
+-   $x_i$ is the value of an element within set $X = \{x_1, x_2, ..., x_n \}$ with index $i$. For example, is $i = 1$, $x_i = x_1$, the first element in set $X$.
+
+Summation notation has a few properties:
+
+1.  $\sum cx_i = c \times \sum x_i$, where $c$ is some constant.
+2.  $\sum (x_i + y_i) = \sum x_i + \sum y_i$
+3.  $\sum\limits_{i=1}^n c = n \times c$, where $c$ is some constant.
+
+#### Product Notation
+
+Product notation is the same as summation notation, but except summing, we product all the elements. Product notation is defined as the following:
+
+$$
+\prod\limits_{i=1}^n x_i = x_1 \times x_2 \times ... \times x_n
+$$
+
+Product notation has the following properties:
+
+1.  $\prod cx_i = c^n \times \prod x_i$, where $c$ is some constant.
+2.  $\prod\limits_{i=1}^nc = c^n$, where $c$ is some constant.
+
+#### Converting Between Sum and Prodct Notation
+
+We can transition between summation and product notation with the properties of logarithms:
+
+$$
+\log \left( \prod\limits_{i=1}^n x_i \right) = \log(x_1 \times x_2 \times ... \times x_n)
+$$
+
+$$
+= \log(x_1) + \log(x_2) + ... + \log(x_n) = \sum\limits_{i=1}^n \log(x_i)
+$$
+
+When a constant is included (for a more general rule):
+
+$$
+\log \left( \prod\limits_{i=1}^n cx_i \right) = \log(cx_1 \times cx_2 \times ... \times cx_n)
+$$
+
+$$
+= \log(c^n \times x_1 \times x_2 \times ... \times x_n)
+$$
+
+$$
+= \log(c^n) + \log(x_1) + \log(x_2) + ... + \log(x_n)
+$$
+
+$$
+=n \log(c) + \sum\limits_{i=1}^n \log(x_i)
+$$
 
 ### Functions and the Cartesian Plane
 
+#### Functions
+
+We have two sets, $X$ and $Y$. A function $f : X \rightarrow Y$ is some rule, which assigns each element $x \in X$ one, and only one element $y \in Y$, which is denoted by $f(x)$.
+
+-   For every input $x \in X$, we must only have one output $y \in Y$. If we have two outputs, that is not a function.
+
+-   We do not have to use $X$ and $Y$ specifically, we can use any variables.
+
+The **domain** of $f$ is the set of possible values of set $X$. Basically, what values can we input into $f(x)$
+
+The set of possible outputs of function $f$ is the **range** $R(f)$, and the range must be a subset of the set of $Y$: $R(f) \subseteq Y$.
+
+Functions to not have to only have one input variable. For example, we can have a function $f(x,z)$, with two input values $x \in X$ and $z \in Z$.
+
+-   However, we once again can only have one output $y \in Y$ for each different input $(x,z)$. If we have multiple outputs for one input, that is not a function.
+
+#### Cartesian Plane
+
+Remember that $\mathbb{R}$ is the set of all real numbers $\mathbb{R} = (-∞, ∞)$. That space is only one dimensional - a single number line.
+
+$\mathbb{R}^2$ is a 2 dimensional space - essentially two number lines, one perpendicular to the other. Essentially, a graph with $x$ and $y$-axes. This 2-dimensional space is called a **cartesian plane**.
+
+Every single point in the 2-dimensional cartesian plane can be specified with coordinates $(a,b)$, where both $a \in \mathbb{R}$ and $b \in \mathbb{R}$. $a$ is the $x$ coordinate, and $b$ is the $y$ coordinate - both who represent the distance from the **origin** with coordinates $(0, 0)$.
+
+Any real-valued function of one variable can be represented in the $\mathbb{R}^2$ space. On the $x$-axis, we put the input number, and on the $y$-axis, we put the output of the function. For each input variable value, there must only be one output variable value. Graphically in $\mathbb{R}^2$, we can show this:
+
+![](figures/1/1.2.jpeg)
+
+Of course, functions can be in more than 2 dimensions. A function with two input variables $f(x,z)$, would be depicted in the 3-dimensional space $\mathbb{R}^3$, as $x \in \mathbb{R}$, $z \in \mathbb{R}$, and output $f(x) \in \mathbb{R}$. The more input variables, the more dimensions the function is depicted in.
+
+#### Common Types of Functions
+
+There are a few very common types of functions that we will encounter:
+
+![](figures/1/1.1.png){width="100%"}
+
+#### Zeroes and Roots of Functions
+
+The zeroes/roots of a function are the input values of the function that make the output function equal to 0. Mathematically, for what $x$ does $f(x) = 0$.
+
+We can also think about this graphically. Since output $f(x)$ is graphed on the $y$-axis, we can see at what $x$-values the function cross the line $y=0$ (the $x$-axis line).
+
+To solve for zeroes/roots, simply set the function equal to 0, and solve for $x$. Some functions can have more than one zero, especially polynomials, and some can have none.
+
+**Example**: Find the root of $f(x) = x -5$
+
+1.  Set function output equal to 0: $0 = x-5$
+2.  Solve for $x$ and we get: $x = 5$.
+
+For **quadratic functions**, there are two ways to find roots. First, we can use factorisation, covered in section 1.2.
+
+**Example:** Find the root of $f(x) = x^2 + 5x +6$
+
+1.  Set function output equal to 0: $0 = x^2 + 5x + 6$
+2.  Factor: $0 = (x+2)(x+3)$
+3.  $x=-2$ and $x=-3$ make this equation true.
+
+Finally, we can use the quadratic formula to find the roots of unfactorable equations. Given a quadratic in the form of $ax^2 + bx + c$, the roots are:
+
+$$
+x = \frac{-b ± \sqrt{b^2 - 4ac} }{2a}
+$$
+
 ### Special Types of Functions
 
-### Limits and Continuity
+#### Composite Functions
 
+Composite functions are when the output of one function, is used as the input of another function. Composite functions are defined as the following:
+
+$$
+f \circ g = f[g(x)]
+$$
+
+Essentially, we calculate the output value of $g(x)$, and immediately input that value into $f(x)$.
+
+For example, if $h(x) = x^2$, and $f(x) = x-5$, then $f \circ h = (x^2) - 5$
+
+#### Surjective, Injective, and Bijective Functions
+
+A function $f:X \rightarrow Y$ is a **surjective** function if its range is equal to the set of $Y$. Mathematically, $R(f) = Y$.
+
+-   In other words, for all $y \in Y$, there exists an $x \in X$ such that $f(x) = y$.
+
+-   For example: $f(x)=x$ is surjective, as the range of $f(x) = x$ is $(-∞, ∞)$, which covers the entire set of $Y$. Thus, $R(f) = Y$.
+
+A function $f:X \rightarrow Y$ is an **injective** function if distinct inputs are mapped to distinct outputs. Basically, no two input values of $x \in X$ produce the same value output $f(x)$.
+
+-   Mathematically, for all $x_1 \in X, x_2 \in X$, if $x_1 ≠ x_2$, then $f(x_1) ≠ f(x_2)$
+
+-   For example: $f(x) = x$ is injective, because no two inputs of $x$ produce the same output $f(x)$.
+
+A function is **bijective** if it is both injective and surjective.
+
+-   $f(x) = x$, as we have shown previously is both injective and surjective, and thus bijective.
+
+#### Inverse Function
+
+Let $f: X \rightarrow Y$ be a bijective function. The sets $X$ and $Y$ are such that $X \subseteq \mathbb{R}$ and $Y \subseteq \mathbb{R}$.
+
+There is some unique function $f^{-1} : Y \rightarrow X$, called the **inverse function** of $f$, which is essentially the opposite of function $f$: when you input the ouputs of $f(x)$ into $f^{-1}$, you get the respective input of $f(x)$.
+
+-   Or mathematically: $y = f(x)$ if and only if $x = f^{-1}(y)$
+
+Because $f^{-1}$ essentially reverses function $f(x)$, the following must be true:
+
+$$
+f^{-1} (f(x)) = x \text{ for all } x \in X
+$$
+
+$$
+f(f^{-1}(y)) = y \text{ for all } y \in Y
+$$
+
+To find the inverse function, we simply solve for the input variable.
+
+**Example**: Find the inverse of $f(x) = 2x+3$
+
+1.  Let us define $y$ as the output of $f(x)$, such that $f(x) = y = 2x+3$
+2.  Now, solve for $x$: $y = 2x+3 \Longrightarrow 2x = y-3 \Longrightarrow x = \frac{y-3}{2}$
+
+Let us prove that this is an inverse function with the properties we showed above.
+
+$$
+\text{1st property: }f^{-1} (f(x)) = x \text{ for all } x \in X
+$$
+
+$$
+f^{-1}(y) = \frac{y-3}{2} \Longrightarrow f^{-1}(f(x)) = \frac{(2x + 3) - 3}{2} = \frac{2x}{2} = x
+$$
+
+$$
+\text{2nd property } f(f^{-1}(y)) = y \text{ for all } y \in Y
+$$
+
+$$
+f(x) = 2x +3 \Longrightarrow f(f^{-1}(y)) = 2\left( \frac{y - 3}{2} \right) + 3=y-3+3 = y
+$$
+
+### Limits and Continuity
 
 ## Derivatives
 
@@ -102,7 +464,6 @@ In all these intervals, $a$ and $b$ are called **endpoints** of the interval. An
 ### Partial Derivatives
 
 ### Application: Linear Regression
-
 
 ## Optimisation
 
@@ -117,8 +478,6 @@ In all these intervals, $a$ and $b$ are called **endpoints** of the interval. An
 ### Application: Linear Regression Estimation
 
 ### Simple Optimisation With Constraints
-
-
 
 ## Integrals
 
@@ -140,45 +499,10 @@ section 9.1 and 9.3
 
 ### Application: Consumer and Producer Surplus
 
-
-
-# Introductory Linear Algebra
-
-## Matrices
-
-
-### Matrix Operations
-
-topics 3.2-3.3
-
-### Inverse Matrix
-
-### Simple Linear Systems of Square Matrix
-
-### Elementary Row Operations and Reduced Row Echelon Form
-
-### Theorems on Matrix Invertibility
-
-### Determinant of a Matrix
-
-### Linear Systems of Invertible Square Matrix
-
-
-## General Linear Systems
-
-### Geometric Insight of a 2-Dimensional Plane
-
-### K-dimensional Flats
-
-### Solving Lienar Systems of Equations
-
-### Solution Sets and Linearity
-
-### Analysing Solution Sets with the Rank
-
 # Probability and Statistical Theory
 
 ## Probability Theory
+
 ### Rules of Probability
 
 ### Counting
@@ -189,8 +513,6 @@ topics 3.2-3.3
 
 ### Bayes' Theorem
 
-
-
 ## Random Variables
 
 ### Discrete Random Variables
@@ -200,8 +522,6 @@ topics 3.2-3.3
 ### Expectations
 
 ### Moments
-
-
 
 ## Distributions
 
@@ -214,7 +534,6 @@ topics 3.2-3.3
 ### Normal (Gaussian) Distribution
 
 ### Normal Approximation of the Binomial Distribution
-
 
 ## Multivariate Random Variables
 
