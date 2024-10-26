@@ -1,6 +1,6 @@
 ---
-title: "Econometrics for Political Analysis"
-subtitle: "Part of the series: Introduction to Political Economics"
+title: "Microeconomic Theory for Political Analysis"
+subtitle: "Book 1 of the Political Economics Sequence in An Introduction to Political Economics"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -16,1045 +16,943 @@ format:
         number-depth: 1
         top-level-division: part
         linestretch: 1.25
-        include-in-header: 
-            text: |
-                \usepackage{fvextra}
-                \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
-include-before-body:
-  text: |
-    \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
-      showspaces = false,
-      showtabs = false,
-      breaksymbolleft={},
-      breaklines
-      % Note: setting commandchars=\\\{\} here will cause an error 
-    }
 ---
 
-## Preface {.unnumbered}
+# Introductory Microeconomic Theory
 
-This book is part of a 5-part series: **Introduction to Political Economics**, which introduces the main methods and concepts in the growing field of Political Economics.
+## Preferences and Utility Theory
 
-1.  **Econometrics for Political Analysis** (This Book) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  **Microeconomic Theory for Political Analysis** introduces key concepts in the field of Game Theory, traditionally used in microeconomics, but which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  **Economic Models of Politics** applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  **Further Statistical Methods** provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
-5.  **Data Science and Political Analysis** introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
+Note: This course uses single variable calculus, set theory, and probability theory extensively. See the Quantitative Methods Sequence for help with mathematical concepts.
 
-This book on Econometrics focuses on developing the core statistical toolkit of political science and social science research. We start with a brief review of probability and basic statistics. Then, we introduce and rigorously analyse the Linear Regression model, its form, assumptions, extensions, and model selection. Finally, we discuss how we can achieve causal inference through a variety of techniques, such as randomised experiments, selection on observables, instrumental variables, and quasi-experimental methods.
+### Agents and Preferences
 
-This book assumes strong knowledge of core mathematical methods (calculus and linear algebra), and basic statistics (probability, random variables, correlation). This course involves much of the mathematical content in the companian book: *Quantitative Methods*. An even deeper understanding of more complex math in *Further Quantitative Methods* and *Introductory Proof and Analysis* are useful but not required.
+**Agents** are anything that makes decisions. They can be people, firms, political parties, candidates, etc., anything that can make decisions.
 
-This book will use the R language for some examples. This is not a coding course, so I will not introduce the basics of R.
+Let us define $X$ as a set of **alternative outcomes** that agents can achieve. [Alternatives are both mutually exclusive and exhaustive]{.underline}:
 
-# Basics of Probability and Statistics
+-   Mutually exclusive means that ending up with one outcome, means you cannot end up with any outcome. For example, on a math test, you have the potential outcomes of any score between 0 and 100. If you end up with a 95, you cannot at the same time, end up with an 84.
 
-## Basic Probability
+-   Exhaustive means that every possible outcome of a situation is included in set $X$. For example, on a math test (assuming no extra credit), the set of all possible outcomes is $X = \{ x : x \in \mathbb{R}; 0 ≤ x ≤ 100 \}$. Or in more intuitive terms, set $X$ contains all real numbers between 0 and 100 (we are assuming you can get decimal percentages).
 
-See [Mathematical Methods for Political Economy](https://kevinli03.github.io/politicaleconomy/maths.pdf) for more detailed explanations.
+$\succsim$ is a **preference relation** over the set of alternatives $X$. It indicates the relationship between two elements within $X$.
 
-### Sets and Set Operators
+If $x, y \in X$, and when $x \succsim y$, that means the agent **weakly prefers** alternative $x$ to $y$. Weakly preferences means that an agent either prefers alternative $x$ to $y$, or is indifferent between $x$ and $y$. However, they never prefer $y$ to $x$.
 
-A **set** is the collection of objects, while the **elements** of the set are the specific objects within a set. A capital letter is used to represent a set, for example, set $A$. A lowercase letter represents an element within the set. For example, element $a$ is a part of set $A$.
+Other preference relations include:
 
-There are a few different set operators that are important to understand.
+-   **Strict Preference**: When $x \succ y$, that means an agent always prefers $x$ to $y$. i.e. if they are given opportunities to choose between outcomes $x$ and $y$, they will always, 100% of the time, select $x$ over $y$.
 
-An **intersection** of sets $A$ and $B$, formally notated $A \cap B$, indicates the elements that are both within $A$ and $B$ at the same time.
+-   **Indifference**: When $x \sim y$, that means an agent is indifferent between $x$ and $y$ - they do not have a preference over which outcome they get.
 
--   For example, if $A = \{1,2,3\}$ and $B = \{2,3,4\}$, then $A \cap B = \{2, 3\}$, since those are the elements that are contained in both $A$ and $B$ at the same time.
+### Preferences and Rationality
 
-A **union** of sets $A$ and $B$, formally notated as $A \cup B$, indicates elements that are in either $A$, $B$, or both $A$ and $B$.
+We assume that agents have **rational** preferences. Preferences are considered rational if they are both complete and transitive.
 
--   For example, if $A = \{1,2,3\}$ and $B = \{2,3,4\}$, then $A \cap B = \{1,2, 3,4\}$.
--   $A \cup B = A + B -A \cap B$. We subtract $A \cap B$ since that part is counted twice in both $A$ and $B$, so we need to get rid of it once to avoid over-counting.
+**Complete** preferences means that for every two elements $x, y \in X$, either $x \succsim y$ or $y \succsim x$, or both.
 
-The **complement** of set $A$ is everything that is not in $A$, but still within the universal set. The complement is denoted as $A'$ or $A^c$.
+-   In more intuitive terms, for every two possible alternatives, agents must either prefer one alternative over another, or be indifferent between the two. They cannot be "unsure" of their preferences (note: unsure is not the same as indifferent).
 
--   For example, if the universal set contains $\{1,2,3,4,5\}$, and $A = \{1,2\}$, then $A' = \{3,4,5\}$
+-   For example, if set $X$ is all the possible outcomes of my math test, I must be able to select any two scores that are possible, and be able to compare them. I prefer outcome 100 to outcome 95 on my test. Maybe I am indifferent between 92 and 91. However, when asked, I am never "not sure" between any two outcomes.
 
-A **subset** $A$ has all its elements belonging to another set $B$. This is notated $A \subset B$.
+**Transitive** preferences means that for three elements $x, y, z \in X$, if $x \succsim y$, and $y \succsim z$, then $x \succsim z$.
 
--   For example, if $A = \{1,2\}$, and $B = \{1,2,3\}$, then $A$ is a subset of $B$ since all of $A$'s elements belong to set $B$ as well.
+-   A simple example is that - if I prefer apples to oranges, and I prefer oranges to watermelon, then, I should prefer apples to watermelon.
 
-### Basic Properties of Probability
+-   This might seem arbitary with fruits, however, with numbers, it makes much more sense. If I prefer a score of 100 compared to 95, and I prefer a score of 95 to 90, then I should prefer 100 to 90.
 
-**Kolmogrov's Axioms** are the key properties of probability:
+If individual preferences of an agent are both complete and transitive, then, they are rational.
 
-1.  For any event $A$, the probability of $A$ occurring is between 0 and 1.
-2.  The probability of all events in the sample space $S$ is 1. Mathematically: $Pr(S) = 1$. The sample space is the set of all possible events.
-3.  If we have a group of mutually exclusive events $A_1, A_2, ... , A_k$, then the probability of those events all occurring is the sum of their probabilities. Mathematically, $Pr \left( \bigcup A_i \right) = \sum Pr(A_i)$
-    -   Note: mutually exclusive events are events that cannot occur at the same time together.
+-   Note the word "individual". As we will cover later, group preferences are often not rational in this sense.
 
-Other important properties to note include:
+### Utility Function and Representation Theorem
 
--   $Pr(A') = 1 - Pr(A)$ - the probability of the complement of $A$, is equal to 1 minus the probability of $A$
+Any rational set of preferences can be represented by a utility function.
 
--   $Pr(A \cup B) = Pr(A) + Pr(B) - Pr(A \cap B)$ - this is because of a property of unions, as shown in section 2.2
+A **utility function** is a way to map preferences over $X$ into numerical values. Or more mathematically, $u : X \rightarrow \mathbb{R}$.
 
-### Joint and Conditional Probability
+The utility function $u : X \rightarrow \mathbb{R}$ should be such that, for any $x,y \in X$, $u(x) ≥ u(y)$ if and only if $x \succsim y$.
 
-**Joint Probability** is the probability of two or more events occurring simultaneously. The joint probability of events $A$ and $B$ is notated $Pr(A \cap B)$.
+-   More intuitively, this says that the utility function should match our preference relations. If we weakly prefer $x$ to $y$, then our utility function should mirror this, so $U(x) ≥ U(y)$.
 
-For example, in a deck of cards, $A$ could be the event of drawing an ace, and $B$ could be the event of drawing a spade. Thus, $Pr(A \cap B)$ would be the probability of drawing a card that was both an ace and a spade.
+-   The same is true for $u(x) > u(y) \Rightarrow x \succ y$ and $u(x) = u(y) \Rightarrow x \sim y$.
 
-**Conditional Probability** is the probability of one event occurring, given another has already occurred. Probability of event $A$, given event $B$ has occurred, is notated as $Pr(A|B)$
+The utility function allows us to represent the binary preferences (comparisons between two alternatives) in a numeric form, which allows us to compare all outcomes, and is much easier to manipulate mathematically.
 
-To calculate the conditional probability, we use the following formula:
+One important thing to note is that utility functions are **ordinal**: they can be used to rank alternatives, such as if $x \succ y$. However, they cannot be used to tell [how much]{.underline} one prefers $x$ to $y$. In other words, the value $u(x) - u(y)$ has no inherent meaning.
 
+A preference relation can be represented by a utility function only if it is rational (i.e. complete and transitive).
+
+-   If it is not complete, then for some outputs we would not be able to assign utilities, which would break the utility function.
+
+-   If it is not transitive, it cannot be represented in numbers, as numbers are transitive. For example, $5 >4$, and $4>3$, so $5>3$ must be true for numbers. If preferences are not transitive, they cannot be represented by numbers which are bound by transitivity.
+
+### Agent Rationality
+
+Given a set of choices $X$, what is the "best choice" of an individual. This is an important concept, since without considering an agent's best choice, we cannot make any predictions on the likely outcomes of scenarios involving decision making.
+
+We can define the best choice as the alternative outcomes included in the **maximal set** of $X$, notated $M( \succsim, X)$, which is defined as:
+
 $$
-Pr(A|B) = \frac{Pr(A \cap B)}{Pr(B)}
+M(\succsim, X) = \{ x \in X : x \succsim y \space \forall \space y \in X \}
 $$
 
-### Bayes' Theorem
+Or in intuitive terms, the maximal set is the set of all alternatives $x$ in $X$, such that $x$ is weakly preferred over alternative $y$ for every alternative $y$ in $X$.
 
-**Bayes' Theorem** states the following relationship is true:
+-   Or even more simply, basically, when comparing one outcome to all other outcomes, not a single other outcome is preferred over this outcome. If that is the case, add that outcome to the maximal set.
 
+All outcome alternatives included in the maximal set $M (\succsim, X)$ are considered the "best choices" of an individual, since they are always weakly preferred to any other alternative $y \in X$.
+
+If the utility function $u: X \rightarrow \mathbb{R}$ is a utility representation of the preference relations $\succsim$ of an agent on $X$, then the elements of the maximal set are:
+
 $$
-Pr(A|B) = \frac{Pr(B|A) \times Pr(A)}{Pr(B)}
+M(\succsim, X) = \arg \max\limits_{x \in X} \{ u(x) \}
 $$
 
-Each part of Bayes' Theorem has a name. They are commonly referenced, so it is useful to know their names:
+Or in more intuitive terms, the inputs $x \in X$ that make the utility function $u : X \rightarrow \mathbb{R}$ achieve its maximum value, are the elements of $x$ in the maximal set $M( \succsim, X)$.
 
--   $Pr(A|B)$ is the [conditional]{.underline} probability
+-   Intuitively, since the maximal set contains the alternatives that are weakly preferred to all other alternative outcomes, the utility function output of that weakly preferred outcome should be equal or higher than all other utility function outputs for other alternatives.
 
--   $Pr(B|A)$ is the [posterior]{.underline} probability
+This course on the microeconomic theory and its applications to political situations is focused on how agents, such as candidates, political parties, government officials, and others, make decisions according to their maximal set, and how these decisions impact political outcomes.
 
--   $Pr(A)$ is the [prior]{.underline} probability
+## Introduction to Game Theory
 
--   $Pr(B)$ is the [marginal]{.underline} probability
+### Modelling and Game Theory
 
-## Basic Statistics
+A model is a simplified version of reality to help us understand the complex world around us. This is especially useful in the complex world of the social sciences.
 
-See [Essential Mathematics for Political Economy](https://kevinli03.github.io/maths.pdf) for more detailed explanations.
+To simplify reality, models make **assumptions**. These assumptions should be similar to reality, so we can draw conclusions to the real world. However, these assumptions should also make the model simple, and only focus on the relevant features and details.
 
-### Random Variables
+For example, a driving map is a model. It does not contain all the information in the world - it does not record the height of buildings, the colour of the terrain, and so on. It even simplifies the spherical earth into a 2-dimensional flat map.
 
-Random variables are variables that represent unobserved events that have some randomness - a set of potential outcomes, with each outcome having a probability of occurring.
+However, despite simplifications of reality, a driving map is amazing for navigation. If you are trying to get from point A to point B by car, you do not care about the spherical nature of the globe. The simplifying assumptions on a driving map allow us to navigate the world around us, without being a perfect copy of reality.
 
-For example, if you flip a coin 10 times, and count the number of heads you get, you could get 5 heads, 6 heads, 4 heads, or any amount between 0 and 10. We are not sure what will happen - however, some outcomes are more likely than others, because of the probabilities associated with each outcome.
+There are different forms of modelling in the social sciences, including decision theory, competitive equilibrium, and game theory. This book will mainly focus on game theory.
 
-There are two types of random variables:
+**Game Theory** is the study of mathematical models of conflict and cooperation between rational players. The key property of game theory is that [one player's actions, affect another player's outcomes/gains/payoffs]{.underline}.
 
--   **Discrete Random Variables** are random events which have a distinct number of outcomes. For example, rolling a dice has 6 outcomes.
+Other key properties of Game Theory include:
 
--   **Continuos Random Variables** are random events which have an infinite amount of outcomes. For example, my drive to work tomorrow could take 5 minutes, 5.123 minutes, 5.234237847 minutes, and so on... there is no distinct outcomes since you can continuously subdivide the gaps between outcomes by adding more decimal points.
+-   There is **common knowledge** of the rules of the game. This basically means that every player knows that every other player knows the rules of the game.
 
-### Distributions and Probability Density Functions
+-   A player will predict what their opponents will do, and will react to their opponents.
 
-Random variables are often called distributions - because there are a distribution of outcomes, with associated probabilities for each outcome. We can actually graph this - put potential outcomes on the $x$ axis, and the probability that each outcome occurs on the $y$ axis.
+-   The optimal decision of a player, depends on their beliefs on what the other players will do.
 
-For example, take this probability distribution of a die - there are 6 sides that you could land on, and each has an equal probability of occurring:
+### Properties of Games and Preferences
 
-![](figures/1/2.1.png){fig-align="center" width="50%"}
+Games are the environment in which strategic interaction between players occurs. For each game, it must consist of:
 
-The **probability mass/density function** $f(y)$ takes a potential outcome of an event as an input, and outputs the respective probability.
+1.  A set of **players**
+2.  For each player, a set of **actions** and **strategies**
+3.  For each player, **preferences** over the outcomes associated with the actions, such that they have an opinion on every possible outcome of the game
 
-For example, the probability mass/density function of a dice is $f(y) = 1/6$. This is because every outcome $y$ has the same probability of occurring: $1/6$. So $f(1), f(2)... = 1/6$.
+Players will take actions, and they yield some outcomes. The pathway between actions and outcomes is the **environment** - essentially the function that takes your action input, and outputs your outcome.
 
-### Expectation and Variance
+A player's belief on the environment - which includes the rules of the game, the other players' strategies, and the other players' beliefs, influence a player's choice of actions.
 
-Expectation and Variance are two ways we can summarise the distributions of random variables.
+A player's preferences over the outcomes of games, in game theory, must be both **complete** and **transitive** (see chapter 1 for more detail).
 
-The **expectation**, often called the expected value or mean, is the best guess of an outcome of a random variable, given no other information except its distribution. We notate expected value of a variable $Y$ as either $E[Y]$, $\bar{Y}$, or $\mu$.
+-   Complete preferences means that given any 2 outcomes, you can always compare them. Or in more intuitive terms, the player always has an opinion on the outcome - they are never "not sure" about how they feel about one outcome compared to another (however, they can be indifferent).
 
-The expected value for discrete variables is calculated by multiplying each outcome value by its associated probability, then doing that for all outcomes, and summing everything together. In other words, it is a weighted average of the outcomes, with the weights being the probability of each outcome.
+-   Transtive preferences means that if you prefer $a$ over $b$, and $b$ over $c$, then you prefer $a$ over $c$. It is basically that your preferences make sense and are consistent.
 
-$$
-E[Y] = y_1 \times f(y_1) + y_2 \times f(y_2)... = \sum [y_j \times f(y_j)]
-$$
+Preferences over outcomes can either be **ordinal** or **cardinal**
 
-For a continuous random variable, it is a little more complicated. This is because continuous variables have an infinite number of potential outcomes. For example, if you drive to school, your driving time could be 23 minutes, or 23.12 minutes, or 23.123324 minutes... basically, an infinite amount. As a result, we have to alter the expected value formula a little:
+-   Ordinal preferences means that you can rank your preferences of the potential outcomes, but you cannot give a specific value to that preference. For example, you can say you like $a$ more than $b$, but you cannot say exactly how much you like $a$ over $b$
 
-$$
-E[Y] = \int\limits_{-∞}^∞ y \times f(y)dy
-$$
+-   Cardinal preferences means that not only can you rank your preferences, you can also describe the magnitude of your preferences. For example, if you say you like $a$ 3 times better than $b$, then you have cardinal preferences
 
-**Variance** $\sigma^2$ is a measure of how spread out our distribution is. Variance basically measures how far values are, on average, from the mean of the variable. Mathematically:
+We can assign numbers to both cardinal and ordinal preferences. Just be aware, if preferences are ordinal (and they often are), the numbers represent relative rankings, not specific magnitudes of preference.
 
-$$
-Var(X) = \sigma^2 = \frac{1}{n} \sum (X-\mu)^2 = E[(X - \mu)^2]
-$$
+-   For example, if preferences are ordinal, the "distance" between preference values $1$ and $2$, may not be equal to the distance between $2$ and $3$
 
-Where $\sigma^2$ is the variance, $n$ is the number of observations, and $\mu$ is the mean of $X$
+### Types of Games
 
-**Standard Deviation** $\sigma$ is the square root of variance $\sigma^2$
+Games in Game Theory can be categorised according to two key properties: the **timing** of a game, and the **availability of information** in the game.
 
-### Normal Distribution and T Distribution
+The timing of the game determines how players move relative to each other:
 
-A **normal distribution** is in the shape of a bell curve. The mean $\mu$, mode, and median are all the same value at the centre, and the distribution is symmetrical on both sides. The figure below shows the typical shape of a normal distribution
+-   A **static game** is when all players move "simultaneously". This does not actually mean they have to move at the exact same moment - it simply means that when one player moves, they cannot yet observe how the other player has moved. Thus, the players must anticipate the other players moves.
 
-![](figures/1/2.2.png){fig-align="center" width="60%"}
+-   A **dynamic game** is when players move sequentially, in an order. These are also called extensive form games. This means that players can see how their opponents moved, before they choose their move. For example, Chess is a dynamic game.
 
-All Normal Distributions, as shown in the image above, follow the 68-95-99.7 rule:
+The availability of information is another distinction between types of games:
 
--   Within one standard deviation $\sigma$ of the mean $\mu$, lies 68.26% of the total area under the curve
+-   A game of **complete information** is one where all payoffs are known to all players.
 
--   Within 2 standard deviations $2 \sigma$ of the mean $\mu$, lies 95.44% of the total area under the curve
+-   A game of **incomplete information** is when some payoffs or some actions are not common knowledge. These games are quite a bit more complex.
 
--   In fact, any amount of standard deviations $\sigma$, including decimals, is related to a specific percent of total area under the curve, for all normal distributions.
+We will start with static games of complete information - the simplest form and the best type of game to introduce core concepts.
 
-This is important, because the [area under the distribution curve is the probability]{.underline}. Thus, the normal distribution tells us there is a relationship between the standard deviation and the probability of an action occurring.
+### Game Theory Notation
 
-Any normal distribution can be described with 2 features: mean $\mu$ and variance $\sigma^2$ in the following form: $X \sim \mathcal{N}(\mu, \sigma^2)$. For example, $X \sim \mathcal{N} (30, 4)$ means a normal distribution with mean 30 and variance 4.
+Before we start discussing games, we need to discuss notation. Notation is key, because it allows us to be very precise and concise in defining our games.
 
-The T distribution is a distribution very similar to the shape and size of the normal distribution, however, generally has thicker tails and a lower peak. The key difference is that t-distributions are defined with only one parameter - degrees of freedom $DF$.
+Players are denoted $i = 1,2,...N$.
 
-### Covariance and Correlation
+-   When we say player $i$, we are referring to any specific player in the game.
 
-In political economy, we are often interested in the relationship between two variables. For example, are oil producers more likely to be democratic? Are more educated voters more likely to turn out and vote? The relationship between two features, also called correlation, is the extent to which they tend to occur together.
+-   When we say player 1, or player 2..., we are referring to a specific player in the game.
 
--   A positive correlation/relationship is when we are more likely to observe feature $Y$, if feature $X$ is present
+-   $N$ represents the total number of players in a game.
 
--   A negative correlation/relationship is when we are less likely to observe feature $Y$, if feature $X$ is present
+The actions of a player $i$ are denoted $a_i$
 
--   No correlation/relationship is when we see feature $X$, that does not tell us anything about the likelihood of observing $Y$
+-   So, the actions of player 1 are denoted $a_1$, and so on
 
-We can also visualise these graphically:
+The strategies of a player $i$ are denoted $s_i$
 
-![](figures/1/3.1.png){fig-align="center" width="80%"}
+-   A player's selected strategy, if applicable, is denoted with a star: $s_i^*$
 
-**Covariance** is a way to measure the relationship between two variables. Covariance is the extent that $X$ and $Y$ vary together. Mathematically:
+-   All other strategies are denoted with an apostrophe (more specifically, a set complement sign): $s'_i$
 
-$$
-Cov(X,Y) = \sigma_{XY} = \frac{1}{n} \sum (X_i - \bar{X})(Y_i - \bar{Y})
-$$
+The action profile (of all players' actions) is a vector $a = (a_1, a_2, ..., a_N)$
+
+-   We can split this vector into 2 different parts. $a_i$ denotes player $i$'s actions, while $a_{-i}$ denotes the action profiles of all other players not player $i$
+
+Preferences are represented by a payoff function $u_i(a_i, a_{-i})$
 
-Or more simply:
+-   Essentially, $u_i$ is a function with the inputs of player $i$'s actions $a_i$, and the actions of everyone else $a_{-i}$
 
--   In our data, we have many different pairs of data points $(X_i, Y_i)$
+# Static Games of Complete Information
 
--   $X_i$ is some value of $X$, and $\bar{X}$ is the mean of $X$. Same goes for $Y_i$ and $\bar{Y}$
+## Dominant Strategy Equilibrium
 
--   Thus, $X_i - \bar{X}$ is the distance between any point $X_i$ and the mean $\bar{X}$. Same goes for $Y_i - \bar{Y}$
+### Dominant Strategies
 
--   $n$ is the number of observations (data points) in our data
+As we have established, game theory is when one person's actions affect another's payoffs. Thus, players have to anticipate what other players will do, and act accordingly.
 
-We can interpret the sign of the covariance: if it is positive, we have a positive relationship. if it is negative, we have a negative relationship. However, [we cannot interpret the numerical value of the covariance]{.underline}.
+However, sometimes, one of the actions available to a player $i$, is always better than any of the other actions available to them, no matter what their opponent decides to do. This strategy that is always better than the alternatives, no matter what the other player does, is called a **dominant strategy**.
 
-To do that, we have to find the **correlation coefficient**. We calculate this by taking the covariance, and dividing it by the product of the standard deviation of $X$ and the standard deviation of $Y$. Mathematically:
+Formally, a dominant strategy, notated $s_i^D$, is a dominant strategy, if it is player $i$'s best strategy, no matter the strategies the other players pick. No matter what the opponent does, the payoff is highest for player $i$ when they play $s_i^D$
 
+Mathematically, we can represent that statement as following:
+
 $$
-Corr(X,Y) = r = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}
+u_i(s_i^D, s_{-i}) > u_i (s_i', s_{-i})
 $$
 
-The correlation coefficient is always between -1 and 1.
+Which translates into words as - the utility of player $i$ choosing their dominant strategy $s_i^D$, is always greater than the utility of player $i$ choosing another strategy $s_i'$, no matter the strategies chosen by the opponents $s_{-i}$
 
--   The direction is the same as the covariance - if the coefficient is positive, then we have a positive relationship, vice versa.
+If player $i$ has a dominant strategy $s_i^D$, then their other strategies $s_i'$ are considered to be **dominated**.
 
--   If the correlation coefficient is closer to -1 or 1, it means a strong correlation. If the correlation is closer to 0, then it is a weak correlation
+### Dominant Strategies in Prisoner's Dilemma
 
-### Best Linear Predictor
+An example of a dominant strategy is the famous game: prisoner's dilemma. The story is as follows:
 
-While the correlation coefficient tells us the strength of a correlation, it does not say anything about the magnitude of the relationship. For example, if $X$ increases by one unit, how much does $Y$ increase by? The correlation coefficient does not say.
+*Two suspects are arrested. The police holds the suspects in separate cells and explains the consequences of their actions. If they both remain quiet (cooperate with each other), then both will be convicted for minor offences and sentenced to 1 month in jail. If both rat each other out (defect), then both will be sentenced to jail for 8 months. Finally, if one defects but the other does not, then the confessor is immediately released and the other is sentenced to 10 months, 8 for the crime and 2 for obstructing justice.*
 
--   In a linear model, the $X$ variable is considered the **explanatory** or **independent** variable, while the $Y$ is the **response** or **dependent** variable.
+We can represent this game in a matrix, which is often called the normal form of the game. Note, the first value in each cell is the payoff of player 1 (p1), and the second value in each cell is the payoff of player 2 (p2).
 
-Magnitude is quite an important concept. After all, even if two values are very highly correlated, if an increase of one unit in $X$ only leads to a miniscule increase in $Y$, this relationship might not be very important for understanding the world.
+|                    | Cooperate (p2) | Defect (p2) |
+|--------------------|----------------|-------------|
+| **Cooperate (p1)** | -1, -1         | -10, 0      |
+| **Defect (p1)**    | 0, -10         | -8, -8      |
 
-A way to estimate the magnitude of the relationship between $X$ and $Y$ is the **best linear predictor.** The best linear predictor is a best fit line for the data, that takes the form of a linear equation: $Y = \alpha + \beta X$.
+Let us look at player 1. What is the best move for player 1?
 
-In this equation, the $\beta$ term in the best fit line is the slope of the linear equation. Essentially, it tells us for every increase in one unit of $X$, how much do we expect $Y$ to increase by?
+Pretend player 2 plays cooperate. Thus, we can hide the defect column:
 
--   We can interpret the sign of $\beta$: a positive $\beta$ is a positive relationship, a negative $\beta$ is a negative relationship, and $\beta = 0$ is no relationship.
--   We can also interpret the magnitude of $\beta$: as $X$ increases by 1 unit, $Y$ is expected to increase by $\beta$ units.
+|                    | Cooperate (p2) |
+|--------------------|----------------|
+| **Cooperate (p1)** | -1, -1         |
+| **Defect (p1)**    | 0, -10         |
 
-The Best Linear Predictor is a form of Linear Regression, the primary topic we will cover in the next two chapters.
+What is player 1's best strategy? Well, it is to defect, since a payoff of 0 is greater than a payoff of 1. [So, when player 2 picks cooperate, player 1 should pick defect]{.underline}.
 
-# Multiple Regression Anlaysis
+Now, pretend player 2 plays defect. Thus, we can hide the cooperate column:
 
-## Linear Model, Estimation, and Interpretation
+|                    | Defect (p2) |
+|--------------------|-------------|
+| **Cooperate (p1)** | -10, 0      |
+| **Defect (p1)**    | -8, -8      |
 
-### Specification of the Linear Model
+What is player 1's best strategy? Well, it is to defect, since a payoff of -8 is greater than a payoff of -10. [So, when player 2 picks defect, player 1 should pick defect]{.underline}.
 
-Before we dive into the linear model, here are some conventional notation that is important:
+So, we have established that player 1 will pick strategy defect, for both the scenarios that player 2 picks cooperate or player 2 picks defect. So, player 1 should always pick defect.
 
--   The **response variable** (dependent variable) is notated $Y$. In this book, we will only have one response variable.
+Thus, player 1's strategy of defect is the strategy that maximises their payoff, regardless of the strategy of player 2. Thus, [player 1's strategy of defect is a dominant strategy.]{.underline}
 
--   The **explanatory variable** (independent variable) is notated $X$. There is often more than one explanatory variable, so we denote them with subscripts $X_1, X_2, ..., X_k$. We sometimes also denote all explanatory variables as the vector $\overrightarrow{X}$
+We can do the same thing for player 2. We first pretend player 1 will pick cooperate, and we find player 2 should pick defect as their best strategy. Then we pretend player 1 will play defect, and we find player 2 should also pick defect as their best strategy. [Thus, player 2 also has a dominant strategy of defect.]{.underline}
 
-A regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. Essentially, it is stating that the distribution of possible $Y$ outcomes depends on the value of $\overrightarrow{X}$.
+The Prisoner's Dilemma thus has a dominant strategy for both players - defect.
 
--   I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$.
+### Solution Concepts
 
-The linear regression model focuses on the **expected value** or mean of the conditional distribution of $Y$ given $\overrightarrow{X}$.
+One of the key things about modelling situations is that, well, we want to find a likely outcome. An equilibrium solution concept is a concept that shows a likely solution to a game, by restricting potential strategies being played to the most reasonable one.
 
-Suppose we have a set of observed data, with response variable $Y$, and a number of $X$ variables for $n$ number of observations. Thus, we will have $n$ number of pairs of $(X_i, Y_i)$ observations. The linear model takes the following form:
+Any equilibrium solution concept has a few assumptions:
 
-$$
-E[Y_i|\overrightarrow{X}_i] = \alpha + \beta_1 X_{1i} + ... + \beta_k X_{ki}
-$$
+1.  Players are rational - they choose actions that maximise their own payoffs. Without this assumption, it is very difficult to find a likely outcome
+2.  Structure of the game and player's rationality is common knowledge. If players do not know about the structure of the game, they well, cannot make best response decisions to their opponents
+3.  Any predictions must be self-enforcing - essentially, if we end up in a solution outcome, the players should not have any reason to want to leave that outcome, or else it would not be a final solution.
 
--   Where $E[Y_i|\overrightarrow{X}_i]$ is the expected value of the conditional distribution $Y_i|\overrightarrow{X}_i$
+### Dominant Strategy Equilibrium
 
--   The distribution of $Y_i|\overrightarrow{X}_i$ has a variance $Var(Y_i|\overrightarrow{X}_i) = \sigma^2$.
+A dominant strategy equilibrium is a solution concept where all players play dominant strategies.
 
--   The parameters of the model are the denoted by the vector $\overrightarrow{\beta}$, and contain $\alpha, \beta_1, ..., \beta_k$
+-   After all, if everyone has a best response to all other strategies of other players, and everyone is playing their best response, that is a very likely outcome of the game.
 
-We can also write the linear model for the value of any point $Y_i$ in our data:
+Formally, a strategy profile of all players $S^D = (S^D_1, S^D_2, ..., S^D_N)$ is a dominant strategy equilibrium, if for all players $i$, $u_i(S^D_i, s_{-i}) > u_i(s_i',s_{-i})$ for all $s_{-i}$
 
-$$
-Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
-$$
+-   Thie second part is the definition of dominant strategy. So, this basically says that a a set of strategies (strategy profile) is a dominant strategy equilibrium, given every player is playing a dominant strategy.
 
--   Where $\epsilon_i$ is the error term function - that determines the error for each point. We will go into detail on this later.
+For example, take the **prisoner's dilemma**. We have already established that for both players, defect is a dominant strategy. [Thus, if both players play defect, that is a dominant strategy equilibrium]{.underline}.
 
--   A key assumption (that we will discuss later) is that the error function overall is normally distributed: $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$
+There, at most, can only be one dominant strategy equilibrium in a game. This makes dominant strategy equilibrium a great solution concept for predicting - as there will always only be one solution.
 
--   Essentially, $\epsilon_i$ is another way to think about the conditional distribution of $Y_i|\overrightarrow{X}_i$, and how not every 30 year old makes the exact same income - there is some variation (and error).
+However, many games do not have any dominant strategies, and thus, many games do not have a dominant strategy equilibrium. As a result, this solution concept is not possible on a vast majority of games.
 
-### Estimation of Parameters
+## Nash Equilibrium
 
-In our model, we have parameters $\alpha, \beta_1, ..., \beta_k$ that need to be estimated in order to create a best-fit line we can actually use. We estimate the parameters and fit the model by using our observed data points $(Y_i, \overrightarrow{X}_i)$, and fitting a best fit line to these points. Our result should take the following form:
+### Best Response
 
-$$
-\hat{Y}_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + ... + \hat{\beta}_k X_{ki}
-$$
+We previously discussed that dominant strategies do not appear in most games, and thus, we need an alternate way of determining a solution.
 
--   Where $\hat{Y}_i$ is our prediction of the value of $Y$, given any set of $\overrightarrow{X}$ values.
+Thus, we need to introduce the concept of a **best response**. We already introduced the intuition of a best response in the section on the prisoner's dilemma.
 
--   Notice the error term $\epsilon_i$ is not present. This is because of our prior assumption that the error term $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, which says the expected value of $\epsilon_i$ is $E[\epsilon_i]=0$. So on average, error is 0, so our predictions do not include the error term.
+A strategy for player $i$ is a best response to another strategy played by the other players, if that chosen strategy for player $i$ gives more payoff than any other strategy player $i$ could choose.
 
-However, how do we determine the estimates of our parameters $\alpha, \beta_1, ..., \beta_k$? **The Ordinary Least Squares Estimator (OLS).** OLS estimation attempts to **minimise the sum of squared errors** of our predicted line to our actual observed data. The estimation processes is as follows.
+-   Essentially, we hold the other player's strategies constant. Then, we find what player $i$ should play. We do this for every combination of other player's strategies.
 
-1.  Propose some coefficient values to test. Let $\tilde{\beta}$ represent the vector of our proposed coefficient values $\tilde{\alpha}, \tilde{\beta}_1, ..., \tilde{\beta}_k$
-2.  Use these proposed coefficients in our prediction line: $\hat{Y}_i (\tilde{\beta}) = \tilde{\alpha} + \tilde{\beta}_1 X_{1i},...  ,\tilde{\beta}_k X_{ki}$
-3.  Calculate the residuals $e_i$ of our predictions of $Y$ using our proposed coefficients, compared to the actual values of $Y_i$ : $e_i (\tilde{\beta}) = Y_i - \hat{Y}_i (\tilde{\beta})$
-4.  Calculate the sum of squared errors (SSE) for all residuals: $SSE(\tilde{\beta}) = \sum (Y_i - \hat{Y}_i (\tilde{\beta}))^2$
+More formally, the strategy $s_i$ is a best response to the opponents specific strategy $s_{-i}$, if $u_i(s_i, s_{-i})≥ u_i(s_i', s_{-i})$, where $s'_i$ are the other strategy profiles of player $i$ that are not the chosen $s_i$
 
-[The set of proposed $\tilde{\beta}$ coefficients that produces the lowest SSE is chosen as our estimates]{.underline}. Testing every possible set of proposed coefficients $\tilde{\beta}$ is quite time-consuming. Mathematicians have derived a formula for the parameters that minimise the SSE of a simple linear regression:
+A strategy profile cannot be a best response, if there exists a **profitable deviation**.
 
-$$
-\hat{\beta} = \frac{\sum(X_i - \bar{X})(Y_i - \bar{Y})}{\sum(X_i - \bar{X})^2}
-$$
+-   Essentially, given the opponent plays a certain strategy, if you can switch to a more profitable strategy, then the original strategy is not a best response.
 
-For more than one $X$ variable, it is nearly impossible to hand calculate the estimated parameters. Luckily, the computer does this very quickly for us (we will show how to implement this in the R programming language later).
+### Finding Best Responses
 
-### Interpretations of Coefficients
+To find the best responses for player 1, do the following:
 
-#### Simple Linear Regression
+1.  Assume player 2 plays a specific strategy
+2.  Find which player 1 strategy maximises player 1's payoff, given player 2 plays that specific strategy
+3.  Now assume player 2 plays another strategy
+4.  Now, find which player 1 strategy maximises player 1's payoff, given player 2 plays that specific strategy
+5.  Continue until all you have a best response to ever potential strategy of player 2
 
-Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated?
+For example, let us find the best responses for player 1 in the following game (called the stag-hunt game)
 
-$\hat{\beta}$ is the slope of the the linear model. [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}.
+|               | Stag (p2) | Hunt (p2) |
+|---------------|-----------|-----------|
+| **Stag (p1)** | 2, 2      | 0, 1      |
+| **Hunt (p1)** | 1, 0      | 1, 1      |
 
--   A positive $\hat{\beta}$ means a positive relationship, a negative $\hat{\beta}$ means a negative relationship, and $\hat{\beta} = 0$ means no relationship.
--   This is only for continuous $X$ explanatory variables. See Chapter 5 for categorical/binary explanatory variables.
+First, let us assume player 2 plays stag. Thus, let us hide the hunt (p2) column.
 
-$\hat{\alpha}$ is the y-intercept of the linear model. $\hat{\alpha}$ is the expected value of $\hat{Y}$, given $X=0$.
+|               | Stag (p2) |
+|---------------|-----------|
+| **Stag (p1)** | 2, 2      |
+| **Hunt (p1)** | 1, 0      |
 
-#### Multiple Linear Regression
+What is player 1's best response to player 2 playing stag? Well, since $2>1$, stag is the best response of player 1.
 
-Multiple linear regression is when there are multiple explanatory variables $X_1, X_2, ..., X_k$. How do we interpret these parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$ that we have calculated?
+Now, let us assume player 2 plays hunt. Thus, let us hide the stag (p2) column.
 
--   Note: I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ (the interpretation is all the same). In the model, $\hat{\beta}_j$ will be multiplied to variable $X_j$.
+|               | Hunt (p2) |
+|---------------|-----------|
+| **Stag (p1)** | 0, 1      |
+| **Hunt (p1)** | 1, 1      |
 
-Formally, [any coefficient $\hat{\beta}_j$ is the expected change in $Y$, corresponding to a one unit increase in $X_j$, holding all other explanatory variables $X_1, ..., X_k$ that are not $X_j$ constant.]{.underline}
+What is player 1's best response to player 2 playing hunt? Well, since $1>0$, hunt is the best response of player 1.
 
--   Essentially, we do the same interpretation as the single linear regression, but adding the phrase "**holding all other explanatory variables constant**".
+Thus, we have found all the best responses for player 1. You would do the same for player 2, and for any other players in any other game.
 
-$\hat{\alpha}$ is the expected value of $\hat{Y}$, given all explanatory variables $X_1, ...,X_k$ equal 0.
+### Nash Equilibrium
 
-#### Interpreting in Terms of Standard Deviation
+Nash Equilibrium is another solution concept. This solution concept is obtained when both players are playing a best response to the other player's chosen strategy.
 
-Sometimes, it is hard to understand what changes in $Y$ and $X$ mean in terms of units. For example, if democracy is measured on a 100 point scale, what does a 5 point change in democracy mean? Is it a big change, or a small change?
+As we discussed previously, a best response means a player has no profitable deviation. Thus, when both players are playing a best response to each other in a Nash Equilibrium, neither player has a profitable deviation.
 
-We can add more relevant detail by expressing the change of $Y$ and $X$ in standard deviations.
+-   Thus, no player can do better by choosing a different strategy. That means the Nash Equilibria is stable: once we enter the equilibria, no one wants to leave it.
 
-So, instead of the expected change of $Y$ given one unit increase of $X$, we instead do the [expected standard deviation change of $Y$, given a one standard deviation increase in $X$.]{.underline}
+More formally, strategy profile $s^*$ is a Nash Equilibrium, when $u_i(s_i^*, s_{-i}^*) ≥ u_i(s_i', s^*_{-i})$ for all $s'_i$ and for all players $i$
 
-How do we calculate this? There is a formula! $Y$ changes by $(SD_{X_j} \times \hat{\beta}_j) / SD_Y$, where $SD$ represents standard deviation, and $X_j$ is the variable whose coefficient we are interpreting.
+-   Or in more intuitive terms, a strategy profile is a Nash Equilibrium, when the chosen strategy of player $i$, given an opponents strategies yields a higher payoff than any other strategy that player $i$ could choose.
 
-#### Binary $Y$ Variable Interpretation
+All dominant strategy equilibria are Nash Equilibria, but not all Nash Equilibria are dominant strategy equilibria.
 
-If our response variable is binary, (i.e. $Y$ only has two values, 0 and 1), then our interpretation differs slightly. We treat $Y$ as a variable of two categories, $Y = 0$ and $Y = 1$.
+However, there are a few important caveats of Nash Equilibria:
 
-[$\hat{\beta}_j$ is the expected change in the probability of getting category $Y = 1$, given a one-unit increase in $X_j$]{.underline}. We could multiply this by 100 to get the expected percentage point change.
+-   Nash Equilibria do not always make sense as sensible outcomes - we will see this throughout the book
 
-$\hat{\alpha}$ is the expected probability of getting category $Y=1$, when $X_j = 0$.
+-   Often, there is more than one Nash Equilibria, and we are not sure which solution is the likely outcome of the game
 
-An important note is that, in theory, for a linear regression model, $Y$ should be continuous, not binary. In theory, we should be using logistic regression instead of linear regression (which is covered in the Advanced Statistical Methods book).
+-   Sometimes, Nash Equilibria do not exist in a game (although this is less frequent than Dominant Strategy Equilibria)
 
--   However, in practice, researchers often do use linear regression for binary $Y$, simply because linear regression is easier to interpret, and easier to incorporate into more causal inference methods.
+-   Finally, Nash Equilibria have many issues when it comes to dynamic/sequential games, which we will cover later.
 
-### Model Summary Statistics
+### Finding Nash Equilibrium
 
-#### Estimated Residual Standard Deviation
+Finding Nash Equilibria is quite simple: we find the best responses for both players, just like we did in the "finding best responses" section previously.
 
-We can derive the estimate of the **residual variance** $\sigma^2$ with this formula:
+For example, take this following game (game of chicken):
 
-$$
-\hat{\sigma}^2 = \frac{\sum(Y_i - \hat{Y}_i)^2}{n-k-1}
-$$
+|                   | Swerve (p2) | Straight (p2) |
+|-------------------|-------------|---------------|
+| **Swerve (p1)**   | 0, 0        | -1, 1         |
+| **Straight (p1)** | 1, -1       | -9, -9        |
 
-But what is the residual variance? Recall the way we write our regression model:
+Let us first find the best responses of player 1, while fixing player 2's strategies. The best responses are underlined/bolded
 
-$$
-Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
-$$
+|                   | Swerve (p2)             | Straight (p2)           |
+|-------------------|-------------------------|-------------------------|
+| **Swerve (p1)**   | 0, 0                    | [**-1**]{.underline}, 1 |
+| **Straight (p1)** | [**1**]{.underline}, -1 | -9, -9                  |
 
-We know that $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Our estimate of the residual variance $\hat{\sigma}^2$ is our estimate of the variance of the error term $\epsilon_i$'s variance. More intuitively, it explains how spread out observed values of $Y$ are from our prediction value $\hat{Y} = E(Y|X)$.
+Next, let us find the best responses of player 2, while fixing player 1's strategies. The best responses are underlined/bolded
 
-The figure below better showcases this in 2 different models. The red lines are our predicted regression line, and the green lines represent the distribution of our error term $\epsilon_i$:
+|   | Swerve (p2) | Straight (p2) |
+|------------------------|-----------------------|--------------------------|
+| **Swerve (p1)** | 0, 0 | [**-1**]{.underline}, [**1**]{.underline} |
+| **Straight (p1)** | [**1**]{.underline}, [**-1**]{.underline} | -9, -9 |
 
-![](figures/1/4.1.png){fig-align="center" width="70%"}
+We can see that the strategy profiles, where both players are playing best responses, are (Swerve, Straight), and (Straight, Swerve). Thus, these are the two Nash Equilibria.
 
-The residual standard deviation $\hat{\sigma}$ (square root of variance) is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
+### Public Goods Contribution Games
 
-If $\hat{\sigma}$ varies depending on the value of $X$, then that is called **heteroscedasticity**. When this occurs, it is often a suggestion that our relationship may not be linear - and we perhaps need to try a few transformations. We will get into transformations in a later chapter.
+So far, we have focused on relatively simple 2-player games. However, let us introduce a slightly more complex game: the public goods contribution game. The game takes the following form:
 
-#### Total Sum of Squares
+*Each of* $n$ *people chooses whether to contribute a fixed amount toward the provision of a public good. The good is provided if and only if at least k people contribute where* $2 ≤ k ≤ n$*; if it is not provided, contributions are not refunded. Each person ranks outcomes from best to worst as follows:*
 
-The total sum of squares is the total amount of sample variation in $Y$
+-   *(i) any outcome in which the good is provided and she does not contribute*
 
-$$
-TSS = \sum(Y_i - \bar{Y})^2
-$$
+-   *(ii) any outcome in which the good is provided and she contributes*
 
-We can also rewrite the total sum of squares as the sum of two different sections:
+-   *(iii) any outcome in which the good is not provided and she does not contribute*
 
-$$
-\sum(Y_i - \bar{Y})^2 = \sum (\hat{Y}_i - \bar{Y})^2 + \sum (Y_i - \hat{Y}_i)^2
-$$
+-   *(iv) and outcome in which the good is not provided and she contributes.*
 
-$$
-TSS = SSM + SSE
-$$
+What are the Nash Equilibria of this game? This game is more complex than the previous examples, since it involves both more players, and also, unclear amounts (such as $k$).
 
-Where TSS is the total sum of squares, SSM is the model sum of squares, and SSE is the sum of squared errors (that we used to fit the model).
+To approach this problem, we can do the following:
 
-SSM (model sum of squares) represents the part of the variation of $Y$ that is explained by the model, while SSE (sum of squared errors) represents the part of the variation of $Y$ that is not explained by the model (hence, why it is called error).
+1.  Divide the problem into different "scenarios", based on number of players that contribute relative to $k$, the threshold of providing the public good. For example, we could split this game into a scenario where less that $k$ people contribute, where exactly $k$ people contribute, and where more than $k$ people contribute.
+2.  Find if there is any Nash Equilibria. While we cannot find the "best responses" as easily, recall that Nash Equilibria also is defined as no player having a profitable deviation. We can look at each player, and ask - *do they have a profitable deviation?* - and if they do not, we can conclude that is a Nash Equilibrium.
 
-#### R-Squared Statistic
+First, let us look at the scenario that *less than* $k$ *people contribute*. Is there a Nash Equilibrium?
 
-[R-squared $R^2$ is a measure of the percentage of variation in $Y$, that is explained by our model]{.underline} (with our chosen explanatory variables).
+-   Let us consider that 0 people contribute to the public good. Does any player have any incentive to deviate?
 
-As we just explained before, SSM is the the amount of variation in $Y$ that is explained by $Y$, and the TSS is the total amount of variation in $Y$. Thus, naturally, the percentage of variation in $Y$ explained by our model would be:
+    -   All players are playing "not contribute". Let us assume player $i$ is one of them. Player $i$ does not have a profitable deviation to "contribute", since that $k$, the threshold of the public good, cannot be lower than 2. Thus, deviating to "contribute" would lower player $i$'s payoff from payoff number iii to payoff number iv (see question above)
 
-$$
-R^2 = \frac{SSM}{TSS} = \frac{\sum (\hat{Y}_i - \bar{Y})^2}{\sum(Y_i - \bar{Y})^2}
-$$
+    -   Thus, [0 people contributing is a Nash Equilibrium]{.underline}, as no player has an incentive to deviate.
 
-Since $R^2$ shows how much of the variation in $Y$ our model explains, it is often used as a metric for how good our model is - however, don't overly focus on $R^2$, it is just one metric with its benefits and drawbacks.
+-   Let us now consider that 1 person is contributing to the public good. Does any player have an incentive to deviate?
 
-### Linear Regression in R
+    -   Let us assume player $i$ is the only player that is contributing so far. Player $i$ does have a profitable deviation given his opponents current strategies, since if he changes to "not contribute", he will increase his payoff from outcome iv to outcome iii.
 
-As for all of the examples in this book, we will use the "tidyverse" package. Let us also load our dataset that we will be using.
+    -   This will be the case for all cases where $k-2$ or less people contribute, since no player's individual action will be able to reach the threshold of the public good, so all players contributing would have an incentive to not contribute.
 
-```{r, message = FALSE}
-# if you haven't installed tidyverse, do: install.packages('tidyverse')
-library(tidyverse)
-democracy_data <- read_csv("data/democracy.csv")
-```
+    -   Thus, 1 person, and anything between and including 1 and $k-2$ people contributing, is not a nash equilibrium, since a profitable deviation exists.
 
-{{< pagebreak >}}
+-   What if there are $k-1$ people contributing though?
 
-We use the *lm()* function to run a regression: The general syntax is as follows:
+    -   Well, then if player $i$ is not contributing, he has an incentive to deviate to "contribute", as that will reach the threshold $k$ for the provision of the public good, thus boosting their payoff from outcome iii to outcome ii.
 
--   Replace *model_name* with your model name, *Y* with the name of your response variable, *X1, X2...* with the name of your explanatory variable, and *mydata* with the name of your dataset.
+    -   Thus, $k-1$ players contributing is also not a Nash Equilibrium, since a profitable deviation exists.
 
--   Add additional explanatory variables with more $+$ signs, and you can remove them down to a minimum of one $X$
+Now, let us consider that $k$ people contribute to the public good. Does any player have any incentive to deviate?
 
-```{r, eval = FALSE}
-model_name <- lm(Y ~ X1 + X2 + X3, data = mydata)
-summary(model_name)
-```
+-   Let us say player $i$ is already contributing. If they were to deviate to "not contribute", the total number of contributors would fall below $k$, thus moving player $i$ from outcome ii to outcome iii, lowering his payoffs.
 
-For example, let us run a multiple linear regression with two explanatory variables:
+-   Let us say player $i$ is not-contributing. if they were to deviate to "contribute", the good is already and still being provided, so they would go from outcome i to outcome ii, lowering their payoffs.
 
-```{r}
-model2 <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
-    data = democracy_data)
-summary(model2)
-```
+-   Thus, [$k$ players contributing is a Nash Equilibrium]{.underline}, since no player has a profitable deviation.
 
-We can see the output. In the coefficients table:
+Finally, there is the scenario that more than $k$ people contribute. Does any player have an incentive to deviate?
 
--   The *Intercept - Estimate* is $\hat{\alpha}$
+-   Let us say player $i$ is already contributing. If they were to switch to "not contribute", the public good would still be provided. They would move from outcome ii to outcome i, increasing their payoffs.
 
--   The *GDP_Per_Cap_Haber_Men_2 - Estimate* is the coefficient $\hat{\beta}_1$.
+-   Thus, there is no Nash Equilibrium when more than $k$ people contribute, since there is a profitable deviation.
 
--   The *Total_Oil_Income_PC - Estimate* is the coefficient $\hat{\beta}_2$.
+[Thus, there are two Nash Equilibria in this game: at 0 people contributing, and at $k$ people contributing]{.underline}. This game shows how you can analyse more complex games and find Nash Equilibria - just divide the game into scenarios, and look for players with profitable deviations.
 
--   For interpretation, see the preceding section on interpretation.
+## Pareto Efficiency and Extensions of Nash Equilibrium
 
-Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value.
+### Pareto Efficiency
 
-## Confidence Intervals and Hypothesis Testing
+Pareto efficient outcomes are outcomes that may or may not be feasible from a solution concept wise, but in theory, offer the best case for both players.
 
-### Samples and Population
+The definition of a **Pareto Efficient** outcome is that, given that outcome, it is impossible to move to any other outcome that makes at least one player better off, without making anyone else worse off.
 
-In the social sciences, we are often interested in studying large groups of people and entities. However, it is often impossible to ask every single individual in the population. For example, if we wanted to study the effect of educational level on voter turnout in the UK, we would need to ask nearly 70 million people.
+-   The key point here is **without making anyone worse off**. For example, if a game had two outcomes (2, 0) and (1, 10000000000), both would be pareto efficient, including (2, 0), since player 1 is made worse off when moving to outcome 2.
 
-A **sample** is a subset of a population, which ideally, can tell us something about the population. For example, we could use a sample to estimate the relationship between two features $X_j$ and $Y$ with a coefficient $\beta_j$. If our sample can reflect the population, then we can use the sample to learn about the true population $\beta_j$
+For example, let us take the classic prisoner's dilemma game:
 
-The quality of a sample depends on two major factors: the sampling procedure, and luck.
+|                    | Cooperate (p2) | Defect (p2) |
+|--------------------|----------------|-------------|
+| **Cooperate (p1)** | -1, -1         | -10, 0      |
+| **Defect (p1)**    | 0, -10         | -8, -8      |
 
--   Sampling procedure can create **bias**: systematic reasons why our samples are not representative of the population.
+The outcomes that are pareto efficient are (Cooperate, Cooperate), (Cooperate, Defect), and (Defect, Cooperate). All three are outcomes where it is impossible to move to another potential outcome, without making someone worse off.
 
--   Luck in sampling is called **noise** or **variance**: essentially, even if we have a perfect sampling procedure, every sample will differ slightly just due to luck.
+The opposite of pareto efficient is **pareto inefficient** - an outcome where it is possible to make at least one player better off, without making anyone worse off.
 
-[The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the population.
+-   In the prisoner's dilemma, (Defect, Defect) is pareto inefficient, since we can move to (Cooperate, Cooperate), which makes both players better off, and no one worse off.
 
-### Sampling Distributions and Standard Error
+### Prisoner's Dilemma as a Category of Games
 
-A sampling distribution is a hypothetical construct that is useful to understanding how many of our statistical techniques work. A sampling distribution is as follows.
+A **Prisoner's dilemma** is not just one specific game with the storyline of the prisoners. It refers to all games that meet the following criteria:
 
--   Imagine that we take a sample from a population. Then, we find the $\hat{\beta}_j$ coefficient between some $X_j$ and $Y$. That is a **sample estimate**.
+-   Each player has 2 strategies: cooperate or defect
 
--   Then, let us take another sample from the same population, and find the sample estimate. This will be slightly different than the first sample, since we are randomly sampling. That is another sample estimate. We keep taking samples from the same population, and getting more and more sample estimates.
+-   Each player has a **dominant strategy of defecting**
 
--   Now, let us plot all our sample estimates (different $\hat{\beta}_j$ values) into a “histogram” or density plot. The $x$ axis labels the possible $\beta_j$ values, and the $y$ axis is how frequently a specific sample mean occurs. We will get a distribution, just like a random variable distribution.
+-   The Nash Equilibrium that arises is thus (Defect, Defect), and that is the outcome of the game
 
--   That distribution is the **sampling distribution**
+-   However, while (Defect, Defect) is the outcome of the game, it is pareto inefficient - both players in theory could be better off with (Cooperate, Cooperate), but because of the structure of the game, they both have the incentive to defect.
 
-[A Sampling distribution is the imaginary distribution of estimates, if we repeated the sampling and estimation process many, many times]{.underline}.
+Prisoner's Dilemma games are used to show how individual rationality and group rationality differ.
 
-The **standard error** is the standard deviation of the sampling distribution. It is often notated $se(\hat{\beta}_j)$. Our software will calculate an estimate of this value, which will be notated as $\hat{se} ( \hat{\beta}_j)$
+-   The group can get the best outcome (the pareto efficient ones) if they all cooperate.
 
--   A smaller standard error generally means a more accurate estimate, and is usually due to a larger sample size $n$ or lower residual standard deviation $\hat{\sigma}^2$
+-   However, if you choose to cooperate, you run the risk that someone else is going to defect, undercutting you and giving you the worst payoff.
 
-### Confidence Intervals
+-   Thus, it is in individual's incentives to always defect.
 
-Our OLS estimation (from chapter 3) has produced a $\hat{\beta}_j$ based on the data in one sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample, due to sampling variation.
+The Prisoner's Dilemma is frequently used to explain issues of **Public Goods**.
 
-Thus, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95% (the standard confidence level):
+-   Public goods are non-excludable - you cannot exclude people from using the good. An example of a Public Good is National Defence, or the air around us.
 
-$$
-\hat{\beta}_j ± 1.96 \times \hat{se}(\hat{\beta}_j)
-$$
+-   Since these goods are non-excludable, people cannot be prevented from using the good, even if they do not contribute to the upkeep. Thus, there is a incentive for individuals to under-invest in the upkeep of public goods, reducing the quality for everyone.
 
--   $\hat{se}(\hat{\beta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\beta_j$, introduced in the previous section.
+-   Under-invest in this case is considered the "defect" strategy, while invest is the "cooperate" strategy. Individually, you are better off if you defect, as you can still enjoy the benefits of this non-excludable good, without any of the costs. However, when everyone does this rational action, it results in a poor condition of the public good, thus hurting everyone (a non-pareto efficient outcome)
 
--   The 1.96 can slightly deviate depending on the sample size and number of variables (do not worry, the computer will solve this for us).
+-   An example is Air Quality - individuals and companies poluate and refuse to contribute to the upkeep of good air quality, despite the fact that poor air quality is worse for everyone (pareto inefficient)
 
--   Why 1.96? It is because in a normal distribution, 95% of the data is contained within 1.96 standard deviations (see section 2.4), and Central Limit Theorem states that sampling distributions are normally distributed.
+Other examples of the application of Prisoner's Dilemmas include:
 
-What does the confidence interval represent? Essentially, it means if we repeated the sampling and estimation process many many times (like we did for our sampling distribution), 95% of the confidence intervals we construct from our samples, would correctly contain the true $\beta_j$.
+-   Overuse of common resources (like fisheries), due to individual incentives, resulting in a pareto-inefficient outcome
 
-Every value in a given confidence interval is a plausible value of the true $\beta_j$ in the population.
+-   Training of workers - because firms are afraid that workers will leave and join a rival, firms do not train their workers properly, resulting in a less-than-optimal economy for everyone.
 
-The most important thing is if 0 is included within the confidence interval. $\beta_j = 0$ means that there is no relationship between $X_j$ and $Y$. If our confidence interval contains 0, that means we cannot be confident that there is no relationship between $X_j$ and $Y$.
+-   Cartels - cartels can make the most money when everyone makes very little of a product (raising prices). However, if one person defects and makes a lot, they get a huge increase in profits, while every one else loses. Thus, fearful of others defecting, everyone defects, making production very high, and making everyone worse off (pareto inefficient)
 
-### Hypothesis Testing of Parameters
+### Multiple Nash Equilibrium and Focal Points
 
-In academia, we are conservative - this means we do not claim we have found a new theory, unless we are quite confident that the old theory was not true.
+We discussed how one of the weaknesses of Nash Equilibrium is the fact that multiple can exist in a single game (as we have shown with both the chicken, and stag-hunt game).
 
-The old theory is called our **null hypothesis**, often notated $H_0$. This is the old theory that we are trying to disprove.
+In theory, all Nash Equilibria are supposed to be equally likely to occur - there is no mathematical proof that one would occur more frequently than others.
 
--   Most often, the "old theory" we are trying to disprove is that *there is no relationship between variables* $X_j$ *and* $Y$ (since it is very rare we are studying something that has already been proven). No relationship means that $\beta_j = 0$
+However, there are two ways in which one Nash Equilibria may stand above the rest, and be the most likely outcome of the game.
 
-The new theory we have come up with, and are trying to prove, is called the **alternate hypothesis**, often notated $H_1$ or $H_a$.
+First, if one Nash Equilibria is Pareto efficient, when the others are not, then that one is likely to be the outcome.
 
--   In general, our new hypothesis is that t*here is a relationship between variables* $X_j$ *and* $Y$, or [$\beta_j ≠ 0$]{.underline}
+-   This is because all players know the payoffs, since that is common knowledge, and all players are able to calculate Nash Equilibria.
 
-[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis (the new theory we proposed)]{.underline}. Why 95% confidence? It is just tradition - there have been several studies showing there is nothing special about this value.
+-   Since Pareto Efficient outcomes mean no player can do better without making anyone worse, and pareto-inefficient outcomes mean that at least one player can do better without making anyone worse, it generally makes sense for players to choose the Nash Equilibria that is Pareto Efficient.
 
-Generally, for regressions, our hypotheses that we test are:
+Second, is the concept proposed by Schelling - Focal Points
 
--   $H_0 : \beta_j = 0$ - i.e. there is no relationship between $X_j$ and $Y$
+-   Sometimes, some Nash Equilibria are culturally more "notable" and likely than the other Nash Equilibria.
 
--   $H_1: \beta_j ≠ 0$ - i.e. there is a relationship between $X_j$ and $Y$
+-   For example, take the following game: You want to meet a friend in Paris, but your phones are both dead. If you both choose the same place, then you get a full payoff. if you two choose different places to meet, then neither get any payoff.
 
-How do we actually test these hypotheses? First, we have to calculate a t-test statistic. The formula for such a statistic is the parameter divided by its standard error (calculated by the computer):
+-   In theory, any location in Paris is a Nash Equilibria - since as long as both of you are at the same place, you are getting the optimal outcome.
 
-$$
-t = \frac{\hat{\beta}_j}{\hat{se}(\hat{\beta}_j)}
-$$
+-   However, culturally, there are some locations in Paris that are more "obvious". For example, many people would probably meet at the Eiffel Tower. Thus, the Eiffel Tower is a focal point - a likely solution to the game, due to cultural reasons.
 
-The t-test statistic basically tells us how far the parameter we tested is from 0, in terms of standard errors of the parameter.
+### Trembling Hand Perfect Equilibrium
 
-Then, we have to consult a t-distribution (see section 2.4). T-distributions only has one parameter - degrees of freedom, which is calculated by the number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$
+Game theory, as we know, assumes players are rational, and play optimal outcomes. Empirical evidence has shown that this is sort-of true: on average, a large amount of people, when their actions are aggregated and averaged, do tend to make rational decisions.
 
-With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides from the middle of the t-distribution.
+-   Of course, there are key exceptions to this (which is the topic of study for the fields of Behvioural Economics and Behvaioural Political Economy).
 
-Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below, with its blue highlighted area, shows this probability:
+However, in no world is every single individual a rational one. Since Game Theory and models is often about predicting likely outcomes, we want to make sure our solution concepts, like Nash Equilibria, will survive even in the real world, where not everyone is rational.
 
-![](figures/1/5.1.jpeg){fig-align="center" width="70%"}
+-   Essentially, we want our predictions to have some robustness. We want to make sure our model was not "cherry picked" just to make a certain prediction come true.
 
-The area highlighted is our p-value. Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_j$, given the null hypothesis is true.
+The **Trembling Hand Perfect Equilibrium**, proposed by economist Reinhard Selten, is a way to test the robustness of Nash Equilibria.
 
--   So if the p-value is very high, there is a high chance that the null hypothesis is true.
+Essentially, we assume that one player of a game plays the "suboptimal" strategy at a probability of $\epsilon$. Or in other words, they make a "mistake" at probability $\epsilon$, and play the "correct" strategy at probability $1-\epsilon$.
 
--   If the p-value is very low, then there is a low chance that the null hypothesis is true
+Given one player does this, we see how the other player reacts, and if they still decide to go with the Nash Equilibrium strategy. If the other player decides to still go with the Nash Equilibrium strategy despite the suboptimal strategy of one player, the Nash Equilibrium is robust.
 
-Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
+For example, let us take the following game:
 
-### F-Tests of Nested Models
+|               | Left (p2) | Right (p2) |
+|---------------|-----------|------------|
+| **Up (p1)**   | 1, 1      | 2, 0       |
+| **Down (p1)** | 0, 2      | 2, 2       |
 
-An F-test is a variation on the coefficient significance tests. The standard F-test is quite simple - it tests for the significance of a model across multiple coefficients:
+The two Nash Equilibria of the game are (Up, Left), and (Down, Right).
 
-$$
-H_0:\beta_1 = \beta_2 = ... = \beta_k = 0
-$$
+Let us test the robustness of the (Up, Left) equilibrium.
 
-$$
-H_1: \text{ at least one of } \beta_1, \beta_2, ..., \beta_k ≠0
-$$
+Assume that player 1 might be irrational at probability $\epsilon$ and select "Down". That means they will be rational at probability $1-\epsilon$, and select "Up". Let us call this probability of playing up at $1-\epsilon$ and probability of playing down at $\epsilon$ as the strategy profile $s_1^{\epsilon}$
 
-Thus, we assume that all explanatory variables in the model have no relationship to the outcome variable, unless we can reject the null hypothesis and show that at least one coefficient is statistically significant.
+Let us assume player 2 is still rational. Does (Up, Left) remain a Nash Equilibria? To test this, let us find player 2's utilities for playing "left" and "right", given player 1 does what was listed above. If player 2 still prefers "left", then it is a robust Nash Equilibria.
 
-For a standard Linear Regression, if we have any significant individual coefficients, then the F-test will also become significant. So what is the point of F-tests? Well, for some models that we will see later, such as categorical explanatory variables, the coefficient's significance levels mean something else. Thus, to see if the model is statistically significant, we need to use the F-test.
+The expected utility of player 2, when they play left, is defined as $u_2(L, s_1^{\epsilon}) = 1 \times Pr(Up) + 2 \times Pr(Down)$
 
-The **F-test of Nested Models** is an extension of the standard F-test, that allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically:
+-   Where $Pr(Up) = 1 - \epsilon$ is the probability player 1 plays up, and $Pr(Down) = \epsilon$ is the probability that player 1 plays down.
+-   Plugging in the probabilities, we get: $u_2(L, s_1^{\epsilon})=1(1-\epsilon) + 2 \epsilon = 1 + \epsilon$
 
-$$
-M_0 : E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g
-$$
+The expected utility of player 2, when they play right, is defined as $u_2(R, s_1^{\epsilon}) = 0 \times Pr(Up) + 2 \times Pr(Down)$
 
+-   Where $Pr(Up) = 1 - \epsilon$ is the probability player 1 plays up, and $Pr(Down) = \epsilon$ is the probability that player 1 plays down.
+-   Plugging in the probabilities, we get $u_2(R, s_1^{\epsilon}) = 0(1-\epsilon)+2\epsilon = 2\epsilon$
+
+Thus, when player 2 plays left, they expect a utility of $1-\epsilon$, and when the play right, they expect a utility of $2\epsilon$. The Nash Equilibrium (Up, Left) is only true of player 2 plays left, it is only true of $1-\epsilon > 2\epsilon$. Let us solve for $\epsilon$
+
 $$
-M_a : E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g + \beta_{g+1} X_{g+1} + ... + \beta_k X_k
+1 > 3\epsilon \space \rightarrow \epsilon < 1/3
 $$
 
-Importantly, note how the null hypothesis model is entirely contained within the alternate hypothesis model. This must be the case - all explanatory variables in model $M_0$ must also be in $M_a$, along with additional explanatory variables in $M_a$.
+Thus, the Nash Equilibrium (Up, Left) remains true as long as player 1 is irrational less than $1/3$ of the time.
 
-The F-test uses the F-test statistic. This statistic compared the $R^2$ values of the two models. Let us say the $R^2$ value of $M_0$ is notated $R^2_0$, and the $R^2$ value of $M_a$ is notated as $R^2_a$. The F-test statistic essentially measures the difference $R^2_a - R^2_0$. If the difference is sufficiently large, that means the $M_a$ model has significantly more explanatory power than $M_0$.
+-   This is usually considered quite robust. We usually assume $\epsilon$ is quite a small value, such as 0.01, or perhaps at most, 0.1.
 
-Let $SSE_a$ and $R^2_a$ denote the sum of squared errors and $R^2$ values of model $M_a$, and $SSE_0$ and $R^2_0$ for model $M_0$. The total number of coefficients of $M_a$ are $k_a$, and for $M_0$ is $k_0$. Mathematically, the F-test statistic is as follows:
+-   Thus, the (Up, Left) Nash Equilibria is quite robust against irrational play.
 
-$$
-F = \frac { (SSE_0 - SSE_a) / (k_a - k_0) } { SSE_a / [n - (k_a + 1)]}
-$$
+We can test the other Nash Equilibrium (Down, Right) with the same parameters:
 
-$$
-F = \frac{ \frac{R^2_a = R^2_0 }{[n - (k_0 + 1)] - [n - (k_a + 1)]} }{ (1 - R^2_a ) / [n - (k_a + 1)]}
-$$
+-   When player 2 plays left, $u_2(L, s_1^{\epsilon}) = 1\epsilon + 2(1-\epsilon) = 2-\epsilon$
 
-$$
-F = \frac{ R^2_{\text{change}} / df_{\text{change}} }{  (1 - R^2_a ) / [n - (k_a + 1)]}
-$$
+-   When player 2 plays right, $u_2(R, s_1^{\epsilon}) = 0\epsilon + 2(1-\epsilon) = 2-2\epsilon$
 
-The sampling distribution of the F-statistic is the F distribution with parameters $k-a - k_0$ and $n-(k_a + 1)$ degrees of freedom. We then obtain the p-value from this distribution.
+(Down, Right) is only a Nash Equilibrium when player 2 plays right. Thus, $2-2\epsilon>2-\epsilon$. Let us solve for $\epsilon$:
 
-The p-values of the F-statistic show the following:
+$$
+2 - 2 > -\epsilon + 2\epsilon \space \rightarrow \epsilon < 0
+$$
 
--   If the p-value is very small, that means $R^2_a$ is significantly larger than $R^2_0$. This is evidence against model $M_0$, and in favour of the larger model $M_a$
+So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less than 0% of the time, which is impossible. Thus, (Down, Right) is not a robust Nash Equilibrium
 
--   If the p-value is large, that means $R^2_a$ is not much larger than $R^2_0$. This means there is no evidence against $M_0$, and $M_a$ is not the statistically significantly better model.
+## Spatial Models
 
-F-tests of nested models can help us determine if we should include certain extra explanatory variables. If the addition of the explanatory variables does not statistically significantly improve the performance of the model, there is little reason to include them, unless we have some other theoretical reason to include them.
+### Downsian Model of Electoral Competition
 
-### Hypothesis Testing in R
+Have you ever noticed that many businesses, that are competitors, are often located in the same place? For example, there are often competing petrol stations all around the same intersection. Or multiple fast food or coffee chains in the same place? Or a bunch of Chinese stores concentrated in one small area?
 
-For hypothesis testing, we just run the regression like we would normally (see section 4.5). For example, let us run a model prediction *polity_2* with 2 explanatory variables
+Hotelling argued this is no accident - these businesses have incentives to locate here. These locations are Nash Equilibriums of the competitive game between businesses.
 
-```{r}
-model <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
-    data = democracy_data)
-summary(model)
-```
+The **Downsian Model**, also called the **Median Voter Theory**, applies this same logic to political parties. The model takes the following characteristics:
 
-Now, let us look at the coefficients table:
+*There are two political parties, who both want to win an election. The only "tool", or more formally, action, the two parties can take is to choose where to position their party's policy platform on a left-right spectrum (between -1 and 1). Citizens also have preferences along this left-right spectrum between -1 and 1, with the median voter's position being defined as* $m$*. Citizens will always vote for the party that is positioned closest to their preference on the left-right spectrum. The party that obtains the most citizens' votes wins. Indifferent citizens (that are equidistant to both party's positions) will have a 50/50 chance to vote for either party. If the parties tie in terms of votes, they each win the election with a 50/50 chance.*
 
--   *GPD_Per_Cap_Haber_Men_2* is our first explanatory variable, *Total_Oil_Income_PC* is our second explanatory variable
+We can formalise this game into a strategic game:
 
--   Under the *Std. Error* column is the respective standard errors for both $\beta$ coefficients. This is used to calculate the t-statistic
+-   There are two players - political parties. Let us label them $A$ and $B$
 
--   Under the *t value* column is the t-test statistics for both $\beta$ coefficients. - Under the *Pr(\>\|t\|)* column is the p-values for each test statistic.
+-   The players actions are to simultaneously choose a policy position between -1 and 1: $p_i \in [-1, 1]$
 
--   The stars after the p-values are the significance level. One star \* means $p<0.05$, two stars \*\* means $p<0.01$, and three stars \*\*\* means $p<0.001$
+-   The objective is to attract the most votes (so 50% or above, since there are 2 parties).
 
--   For more details of interpretation, see the previous sections in this chapter.
+What is the Nash Equilibrium of this game?
 
-To calculate confidence intervals, we can use the *confint()* command, and simply input the name of our model within:
+First, let us think about how any party would win the election: they need 50% of the votes. By definition, the median voter is in the 50th percentile. Thus, to win at least 50 percent of the votes, you must win the median voter. To win the median voter, you must be closer to the median voter's position $m$, than the other party.
 
-```{r}
-confint(model)
-```
+Let us look at a few scenarios:
 
-As we can see, this command gives us 95% confidence intervals (both lower and upper bounds), for all parameters in our model.
+-   What if party $A$ is positioned to the right of the median, so $p_A > m$? Party $B$ can best respond by playing anything closer to the median voter, which are $-p_A < p_B < p_A$. Then, party $A$ can respond to that, and move even closer to the median voter, and so on...
 
-## Explanatory Variable Analysis
+-   The same is the case if party $A$ is positioned to the left of the median. Party $B$ will best respond by playing anything closer to the median voter, and party $A$ will do the same, and so on...
 
-### Polynomial Transformations
+Eventually, the two parties will converge at the median voter's preference $m$. Since you always want to be closer to the median in order to win 50% of the vote, both parties will coverge at $m$.
 
-Sometimes, a linear (straight-line) best-fit line is a poor description of a relationship. For example, the relationship between two variables could be curved, not straight.
+[Thus, the Nash Equilibrium of the Downsian Model is strategy profile $(p_A = m, p_B = m)$]{.underline}.
 
-We can model more flexible relationships that are not straight lines, by including a transformation of the variable $X$ that we are interested in. The most common transformations for non-linearity are polynomial transformations, including quadratic and cubic transformations.
+-   We can check this by checking profitable deviations. Here, with both players playing $m$, they get a payoff of 0.5 chance of winning the election.
 
-#### Quadratic Transformations
+-   If either player $i$ moves away from $m$, they automatically lose the election since they are further from the median voter, thus they get payoff 0. Thus, there is no profitable deviation.
 
-Quadratic transformations of $X$ take the following form:
+Is the Downsian Model correct? Do parties actually converge at the median? There is some mixed evidence.
 
-$$
-E[Y] = \alpha + \beta_1 X + \beta_2 X^2
-$$
+An important thing to understand when evaluating models is that [we do not evaluate models based on their conclusions]{.underline}. This is because the results of a formal mathematical model come directly from the assumptions of the model. To assess any model, we must [critically assess the assumptions on which the model is built on]{.underline}.
 
-If you recall from high-school algebra, an equation that takes the form of $y = ax^2 + bx + c$ creates a *parabola*. Indeed, this transformation fits a parabola as the best-fit line. However, there are a few things to consider:
+### Assumptions of the Downsian Model
 
--   A true parabola has a domain of $(-∞, ∞)$. However, our model often does not need to do this. The best-fit parabola is only used for the range of plausible $X$ values, given the nature of our explanatory variable. For example, if $X$ was age, a negative number would make no sense.
+#### Unbounded and Multi-Dimensional Models
 
--   Because the parabola's domain often exceeds our plausible range of $X$ values, the vertex of the parabola (where it changes directions) may not be in our data.
+In the Downsian Model, we assumed policy preferences are distributed in an interval $[-1, 1]$. However, even without this assumption, the Downsian Model still has a Nash Equilibrium at the median voter position $m$
 
--   We always include lower degree terms in our model. For example, in this quadratic (power 2) model, we also include the $X$ term without the square.
+-   This is because the median voter is by definition, the 50th percentile. To win a majority, you need to win more than 50%. Thus, any bounds of is policy preferences will still have a Nash Equilibrium at the median voter position $m$
 
-To fit a model like this, we simply do the same process of minimising the sum of squared errors.
+In the Downsian Model, we also assumed policy preferences are only in a one-dimensional plain $R^1$ (the real number line). However, in the real world, policy is often made on many different dimensions, such as a spectrum for environmental policy, immigration policy, social policy, and so on.
 
-When we run a quadratic model in R, we get two coefficients: $\beta_1$ is attached to the $X$ term, while $\beta_2$ is attached to the $X^2$ term. How do we interpret these coefficients?
+[When we extend the model beyond one dimension, there is no Nash Equilibrium]{.underline} at all for the parties. The reason for this is that it imitates another game, called the *Budget Allocatio*n or *Divide the Dollar* game.
 
--   $\beta_1$'s value is no longer directly interpretable. This is because we cannot "hold all other coefficients constant", since $\beta_2$ also contains the same $X$ variable. Thus, we cannot isolate the effect of $X$ and $\beta_1$.
+In this game, there are 3 "regions" $1, 2, 3$ that want budget from the central government, which has only a limited amount of funds. From each region, a politician is elected to represent them. To approve any budget, 2/3 of the politicians need to agree.
 
--   $\beta_2$'s value also cannot be directly interpreted. However, $\beta_2$ can tell us two things. First, [if the coefficient of $\beta_2$ is statistically significant, we can conclude that there is a non-linear relationship between $X$ and $Y$]{.underline}. Second, if $\beta_2$ is negative, the best-fit parabola will open downwards, and if $\beta_2$ is positive, the best-fit parabola will open upwards.
+Let us represent the total central government budget as $1$ (100%). Thus, the amount of money distributed to each region $q_i$, must meet the criteria: $q_1 + q_2 + q_3 = 1$. Each politician wants to get the maximum amount of budget for their region.
 
-If we want to interpret the magnitude of the model, we are best off using predicted values of $Y$ (obtained using the model equation above).
+At first, we might think that a fair distribution between the 3 regions is $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$. However, there is a profitable deviation to this outcome. For example, take the budget $(\frac{1}{2}, \frac{1}{2}, 0)$ - remember, only 2/3 politicians need to agree to approve a budget. In this new budget, politician 1 increases the budget for their region from $1/3$ to $1/2,$, and politician 2 also increases the budget for their region. Thus, 2/3 politicians agree to the new budget, passing it.
 
-There is one more thing we can interpret with the quadratic transformation: the **vertex** of the best-fit parabola. The vertex, if we remember our algebra, is either the maximum or minimum point of a parabola. Thus, if we remember from calculus and optimisation, we can find the maximum and minimums through setting the derivative equal to 0. For the quadratic model, this is as follows - we first find the derivative:
+However, there is also a profitable deviation to the budget $(\frac{1}{2}, \frac{1}{2}, 0)$ - $(0, \frac{3}{5}, \frac{2}{5})$. Here, politicians 2 and 3 are increasing their allocation of the budget, and thus, will vote in favor of the new budget.
 
-$$
-Y = \hat{\alpha} + \hat{\beta}_1X + \hat{\beta}_2 X^2
-$$
+In fact, for every single budget proposal, there is always an incentive for 2 players to deviate. We can actually demonstrate this with a cyclical example:
 
-$$
-\frac{dY}{dX} = 0 + \hat{\beta}_1 + 2\hat{\beta}_2X
-$$
+1.  Let us start with distribution $(\frac{1}{2}, \frac{1}{2}, 0)$
+2.  We can deviate to distribution $(0, \frac{3}{5}, \frac{2}{5})$, as player 2 and 3 improve their payoffs.
+3.  Then, we deviate to $(\frac{2}{5}, 0, \frac{3}{5})$, as player 1 and 3 improve their payoffs.
+4.  Then, we can deviate back to our first distribution $(\frac{1}{2}, \frac{1}{2},0)$, and restart the cycle.
 
-Then, set the derivative equal to 0.
+[Essentially, there is never a Nash Equilibrium, because there is always an incentive for 2 players to deviate]{.underline}.
 
-$$
-0 = \hat{\beta}_1 + 2 \hat{\beta}_2X
-$$
+We can model a multidimensional Downsian Model in the same way. Each "dimension" of policy, like environmental, defense, social, etc., is a different budget allocation. Each party will always be able to "outflank" the other party by diverting budget away from one issue and giving it to another, making some citizens happier. Thus, there is no Nash Equilibria is the Downsian Model has multiple policy dimensions.
 
-$$
-- \hat{\beta}_1 = 2 \hat{\beta}_2 X
-$$
+#### Other Distributions of Citizens
 
-$$
-X = \frac{-\hat{\beta}_1}{2 \hat{\beta}_2}
-$$
+In the Downsian Model, we assumed that citizen/voter preferences are uniformly distributed. However, [with any distribution of voter preferences, the median voter theory still holds]{.underline}. This does not matter if the voters are polarised with very few voters in the middle, if they are normally distributed, if they all lean left or right, etc.
 
-This point is useful, as it is either the maximum or minimum of our best-fit parabola. This means that at the $X$ value we calculate from this equation, we will either see the highest or lowest expected $Y$ value.
+The reason for this is that the median voter position, $m$, by definition, is the 50th percentile - 50% of the citizens are to the right of them, and 50% are to the left of them. Thus, to win any 2-party election, you need to win more than 50% of the votes, and by definition, the 50th percentile must be included in that winning majority.
 
-#### General Polynomial Models
+Note that the median value can change. For example, in a country with very left-leaning citizens, the median position $m$ might not be at 0, it could be $m = -0.5$. However, the optimal positioning of political parties will still be at the median voter $m$, no matter what value $m$ takes.
 
-While quadratic models are the most common polynomial transformation, we do not have to stop there. We can continue to add further polynomials (although anything beyond cubic is exceedingly rare):
+#### Asymmetrical Voter Preferences
 
--   Cubic: $E[Y] = \alpha + \beta_1 X + \beta_2 X^2 + \beta_3 X^3$
+In the Downsian Model, we assumed that citizens will vote for the party whose preferences are closest to them. For example, if the citizen had an option of a party to the left within distance 0.2 and a party to the right within distance 0.3, they would prefer the party to the left.
 
--   Quartic: $E[Y] = \alpha + \beta_1 X + \beta_2 X^2 + \beta_3 X^3 + \beta_4 x^4$
+However, not all real world preferences of voters are symmetrical. For example, a left-wing voter could be uncomfortable with radical-left, so they would actual prefer a candidate 0.2 to the right over a further left candidate 0.1 to the left. This preference would be non-symmetric - i.e. the citizen favours deviations in one direction over another, from their preferred position.
 
-Each higher order coefficient, if statistically significant, indicates that the relationship between $X$ and $Y$, is not of the previous highest power.
+[Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility.
 
--   For example, if the cubic term $\beta_3$ is statistically significant, we can reject a quadratic relationship between $X$ and $Y$
+#### Costs of Voting and Abstaining Voters
 
-Remember to always include the lower power monomials within our polynomial model. For example, if you have a quartic transformation, you must also have the linear, quadratic, and cubic terms.
+In the Downsian Model, we assumed that there is no cost to voting for citizens, and all citizens will vote (rather than abstain).
 
-### Logarithmic Transformations
+In this scenario, [there is no longer a Nash Equilibrium at the median voter]{.underline}. If both parties are situated at the median, no rational voter will vote if voting is costly - after all, no matter how they vote, the winning party will have the policy platform of the median voter. Thus, their vote is not pivotal to affect the policy actually implemented, and voting (with cost) would simply not be worth it.
 
-Logarithmic transformations are another form of non-linear transformations. Logarithmic transformations are commonly used for heavily skewed variables, such as when the explanatory variable is income, wealth, and so on.
+Only if parties are somewhat different, will voters be willing to bear the cost of voting to cast a vote. This way, their vote will actually matter, and they will be willing to bear the cost of voting. Thus, there is still a converging force towards the median in this scenario (since more towards the median means a higher chance of winning), but the two party's positions would stay far enough apart to incentivise voters to vote.
 
-In situations with heavily skewed variables, we often replace $X$ in our models with $\log(X)$. Note that in statistics, when we refer to logarithms, we are referring to natural logarithms, such that $\log(X) = \ln(X)$.
+### Expanding Downsian Competition to 3 Parties
 
-Thus, the logarithmic transformation takes the following form:
+In the Downsian Model, we assumed that there are only 2 parties and candidates. What if there were more than 2 parties (as is frequently the case)?
 
-$$
-E[Y] = \alpha + \beta \log(X)
-$$
+In a 3 party election, there would no longer be a Nash Equilibrium at the median voter position. This is because any party $i$ has a profitable deviation in this scenario.
 
-**Interpretation** of the $\beta$ coefficient can be a little bit trickier for logarithmic transformations. We could interpret it in the same way we interpret linear regressions: given a one unit increase in the log of $X$, there is an expected $\beta$ change in $Y$.
+If party $i$ were to slightly deviate by $\epsilon$ from the median voter, their new position on the spectrum would be $m + \epsilon$. The figure below shows this scenario:
 
-However, this issue is that this does not really say much - I mean, who knows what a *one unit increase in the log of* $X$ even means?
+![](figures/1/5.1.png){fig-align="center" width="80%"}
 
-However, with some properties of logarithms, we can actually create a more useful interpretation. Based on logarithm rules, we know the following to be true:
+In the figure above, we can see party $i$ that deviates $\epsilon$ from $m$ will win a vote share of $\frac{1}{2} - \frac{1}{2} \epsilon$, while the other two parties combine for $\frac{1}{2} + \frac{1}{2} \epsilon$, which is split between the two parties, so each party has a vote share $\frac{1}{4} + \frac{1}{4}\epsilon$.
 
-$$
-\log(X) + A = \log(X) + \log(e^A)
-$$
+Thus, we can write an inequality to see for what deviation $\epsilon$ for player $i$, where player $i$'s vote share will be higher than the other two party's vote share.
 
 $$
-\log(X) + \log(e^A) = \log(e^A \times X)
+\frac{1}{2} - \frac{1}{2} \epsilon > \frac{1}{4} + \frac{1}{4}\epsilon
 $$
 
-Now, let us plug this into our original regression model:
-
 $$
-E[Y|X] = \alpha + \beta\log(X)
+\frac{1}{4} > \frac{3}{4} \epsilon
 $$
 
 $$
-E[Y|e^A \times X] = \alpha + \beta \log(e^A \times X)
+\epsilon < \frac{1}{3}
 $$
 
-$$
-= \alpha + \beta[\log(X) + A] = \alpha + \beta A + \beta \log(X)
-$$
+Thus, when $\epsilon < \frac{1}{3}$, then party $i$ gets the most votes of any party. Since if they did not deviate by $\epsilon$ and stayed at the median, they would have tied, that means party $i$ has a profitable deviation when the deviation $\epsilon < \frac{1}{3}$. Since party $i$ has a profitable deviation, we can conclude that [there is no Nash Equilibrium at the median voter in a 3 party election]{.underline}.
 
-{{< pagebreak >}}
+### Policy-Seeking Models
 
-Now find the difference between $E[Y|e^A \times X]$ and $E[Y|X]$:
+In the Downsian Model, we assumed that parties only care about winning elections (called rent-seeking behaviour). Thus, they are willing to adopt any policy that will help them win elections.
 
-$$
-E[Y|e^A \times X] - E[Y|X] = [\alpha + \beta A + \beta\log(X)] - [\alpha + \beta\log(X)] 
-$$
+However, many politicians actually hold strong beliefs over what policies are right and wrong. Thus, it is reasonable to expect that some parties may derive utility from the specific policies that can implement (policy-seeking behaviour). For example, while a socialist candidate may more easily win elections acting as a moderate at the median voter, they might also lose utility because they personally believe strongly in socialist policies.
 
-$$
-E[Y|e^A \times X] - E[Y|X] = \beta A
-$$
+We can create a model for this situation. Let us pretend there are two parties, the *right* party $R$ and the *left* party $L$, who are on some political spectrum in $[-1, 1]$. Let us assume party $R$ prefers the policy position $p_R = 1$ the most, while party $L$ prefers the policy $p_L = -1$ the most.
 
-Thus, we can seen that when we multiply $X$ by $e^A$, we get an expected $\beta A$ change in $Y$.
+-   We can represent this in a utility function - where parties get more utility when the policy implemented by the winning party is closer to their preferred position, and get less utility when the policy implemented by the winning party is further from their preferred position.
 
-We can make this interpretation more useful by purposely choosing some value $A$ that makes $e^A$ make more sense. For example, if $A = 0.095$, then $e^A = 1.1$. Why is that $A$ value useful? Well, that means when we multiply $X \times e^A$, we are actually doing $X \times 1.1$, which if you remember your percentages, means a 10% increase in $X$. [Thus, increasing $X$ by 10% is associated with an expected change of $0.095 \beta$ units of $Y$.]{.underline}
+-   Mathematically, utility of party $R$ is $u_R(p) = -(p-1)^2$, where $p$ is the implemented policy position. This is because as the implemented policy $p$ goes further from 1, the utility falls in the utility function. The peak utility of this function is at policy position $1$.
 
-### Binary Explanatory Variable
+-   Similarly, utility of party $L$ is $u_L(p) = -(p+1)^2$, where $p$ is the implemented policy position. This function decreases as you go away from policy position $-1$, and has a maximum utility at policy position $-1$.
 
-Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$:
+We can also define $\pi(p_L, p_R)$ as the probability party $L$ wins the election. Thus, we can write out the utility function of party $L$:
 
 $$
-E[Y|X = 0] = \alpha + \beta(0) = \alpha
+u_L(p_L, p_R) = \pi(p_L, p_R) \times -(p_L + 1)^2 + [1 - \pi(p_L, p_R)] \times -(p_R + 1)^2
 $$
 
-$$
-E[Y|X=1] = \alpha + \beta(1) = \alpha + \beta
-$$
+Let us break this utility function down into its constituent parts to better understand it:
 
-$$
-E[Y|X=1] - E[Y|X=0] = (\alpha + \beta) - \alpha = \beta
-$$
+-   The left hand side of the equation, $u_L(p_L, p_R)$, is the utility function of party $L$, given party $L$ plays some position $p_L$, and party $R$ plays some position $p_R$.
 
-From the above, we can see the following interpretations of our coefficients:
+-   The first part of the right hand side, $\pi(p_L, p_R) \times -(p_L + 1)^2$, consists of two parts. $\pi(p_L, p_R)$ is the probability party $L$ wins the election. $-(p_L + 1)^2$ is the utility function of party $L$ we created previously, but since party $L$ wins the election, we replace $p$ with $p_L$. These two parts essentially state: given the probability party $L$ wins the election, how does it feel about the own policies it is implementing?
 
--   $\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
+-   The second part of the right hand side, $[1 - \pi(p_L, p_R)] \times -(p_R + 1)^2$, consists of two parts. $[1 - \pi(p_L, p_R)]$ represents the probability that party $R$ wins the election, since $\pi(p_L, p_R)$ is the probability that party $L$ wins the election, and in a two party election, the probability that party $R$ wins the election is simply $1 -$ the probability that party $L$ wins. $-(p_R + 1)^2$ is the utility function of party $L$ we created previously, but since party $R$ wins the election, we replace $p$ with $p_R$. These two parts essentially state: given the probability party $R$ wins the election, how does party $L$ feel about the policies that party $R$ is implementing.
 
--   $\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
+So essentially, the utility function of player $L$ is a expected utility of the probability of party $L$ winning the election and implementing its own policies, and the probability of party $R$ winning the election and implementing their probabilities.
 
--   [$\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$]{.underline}
+[Despite this additional complexity with the policy-seeking behaviour of policies, the median voter is still the Nash Equilibrium of this game]{.underline}. This is because while both parties would like to implement non-median policies, if they deviate away from the median, they will let the other party win, and thus have to deal with the other party's policies, which they find even worse. If you win the election, you implement your own policy, and deny the opponent their chance of implementing their policy that you disagree with.
 
-Thus, we can see that $\beta$ is measuring the difference between the two categories. In fact, $\beta$ actually becomes a difference-in-means test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
+### Citizen-Candidate Model
 
-Because of the unique coefficient meanings in a regression with binary explanatory variables, the OLS estimator also takes a shortcut when estimated the coefficients $\alpha$ and $\beta$:
+The Downsian Model assumes that parties can select any policy position on the spectrum that will help them win the election. However, in reality, this is not the case. Let us take Bernie Sanders - pretend he was in a presidential election. Bernie decides that in order to maximise his chances of winning, he is going to move to the very centre of the political spectrum where the median voter is. Do you think the voters will believe Bernie has suddenly became a centrist? Likely not - they will assume that Bernie is still a far-left candidate, and many will still vote as if Bernie was a far-left candidate, despite his changed position.
 
--   Coefficient $\alpha$ is estimated as $\hat{\alpha} = \bar{Y}_0$
+Now, it is not about the politician's policy promises on the political spectrum. Instead, voters are voting on the politician's personal identity and personal preferences on the political spectrum.
 
--   Coefficient $\beta$ is estimated as $\hat{\beta} = \bar{Y}_1 - \bar{Y}_0$
+The **Citizen-Candidate Game** is a new strategic game to represent this situation.
 
-Where $\bar{Y}_1$ is the sample mean of $Y$ for observations in category $X=1$, and $\bar{Y}_0$ is the sample mean of $Y$ for observations in category $X = 0$.
+-   The players of the game are a continuum of citizens along a spectrum, that are both potential voters and candidates.
 
-### Polytomous Explanatory Variable
+-   Each citizen has two actions: either remain a voter, or decide to run for office as a candidate. Citizens who remain voters will vote for the candidate closest to their personal preferences.
 
-A **polytomous** variable is one with 3 or more categories that are unranked. A classic example is the variable *country*, which is a categorical variable with all the different countries included in a dataset such as Argentina, France, Mexico, etc.
+-   The utility of a player is determined by how close the personal preferences of the candidate is from their own personal preferences.
 
-How do we run a regression with polytomous explanatory variables? What happens is that we divide the variables into a set of dummy binary variables.
+-   When no candidate enters the race, some status-quo policy $\hat{p}$ is implemented.
 
--   Dummy binary variables are created for all [except one]{.underline} of the categories in our variable. Each dummy variable has two values - 1 meaning the observation is in the category, and 0 meaning the observation is not in that category.
+-   There is a cost to choosing the action of becoming a candidate, the cost being some number $\delta$.
 
--   The category without a dummy variable is the **reference/baseline** category. Essentially, when all other dummy variables are equal to 0, that is referring to the reference/baseline category.
+-   For simplicity, let us assume the preferred policy of the median citizen is $m=0$, on a spectrum between $[-1, 1]$
 
-Thus, for the $n$ number of categories in $X$, we would create $n-1$ dummy variables, and input it into a regression equation as follows:
+First, let us test if there is a Nash Equilibrium at the median voter $m=0$, where only the median voter decides to become a candidate:
 
-$$
-E[Y] = \alpha + \beta_{x=0}X_{x=0} + \beta_{x=1}X_{x=1} + ... + \beta_{x=n-1}X_{x=n-1}
-$$
+-   The median citizen will only enter as a candidate, if the cost of voting $\delta$ is less than their dislike of the status-quo policy $\hat{p}$. After all, if they do not dislike the status-quo policy, why bear the cost of becoming a candidate?
 
-For example, take the following polytomous variable: *company*, which contains the categories *microsoft, google,* and *apple*.
+-   Let us say that indeed, $\delta ≤ |\hat{p}|$, and the median voter enters the election. If the median voter enters the election, we know that no other voters will enter the race. This is because the median voter will always beat anyone who is not at the median, so other citizens will have no incentive to bear the cost of entering as a candidate $\delta$ if they know they will lose for sure.
 
--   Let us create dummy variables for 2 of the 3 categories.
+-   [Thus, there is a Nash Equilibrium where the median voter runs, given $\delta ≤ |\hat{p}|$]{.underline}, as no other citizen has an incentive to join the election.
 
--   *Google* will become the first dummy variable $X_g$. When $X_g = 1$, that observation is part of the *google* category. When $X_g = 0$, that observation is NOT a part of the *google* category.
+Let us now test if there are any equilibrium with 2 candidates deciding to enter the race:
 
--   *Apple* will become the second dummy variable $X_a$. When $X_a = 1$, that observation is part of the *apple* category. When $X_a = 0$, that observation is NOT a part of the *apple* category.
+-   First, we know that any pair of candidates running must be equidistant from the median. After all, if one candidate is closer to the median, they will for sure win the election, and thus, the other candidate will have no incentive to join.
 
--   *Microsoft* will not get its own dummy variable. This is because when both *apple* and *microsoft* $X_g = X_a = 0$ that is referring to the *microsoft* category (since these are the only observations not a part of either previous category).
+-   Thus, we will have two players (let us call them $R$ and $L$), where their positions are $p_R = \Delta$ and $p_L = - \Delta$ (you could more accurately write them as $m ± \Delta$, but since we assume $m=0$, we do not need to include the $m$).
 
-Mathematically, this is how it would be represented in a regression equation:
+-   If $L$ does not enter the race, then player $R$ will win the race and implement their policy. Same with the reverse.
 
-$$
-E[Y] = \alpha + \beta_g X_g + \beta_a X_a
-$$
+-   However, $L$ and $R$ will have no incentive to enter the election, if they do not hate each other's policies that much. More specifically, they will not enter the race if their dislike of each other's policy does not exceed the cost of entry $\delta$
 
-To find the expected value of each category, we would do the following:
+-   Thus, when $\delta ≤ 2 \Delta$ (where $2 \Delta$ is the distance between $\Delta$ and $-\Delta$), both player $L$ and $R$ will join the election. No other candidates will join - citizens closer to the median do not dislike either $L$ or $R$ policies enough to endure the cost of joining $\delta$, and any other citizen further from the median will for sure lose to player $L$ and $R$, thus unwilling to bear the cost $\delta$ if they are guaranteed to lose.
 
-$$
-E[Y|X = \text{Google}] = E[Y|X_g = 1, X_a = 0] = \alpha + \beta_g(1) + \beta_a(0) = \alpha + \beta_g
-$$
+-   [Thus, there is an equilibrium with 2 players becoming candidates, where the two players are equidistant distance $\Delta$ from the median $m$, and when the inequality $\delta ≤ 2 \Delta$ is met]{.underline}.
 
-$$
-E[Y|X = \text{Apple}] = E[Y|X_g = 0, X_a = 1] = \alpha + \beta_g(0) + \beta_a(1) = \alpha + \beta_a
-$$
+### Public Finance Model
 
-$$
-E[Y|X = \text{Microsoft}] = E[Y|X_g = 0, X_a = 0] = \alpha + \beta_g(0) + \beta_a(0) = \alpha
-$$
+#### Parameters of the Model
 
-Thus, from these above equations, we can see the interpretation of the coefficients:
+When political parties and candidates run, they often talk about how much taxes they will implement in order to provide government services and public goods. How should political parties decide what tax policy to implement, and how much public goods to provide?
 
--   $\alpha$ is the expected value of the reference category, in this case, *microsoft*.
+We can represent this situation more formally:
 
--   $\beta_g$ is the expected $Y$ difference between the *google* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+-   Citizens are different from each other, with varying incomes $y_i$. This is become some are "talented" and earn a lot, while others make less income.
 
--   $\beta_a$ is the expected $Y$ difference between the *apple* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+-   Citizens care about how much they consume privately $c_i$, and also how much they can enjoy the public good $g$
 
-[More generally, the $\beta_j$ of category $j$'s dummy variable, represents the expected difference in $Y$ between category $j$ and the reference/baseline category]{.underline}.
+-   The government provides the public good $g$, but can only pay for this public good through taxes $t$ (we are assuming that there is no borrowing for funding public goods).
 
-Notice how the coefficient $p$-values are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable *company* that has 3 different categories. To test the statistical significance of the entire categorical variable, we use an F-test.
+-   However, increasing taxes $t$ will be taken from the citizen's income $y_i$, which will reduce the amount they will be able to consume privately $c_i$
 
-An F-test, simply, tests a model's explanatory power against the explanatory power of a model where all coefficients $\alpha, \beta_1, ..., \beta_n$ all are equal to 0. Thus, an F-test would allow us to test the significance of the effect of the variable *company* on $Y$, which our individual $\beta$ coefficients do not tell us.
+The game that follows has the following rules:
 
-### Interaction Effects
+-   The government provides a public good $g≥0$, financed by taxes $t \in [0, 1]$
 
-Interactions, also called moderating effects, means that the effect of some $X_j$ on $Y$ is not constant, and depends on some third variable $X_k$. Essentially, $X_k$'s value changes the relationship between $X_j$ and $Y$.
+-   The government can only spend money on the public good, and cannot raise money in any other ways than taxes. Thus, $ty_1 + ty_2 + ... + ty_n = nt\bar{y} = g$. More simply, taxes raised is the tax rate times one's individual income, and the aggregate tax collected from everyone is the tax rate, times the average income, times the number of individuals. That is equal to the amount spent on the public good $g$.
 
-This is quite common in the real world. For example, imagine outcome variable $Y$ to be the severity of a car crash. $X_1$ can represent the darkness of the road at the time of the car crash. $X_2$ can represent the slipperiness of the road at the time of the car crash. We could quite reasonably expect that as the road is more slippery, i.e. $X_2$ increases, the darkness of the road $X_1$'s effect on the severity of a car crash $Y$ might be stronger, since slippery further enhances the danger of dark roads.
+-   Finally, we assume the mean of income $E[y_i] = \bar{y}$ is more than the median of income $y_m$, since almost every distribution of income in the world is right-skewed.
 
-Or for a more political example, $Y$ could be the chance of a civil war occurring, $X_1$ is the severity of an economic crash, and $X_2$ is the development level of a country. We could quite reasonably expect that in the effect of a economic crash on a chance of civil war would be significantly higher in developing nations rather than developed. Or in other words, the chance that a civil war occurs due to a economic crash is higher in countries like Venezuela, North Korea and Eritrea, compared to the relationship in Norway, Switzerland, and Denmark.
+The utility of any citizen $i$ is $u_i = c_i + H(g)$, where $c_i$ is the private consumption of the individual (income after taxes), and $H(g)$ is the utility derived from the public good.
 
-Interaction effects are represented by two variables being multiplied together in a regression equation. In the model below, $X_1$ and $X_2$ are interacting with each other:
+-   Since $c_i$ is private consumption, which is income after taxes, we can define it as a function of taxes and individual income: $c_i = (1-t)y_i$, or essentially, all the income left over after taxes.
 
-$$
-E[Y] = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2
-$$
+-   We will assume $H(g)$, the utility derived from the public good, has [decreasing marginal utility]{.underline}. This means that more $g$ will always yield a higher utility, however, with each additional $g$, the gain in utility is smaller.
 
-We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$.
+#### Individual Citizen Preferences
 
-$$
-\hat{Y} = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2
-$$
+Now the question is, what is each individual citizen's preferred amount of public good $g$? Well, we can solve for this.
 
+Recall that utility of any citizen is $u_i = c_i + H(g)$. We also know that $c_i = (1-t)y_i$. Let us substitute $c_i$ into the utility function:
+
 $$
-\frac{\partial \hat{Y}}{\partial X_1} = 0 + \hat{\beta}_1 + 0 + \hat{\beta}_3X_2
+u_i = c-I + H(g)
 $$
 
 $$
-\frac{\partial \hat{Y}}{\partial X_1} = \hat{\beta}_1 + \hat{\beta}_3X_2
+u_i = (1-t)y_i + H(g)
 $$
-
-As you can see, the relationship between $X_1$ and $Y$ here depends on the value of $X_2$. In more intuitive words, given a one unit increase in $X_1$, there is an expected $\hat{\beta}_1 + \hat{\beta_3}X_2$ increase in $Y$.
 
-We can also find the effect of $X_2$ on $Y$:
+Next, recall that earlier, we determined that $nt\bar{y} = g$, or essentially, aggregate tax income equals public good provision. We can solve for $t$, to get $t = \frac{g}{n \bar{y}}$. We can plug in that $t$ into our utility function:
 
 $$
-\hat{Y} = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2
+u_i = (1-t)y_i + H(g)
 $$
 
 $$
-\frac{\partial \hat{Y}}{\partial X_2} = \hat{\beta}_2 + \hat{\beta}_3X_1
+u_i = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
 $$
-
-With these equations, we can interpret the coefficients of our model:
-
--   $\hat{\beta}_1$ is the relationship between $X_1$ and $Y$, given $X_2 = 0$.
-
--   $\hat{\beta}_2$ is the relationship between $X_2$ and $Y$, given $X_1 = 0$.
-
--   $\hat{\beta}_3$ represents two things. For every one unit increase of $X_2$, the magnitude of the relationship between $X_1$ and $Y$ changes by $\hat{\beta}_3$. Similarly, for every one unit increase of $X_1$, the magnitude of the relationship between $X_2$ and $Y$ changes by $\hat{\beta}_3$
-
--   $\alpha$ is still the expected value of $Y$ when all explanatory variables equal 0.
-
-The coefficient $\beta_3$'s significance level tells us if there is a statistically significant interaction. If $\beta_3$ is not statistically significant, we can often remove the interaction term. However, if $\beta_3$ is statistically significant, that means we have found two terms that interact.
-
-Often times, our [moderating effect $X_2$ is a binary variable]{.underline} (for example, developed/developing country, true/false, yes/no). In this scenario:
-
--   $\hat{\beta}_1$ is the relationship between $X_1$ and $Y$ when $X_2$ is in the category $X=0$.
 
--   $\hat{\beta}_1 + \beta_3$ is the relationship between $X_1$ and $Y$ when $X_2$ is in the category $X=1$.
+Now, notice how we only have one variable left in this equation, $g$, which is good, since we are interested in the citizen's preferred amount of $g$. Let us rewrite the function as a function of $g$:
 
--   $\hat{\beta}_3$ is the difference in the magnitude of the relationship between $X_1$ and $Y$, between the categories $X=1$ and $X=0$.
-
-You can get all of these interpretations above simply by plugging in $X_2 = 0$ and $X_2 = 1$ into the previous equations we have found.
-
-### Explanatory Variables in R
-
-## Panel and Clustered Data
-
-### Hierarchical Data
-
-### Fixed Effects
-
-### Further Approaches
-
-## Model Selection for Inference
-
-### Population Inference
-
-### Prediction
-
-### Causal Inference
-
-### Utility of Multiple Regression
-
-### Model Selection
-
-# Causal Inference
+$$
+u_i(g) = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
+$$
 
-## Introduction to Causal Inference
+Now, what is each citizen's preferred $g$? Well naturally, it is the amount of $g$ that maximises their utility function. How do we find maximums? By taking the derivative, and setting the derivative equal to 0:
 
-### Potential Outcomes Framework
+$$
+u_i(g) = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
+$$
 
-A **causal effect** is a change in some feature of the world $Y$, that would directly result from a change in some other feature $D$. Essentially, change in $D$ [causes]{.underline} change in $Y$.
+$$
+u_i(g) = y_i -\frac{y_i}{n \bar{y}} g + H(g)
+$$
 
-This causal effect implies some **counterfactual**. A counterfactual is a comparison between the outcome in a real world, and the outcome in a hypothetical world, where both worlds are identical up to the point where feature $D$ is implemented.
+$$
+u_i'(g) = -\frac{y_i}{n \bar{y}} + H'(g)
+$$
 
--   Imagine that there are 2 worlds, that are exactly the same until treatment $D$ occurs. One world gets the treatment $D$, and the other world does not get this treatment.
+Set the derivative equal to 0:
 
--   Since these 2 worlds are identical besides the treatment $D$, the difference between the world's $Y$ outcomes are the effect of our treatment $D$.
+$$
+0 = -\frac{y_i}{n \bar{y}} + H'(g)
+$$
 
-**Causal States** are these hypothetical states of the world. The [control state]{.underline} is the world where a unit does not receive the treatment $D$. The [treatment state]{.underline} is identical to the control state, with the only exception that a unit receives the treatment $D$.
+$$
+H'(g) = \frac{y_i}{n \bar{y}}
+$$
 
--   We can define the control state as when $D=0$, and the treatment state where $D = 1$
+What does this equation tell us? First, we know that $H(g)$ had decreasing marginal utility, which means $H'(g)$ must be decreasing as $g$ increases (see blue line below). We also know that when income $y_i$ is high, $H'(g)$ is high as well. When $y_i$ is low, $H'(g)$ is low.
 
-For each unit of observation $i$, we can define two potential outcomes to the control state:
+![](figures/1/5.2.png){fig-align="center" width="45%"}
 
--   $Y_{1i}$ is the potential outcome for unit $i$, given it is in the treatment state $D_i = 1$.
+Thus, we can see, when $y_i$ is high $y^H$ (which means $H'(g)$ is high), the corresponding $g$ is quite small. When $y_i$ is low $y^L$ (which means $H'(g)$ is low), the corresponding $g$ is quite large.
 
--   $Y_{0i}$ is the potential outcome for unit $i$, given it is in the control state $D_i = 0$.
+This tells us that richer individuals prefer smaller $g$ (less public good, which also implies lower taxes), which poorer individuals prefer larger $g$ (more public good, which also implies higher taxes). This makes sense based on common intuition.
 
-Thus, the **causal effect** $\tau$ of the treatment $D$ for any unit $i$ must be $\tau_i = Y_{1i} - Y_{0i}$. This is because since the two states of the world are identical except for treatment $D$, the resulting difference must be as a result of treatment $D$
+#### Spatial Model
 
-However, in the real world, we do not have parallel worlds (unfortunately). However, we do know which units have undergone treatment in the real world, and the units who have not undergone the treatment in the real world.
--   We can label those who have undergone the treatment in the real world as $D_i = 1$, and those who have not undergone the treatment as $D_i = 0$
+Now, we can model these preferences in a Downsian Game. Two parties $A$ and $B$ compete on the policy position of size of government, choosing positions $p_A$ and $p_B$ on the amount of public good provision (and rate of tax). These parties can either be rent-seeking or policy seeking, this does not matter. The party who wins a majority of the votes implements the public good policy that have chosen.
 
-Thus, the observed $Y$ outcome of any unit $i$ is given by the equation:
+As we have established before in the Downsian Model, the median voter is the Nash Equilibrium where both parties will converge to. Thus, the median voter's preferences, given their income $y_m$, is the outcome of the game:
 
 $$
-Y_i = D_i \times Y_{1i} + (1-D_i) \times Y_{0i}
+H'(g) = \frac{y_i}{n \bar{y}} = \frac{y_m}{n \bar{y}}
 $$
-
-This equation might be a little abstract, however, it is easy to understand by plugging numbers in. When a unit does undergo treatment, plug in $D_i = 1$, and you will get outcome $Y_{1i}$ as expected. Similarly, plug in $D_i = 0$, and you will get outcome $Y_{0i}$ as expected. This is simply a mathematical way to express that in the real world, people who undergo treatment have the treatment outcome, and people who do not undergo treatment have the control outcome.
-
-### Causal Estimands
 
-The fundamental problem of causal ifnerence is that we only can observe one of the two parallel universes at the same time. For example, if you get treatment $D$, we cannot observe the world where you do not get treatment $D$.
+This model thus makes a few predictions:
 
-Thus, we cannot estimate individual effects of the causal treatment. However, there are other estimands we can use.
--   Note: Estimand is the quantity we are trying to estimate.
+-   A more skewed income distribution with a few very very rich people, which would mean a smaller $y_m$, should mean that in a 2-party democracy, we should see a larger government that provides more public goods.
 
-Since we cannot observe the individual treatment effects, we can change out estimand to the **average treatment effect**. This is exactly what it sounds like - the treatment effect of all units averaged:
+-   A richer country, thus with a higher median income $y_m$, should also have a larger government.
 
-$$
-E[\tau_i] = E[Y_{1i} - Y_{0i}] = \frac{1}{n}(\sum Y_{1i} - \sum Y_{0i})
-$$
+These predictions can be empirically tested. This shows how microeconomic models can be used to create hypotheses and theories regarding political phenomena, which we can then test with econometric methods and data.
 
-There are also other treatment effects we can use to estimate.
-
-The **average treatment effect on the treated (ATT)** is the treatment effect of only units who recieved the treatment $D_i = 1$
-
-$$
-\tau_{ATT} = E[Y_{1i} - Y_{0i} | D_i = 1]
-$$
+## Mixed Strategies
 
-The **average treatment effect on the controls (ATC)** is the treatment effect of units who only did not recieve the treatment $D_i = 0$
+### Mixed Strategies and Expected Utility
 
-$$
-\tau_{ATC} = E[Y_{1i} - Y_{0i} | D_i = 0]
-$$
+### Mixed Strategy Nash Equilibrium
 
-The conditional average treatment effect (CATE) is the treatment effect of units, given they have some other variable $X$ value. For example, if $X$ is gender, the CATE could be the treatment effect on only females.
+### Finding Mixed Strategy Nash Equilibria
 
-$$
-\tau_{CATE} = E[Y_{1i} - Y_{0i} | X = x]
-$$
+### Penalty-Goalkeeping Model
 
-### Assumptions for Estimating Causal Estimands
-SUTVA mainly
+### Valence Politics Model
 
-### Naive Estimator and Sample Bias
+# Dynamic Games
 
+## Dynamic Games of Complete Information
 
-## Random Experiements
+## Elections as Incentive Devices
 
-## Selection on Observables
+# Bayesian Games
 
-## Instrumental Variables Estimator
+## Dynamic Games of Incomplete Information
 
-## Regression Discontinuity
+## Perfect Bayesian Equilibrium
 
-## Differences-in-Differences
+## Signalling Games
 
-## Survey Experiments
+# Advanced Games

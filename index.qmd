@@ -7,11 +7,11 @@ format:
         max-width: 1100px
         toc: TRUE
         toc-expand: TRUE
-        toc-depth: 3
+        toc-depth: 2
         toc-location: left
 ---
 
-# **Hello!**
+# Hello!
 
 ![](me.jpg){fig-align="center" width="60%"}
 
@@ -49,7 +49,7 @@ Email: k.l.li1\@lse.ac.uk
 
 ------------------------------------------------------------------------
 
-# **Publications**
+# Publications
 
 ### Co-Authored
 
@@ -67,29 +67,49 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
-### Introduction to Political Economics Series
+------------------------------------------------------------------------
 
-These are a few sets of notes that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
+# An Introduction to Political Economics
 
-1.  [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf) introduces key concepts in the field of Game Theory, traditionally used in microeconomics, but which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  [Economic Models of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  [Further Statistical Methods](https://kevinli03.github.io/politicaleconomy/4.pdf) provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
-5.  [Data Science and Political Analysis](https://kevinli03.github.io/politicaleconomy/5.pdf) introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
+This is a project that I am working on, that combines everything I have learned in the field of Political Economics in an easy-to-access format.
 
-Plus, a few additional companion mathematics guides (these are not full maths courses, they are tailored to social science research):
+-   This series on Political Economics includes 3 sequences: Political Economics Sequence, Econometrics Sequence, and the Quantitative Methods Sequence.
+-   **NOTE:** This is a work in progress, everything is incomplete.
 
--   [Quantitative Methods](https://kevinli03.github.io/math/1.pdf): Pretty much everything in this guide is a pre-requisite for any of the above books. Covers much of single variable calculus and probability + statistical theory.
+<br />
 
--   [Further Quantitative Methods](https://kevinli03.github.io/math/2.pdf): covers topics in linear algebra and calculus. Highly recommended, but not a formal prerequisite of the series.
+#### **Political Economics Sequence**
 
--   [Introductory Proof and Analysis](https://kevinli03.github.io/math/3.pdf): An introduction into proofs. Can be useful for some of the microeconomic/game theory heavy courses, but not necessary.
+This sequence is the core of Political Economics - discussing how economic models can be used to study politics.
+
+Prerequisites: At a minimum, the first book of the Quantitative Methods Sequence (see below). The 2nd and 3rd books are helpful as well.
+
+1.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf): introduces key concepts microeconomic theory and game theory that form the basis of economic models of politics.
+2.  [Economic Analysis of Political Institutions](https://kevinli03.github.io/politicaleconomy/2.pdf): Applies the microeconomic theory and models discussed in the previous book to study of politics and political institutions.
+
+#### **Econometrics Sequence**
+
+This sequence introduces the techniques in econometrics used to empirical evaluate our economic models of politics. We will use the R language to implement methods.
+
+Prerequisites: At a minimum, the first book of the Quantitative Methods Sequence (see below). The 2nd and 3rd books are helpful as well.
+
+1.  [Econometrics for Political Analysis](https://kevinli03.github.io/stats/1.pdf): introduces many of the core statistical concepts and methods used in Politics research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+2.  [Further Econometrics for Political Analysis](https://kevinli03.github.io/stats/2.pdf): This book mainly covers logit and count regression models, time series models, and latent variable models.
+3.  [Econometrics and Big Data](https://kevinli03.github.io/politicaleconomy/3.pdf): introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
+
+#### **Quantitative Methods Sequence**
+
+This sequence focuses on the mathematics and statistical theory in which Political Economics is built on.
+
+1.  [Quantitative Methods](https://kevinli03.github.io/math/1.pdf): Essential maths for Political Economics. Covers topics in single variable calculus, probability theory, and statistical theory.
+2.  [Further Quantitative Methods](https://kevinli03.github.io/math/2.pdf): Covers topics in linear algebra and calculus. Highly recommended, but not formally required for Political Economics.
+3.  [Introductory Proofs and Analysis](https://kevinli03.github.io/math/3.pdf): Covers introductory proofs in mathemtics. Useful, but not essential for the rest of the Political Economics.
 
 <br />
 
 ------------------------------------------------------------------------
 
-# **Projects/Cool Stuff**
+# Projects/Cool Stuff
 
 ### Music Recordings
 
@@ -113,26 +133,6 @@ Here are some of the recordings I have made of me playing violin and piano
 
 <br />
 
-### Introduction to Political Economics Series
-
-These are a few sets of notes that I am working on to summarise my education in Political Science and Poltiical Economy. **NOTE: THESE ARE IN PROGRESS** - they are being continuously updated, and are not final
-
-1.  [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) introduces many of the core statistical concepts and methods used in Political Science and Social Science research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf) introduces key concepts in the field of Game Theory, traditionally used in microeconomics, but which has become a very popular tool to model and study political situations. This book starts off with Static Games, before moving to Dynamic Games and Bayesian Games.
-3.  [Economic Models of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the econometric and game theory techniques in the previous two books to the study of current issues in Political Science and Political Economy.
-4.  [Further Statistical Methods](https://kevinli03.github.io/politicaleconomy/4.pdf) provides higher-level statistical techniques for Political Science and Political Economy, building on the first book. This book mainly covers logit and count regression models, time series models, and latent variable models.
-5.  [Data Science and Political Analysis](https://kevinli03.github.io/politicaleconomy/5.pdf) introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
-
-Plus, a few additional companion mathematics guides (these are not full maths courses, they are tailored to social science research):
-
--   [Quantitative Methods](https://kevinli03.github.io/math/1.pdf): Pretty much everything in this guide is a pre-requisite for any of the above books. Covers much of single variable calculus and probability + statistical theory.
-
--   [Further Quantitative Methods](https://kevinli03.github.io/math/2.pdf): covers topics in linear algebra and calculus. Highly recommended, but not a formal prerequisite of the series.
-
--   [Introductory Proof and Analysis](https://kevinli03.github.io/math/3.pdf): An introduction into proofs. Can be useful for some of the microeconomic/game theory heavy courses, but not necessary.
-
-<br />
-
 ### Varieties of Capitalism and Tax Dataset
 
 -   <https://github.com/kevinli03/VocTaxDataset>
@@ -152,9 +152,9 @@ To see my notes for the 2024-2025 school year, see the link below.
 
 ------------------------------------------------------------------------
 
-# **Full Academic History**
+# Full Academic History
 
-### London School of Economics (MSc Political Science and Political Economy)
+## London School of Economics (MSc Political Science and Political Economy)
 
 Focus: Applied Statistics/Econometrics
 
@@ -206,7 +206,7 @@ Pre-Sessional Courses:
 
 <br />
 
-### London School of Economics (Summer School)
+## London School of Economics (Summer School)
 
 Summer Courses: Data Science and Machine Learning, Principles of Accounting
 
@@ -224,7 +224,7 @@ Final Classification: A+ (First Class)
 
 <br />
 
-### King's College London (BSc Politics)
+## King's College London (BSc Politics)
 
 Focuses: Quantitative Methods, Public Policy
 
@@ -288,7 +288,7 @@ Final Classification: First Class Honours
 
 <br />
 
-### Canyon Crest Academy (High School Diploma, ACT, AP)
+## Canyon Crest Academy (High School Diploma, ACT, AP)
 
 Dates: September 2017 - June 2021
 
