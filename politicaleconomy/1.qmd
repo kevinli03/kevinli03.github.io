@@ -620,7 +620,19 @@ $$
 
 So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less than 0% of the time, which is impossible. Thus, (Down, Right) is not a robust Nash Equilibrium
 
-## Spatial Models
+## Mixed Strategy Nash Equilibrium
+
+### Mixed Strategies and Expected Utility
+
+### Mixed Strategy Nash Equilibrium
+
+### Finding Mixed Strategy Nash Equilibria
+
+### Penalty-Goalkeeping Model
+
+
+
+## Downsian Model of Electoral Competition
 
 ### Downsian Model of Electoral Competition
 
@@ -662,9 +674,7 @@ Is the Downsian Model correct? Do parties actually converge at the median? There
 
 An important thing to understand when evaluating models is that [we do not evaluate models based on their conclusions]{.underline}. This is because the results of a formal mathematical model come directly from the assumptions of the model. To assess any model, we must [critically assess the assumptions on which the model is built on]{.underline}.
 
-### Assumptions of the Downsian Model
-
-#### Unbounded and Multi-Dimensional Models
+### Unbounded and Multi-Dimensional Models
 
 In the Downsian Model, we assumed policy preferences are distributed in an interval $[-1, 1]$. However, even without this assumption, the Downsian Model still has a Nash Equilibrium at the median voter position $m$
 
@@ -693,7 +703,7 @@ In fact, for every single budget proposal, there is always an incentive for 2 pl
 
 We can model a multidimensional Downsian Model in the same way. Each "dimension" of policy, like environmental, defense, social, etc., is a different budget allocation. Each party will always be able to "outflank" the other party by diverting budget away from one issue and giving it to another, making some citizens happier. Thus, there is no Nash Equilibria is the Downsian Model has multiple policy dimensions.
 
-#### Other Distributions of Citizens
+### Other Distributions of Citizens
 
 In the Downsian Model, we assumed that citizen/voter preferences are uniformly distributed. However, [with any distribution of voter preferences, the median voter theory still holds]{.underline}. This does not matter if the voters are polarised with very few voters in the middle, if they are normally distributed, if they all lean left or right, etc.
 
@@ -701,7 +711,7 @@ The reason for this is that the median voter position, $m$, by definition, is th
 
 Note that the median value can change. For example, in a country with very left-leaning citizens, the median position $m$ might not be at 0, it could be $m = -0.5$. However, the optimal positioning of political parties will still be at the median voter $m$, no matter what value $m$ takes.
 
-#### Asymmetrical Voter Preferences
+### Asymmetrical Voter Preferences
 
 In the Downsian Model, we assumed that citizens will vote for the party whose preferences are closest to them. For example, if the citizen had an option of a party to the left within distance 0.2 and a party to the right within distance 0.3, they would prefer the party to the left.
 
@@ -709,7 +719,7 @@ However, not all real world preferences of voters are symmetrical. For example, 
 
 [Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility.
 
-#### Costs of Voting and Abstaining Voters
+### Costs of Voting and Abstaining Voters
 
 In the Downsian Model, we assumed that there is no cost to voting for citizens, and all citizens will vote (rather than abstain).
 
@@ -744,6 +754,8 @@ $$
 $$
 
 Thus, when $\epsilon < \frac{1}{3}$, then party $i$ gets the most votes of any party. Since if they did not deviate by $\epsilon$ and stayed at the median, they would have tied, that means party $i$ has a profitable deviation when the deviation $\epsilon < \frac{1}{3}$. Since party $i$ has a profitable deviation, we can conclude that [there is no Nash Equilibrium at the median voter in a 3 party election]{.underline}.
+
+## Further Spatial Models
 
 ### Policy-Seeking Models
 
@@ -929,15 +941,6 @@ This model thus makes a few predictions:
 
 These predictions can be empirically tested. This shows how microeconomic models can be used to create hypotheses and theories regarding political phenomena, which we can then test with econometric methods and data.
 
-## Mixed Strategies
-
-### Mixed Strategies and Expected Utility
-
-### Mixed Strategy Nash Equilibrium
-
-### Finding Mixed Strategy Nash Equilibria
-
-### Penalty-Goalkeeping Model
 
 ### Valence Politics Model
 
