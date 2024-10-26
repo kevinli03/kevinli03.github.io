@@ -1,6 +1,6 @@
 ---
-title: "Quantitative Methods"
-subtitle: "Companian to the series: Introduction to Political Economics"
+title: "Quantitative Methods (for Political Economics)"
+subtitle: "Single Variable Calculus, Probability Theory, and Statistical Theory"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -120,19 +120,13 @@ The solution to a system of equations is the point where the two lines meet on a
 **Example**: Solve the system of equations: $3x + 2y = 13$, $x - 2y = 3$.
 
 1.  First, solve one of the equations for one of the variables.
-    -   Let us take $x - 2y = 3$.
-    -   We can solve for $x$ to get: $x = 2y+3$
+    -   Let us take $x - 2y = 3$. We can solve for $x$ to get: $x = 2y+3$
 2.  Now, plug the equation we just got into the other equation
-    -   The other equation is $3x + 2y = 13$
-    -   Plug in the $x$ we found: $3(2y+3) + 2y = 13$
+    -   The other equation is $3x + 2y = 13$. Plug in the $x$ we found: $3(2y+3) + 2y = 13$
 3.  Now, solve that equation for the remaining variable:
-    -   $3(2y+3)+2y = 13$
-    -   $6y + 9 +2y = 13$
-    -   $8y = 4$
-    -   $y = \frac{1}{2}$
+    -   $3(2y+3)+2y = 13 \Longrightarrow 6y + 9 +2y = 13 \Longrightarrow 8y = 4 \Longrightarrow y = \frac{1}{2}$
 4.  Now, plug $y$ back into either equation to find $x$:
-    -   Let us use the equation $x = 2y+3$ that we solved for earlier
-    -   Plug in $y$ to get $x =2(\frac{1}{2}) +3 = 4$
+    -   $x = 2y+3$ that we solved for earlier. Plug in $y$ to get $x =2(\frac{1}{2}) +3 = 4$
 
 Thus, the solution to the system of equations is $x=4, y = \frac{1}{2}$
 
@@ -153,26 +147,17 @@ Factorisation is the process of changing an equation from the form $ax^2+bx+c$ t
 1.  Find 2 numbers $i$ and $j$, that sum to $b$, and multiply to $c$
 2.  Once we have done that, simply put it into the form $(x+i)(x+j)$
 
-{{< pagebreak >}}
-
 **Example**: Factor $x^2 + 5x + 6$
 
-1.  We need to find two numbers $i$ and $j$, that add to 5, and multiply to 6. How do we do this? Well, think about the factors of 6 - what two numbers multiply to 6. This can include {1,6}, {2,3}, {-1,-6}, and {-2, -3}.
-2.  Clearly, $2$ and $3$ are two numbers that add to 5, while multiplying to 6.
+1.  We need to find two numbers $i$ and $j$, that add to 5, and multiply to 6.
+2.  $2$ and $3$ are two numbers that add to 5, while multiplying to 6.
 3.  Now, put it into the factored form: $(x+2)(x+3)$
 
-There is a special form of factoring: **difference of squares**. Essentially, any expression that takes the form of $a^2 - b^2$ can be rewritten as $(a+b)(a-b)$
-
--   For example, $x^2 - 9$ is in that form where $a = x$ and $b = 3$, so it can be rewritten as $(x+3)(x-3)$
+There is a special form of factoring: **difference of squares**. Essentially, any expression that takes the form of $a^2 - b^2$ can be rewritten as $(a+b)(a-b)$. Example: $x^2 - 9 = (x+3)(x-3)$.
 
 #### Multiplication Expansion
 
-Multiplication expansion undoes factoring. To do this, we must multiply each term of one section by each other term of the other section. Or in other words:
-
-1.  Multiply the 1st element of the first group, by the 1st element of the second group
-2.  Multiply the 1st element of the first group, by the 2nd element of the second group
-3.  Multiply the 2nd element of the first group, by the 1st element of the second group
-4.  Multiply the 2nd element of the first group, by the 2nd element of the 2nd group
+Multiplication expansion undoes factoring. To do this, we must multiply each term of one section by each other term of the other section. This is more intuitive with an example.
 
 **Example**: let us prove the difference of squares idea we saw earlier - multiply out $(x+3)(x-3)$:
 
@@ -181,11 +166,7 @@ $$
 $$
 
 $$
-= x^2 - 3x + 3x -9
-$$
-
-$$
-= x^2 - 9
+= x^2 - 3x + 3x -9 = x^2 - 9
 $$
 
 So we can see, that indeed, difference of squares is true, and $x^2 - 9 = (x+3)(x-3)$.
@@ -250,7 +231,7 @@ $$
 
 #### Summation Notation
 
-Summation Notation is a way of expressing the sums of many values, and is commonly used in statistical techniques. Summation notation is defined as the following:
+Summation Notation is a way of expressing the sums of many values:
 
 $$
 \sum\limits_{i=1}^n x_i = x_1 + x_2 + ... + x_n
@@ -315,7 +296,7 @@ $$
 
 #### Functions
 
-We have two sets, $X$ and $Y$. A function $f : X \rightarrow Y$ is some rule, which assigns each element $x \in X$ one, and only one element $y \in Y$, which is denoted by $f(x)$.
+We have two sets, $X$ and $Y$. A function $f : X \rightarrow Y$ is some rule, which assigns each element $x \in X$ to one, and only one element $y = f(x) \in Y$.
 
 -   For every input $x \in X$, we must only have one output $y \in Y$. If we have two outputs, that is not a function.
 
@@ -453,13 +434,219 @@ $$
 
 ### Limits and Continuity
 
+#### Definition of Limits
+
+A limit is when a function approaches some specific output value $y=f(x) = L$, as the input $x$ moves closer and closer to some value $c$.
+
+Or more intuitively, as the $x$ value becomes infinitely closer to $x=c$, the $y=f(x)$ value becomes infinitely close to $f(x) = L$.
+
+Limits are notated with the form: $\lim\limits_{x \rightarrow c} f(x) = L$
+
+For example, the figure below shows a function with a limit:
+
+![](figures/1/1.3.jpeg){fig-align="center" width="50%"}
+
+For a limit to exist, it must approach the same $y$ value $L$, from both sides of $x = c$. For example, in the figure above, from both the left and right of $x=c$, the function $f(x)$ approaches L. Thus, a limit exists here.
+
+-   However, if the function were to approach different $y$ values on both sides of $x=c$, then there would be no limit.
+
+-   We can notate the limit from the left side of $x=c$ as $\lim\limits_{x^- \rightarrow c} f(x) = L$, and the limit from the right side of $x=c$ as $\lim\limits_{x^+ \rightarrow c} f(x) = L$.
+
+Importantly, $f(x)$ does not need to be defined at point $x=c$ for the limit to exist. The figure above has a function $y=f(x)$ that is not defined at $f(c)$, however, the limit still exists.
+
+#### Properties of Limits
+
+Let us have functions $f$ and $g$, where $\lim\limits_{x \rightarrow c} f(x) = A$, and $\lim\limits_{x \rightarrow c} f(x) = B$. The following properties are thus true:
+
+1.  $\lim\limits_{x \rightarrow c} [f(x) + g(x)] = \lim\limits_{x \rightarrow c} f(x) + \lim\limits_{x \rightarrow c} g(x)$
+2.  $\lim\limits_{x \rightarrow c} [\alpha \times f(x) = \alpha \times \lim\limits_{x \rightarrow c} f(x)$, where $\alpha$ is some constant.
+3.  $\lim\limits_{x \rightarrow c} [f(x) \times g(x)] = \lim\limits_{x \rightarrow c} f(x) \times \lim\limits_{x \rightarrow c}g(x)$
+4.  $\lim\limits_{x \rightarrow c} [f(x) / g(x)] = \lim\limits_{x \rightarrow c} f(x) / \lim\limits_{x \rightarrow c}g(x)$
+
+#### Continuity
+
+Continuity as a concept is quite intuitive: if a function has no breaks or jumps within an interval, then it is continuous within that interval.
+
+We can express this intuition in more mathematical terms. Suppose that function $f$ has some input interval containing $x=c$. $f$ is continuous at point $c$, given these 2 criteria are both met:
+
+1.  $\lim\limits_{x \rightarrow c} f(x)$ exists, i.e. $\lim\limits_{x^- \rightarrow c} f(x) = \lim\limits_{x^+ \rightarrow c} f(x)$.
+2.  $\lim\limits_{x \rightarrow c} f(x) = f(c)$.
+
+These criteria make intuitive sense:
+
+1.  Criteria 1 says both sides of the limit have to approach the same $y$ value. That makes sense, since if they did not approach the same value, the function would have a jump.
+2.  Criteria 2 says the value of the limit must be the same as the value of the function. That means that 1st, the function must be defined at $f(c)$, which obviously is required for continuity, and 2nd, the value of the function is equal to the value the two sides are approaching, which if not true, would mean there would be a jump.
+
+Let us assume functions $f$ and $g$ are both continuous at $x=c$. Then, continuity has a few properties:
+
+1.  $f(x) + g(x)$ is continuous at $x=c$.
+2.  $f(x) - g(x)$ is continuous at $x=c$.
+3.  $f(x) \times g(x)$ is continuous at $x=c$.
+4.  $|f(x)|$\$ is continuous at $x=c$.
+5.  $\alpha \times f(x)$ is continuous at $x=c$, where $\alpha$ is some constant.
+6.  $f(x) / g(x)$ is continuous at $x=c$ given $g(c) ≠ 0$.
+
+Finally, if $f$ is continuous in interval $[a, b]$, then $f$ must have a maximum and minimum value within $[a, b]$.
+
 ## Derivatives
 
 ### Definition of a Derivative
 
+A derivative function $f'$ outputs the slope of the function of $f$ at any input. So, if we want to know the slope of $f$ at $f(a)$, we would plug $a$ into $f'$.
+
+The figure shows a function $f$ and a point $P$. The red tangent line shows the slope at point $P$:
+
+![](figures/1/2.1.png){fig-align="center" width="40%"}
+
+We know the definition of slope between two points (from section 1.2) is:
+
+$$
+\Delta y / \Delta x = \frac{y_2 - y_1}{x_2 - x_1}
+$$
+
+First, since we are dealing with functions where output $y=f(x)$, let us replace the $y$'s in our equation with $f(x)$'s:
+
+$$
+\Delta y / \Delta x = \frac{f(x_2) - f(x_1)}{x_2 - x_1}
+$$
+
+We can rewrite $x_2$ and $x_1$ relative to a single point of $x$ as $x_1 = x$ and $x_2 = x+h$. Why? this is because point $x_2$ is just some $x$-distance away from point $x_1$. Now, let us replace $x_1$ and $x_2$ with $x$ and $x+h$:
+
+$$
+\Delta y / \Delta x = \frac{f(x+h) - f(x)}{x + h - x} = \frac{f(x+h) - f(x)}{h}
+$$
+
+So that is essentially another way to rewrite the definition of a slope between two points. However, the issue is, that a derivative is the slope at **one point**, not between two points. What we have calculated so far is the slope between two points (the secant green line in the figure above). We need the red-tangent line - the slope at one point. How do we calculate the slope at one point?
+
+To calculate the slope at one point, we can slowly move the two points $x$ and $x+h$ closer and closer to each other. How do we do that? With **limits** (that we covered in section 1.6). By making $h$ smaller and smaller until it approaches 0, the two points will get closer and closer until they are on top of each other, and then, we will have the slope at one point.
+
+$$
+f'(x) = \lim\limits_{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
+$$
+
+That is the **formal definition of a derivative**. We can calculate any derivative with this rule (although, this can become difficult sometimes).
+
+A note on notation: so far, I have used $f'$ (apostrophes) to notate a derivative. We can also use the form $\frac{dy}{dx}$ to indicate a derivative. We can change $y$ and $x$ in this notation if we are using different variables.
+
+Finally, it is also possible to take the derivative of a derivative. This is a second-order derivative, and we notate it $f''$ (with two apostrophes).
+
 ### Rules of Differentiation
 
+#### Rules
+
+You can calculate any derivative by plugging it into the formal definition from above. However, this can be tedious.
+
+However, there are a few generalised forms of functions, whose derivatives are consistent. These rules allow us to quickly calculate derivatives. Note - these rules are all obtained from the definition of the derivative - they do not magically appear from thin air.
+
+##### **Standard Derivatives**
+
+Linear Rule: $[\alpha x]' = \alpha$, where $\alpha$ is a constant.
+
+Derivative of a constant: $[\alpha]' = 0$, where $\alpha$ is a constant.
+
+Power Rule: $[x^k]' = kx^{k-1}$, where $k$ is some constant and $x^k$ is a monomial.
+
+Sum Rule: $[f(x) ± g(x)]' = f'(x) + g'(x)$.
+
+Constant Rule: $[\alpha \times f(x)]' = \alpha \times f'(x)$, where $\alpha$ is some constant.
+
+Product Rule: $[f(x) \times g(x)]' = f'(x) \times g(x) + f(x) \times g'(x)$.
+
+Quotient Rule: $[f(x)/g(x)]' = \frac{f'(x) \times g(x) + f(x) \times g'(x)}{[g(x)]^2}$.
+
+Chain Rule: $[f(g(x))]' = f'[g(x)] \times g'(x)$ (used for composite/nested functions).
+
+##### Exponential and Log Derivatives
+
+Exponential: $[e^x]' = e^x$.
+
+Exponential Nested: $[e^{u(x)}]' = e^{u(x)} \times u'(x)$.
+
+Other Based Exponentials: $[b^x]' = \ln(b) \times b^x$.
+
+Natural Log Derivative: $[\ln(x)]' = \frac{1}{x}$.
+
+Log derivative with a power: $[\ln(x^k)]' = \frac{k}{x}$.
+
+Nested Log Derivative: $[\ln(u(x))]' = \frac{u'(x)}{u(x)}$
+
+##### Trigonometric Derviatives
+
+Derivative of sine: $[\sin(x)]' = \cos(x)$.
+
+Derivative of cosine: $[\cos(x)]' = -\sin(x)$.
+
+#### Examples:
+
+**Example 1:** Find the derivative of $f(x) = 5x^4 - 6x^3 + x^2 - 5x + 6$.
+
+1.  Sum rule says that $f'(x) = [5x^4]' - [6x^3]' + [x^2]' - [5x]' + [6]'$
+2.  Constant rule says that $f'(x) = 5[x^4]' - 6[x^3]' + [x^2]' - 5[x] + [6]'$
+3.  Power rule says that: $f'(x) = 5(4x^3) - 6(3x^2) + (2x) - 5 + 0$
+4.  Simplify: $f'(x) = 20x^3 - 18x^2 + 2x - 5 + 0$
+
+**Example 2:** Find the derivative of $f(x) = (x^3)(2x^4)$.
+
+Two methods to do this problem. Method 1 (product rule):
+
+1.  Product rule says that $[f(x) \times g(x)]' = f'(x) \times g(x) + f(x) \times g'(x)$. Let us define $f(x) = x^3$ and $g(x) = 2x^4$.
+2.  Let us find $f'(x)$ and $g'(x)$. Using power rule: $f'(x) = 3x^2$, and $g'(x) = 2[x^4]' = 2(4x^3) = 8x^3$
+3.  Put it into the product rule form: $f'(x) = (3x^2)(2x^4) + (x^3)(8x^3)$.
+4.  Simplify: $f'(x) = 6x^6 + 8x^6 \Longrightarrow f'(x) =14x^6$.
+
+Method 2 (power rule):
+
+1.  Simplify $f(x)$ to get $f(x) = 2x^7$.
+2.  Use constant rule and power rule: $f'(x) = 2[x^7]' = 2(7x^6) \Longrightarrow f'(x) = 14x^6$
+
+**Example 3:** Find the derivative of $f(x) = (3x^2 + 5x -7)^6$
+
+1.  This is a composite function, so we use chain rule $[f(g(x))]' = f'[g(x)] \times g'(x)$. Let us define $f(x) = x^6$ and $g(x) = 3x^2 + 5x - 7$.
+2.  Let us find $f'(x)$ and $g'(x)$. Power rule says $f'(x) = 6x^5$. Sum, constant, and power rule says $g'(x) = 6x + 5$.
+3.  Put it into the form of chain rule: $f'(x) = 6(3x^2 + 5x -7)^5 \times 6x+5$.
+4.  Distribute out $6x+5$ to get $f'(x) = 36x(3x^2+5x-7)^5 + 30(3x^2+5x-7)^5$.
+
 ### Derivative of an Inverse Function
+
+Let $f: X \rightarrow Y$ be a bijective function $y=f(x)$ (see sections 1.4-1.5). We want to find the derivative of the inverse function $f^{-1}: Y \rightarrow X$.
+
+The simplest way to do this is to find the inverse function (as shown in section 1.5), and calculate the derivative of that.
+
+However, the function $x = f^{-1}(y)$ is not always easily differentiable with the rules we have introduced. We can utilise an alternative approach. Remember the identity of inverse functions shown in section 1.5:
+
+$$
+f^{-1}(f(x)) = x \text{ for all } x \in X
+$$
+
+We know that chain rule says:
+
+$$
+[f(g(x))]' = f'[g(x)] \times g'(x)
+$$
+
+We can define our inverse original $f'$ function as $f$ for the chain rule, and the original $f(x)$ as $g(x)$ for the chain rule. Thus, using chain rule, we can get the derivative of the identity of inverse functions:
+
+$$
+f^{-1}(f(x)) = x, \text{ now differentiate both sides:}
+$$
+
+$$
+\frac{df^{-1}(f(x))}{dy} \times \frac{df(x)}{dx} = 1, \text{ since } y = f(x) \Longrightarrow \frac{df^{-1}(y)}{dy} \times \frac{df(x)}{dx} = 1
+$$
+
+Now, isolate the derivative of the inverse function to get the **derivative of the inverse**:
+
+$$
+\frac{df^{-1}(y)}{dy} = \frac{1}{ \frac{df(x)}{dx} }, \text{ and since } y=f(x),x = f(y), \Longrightarrow \frac{dx}{dy} = \frac{1}{ \frac{dy}{dx} }
+$$
+
+**Example**: Find the derivative of the inverse function for $f(x) = \ln(x)$.
+
+1.  First, find the inverse $f^{-1}(y)$. We do this by solving for $x$ in $y = \ln(x)$. Through the definition of logarithms, we know that $x = e^y$. Thus, $f^{-1}(y) = e^y$.
+2.  Using derivative rules, we know that $f'(x) = \frac{1}{x}$
+3.  Using the inverse derivative relationship, we know $f'(y) = \frac{1}{f'(x)}$.
+4.  Thus, $f'(y) = \frac{1}{1/x} = x$
+5.  Since we solved $x = e^y$, we can plug in to get: $f'(y) = e^y$.
 
 ### Partial Derivatives
 
