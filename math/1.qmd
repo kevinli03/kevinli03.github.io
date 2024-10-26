@@ -650,7 +650,52 @@ $$
 
 ### Partial Derivatives
 
-### Application: Linear Regression
+Suppose that we have a function $f : X_1, X_2, ..., X_n \rightarrow \mathbb{R}$. Or in other words, a function with more than one variable input. However, we might only be interested in the rate of change (slope) relative to only one of the variables.
+
+We can do this with a partial derivative, which is defined as:
+
+$$
+\frac{\partial}{\partial x_i} f(x_1, ..., x_i, ..., x_n) = \lim\limits_{h \rightarrow 0 } \frac{f(x_1, ..., x_i + h, ..., x_n) - f(x_1, ..., x_i, ..., x_n)}{h}
+$$
+
+-   Where $x_1, ..., x_i, ...., x_n$ are all the inputs of function $f$.
+
+-   Where we are only interested in the rate of change in respect to $x_i$ (hence why only $x_i$ has a $+h$ in the numerator).
+
+-   As a result, we treat $x_1, ..., x_n$ that are not $x_i$ as simply constants.
+
+To solve a partial derivative, we take the derivative in respect to our specific variable $x_i$, while treating all other input variables $x_1, ..., x_n$ like a constant, like you would treat the number 5.
+
+**Example**: Find the partial derivative in respect to $x$ for $f(x, z) = 5x^2z^3 + 2x + 3z + 5$
+
+1.  Use sum rule to split up derivative: $\frac{\partial f(x,z)}{\partial x} = \frac{\partial}{\partial x}[5x^2z^3] + \frac{\partial}{\partial x}[2x] + \frac{\partial}{\partial x}[3z] + \frac{\partial}{\partial x}[5]$.
+2.  Take out constants from first term (remember $z$ is constant here) $\frac{\partial f(x,z)}{\partial x}  = 5z^3 \frac{\partial}{\partial x} [x^2] + \frac{\partial}{\partial x}[2x] + \frac{\partial}{\partial x}[3z] + \frac{\partial}{\partial x}[5]$.
+3.  Find derivatives, remember $z$ is constant here: $\frac{\partial f(x,z)}{\partial x} = 10z^3x + 2 + 0 + 0$.
+4.  Thus, $\frac{\partial f(x,z)}{\partial x} = 10z^3x + 2$.
+
+### Application: Multiple Regression
+
+Partial derivatives are very useful in economic modelling and econometrics/statistics. We will introduce an application of partial derivatives with linear regression model.
+
+The multiple linear regression model takes the following form (do not worry too much about this, this will be covered in the Econometrics sequence):
+
+$$
+\hat{Y} = \hat{\alpha} + \hat{\beta}_1X_1 + \hat{\beta}_2X_2 + ... + \hat{\beta}_k X_k
+$$
+
+You probably have heard that multiple linear regression is powerful because it allows us to see the independent effects of explanatory variables on output variables (if you have not, do not worry).
+
+Let us say we are interested in only the effect of $X_1$ on $Y$. We can take the partial derivative in respect to $X_1$ as follows:
+
+$$
+\frac{\partial \hat{Y}}{\partial X_1} = \frac{\partial \hat{Y}}{\partial X_1}[\hat{\alpha}] + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_1X_1] + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_2X_2] + ... + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_kX_k]
+$$
+
+$$
+\frac{\partial \hat{y}}{\partial X_1} = 0 + \hat{\beta}_1 + 0 + ... + 0 \Longrightarrow \frac{\partial \hat{y}}{\partial X_1} = \hat{\beta}_1
+$$
+
+So we can see, the effect of $X_1$ on $\hat{Y}$ is $\hat{\beta}_1$, and this is not affected by any other explanatory variables $X_2, ..., X_n$. This shows how multiple linear regression allows us to "hold other variables constant" and isolate the effect of one variable.
 
 ## Optimisation
 

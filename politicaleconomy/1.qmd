@@ -72,9 +72,9 @@ A **utility function** is a way to map preferences over $X$ into numerical value
 
 The utility function $u : X \rightarrow \mathbb{R}$ should be such that, for any $x,y \in X$, $u(x) ≥ u(y)$ if and only if $x \succsim y$.
 
--   More intuitively, this says that the utility function should match our preference relations. If we weakly prefer $x$ to $y$, then our utility function should mirror this, so $U(x) ≥ U(y)$.
+-   More intuitively, this says that the utility function should match our preference relations. If we weakly prefer $x$ to $y$, then our utility function should mirror this, so $u(x) ≥ u(y)$.
 
--   The same is true for $u(x) > u(y) \Rightarrow x \succ y$ and $u(x) = u(y) \Rightarrow x \sim y$.
+-   The same is true for $u(x) > u(y) \Longrightarrow x \succ y$ and $u(x) = u(y) \Longrightarrow x \sim y$.
 
 The utility function allows us to represent the binary preferences (comparisons between two alternatives) in a numeric form, which allows us to compare all outcomes, and is much easier to manipulate mathematically.
 
