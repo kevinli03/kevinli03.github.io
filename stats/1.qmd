@@ -383,17 +383,229 @@ Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\h
 
 ## Analysis of the Ordinary Least Squares Estimator
 
-This chapter goes into the mathematics of how we obtained our estimates of $\hat{\alpha}, \hat{beta}_1, ..., \hat{beta}_k$ using the ordinary least squares (OLS) estimator. **This section is not essential** if you are only interested in an applied approach to econometrics, however, it can foster a deeper understanding of the regression process.
+This chapter goes into the mathematics of how we obtained our estimates of $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ using the ordinary least squares (OLS) estimator. This section is not essential if you are only interested in an applied approach to econometrics, however, it can foster a deeper understanding of the regression process.
 
 ### Bivariate Regression Estimation
 
+#### Minimising Sum of Squared Errors
+
+A bivariate regression (also called a simple linear regression) is a linear regression model with only one explanatory variable $X$. It takes the following form:
+
+$$
+Y_i = \alpha + \beta X_i + \epsilon_i
+$$
+
+We have some fitted model to our data (best-fit line) with estimated parameters:
+
+$$
+\hat{Y}_1 = \hat{\alpha} + \hat{\beta}X_i
+$$
+
+We noted how the **ordinary least squares** (OLS) estimator is concerned with the sum of squared errors. We can replace $\hat{Y}_i$
+
+$$
+\begin{split}
+SSE & = \sum\limits_{i=1}^n (Y_i - \hat{Y}_i )^2 \\
+& = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
+\end{split}
+$$
+
+{{< pagebreak >}}
+
+The OLS estimator wants to find the parameters that **minimise the sum of squared errors**. We can mathematically express this:
+
+$$
+(\hat{\alpha}, \hat{\beta}) = \arg \min\limits_{\hat{\alpha}, \hat{\beta}} \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
+$$
+
+For notation simplicity, let us define our sum of squared errors as a function $S$ with inputs $\hat{\alpha}$ and $\hat{\beta}$:
+
+$$
+S(\hat{\alpha}, \hat{\beta}) = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
+$$
+
+#### Parameter $\hat{\alpha}$
+
+Let us first look at the parameter $\hat{\alpha}$. How do we find what value $\hat{\alpha}$ minimises the sum of squared errors? We know through calculus, that deriving the function to find the first order condition can accomplish this:
+
+$$
+\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right]
+$$
+
+First, ignore the summation. The partial derivative of the internal section is:
+
+$$
+\begin{split}
+& \text{Chain Rule: } [f(g(x))]' = f'[g(x)] \times g'(x) \\
+& \text{if } f(\hat{x}) = x^2, \text{ then } f'(x) = 2x \\
+& \text{if } g(\hat{\alpha}) = Y_i - \hat{\alpha} - \hat{\beta} X_1, \text{ then } g'(\hat{\alpha}) = -1 \\
+& \text{thus } [f(g(\hat{\alpha}))]' = 2(Y_i - \hat{\alpha} - \hat{\beta} X_i) \times -1 \\
+& = -2(Y_i - \hat{\alpha} - \hat{\beta}X_i)
+\end{split}
+$$
+
+That is the derivative of one of the items in the summation. But how do we deal with the summation? Well, what is summation:
+
+$$
+\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 = (Y_1 - \hat{\alpha}-\hat{\beta}X_i)^2 + (Y_2 - \hat{\alpha}-\hat{\beta}X_i)^2 + ... + (Y_n - \hat{\alpha}-\hat{\beta}X_i)^2
+$$
+
+We know that there is the sum rule of derivatives $[f(x) + g(x)]' = f'(x) + g'(x)$. Thus, we know:
+
+$$
+\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_1 - \hat{\alpha} - \hat{\beta}X_i)^2 \right] + ... + \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_n - \hat{\alpha} - \hat{\beta}X_i)^2 \right]
+$$
+
+{{< pagebreak >}}
+
+Thus, since we know the partial derivative of one term of the summation already, we can generalise to (and simplify with property of summations):
+
+$$
+\begin{split}
+\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} & = \sum\limits_{-i=1}^n \left[ -2(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right] \\
+& = -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)
+\end{split}
+$$
+
+Now that we have the partial derivative of the SSE function in respect to $\hat{\alpha}$, to find the value of $\hat{\alpha}$ that creates the minimum value of the SSE, we set the first order derivative equal to 0.
+
+$$
+-2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
+$$
+
+We can ignore the -2, since if the sum is equal to 0, then the -2 will have no effect.
+
+$$
+\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
+$$
+
+Now, we use the property of summation to simplify to:
+
+$$
+\sum\limits_{i=1}^n Y_i - n \hat{\alpha} - \hat{\beta} \sum\limits_{i=1}^n X_i = 0
+$$
+
+Now, isolate $\hat{\alpha}$ as follows:
+
+$$
+\begin{split}
+\sum\limits_{i=1}^n Y_i - n \hat{\alpha} - \hat{\beta} \sum\limits_{i=1}^n X_i &= 0 \\
+-n\hat{\alpha} &= -\sum\limits_{i=1}^n Y_i + \hat{\beta}\sum\limits_{i=1}^nX_i \\
+\hat{\alpha} & = -\frac{1}{n} \left[ -\sum\limits_{i=1}^n Y_i + \hat{\beta} \sum\limits_{i=1}^n  X_i \right] \\
+\hat{\alpha} & = \frac{1}{n} \sum\limits_{i=1}^nY_i - \hat{\beta} \sum\limits_{i=1}^n X_i \\
+\hat{\alpha} & = \bar{Y} - \hat{\beta} \bar{X}
+\end{split}
+$$
+
+The final step converting to $\bar{Y}$ and $\bar{X}$ is because of the mathematical definition of average. Thus:
+
+$$
+\hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}
+$$
+
+We will plug this into our solution for $\hat{\beta}$ to solve that. Once we solve $\hat{\beta}$, we will come back and calculate $\hat{\alpha}$'s value.
+
+#### Parameter $\hat{\beta}$
+
+Now with $\hat{\alpha}$, we can calculate $\hat{\beta}$. Remember our original SSE equation:
+
+$$
+S(\hat{\alpha}, \hat{\beta}) = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
+$$
+
+Now, let us find the minimum $\hat{\beta}$ value by taking the partial derivative in respect to $\hat{\beta}$ and setting it equal to 0. Once again, chain rule (ignoring summation):
+
+$$
+\begin{split}
+& \text{Chain Rule: } [f(g(x))]' = f'[g(x)] \times g'(x) \\
+& \text{if } f(\hat{x}) = x^2, \text{ then } f'(x) = 2x \\
+& \text{if } g(\hat{\beta}) = Y_i - \hat{\alpha} - \hat{\beta} X_1, \text{ then } g'(\hat{\beta}) = -X_i \\
+& \text{thus } [f(g(\hat{\alpha}))]' = 2(Y_i - \hat{\alpha} - \hat{\beta} X_i) \times -X_i \\
+& = -2X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i)
+\end{split}
+$$
+
+Using the same process as above, we know the sum rule of derivatives means we can just add the sum back. We get:
+
+$$
+\begin{split}
+\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\beta}} & = \sum\limits_{i=1}^n \left[ -2X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right] \\
+& = -2 \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i)
+\end{split}
+$$
+
+Now, let us plug in our previously solved $\hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}$, and we get:
+
+$$
+\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\beta}} = -2\sum\limits_{i=1}^n \left[X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right]
+$$
+
+Once again, the -2 does not matter as same reason as before. Set equal to 0 to solve for the value of $\hat{\beta}$ that minimises SSE:
+
+$$
+\begin{split}
+0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right] \\
+0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y} - \hat{\beta}(X_i - \bar{X})) \right] \\
+0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y}) - X_i \hat{\beta}(X_i - \bar{X}) \right] \\
+0 & = \sum\limits_{i=1}^n X_i (Y_i - \bar{Y}) - \hat{\beta}_1 \sum\limits_{i=1}^nX_i (X_i - \bar{X}) \\
+\end{split}
+$$
+
+We could solve for $\hat{\beta}$, however, we can use a few facts about summation notation to create a more "nice looking" solution that is easier to interpret. The facts on summation are:
+
+$$
+\begin{split}
+& \sum\limits_{i=1}^n (X_i - \bar{X}) = 0 \\
+& \sum\limits_{i=1}^n X_i(Y_i - \bar{Y}) = \sum\limits_{i=1}^n(X_i - \bar{X}) (Y_i - \bar{Y}) \\
+& \sum\limits_{i=1}^n X_i(X_i - \bar{X}) = \sum\limits_{i=1}^n(X_i - \bar{X})^2
+\end{split}
+$$
+
+With these rules, we can transform what we had before into:
+
+$$
+0 = \sum\limits_{i=1}^n(X_i - \bar{X})(Y_i - \bar{Y}) - \hat{\beta} \sum\limits_{i=1}^n (X_i - \bar{X})^2
+$$
+
+Then solve for $\hat{\beta}$ to get:
+
+$$
+\hat{\beta} = \frac{\sum\limits_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum\limits_{i=1}^n(X_i - \bar{X})^2}
+$$
+
+If we remember the introductory statistics classes prior to this (in the Quantitative Methods sequence), we know that:
+
+-   Covariance: $\sigma_{XY} = \sum\limits_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})$
+
+-   Variance: $\sigma_X^2 = \sum\limits_{i=1}^n(X_i - \bar{X})^2$
+
+Thus, $\hat{\beta}$ could also be rewritten as (but only for bivariate linear regression):
+
+$$
+\hat{\beta}_1 = \frac{Cov(X, Y)}{Var(X)}
+$$
+
+Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$, so we can quickly solve for that as well.
+
+With $\hat{\beta}$ and $\hat{\alpha}$ estimated, we can now plug them into our bivariate regression and complete our fitted model:
+
+$$
+\hat{Y}_i = \hat{\alpha} + \hat{\beta}X_i
+$$
+
 ### Algebraic Properties
+
+Residuals expected = 0
+
+Homoscedasticity
+
+Explanatory variable has variance.
+
+### Linear Algebra Depiction of Multivaraite Regression
 
 ### Multivariate Regression Estimation
 
 ### Geometric Properties
-
-### Orthogonal Projection
 
 ## Confidence Intervals and Hypothesis Testing
 
