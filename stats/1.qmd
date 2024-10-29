@@ -41,7 +41,7 @@ This book will also use the R language to implement some methods, so a basic und
 
 ### Econometrics
 
-The goal of econometrics is to use data to answer economic questions. These economic questions often revolved around human decision making and social settings, in which traditional statistical methods did not work well for.
+The goal of econometrics is to use data to answer economic questions. These economic questions often revolved around human decision making and social settings, in which traditional statistical methods did not work well for, or were not possible to implement. Political science has similar issues to economics, and thus, has adopted many econometric techniques.
 
 Econometrics studies relationships between features, so we can make inferences: using facts that we do know (data) to learn facts that we do not know. There are 3 types of inference that are common in econometrics:
 
@@ -170,7 +170,7 @@ Or more intuitively, the average observed outcome $Y$ of those in the treatment 
 
 However, this [naive estimator is a bad idea]{.underline}. Why?
 
--   Remember, our treatment effects are supposed to be comparing to two potential outcomes [of the same unit]{.underline}. We are supposed to compare $Y_{1i}$ to \$Y\_{0i}.
+-   Remember, our treatment effects are supposed to be comparing to two potential outcomes [of the same unit]{.underline}. We are supposed to compare $Y_{1i}$ to $Y_{0i}$.
 
 -   However, in this scenario, we are not comparing the potential outcomes of the same individual. We are comparing the outcome of some observation $A$ in treatment $Y_{1A}$ and the outcome of some other observation $B$ in control $Y_{1B}$.
 
@@ -562,8 +562,7 @@ Thus, $\hat{\beta}$ could also be rewritten as (but only for bivariate linear re
 \hat{\beta}_1 = \frac{Cov(X, Y)}{Var(X)} = \frac{\sigma_{XY}}{\sigma_x^2}
 $$
 
-Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$, so we can quickly solve for that as well. Thus, we now have $\hat{\beta}, \hat{\alpha}$, completing our estimation. We can now put everything into the fitted model:
-$$
+Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$, so we can quickly solve for that as well. Thus, we now have $\hat{\beta}, \hat{\alpha}$, completing our estimation. We can now put everything into the fitted model: $$
 \hat{Y}_i = \hat{\alpha} + \hat{\beta}X_i
 $$
 
@@ -681,8 +680,7 @@ Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can
 
 ### F-Tests of Nested Models
 
-An F-test is a variation on the coefficient significance tests. The standard F-test is quite simple - it tests for the significance of a model across multiple coefficients:
-$$
+An F-test is a variation on the coefficient significance tests. The standard F-test is quite simple - it tests for the significance of a model across multiple coefficients: $$
 \begin{split}
 H_0: & \beta_1 = \beta_2 = ... = \beta_k = 0 \\
 H_1: & \text{ at least one of } \beta_1, \beta_2, ..., \beta_k ≠0
@@ -693,8 +691,7 @@ Thus, we assume that all explanatory variables in the model have no relationship
 
 For a standard Linear Regression, if we have any significant individual coefficients, then the F-test will also become significant. So what is the point of F-tests? Well, for some models that we will see later, such as categorical explanatory variables, the coefficient's significance levels mean something else. Thus, to see if the model is statistically significant, we need to use the F-test.
 
-The **F-test of Nested Models** is an extension of the standard F-test, that allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically: 
-$$
+The **F-test of Nested Models** is an extension of the standard F-test, that allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically: $$
 \begin{split}
 M_0 : & E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g \\
 M_a : & E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g + \beta_{g+1} X_{g+1} + ... + \beta_k X_k
@@ -799,8 +796,7 @@ When we run a quadratic model in R, we get two coefficients: $\beta_1$ is attach
 
 If we want to interpret the magnitude of the model, we are best off using predicted values of $Y$ (obtained using the model equation above).
 
-There is one more thing we can interpret with the quadratic transformation: the **vertex** of the best-fit parabola. The vertex, if we remember our algebra, is either the maximum or minimum point of a parabola. Thus, if we remember from calculus and optimisation, we can find the maximum and minimums through setting the derivative equal to 0. For the quadratic model, this is as follows - we first find the derivative, then set the derivative equal to 0:
-$$
+There is one more thing we can interpret with the quadratic transformation: the **vertex** of the best-fit parabola. The vertex, if we remember our algebra, is either the maximum or minimum point of a parabola. Thus, if we remember from calculus and optimisation, we can find the maximum and minimums through setting the derivative equal to 0. For the quadratic model, this is as follows - we first find the derivative, then set the derivative equal to 0: $$
 \begin{split}
 & \hat{Y} = \hat{\alpha} + \hat{\beta}_1X + \hat{\beta}_2 X^2 \\
 & \frac{d \hat{Y}}{dX} = 0 + \hat{\beta}_1 + 2\hat{\beta}_2X \\
@@ -851,8 +847,7 @@ $$
 \end{split}
 $$
 
-Now, let us plug this into our original regression model:
-$$
+Now, let us plug this into our original regression model: $$
 \begin{split}
 E[Y|X] & = \alpha + \beta\log(X) \\
 E[Y|e^A \times X] & = \alpha + \beta \log(e^A \times X) \\
@@ -861,8 +856,7 @@ E[Y|e^A \times X] & = \alpha + \beta \log(e^A \times X) \\
 \end{split}
 $$
 
-Now find the difference between $E[Y|e^A \times X]$ and $E[Y|X]$: 
-$$
+Now find the difference between $E[Y|e^A \times X]$ and $E[Y|X]$: $$
 \begin{split}
 E[Y|e^A \times X] - E[Y|X] & = [\alpha + \beta A + \beta\log(X)] - [\alpha + \beta\log(X)] \\
 E[Y|e^A \times X] - E[Y|X] & = \beta A
@@ -875,8 +869,7 @@ We can make this interpretation more useful by purposely choosing some value $A$
 
 ### Binary Explanatory Variable
 
-Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: 
-$$
+Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
 \begin{split}
 E[Y|X = 0] & = \alpha + \beta(0) = \alpha \\
 E[Y|X=1] & = \alpha + \beta(1) = \alpha + \beta \\
@@ -934,8 +927,7 @@ $$
 E[Y] = \alpha + \beta_g X_g + \beta_a X_a
 $$
 
-To find the expected value of each category, we would do the following: 
-$$
+To find the expected value of each category, we would do the following: $$
 \begin{split}
 E[Y|X = \text{Google}] & = E[Y|X_g = 1, X_a = 0] = \alpha + \beta_g(1) + \beta_a(0) = \alpha + \beta_g \\
 E[Y|X = \text{Apple}] & = E[Y|X_g = 0, X_a = 1] = \alpha + \beta_g(0) + \beta_a(1) = \alpha + \beta_a \\
@@ -971,8 +963,7 @@ $$
 E[Y] = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2
 $$
 
-We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$. 
-$$
+We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$. $$
 \begin{split}
 \hat{Y} & = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2 \\
 \frac{\partial \hat{Y}}{\partial X_1} & = 0 + \hat{\beta}_1 + 0 + \hat{\beta}_3X_2 \\
@@ -982,8 +973,7 @@ $$
 
 As you can see, the relationship between $X_1$ and $Y$ here depends on the value of $X_2$. In more intuitive words, given a one unit increase in $X_1$, there is an expected $\hat{\beta}_1 + \hat{\beta_3}X_2$ increase in $Y$.
 
-We can also find the effect of $X_2$ on $Y$: 
-$$
+We can also find the effect of $X_2$ on $Y$: $$
 \begin{split}
 \hat{Y} & = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2 \\
 \frac{\partial \hat{Y}}{\partial X_2} & = \hat{\beta}_2 + \hat{\beta}_3X_1
