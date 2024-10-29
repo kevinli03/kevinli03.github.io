@@ -43,8 +43,6 @@ This book will also use the R language to implement some methods, so a basic und
 
 The goal of econometrics is to use data to answer economic questions. These economic questions often revolved around human decision making and social settings, in which traditional statistical methods did not work well for.
 
-Political Science has increasing adopted these econometric approaches, as just like economics, political science is about how individuals and institutions behave in social settings. The similarities between the two fields allows econometric techniques to work quite well in studying political questions.
-
 Econometrics studies relationships between features, so we can make inferences: using facts that we do know (data) to learn facts that we do not know. There are 3 types of inference that are common in econometrics:
 
 1.  **Descriptive Inference**: learning about the "true value" of a relationship between features in the world. For example, what is the actual relationship between economic development and democratisation?
@@ -53,9 +51,9 @@ Econometrics studies relationships between features, so we can make inferences: 
 
 ### Descriptive Inference
 
-Descriptive inference is about learning about some relationship in the world. This might seem very simple: just measure the relationship! However, there are many issues in reality when trying to do this.
+Descriptive inference is about learning about some relationship in the world. This might seem very simple: just measure the relationship! However, the biggest issue is with how large populations are.
 
-This biggest issue is with how large populations are. For example, if we want to see the relationship between individual income and likelihood to vote in the UK, we would have to ask every single voter in the UK, likely over 50 million individuals. Researchers do not have the time or money to do this!
+-   For example, if we want to see the relationship between individual income and likelihood to vote in the UK, we would have to ask every single voter in the UK, likely over 50 million individuals. Researchers do not have the time or money to do this!
 
 Thus, we need some way to use a smaller number of individuals, to learn about a larger population. This is the goal of descriptive inference.
 
@@ -81,7 +79,7 @@ In this book, we will not focus too much on predictive inference. We will build 
 
 Causal inference is the primary focus of econometrics and the social sciences. This is because causal effects are what drive things in the world. Knowing how things cause other things is critical for understanding the world around us, and designing better policies.
 
-An important thing to know is that [correlation does not equal causation]{.underline}. Descriptive inference is concerned about how to find correlations/relationships in the population. That is not the goal of Causal Inference: the goal of causal inference is to find how things cause each other.
+An important thing to know is that [correlation does not equal causation]{.underline}:
 
 -   For example, ice cream sales are strongly correlated with shark attack frequency. Does that mean ice cream sales directly cause shark attacks? No - they happen to be correlated, because there is another variable, the warm weather and people going to the beach, that causes both to rise at the same time. Ice cream sales itself does not have any independent affect on shark attacks, they just happen to be correlated.
 
@@ -91,43 +89,50 @@ In the first section of this book, we will establish what a causal effect even i
 
 A **causal effect** is a change in some feature of the world $Y$, that would directly result from a change in some other feature $D$. Essentially, change in $D$ [causes]{.underline} change in $Y$.
 
-This causal effect implies some **counterfactual**. A counterfactual is a comparison between the outcome in a real world, and the outcome in a hypothetical world, where both worlds are identical up to the point where feature $D$ is implemented.
+This causal effect implies that there are **potential outcomes**:
 
 -   Imagine that there are 2 worlds, that are exactly the same until treatment $D$ occurs. One world gets the treatment $D$, and the other world does not get this treatment.
 
 -   Since these 2 worlds are identical besides the treatment $D$, the difference between the world's $Y$ outcomes are the effect of our treatment $D$.
 
+-   In the real world, we only observe one of these realities - either a unit $i$ gets, or does not get, the treatment. The other world that we do not observe is called a **counterfactual**.
+
 **Causal States** are these hypothetical states of the world. The [control state]{.underline} is the world where a unit does not receive the treatment $D$. The [treatment state]{.underline} is identical to the control state, with the only exception that a unit receives the treatment $D$.
 
 -   We can define the control state as when $D=0$, and the treatment state where $D = 1$
 
-For each unit of observation $i$, we can define two potential outcomes to the control state:
+For each unit of observation $i$, we can define two potential outcomes:
 
 -   $Y_{1i}$ is the potential outcome for unit $i$, given it is in the treatment state $D_i = 1$.
 
 -   $Y_{0i}$ is the potential outcome for unit $i$, given it is in the control state $D_i = 0$.
 
-Thus, the **causal effect** $\tau$ of the treatment $D$ for any unit $i$ must be $\tau_i = Y_{1i} - Y_{0i}$. This is because since the two states of the world are identical except for treatment $D$, the resulting difference must be as a result of treatment $D$
+Thus, the **individual causal effect** $\tau$ of the treatment $D$ for any unit $i$ must be $\tau_i = Y_{1i} - Y_{0i}$. This is because since the two states of the world are identical except for treatment $D$, the resulting difference must be as a result of treatment $D$.
 
-However, in the real world, we do not have parallel worlds (unfortunately). However, we do know which units have undergone treatment in the real world, and the units who have not undergone the treatment in the real world. - We can label those who have undergone the treatment in the real world as $D_i = 1$, and those who have not undergone the treatment as $D_i = 0$
-
-Thus, the observed $Y$ outcome of any unit $i$ is given by the equation:
+However, in the real world, we do not have parallel worlds (unfortunately) - either unit $i$ gets the treatment $D_i = 1$, or does not get the treatment $D_i = 0$. Thus, the **observed** $Y$ **outcome** (in the real world) of any unit $i$ is given by the equation:
 
 $$
 Y_i = D_i \times Y_{1i} + (1-D_i) \times Y_{0i}
 $$
 
-This equation might be a little abstract, however, it is easy to understand by plugging numbers in. When a unit does undergo treatment, plug in $D_i = 1$, and you will get outcome $Y_{1i}$ as expected. Similarly, plug in $D_i = 0$, and you will get outcome $Y_{0i}$ as expected. This is simply a mathematical way to express that in the real world, people who undergo treatment have the treatment outcome, and people who do not undergo treatment have the control outcome.
+This equation might be a little abstract, however, it is easy to understand by plugging $D_i$ in:
+
+$$
+\begin{split}
+& [Y_i | D_i = 0] = 0 \times Y_{1i} + (1-0) \times Y_{0i} = Y_{0i} \\
+& [Y_i | D_i = 1] = 1 \times Y_{1i} + (1-1) \times Y_{0i} = Y_{1i} 
+\end{split}
+$$
+
+So intuitively, if the observation is in the control state $D_i = 0$, we observe the controlled state potential outcome $Y_{0i}$. When an observation is in the treatment state $D_i = 1$, we observe the treatment state potential outcome $Y_{1i}$.
 
 ### Causal Estimands
 
-The fundamental problem of causal inference is that we only can observe one of the two parallel universes at the same time. For example, if you get treatment $D$, we cannot observe the world where you do not get treatment $D$.
+The fundamental problem of causal inference is that we only can observe one of the two parallel universes at the same time. For example, if you get treatment $D$, we cannot observe the world where you do not get treatment $D$. Thus, we cannot estimate individual effects of the causal treatment. However, there are other estimands we can use.
 
-Thus, we cannot estimate individual effects of the causal treatment. However, there are other estimands we can use.
+-   Note: **Estimand** is the quantity we are trying to estimate (i.e. what we are interested in).
 
--   Note: **Estimand** is the quantity we are trying to estimate.
-
-Since we cannot observe the individual treatment effects, we can change out estimand to the **average treatment effect**. This is exactly what it sounds like - the treatment effect of all units averaged:
+Since we cannot observe the individual treatment effects, we can change out estimand to the **average treatment effect (ATE)**. This is exactly what it sounds like - the treatment effect of all units averaged:
 
 $$
 E[\tau_i] = E[Y_{1i} - Y_{0i}] = \frac{1}{n}(\sum Y_{1i} - \sum Y_{0i})
@@ -147,23 +152,69 @@ $$
 \tau_{ATC} = E[Y_{1i} - Y_{0i} | D_i = 0]
 $$
 
-The conditional average treatment effect (CATE) is the treatment effect of units, given they have some other variable $X$ value. For example, if $X$ is gender, the CATE could be the treatment effect on only females.
+The **conditional average treatment effect (CATE)** is the treatment effect of units, given they have some other variable $X$ value. For example, if $X$ is gender, the CATE could be the treatment effect on only females.
 
 $$
 \tau_{CATE} = E[Y_{1i} - Y_{0i} | X = x]
 $$
 
-### Assumptions for Estimating Causal Estimands
-
-SUTVA mainly
-
 ### Naive Estimator and Sample Bias
+
+The **naive estimator** is an estimator that only compares our observed outcomes, without any comparison to the counterfactual potential outcomes. This is often what many people initially do when trying to find a causal effect. Essentially, we are comparing units that are assigned to treatment, and the units that are not assigned to treatment, and their observed outcomes.
+
+More mathematically, the naive estimator is: $$
+E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 0]
+$$
+
+Or more intuitively, the average observed outcome $Y$ of those in the treatment group, minus the average observed outcome $Y$ of those in the control group.
+
+However, this [naive estimator is a bad idea]{.underline}. Why?
+
+-   Remember, our treatment effects are supposed to be comparing to two potential outcomes [of the same unit]{.underline}. We are supposed to compare $Y_{1i}$ to \$Y\_{0i}.
+
+-   However, in this scenario, we are not comparing the potential outcomes of the same individual. We are comparing the outcome of some observation $A$ in treatment $Y_{1A}$ and the outcome of some other observation $B$ in control $Y_{1B}$.
+
+-   But what if observation $A$ and $B$ are different? There outcomes may not be due to the treatment $D$, but because of the differences between $A$ and $B$.
+
+-   This is why counterfactual comparison is important - when we compare the potential outcomes of the same unit in control and treatment groups, we can be confident of the affect of the treatment, since it is the same unit of observation for both groups.
+
+We can prove this mathematically. We start with the naive estimator: $$
+E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 0]
+$$
+
+Then, we do a little algebra trick - we add a new term to this equation, and then subtract the same term. The two new terms thus cancel each other out to 0. $$
+= E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 0] + E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i - 1]
+$$
+
+Then, we rearrange the terms, then simplify, getting the result: $$
+\begin{split}
+& = E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 1] + E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0] \\
+& = E[Y_{1i} - Y_{0i} | D_i = 1] + E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0]
+\end{split}
+$$
+
+If we look at the final result, we can divide it into 2 parts:
+
+1.  The first part, $E[Y_{1i} - Y_{0i} | D_i = 1]$, is the average treatment effect of the treated $\tau_{ATT}$ that we introduced previously.
+2.  The second part $E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0]$ is what we call the **sample bias**. Intuitively, it is the difference between the treatment and control groups prior to the treatment taking place (hence the potential outcome being $Y_{0i}$).
+
+These differences between the treatment and control groups prior to treatment can actually explain some of our results, which is why our results with the naive estimator are **biased**.
+
+For example, if we are measuring the question *does going to the hospital make you more healthy*, and we simply measured the outcomes of people who went to the hospital and did not go to the hospital, we might see that in general, people who did not go to the hospital are healthier!
+
+-   Does this mean that going to the hospital makes you unhealthier? No! It is because more unhealthy people choose to go to the hospital in the first place. Thus, the hospital has generally more unhealthy individuals in it. The hospital might perform miracles on these people, but they are still not as healthy as the healthy people who did not need to go to the hospital.
+
+-   The differences between the people who chose to go to the hospital versus the people who did not go to the hospital explains the differences in our outcome, not the actual treatment that the hospital provided. This is selection bias - when our treatment and control groups are fundamentally different and unequal even prior to treatment.
+
+A **confounder** is a variable that is explaining the differences in the treatment and control groups. For example, smoking might be a confounding variable in the example above - people who smoke more often will go to the hospital, and will have worse outcomes than people who did not smoke and did not go to the hospital.
+
+The naive estimator will capture the effect of these confounders, which we do not want - we want to isolate the effect of our treatment $D$. To make an accurate causal claim, we must get rid of confounding variables and selection bias. How do we do this? - Randomisation, which we will cover next.
 
 ## Randomised Experiments
 
 # The Multiple Linear Regression Model
 
-## Introduction to the Linear Regression Model
+## Specification and Interpretation
 
 ### Introduction to Regression
 
@@ -381,7 +432,7 @@ We can see the output. In the coefficients table:
 
 Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value.
 
-## Analysis of the Ordinary Least Squares Estimator
+## Ordinary Least Squares Estimator
 
 This chapter goes into the mathematics of how we obtained our estimates of $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ using the ordinary least squares (OLS) estimator. This section is not essential if you are only interested in an applied approach to econometrics, however, it can foster a deeper understanding of the regression process.
 
@@ -389,105 +440,58 @@ This chapter goes into the mathematics of how we obtained our estimates of $\hat
 
 #### Minimising Sum of Squared Errors
 
-A bivariate regression (also called a simple linear regression) is a linear regression model with only one explanatory variable $X$. It takes the following form:
-
-$$
+A bivariate regression (also called a simple linear regression) is a linear regression model with only one explanatory variable $X$. It takes the following form: $$
 Y_i = \alpha + \beta X_i + \epsilon_i
 $$
 
-We have some fitted model to our data (best-fit line) with estimated parameters:
-
-$$
+We have some fitted model to our data (best-fit line) with estimated parameter values: $$
 \hat{Y}_1 = \hat{\alpha} + \hat{\beta}X_i
 $$
 
-We noted how the **ordinary least squares** (OLS) estimator is concerned with the sum of squared errors. We can replace $\hat{Y}_i$
-
-$$
+We noted how the **ordinary least squares** (OLS) estimator is concerned with the sum of squared errors. Let us define the sum of squared errors as a function $S$. We can replace $\hat{Y}_i$ with the above equation. $$
 \begin{split}
-SSE & = \sum\limits_{i=1}^n (Y_i - \hat{Y}_i )^2 \\
+S(\hat{\alpha}, \hat{\beta}) & = \sum\limits_{i=1}^n (Y_i - \hat{Y}_i )^2 \\
 & = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
 \end{split}
 $$
 
-{{< pagebreak >}}
-
-The OLS estimator wants to find the parameters that **minimise the sum of squared errors**. We can mathematically express this:
-
-$$
-(\hat{\alpha}, \hat{\beta}) = \arg \min\limits_{\hat{\alpha}, \hat{\beta}} \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
-$$
-
-For notation simplicity, let us define our sum of squared errors as a function $S$ with inputs $\hat{\alpha}$ and $\hat{\beta}$:
-
-$$
-S(\hat{\alpha}, \hat{\beta}) = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
+The OLS estimator wants to find the parameters that **minimise the sum of squared errors**. We can mathematically express this. $$
+(\hat{\alpha}, \hat{\beta}) = \arg \min\limits_{\hat{\alpha}, \hat{\beta}} \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 = \arg \min\limits_{\hat{\alpha}, \hat{\beta}} S(\hat{\alpha}, \hat{\beta})
 $$
 
 #### Parameter $\hat{\alpha}$
 
-Let us first look at the parameter $\hat{\alpha}$. How do we find what value $\hat{\alpha}$ minimises the sum of squared errors? We know through calculus, that deriving the function to find the first order condition can accomplish this:
-
-$$
+Let us first look at the parameter $\hat{\alpha}$. How do we find what value $\hat{\alpha}$ minimises the sum of squared errors? We know through calculus, that deriving the function to find the first order condition can accomplish this: $$
 \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right]
 $$
 
-First, ignore the summation. The partial derivative of the internal section is:
-
-$$
-\begin{split}
-& \text{Chain Rule: } [f(g(x))]' = f'[g(x)] \times g'(x) \\
-& \text{if } f(\hat{x}) = x^2, \text{ then } f'(x) = 2x \\
-& \text{if } g(\hat{\alpha}) = Y_i - \hat{\alpha} - \hat{\beta} X_1, \text{ then } g'(\hat{\alpha}) = -1 \\
-& \text{thus } [f(g(\hat{\alpha}))]' = 2(Y_i - \hat{\alpha} - \hat{\beta} X_i) \times -1 \\
-& = -2(Y_i - \hat{\alpha} - \hat{\beta}X_i)
-\end{split}
+First, ignore the summation. The partial derivative of the internal section, using chain rule, is the following: $$
+\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = -2(Y_i - \hat{\alpha} - \hat{\beta}X_i)
 $$
 
-That is the derivative of one of the items in the summation. But how do we deal with the summation? Well, what is summation:
-
-$$
-\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 = (Y_1 - \hat{\alpha}-\hat{\beta}X_i)^2 + (Y_2 - \hat{\alpha}-\hat{\beta}X_i)^2 + ... + (Y_n - \hat{\alpha}-\hat{\beta}X_i)^2
-$$
-
-We know that there is the sum rule of derivatives $[f(x) + g(x)]' = f'(x) + g'(x)$. Thus, we know:
-
-$$
+That is the derivative of one of the items in the summation. But how do we deal with the summation? We know that there is the sum rule of derivatives $[f(x) + g(x)]' = f'(x) + g'(x)$. Thus, we know: $$
 \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_1 - \hat{\alpha} - \hat{\beta}X_i)^2 \right] + ... + \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_n - \hat{\alpha} - \hat{\beta}X_i)^2 \right]
 $$
 
-{{< pagebreak >}}
-
-Thus, since we know the partial derivative of one term of the summation already, we can generalise to (and simplify with property of summations):
-
-$$
+Thus, since we know the partial derivative of one term of the summation already, we can generalise to (and simplify with property of summations): $$
 \begin{split}
 \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} & = \sum\limits_{-i=1}^n \left[ -2(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right] \\
 & = -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)
 \end{split}
 $$
 
-Now that we have the partial derivative of the SSE function in respect to $\hat{\alpha}$, to find the value of $\hat{\alpha}$ that creates the minimum value of the SSE, we set the first order derivative equal to 0.
-
-$$
--2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
-$$
-
-We can ignore the -2, since if the sum is equal to 0, then the -2 will have no effect.
-
-$$
-\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
+Now that we have the partial derivative of the SSE function in respect to $\hat{\alpha}$, to find the value of $\hat{\alpha}$ that creates the minimum value of the SSE, we set the first order derivative equal to 0. We can ignore the -2, since if the sum is equal to 0, then the -2 will have no effect. $$
+\begin{split}
+& -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0 \\
+& \Longrightarrow \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
+\end{split}
 $$
 
-Now, we use the property of summation to simplify to:
-
-$$
+Now, we use the property of summation to simplify to: $$
 \sum\limits_{i=1}^n Y_i - n \hat{\alpha} - \hat{\beta} \sum\limits_{i=1}^n X_i = 0
 $$
 
-Now, isolate $\hat{\alpha}$ as follows:
-
-$$
+Now, isolate $\hat{\alpha}$ as follows: $$
 \begin{split}
 \sum\limits_{i=1}^n Y_i - n \hat{\alpha} - \hat{\beta} \sum\limits_{i=1}^n X_i &= 0 \\
 -n\hat{\alpha} &= -\sum\limits_{i=1}^n Y_i + \hat{\beta}\sum\limits_{i=1}^nX_i \\
@@ -497,9 +501,7 @@ $$
 \end{split}
 $$
 
-The final step converting to $\bar{Y}$ and $\bar{X}$ is because of the mathematical definition of average. Thus:
-
-$$
+The final step converting to $\bar{Y}$ and $\bar{X}$ is because of the mathematical definition of average. Thus: $$
 \hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}
 $$
 
@@ -507,53 +509,34 @@ We will plug this into our solution for $\hat{\beta}$ to solve that. Once we sol
 
 #### Parameter $\hat{\beta}$
 
-Now with $\hat{\alpha}$, we can calculate $\hat{\beta}$. Remember our original SSE equation:
-
-$$
+Now with $\hat{\alpha}$, we can calculate $\hat{\beta}$. Remember our original SSE equation: $$
 S(\hat{\alpha}, \hat{\beta}) = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
 $$
 
-Now, let us find the minimum $\hat{\beta}$ value by taking the partial derivative in respect to $\hat{\beta}$ and setting it equal to 0. Once again, chain rule (ignoring summation):
-
-$$
-\begin{split}
-& \text{Chain Rule: } [f(g(x))]' = f'[g(x)] \times g'(x) \\
-& \text{if } f(\hat{x}) = x^2, \text{ then } f'(x) = 2x \\
-& \text{if } g(\hat{\beta}) = Y_i - \hat{\alpha} - \hat{\beta} X_1, \text{ then } g'(\hat{\beta}) = -X_i \\
-& \text{thus } [f(g(\hat{\alpha}))]' = 2(Y_i - \hat{\alpha} - \hat{\beta} X_i) \times -X_i \\
-& = -2X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i)
-\end{split}
-$$
-
-Using the same process as above, we know the sum rule of derivatives means we can just add the sum back. We get:
-
-$$
+Now, let us find the minimum $\hat{\beta}$ value by taking the partial derivative in respect to $\hat{\beta}$ and setting it equal to 0. This is almost the same as before - use chain rule, then use sum rule to get the deriative: $$
 \begin{split}
 \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\beta}} & = \sum\limits_{i=1}^n \left[ -2X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right] \\
 & = -2 \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i)
 \end{split}
 $$
 
-Now, let us plug in our previously solved $\hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}$, and we get:
-
-$$
+Now, let us plug in our previously solved $\hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}$, and we get: $$
 \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\beta}} = -2\sum\limits_{i=1}^n \left[X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right]
 $$
 
-Once again, the -2 does not matter as same reason as before. Set equal to 0 to solve for the value of $\hat{\beta}$ that minimises SSE:
+Once again, the -2 does not matter as same reason as before. Set equal to 0 to solve for the value of $\hat{\beta}$ that minimises SSE: $$
+0 = \sum\limits_{i=1}^n \left[ X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right]
+$$
 
 $$
 \begin{split}
-0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right] \\
 0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y} - \hat{\beta}(X_i - \bar{X})) \right] \\
 0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y}) - X_i \hat{\beta}(X_i - \bar{X}) \right] \\
 0 & = \sum\limits_{i=1}^n X_i (Y_i - \bar{Y}) - \hat{\beta}_1 \sum\limits_{i=1}^nX_i (X_i - \bar{X}) \\
 \end{split}
 $$
 
-We could solve for $\hat{\beta}$, however, we can use a few facts about summation notation to create a more "nice looking" solution that is easier to interpret. The facts on summation are:
-
-$$
+We could solve for $\hat{\beta}$, however, we can use a few facts about summation notation to create a more "nice looking" solution that is easier to interpret. The facts on summation are: $$
 \begin{split}
 & \sum\limits_{i=1}^n (X_i - \bar{X}) = 0 \\
 & \sum\limits_{i=1}^n X_i(Y_i - \bar{Y}) = \sum\limits_{i=1}^n(X_i - \bar{X}) (Y_i - \bar{Y}) \\
@@ -561,15 +544,11 @@ $$
 \end{split}
 $$
 
-With these rules, we can transform what we had before into:
-
-$$
+With these rules, we can transform what we had before into: $$
 0 = \sum\limits_{i=1}^n(X_i - \bar{X})(Y_i - \bar{Y}) - \hat{\beta} \sum\limits_{i=1}^n (X_i - \bar{X})^2
 $$
 
-Then solve for $\hat{\beta}$ to get:
-
-$$
+Then solve for $\hat{\beta}$ to get: $$
 \hat{\beta} = \frac{\sum\limits_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum\limits_{i=1}^n(X_i - \bar{X})^2}
 $$
 
@@ -579,16 +558,11 @@ If we remember the introductory statistics classes prior to this (in the Quantit
 
 -   Variance: $\sigma_X^2 = \sum\limits_{i=1}^n(X_i - \bar{X})^2$
 
-Thus, $\hat{\beta}$ could also be rewritten as (but only for bivariate linear regression):
-
-$$
-\hat{\beta}_1 = \frac{Cov(X, Y)}{Var(X)}
+Thus, $\hat{\beta}$ could also be rewritten as (but only for bivariate linear regression): $$
+\hat{\beta}_1 = \frac{Cov(X, Y)}{Var(X)} = \frac{\sigma_{XY}}{\sigma_x^2}
 $$
 
-Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$, so we can quickly solve for that as well.
-
-With $\hat{\beta}$ and $\hat{\alpha}$ estimated, we can now plug them into our bivariate regression and complete our fitted model:
-
+Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$, so we can quickly solve for that as well. Thus, we now have $\hat{\beta}, \hat{\alpha}$, completing our estimation. We can now put everything into the fitted model:
 $$
 \hat{Y}_i = \hat{\alpha} + \hat{\beta}X_i
 $$
@@ -610,8 +584,6 @@ Explanatory variable has variance.
 ## Confidence Intervals and Hypothesis Testing
 
 ### Samples and Population
-
-In the social sciences, we are often interested in studying large groups of people and entities. However, it is often impossible to ask every single individual in the population. For example, if we wanted to study the effect of educational level on voter turnout in the UK, we would need to ask nearly 70 million people.
 
 A **sample** is a subset of a population, which ideally, can tell us something about the population. For example, we could use a sample to estimate the relationship between two features $X_j$ and $Y$ with a coefficient $\beta_j$. If our sample can reflect the population, then we can use the sample to learn about the true population $\beta_j$
 
@@ -709,7 +681,8 @@ Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can
 
 ### F-Tests of Nested Models
 
-An F-test is a variation on the coefficient significance tests. The standard F-test is quite simple - it tests for the significance of a model across multiple coefficients: $$
+An F-test is a variation on the coefficient significance tests. The standard F-test is quite simple - it tests for the significance of a model across multiple coefficients:
+$$
 \begin{split}
 H_0: & \beta_1 = \beta_2 = ... = \beta_k = 0 \\
 H_1: & \text{ at least one of } \beta_1, \beta_2, ..., \beta_k ≠0
@@ -720,7 +693,8 @@ Thus, we assume that all explanatory variables in the model have no relationship
 
 For a standard Linear Regression, if we have any significant individual coefficients, then the F-test will also become significant. So what is the point of F-tests? Well, for some models that we will see later, such as categorical explanatory variables, the coefficient's significance levels mean something else. Thus, to see if the model is statistically significant, we need to use the F-test.
 
-The **F-test of Nested Models** is an extension of the standard F-test, that allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically: $$
+The **F-test of Nested Models** is an extension of the standard F-test, that allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically: 
+$$
 \begin{split}
 M_0 : & E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g \\
 M_a : & E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g + \beta_{g+1} X_{g+1} + ... + \beta_k X_k
@@ -775,6 +749,8 @@ Now, let us look at the coefficients table:
 
 -   The stars after the p-values are the significance level. One star \* means $p<0.05$, two stars \*\* means $p<0.01$, and three stars \*\*\* means $p<0.001$
 
+-   The bottom row shows the p-value of the F-test if $H_0 : \overrightarrow{\hat{\beta}} = 0$.
+
 -   For more details of interpretation, see the previous sections in this chapter.
 
 To calculate confidence intervals, we can use the *confint()* command, and simply input the name of our model within:
@@ -783,7 +759,11 @@ To calculate confidence intervals, we can use the *confint()* command, and simpl
 confint(model)
 ```
 
-As we can see, this command gives us 95% confidence intervals (both lower and upper bounds), for all parameters in our model.
+If we want an F-test between two models, with the first model being the null hypothesis $M_0$, we can use the *anova()* command:
+
+```{r, eval = FALSE}
+anova(model1, model2)
+```
 
 ## Explanatory Variable Analysis
 
@@ -819,13 +799,14 @@ When we run a quadratic model in R, we get two coefficients: $\beta_1$ is attach
 
 If we want to interpret the magnitude of the model, we are best off using predicted values of $Y$ (obtained using the model equation above).
 
-There is one more thing we can interpret with the quadratic transformation: the **vertex** of the best-fit parabola. The vertex, if we remember our algebra, is either the maximum or minimum point of a parabola. Thus, if we remember from calculus and optimisation, we can find the maximum and minimums through setting the derivative equal to 0. For the quadratic model, this is as follows - we first find the derivative, then set the derivative equal to 0: $$
+There is one more thing we can interpret with the quadratic transformation: the **vertex** of the best-fit parabola. The vertex, if we remember our algebra, is either the maximum or minimum point of a parabola. Thus, if we remember from calculus and optimisation, we can find the maximum and minimums through setting the derivative equal to 0. For the quadratic model, this is as follows - we first find the derivative, then set the derivative equal to 0:
+$$
 \begin{split}
-\hat{Y} & = \hat{\alpha} + \hat{\beta}_1X + \hat{\beta}_2 X^2 \\
-\frac{d \hat{Y}}{dX} & = 0 + \hat{\beta}_1 + 2\hat{\beta}_2X \\
-0 & = \hat{\beta}_1 + 2 \hat{\beta}_2X \\
-- \hat{\beta}_1 & = 2 \hat{\beta}_2 X \\
-X & = \frac{-\hat{\beta}_1}{2 \hat{\beta}_2}
+& \hat{Y} = \hat{\alpha} + \hat{\beta}_1X + \hat{\beta}_2 X^2 \\
+& \frac{d \hat{Y}}{dX} = 0 + \hat{\beta}_1 + 2\hat{\beta}_2X \\
+& 0 = \hat{\beta}_1 + 2 \hat{\beta}_2X \\
+& - \hat{\beta}_1 = 2 \hat{\beta}_2 X \\
+& X = \frac{-\hat{\beta}_1}{2 \hat{\beta}_2}
 \end{split}
 $$
 
@@ -870,7 +851,8 @@ $$
 \end{split}
 $$
 
-Now, let us plug this into our original regression model: $$
+Now, let us plug this into our original regression model:
+$$
 \begin{split}
 E[Y|X] & = \alpha + \beta\log(X) \\
 E[Y|e^A \times X] & = \alpha + \beta \log(e^A \times X) \\
@@ -879,7 +861,8 @@ E[Y|e^A \times X] & = \alpha + \beta \log(e^A \times X) \\
 \end{split}
 $$
 
-Now find the difference between $E[Y|e^A \times X]$ and $E[Y|X]$: $$
+Now find the difference between $E[Y|e^A \times X]$ and $E[Y|X]$: 
+$$
 \begin{split}
 E[Y|e^A \times X] - E[Y|X] & = [\alpha + \beta A + \beta\log(X)] - [\alpha + \beta\log(X)] \\
 E[Y|e^A \times X] - E[Y|X] & = \beta A
@@ -892,7 +875,8 @@ We can make this interpretation more useful by purposely choosing some value $A$
 
 ### Binary Explanatory Variable
 
-Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
+Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: 
+$$
 \begin{split}
 E[Y|X = 0] & = \alpha + \beta(0) = \alpha \\
 E[Y|X=1] & = \alpha + \beta(1) = \alpha + \beta \\
@@ -950,7 +934,8 @@ $$
 E[Y] = \alpha + \beta_g X_g + \beta_a X_a
 $$
 
-To find the expected value of each category, we would do the following: $$
+To find the expected value of each category, we would do the following: 
+$$
 \begin{split}
 E[Y|X = \text{Google}] & = E[Y|X_g = 1, X_a = 0] = \alpha + \beta_g(1) + \beta_a(0) = \alpha + \beta_g \\
 E[Y|X = \text{Apple}] & = E[Y|X_g = 0, X_a = 1] = \alpha + \beta_g(0) + \beta_a(1) = \alpha + \beta_a \\
@@ -986,7 +971,8 @@ $$
 E[Y] = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2
 $$
 
-We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$. $$
+We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$. 
+$$
 \begin{split}
 \hat{Y} & = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2 \\
 \frac{\partial \hat{Y}}{\partial X_1} & = 0 + \hat{\beta}_1 + 0 + \hat{\beta}_3X_2 \\
@@ -996,7 +982,8 @@ $$
 
 As you can see, the relationship between $X_1$ and $Y$ here depends on the value of $X_2$. In more intuitive words, given a one unit increase in $X_1$, there is an expected $\hat{\beta}_1 + \hat{\beta_3}X_2$ increase in $Y$.
 
-We can also find the effect of $X_2$ on $Y$: $$
+We can also find the effect of $X_2$ on $Y$: 
+$$
 \begin{split}
 \hat{Y} & = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2 \\
 \frac{\partial \hat{Y}}{\partial X_2} & = \hat{\beta}_2 + \hat{\beta}_3X_1
