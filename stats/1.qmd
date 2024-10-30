@@ -161,7 +161,7 @@ However, this [naive estimator is a bad idea]{.underline}. Why?
 
 -   Remember, our treatment effects are supposed to be comparing to two potential outcomes [of the same unit]{.underline}. We are supposed to compare $Y_{1i}$ to $Y_{0i}$.
 
--   However, in this scenario, we are not comparing the potential outcomes of the same individual. We are comparing the outcome of some observation $A$ in treatment $Y_{1A}$ and the outcome of some other observation $B$ in control $Y_{1B}$.
+-   However, in this scenario, we are not comparing the potential outcomes of the same individual. We are comparing the outcome of some observation $A$ in treatment $Y_{1A}$ and the outcome of some other observation $B$ in control $Y_{0B}$.
 
 -   But what if observation $A$ and $B$ are different? There outcomes may not be due to the treatment $D$, but because of the differences between $A$ and $B$.
 
@@ -225,7 +225,7 @@ Linear regression allows us to estimate a model with both our explanatory and ou
 
 -   In reality, as we will discuss in the later parts of this book, there are often thousands of control variables, many that are not possible to control for. We will introduce extensions to the linear model to deal with these.
 
-Regression is also a powerful tool for both descriptive and predictive inference. In fact, it forms much of the building blocks of more complicated data science and machine learning methods.
+Regression is also a powerful tool for predictive inference. In fact, it forms much of the building blocks of more complicated data science and machine learning methods.
 
 Before we dive into the linear model, here are some conventional notation that is important:
 
@@ -292,9 +292,11 @@ However, in reality, we do not do all this work - testing all different $\tilde{
 
 ### Interpretations of Coefficients
 
+Let us first focus on a descriptive context - we will focus on the causal interpretation later.
+
 #### Simple Linear Regression
 
-Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated? Let us first focus on a descriptive context - we will focus on the causal interpretation later.
+Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated?
 
 $\hat{\beta}$ is the slope of the the linear model. [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}.
 
@@ -567,17 +569,195 @@ $$
 
 ### Algebraic Properties
 
-Residuals expected = 0
+There are a few properties of the OLS estimator that we can explore directly from this process of estimation.
 
-Homoscedasticity
+A **residual** is the difference between the actual $Y$ vaues, and the predicted $\hat{Y}$ values of our fitted regression model: $$
+\begin{split}
+\hat{u}_i & = Y_i - \hat{Y}_i \\
+& = Y_i - \hat{\alpha} - \hat{\beta} X_i
+\end{split}
+$$
 
-Explanatory variable has variance.
+Recall our OLS estimates were calculated by satisfying these properties: $$
+\begin{split}
+& \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0 \\
+& \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
+\end{split}
+$$
 
-### Linear Algebra Depiction of Multivaraite Regression
+We can plug $\hat{u}_i$ in to get a few properties of the OLS estimator.
+
+#### Residuals Sum to Zero
+
+If we plug $\hat{u}_i$ into the first condition, we get that:
+
+$$
+\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = \sum\limits_{i=1}^n \hat{u}_i = 0
+$$
+
+This means that with the OLS estimator, the total sum of the residuals for all units $i$ is 0. Furthermore, since $\hat{u}_i = Y_i - \hat{Y}_i$, we know that the average $Y_i$ should be equal to the average $\hat{Y}_i$.
+
+#### Homoscedasticity
+
+If we plug $\hat{u}_i$ into the second condition, we get that:
+
+$$
+\sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) = \sum\limits_{i=1}^nX_i \hat{u}_i = 0
+$$
+
+This tells us that the sample covariance/correlation between the regressor $X$ and the residual $\hat{u}_i$ is always zero. Or in other words, there is no correlation/relationship between $X$ and the residuals we see in our model.
+
+-   This property is called **homoscedasticity** - different $X$ values do not affect the residuals.
+
+-   This relates to the Estimated Residual Standard Deviation that we talked about in the last chapter - how the standard deviation of the residuals is constant throughout the model, not affected by $X$.
+
+If there is a pattern in our residuals, that is called **heteroscedasticity**, and we will discuss this issue in a later chapter.
+
+#### Explanatory Variable Has Variance
+
+Another property of the OLS estimator is that the explanatory variable $X$ must have variation. Why? Recall the final formula for the $\hat{\beta}$ estimation that we came up with:
+
+$$
+\hat{\beta}_1 = \frac{Cov(X, Y)}{Var(X)} = \frac{\sigma_{XY}}{\sigma_x^2}
+$$
+
+Thus, if $Var(X) = 0$, then our $\hat{\beta}_1$ will be undefined, as we are dividing by zero.
+
+Thus, for OLS to be possible, $Var(X) ≠ 0$ must be true.
 
 ### Multivariate Regression Estimation
 
-### Geometric Properties
+Multivariate regression, as introduced previously, allows us to add additional control variables into our model as follows:
+
+$$
+Y_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + \hat{\beta}_2 X_{2i} + ... + \hat{\beta}_k X_{ki}
+$$
+
+Similar to our bivariate regression (but with additional variables), our minimisation condition is:
+
+$$
+\begin{split}
+(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...) & = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i} ...)^2 \\
+& = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} S(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)
+\end{split}
+$$
+
+However, instead of a best-fit line in a 2-dimensional setting, we now have a best-fit plane in a 3-dimensional space (or higher depending on the number of explanatory variables).
+
+Taking the partial derivatives of each parameter as before, and setting them equal to 0, we get these three first order conditions:
+
+$$
+\begin{split}
+& -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
+& -2 \sum\limits_{i=1}^n X_{1i}(Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
+& -2 \sum\limits_{i=1}^n X_{2i} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
+& \text{and so on for } X_{3i}, ..., X_{ki}
+\end{split}
+$$
+
+Since the -2 is multiplied, we can ignore it, since if the rest of the sums are equal to 0, the 02 is irrelevant. Thus, our minimisation criteria is:
+
+$$
+\begin{split}
+& \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
+& \sum\limits_{i=1}^n X_{1i}(Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
+& \sum\limits_{i=1}^n X_{2i} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
+& \text{and so on for } X_{3i}, ..., X_{ki}
+\end{split}
+$$
+
+The 1st equation, solving for $\hat{\alpha}$, is quite simple, just as in bivariate regression. We get:
+
+$$
+\hat{\alpha} = \bar{Y} - \hat{\beta}_1 \bar{X}_1 - \hat{\beta}_2 \bar{X}_2...
+$$
+
+The other conditions are much more difficult to solve by hand, so the computer will do this for us. However, it is still valuable to know these first order conditions to know what the computer is trying to find.
+
+The only properties that are required to compute the multivariate regression OLS estimates are:
+
+1.  All explanatory variables have sample variability $Var(X_j \in \overrightarrow{X}) ≠ 0, \forall X_j \in X$.
+2.  No two explanatory variable have perfect collinearity - which means a correlation coefficient of -1 or 1, which only occurs if the two variables have the same exact values. Mathematically,$X_{ai} ≠ X_{ai}, \forall i, \forall X_a, X_b \in \overrightarrow{X}$.
+
+### Matrix Notation of Regression
+
+By expressing models in linear algebra, it becomes easier to derive formal results without requiring messy algebra and the summation operator. It is also natural, since our data is stored in spreadsheets (big matrices).
+
+We start with the linear model:
+
+$$
+Y_i = \alpha + \beta_1X_{1i} + \beta_2 X_{2i} + ... + \beta_k X_{ki} + \epsilon_i
+$$
+
+The $i$th observation can be written in vector form as following:
+
+$$
+y = X_i'\beta + \epsilon_i, \text{ where }
+\beta = \begin{bmatrix}
+\alpha \\ \beta_1 \\ \vdots \\ \beta_k
+\end{bmatrix} \text{ and }
+X_i = \begin{bmatrix}
+1 \\
+X_{1i} \\
+\vdots \\
+X_{ki}
+\end{bmatrix}
+$$
+
+-   The $X_i'$ in the equation is the transpose of $X_i$, to make matrix multiplication possible.
+
+-   The first element of the $X_i$ matrix is 1, since $1 \times \alpha$ gives us the first parameter in the linear model.
+
+Since our model has $n$ different observations of $i$, we can express this into vector form, with the $X_i'$ and $\beta$ being vectors within a vector.
+
+$$
+\begin{pmatrix}
+Y_1 \\ Y_2 \\ \vdots \\ Y_n
+\end{pmatrix} = 
+\begin{pmatrix}
+X_1'\beta + \epsilon_1 \\ X_2'\beta + \epsilon_2 \\ \vdots \\ X_n'\beta + \epsilon_n
+\end{pmatrix} = 
+\begin{pmatrix}
+X_1'\beta \\ X_2'\beta \\ \vdots \\ X_n'\beta
+\end{pmatrix} + 
+\begin{pmatrix}
+\epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_n
+\end{pmatrix}
+$$
+
+Since $\beta$ vector appears as a common factor for all observations $i=1,...,n$, we can factor it out and have an equation:
+
+$$
+\begin{pmatrix}
+Y_1 \\ Y_2 \\ \vdots \\ Y_n
+\end{pmatrix} = 
+\begin{pmatrix}
+X_1' \\ X_2' \\ \vdots \\ X_n'
+\end{pmatrix} \space \beta + 
+\begin{pmatrix}
+\epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_n
+\end{pmatrix}
+$$
+
+We can expand the $X_1',...,X_n'$ vector into a matrix. Remember that each $X_1',...,X_n'$ is already a vector of different explanatory variables. Thus, we have a model:
+
+$$
+Y = X \beta + \epsilon, \text{ where } X = 
+\begin{bmatrix}
+1 & X_{21} & \dots & x_{k1} \\
+1 & X_{22} & \dots & x_{k2} \\
+\vdots & \vdots & \vdots & \vdots \\
+1 & X_{2n} & \dots & X_{kn}
+\end{bmatrix}
+$$
+
+-   Where the notation for elements of $X$ is $X_{ki}$, with $i$ being the unit of observation $i = 1, \dots n$, and $k$ being the explanatory variables index.
+
+-   Where $Y$ and $\epsilon$ are $n \times 1$ vectors (as seen above), and $\beta$ is a $k \times 1$ vector.
+
+-   The first row of $X$ is a vector of 1, which exists because these 1's are multiplied with $\alpha$ in our model.
+
+### OLS Estimator with Linear Algebra
 
 ## Confidence Intervals and Hypothesis Testing
 
