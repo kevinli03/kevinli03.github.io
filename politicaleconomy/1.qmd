@@ -58,7 +58,7 @@ We assume that agents have **rational** preferences. Preferences are considered 
 
 -   A simple example is that - if I prefer apples to oranges, and I prefer oranges to watermelon, then, I should prefer apples to watermelon.
 
--   This might seem arbitary with fruits, however, with numbers, it makes much more sense. If I prefer a score of 100 compared to 95, and I prefer a score of 95 to 90, then I should prefer 100 to 90.
+-   This might seem arbitrary with fruits, however, with numbers, it makes much more sense. If I prefer a score of 100 compared to 95, and I prefer a score of 95 to 90, then I should prefer 100 to 90.
 
 If individual preferences of an agent are both complete and transitive, then, they are rational.
 
@@ -198,13 +198,15 @@ Players are denoted $i = 1,2,...N$.
 
 The actions of a player $i$ are denoted $a_i$
 
--   So, the actions of player 1 are denoted $a_1$, and so on
+-   So, the actions of player 1 are denoted $a_1$, and so on.
 
 The strategies of a player $i$ are denoted $s_i$
 
 -   A player's selected strategy, if applicable, is denoted with a star: $s_i^*$
 
 -   All other strategies are denoted with an apostrophe (more specifically, a set complement sign): $s'_i$
+
+-   Mixed strategies will be denoted with a $\sigma$ instead of an $s$.
 
 The action profile (of all players' actions) is a vector $a = (a_1, a_2, ..., a_N)$
 
@@ -311,52 +313,17 @@ We previously discussed that dominant strategies do not appear in most games, an
 
 Thus, we need to introduce the concept of a **best response**. We already introduced the intuition of a best response in the section on the prisoner's dilemma.
 
-A strategy for player $i$ is a best response to another strategy played by the other players, if that chosen strategy for player $i$ gives more payoff than any other strategy player $i$ could choose.
+A strategy for player $i$ is a best response to another specific strategy played by the other players, if that chosen strategy for player $i$ gives more payoff than any other strategy player $i$ could choose.
 
 -   Essentially, we hold the other player's strategies constant. Then, we find what player $i$ should play. We do this for every combination of other player's strategies.
 
-More formally, the strategy $s_i$ is a best response to the opponents specific strategy $s_{-i}$, if $u_i(s_i, s_{-i})≥ u_i(s_i', s_{-i})$, where $s'_i$ are the other strategy profiles of player $i$ that are not the chosen $s_i$
+Formally, the strategy $s_i$ is a best response to the opponents specific strategy $s_{-i}$, if $u_i(s_i, s_{-i})≥ u_i(s_i', s_{-i})$, where $s'_i$ are the other strategy profiles of player $i$ that are not the chosen $s_i$
 
 A strategy profile cannot be a best response, if there exists a **profitable deviation**.
 
 -   Essentially, given the opponent plays a certain strategy, if you can switch to a more profitable strategy, then the original strategy is not a best response.
 
-### Finding Best Responses
-
-To find the best responses for player 1, do the following:
-
-1.  Assume player 2 plays a specific strategy
-2.  Find which player 1 strategy maximises player 1's payoff, given player 2 plays that specific strategy
-3.  Now assume player 2 plays another strategy
-4.  Now, find which player 1 strategy maximises player 1's payoff, given player 2 plays that specific strategy
-5.  Continue until all you have a best response to ever potential strategy of player 2
-
-For example, let us find the best responses for player 1 in the following game (called the stag-hunt game)
-
-|               | Stag (p2) | Hunt (p2) |
-|---------------|-----------|-----------|
-| **Stag (p1)** | 2, 2      | 0, 1      |
-| **Hunt (p1)** | 1, 0      | 1, 1      |
-
-First, let us assume player 2 plays stag. Thus, let us hide the hunt (p2) column.
-
-|               | Stag (p2) |
-|---------------|-----------|
-| **Stag (p1)** | 2, 2      |
-| **Hunt (p1)** | 1, 0      |
-
-What is player 1's best response to player 2 playing stag? Well, since $2>1$, stag is the best response of player 1.
-
-Now, let us assume player 2 plays hunt. Thus, let us hide the stag (p2) column.
-
-|               | Hunt (p2) |
-|---------------|-----------|
-| **Stag (p1)** | 0, 1      |
-| **Hunt (p1)** | 1, 1      |
-
-What is player 1's best response to player 2 playing hunt? Well, since $1>0$, hunt is the best response of player 1.
-
-Thus, we have found all the best responses for player 1. You would do the same for player 2, and for any other players in any other game.
+I will illustrate how to find best responses shortly.
 
 ### Nash Equilibrium
 
@@ -374,8 +341,6 @@ All dominant strategy equilibria are Nash Equilibria, but not all Nash Equilibri
 
 However, there are a few important caveats of Nash Equilibria:
 
--   Nash Equilibria do not always make sense as sensible outcomes - we will see this throughout the book
-
 -   Often, there is more than one Nash Equilibria, and we are not sure which solution is the likely outcome of the game
 
 -   Sometimes, Nash Equilibria do not exist in a game (although this is less frequent than Dominant Strategy Equilibria)
@@ -384,7 +349,7 @@ However, there are a few important caveats of Nash Equilibria:
 
 ### Finding Nash Equilibrium
 
-Finding Nash Equilibria is quite simple: we find the best responses for both players, just like we did in the "finding best responses" section previously.
+Finding Nash Equilibria is quite simple: we find the best responses for both players.
 
 For example, take this following game (game of chicken):
 
@@ -393,19 +358,19 @@ For example, take this following game (game of chicken):
 | **Swerve (p1)**   | 0, 0        | -1, 1         |
 | **Straight (p1)** | 1, -1       | -9, -9        |
 
-Let us first find the best responses of player 1, while fixing player 2's strategies. The best responses are underlined/bolded
+Let us first find the best responses of player 1, while fixing player 2's strategies. The best responses are bolded.
 
-|                   | Swerve (p2)             | Straight (p2)           |
-|-------------------|-------------------------|-------------------------|
-| **Swerve (p1)**   | 0, 0                    | [**-1**]{.underline}, 1 |
-| **Straight (p1)** | [**1**]{.underline}, -1 | -9, -9                  |
+|                   | Swerve (p2) | Straight (p2) |
+|-------------------|-------------|---------------|
+| **Swerve (p1)**   | 0, 0        | **-1**, 1     |
+| **Straight (p1)** | **1**, -1   | -9, -9        |
 
-Next, let us find the best responses of player 2, while fixing player 1's strategies. The best responses are underlined/bolded
+Next, let us find the best responses of player 2, while fixing player 1's strategies. The best responses are bolded.
 
-|   | Swerve (p2) | Straight (p2) |
-|------------------------|-----------------------|--------------------------|
-| **Swerve (p1)** | 0, 0 | [**-1**]{.underline}, [**1**]{.underline} |
-| **Straight (p1)** | [**1**]{.underline}, [**-1**]{.underline} | -9, -9 |
+|                   | Swerve (p2)   | Straight (p2) |
+|-------------------|---------------|---------------|
+| **Swerve (p1)**   | 0, 0          | **-1**, **1** |
+| **Straight (p1)** | **1**, **-1** | -9, -9        |
 
 We can see that the strategy profiles, where both players are playing best responses, are (Swerve, Straight), and (Straight, Swerve). Thus, these are the two Nash Equilibria.
 
@@ -425,16 +390,11 @@ So far, we have focused on relatively simple 2-player games. However, let us int
 
 What are the Nash Equilibria of this game? This game is more complex than the previous examples, since it involves both more players, and also, unclear amounts (such as $k$).
 
-To approach this problem, we can do the following:
-
-1.  Divide the problem into different "scenarios", based on number of players that contribute relative to $k$, the threshold of providing the public good. For example, we could split this game into a scenario where less that $k$ people contribute, where exactly $k$ people contribute, and where more than $k$ people contribute.
-2.  Find if there is any Nash Equilibria. While we cannot find the "best responses" as easily, recall that Nash Equilibria also is defined as no player having a profitable deviation. We can look at each player, and ask - *do they have a profitable deviation?* - and if they do not, we can conclude that is a Nash Equilibrium.
-
 First, let us look at the scenario that *less than* $k$ *people contribute*. Is there a Nash Equilibrium?
 
 -   Let us consider that 0 people contribute to the public good. Does any player have any incentive to deviate?
 
-    -   All players are playing "not contribute". Let us assume player $i$ is one of them. Player $i$ does not have a profitable deviation to "contribute", since that $k$, the threshold of the public good, cannot be lower than 2. Thus, deviating to "contribute" would lower player $i$'s payoff from payoff number iii to payoff number iv (see question above)
+    -   All players are playing "not contribute". Let us assume player $i$ is one of them. Player $i$ does not have a profitable deviation to "contribute", since that $k$, the threshold of the public good, cannot be lower than 2. Thus, deviating to "contribute" would lower player $i$'s payoff from payoff number iii to payoff number iv (see question above).
 
     -   Thus, [0 people contributing is a Nash Equilibrium]{.underline}, as no player has an incentive to deviate.
 
@@ -472,11 +432,10 @@ Finally, there is the scenario that more than $k$ people contribute. Does any pl
 
 ### Pareto Efficiency
 
-Pareto efficient outcomes are outcomes that may or may not be feasible from a solution concept wise, but in theory, offer the best case for both players.
-
 The definition of a **Pareto Efficient** outcome is that, given that outcome, it is impossible to move to any other outcome that makes at least one player better off, without making anyone else worse off.
 
 -   The key point here is **without making anyone worse off**. For example, if a game had two outcomes (2, 0) and (1, 10000000000), both would be pareto efficient, including (2, 0), since player 1 is made worse off when moving to outcome 2.
+-   Pareto efficiency isn't about which outcomes are plausible - it just looks at which strategies could be considered the "best" for all players. The outcomes will be determined by our equilibrium concepts, such as Nash Equilibrium.
 
 For example, let us take the classic prisoner's dilemma game:
 
@@ -505,7 +464,7 @@ A **Prisoner's dilemma** is not just one specific game with the storyline of the
 
 Prisoner's Dilemma games are used to show how individual rationality and group rationality differ.
 
--   The group can get the best outcome (the pareto efficient ones) if they all cooperate.
+-   The group can get the best outcome (pareto efficient) if they all cooperate.
 
 -   However, if you choose to cooperate, you run the risk that someone else is going to defect, undercutting you and giving you the worst payoff.
 
@@ -533,17 +492,15 @@ Other examples of the application of Prisoner's Dilemmas include:
 
 We discussed how one of the weaknesses of Nash Equilibrium is the fact that multiple can exist in a single game (as we have shown with both the chicken, and stag-hunt game).
 
-In theory, all Nash Equilibria are supposed to be equally likely to occur - there is no mathematical proof that one would occur more frequently than others.
-
-However, there are two ways in which one Nash Equilibria may stand above the rest, and be the most likely outcome of the game.
+In theory, all Nash Equilibria are supposed to be equally likely to occur - there is no mathematical proof that one would occur more frequently than others. However, there are two ways in which one Nash Equilibria may stand above the rest, and be the most likely outcome of the game.
 
 First, if one Nash Equilibria is Pareto efficient, when the others are not, then that one is likely to be the outcome.
 
--   This is because all players know the payoffs, since that is common knowledge, and all players are able to calculate Nash Equilibria.
+-   This is because all players know the payoffs, since that is common knowledge, and all players are able to calculate the Nash Equilibria.
 
 -   Since Pareto Efficient outcomes mean no player can do better without making anyone worse, and pareto-inefficient outcomes mean that at least one player can do better without making anyone worse, it generally makes sense for players to choose the Nash Equilibria that is Pareto Efficient.
 
-Second, is the concept proposed by Schelling - Focal Points
+Second, is a concept proposed by Schelling: Focal Points.
 
 -   Sometimes, some Nash Equilibria are culturally more "notable" and likely than the other Nash Equilibria.
 
@@ -563,9 +520,7 @@ However, in no world is every single individual a rational one. Since Game Theor
 
 -   Essentially, we want our predictions to have some robustness. We want to make sure our model was not "cherry picked" just to make a certain prediction come true.
 
-The **Trembling Hand Perfect Equilibrium**, proposed by economist Reinhard Selten, is a way to test the robustness of Nash Equilibria.
-
-Essentially, we assume that one player of a game plays the "suboptimal" strategy at a probability of $\epsilon$. Or in other words, they make a "mistake" at probability $\epsilon$, and play the "correct" strategy at probability $1-\epsilon$.
+The **Trembling Hand Perfect Equilibrium**, proposed by economist Reinhard Selten, is a way to test the robustness of Nash Equilibria. Essentially, we assume that one player of a game plays the "suboptimal" strategy at a probability of $\epsilon$. Or in other words, they make a "mistake" at probability $\epsilon$, and play the "correct" strategy at probability $1-\epsilon$.
 
 Given one player does this, we see how the other player reacts, and if they still decide to go with the Nash Equilibrium strategy. If the other player decides to still go with the Nash Equilibrium strategy despite the suboptimal strategy of one player, the Nash Equilibrium is robust.
 
@@ -630,19 +585,17 @@ So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less th
 
 ### Penalty-Goalkeeping Model
 
-
-
 ## Downsian Model of Electoral Competition
 
 ### Downsian Model of Electoral Competition
 
-Have you ever noticed that many businesses, that are competitors, are often located in the same place? For example, there are often competing petrol stations all around the same intersection. Or multiple fast food or coffee chains in the same place? Or a bunch of Chinese stores concentrated in one small area?
+Have you ever noticed that many similar businesses are often located in the same place? There are often competing petrol stations all around the same intersection. Or multiple fast food or coffee chains in the same place. Or a bunch of Chinese stores concentrated in one small area.
 
 Hotelling argued this is no accident - these businesses have incentives to locate here. These locations are Nash Equilibriums of the competitive game between businesses.
 
 The **Downsian Model**, also called the **Median Voter Theory**, applies this same logic to political parties. The model takes the following characteristics:
 
-*There are two political parties, who both want to win an election. The only "tool", or more formally, action, the two parties can take is to choose where to position their party's policy platform on a left-right spectrum (between -1 and 1). Citizens also have preferences along this left-right spectrum between -1 and 1, with the median voter's position being defined as* $m$*. Citizens will always vote for the party that is positioned closest to their preference on the left-right spectrum. The party that obtains the most citizens' votes wins. Indifferent citizens (that are equidistant to both party's positions) will have a 50/50 chance to vote for either party. If the parties tie in terms of votes, they each win the election with a 50/50 chance.*
+*There are two political parties, who both want to win an election. The only action the two parties can take is to choose where to position their party's policy platform on a left-right spectrum (between -1 and 1). Citizens also have preferences along this left-right spectrum between -1 and 1, with the median voter's position being defined as* $m$*. Citizens will always vote for the party that is positioned closest to their preference on the left-right spectrum. The party that obtains the most citizens' votes wins. Indifferent citizens (that are equidistant to both party's positions) will have a 50/50 chance to vote for either party. If the parties tie in terms of votes, they each win the election with a 50/50 chance.*
 
 We can formalise this game into a strategic game:
 
@@ -656,13 +609,7 @@ What is the Nash Equilibrium of this game?
 
 First, let us think about how any party would win the election: they need 50% of the votes. By definition, the median voter is in the 50th percentile. Thus, to win at least 50 percent of the votes, you must win the median voter. To win the median voter, you must be closer to the median voter's position $m$, than the other party.
 
-Let us look at a few scenarios:
-
--   What if party $A$ is positioned to the right of the median, so $p_A > m$? Party $B$ can best respond by playing anything closer to the median voter, which are $-p_A < p_B < p_A$. Then, party $A$ can respond to that, and move even closer to the median voter, and so on...
-
--   The same is the case if party $A$ is positioned to the left of the median. Party $B$ will best respond by playing anything closer to the median voter, and party $A$ will do the same, and so on...
-
-Eventually, the two parties will converge at the median voter's preference $m$. Since you always want to be closer to the median in order to win 50% of the vote, both parties will coverge at $m$.
+Eventually, the two parties will converge at the median voter's preference $m$. Since you always want to be closer to the median in order to win 50% of the vote, both parties will converge at $m$.
 
 [Thus, the Nash Equilibrium of the Downsian Model is strategy profile $(p_A = m, p_B = m)$]{.underline}.
 
@@ -670,9 +617,7 @@ Eventually, the two parties will converge at the median voter's preference $m$. 
 
 -   If either player $i$ moves away from $m$, they automatically lose the election since they are further from the median voter, thus they get payoff 0. Thus, there is no profitable deviation.
 
-Is the Downsian Model correct? Do parties actually converge at the median? There is some mixed evidence.
-
-An important thing to understand when evaluating models is that [we do not evaluate models based on their conclusions]{.underline}. This is because the results of a formal mathematical model come directly from the assumptions of the model. To assess any model, we must [critically assess the assumptions on which the model is built on]{.underline}.
+Is the Downsian Model correct? Do parties actually converge at the median? When evaluating models, [we do not evaluate based on their conclusions]{.underline}. To assess any model, we must [critically assess the assumptions on which the model is built on]{.underline}.
 
 ### Unbounded and Multi-Dimensional Models
 
@@ -682,9 +627,9 @@ In the Downsian Model, we assumed policy preferences are distributed in an inter
 
 In the Downsian Model, we also assumed policy preferences are only in a one-dimensional plain $R^1$ (the real number line). However, in the real world, policy is often made on many different dimensions, such as a spectrum for environmental policy, immigration policy, social policy, and so on.
 
-[When we extend the model beyond one dimension, there is no Nash Equilibrium]{.underline} at all for the parties. The reason for this is that it imitates another game, called the *Budget Allocatio*n or *Divide the Dollar* game.
+[When we extend the model beyond one dimension, there is no Nash Equilibrium]{.underline} at all for the parties. The reason for this is that it imitates another game, called the *Budget Allocatio*n or *Divide the Dollar* game:
 
-In this game, there are 3 "regions" $1, 2, 3$ that want budget from the central government, which has only a limited amount of funds. From each region, a politician is elected to represent them. To approve any budget, 2/3 of the politicians need to agree.
+*There are 3 "regions"* $1, 2, 3$ *that want budget from the central government, which has only a limited amount of funds. From each region, a politician is elected to represent them. To approve any budget, 2/3 of the politicians need to agree.*
 
 Let us represent the total central government budget as $1$ (100%). Thus, the amount of money distributed to each region $q_i$, must meet the criteria: $q_1 + q_2 + q_3 = 1$. Each politician wants to get the maximum amount of budget for their region.
 
@@ -705,11 +650,11 @@ We can model a multidimensional Downsian Model in the same way. Each "dimension"
 
 ### Other Distributions of Citizens
 
-In the Downsian Model, we assumed that citizen/voter preferences are uniformly distributed. However, [with any distribution of voter preferences, the median voter theory still holds]{.underline}. This does not matter if the voters are polarised with very few voters in the middle, if they are normally distributed, if they all lean left or right, etc.
+In the Downsian Model, we assumed that citizen/voter preferences are uniformly distributed. However, [with any distribution of voter preferences, the median voter theory still holds]{.underline}.
 
 The reason for this is that the median voter position, $m$, by definition, is the 50th percentile - 50% of the citizens are to the right of them, and 50% are to the left of them. Thus, to win any 2-party election, you need to win more than 50% of the votes, and by definition, the 50th percentile must be included in that winning majority.
 
-Note that the median value can change. For example, in a country with very left-leaning citizens, the median position $m$ might not be at 0, it could be $m = -0.5$. However, the optimal positioning of political parties will still be at the median voter $m$, no matter what value $m$ takes.
+Note that the median value can change. For example, in a country with very left-leaning citizens, the median position $m$ might not be at 0, it could be $m = -0.5$.
 
 ### Asymmetrical Voter Preferences
 
@@ -717,21 +662,19 @@ In the Downsian Model, we assumed that citizens will vote for the party whose pr
 
 However, not all real world preferences of voters are symmetrical. For example, a left-wing voter could be uncomfortable with radical-left, so they would actual prefer a candidate 0.2 to the right over a further left candidate 0.1 to the left. This preference would be non-symmetric - i.e. the citizen favours deviations in one direction over another, from their preferred position.
 
-[Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility.
+[Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility (this reduction does not need to be symmetric on both sides).
 
 ### Costs of Voting and Abstaining Voters
 
 In the Downsian Model, we assumed that there is no cost to voting for citizens, and all citizens will vote (rather than abstain).
 
-In this scenario, [there is no longer a Nash Equilibrium at the median voter]{.underline}. If both parties are situated at the median, no rational voter will vote if voting is costly - after all, no matter how they vote, the winning party will have the policy platform of the median voter. Thus, their vote is not pivotal to affect the policy actually implemented, and voting (with cost) would simply not be worth it.
+If this assumption is removed, [there is no longer a Nash Equilibrium at the median voter]{.underline}. If both parties are situated at the median, no rational voter will vote if voting is costly - after all, no matter how they vote, the winning party will have the policy platform of the median voter. Thus, their vote is not pivotal to affect the policy actually implemented, and voting (with cost) would simply not be worth it.
 
-Only if parties are somewhat different, will voters be willing to bear the cost of voting to cast a vote. This way, their vote will actually matter, and they will be willing to bear the cost of voting. Thus, there is still a converging force towards the median in this scenario (since more towards the median means a higher chance of winning), but the two party's positions would stay far enough apart to incentivise voters to vote.
+Only if parties are somewhat different, will voters be willing to bear the cost of voting to cast a vote. Thus, there is still a converging force towards the median in this scenario (since more towards the median means a higher chance of winning), but the two party's positions would stay far enough apart to incentivise voters to vote.
 
 ### Expanding Downsian Competition to 3 Parties
 
-In the Downsian Model, we assumed that there are only 2 parties and candidates. What if there were more than 2 parties (as is frequently the case)?
-
-In a 3 party election, there would no longer be a Nash Equilibrium at the median voter position. This is because any party $i$ has a profitable deviation in this scenario.
+In the Downsian Model, we assumed that there are only 2 parties and candidates. What if there were more than 2 parties (as is frequently the case)? [In a 3 party election, there would no longer be a Nash Equilibrium at the median voter position]{.underline}. This is because any party $i$ has a profitable deviation in this scenario.
 
 If party $i$ were to slightly deviate by $\epsilon$ from the median voter, their new position on the spectrum would be $m + \epsilon$. The figure below shows this scenario:
 
@@ -739,18 +682,12 @@ If party $i$ were to slightly deviate by $\epsilon$ from the median voter, their
 
 In the figure above, we can see party $i$ that deviates $\epsilon$ from $m$ will win a vote share of $\frac{1}{2} - \frac{1}{2} \epsilon$, while the other two parties combine for $\frac{1}{2} + \frac{1}{2} \epsilon$, which is split between the two parties, so each party has a vote share $\frac{1}{4} + \frac{1}{4}\epsilon$.
 
-Thus, we can write an inequality to see for what deviation $\epsilon$ for player $i$, where player $i$'s vote share will be higher than the other two party's vote share.
-
-$$
-\frac{1}{2} - \frac{1}{2} \epsilon > \frac{1}{4} + \frac{1}{4}\epsilon
-$$
-
-$$
-\frac{1}{4} > \frac{3}{4} \epsilon
-$$
-
-$$
-\epsilon < \frac{1}{3}
+Thus, we can write an inequality to see for what deviation $\epsilon$ for player $i$, where player $i$'s vote share will be higher than the other two party's vote share. $$
+\begin{split}
+\frac{1}{2} - \frac{1}{2} \epsilon & > \frac{1}{4} + \frac{1}{4}\epsilon \\
+\frac{1}{4} & > \frac{3}{4} \epsilon \\
+\epsilon & < \frac{1}{3}
+\end{split}
 $$
 
 Thus, when $\epsilon < \frac{1}{3}$, then party $i$ gets the most votes of any party. Since if they did not deviate by $\epsilon$ and stayed at the median, they would have tied, that means party $i$ has a profitable deviation when the deviation $\epsilon < \frac{1}{3}$. Since party $i$ has a profitable deviation, we can conclude that [there is no Nash Equilibrium at the median voter in a 3 party election]{.underline}.
@@ -865,24 +802,18 @@ The utility of any citizen $i$ is $u_i = c_i + H(g)$, where $c_i$ is the private
 
 Now the question is, what is each individual citizen's preferred amount of public good $g$? Well, we can solve for this.
 
-Recall that utility of any citizen is $u_i = c_i + H(g)$. We also know that $c_i = (1-t)y_i$. Let us substitute $c_i$ into the utility function:
-
-$$
-u_i = c-I + H(g)
-$$
-
-$$
-u_i = (1-t)y_i + H(g)
+Recall that utility of any citizen is $u_i = c_i + H(g)$. We also know that $c_i = (1-t)y_i$. Let us substitute $c_i$ into the utility function: $$
+\begin{split}
+& u_i = c-I + H(g) \\
+& u_i = (1-t)y_i + H(g)
+\end{split}
 $$
 
-Next, recall that earlier, we determined that $nt\bar{y} = g$, or essentially, aggregate tax income equals public good provision. We can solve for $t$, to get $t = \frac{g}{n \bar{y}}$. We can plug in that $t$ into our utility function:
-
-$$
-u_i = (1-t)y_i + H(g)
-$$
-
-$$
-u_i = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
+Next, recall that earlier, we determined that $nt\bar{y} = g$, or essentially, aggregate tax income equals public good provision. We can solve for $t$, to get $t = \frac{g}{n \bar{y}}$. We can plug in that $t$ into our utility function: $$
+\begin{split}
+& u_i = (1-t)y_i + H(g) \\
+& u_i = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
+\end{split}
 $$
 
 Now, notice how we only have one variable left in this equation, $g$, which is good, since we are interested in the citizen's preferred amount of $g$. Let us rewrite the function as a function of $g$:
@@ -891,33 +822,24 @@ $$
 u_i(g) = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
 $$
 
-Now, what is each citizen's preferred $g$? Well naturally, it is the amount of $g$ that maximises their utility function. How do we find maximums? By taking the derivative, and setting the derivative equal to 0:
-
-$$
-u_i(g) = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g)
-$$
-
-$$
-u_i(g) = y_i -\frac{y_i}{n \bar{y}} g + H(g)
+Now, what is each citizen's preferred $g$? Well naturally, it is the amount of $g$ that maximises their utility function. How do we find maximums? By taking the derivative, and setting the derivative equal to 0: $$
+\begin{split}
+& u_i(g) = \left( 1 - \frac{g}{n \bar{y}} \right)y_i + H(g) \\
+& u_i(g) = y_i -\frac{y_i}{n \bar{y}} g + H(g) \\
+& u_i'(g) = -\frac{y_i}{n \bar{y}} + H'(g)
+\end{split}
 $$
 
-$$
-u_i'(g) = -\frac{y_i}{n \bar{y}} + H'(g)
-$$
-
-Set the derivative equal to 0:
-
-$$
-0 = -\frac{y_i}{n \bar{y}} + H'(g)
-$$
-
-$$
-H'(g) = \frac{y_i}{n \bar{y}}
+Set the derivative equal to 0: $$
+\begin{split}
+& 0 = -\frac{y_i}{n \bar{y}} + H'(g) \\
+& H'(g) = \frac{y_i}{n \bar{y}}
+\end{split}
 $$
 
 What does this equation tell us? First, we know that $H(g)$ had decreasing marginal utility, which means $H'(g)$ must be decreasing as $g$ increases (see blue line below). We also know that when income $y_i$ is high, $H'(g)$ is high as well. When $y_i$ is low, $H'(g)$ is low.
 
-![](figures/1/5.2.png){fig-align="center" width="45%"}
+![](figures/1/5.2.png){fig-align="center" width="36%"}
 
 Thus, we can see, when $y_i$ is high $y^H$ (which means $H'(g)$ is high), the corresponding $g$ is quite small. When $y_i$ is low $y^L$ (which means $H'(g)$ is low), the corresponding $g$ is quite large.
 
@@ -940,7 +862,6 @@ This model thus makes a few predictions:
 -   A richer country, thus with a higher median income $y_m$, should also have a larger government.
 
 These predictions can be empirically tested. This shows how microeconomic models can be used to create hypotheses and theories regarding political phenomena, which we can then test with econometric methods and data.
-
 
 ### Valence Politics Model
 
