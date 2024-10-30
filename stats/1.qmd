@@ -33,57 +33,28 @@ include-before-body:
 
 # Econometrics and Causal Inference
 
-## Goals of Econometrics
-
-This book is designed to be both an approachable, but also rigorous, introduction to Econometrics, specifically for the analysis of political institutions and actors. I highly recommend that anyone who is interested in studying these concepts review the mathematical/statistical theory introduced in the Quantitative Methods sequence (especially the first book).
-
-This book will also use the R language to implement some methods, so a basic understanding of the language is useful.
-
-### Econometrics
-
-The goal of econometrics is to use data to answer economic questions. These economic questions often revolved around human decision making and social settings, in which traditional statistical methods did not work well for, or were not possible to implement. Political science has similar issues to economics, and thus, has adopted many econometric techniques.
-
-Econometrics studies relationships between features, so we can make inferences: using facts that we do know (data) to learn facts that we do not know. There are 3 types of inference that are common in econometrics:
-
-1.  **Descriptive Inference**: learning about the "true value" of a relationship between features in the world. For example, what is the actual relationship between economic development and democratisation?
-2.  **Predictive Inference**: learning about new observations from previous observations. For example, can we predict how some person will vote, based on how others vote? Can we predict the winner of a political election, given past historical electoral trends?
-3.  **Causal Inference**: how a certain feature (treatment) directly causes some outcome. This is very important for understanding the world. For example, if we are making a policy to fix a problem, we want to be sure that the policy causes a certain outcome that fixes that problem.
-
-### Descriptive Inference
-
-Descriptive inference is about learning about some relationship in the world. This might seem very simple: just measure the relationship! However, the biggest issue is with how large populations are.
-
--   For example, if we want to see the relationship between individual income and likelihood to vote in the UK, we would have to ask every single voter in the UK, likely over 50 million individuals. Researchers do not have the time or money to do this!
-
-Thus, we need some way to use a smaller number of individuals, to learn about a larger population. This is the goal of descriptive inference.
-
-Generally, researchers will get a **sample** of the population - which is a small subset of the population. If this sample is representative of the population, we might be able to study the sample, then infer our conclusions back to the population.
-
-This is generally done with techniques that we will learn about throughout this book, such as hypothesis testing, confidence intervals, and sampling distributions.
-
-Before we begin discussing this topic, it is important you already understand what correlations are, and what explanatory/independent and dependent/outcome variables are. If this confuses you, consult the Quantitative Methods sequence.
-
-### Predictive Inference
-
-Predictive inference is also of major importance in the social sciences. After all, being able to make good predictions can help us identify potential effects of policies, what areas need help, and how to best allocate resources. For example, economists often use predictive inference to predict future economic conditions, which helps governments plan how to respond to potential challenges.
-
-In politics, prediction is also important. You might want to use predictive inference to predict potential political disasters, such as Civil Wars, in order to better prepare humanitarian aid. You might want to use predictive inference to determine which citizens in what neighbourhoods are most at risk, so you can help them out. You might want to use predictive inference to predict who will vote, and who will win elections.
-
-The goal in predictive inference is to create a model with the data we have, that will perform well in predicting observations that we do not have.
-
-In this book, we will not focus too much on predictive inference. We will build models that can make predictions, but the focus of these models will be other types of inference. However, this book builds the foundational methods and techniques for predictive inference, which are then built on in the next two books in this sequence: *Further Econometrics for Political Analysis* and *Econometrics and Big Data*.
-
 ## Causal Inference
+
+### Introduction Econometrics
+
+**Econometrics** is the field of applying statistical methods to analyse real-world economic and social science data. While econometrics was initially pioneered by economics, the techniques econometricians developed have been adopted by most of the social sciences, including Political Science.
+
+Econometrics has two primary goals:
+
+1.  **Causal Inference**: Establishing how one feature directly causes another feature. This is essential to understanding the world around us and designing better policies.
+2.  **Predictive Inference/Forecasting**: Given data we have, how can we predict the values of data we do not have? For example, what will sales be next year? GDP? Who will win the next election? What are the likely costs/effects of a policy?
+
+This book is designed to be both an approachable, but also rigorous, introduction to Econometrics, specifically for the analysis of political institutions and actors. I assume a basic understanding of statistics, up to correlation. I also assume familiarity with calculus and some linear algebra. To see what is specifically required, consult the Quantitative Methods sequence (particularly the first book).
+
+This book will also use the R language for some calculations, so a basic understanding of the language is useful - however, this is not needed if you just want an understanding of the methods.
 
 ### Introduction to Causal Inference
 
-Causal inference is the primary focus of econometrics and the social sciences. This is because causal effects are what drive things in the world. Knowing how things cause other things is critical for understanding the world around us, and designing better policies.
-
-An important thing to know is that [correlation does not equal causation]{.underline}:
+Causal inference is the primary focus of econometrics and the social sciences. An important thing to note is that [correlation does not equal causation]{.underline}:
 
 -   For example, ice cream sales are strongly correlated with shark attack frequency. Does that mean ice cream sales directly cause shark attacks? No - they happen to be correlated, because there is another variable, the warm weather and people going to the beach, that causes both to rise at the same time. Ice cream sales itself does not have any independent affect on shark attacks, they just happen to be correlated.
 
-In the first section of this book, we will establish what a causal effect even is, and discuss how randomised experiments are the "gold standard" of establishing causal relationships. However, we will explore why randomised experiments are often impossible in the social sciences. The rest of the book will focus on techniques that try to find causal effects without randomised experiments.
+In the first section of this book, we will establish what a causal effect even is, and discuss how randomised experiments are the "gold standard" of establishing causal relationships. Then, we will explore why randomised experiments are often impossible in the social sciences. The rest of the book will focus on techniques that try to find causal effects without randomised experiments.
 
 ### Potential Outcomes Framework
 
@@ -91,15 +62,13 @@ A **causal effect** is a change in some feature of the world $Y$, that would dir
 
 This causal effect implies that there are **potential outcomes**:
 
--   Imagine that there are 2 worlds, that are exactly the same until treatment $D$ occurs. One world gets the treatment $D$, and the other world does not get this treatment.
+-   Imagine that there are 2 worlds, that are exactly the same until treatment $D$ occurs. In one world, you get the treatment $D$, and the other world, you do not get this treatment.
 
 -   Since these 2 worlds are identical besides the treatment $D$, the difference between the world's $Y$ outcomes are the effect of our treatment $D$.
 
 -   In the real world, we only observe one of these realities - either a unit $i$ gets, or does not get, the treatment. The other world that we do not observe is called a **counterfactual**.
 
-**Causal States** are these hypothetical states of the world. The [control state]{.underline} is the world where a unit does not receive the treatment $D$. The [treatment state]{.underline} is identical to the control state, with the only exception that a unit receives the treatment $D$.
-
--   We can define the control state as when $D=0$, and the treatment state where $D = 1$
+**Causal States** are these hypothetical states of the world. The [control state]{.underline} $D = 0$ is the world where a unit does not receive the treatment $D$. The [treatment state]{.underline} $D = 1$ is identical to the control state, with the only exception that a unit receives the treatment $D$.
 
 For each unit of observation $i$, we can define two potential outcomes:
 
@@ -107,7 +76,7 @@ For each unit of observation $i$, we can define two potential outcomes:
 
 -   $Y_{0i}$ is the potential outcome for unit $i$, given it is in the control state $D_i = 0$.
 
-Thus, the **individual causal effect** $\tau$ of the treatment $D$ for any unit $i$ must be $\tau_i = Y_{1i} - Y_{0i}$. This is because since the two states of the world are identical except for treatment $D$, the resulting difference must be as a result of treatment $D$.
+Thus, the **individual causal effect** $\tau$ of the treatment $D$ for any unit $i$ is $\tau_i = Y_{1i} - Y_{0i}$. This is because since the two states of the world are identical except for treatment $D$, the resulting difference must be as a result of treatment $D$.
 
 However, in the real world, we do not have parallel worlds (unfortunately) - either unit $i$ gets the treatment $D_i = 1$, or does not get the treatment $D_i = 0$. Thus, the **observed** $Y$ **outcome** (in the real world) of any unit $i$ is given by the equation:
 
@@ -135,7 +104,7 @@ The fundamental problem of causal inference is that we only can observe one of t
 Since we cannot observe the individual treatment effects, we can change out estimand to the **average treatment effect (ATE)**. This is exactly what it sounds like - the treatment effect of all units averaged:
 
 $$
-E[\tau_i] = E[Y_{1i} - Y_{0i}] = \frac{1}{n}(\sum Y_{1i} - \sum Y_{0i})
+\tau_{ATE} = E[\tau_i] = E[Y_{1i} - Y_{0i}] = \frac{1}{n}(\sum Y_{1i} - \sum Y_{0i})
 $$
 
 There are also other treatment effects we can use to estimate.
@@ -158,7 +127,27 @@ $$
 \tau_{CATE} = E[Y_{1i} - Y_{0i} | X = x]
 $$
 
-### Naive Estimator and Sample Bias
+### Estimators, Bias, and Variance
+
+An estimator is the procedure by which we estimate the estimand we are trying to find.
+
+-   Remember, the above causal estimands are not directly calculable, since we do not see the counterfactual potential outcome. Thus, we have to estimate them with an estimator.
+
+**Bias** is when an estimator consistently and systematically poorly estimates the estimand you are trying to get.
+
+-   Or in other words, the estimator's average estimate of our estimand (over many tries of estimation), is not actually the true value of the estimand. That means something is consistently off with our estimator - we might be consistently overestimating by 5%, or underestimating, etc.
+
+-   Or more intuitively, imagine you are trying to hit a bullseye in archery. Bias is when you might be very accurate, but aiming in the wrong place, thus not hitting the bullseye. A biased estimator is essentially that - we are consistently and systematically making a mistake when estimating the quantity in question.
+
+**Variance** is the difference between our estimations derived from our estimates - i.e. how consistent our estimator is.
+
+-   For example, you might have an unbiased estimator, where our average estimate is the actual causal estimand. However, while the average is correct, the variance of our estimates is very wide.
+
+-   Or more intuitively, in the archery example, we are aiming correctly at the bullseye, however, the wind and our muscles are unpredictable, so each shot might be slightly off in different directions. If we average all our shots, we are hitting the middle, but not each individual shot is in the bullseye.
+
+Ideally, we want an unbiased estimator that has low variance. We will explore many different types of estimators for causal effects throughout this book, each with its own bias and variance.
+
+### Naive Estimator and Selection Bias
 
 The **naive estimator** is an estimator that only compares our observed outcomes, without any comparison to the counterfactual potential outcomes. This is often what many people initially do when trying to find a causal effect. Essentially, we are comparing units that are assigned to treatment, and the units that are not assigned to treatment, and their observed outcomes.
 
@@ -196,7 +185,7 @@ $$
 If we look at the final result, we can divide it into 2 parts:
 
 1.  The first part, $E[Y_{1i} - Y_{0i} | D_i = 1]$, is the average treatment effect of the treated $\tau_{ATT}$ that we introduced previously.
-2.  The second part $E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0]$ is what we call the **sample bias**. Intuitively, it is the difference between the treatment and control groups prior to the treatment taking place (hence the potential outcome being $Y_{0i}$).
+2.  The second part $E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0]$ is what we call the **selection bias**. Intuitively, it is the difference between the treatment and control groups prior to the treatment taking place (hence the potential outcome being $Y_{0i}$).
 
 These differences between the treatment and control groups prior to treatment can actually explain some of our results, which is why our results with the naive estimator are **biased**.
 
@@ -210,9 +199,19 @@ A **confounder** is a variable that is explaining the differences in the treatme
 
 The naive estimator will capture the effect of these confounders, which we do not want - we want to isolate the effect of our treatment $D$. To make an accurate causal claim, we must get rid of confounding variables and selection bias. How do we do this? - Randomisation, which we will cover next.
 
-## Randomised Experiments
+## Randomised Controlled Trials
 
-# The Multiple Linear Regression Model
+### Random Assignment and Experiments
+
+### Estimation of Causal Effects
+
+### Uncertainty and Causal Inference
+
+### Blocking and Stratified Experiments
+
+### Validity and Limitations of Randomised Experiments
+
+# Multiple Linear Regression
 
 ## Specification and Interpretation
 
@@ -295,7 +294,7 @@ However, in reality, we do not do all this work - testing all different $\tilde{
 
 #### Simple Linear Regression
 
-Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated?
+Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated? Let us first focus on a descriptive context - we will focus on the causal interpretation later.
 
 $\hat{\beta}$ is the slope of the the linear model. [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}.
 
@@ -470,7 +469,7 @@ First, ignore the summation. The partial derivative of the internal section, usi
 $$
 
 That is the derivative of one of the items in the summation. But how do we deal with the summation? We know that there is the sum rule of derivatives $[f(x) + g(x)]' = f'(x) + g'(x)$. Thus, we know: $$
-\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_1 - \hat{\alpha} - \hat{\beta}X_i)^2 \right] + ... + \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_n - \hat{\alpha} - \hat{\beta}X_i)^2 \right]
+\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_1 - \hat{\alpha} - \hat{\beta}X_1)^2 \right] + ... + \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_n - \hat{\alpha} - \hat{\beta}X_n)^2 \right]
 $$
 
 Thus, since we know the partial derivative of one term of the summation already, we can generalise to (and simplify with property of summations): $$
@@ -1008,15 +1007,13 @@ You can get all of these interpretations above simply by plugging in $X_2 = 0$ a
 
 ## Regression for Inference
 
-### Population Inference
-
 ### Prediction
 
 ### Causal Inference
 
 ### Model Selection
 
-# Extending the Linear Model for Causal Inference
+# Further Causal Inference Methods
 
 ## Panel and Clustered Data
 
