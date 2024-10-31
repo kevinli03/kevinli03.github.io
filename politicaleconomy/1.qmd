@@ -741,6 +741,10 @@ $$
 
 Note: $s.t.$ means such that.
 
+## Cournot Equilibrium
+
+# Spatial Models
+
 ## Downsian Model of Electoral Competition
 
 ### Downsian Model of Electoral Competition
@@ -841,9 +845,7 @@ $$
 
 Thus, when $\epsilon < \frac{1}{3}$, then party $i$ gets the most votes of any party. Since if they did not deviate by $\epsilon$ and stayed at the median, they would have tied, that means party $i$ has a profitable deviation when the deviation $\epsilon < \frac{1}{3}$. Since party $i$ has a profitable deviation, we can conclude that [there is no Nash Equilibrium at the median voter in a 3 party election]{.underline}.
 
-## Further Spatial Models
-
-### Policy-Seeking Models
+### Policy-Seeking Parties
 
 In the Downsian Model, we assumed that parties only care about winning elections (called rent-seeking behaviour). Thus, they are willing to adopt any policy that will help them win elections.
 
@@ -874,6 +876,8 @@ Let us break this utility function down into its constituent parts to better und
 So essentially, the utility function of player $L$ is a expected utility of the probability of party $L$ winning the election and implementing its own policies, and the probability of party $R$ winning the election and implementing their probabilities.
 
 [Despite this additional complexity with the policy-seeking behaviour of policies, the median voter is still the Nash Equilibrium of this game]{.underline}. This is because while both parties would like to implement non-median policies, if they deviate away from the median, they will let the other party win, and thus have to deal with the other party's policies, which they find even worse. If you win the election, you implement your own policy, and deny the opponent their chance of implementing their policy that you disagree with.
+
+## Further Spatial Models
 
 ### Citizen-Candidate Model
 
@@ -1014,7 +1018,7 @@ These predictions can be empirically tested. This shows how microeconomic models
 
 ### Valence Politics Model
 
-## Cournot Equilibrium
+## Complex Systems
 
 # Dynamic Games
 
