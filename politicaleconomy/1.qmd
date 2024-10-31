@@ -1,6 +1,6 @@
 ---
-title: "Microeconomic Theory for Political Analysis"
-subtitle: "Book 1 of the Political Economics Sequence in An Introduction to Political Economics"
+title: "Political Economics: Microeconomic Analysis of Politics"
+subtitle: "Volume I"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -18,11 +18,27 @@ format:
         linestretch: 1.25
 ---
 
+## Preface {.unnumbered}
+
+This book is the first volume in a sequence on **Political Economics: Microeconomic Analysis of Politics**.
+
+-   [Volume I](https://kevinli03.github.io/stats/1.pdf) (this book) introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
+
+-   [Volume II](https://kevinli03.github.io/stats/2.pdf) applies the microeconomic theory and models discussed in the previous book to current academic topics.
+
+**Political Economics** is the use of economic models and approaches to study politics. More specifically, it is the use of microeconomic-style rational choice models and game theory to study political behaviour and institutions, and how that impacts political outcomes.
+
+This first book focuses on introducing the fundamentals of microeconomics, such as preference and utility theory, as well as introduce the essentials of game theory and formal models. Topics covered include preferences, static games, dynamic games, and bayesian games. Along the way, models relevant to political situations will be used as examples.
+
+This course requires, at a minimum, an understanding of single variable calculus and probability theory, up to the level of [Volume I](https://kevinli03.github.io/math/1.pdf)of the Quantitative Methods Sequence. Ideas and games presented in this book will utilise differential calculus and Bayes' theorem extensively. Furthermore, it is recommended that one has a baseline understanding of multivariate calculus and some experience with proofs, although this is not essential.
+
+It is also important to note that economics is a very notation-heavy discipline. The beginning sections introduce this notation, and it is essential to quickly pick up this notation to succeed.
+
 # Introductory Microeconomic Theory
 
 ## Preferences and Utility Theory
 
-Note: This course uses single variable calculus, set theory, and probability theory extensively. See the Quantitative Methods Sequence for help with mathematical concepts.
+Notation note: $\in$ means *in* or *belongs to*, $:$ means *such that*, $\forall$ means *for all*, $\mathbb{R}$ indicates the set of all real numbers, $\mathbb{Z}$ indicates the set of all integers.
 
 ### Agents and Preferences
 
@@ -93,7 +109,7 @@ Given a set of choices $X$, what is the "best choice" of an individual. This is 
 We can define the best choice as the alternative outcomes included in the **maximal set** of $X$, notated $M( \succsim, X)$, which is defined as:
 
 $$
-M(\succsim, X) = \{ x \in X : x \succsim y \space \forall \space y \in X \}
+M(\succsim, X) = \{ x \in X : x \succsim y \space, \space \forall y \in X \}
 $$
 
 Or in intuitive terms, the maximal set is the set of all alternatives $x$ in $X$, such that $x$ is weakly preferred over alternative $y$ for every alternative $y$ in $X$.
@@ -118,15 +134,7 @@ This course on the microeconomic theory and its applications to political situat
 
 ### Modelling and Game Theory
 
-A model is a simplified version of reality to help us understand the complex world around us. This is especially useful in the complex world of the social sciences.
-
-To simplify reality, models make **assumptions**. These assumptions should be similar to reality, so we can draw conclusions to the real world. However, these assumptions should also make the model simple, and only focus on the relevant features and details.
-
-For example, a driving map is a model. It does not contain all the information in the world - it does not record the height of buildings, the colour of the terrain, and so on. It even simplifies the spherical earth into a 2-dimensional flat map.
-
-However, despite simplifications of reality, a driving map is amazing for navigation. If you are trying to get from point A to point B by car, you do not care about the spherical nature of the globe. The simplifying assumptions on a driving map allow us to navigate the world around us, without being a perfect copy of reality.
-
-There are different forms of modelling in the social sciences, including decision theory, competitive equilibrium, and game theory. This book will mainly focus on game theory.
+A model is a simplified version of reality to help us understand the complex world around us. This is especially useful in the complex world of the social sciences. To simplify reality, models make **assumptions**.
 
 **Game Theory** is the study of mathematical models of conflict and cooperation between rational players. The key property of game theory is that [one player's actions, affect another player's outcomes/gains/payoffs]{.underline}.
 
@@ -146,29 +154,11 @@ Games are the environment in which strategic interaction between players occurs.
 2.  For each player, a set of **actions** and **strategies**
 3.  For each player, **preferences** over the outcomes associated with the actions, such that they have an opinion on every possible outcome of the game
 
-Players will take actions, and they yield some outcomes. The pathway between actions and outcomes is the **environment** - essentially the function that takes your action input, and outputs your outcome.
+Players will take actions, and they yield some outcomes. The pathway between actions and outcomes is the **environment** - which includes the rules of the game, the other players' strategies, and the other players' beliefs, influence a player's choice of actions.
 
-A player's belief on the environment - which includes the rules of the game, the other players' strategies, and the other players' beliefs, influence a player's choice of actions.
-
-A player's preferences over the outcomes of games, in game theory, must be both **complete** and **transitive** (see chapter 1 for more detail).
-
--   Complete preferences means that given any 2 outcomes, you can always compare them. Or in more intuitive terms, the player always has an opinion on the outcome - they are never "not sure" about how they feel about one outcome compared to another (however, they can be indifferent).
-
--   Transtive preferences means that if you prefer $a$ over $b$, and $b$ over $c$, then you prefer $a$ over $c$. It is basically that your preferences make sense and are consistent.
-
-Preferences over outcomes can either be **ordinal** or **cardinal**
-
--   Ordinal preferences means that you can rank your preferences of the potential outcomes, but you cannot give a specific value to that preference. For example, you can say you like $a$ more than $b$, but you cannot say exactly how much you like $a$ over $b$
-
--   Cardinal preferences means that not only can you rank your preferences, you can also describe the magnitude of your preferences. For example, if you say you like $a$ 3 times better than $b$, then you have cardinal preferences
-
-We can assign numbers to both cardinal and ordinal preferences. Just be aware, if preferences are ordinal (and they often are), the numbers represent relative rankings, not specific magnitudes of preference.
-
--   For example, if preferences are ordinal, the "distance" between preference values $1$ and $2$, may not be equal to the distance between $2$ and $3$
+A player's preferences over the outcomes of games, in game theory, must be both **complete** and **transitive**. We can assign numbers to both cardinal and ordinal preferences (see chapter 1 and utility functions).
 
 ### Types of Games
-
-Games in Game Theory can be categorised according to two key properties: the **timing** of a game, and the **availability of information** in the game.
 
 The timing of the game determines how players move relative to each other:
 
@@ -182,11 +172,7 @@ The availability of information is another distinction between types of games:
 
 -   A game of **incomplete information** is when some payoffs or some actions are not common knowledge. These games are quite a bit more complex.
 
-We will start with static games of complete information - the simplest form and the best type of game to introduce core concepts.
-
 ### Game Theory Notation
-
-Before we start discussing games, we need to discuss notation. Notation is key, because it allows us to be very precise and concise in defining our games.
 
 Players are denoted $i = 1,2,...N$.
 
@@ -200,21 +186,21 @@ The actions of a player $i$ are denoted $a_i$
 
 -   So, the actions of player 1 are denoted $a_1$, and so on.
 
-The strategies of a player $i$ are denoted $s_i$
+The strategies (very similar to actions) of a player $i$ are denoted $s_i$
 
 -   A player's selected strategy, if applicable, is denoted with a star: $s_i^*$
 
--   All other strategies are denoted with an apostrophe (more specifically, a set complement sign): $s'_i$
+-   All other strategies of the player are denoted with an apostrophe (more specifically, a set complement sign): $s'_i$
 
--   Mixed strategies will be denoted with a $\sigma$ instead of an $s$.
+-   Mixed strategies will be denoted with a $\sigma$ instead of an $s$ (we will discuss this later).
 
-The action profile (of all players' actions) is a vector $a = (a_1, a_2, ..., a_N)$
+The strategy profile (of all players' stratgies) is a vector $s = (s_1, s_2, ..., s_N)$ (same for strategies)
 
--   We can split this vector into 2 different parts. $a_i$ denotes player $i$'s actions, while $a_{-i}$ denotes the action profiles of all other players not player $i$
+-   We can split this vector into 2 different parts. $s_i$ denotes player $i$'s actions, while $s_{-i}$ denotes the action profiles of all other players not player $i$
 
-Preferences are represented by a payoff function $u_i(a_i, a_{-i})$
+Preferences are represented by a payoff function $u_i(s_i, s_{-i})$
 
--   Essentially, $u_i$ is a function with the inputs of player $i$'s actions $a_i$, and the actions of everyone else $a_{-i}$
+-   Essentially, $u_i$ is a function with the inputs of player $i$'s strategies $s_i$, and the actions of everyone else $s_{-i}$
 
 # Static Games of Complete Information
 
@@ -226,7 +212,7 @@ As we have established, game theory is when one person's actions affect another'
 
 However, sometimes, one of the actions available to a player $i$, is always better than any of the other actions available to them, no matter what their opponent decides to do. This strategy that is always better than the alternatives, no matter what the other player does, is called a **dominant strategy**.
 
-Formally, a dominant strategy, notated $s_i^D$, is a dominant strategy, if it is player $i$'s best strategy, no matter the strategies the other players pick. No matter what the opponent does, the payoff is highest for player $i$ when they play $s_i^D$
+Formally, a dominant strategy, notated $s_i^D$, is a dominant strategy, if no matter what the opponent does, the payoff is highest for player $i$ when they play $s_i^D$
 
 Mathematically, we can represent that statement as following:
 
@@ -234,15 +220,15 @@ $$
 u_i(s_i^D, s_{-i}) > u_i (s_i', s_{-i})
 $$
 
-Which translates into words as - the utility of player $i$ choosing their dominant strategy $s_i^D$, is always greater than the utility of player $i$ choosing another strategy $s_i'$, no matter the strategies chosen by the opponents $s_{-i}$
+Which translates into words as - the utility of player $i$ choosing their dominant strategy $s_i^D$, is always greater than the utility of player $i$ choosing another strategy $s_i'$, no matter the strategies chosen by the opponents $s_{-i}$.
 
-If player $i$ has a dominant strategy $s_i^D$, then their other strategies $s_i'$ are considered to be **dominated**.
+If player $i$ has a dominant strategy $s_i^D$, then their other strategies $s_i'$ are considered to be **dominated**. In other words, $s^D_i \succ s'_i$.
 
 ### Dominant Strategies in Prisoner's Dilemma
 
 An example of a dominant strategy is the famous game: prisoner's dilemma. The story is as follows:
 
-*Two suspects are arrested. The police holds the suspects in separate cells and explains the consequences of their actions. If they both remain quiet (cooperate with each other), then both will be convicted for minor offences and sentenced to 1 month in jail. If both rat each other out (defect), then both will be sentenced to jail for 8 months. Finally, if one defects but the other does not, then the confessor is immediately released and the other is sentenced to 10 months, 8 for the crime and 2 for obstructing justice.*
+*Two suspects are arrested. If they both remain quiet (cooperate with each other), then both will be convicted for minor offences and sentenced to 1 month in jail. If both rat each other out (defect), then both will be sentenced to jail for 8 months. Finally, if one defects but the other does not, then the confessor is immediately released and the other is sentenced to 10 months.*
 
 We can represent this game in a matrix, which is often called the normal form of the game. Note, the first value in each cell is the payoff of player 1 (p1), and the second value in each cell is the payoff of player 2 (p2).
 
@@ -258,40 +244,26 @@ Pretend player 2 plays cooperate. Thus, we can hide the defect column:
 |                    | Cooperate (p2) |
 |--------------------|----------------|
 | **Cooperate (p1)** | -1, -1         |
-| **Defect (p1)**    | 0, -10         |
+| **Defect (p1)**    | **0**, -10     |
 
-What is player 1's best strategy? Well, it is to defect, since a payoff of 0 is greater than a payoff of 1. [So, when player 2 picks cooperate, player 1 should pick defect]{.underline}.
+What is player 1's best strategy? Well, it is to defect, since payoff $0 > -1$. [So, when player 2 picks cooperate, player 1 should pick defect]{.underline}.
 
 Now, pretend player 2 plays defect. Thus, we can hide the cooperate column:
 
 |                    | Defect (p2) |
 |--------------------|-------------|
 | **Cooperate (p1)** | -10, 0      |
-| **Defect (p1)**    | -8, -8      |
+| **Defect (p1)**    | **-8**, -8  |
 
-What is player 1's best strategy? Well, it is to defect, since a payoff of -8 is greater than a payoff of -10. [So, when player 2 picks defect, player 1 should pick defect]{.underline}.
-
-So, we have established that player 1 will pick strategy defect, for both the scenarios that player 2 picks cooperate or player 2 picks defect. So, player 1 should always pick defect.
+What is player 1's best strategy? Well, it is to defect, since payoff $-8 > -10$. [So, when player 2 picks defect, player 1 should pick defect]{.underline}.
 
 Thus, player 1's strategy of defect is the strategy that maximises their payoff, regardless of the strategy of player 2. Thus, [player 1's strategy of defect is a dominant strategy.]{.underline}
 
-We can do the same thing for player 2. We first pretend player 1 will pick cooperate, and we find player 2 should pick defect as their best strategy. Then we pretend player 1 will play defect, and we find player 2 should also pick defect as their best strategy. [Thus, player 2 also has a dominant strategy of defect.]{.underline}
-
-The Prisoner's Dilemma thus has a dominant strategy for both players - defect.
-
-### Solution Concepts
-
-One of the key things about modelling situations is that, well, we want to find a likely outcome. An equilibrium solution concept is a concept that shows a likely solution to a game, by restricting potential strategies being played to the most reasonable one.
-
-Any equilibrium solution concept has a few assumptions:
-
-1.  Players are rational - they choose actions that maximise their own payoffs. Without this assumption, it is very difficult to find a likely outcome
-2.  Structure of the game and player's rationality is common knowledge. If players do not know about the structure of the game, they well, cannot make best response decisions to their opponents
-3.  Any predictions must be self-enforcing - essentially, if we end up in a solution outcome, the players should not have any reason to want to leave that outcome, or else it would not be a final solution.
+We can do the same thing for player 2. We will find that the Prisoner's Dilemma thus has a dominant strategy for both players - defect.
 
 ### Dominant Strategy Equilibrium
 
-A dominant strategy equilibrium is a solution concept where all players play dominant strategies.
+A dominant strategy equilibrium is a solution concept (likely outcome of a game). A dominant strategy equilibrium occurs when all players play dominant strategies.
 
 -   After all, if everyone has a best response to all other strategies of other players, and everyone is playing their best response, that is a very likely outcome of the game.
 
@@ -309,15 +281,11 @@ However, many games do not have any dominant strategies, and thus, many games do
 
 ### Best Response
 
-We previously discussed that dominant strategies do not appear in most games, and thus, we need an alternate way of determining a solution.
-
-Thus, we need to introduce the concept of a **best response**. We already introduced the intuition of a best response in the section on the prisoner's dilemma.
-
 A strategy for player $i$ is a best response to another specific strategy played by the other players, if that chosen strategy for player $i$ gives more payoff than any other strategy player $i$ could choose.
 
--   Essentially, we hold the other player's strategies constant. Then, we find what player $i$ should play. We do this for every combination of other player's strategies.
+-   Essentially, we [hold the other player's strategies constant]{.underline}. Then, we find what player $i$ should play. We do this for every combination of other player's strategies.
 
-Formally, the strategy $s_i$ is a best response to the opponents specific strategy $s_{-i}$, if $u_i(s_i, s_{-i})≥ u_i(s_i', s_{-i})$, where $s'_i$ are the other strategy profiles of player $i$ that are not the chosen $s_i$
+The strategy $s_i$ is a best response to the opponents strategy $s_{-i}$, if $u_i(s_i, s_{-i})≥ u_i(s_i', s_{-i})$, where $s'_i$ are the other strategy profiles of player $i$ that are not the chosen $s_i$
 
 A strategy profile cannot be a best response, if there exists a **profitable deviation**.
 
@@ -329,17 +297,17 @@ I will illustrate how to find best responses shortly.
 
 Nash Equilibrium is another solution concept. This solution concept is obtained when both players are playing a best response to the other player's chosen strategy.
 
-As we discussed previously, a best response means a player has no profitable deviation. Thus, when both players are playing a best response to each other in a Nash Equilibrium, neither player has a profitable deviation.
+As we discussed previously, a best response means a player has no profitable deviation. Thus, when both players are playing a best response to each other in a Nash Equilibrium, [neither player has a profitable deviation]{.underline}.
 
 -   Thus, no player can do better by choosing a different strategy. That means the Nash Equilibria is stable: once we enter the equilibria, no one wants to leave it.
 
-More formally, strategy profile $s^*$ is a Nash Equilibrium, when $u_i(s_i^*, s_{-i}^*) ≥ u_i(s_i', s^*_{-i})$ for all $s'_i$ and for all players $i$
+Formally, strategy profile $s^*$ is a Nash Equilibrium, when $u_i(s_i^*, s_{-i}^*) ≥ u_i(s_i', s^*_{-i})$ for all $s'_i$ and for all players $i$
 
--   Or in more intuitive terms, a strategy profile is a Nash Equilibrium, when the chosen strategy of player $i$, given an opponents strategies yields a higher payoff than any other strategy that player $i$ could choose.
+-   Or in more intuitive terms, a strategy profile is a Nash Equilibrium, when the chosen strategy of player $i$, [given]{.underline} an opponents strategies, yields a higher payoff than any other strategy that player $i$ could choose.
 
 All dominant strategy equilibria are Nash Equilibria, but not all Nash Equilibria are dominant strategy equilibria.
 
-However, there are a few important caveats of Nash Equilibria:
+There are a few important caveats of Nash Equilibria:
 
 -   Often, there is more than one Nash Equilibria, and we are not sure which solution is the likely outcome of the game
 
@@ -388,29 +356,27 @@ So far, we have focused on relatively simple 2-player games. However, let us int
 
 -   *(iv) and outcome in which the good is not provided and she contributes.*
 
-What are the Nash Equilibria of this game? This game is more complex than the previous examples, since it involves both more players, and also, unclear amounts (such as $k$).
+What are the Nash Equilibria of this game?
 
-First, let us look at the scenario that *less than* $k$ *people contribute*. Is there a Nash Equilibrium?
+Let us consider that 0 people contribute to the public good. Does any player have any incentive to deviate?
 
--   Let us consider that 0 people contribute to the public good. Does any player have any incentive to deviate?
+-   All players are playing "not contribute". Player $i$ does not have a profitable deviation to "contribute", since that $k$, the threshold of the public good, cannot be lower than 2. Thus, deviating to "contribute" would lower player $i$'s payoff from payoff number iii to payoff number iv (see question above).
 
-    -   All players are playing "not contribute". Let us assume player $i$ is one of them. Player $i$ does not have a profitable deviation to "contribute", since that $k$, the threshold of the public good, cannot be lower than 2. Thus, deviating to "contribute" would lower player $i$'s payoff from payoff number iii to payoff number iv (see question above).
+-   Thus, [0 people contributing is a Nash Equilibrium]{.underline}, as no player has an incentive to deviate.
 
-    -   Thus, [0 people contributing is a Nash Equilibrium]{.underline}, as no player has an incentive to deviate.
+Let us now consider that 1 person is contributing to the public good. Does any player have an incentive to deviate?
 
--   Let us now consider that 1 person is contributing to the public good. Does any player have an incentive to deviate?
+-   Let us assume player $i$ is the only player that is contributing so far. Player $i$ does have a profitable deviation given his opponents current strategies, since if he changes to "not contribute", he will increase his payoff from outcome iv to outcome iii.
 
-    -   Let us assume player $i$ is the only player that is contributing so far. Player $i$ does have a profitable deviation given his opponents current strategies, since if he changes to "not contribute", he will increase his payoff from outcome iv to outcome iii.
+-   This will be the case for all cases where $k-2$ or less people contribute, since no player's individual action will be able to reach the threshold of the public good, so all players contributing would have an incentive to not contribute.
 
-    -   This will be the case for all cases where $k-2$ or less people contribute, since no player's individual action will be able to reach the threshold of the public good, so all players contributing would have an incentive to not contribute.
+-   Thus, 1 person, and anything between and including 1 and $k-2$ people contributing, is not a nash equilibrium, since a profitable deviation exists.
 
-    -   Thus, 1 person, and anything between and including 1 and $k-2$ people contributing, is not a nash equilibrium, since a profitable deviation exists.
+What if there are $k-1$ people contributing though?
 
--   What if there are $k-1$ people contributing though?
+-   Well, then if player $i$ is not contributing, he has an incentive to deviate to "contribute", as that will reach the threshold $k$ for the provision of the public good, thus boosting their payoff from outcome iii to outcome ii.
 
-    -   Well, then if player $i$ is not contributing, he has an incentive to deviate to "contribute", as that will reach the threshold $k$ for the provision of the public good, thus boosting their payoff from outcome iii to outcome ii.
-
-    -   Thus, $k-1$ players contributing is also not a Nash Equilibrium, since a profitable deviation exists.
+-   Thus, $k-1$ players contributing is also not a Nash Equilibrium, since a profitable deviation exists.
 
 Now, let us consider that $k$ people contribute to the public good. Does any player have any incentive to deviate?
 
@@ -435,7 +401,6 @@ Finally, there is the scenario that more than $k$ people contribute. Does any pl
 The definition of a **Pareto Efficient** outcome is that, given that outcome, it is impossible to move to any other outcome that makes at least one player better off, without making anyone else worse off.
 
 -   The key point here is **without making anyone worse off**. For example, if a game had two outcomes (2, 0) and (1, 10000000000), both would be pareto efficient, including (2, 0), since player 1 is made worse off when moving to outcome 2.
--   Pareto efficiency isn't about which outcomes are plausible - it just looks at which strategies could be considered the "best" for all players. The outcomes will be determined by our equilibrium concepts, such as Nash Equilibrium.
 
 For example, let us take the classic prisoner's dilemma game:
 
@@ -462,47 +427,26 @@ A **Prisoner's dilemma** is not just one specific game with the storyline of the
 
 -   However, while (Defect, Defect) is the outcome of the game, it is pareto inefficient - both players in theory could be better off with (Cooperate, Cooperate), but because of the structure of the game, they both have the incentive to defect.
 
-Prisoner's Dilemma games are used to show how individual rationality and group rationality differ.
+Prisoner's Dilemma games are used to show how individual rationality and group rationality differ. The group can get the best outcome (pareto efficient) if they all cooperate. However, if you choose to cooperate, you run the risk that someone else is going to defect, undercutting you and giving you the worst payoff. Thus, it is in individual's incentives to always defect.
 
--   The group can get the best outcome (pareto efficient) if they all cooperate.
+The application of Prisoner's Dilemmas include:
 
--   However, if you choose to cooperate, you run the risk that someone else is going to defect, undercutting you and giving you the worst payoff.
-
--   Thus, it is in individual's incentives to always defect.
-
-The Prisoner's Dilemma is frequently used to explain issues of **Public Goods**.
-
--   Public goods are non-excludable - you cannot exclude people from using the good. An example of a Public Good is National Defence, or the air around us.
-
--   Since these goods are non-excludable, people cannot be prevented from using the good, even if they do not contribute to the upkeep. Thus, there is a incentive for individuals to under-invest in the upkeep of public goods, reducing the quality for everyone.
-
--   Under-invest in this case is considered the "defect" strategy, while invest is the "cooperate" strategy. Individually, you are better off if you defect, as you can still enjoy the benefits of this non-excludable good, without any of the costs. However, when everyone does this rational action, it results in a poor condition of the public good, thus hurting everyone (a non-pareto efficient outcome)
-
--   An example is Air Quality - individuals and companies poluate and refuse to contribute to the upkeep of good air quality, despite the fact that poor air quality is worse for everyone (pareto inefficient)
-
-Other examples of the application of Prisoner's Dilemmas include:
-
--   Overuse of common resources (like fisheries), due to individual incentives, resulting in a pareto-inefficient outcome
-
--   Training of workers - because firms are afraid that workers will leave and join a rival, firms do not train their workers properly, resulting in a less-than-optimal economy for everyone.
-
--   Cartels - cartels can make the most money when everyone makes very little of a product (raising prices). However, if one person defects and makes a lot, they get a huge increase in profits, while every one else loses. Thus, fearful of others defecting, everyone defects, making production very high, and making everyone worse off (pareto inefficient)
+-   **Public goods**: An example is Air Quality - individuals and companies pollute and refuse to contribute to the upkeep of good air quality, despite poor air quality is worse for everyone (pareto inefficient). This is because air is non-excludable, you cannot refuse air to people if they do not contribute to its upkeep. Thus individual rationality of free-riding (and not cooperating) results in a worse group outcome.
+-   **Overuse of common resources** (like fisheries), due to individual incentives, resulting in a pareto-inefficient outcome
+-   **Training of workers** - because firms are afraid that workers will leave and join a rival, firms do not train their workers properly, resulting in a less-than-optimal economy for everyone.
+-   **Cartels** - cartels can make the most money when all cartels make very little of a product (raising prices). However, if one person defects and makes a lot, they get a huge increase in profits, while every one else loses. Thus, fearful of others defecting, everyone defects, making production very high, and making everyone worse off.
 
 ### Multiple Nash Equilibrium and Focal Points
 
-We discussed how one of the weaknesses of Nash Equilibrium is the fact that multiple can exist in a single game (as we have shown with both the chicken, and stag-hunt game).
+We discussed how one of the weaknesses of Nash Equilibrium is the fact that multiple can exist in a single game. This is bad - since we want solution concepts to help us make predictions about outcomes in the world. If we have multiple potential outcomes, which one is going to happen?
 
-In theory, all Nash Equilibria are supposed to be equally likely to occur - there is no mathematical proof that one would occur more frequently than others. However, there are two ways in which one Nash Equilibria may stand above the rest, and be the most likely outcome of the game.
+In theory, all Nash Equilibria are supposed to be equally likely to occur. However, there are two ways in which one Nash Equilibria may stand above the rest, and be the most likely outcome of the game.
 
-First, if one Nash Equilibria is Pareto efficient, when the others are not, then that one is likely to be the outcome.
-
--   This is because all players know the payoffs, since that is common knowledge, and all players are able to calculate the Nash Equilibria.
+First, [if one Nash Equilibria is Pareto efficient, when the others are not, then that one is likely to be the outcome]{.underline}.
 
 -   Since Pareto Efficient outcomes mean no player can do better without making anyone worse, and pareto-inefficient outcomes mean that at least one player can do better without making anyone worse, it generally makes sense for players to choose the Nash Equilibria that is Pareto Efficient.
 
-Second, is a concept proposed by Schelling: Focal Points.
-
--   Sometimes, some Nash Equilibria are culturally more "notable" and likely than the other Nash Equilibria.
+Second, is a concept proposed by Schelling: **Focal Points**. Sometimes, some Nash Equilibria are culturally more "notable" and likely than the other Nash Equilibria.
 
 -   For example, take the following game: You want to meet a friend in Paris, but your phones are both dead. If you both choose the same place, then you get a full payoff. if you two choose different places to meet, then neither get any payoff.
 
@@ -512,11 +456,7 @@ Second, is a concept proposed by Schelling: Focal Points.
 
 ### Trembling Hand Perfect Equilibrium
 
-Game theory, as we know, assumes players are rational, and play optimal outcomes. Empirical evidence has shown that this is sort-of true: on average, a large amount of people, when their actions are aggregated and averaged, do tend to make rational decisions.
-
--   Of course, there are key exceptions to this (which is the topic of study for the fields of Behvioural Economics and Behvaioural Political Economy).
-
-However, in no world is every single individual a rational one. Since Game Theory and models is often about predicting likely outcomes, we want to make sure our solution concepts, like Nash Equilibria, will survive even in the real world, where not everyone is rational.
+Game theory, as we know, assumes players are rational, and play optimal outcomes. However, in no world is every single individual a rational one. Since Game Theory and models is often about predicting likely outcomes, we want to make sure our solution concepts, like Nash Equilibria, will survive even in the real world, where not everyone is rational.
 
 -   Essentially, we want our predictions to have some robustness. We want to make sure our model was not "cherry picked" just to make a certain prediction come true.
 
@@ -589,9 +529,7 @@ So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less th
 
 ### Downsian Model of Electoral Competition
 
-Have you ever noticed that many similar businesses are often located in the same place? There are often competing petrol stations all around the same intersection. Or multiple fast food or coffee chains in the same place. Or a bunch of Chinese stores concentrated in one small area.
-
-Hotelling argued this is no accident - these businesses have incentives to locate here. These locations are Nash Equilibriums of the competitive game between businesses.
+Have you ever noticed that many similar businesses are often located in the same place? There are often competing petrol stations all around the same intersection. Or multiple fast food or coffee chains in the same place. Or a bunch of Chinese stores concentrated in one small area. Hotelling argued this is no accident - these businesses have incentives to locate here. These locations are Nash Equilibriums of the competitive game between businesses.
 
 The **Downsian Model**, also called the **Median Voter Theory**, applies this same logic to political parties. The model takes the following characteristics:
 
@@ -601,7 +539,7 @@ We can formalise this game into a strategic game:
 
 -   There are two players - political parties. Let us label them $A$ and $B$
 
--   The players actions are to simultaneously choose a policy position between -1 and 1: $p_i \in [-1, 1]$
+-   The players actions are to choose a policy position between -1 and 1: $p_i \in [-1, 1]$
 
 -   The objective is to attract the most votes (so 50% or above, since there are 2 parties).
 
@@ -625,24 +563,19 @@ In the Downsian Model, we assumed policy preferences are distributed in an inter
 
 -   This is because the median voter is by definition, the 50th percentile. To win a majority, you need to win more than 50%. Thus, any bounds of is policy preferences will still have a Nash Equilibrium at the median voter position $m$
 
-In the Downsian Model, we also assumed policy preferences are only in a one-dimensional plain $R^1$ (the real number line). However, in the real world, policy is often made on many different dimensions, such as a spectrum for environmental policy, immigration policy, social policy, and so on.
+In the Downsian Model, we also assumed policy preferences are only in a one-dimensional plain $\mathbb{R}^1$ (the real number line). However, in the real world, policy is often made on many different dimensions, such as a spectrum for environmental policy, immigration policy, social policy, and so on.
 
 [When we extend the model beyond one dimension, there is no Nash Equilibrium]{.underline} at all for the parties. The reason for this is that it imitates another game, called the *Budget Allocatio*n or *Divide the Dollar* game:
 
 *There are 3 "regions"* $1, 2, 3$ *that want budget from the central government, which has only a limited amount of funds. From each region, a politician is elected to represent them. To approve any budget, 2/3 of the politicians need to agree.*
 
-Let us represent the total central government budget as $1$ (100%). Thus, the amount of money distributed to each region $q_i$, must meet the criteria: $q_1 + q_2 + q_3 = 1$. Each politician wants to get the maximum amount of budget for their region.
+Let us represent the total budget as $1$ (100%). Thus, the amount of money distributed to each region $q_i$, must meet the criteria: $q_1 + q_2 + q_3 = 1$. Each politician wants to get the maximum amount of budget for their region.
 
-At first, we might think that a fair distribution between the 3 regions is $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$. However, there is a profitable deviation to this outcome. For example, take the budget $(\frac{1}{2}, \frac{1}{2}, 0)$ - remember, only 2/3 politicians need to agree to approve a budget. In this new budget, politician 1 increases the budget for their region from $1/3$ to $1/2,$, and politician 2 also increases the budget for their region. Thus, 2/3 politicians agree to the new budget, passing it.
+At first, we might think that a fair distribution between the 3 regions is $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$. However, there is a profitable deviation to this outcome. Take the budget $(\frac{1}{2}, \frac{1}{2}, 0)$ - remember, only 2/3 politicians need to agree to approve a budget. In this new budget, politician 1 increases the budget for their region from $1/3$ to $1/2,$, and politician 2 also increases the budget for their region. Thus, 2/3 politicians agree to the new budget, passing it.
 
 However, there is also a profitable deviation to the budget $(\frac{1}{2}, \frac{1}{2}, 0)$ - $(0, \frac{3}{5}, \frac{2}{5})$. Here, politicians 2 and 3 are increasing their allocation of the budget, and thus, will vote in favor of the new budget.
 
 In fact, for every single budget proposal, there is always an incentive for 2 players to deviate. We can actually demonstrate this with a cyclical example:
-
-1.  Let us start with distribution $(\frac{1}{2}, \frac{1}{2}, 0)$
-2.  We can deviate to distribution $(0, \frac{3}{5}, \frac{2}{5})$, as player 2 and 3 improve their payoffs.
-3.  Then, we deviate to $(\frac{2}{5}, 0, \frac{3}{5})$, as player 1 and 3 improve their payoffs.
-4.  Then, we can deviate back to our first distribution $(\frac{1}{2}, \frac{1}{2},0)$, and restart the cycle.
 
 [Essentially, there is never a Nash Equilibrium, because there is always an incentive for 2 players to deviate]{.underline}.
 
@@ -660,9 +593,9 @@ Note that the median value can change. For example, in a country with very left-
 
 In the Downsian Model, we assumed that citizens will vote for the party whose preferences are closest to them. For example, if the citizen had an option of a party to the left within distance 0.2 and a party to the right within distance 0.3, they would prefer the party to the left.
 
-However, not all real world preferences of voters are symmetrical. For example, a left-wing voter could be uncomfortable with radical-left, so they would actual prefer a candidate 0.2 to the right over a further left candidate 0.1 to the left. This preference would be non-symmetric - i.e. the citizen favours deviations in one direction over another, from their preferred position.
+However, some voters do not have symmetrical preferences. For example, a left-wing voter could be uncomfortable with radical-left, so they would actual prefer a candidate 0.2 to the right over a further left candidate 0.1 to the left. This preference would be non-symmetric - i.e. the citizen favours deviations in one direction over another, from their preferred position.
 
-[Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility (this reduction does not need to be symmetric on both sides).
+[Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility (no need to be symmetric).
 
 ### Costs of Voting and Abstaining Voters
 
@@ -674,7 +607,7 @@ Only if parties are somewhat different, will voters be willing to bear the cost 
 
 ### Expanding Downsian Competition to 3 Parties
 
-In the Downsian Model, we assumed that there are only 2 parties and candidates. What if there were more than 2 parties (as is frequently the case)? [In a 3 party election, there would no longer be a Nash Equilibrium at the median voter position]{.underline}. This is because any party $i$ has a profitable deviation in this scenario.
+In the Downsian Model, we assumed that there are only 2 parties and candidates. [In a 3 party election, there would no longer be a Nash Equilibrium at the median voter position]{.underline}. This is because any party $i$ has a profitable deviation in this scenario.
 
 If party $i$ were to slightly deviate by $\epsilon$ from the median voter, their new position on the spectrum would be $m + \epsilon$. The figure below shows this scenario:
 
@@ -700,7 +633,7 @@ In the Downsian Model, we assumed that parties only care about winning elections
 
 However, many politicians actually hold strong beliefs over what policies are right and wrong. Thus, it is reasonable to expect that some parties may derive utility from the specific policies that can implement (policy-seeking behaviour). For example, while a socialist candidate may more easily win elections acting as a moderate at the median voter, they might also lose utility because they personally believe strongly in socialist policies.
 
-We can create a model for this situation. Let us pretend there are two parties, the *right* party $R$ and the *left* party $L$, who are on some political spectrum in $[-1, 1]$. Let us assume party $R$ prefers the policy position $p_R = 1$ the most, while party $L$ prefers the policy $p_L = -1$ the most.
+Let us pretend there are two parties, the *right* party $R$ and the *left* party $L$, who are on some political spectrum in $[-1, 1]$. Let us assume party $R$ prefers the policy position $p_R = 1$ the most, while party $L$ prefers the policy $p_L = -1$ the most.
 
 -   We can represent this in a utility function - where parties get more utility when the policy implemented by the winning party is closer to their preferred position, and get less utility when the policy implemented by the winning party is further from their preferred position.
 
@@ -720,7 +653,7 @@ Let us break this utility function down into its constituent parts to better und
 
 -   The first part of the right hand side, $\pi(p_L, p_R) \times -(p_L + 1)^2$, consists of two parts. $\pi(p_L, p_R)$ is the probability party $L$ wins the election. $-(p_L + 1)^2$ is the utility function of party $L$ we created previously, but since party $L$ wins the election, we replace $p$ with $p_L$. These two parts essentially state: given the probability party $L$ wins the election, how does it feel about the own policies it is implementing?
 
--   The second part of the right hand side, $[1 - \pi(p_L, p_R)] \times -(p_R + 1)^2$, consists of two parts. $[1 - \pi(p_L, p_R)]$ represents the probability that party $R$ wins the election, since $\pi(p_L, p_R)$ is the probability that party $L$ wins the election, and in a two party election, the probability that party $R$ wins the election is simply $1 -$ the probability that party $L$ wins. $-(p_R + 1)^2$ is the utility function of party $L$ we created previously, but since party $R$ wins the election, we replace $p$ with $p_R$. These two parts essentially state: given the probability party $R$ wins the election, how does party $L$ feel about the policies that party $R$ is implementing.
+-   The second part of the right hand side, $[1 - \pi(p_L, p_R)] \times -(p_R + 1)^2$, consists of two parts. $[1 - \pi(p_L, p_R)]$ represents the probability that party $R$ wins the election, since $\pi(p_L, p_R)$ is the probability that party $L$ wins the election. $-(p_R + 1)^2$ is the utility function of party $L$ we created previously, but since party $R$ wins the election, we replace $p$ with $p_R$. These two parts essentially state: given the probability party $R$ wins the election, how does party $L$ feel about the policies that party $R$ is implementing.
 
 So essentially, the utility function of player $L$ is a expected utility of the probability of party $L$ winning the election and implementing its own policies, and the probability of party $R$ winning the election and implementing their probabilities.
 
@@ -758,7 +691,7 @@ Let us now test if there are any equilibrium with 2 candidates deciding to enter
 
 -   First, we know that any pair of candidates running must be equidistant from the median. After all, if one candidate is closer to the median, they will for sure win the election, and thus, the other candidate will have no incentive to join.
 
--   Thus, we will have two players (let us call them $R$ and $L$), where their positions are $p_R = \Delta$ and $p_L = - \Delta$ (you could more accurately write them as $m ± \Delta$, but since we assume $m=0$, we do not need to include the $m$).
+-   Thus, we will have two players (let us call them $R$ and $L$), where their positions are $p_R = m +\Delta$ and $p_L = m - \Delta$. We assume $m=0$.
 
 -   If $L$ does not enter the race, then player $R$ will win the race and implement their policy. Same with the reverse.
 
@@ -855,11 +788,11 @@ $$
 H'(g) = \frac{y_i}{n \bar{y}} = \frac{y_m}{n \bar{y}}
 $$
 
-This model thus makes a few predictions:
+This model thus makes a few predictions (remember, lower $g$ means higher $H'(g)$:
 
--   A more skewed income distribution with a few very very rich people, which would mean a smaller $y_m$, should mean that in a 2-party democracy, we should see a larger government that provides more public goods.
+-   A more skewed income distribution with a few very very rich people, which would mean a smaller $y_m$ compared to $\bar{y}$, would mean a smaller $H'(g)$ and thus larger $g$. This should mean that in a 2-party democracy, we should see a larger government that provides more public goods.
 
--   A richer country, thus with a higher median income $y_m$, should also have a larger government.
+-   A richer country, thus with a higher average income $\bar{y}$, would mean smaller $H'(g)$ and thus larger $g$. Thus, a richer country should also have a larger government.
 
 These predictions can be empirically tested. This shows how microeconomic models can be used to create hypotheses and theories regarding political phenomena, which we can then test with econometric methods and data.
 

@@ -1,6 +1,6 @@
 ---
 title: "Econometrics for Political Analysis"
-subtitle: "Book 1 of the Econometrics Sequence in An Introduction to Political Economics"
+subtitle: "Volume I: Causal Inference"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -31,11 +31,29 @@ include-before-body:
     }
 ---
 
+## Preface {.unnumbered}
+
+This book is the first volume in a series on **Econometrics for Political Analysis**:
+
+-   [Volume I: Causal Inference](https://kevinli03.github.io/stats/1.pdf) (this book) introduces many of the core statistical concepts and methods used in Politics research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+
+-   [Volume II: Advanced Topics](https://kevinli03.github.io/stats/2.pdf) expands on the topics covered in the first book, and covers logit and count regression models, time series models, and latent variable models.
+
+-   [Volume III: Big Data](https://kevinli03.github.io/stats/3.pdf) introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
+
+This book is designed to be both an approachable, but also rigorous, introduction to Econometrics and the use of statistical methods, specifically for the analysis of political institutions and actors. This volume specifically covers most topics you would study in a typical econometrics undergraduate course in an economics department, and is likely more in depth than what you would get in a political science department.
+
+I assume a basic understanding of statistics, up to correlation. I also assume familiarity with calculus and some linear algebra - although this is only neccesarry if you are interested in how the methods work. If you are just interested in implementing methods and interpreting them, the mathematics is less important, however, I still recommend people to study the mathematics behind econometric techniques, as it often helps us understand the techniques better.
+
+To see what mathematics is specifically required, or to refresh on the mathematics needed, consult the **Quantitative Methods** sequence (particularly [the first volume](https://kevinli03.github.io/math/1.pdf)).
+
+This book will also use the R language for some calculations, so a basic understanding of the language is useful - however, this is not needed if you just want an understanding of the methods. This book will not teach the R language from scratch.
+
 # Econometrics and Causal Inference
 
 ## Causal Inference
 
-### Introduction Econometrics
+### Introduction to Econometrics
 
 **Econometrics** is the field of applying statistical methods to analyse real-world economic and social science data. While econometrics was initially pioneered by economics, the techniques econometricians developed have been adopted by most of the social sciences, including Political Science.
 
@@ -44,15 +62,13 @@ Econometrics has two primary goals:
 1.  **Causal Inference**: Establishing how one feature directly causes another feature. This is essential to understanding the world around us and designing better policies.
 2.  **Predictive Inference/Forecasting**: Given data we have, how can we predict the values of data we do not have? For example, what will sales be next year? GDP? Who will win the next election? What are the likely costs/effects of a policy?
 
-This book is designed to be both an approachable, but also rigorous, introduction to Econometrics, specifically for the analysis of political institutions and actors. I assume a basic understanding of statistics, up to correlation. I also assume familiarity with calculus and some linear algebra. To see what is specifically required, consult the Quantitative Methods sequence (particularly the first book).
+This book will cover both topics, but will focus on causal inference, which is generally considered the most important role of econometrics in the social sciences. After all, understanding the causes of things is critical to designing better policy and understanding the world around us.
 
-This book will also use the R language for some calculations, so a basic understanding of the language is useful - however, this is not needed if you just want an understanding of the methods.
-
-### Introduction to Causal Inference
-
-Causal inference is the primary focus of econometrics and the social sciences. An important thing to note is that [correlation does not equal causation]{.underline}:
+An important thing to note about causal inference is that [correlation does not equal causation]{.underline}:
 
 -   For example, ice cream sales are strongly correlated with shark attack frequency. Does that mean ice cream sales directly cause shark attacks? No - they happen to be correlated, because there is another variable, the warm weather and people going to the beach, that causes both to rise at the same time. Ice cream sales itself does not have any independent affect on shark attacks, they just happen to be correlated.
+
+When correlation does not equal causation, that correlation is called a **spurious correlation**. [Tyler Vigen](https://www.tylervigen.com/spurious-correlations) has an entire website showcasing different spurious correlations if you want more examples. As social scientists, we want to avoid spurious correlations, and establish causal effects.
 
 In the first section of this book, we will establish what a causal effect even is, and discuss how randomised experiments are the "gold standard" of establishing causal relationships. Then, we will explore why randomised experiments are often impossible in the social sciences. The rest of the book will focus on techniques that try to find causal effects without randomised experiments.
 
@@ -149,9 +165,9 @@ Ideally, we want an unbiased estimator that has low variance. We will explore ma
 
 ### Naive Estimator and Selection Bias
 
-The **naive estimator** is an estimator that only compares our observed outcomes, without any comparison to the counterfactual potential outcomes. This is often what many people initially do when trying to find a causal effect. Essentially, we are comparing units that are assigned to treatment, and the units that are not assigned to treatment, and their observed outcomes.
+#### Naive Estimator
 
-More mathematically, the naive estimator is: $$
+The **naive estimator** is an estimator that only compares our observed outcomes, without any comparison to the counterfactual potential outcomes. This is often what many people initially do when trying to find a causal effect. Essentially, we are comparing units that are assigned to treatment, and the units that are not assigned to treatment, and their observed outcomes. $$
 E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 0]
 $$
 
@@ -186,6 +202,8 @@ If we look at the final result, we can divide it into 2 parts:
 
 1.  The first part, $E[Y_{1i} - Y_{0i} | D_i = 1]$, is the average treatment effect of the treated $\tau_{ATT}$ that we introduced previously.
 2.  The second part $E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0]$ is what we call the **selection bias**. Intuitively, it is the difference between the treatment and control groups prior to the treatment taking place (hence the potential outcome being $Y_{0i}$).
+
+#### Selection Bias and Confounding Variables
 
 These differences between the treatment and control groups prior to treatment can actually explain some of our results, which is why our results with the naive estimator are **biased**.
 
@@ -435,17 +453,11 @@ Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\h
 
 ## Ordinary Least Squares Estimator
 
-This chapter goes into the mathematics of how we obtained our estimates of $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ using the ordinary least squares (OLS) estimator. This section is not essential if you are only interested in an applied approach to econometrics, however, it can foster a deeper understanding of the regression process.
-
 ### Bivariate Regression Estimation
 
 #### Minimising Sum of Squared Errors
 
-A bivariate regression (also called a simple linear regression) is a linear regression model with only one explanatory variable $X$. It takes the following form: $$
-Y_i = \alpha + \beta X_i + \epsilon_i
-$$
-
-We have some fitted model to our data (best-fit line) with estimated parameter values: $$
+A bivariate regression (also called a simple linear regression) is a linear regression model with only one explanatory variable $X$. We have some fitted model to our data (best-fit line) with estimated parameter values $\hat{\alpha}, \hat{\beta}$: $$
 \hat{Y}_1 = \hat{\alpha} + \hat{\beta}X_i
 $$
 
@@ -462,38 +474,26 @@ $$
 
 #### Parameter $\hat{\alpha}$
 
-Let us first look at the parameter $\hat{\alpha}$. How do we find what value $\hat{\alpha}$ minimises the sum of squared errors? We know through calculus, that deriving the function to find the first order condition can accomplish this: $$
+Let us first look at the parameter $\hat{\alpha}$. How do we find what value $\hat{\alpha}$ minimises the sum of squared errors? We know through calculus, that deriving the function to find the first order condition can accomplish this:
+
+$$
 \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right]
 $$
 
 First, ignore the summation. The partial derivative of the internal section, using chain rule, is the following: $$
-\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = -2(Y_i - \hat{\alpha} - \hat{\beta}X_i)
+\frac{\partial}{\partial \hat{\alpha}} \left[ (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = -2(Y_i - \hat{\alpha} - \hat{\beta}X_i)
 $$
 
-That is the derivative of one of the items in the summation. But how do we deal with the summation? We know that there is the sum rule of derivatives $[f(x) + g(x)]' = f'(x) + g'(x)$. Thus, we know: $$
-\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_1 - \hat{\alpha} - \hat{\beta}X_1)^2 \right] + ... + \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ (Y_n - \hat{\alpha} - \hat{\beta}X_n)^2 \right]
-$$
-
-Thus, since we know the partial derivative of one term of the summation already, we can generalise to (and simplify with property of summations): $$
+But how do we deal with the summation? We know that there is the sum rule of derivatives $[f(x) + g(x)]' = f'(x) + g'(x)$. Thus, we know we just sum up the derivatives: $$
 \begin{split}
 \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} & = \sum\limits_{-i=1}^n \left[ -2(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right] \\
 & = -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)
 \end{split}
 $$
 
-Now that we have the partial derivative of the SSE function in respect to $\hat{\alpha}$, to find the value of $\hat{\alpha}$ that creates the minimum value of the SSE, we set the first order derivative equal to 0. We can ignore the -2, since if the sum is equal to 0, then the -2 will have no effect. $$
+To find the value of $\hat{\alpha}$ that creates the minimum value of the SSE, we set the first order derivative equal to 0. We can ignore the -2, since if the sum is equal to 0, then the -2 will have no effect. Now, using properties of summation, isolate $\hat{\alpha}$ as follows: $$
 \begin{split}
-& -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0 \\
-& \Longrightarrow \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
-\end{split}
-$$
-
-Now, we use the property of summation to simplify to: $$
-\sum\limits_{i=1}^n Y_i - n \hat{\alpha} - \hat{\beta} \sum\limits_{i=1}^n X_i = 0
-$$
-
-Now, isolate $\hat{\alpha}$ as follows: $$
-\begin{split}
+\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) & = 0 \\
 \sum\limits_{i=1}^n Y_i - n \hat{\alpha} - \hat{\beta} \sum\limits_{i=1}^n X_i &= 0 \\
 -n\hat{\alpha} &= -\sum\limits_{i=1}^n Y_i + \hat{\beta}\sum\limits_{i=1}^nX_i \\
 \hat{\alpha} & = -\frac{1}{n} \left[ -\sum\limits_{i=1}^n Y_i + \hat{\beta} \sum\limits_{i=1}^n  X_i \right] \\
@@ -502,19 +502,11 @@ Now, isolate $\hat{\alpha}$ as follows: $$
 \end{split}
 $$
 
-The final step converting to $\bar{Y}$ and $\bar{X}$ is because of the mathematical definition of average. Thus: $$
-\hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}
-$$
-
-We will plug this into our solution for $\hat{\beta}$ to solve that. Once we solve $\hat{\beta}$, we will come back and calculate $\hat{\alpha}$'s value.
+The final step converting to $\bar{Y}$ and $\bar{X}$ is because of the mathematical definition of average. We will plug this $\hat{\alpha}$ equation into our solution for $\hat{\beta}$ to solve that. Once we solve $\hat{\beta}$, we will come back and calculate $\hat{\alpha}$'s value.
 
 #### Parameter $\hat{\beta}$
 
-Now with $\hat{\alpha}$, we can calculate $\hat{\beta}$. Remember our original SSE equation: $$
-S(\hat{\alpha}, \hat{\beta}) = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
-$$
-
-Now, let us find the minimum $\hat{\beta}$ value by taking the partial derivative in respect to $\hat{\beta}$ and setting it equal to 0. This is almost the same as before - use chain rule, then use sum rule to get the deriative: $$
+Now, let us find the minimum $\hat{\beta}$ value by taking the partial derivative of the SSE function $S$ in respect to $\hat{\beta}$ and setting it equal to 0. This is almost the same as before - use chain rule, then use sum rule to get the deriative: $$
 \begin{split}
 \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\beta}} & = \sum\limits_{i=1}^n \left[ -2X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right] \\
 & = -2 \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i)
@@ -526,11 +518,8 @@ Now, let us plug in our previously solved $\hat{\alpha} = \bar{Y} - \hat{\beta} 
 $$
 
 Once again, the -2 does not matter as same reason as before. Set equal to 0 to solve for the value of $\hat{\beta}$ that minimises SSE: $$
-0 = \sum\limits_{i=1}^n \left[ X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right]
-$$
-
-$$
 \begin{split}
+0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right] \\
 0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y} - \hat{\beta}(X_i - \bar{X})) \right] \\
 0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y}) - X_i \hat{\beta}(X_i - \bar{X}) \right] \\
 0 & = \sum\limits_{i=1}^n X_i (Y_i - \bar{Y}) - \hat{\beta}_1 \sum\limits_{i=1}^nX_i (X_i - \bar{X}) \\
@@ -550,17 +539,7 @@ With these rules, we can transform what we had before into: $$
 $$
 
 Then solve for $\hat{\beta}$ to get: $$
-\hat{\beta} = \frac{\sum\limits_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum\limits_{i=1}^n(X_i - \bar{X})^2}
-$$
-
-If we remember the introductory statistics classes prior to this (in the Quantitative Methods sequence), we know that:
-
--   Covariance: $\sigma_{XY} = \sum\limits_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})$
-
--   Variance: $\sigma_X^2 = \sum\limits_{i=1}^n(X_i - \bar{X})^2$
-
-Thus, $\hat{\beta}$ could also be rewritten as (but only for bivariate linear regression): $$
-\hat{\beta}_1 = \frac{Cov(X, Y)}{Var(X)} = \frac{\sigma_{XY}}{\sigma_x^2}
+\hat{\beta} = \frac{\sum\limits_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum\limits_{i=1}^n(X_i - \bar{X})^2} = \frac{Cov(X, Y)}{Var(X)} = \frac{\sigma_{XY}}{\sigma_x^2}
 $$
 
 Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$, so we can quickly solve for that as well. Thus, we now have $\hat{\beta}, \hat{\alpha}$, completing our estimation. We can now put everything into the fitted model: $$
@@ -568,8 +547,6 @@ Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\
 $$
 
 ### Algebraic Properties
-
-There are a few properties of the OLS estimator that we can explore directly from this process of estimation.
 
 A **residual** is the difference between the actual $Y$ vaues, and the predicted $\hat{Y}$ values of our fitted regression model: $$
 \begin{split}
@@ -585,9 +562,7 @@ Recall our OLS estimates were calculated by satisfying these properties: $$
 \end{split}
 $$
 
-We can plug $\hat{u}_i$ in to get a few properties of the OLS estimator.
-
-#### Residuals Sum to Zero
+**Residuals Sum to Zero:**
 
 If we plug $\hat{u}_i$ into the first condition, we get that:
 
@@ -595,9 +570,9 @@ $$
 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = \sum\limits_{i=1}^n \hat{u}_i = 0
 $$
 
-This means that with the OLS estimator, the total sum of the residuals for all units $i$ is 0. Furthermore, since $\hat{u}_i = Y_i - \hat{Y}_i$, we know that the average $Y_i$ should be equal to the average $\hat{Y}_i$.
+This means that with the OLS estimator, the [total sum of the residuals for all units $i$ is 0]{.underline}. Furthermore, since $\hat{u}_i = Y_i - \hat{Y}_i$, we know that the average $Y_i$ should be equal to the average $\hat{Y}_i$.
 
-#### Homoscedasticity
+**Homoscedasticity:**
 
 If we plug $\hat{u}_i$ into the second condition, we get that:
 
@@ -605,7 +580,7 @@ $$
 \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) = \sum\limits_{i=1}^nX_i \hat{u}_i = 0
 $$
 
-This tells us that the sample covariance/correlation between the regressor $X$ and the residual $\hat{u}_i$ is always zero. Or in other words, there is no correlation/relationship between $X$ and the residuals we see in our model.
+This tells us that the [sample covariance/correlation between the regressor $X$ and the residual $\hat{u}_i$ is always zero]{.underline}. Or in other words, there is no correlation/relationship between $X$ and the residuals we see in our model.
 
 -   This property is called **homoscedasticity** - different $X$ values do not affect the residuals.
 
@@ -613,28 +588,20 @@ This tells us that the sample covariance/correlation between the regressor $X$ a
 
 If there is a pattern in our residuals, that is called **heteroscedasticity**, and we will discuss this issue in a later chapter.
 
-#### Explanatory Variable Has Variance
+**Variance of Explanatory Variables Cannot be 0:**
 
-Another property of the OLS estimator is that the explanatory variable $X$ must have variation. Why? Recall the final formula for the $\hat{\beta}$ estimation that we came up with:
-
-$$
-\hat{\beta}_1 = \frac{Cov(X, Y)}{Var(X)} = \frac{\sigma_{XY}}{\sigma_x^2}
-$$
-
-Thus, if $Var(X) = 0$, then our $\hat{\beta}_1$ will be undefined, as we are dividing by zero.
+Finally, since the formula we derived for $\hat{\beta}$ has $Var(X)$ in the denominator, if $Var(X) = 0$, then our $\hat{\beta}_1$ will be undefined, as we are dividing by zero.
 
 Thus, for OLS to be possible, $Var(X) ≠ 0$ must be true.
 
 ### Multivariate Regression Estimation
 
-Multivariate regression, as introduced previously, allows us to add additional control variables into our model as follows:
-
+Multivariate regression, as introduced previously, allows us to add additional control variables:
 $$
 Y_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + \hat{\beta}_2 X_{2i} + ... + \hat{\beta}_k X_{ki}
 $$
 
 Similar to our bivariate regression (but with additional variables), our minimisation condition is:
-
 $$
 \begin{split}
 (\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...) & = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i} ...)^2 \\
@@ -645,26 +612,16 @@ $$
 However, instead of a best-fit line in a 2-dimensional setting, we now have a best-fit plane in a 3-dimensional space (or higher depending on the number of explanatory variables).
 
 Taking the partial derivatives of each parameter as before, and setting them equal to 0, we get these three first order conditions:
-
 $$
 \begin{split}
-& -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
-& -2 \sum\limits_{i=1}^n X_{1i}(Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
-& -2 \sum\limits_{i=1}^n X_{2i} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
+& -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
+& -2 \sum\limits_{i=1}^n X_{1i}(Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
+& -2 \sum\limits_{i=1}^n X_{2i} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
 & \text{and so on for } X_{3i}, ..., X_{ki}
 \end{split}
 $$
 
-Since the -2 is multiplied, we can ignore it, since if the rest of the sums are equal to 0, the 02 is irrelevant. Thus, our minimisation criteria is:
-
-$$
-\begin{split}
-& \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
-& \sum\limits_{i=1}^n X_{1i}(Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
-& \sum\limits_{i=1}^n X_{2i} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}) = 0 \\
-& \text{and so on for } X_{3i}, ..., X_{ki}
-\end{split}
-$$
+Just like before, we can ignore the -2 in the conditions.
 
 The 1st equation, solving for $\hat{\alpha}$, is quite simple, just as in bivariate regression. We get:
 
@@ -672,7 +629,7 @@ $$
 \hat{\alpha} = \bar{Y} - \hat{\beta}_1 \bar{X}_1 - \hat{\beta}_2 \bar{X}_2...
 $$
 
-The other conditions are much more difficult to solve by hand, so the computer will do this for us. However, it is still valuable to know these first order conditions to know what the computer is trying to find.
+The other conditions are difficult to solve by hand, so the computer will do this for us. However, it is still useful to understand what the computer is trying to do - minimise square errors.
 
 The only properties that are required to compute the multivariate regression OLS estimates are:
 

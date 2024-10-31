@@ -78,32 +78,28 @@ This is a project that I am working on, that combines everything I have learned 
 
 <br />
 
-#### **Political Economics Sequence**
+#### **Political Economics: Microeconomic Analysis of Politics**
 
 This sequence is the core of Political Economics - discussing how economic models can be used to study politics.
 
-Prerequisites: At a minimum, the first book of the Quantitative Methods Sequence (see below). The 2nd and 3rd books are helpful as well.
+1.  [Volume I](https://kevinli03.github.io/politicaleconomy/1.pdf): introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
+2.  [Volume II](https://kevinli03.github.io/politicaleconomy/2.pdf): Applies the microeconomic theory and models discussed in the previous book to current academic topics.
 
-1.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf): introduces key concepts microeconomic theory and game theory that form the basis of economic models of politics.
-2.  [Economic Analysis of Political Institutions](https://kevinli03.github.io/politicaleconomy/2.pdf): Applies the microeconomic theory and models discussed in the previous book to study of politics and political institutions.
-
-#### **Econometrics Sequence**
+#### **Econometrics for Political Analysis**
 
 This sequence introduces the techniques in econometrics used to empirical evaluate our economic models of politics. We will use the R language to implement methods.
 
-Prerequisites: At a minimum, the first book of the Quantitative Methods Sequence (see below). The 2nd and 3rd books are helpful as well.
+1.  [Volume I: Causal Inference](https://kevinli03.github.io/stats/1.pdf): introduces many of the core statistical concepts and methods used in Politics research. This book mainly covers Linear Regression models and techniques of Causal Inference.
+2.  [Volume II: Advanced Models](https://kevinli03.github.io/stats/2.pdf): This book mainly covers logit and count regression models, time series models, and latent variable models.
+3.  [Volume III: Big Data](https://kevinli03.github.io/politicaleconomy/3.pdf): introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-1.  [Econometrics for Political Analysis](https://kevinli03.github.io/stats/1.pdf): introduces many of the core statistical concepts and methods used in Politics research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-2.  [Further Econometrics for Political Analysis](https://kevinli03.github.io/stats/2.pdf): This book mainly covers logit and count regression models, time series models, and latent variable models.
-3.  [Econometrics and Big Data](https://kevinli03.github.io/politicaleconomy/3.pdf): introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
-
-#### **Quantitative Methods Sequence**
+#### **Quantitative Methods**
 
 This sequence focuses on the mathematics and statistical theory in which Political Economics is built on.
 
-1.  [Quantitative Methods](https://kevinli03.github.io/math/1.pdf): Essential maths for Political Economics. Covers topics in single variable calculus, probability theory, and statistical theory.
-2.  [Further Quantitative Methods](https://kevinli03.github.io/math/2.pdf): Covers topics in linear algebra and calculus. Highly recommended, but not formally required for Political Economics.
-3.  [Introductory Proofs and Analysis](https://kevinli03.github.io/math/3.pdf): Covers introductory proofs in mathemtics. Useful, but not essential for the rest of the Political Economics.
+1.  [Volume I: Calculus and Probability](https://kevinli03.github.io/math/1.pdf): Essential maths for Political Economics. Covers topics in single variable calculus, probability theory, and statistical theory.
+2.  [Volume II: Linear Algebra and Multivariate Calculus](https://kevinli03.github.io/math/2.pdf): Covers topics in linear algebra and calculus. Highly recommended, but not formally required for Political Economics.
+3.  [Volume III: Proof and Analysis](https://kevinli03.github.io/math/3.pdf): Covers introductory proofs in mathemtics. Useful, but not essential for the rest of the Political Economics.
 
 <br />
 
