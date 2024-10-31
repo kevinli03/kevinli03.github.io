@@ -471,6 +471,8 @@ For example, let us take the following game:
 
 The two Nash Equilibria of the game are (Up, Left), and (Down, Right).
 
+#### Robustness Tests
+
 Let us test the robustness of the (Up, Left) equilibrium.
 
 Assume that player 1 might be irrational at probability $\epsilon$ and select "Down". That means they will be rational at probability $1-\epsilon$, and select "Up". Let us call this probability of playing up at $1-\epsilon$ and probability of playing down at $\epsilon$ as the strategy profile $s_1^{\epsilon}$
@@ -517,11 +519,227 @@ So, (Down, Right) is only a Nash Equilibrium when player 2 is irrational less th
 
 ### Mixed Strategies and Expected Utility
 
+#### Mixed Strategies
+
+So far, we have only allowed players to select specific strategies, which are called pure-strategy. Some games do not have Nash Equilibriums with pure-strategies.
+
+However, we can introduce mixed strategies - essentially, a strategy where a player mixes between different actions at certain probabilities.
+
+-   For example, if a player has strategies $A$ and $B$, they could mix them by playing $A$ 50% of the time, and $B$ 50% of the time.
+
+-   The Trembling Hand Nash Equilibrium from last chapter is an example of this.
+
+Formally, a mixed strategy for player $i$ is a probability distribution over their set of strategies. Given player $i$ has a set of strategies for player $\{ s_1, ..., s_m \}$, a mixed strategy is a vector $\sigma_i$, such that:
+
+$$
+\sigma_i = (\sigma_i(s_1), ... , \sigma_i (s_m))
+$$
+
+-   Where $\sigma_i(s_k)$ represents the probability of playing a specific strategy $s_k$ within the mixed strategy.
+
+-   So essentially, a mixed strategy is a vector of different probabilities, each probability associated with a strategy.
+
+For example, if player $i$ has strategies $A$ and $B$, $\sigma_i = (0.25, 0.75)$ is a mixed strategy such that player $i$ will play $A$ 25% of the time, and strategy $B$ 75% of the time.
+
+#### Properties of Mixed Strategies
+
+Mixed strategies have a few properties:
+
+1.  $\sigma_i(s_k) ≥ 0, \forall s_k \in \{s_1, ..., s_m\}$. Or in other words, the probabilities within the mixed strategy vector cannot be negative (since probability cannot be negative).
+2.  $\sum \sigma_1(s_k) = 1$. Or in other words, all the probabilities in the mixed strategy should add up to exactly 1.
+
+#### Expected Payoff of Mixed Strategy
+
+The expected payoff of player $i$ playing pure-strategy $s_i$, given the opponent plays a mixed strategy $\sigma_{-i}$ is:
+
+$$
+u_i (s_i , \sigma_{-i}) = \sum\limits_{s_{-i}} \left[ \sigma_{-i}(s_i) \times u_i (s_i, s_{-i}) \right]
+$$
+
+Or more intuitively, this is an expected utility. We find probability of the opponent playing some strategy, multiplied with my payoff of my fixed strategy plus the opponents chosen strategy. We do this for all strategies within the opponents mixed strategies, and sum them up to get the expected utility.
+
 ### Mixed Strategy Nash Equilibrium
+
+A Mixed Strategy Nash Equilibrium is another solution concept we will introduce.
+
+A mixed strategy profile $\sigma^*$ is a Mixed Strategy Nash Equilibrium, if $\sigma_i^*$ is a best response to $\sigma_{-i}^*$ for all players $i \in N$.
+
+-   This is the exact same definition as Nash Equilibrium, just with mixed strategy profiles instead of best responses.
+
+A pure-strategy nash equilibrium (with no mixing) is actually a special type of mixed strategy nash equilibrium - just that one strategy has probability 1, and all the other strategies have probability 0.
+
+An important reason why we introduce Mixed Strategy Nash Equilibriums, is that it has been mathematically proven that [any non-cooperative game with a finite set of actions has a Nash Equilibrium]{.underline}.
+
+-   Thus, while some games may not have any pure-strategy Nash Equilibria that we explored before, we know that all games will have mixed-strategy nash equilibria (which includes pure-strategy nash equilibria).
+
+An important proposition about mixed strategies is that in a mixed strategy nash equilibrium, [if a player's mixed strategy has two (or more) actions that have non-zero probabilities, they must be indifferent between the two actions]{.underline}.
+
+-   For example, if player $i$ is mixing with different probabilities between actions $A$ and $B$, such that $\sigma_i(A), \sigma_i(B) > 0$, they must be indifferent between them.
+
+-   Why? Well if you are not indifferent between $A$ and $B$, then you would just play the strategy you prefer instead of mixing!
 
 ### Finding Mixed Strategy Nash Equilibria
 
-### Penalty-Goalkeeping Model
+Now that we know what a Mixed Strategy Nash Equilibria is, how do we find all of them in a game?
+
+This is best explained in an example. But let us give a brief overview of the process.
+
+1.  Find all pure-strategy Nash Equilibria (as we have done in previous chapters)
+2.  If there are any strategies that are **strictly dominated**, then eliminate those strategies. This is because strictly dominated strategies are never indifferent with other strategies, so they cannot be a part of mixed strategy equilibria.
+3.  Find Mixed Strategy Nash Equilibria (see example below). We do this by finding the probabilities of the mixed strategy vectors, that are needed to make players indifferent between their strategies within the mix (since mixed strategies imply indifference as discussed previously).
+
+#### Example
+
+Take the following game:
+
+|       |    $A_2$     |    $B_2$     |  $C_2$   |
+|-------|:------------:|:------------:|:--------:|
+| $A_1$ |     0, 0     | **2**, **3** | **7**, 0 |
+| $B_1$ | **3**, **2** |     0, 0     |   0, 0   |
+| $C_1$ |   0, **7**   |     0, 0     |   6, 6   |
+
+We can quickly see the pure-strategy Nash Equilibria are $(A_1, B_2)$ and $(B_1, A_2)$.
+
+Now, we can eliminate strategies $C_1$ and $C_2$ since they are strictly dominated - players 1 and 2 will never prefer that strategy over others. Thus, they will not be in the mixed strategy.
+
+|       |    $A_2$     |    $B_2$     |
+|-------|:------------:|:------------:|
+| $A_1$ |     0, 0     | **2**, **3** |
+| $B_1$ | **3**, **2** |     0, 0     |
+
+Now, let us find the mixed strategy nash equilibria. Let us define the mixed strategies of each player in terms of $p$ and $q$, then find these probabilities.
+
+-   Player 1: $\sigma_1(A_1) = p$ (probability player 1 plays $A_1$ is p). Thus $\sigma_2(B_1) = 1 - p$. Let us define mixed strategy $\sigma_1 = (\sigma_1(A_1), \sigma_1(B_1))$.
+
+-   Player 2: $\sigma_2(A_2) = q$, thus $\sigma_2(B_2) = 1-q$. Let us define mixed strategy $\sigma_2 = (\sigma_2(A_2), \sigma_2(B_2))$.
+
+What is **player 1's** expected utilities when they choose a specific pure-strategy $A_1$? $$
+\begin{split}
+u_1(A_1, \sigma_2) & = \sigma_2(A_2) \times u_1(A_1, A_2) + \sigma_2(B_2) \times u_1(A_1, B_2) \\
+& = q \times 0 + (1-q) \times 2  = 2-2q
+\end{split}
+$$
+
+What is **player 1's** expected utilities when they choose a specific pure-strategy $B_1$? $$
+\begin{split}
+u_1(B_1, \sigma_2) & = \sigma_2(A_2) \times u_1(B_1, A_2) + \sigma_2(B_2) \times u_1(B_1, B_2) \\
+& = q \times 3 + (1-q) \times 0  = 3q\\
+\end{split}
+$$
+
+Since we know player 1 must be indifferent between $A_1$ and $B_1$ for a mixed strategy to exist, let us set the two utilities equal to each other: $$
+\begin{split}
+u_1(A_1, \sigma_2) & = u_1(B_1, \sigma_2) \\
+2 - 2q & = 3q \\
+q & = \frac{2}{5}
+\end{split}
+$$
+
+Now, we do the same for player 2. What is **player 2's** expected utilities when they choose a specific pure-strategy $A_2$? $$
+\begin{split}
+u_2(\sigma_1, A_2) & = \sigma_1(A_1) \times u_2(A_1, A_2) + \sigma_1(B_1) \times u_2(B_1, A_2) \\
+& = p \times 0 + (1-p) \times 2 = 2-2p
+\end{split}
+$$
+
+What is **player 2's** expected utilities when they choose a specific pure-strategy $B_2$? $$
+\begin{split}
+u_2(\sigma_1, B_2) & = \sigma_1(A_1) \times u_2(A_1, B_2) + \sigma_1(B_1) \times u_2(B_1, B_2) \\
+& = p \times 3 + (1-p) \times 9 = 3p
+\end{split}
+$$
+
+Since we know player 2 must be indifferent between $A_2$ and $B_2$ for a mixed strategy to exist, let us set the two utilities equal to each other: $$
+\begin{split}
+u_2(\sigma_1, A_2) & = u_2(\sigma_1, B_2) \\
+2 - 2p & = 3p \\
+p & = \frac{2}{5}
+\end{split}
+$$
+
+Thus, we have found $q = p = \frac{2}{5}$. That means $(1-p) = (1-q) = \frac{3}{5}$.
+
+Given $\sigma_1 = (\sigma_1(A_1), \sigma_1(B_1), \sigma_1(C_2))$ and $\sigma_2 = (\sigma_2(A_2), \sigma_2(B_2), \sigma_2(C_2))$, our mixed Nash Equilibria are: $$
+(\sigma_1, \sigma_2) = \left( (\frac{2}{5}, \frac{3}{5}, 0), (\frac{2}{5}, \frac{3}{5}, 0)\right)
+$$
+
+The final 0 is there because remember, strategy $C_1, C_2$ are strictly dominated so they are played 0% of the time.
+
+We can also write our pure-strategy nash equilibria $(A_1, B_2)$ and $(B_1, A_2)$ as mixed-strategy nash equilibria: $$
+(\sigma_1, \sigma_2) = ((1, 0, 0), (0, 1, 0)), \text{ and } ((0, 1, 0), (1, 0, 0)
+$$
+
+### Infinitely Many Nash Equilibria
+
+There are also examples where we can have an infinite number of Nash Equilibria. For example, take this following game:
+
+|     |     $L$      |     $R$      |
+|-----|:------------:|:------------:|
+| $T$ |     0, 1     | **0**, **2** |
+| $B$ | **2**, **2** |   **0**, 1   |
+
+There are two pure-strategy Nash Equilibria in this game: $(T, R)$ and $(B, L)$. Let us find the mixed-strategy Nash Equilibria. Let us define the mixed strategies of each player in terms of $p$ and $q$, then find these probabilities.
+
+-   Player 1: $\sigma_1(T) = p$ (probability player 1 plays $T$ is p). Thus $\sigma_2(B) = 1 - p$. Let us define mixed strategy $\sigma_1 = (\sigma_1(T), \sigma_1(B))$.
+
+-   Player 2: $\sigma_2(L) = q$, thus $\sigma_2(R) = 1-q$. Let us define mixed strategy $\sigma_2 = (\sigma_2(L), \sigma_2(R))$.
+
+What is **player 1's** expected utilities when they choose a specific pure-strategy $T$? $$
+\begin{split}
+u_1(T, \sigma_2) & = \sigma_2(L) \times u_1(T, L) + \sigma_2(R) \times u_1(T, R) \\
+& = q \times 0 + (1-q) \times 0  = 0
+\end{split}
+$$
+
+What is **player 1's** expected utilities when they choose a specific pure-strategy $B$? $$
+\begin{split}
+u_1(B, \sigma_2) & = \sigma_2(L) \times u_1(B, L) + \sigma_2(R) \times u_1(B, R) \\
+& = q \times 2 + (1-q) \times 0  = 2q
+\end{split}
+$$
+
+Since we know player 1 must be indifferent between $T$ and $B$ for a mixed strategy to exist, let us set the two utilities equal to each other: $$
+\begin{split}
+u_1(T, \sigma_2) & = u_1(B, \sigma_2) \\
+0 & = 2q \\
+q & = 0
+\end{split}
+$$
+
+Essentially, this means that if player 2 plays strategy $L$ at all (even at 0.0000% probability), player 1 will not be indifferent between the strategies. Essentially, this means that player 2 must play $R$ for this to be a Nash Equilibrium. Let us worry about this a little later.
+
+Now, we do the same for player 2. What is **player 2's** expected utilities when they choose a specific pure-strategy $L$? $$
+\begin{split}
+u_2(\sigma_1, L) & = \sigma_1(T) \times u_2(T, L) + \sigma_1(B) \times u_2(B, L) \\
+& = p \times 1 + (1-p) \times 2 = 2-p
+\end{split}
+$$
+
+What is **player 2's** expected utilities when they choose a specific pure-strategy $R$? $$
+\begin{split}
+u_2(\sigma_1, R) & = \sigma_1(T) \times u_2(T, R) + \sigma_1(B) \times u_2(B, R) \\
+& = p \times 2 + (1-p) \times 1 = 1 + p
+\end{split}
+$$
+
+Now, things are a bit different. We know player 2 must choose $R$ to make $q=0$ and thus make player 1 indifferent. Thus, we know the utility of $R$ for player 2 should be greater or equal than utility of $B$ for this scenario. or equal\
+$$
+\begin{split}
+u_2(\sigma_1, L) & ≤ u_2(\sigma_1, R) \\
+2 - p & ≤ 1 + p \\
+p & ≥ \frac{1}{2}
+\end{split}
+$$
+
+Thus, we actually have infinitely many Nash Equilibriums. Let us define $\sigma_1 = (\sigma_1(T), \sigma_1(B))$, and $\sigma_2 = (\sigma_1(L), \sigma_1(R))$ First, let us list out our pure-strategy ones: $(T, R)$ and $(B, L)$. $$
+(\sigma_1, \sigma_2) = ((1, 0), (0, 1)) \text{ and } ((0, 1), (1, 0))
+$$
+
+We also have infinitely many mixed strategy nash equilibria: $$
+(\sigma_1, \sigma_2) = ( (p, 1-p), (0, 1)), s.t. \space p \in \left[\frac{1}{2}, 1 \right]
+$$
+
+Note: $s.t.$ means such that.
 
 ## Downsian Model of Electoral Competition
 
