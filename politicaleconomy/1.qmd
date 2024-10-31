@@ -204,7 +204,7 @@ Preferences are represented by a payoff function $u_i(s_i, s_{-i})$
 
 # Static Games of Complete Information
 
-## Dominant Strategy Equilibrium
+## Dominant Strategy Equilibrium and Nash Equilibrium
 
 ### Dominant Strategies
 
@@ -276,8 +276,6 @@ For example, take the **prisoner's dilemma**. We have already established that f
 There, at most, can only be one dominant strategy equilibrium in a game. This makes dominant strategy equilibrium a great solution concept for predicting - as there will always only be one solution.
 
 However, many games do not have any dominant strategies, and thus, many games do not have a dominant strategy equilibrium. As a result, this solution concept is not possible on a vast majority of games.
-
-## Nash Equilibrium
 
 ### Best Response
 
@@ -798,9 +796,13 @@ These predictions can be empirically tested. This shows how microeconomic models
 
 ### Valence Politics Model
 
+## Cournot Equilibrium
+
 # Dynamic Games
 
-## Dynamic Games of Complete Information
+## Subgame Perfect Nash Equilibrium
+
+## Legislative Bargaining Models
 
 ## Elections as Incentive Devices
 
