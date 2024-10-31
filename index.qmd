@@ -78,14 +78,14 @@ This is a project that I am working on, that combines everything I have learned 
 
 <br />
 
-#### **Political Economics: Microeconomic Analysis of Politics**
+#### **Political Economics Sequence**
 
 This sequence is the core of Political Economics - discussing how economic models can be used to study politics.
 
-1.  [Volume I](https://kevinli03.github.io/politicaleconomy/1.pdf): introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
-2.  [Volume II](https://kevinli03.github.io/politicaleconomy/2.pdf): Applies the microeconomic theory and models discussed in the previous book to current academic topics.
+1.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf): introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
+2.  [Applied Microeconomic Analysis of Politics](https://kevinli03.github.io/politicaleconomy/2.pdf): Applies the microeconomic theory and models discussed in the previous book to current academic topics.
 
-#### **Econometrics for Political Analysis**
+#### **Econometrics for Political Analysis Sequence**
 
 This sequence introduces the techniques in econometrics used to empirical evaluate our economic models of politics. We will use the R language to implement methods.
 
@@ -93,7 +93,7 @@ This sequence introduces the techniques in econometrics used to empirical evalua
 2.  [Volume II: Advanced Models](https://kevinli03.github.io/stats/2.pdf): This book mainly covers logit and count regression models, time series models, and latent variable models.
 3.  [Volume III: Big Data](https://kevinli03.github.io/politicaleconomy/3.pdf): introduces modern statistical learning techniques that have improved prediction accuracy. The book starts off with prediction and classification methods, then covers model validation, before ending on text mining and quantitative text analysis.
 
-#### **Quantitative Methods**
+#### **Quantitative Methods Sequence**
 
 This sequence focuses on the mathematics and statistical theory in which Political Economics is built on.
 

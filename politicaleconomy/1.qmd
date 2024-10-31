@@ -1,6 +1,6 @@
 ---
-title: "Political Economics: Microeconomic Analysis of Politics"
-subtitle: "Volume I"
+title: "Microeconomic Theory for Political Analysis"
+subtitle: "Introduction to Microeconomic Theory and Game Theory"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -20,11 +20,11 @@ format:
 
 ## Preface {.unnumbered}
 
-This book is the first volume in a sequence on **Political Economics: Microeconomic Analysis of Politics**.
+This book is the first volume in a sequence on **Political Economics**.
 
--   [Volume I](https://kevinli03.github.io/stats/1.pdf) (this book) introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
+-   [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) (this book) introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
 
--   [Volume II](https://kevinli03.github.io/stats/2.pdf) applies the microeconomic theory and models discussed in the previous book to current academic topics.
+-   [Applied Microeconomic Analysis of Politics](https://kevinli03.github.io/politicaleconomy/2.pdf) applies the microeconomic theory and models discussed in the previous book to current academic topics.
 
 **Political Economics** is the use of economic models and approaches to study politics. More specifically, it is the use of microeconomic-style rational choice models and game theory to study political behaviour and institutions, and how that impacts political outcomes.
 
