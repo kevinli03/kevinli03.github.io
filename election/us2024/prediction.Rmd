@@ -20,9 +20,15 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 -   Also, this is a very unique presidential election - may be flawed to assume that past data can predict what will happen this time.
 
-### Electoral Votes Predictions
+**DONT FORGET TO NOT ONLY CHECK OUT ELECTORAL VOTE PREDICTIONS, BUT ALSO THE YES/NO PREDICTIONS.**
 
-Ranked in Order of Accurateness.
+-   Those models have a 100% accuracy in the last 7 elections, including the 2016 and 2020 elections. Use the navbar or scroll down to find them!
+
+<br />
+
+## Electoral Votes Predictions
+
+Ranked in Order of Accurateness. Quick summary - most models say trump will win, however, Harris does win one of the more accurate models, so...
 
 <br />
 
@@ -96,29 +102,91 @@ Ranked in Order of Accurateness.
 
 <br />
 
-### Win/Lose Probability Predictions
+## Win/Lose Probability Predictions
 
-**With Height Excluded**
+Note: Every model in this section correctly predicts the election winners of the last 7 elections.
 
--   Bagging Model: [61.8% Trump Wins]{.underline}, 38.2% Harris Wins
-
--   Random Forest (5): [59% Trump Wins]{.underline}, 41% Harris Wins
-
--   Naive Bayes (which is typically way overconfident, but prediction is useful): [93.98% Trump Wins]{.underline}, 6.02% Harris Wins
+Do not pay too much attention to the acutal percentages - the estimation can be bizzare. [NOTE that this year, the percentages are far closer than previous years, indicating a close race]{.underline}.
 
 <br />
 
-**With Height Included**
+**Bagging Model Without Height**: [61.8% Trump Wins]{.underline}, 38.2% Harris Wins
 
--   Bagging Model: [64.2% Trump wins]{.underline}, 35.8% chance Harris wins
+(All Correct)!
 
--   Random Forest: [68% Trump Wins]{.underline}, 41% Harris Wins
-
--   Naive Bayes (very overconfident, cuz math mechanics of the assumptions, but anywho): [99% Trump Win]{.underline} (again, take with grain of salt)
+|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2020 |
+|:-------------------------|:------|:--------|:------|:-------|:------|:-----|
+| Model (Incumbent Chance) | 12.2% | 21.2%   | 83.4% | 3%     | 78.2% | 12%  |
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
 
 <br />
 
-### My Personal (Gut-Based) Predictions
+**Random Forest (5 variables bootstrapped) Without Height**: [59% Trump Wins]{.underline}, 41% Harris Wins
+
+|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2020  |
+|:-------------------------|:------|:--------|:------|:-------|:-----|:------|
+| Model (Incumbent Chance) | 15%   | 21%     | 85.8% | 3.8%   | 80%  | 14.2% |
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes   |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore  |
+
+<br />
+
+**Naive Bayes Without Height**: [93.98% Trump Wins]{.underline}, 6.02% Harris Wins
+
+(Note: naive bayes, as a result of its assumptions, is always overconfident, so don't focus on % chance, focus on winner)
+
+|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2020 |
+|:-------------------------|:------|:--------|:------|:-------|:-----|:-----|
+| Model (Incumbent Chance) | 2.3%  | 0.2%    | 99.9% | 0%     | 9%   | 0.3% |
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes  |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore |
+
+<br />
+
+**Bagging Model With Height Included**: [64.2% Trump wins]{.underline}, 35.8% chance Harris wins
+
+|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2020  |
+|:-------------------------|:------|:--------|:------|:-------|:-----|:------|
+| Model (Incumbent Chance) | 15.6% | 25.2%   | 83%   | 3.6%   | 80%  | 11.2% |
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes   |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore  |
+
+<br />
+
+Random Forest: [68% Trump Wins]{.underline}, 41% Harris Wins
+
+|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2020 |
+|:-------------------------|:------|:--------|:------|:-------|:------|:-----|
+| Model (Incumbent Chance) | 15.2% | 19.4%   | 83.6% | 3.6%   | 77.8% | 17%  |
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+
+<br />
+
+**Naive Bayes With Height**: [99% Trump Win]{.underline} (again, take with grain of salt)
+
+|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2020 |
+|:-------------------------|:------|:--------|:------|:-------|:------|:-----|
+| Model (Incumbent Chance) | 0%    | 0%      | 99.9% | 0%     | 88.3% | 0.5% |
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+
+<br />
+
+## My Personal (Gut-Based) Predictions
 
 **My Personal Map**
 
@@ -126,7 +194,7 @@ Ranked in Order of Accurateness.
 
 <br />
 
-### The Data in My Models
+## The Data in My Models
 
 I used the following variables (that I gathered in like one hour). I did not check data quality, could be terrible.
 
@@ -319,7 +387,7 @@ clean data
 
 ```{r, message = FALSE}
 win <- read_csv("win.csv")
-win2024 <- win[1,]
+win2024 <- win[1:7,]
 win2024 <- win2024[,-2]
 win <- win[-1,] # get rid of first row
 win$win <- as.factor(win$win)
