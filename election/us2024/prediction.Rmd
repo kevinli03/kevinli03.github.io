@@ -1,0 +1,224 @@
+---
+title: "Presidential Prediction"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_float:
+      collapsed: true
+    theme: lumen
+date: "2024-11-02"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Summary
+
+Disclamer: i collected all the data and ran all this models in like 2 hours. I did not put much effort into this, its not very good. Just for fun. Might add ridge regression later but lazy.
+
+**Electoral College Predictions**
+
+-   Note, % var explained is not very high, so not quite useful
+
+-   Bagging: Harris 219.1464 Electoral Votes, trump 318.8536
+
+-   Random Forest: 230.3733 Electoral Votes, trump 307.6267
+
+**Win Lose Predictions**
+
+-   Bagging Model: 64.2% chance Trump wins, 35.8% chance Harris wins
+
+    -   Random forest performs worse (% var explained), prob cuz polling is the most important variable.
+
+-   Naive Bayes (very overconfident, cuz math mechanics of the assumptions, but anywho): 99% Trump Win (again, take with grain of salt)
+
+**Pennsylvania Predictions**
+
+-   Bagging: 60% Trump wins, 40% harris wins
+
+-   Naive Bayes (overconfident due to assumptions): 99% trump win (again, take with grain of salt)
+
+**My Personal Map**
+
+![](map.png)
+
+Start with the data analysis.
+
+Load packages, clean data
+
+```{r, message = FALSE}
+library(tidyverse)
+library(randomForest)
+setwd("/Users/kevinli/Documents/GitHub/kevinli03.github.io/election/us2024")
+data <- read_csv("data.csv")
+```
+
+clean data
+
+```{r}
+dta <- data[-1,] # get rid of first row
+dta <- dta %>%
+  select(-c(Incumbent, Challenger))
+```
+
+# Electoral College
+
+**Predictions**
+
+-   Note, % var explained is not very high, so not quite useful
+
+-   Bagging: Harris 219.1464 Electoral Votes, trump 318.8536
+
+-   Random Forest: 230.3733 Electoral Votes, trump 307.6267
+
+Seed
+
+```{r}
+set.seed(32435)
+```
+
+Bagging:
+
+```{r}
+bagging <- randomForest(Pct_incumb ~ .,
+                        data = dta,
+                        na.action = na.omit,
+                        mtry = 28,
+                        importance = TRUE)
+bagging
+```
+
+```{r}
+#prediction
+data2024 <- data[1,]
+data2024 <- data2024[,-c(2,3,4)]
+
+bagging_pred <- predict(bagging, newdata = data2024)
+bagging_pred * 538
+```
+
+Random Forest:
+
+```{r}
+forest <- randomForest(Pct_incumb ~ .,
+                        data = dta,
+                        na.action = na.omit,
+                        mtry = 20,
+                        importance = TRUE)
+forest
+```
+
+```{r}
+# predictions
+forest_pred <- predict(forest, newdata = data2024)
+forest_pred * 538
+```
+
+Importance
+
+```{r}
+varImpPlot(bagging, type = 2)
+```
+
+```{r}
+varImpPlot(forest, type = 2)
+```
+
+# Win/Lose
+
+**Predictions**
+
+-   Bagging Model: 64.2% chance Trump wins, 35.8% chance Harris wins
+
+    -   Random forest performs worse (% var explained), prob cuz polling is the most important variable.
+
+-   Naive Bayes (very overconfident, cuz math mechanics of the assumptions, but anywho): 99% Trump Win (again, take with grain of salt)
+
+clean data
+
+```{r, message = FALSE}
+win <- read_csv("win.csv")
+win2024 <- win[1,]
+win2024 <- win2024[,-2]
+win <- win[-1,] # get rid of first row
+win$win <- as.factor(win$win)
+```
+
+bagging
+
+```{r}
+bagging_win <- randomForest(win ~ .,
+                        data = win,
+                        na.action = na.omit,
+                        mtry = 28,
+                        importance = TRUE)
+bagging_win
+```
+
+```{r}
+#prediction
+bagging_winpred <- predict(bagging_win, newdata = win2024, type = "prob")
+bagging_winpred
+```
+
+naive bayes
+
+```{r}
+library(e1071)
+```
+
+```{r}
+bayes <- naiveBayes(win ~ ., data = win)
+bayes_winpred <- predict(bayes, newdata = win2024, type = "raw")
+
+bayes_winpred
+```
+
+# Pennsylvania
+
+**Predictions**
+
+-   Bagging: 60% Trump wins, 40% harris wins
+
+-   Naive Bayes (overconfident due to assumptions): 99% trump win (again, take with grain of salt)
+
+clean data
+
+```{r, message = FALSE}
+penn <- read_csv("pen.csv")
+penn2024 <- penn[1,]
+penn2024 <- penn2024[,-2]
+penn <- penn[-1,] # get rid of first row
+penn$penn <- as.factor(penn$penn)
+```
+
+bagging
+
+```{r}
+bagging_penn <- randomForest(penn ~ .,
+                        data = penn,
+                        na.action = na.omit,
+                        mtry = 28,
+                        importance = TRUE)
+bagging_penn
+```
+
+```{r}
+#prediction
+bagging_pennpred <- predict(bagging_penn, newdata = penn2024, type = "prob")
+
+bagging_pennpred
+```
+
+naive bayes
+
+```{r}
+bayes_penn <- naiveBayes(penn ~ ., data = penn)
+
+# prediction
+bayes_pennpred <- predict(bayes_penn, newdata = penn2024, type = "raw")
+
+bayes_pennpred
+```
