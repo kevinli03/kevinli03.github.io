@@ -5,7 +5,7 @@ output:
     df_print: paged
     toc: yes
     toc_float:
-      collapsed: true
+      collapsed: false
     theme: lumen
 date: "2024-11-02"
 ---
@@ -14,37 +14,75 @@ date: "2024-11-02"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Summary
+# **Predictions**
 
 Disclamer: i collected all the data and ran all this models in like 2 hours. I did not put much effort into this, its not very good. Just for fun. Might add ridge regression later but lazy.
 
-**Electoral College Predictions**
+### Electoral Votes Predictions
 
--   Note, % var explained is not very high, so not quite useful
+**With Height Excluded (Since Perhaps Height only affects voting for male candidates?)**
 
--   Bagging: Harris 221.3203 Electoral Votes, trump 316.6797
+Note, % var explained is not very high, so not quite useful
 
--   Random Forest: 225.6484 Electoral Votes, trump 312.3516
+-   Bagging: Harris 226.9437 Electoral Votes, [Trump 311.0563]{.underline}
 
--   Linear model: Harris 265.78415 Electoral Votes, trump 272.21585
+-   Random Forest (19 Variables Bootstrap Sampled): Harris 230.1648 Electoral Votes, [Trump 307.8352]{.underline}
 
-**Win Lose Predictions**
+    -   (Higher % of variance explained in electoral votes)
 
--   Bagging Model: 64.2% chance Trump wins, 35.8% chance Harris wins
+-   Random Forest (5 Variables Bootstrap Sampled): [Harris 274.1415]{.underline} Electoral Votes, Trump 263.8585
 
-    -   Random forest performs worse (% var explained), prob cuz polling is the most important variable.
+    -   (Lower % of variance explained in electoral votes, but standard RF has sqrt(x variable \#)
 
--   Naive Bayes (very overconfident, cuz math mechanics of the assumptions, but anywho): 99% Trump Win (again, take with grain of salt)
+-   Linear Regression: [Harris 288.845 Electoral Votes]{.underline}, Trump 249.155
 
-**Pennsylvania Predictions**
+<br />
 
--   Bagging: 60% Trump wins, 40% harris wins
+**With Height Included**
 
--   Naive Bayes (overconfident due to assumptions): 99% trump win (again, take with grain of salt)
+Note, % var explained is not very high, so not quite useful
+
+-   Bagging: Harris 221.3203 Electoral Votes, [trump 316.6797]{.underline}
+
+-   Random Forest (20 Variables Boostrap Sampled): Harris 225.6484 Electoral Votes, [trump 312.3516]{.underline}
+
+    -   (Higher % of variance explained in electoral votes)
+
+-   Random Forest (5 Variables Bootstrap Sampled): Harris 260.0412 Electoral Votes, [trump 277.9588]{.underline}
+
+-   Linear model: Harris 265.78415 Electoral Votes, [trump 272.21585]{.underline}
+
+<br />
+
+### Win/Lose Probability Predictions
+
+**With Height Excluded**
+
+-   Bagging Model: [61.8% Trump Wins]{.underline}, 38.2% Harris Wins
+
+-   Random Forest (5): [59% Trump Wins]{.underline}, 41% Harris Wins
+
+-   Naive Bayes (which is typically way overconfident, but prediction is useful): [93.98% Trump Wins]{.underline}, 6.02% Harris Wins
+
+<br />
+
+**With Height Included**
+
+-   Bagging Model: [64.2% Trump wins]{.underline}, 35.8% chance Harris wins
+
+-   Random Forest: [68% Trump Wins]{.underline}, 41% Harris Wins
+
+-   Naive Bayes (very overconfident, cuz math mechanics of the assumptions, but anywho): [99% Trump Win]{.underline} (again, take with grain of salt)
+
+<br />
+
+### My Personal (Gut-Based) Predictions
 
 **My Personal Map**
 
 ![](map.png)
+
+<br />
 
 Start with the data analysis.
 
@@ -65,15 +103,9 @@ dta <- dta %>%
   select(-c(Incumbent, Challenger))
 ```
 
-# Electoral College
+# **Electoral College**
 
-**Predictions**
-
--   Note, % var explained is not very high, so not quite useful
-
--   Bagging: Harris 219.1464 Electoral Votes, trump 318.8536
-
--   Random Forest: 230.3733 Electoral Votes, trump 307.6267
+### Models with Height
 
 Seed
 
@@ -101,7 +133,28 @@ bagging_pred <- predict(bagging, newdata = data2024)
 bagging_pred * 538
 ```
 
-Random Forest:
+<br />
+
+Random Forest (5 variables boostrap Sampled):
+
+```{r}
+forest <- randomForest(Pct_incumb ~ .,
+                        data = dta,
+                        na.action = na.omit,
+                        mtry = 5,
+                        importance = TRUE)
+forest
+```
+
+```{r}
+# predictions
+forest_pred <- predict(forest, newdata = data2024)
+forest_pred * 538
+```
+
+<br />
+
+Random Forest (20 Variables boostrap sampled)
 
 ```{r}
 forest <- randomForest(Pct_incumb ~ .,
@@ -109,11 +162,6 @@ forest <- randomForest(Pct_incumb ~ .,
                         na.action = na.omit,
                         mtry = 20,
                         importance = TRUE)
-forest
-```
-
-```{r}
-# predictions
 forest_pred <- predict(forest, newdata = data2024)
 forest_pred * 538
 ```
@@ -128,6 +176,8 @@ varImpPlot(bagging, type = 2)
 varImpPlot(forest, type = 2)
 ```
 
+<br />
+
 linear model
 
 ```{r}
@@ -136,15 +186,75 @@ lm_pred <- predict(lm, newdata = data2024)
 lm_pred * 538
 ```
 
-# Win/Lose
+<br />
 
-**Predictions**
+### Models without Height
 
--   Bagging Model: 64.2% chance Trump wins, 35.8% chance Harris wins
+```{r}
+dta_noheight <- dta %>%
+  select(-height)
+data2024_noheight <- data2024 %>%
+  select(-height)
+```
 
-    -   Random forest performs worse (% var explained), prob cuz polling is the most important variable.
+<br />
 
--   Naive Bayes (very overconfident, cuz math mechanics of the assumptions, but anywho): 99% Trump Win (again, take with grain of salt)
+bagging
+
+```{r}
+bagging1 <- randomForest(Pct_incumb ~ .,
+                        data = dta_noheight,
+                        na.action = na.omit,
+                        mtry = 27,
+                        importance = TRUE)
+
+bagging_pred1 <- predict(bagging1, newdata = data2024_noheight)
+bagging_pred1 * 538
+```
+
+<br />
+
+Random forst (19 variables boostrap sampled)
+
+```{r}
+forest1 <- randomForest(Pct_incumb ~ .,
+                        data = dta_noheight,
+                        na.action = na.omit,
+                        mtry = 19,
+                        importance = TRUE)
+
+forest_pred1 <- predict(forest1, newdata = data2024_noheight)
+forest_pred1 * 538
+```
+
+<br />
+
+random forest (5 variables boostrap sampled):
+
+```{r}
+forest1 <- randomForest(Pct_incumb ~ .,
+                        data = dta_noheight,
+                        na.action = na.omit,
+                        mtry = 5,
+                        importance = TRUE)
+
+forest_pred1 <- predict(forest1, newdata = data2024_noheight)
+forest_pred1 * 538
+```
+
+<br />
+
+linear regression
+
+```{r}
+lm1 <- lm(Pct_incumb ~ ., data = dta_noheight)
+lm_pred1 <- predict(lm1, newdata = data2024_noheight)
+lm_pred1 * 538
+```
+
+<br />
+
+# **Win/Lose**
 
 clean data
 
@@ -155,6 +265,8 @@ win2024 <- win2024[,-2]
 win <- win[-1,] # get rid of first row
 win$win <- as.factor(win$win)
 ```
+
+<br />
 
 bagging
 
@@ -173,6 +285,22 @@ bagging_winpred <- predict(bagging_win, newdata = win2024, type = "prob")
 bagging_winpred
 ```
 
+<br />
+
+Random Forest (5 vairables boostrap sampled):
+
+```{r}
+bagging_win <- randomForest(win ~ .,
+                        data = win,
+                        na.action = na.omit,
+                        mtry = 5,
+                        importance = TRUE)
+bagging_winpred <- predict(bagging_win, newdata = win2024, type = "prob")
+bagging_winpred
+```
+
+<br />
+
 naive bayes
 
 ```{r}
@@ -186,49 +314,52 @@ bayes_winpred <- predict(bayes, newdata = win2024, type = "raw")
 bayes_winpred
 ```
 
-# Pennsylvania
+<br />
 
-**Predictions**
-
--   Bagging: 60% Trump wins, 40% harris wins
-
--   Naive Bayes (overconfident due to assumptions): 99% trump win (again, take with grain of salt)
-
-clean data
-
-```{r, message = FALSE}
-penn <- read_csv("pen.csv")
-penn2024 <- penn[1,]
-penn2024 <- penn2024[,-2]
-penn <- penn[-1,] # get rid of first row
-penn$penn <- as.factor(penn$penn)
-```
-
-bagging
+### Without Height
 
 ```{r}
-bagging_penn <- randomForest(penn ~ .,
-                        data = penn,
+win_noheight <- win %>%
+  select(-height)
+win2024_noheight <- win2024 %>%
+  select(-height)
+```
+
+<br />
+
+Bagging:
+
+```{r}
+bagging_win1 <- randomForest(win ~ .,
+                        data = win_noheight,
                         na.action = na.omit,
-                        mtry = 28,
+                        mtry = 27,
                         importance = TRUE)
-bagging_penn
+bagging_winpred1 <- predict(bagging_win1, newdata = win2024_noheight, type = "prob")
+bagging_winpred1
 ```
 
-```{r}
-#prediction
-bagging_pennpred <- predict(bagging_penn, newdata = penn2024, type = "prob")
+<br />
 
-bagging_pennpred
+Random Forest (5 Variables bootstrapped):
+
+```{r}
+bagging_win1 <- randomForest(win ~ .,
+                        data = win_noheight,
+                        na.action = na.omit,
+                        mtry = 5,
+                        importance = TRUE)
+bagging_winpred1 <- predict(bagging_win1, newdata = win2024_noheight, type = "prob")
+bagging_winpred1
 ```
 
-naive bayes
+<br />
+
+Naive Bayes:
 
 ```{r}
-bayes_penn <- naiveBayes(penn ~ ., data = penn)
+bayes1 <- naiveBayes(win ~ ., data = win_noheight)
+bayes_winpred1 <- predict(bayes1, newdata = win2024_noheight, type = "raw")
 
-# prediction
-bayes_pennpred <- predict(bayes_penn, newdata = penn2024, type = "raw")
-
-bayes_pennpred
+bayes_winpred1
 ```
