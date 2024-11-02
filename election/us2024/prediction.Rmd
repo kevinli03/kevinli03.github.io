@@ -22,11 +22,11 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 -   Note, % var explained is not very high, so not quite useful
 
--   Bagging: Harris 219.1464 Electoral Votes, trump 318.8536
+-   Bagging: Harris 221.3203 Electoral Votes, trump 316.6797
 
--   Random Forest: 230.3733 Electoral Votes, trump 307.6267
+-   Random Forest: 225.6484 Electoral Votes, trump 312.3516
 
--   Linear model: Harris 224.306 Electora Votes, trump 313.694
+-   Linear model: Harris 265.78415 Electoral Votes, trump 272.21585
 
 **Win Lose Predictions**
 
