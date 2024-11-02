@@ -22,37 +22,77 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 ### Electoral Votes Predictions
 
-**With Height Excluded (Since Perhaps Height only affects voting for male candidates?)**
-
-Note, % var explained is not very high (around 52% in highest model), so not quite useful
-
--   Bagging: Harris 226.943 Electoral Votes, [Trump 311.056]{.underline}
-
--   Random Forest (19 Variables Bootstrap Sampled): Harris 230.164 Electoral Votes, [Trump 307.835]{.underline}
-
-    -   (Higher % of variance explained in electoral votes)
-
--   Random Forest (5 Variables Bootstrap Sampled): [Harris 274.141]{.underline} Electoral Votes, Trump 263.858
-
-    -   (Lower % of variance explained in electoral votes, but standard RF has sqrt(x variable \#)
-
--   Linear Regression: [Harris 288.845 Electoral Votes]{.underline}, Trump 249.155
+Ranked in Order of Accurateness.
 
 <br />
 
-**With Height Included**
+**Random Forest (20 Variables Boostrap Sampled) with Heigh**t: Harris 225.648 Electoral Votes, [trump 312.351]{.underline}
 
-Note, % var explained is not very high (around 52% in highest model), so not quite useful
+(Quite Accurate, all numbers are electoral college votes of the incumbent party going into the election - ex. this year democrats are incumbent)
 
--   Bagging: Harris 221.320 Electoral Votes, [trump 316.679]{.underline}
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|:-------------------|:------|:--------|:------|:-------|:------|:------|
+| Model (Incumbent)  | 233.4 | 280     | 297.9 | 185.2  | 271.4 | 261.3 |
+| Correct Winner?    | Yes   | No      | Yes   | Yes    | Yes   | Yes   |
+| Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
+| Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
--   Random Forest (20 Variables Boostrap Sampled): Harris 225.648 Electoral Votes, [trump 312.351]{.underline}
+<br />
 
-    -   (Higher % of variance explained in electoral votes)
+**Random Forest (5 Variables Bootstrap Sampled) With Height Excluded**: [Harris 274.141]{.underline} Electoral Votes, Trump 263.858
 
--   Random Forest (5 Variables Bootstrap Sampled): Harris 260.041 Electoral Votes, [trump 277.958]{.underline}
+(The model after this performs just as well, but I have reason to believe maybe height is not a relevant variable for this election)
 
--   Linear model: Harris 265.784 Electoral Votes, [trump 272.215]{.underline}
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|:-------------------|:------|:--------|:------|:-------|:------|:------|
+| Model (Incumbent)  | 249   | 264.7   | 315.5 | 192.2  | 283.6 | 277.8 |
+| Correct Winner?    | Yes   | Yes     | Yes   | Yes    | Yes   | No    |
+| Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
+| Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
+
+<br />
+
+**Random Forest (5 Variables Bootstrap Sampled) with Height**: Harris 260.041 Electoral Votes, [trump 277.958]{.underline}
+
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|:-------------------|:------|:--------|:------|:-------|:------|:------|
+| Model (Incumbent)  | 249.3 | 260.1   | 311   | 188.2  | 272.1 | 275.7 |
+| Correct Winner?    | Yes   | Yes     | Yes   | Yes    | Yes   | No    |
+| Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
+| Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
+
+<br />
+
+**Bagging Model with Height Excluded**: Harris 226.943 Electoral Votes, [Trump 311.056]{.underline}
+
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|:-------------------|:------|:--------|:------|:-------|:------|:------|
+| Model (Incumbent)  | 222.1 | 301.1   | 295.4 | 186.1  | 262.7 | 255.5 |
+| Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
+| Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
+| Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
+
+<br />
+
+**Random Forest (19 Variables Bootstrap Sampled) With Height Excluded**: Harris 230.164 Electoral Votes, [Trump 307.835]{.underline}
+
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|:-------------------|:------|:--------|:------|:-------|:------|:------|
+| Model (Incumbent)  | 230.9 | 287.1   | 296.6 | 177.9  | 264.4 | 255.8 |
+| Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
+| Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
+| Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
+
+<br />
+
+**Bagging With Height**: Harris 221.320 Electoral Votes, [trump 316.679]{.underline}
+
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|:-------------------|:------|:--------|:------|:-------|:------|:------|
+| Model (Incumbent)  | 236.3 | 291.1   | 298.0 | 187.1  | 260.8 | 264.6 |
+| Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
+| Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
+| Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
 <br />
 
@@ -163,7 +203,7 @@ bagging
 
 ```{r}
 #prediction
-data2024 <- data[1,]
+data2024 <- data[1:7,]
 data2024 <- data2024[,-c(2,3,4)]
 
 bagging_pred <- predict(bagging, newdata = data2024)
@@ -211,16 +251,6 @@ varImpPlot(bagging, type = 2)
 
 ```{r}
 varImpPlot(forest, type = 2)
-```
-
-<br />
-
-linear model
-
-```{r}
-lm <- lm(Pct_incumb ~ ., data = dta)
-lm_pred <- predict(lm, newdata = data2024)
-lm_pred * 538
 ```
 
 <br />
@@ -277,16 +307,6 @@ forest1 <- randomForest(Pct_incumb ~ .,
 
 forest_pred1 <- predict(forest1, newdata = data2024_noheight)
 forest_pred1 * 538
-```
-
-<br />
-
-linear regression
-
-```{r}
-lm1 <- lm(Pct_incumb ~ ., data = dta_noheight)
-lm_pred1 <- predict(lm1, newdata = data2024_noheight)
-lm_pred1 * 538
 ```
 
 <br />
