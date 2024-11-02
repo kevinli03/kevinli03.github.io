@@ -26,6 +26,8 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 -   Random Forest: 230.3733 Electoral Votes, trump 307.6267
 
+-   Linear model: Harris 224.306 Electora Votes, trump 313.694
+
 **Win Lose Predictions**
 
 -   Bagging Model: 64.2% chance Trump wins, 35.8% chance Harris wins
@@ -124,6 +126,14 @@ varImpPlot(bagging, type = 2)
 
 ```{r}
 varImpPlot(forest, type = 2)
+```
+
+linear model
+
+```{r}
+lm <- lm(Pct_incumb ~ ., data = dta)
+lm_pred <- predict(lm, newdata = data2024)
+lm_pred * 538
 ```
 
 # Win/Lose
