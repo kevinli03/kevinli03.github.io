@@ -24,7 +24,7 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 **With Height Excluded (Since Perhaps Height only affects voting for male candidates?)**
 
-Note, % var explained is not very high, so not quite useful
+Note, % var explained is not very high (around 52% in highest model), so not quite useful
 
 -   Bagging: Harris 226.943 Electoral Votes, [Trump 311.056]{.underline}
 
@@ -42,7 +42,7 @@ Note, % var explained is not very high, so not quite useful
 
 **With Height Included**
 
-Note, % var explained is not very high, so not quite useful
+Note, % var explained is not very high (around 52% in highest model), so not quite useful
 
 -   Bagging: Harris 221.320 Electoral Votes, [trump 316.679]{.underline}
 
