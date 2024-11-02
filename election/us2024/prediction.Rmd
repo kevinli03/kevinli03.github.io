@@ -50,7 +50,7 @@ Note, % var explained is not very high, so not quite useful
 
     -   (Higher % of variance explained in electoral votes)
 
--   Random Forest (5 Variables Bootstrap Sampled): Harris 260.0412 Electoral Votes, [trump 277.958]{.underline}
+-   Random Forest (5 Variables Bootstrap Sampled): Harris 260.041 Electoral Votes, [trump 277.958]{.underline}
 
 -   Linear model: Harris 265.784 Electoral Votes, [trump 272.215]{.underline}
 
