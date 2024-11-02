@@ -86,6 +86,41 @@ Note, % var explained is not very high, so not quite useful
 
 <br />
 
+### The Data in My Models
+
+I used the following variables (that I gathered in like one hour). I did not check data quality, could be terrible.
+
+1.  Year
+2.  Incumbent Party
+3.  Reelection (is on of the candidates the current president)
+4.  Terms current party is in office continuously
+5.  Poll margin (incumbent party candidate- challenger)
+6.  Real GDP Growth in election year
+7.  Unemployment rate in election rate
+8.  Inflation rate in election year
+9.  Incumbent party president average approval rating (gallup)
+10. Incumbent party president highest approval rating (gallup)
+11. Incumbent party president lowest approval rating (gallup)
+12. Recession occurred in the past 4 years?
+13. House net change in seats (of incumbent party) during the midterm election 2 years before the election
+14. House net change in seats (of incumbent party) during the election 4 years ago
+15. House change in seats (of incumbent party) for both midterm and 4 year ago election combined.
+16. Incumbent party faced a primary challenge? (challenge defined as winner of primary recieved less than 60% of votes. I classify harris is no-primary challenge).
+17. S&P 500 Returns in election year
+18. Midterm house elections from 2 years ago, incumbent party's vote share overall (entire country)
+19. \% Change in Jobs from last election to this election (a full presidential term)
+20. Height of the candidates (incumbent - challenger)
+21. Real estate returns in election year
+22. Treasury 10-year bond returns in election year.
+23. Does incumbent party have majority in House?
+24. Does incumbent party have majority in Senate?
+25. How many workers were furloughed as a result of a government shutdown during the current administration?
+26. Did any of the 15 largest tax rises in history occur during the current administration? If so, how much was the tax rise (% wise)
+27. Did any of the 15 largest tax breaks in history occur during the current administration? If so, how much was the tax break (% wise)
+28. The last two data points but net.
+
+<br />
+
 Start with the data analysis.
 
 Load packages, clean data
