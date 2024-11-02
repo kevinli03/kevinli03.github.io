@@ -18,6 +18,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Disclamer: i collected all the data and ran all this models in like 2 hours. I did not put much effort into this, its not very good. Just for fun. Might add ridge regression later but lazy.
 
+-   Also, this is a very unique presidential election - may be flawed to assume that past data can predict what will happen this time.
+
 ### Electoral Votes Predictions
 
 **With Height Excluded (Since Perhaps Height only affects voting for male candidates?)**
@@ -255,6 +257,8 @@ lm_pred1 * 538
 <br />
 
 # **Win/Lose**
+
+### With Height
 
 clean data
 

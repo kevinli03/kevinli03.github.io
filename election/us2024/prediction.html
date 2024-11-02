@@ -2790,6 +2790,10 @@ font-size: 0.95em;
 <p>Disclamer: i collected all the data and ran all this models in like 2
 hours. I did not put much effort into this, its not very good. Just for
 fun. Might add ridge regression later but lazy.</p>
+<ul>
+<li>Also, this is a very unique presidential election - may be flawed to
+assume that past data can predict what will happen this time.</li>
+</ul>
 <div id="electoral-votes-predictions" class="section level3">
 <h3>Electoral Votes Predictions</h3>
 <p><strong>With Height Excluded (Since Perhaps Height only affects
@@ -3010,7 +3014,9 @@ lm_pred1 &lt;- predict(lm1, newdata = data2024_noheight)</code></pre>
 </div>
 </div>
 <div id="winlose" class="section level1">
-<h1>Win/Lose</h1>
+<h1><strong>Win/Lose</strong></h1>
+<div id="with-height" class="section level3">
+<h3>With Height</h3>
 <p>clean data</p>
 <pre class="r"><code>win &lt;- read_csv(&quot;win.csv&quot;)
 win2024 &lt;- win[1,]
@@ -3067,6 +3073,7 @@ bayes_winpred</code></pre>
 <pre><code>##              0            1
 ## [1,] 0.9995677 0.0004322581</code></pre>
 <p><br /></p>
+</div>
 <div id="without-height" class="section level3">
 <h3>Without Height</h3>
 <pre class="r"><code>win_noheight &lt;- win %&gt;%
