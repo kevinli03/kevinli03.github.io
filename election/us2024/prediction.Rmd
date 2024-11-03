@@ -281,7 +281,7 @@ dta <- dta %>%
   select(-c(Incumbent, Challenger))
 ```
 
-# **Electoral College**
+# **Electoral College (R Code)**
 
 ### Models with Height
 
@@ -416,7 +416,7 @@ forest_pred1 * 538
 
 <br />
 
-# **Win/Lose**
+# **Win/Lose (R Code)**
 
 ### With Height
 
