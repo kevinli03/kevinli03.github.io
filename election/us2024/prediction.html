@@ -2807,21 +2807,21 @@ scroll down)</strong></p>
 <p>I create 3 different predictions for the 2024 election for each
 model.</p>
 <ul>
-<li><p><strong>Most Likely: If polls say harris leads by 1.2% (according
-to 538 aggregator, seems to be most accurate)</strong></p></li>
-<li><p>Less Likely: If polls say harris leads by 2% (the economist
-aggregator)</p></li>
-<li><p>Unlikely: If polls say harris leads by 3% (a few polls say this,
-but unlikely to be true).</p></li>
+<li><p>Most Likely Scenario: polls say harris leads by 1.2% (according
+to 538 aggregator, seems to be most accurate)</p></li>
+<li><p>Moderately Likely Scenario: polls say harris leads by 2% (the
+economist aggregator rounded up)</p></li>
+<li><p>Unlikely Scenario: If polls say harris leads by 3% (a few polls
+say this, but unlikely to be true).</p></li>
 </ul>
 <p><br /></p>
 <div id="best-models-by-recent-performance" class="section level3">
 <h3>2 Best Models (by recent performance)</h3>
-<p><strong>Random Forest (5 Variables Bootstrap Sampled) With Height
-Excluded</strong>:</p>
+<p>Random Forest Model (5 Variables Bootstrap Sampled) With Height
+Excluded:</p>
+<p><strong>Most Likely: If harris leads 1.2% in polls: Harris 266.97,
+<u>Trump 271.03</u></strong></p>
 <ul>
-<li><p><strong>If harris leads 1.2% in polls: Harris 266.97, <u>Trump
-271.03</u></strong></p></li>
 <li><p>If harris leads 2% in polls: <u>Harris 269.24</u>, Trump
 268.76</p></li>
 <li><p>If harris leads 3% in polls (unlikely): <u>Harris 297</u>, Trump
@@ -2891,11 +2891,12 @@ Excluded</strong>:</p>
 <p>% of Variance Explained in <span class="math inline">\(Y\)</span>
 (Electoral Votes Received by Incumbent): 42.15%</p>
 <p><br /></p>
-<p><strong>Random Forest (5 Variables Bootstrap Sampled) with
-Height</strong>:</p>
+<p><br /></p>
+<p>Random Forest Model (5 Variables Bootstrap Sampled) with Height
+Included:</p>
+<p><strong>Most Likely: If harris leads 1.2% in polls: Harris 267.88,
+<u>Trump 270.12</u></strong></p>
 <ul>
-<li><p><strong>If harris leads 1.2% in polls: Harris 267.88, <u>Trump
-270.12</u></strong></p></li>
 <li><p>If harris leads 2% in polls: <u>Harris 271.96</u>, Trump
 266.04</p></li>
 <li><p>If harris leads 3% in polls (unlikely): <u>Harris 296.45</u>,
@@ -2971,8 +2972,8 @@ Trump 241.5</p></li>
 <p><strong>Random Forest (20 Variables Boostrap Sampled) with
 Heigh</strong>t:</p>
 <ul>
-<li><p><strong>If harris leads 1.2% in polls: Harris 229.14 Electoral
-votes, <u>Trump 308.86</u></strong></p></li>
+<li><p>If harris leads 1.2% in polls: Harris 229.14 Electoral votes,
+<u>Trump 308.86</u></p></li>
 <li><p>If Harris leads 2% in polls: Harris 232.33 Electoral Votes,
 <u>Trump 305.67</u></p></li>
 <li><p>If Harris leads by 3% in polls (unlikely): <u>Harris 290.29</u>
@@ -3035,8 +3036,8 @@ Electoral Votes, Trump 247.7</p></li>
 <p><br /></p>
 <p><strong>Bagging Model with Height Excluded</strong>:</p>
 <ul>
-<li><p><strong>If harris leads 1.2% in polls: 229.66 Harris, <u>308.34
-Trump</u></strong></p></li>
+<li><p>If harris leads 1.2% in polls: 229.66 Harris, <u>308.34
+Trump</u></p></li>
 <li><p>If harris leads 2% in polls: 235.41 Harris, <u>302.59
 Trump</u></p></li>
 <li><p>If harris leads by 3% in polls (unlikely): <u>307 Harris</u>, 231
@@ -3109,8 +3110,8 @@ Trump</p></li>
 <p><strong>Random Forest (19 Variables Bootstrap Sampled) With Height
 Excluded</strong>:</p>
 <ul>
-<li><p><strong>If harris leads 1.2% in polls: 227.07 Harris, <u>310.93
-Trump</u></strong></p></li>
+<li><p>If harris leads 1.2% in polls: 227.07 Harris, <u>310.93
+Trump</u></p></li>
 <li><p>If harris leads 2% in polls: 229.9 Harris, <u>308.1
 Trump</u></p></li>
 <li><p>If harris leads 3% in polls (unlikely): <u>290.72 Harris</u>,
@@ -3182,8 +3183,8 @@ Trump</u></p></li>
 <p><br /></p>
 <p><strong>Bagging With Height</strong>:</p>
 <ul>
-<li><p><strong>If harris leads 1.2% in polls: Harris 215.74, <u>Trump
-332.26</u></strong></p></li>
+<li><p>If harris leads 1.2% in polls: Harris 215.74, <u>Trump
+332.26</u></p></li>
 <li><p>If harris leads 2% in polls: Harris 221.1, <u>Trump
 316.9</u></p></li>
 <li><p>If harris leads 3% in polls (unlikely): <u>Harris 293.18</u>,
@@ -3264,9 +3265,10 @@ winners of the last 7 elections.</p>
 <p><br /></p>
 <p><strong>Naive Bayes Without Height</strong>:</p>
 <ul>
-<li><p>If harris leads 1.2% in polls: Trump wins</p></li>
-<li><p>If harris leads 2% in polls: Trump wins</p></li>
-<li><p>If harris leads 3% in polls: Harris wins</p></li>
+<li><p>Most Likely - If harris leads 1.2% in polls: Trump wins</p></li>
+<li><p>Moderately Likely - If harris leads 2% in polls: Trump
+wins</p></li>
+<li><p>Unlikely - If harris leads 3% in polls: Harris wins</p></li>
 </ul>
 <p>Past performance (6/6 for the last 6 elections)</p>
 <table>
@@ -3333,9 +3335,10 @@ winners of the last 7 elections.</p>
 <p><br /></p>
 <p><strong>Bagging Model Without Height</strong>:</p>
 <ul>
-<li><p>If harris leads 1.2% in polls: Trump Wins</p></li>
-<li><p>If harris leads 2% in polls: Trump wins</p></li>
-<li><p>If harris leads 3% in polls: Trump wins</p></li>
+<li><p>Most Likely - If harris leads 1.2% in polls: Trump Wins</p></li>
+<li><p>Moderately Likely - If harris leads 2% in polls: Trump
+wins</p></li>
+<li><p>Unlikely - If harris leads 3% in polls: Trump wins</p></li>
 </ul>
 <p>Past performance (6/6 for the last 6 elections)</p>
 <table>
@@ -3403,9 +3406,10 @@ winners of the last 7 elections.</p>
 <p><strong>Random Forest (5 variables bootstrapped) Without
 Height</strong>:</p>
 <ul>
-<li><p>If harris leads 1.2% in polls: Trump Wins</p></li>
-<li><p>If harris leads 2% in polls: Trump wins</p></li>
-<li><p>If harris leads 3% in polls: Trump wins</p></li>
+<li><p>Most Likely - If harris leads 1.2% in polls: Trump Wins</p></li>
+<li><p>Moderately Likely - If harris leads 2% in polls: Trump
+wins</p></li>
+<li><p>Unlikely - If harris leads 3% in polls: Trump wins</p></li>
 </ul>
 <p>Past performance (6/6 for the last 6 elections)</p>
 <table>
