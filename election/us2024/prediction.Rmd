@@ -58,7 +58,7 @@ Past Performance (5 out of last 6 elections correct winner)
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
-: % of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 42.15%
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 42.15%
 
 <br />
 
@@ -79,7 +79,7 @@ Past performance (5 out of last 6 elections correct winner)
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
-: % of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 37.64%
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 37.64%
 
 <br />
 
@@ -194,7 +194,7 @@ Past performance (6/6 for the last 6 elections)
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore |
 
-: Error rate over last 22 elections: NA (too lazy to calculate)
+Error rate over last 22 elections: NA (too lazy to calculate)
 
 <br />
 
@@ -215,7 +215,7 @@ Past performance (6/6 for the last 6 elections)
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore |
 
-: Error rate over last 22 elections: 22.73%
+Error rate over last 22 elections: 22.73%
 
 <br />
 
