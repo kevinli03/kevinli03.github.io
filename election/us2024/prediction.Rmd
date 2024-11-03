@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # **Predictions**
 
-Disclamer: i collected all the data and ran all this models in like 2 hours. I did not put much effort into this, its not very good. Just for fun. Might add ridge regression later but lazy.
+Disclamer: i collected all the data and ran all this models in like 2 hours. I did not put much effort into this, its not very good. Just for fun. Might add ridge lasso later but lazy.
 
 -   Very low sample size as well - just 22 presidential elections included as training data.
 -   Also, this is a very unique presidential election - may be flawed to assume that past data can predict what will happen this time.
@@ -191,7 +191,7 @@ Error rate over last 22 elections: 22.7%
 
 <br />
 
-Random Forest: [68% Trump Wins]{.underline}, 41% Harris Wins
+**Random Forest with Height**: [68% Trump Wins]{.underline}, 41% Harris Wins
 
 |                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
 |:-------------------------|:------|:--------|:------|:-------|:------|:-----|
