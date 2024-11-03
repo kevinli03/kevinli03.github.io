@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Disclamer: i collected all the data and ran all this models in like 2 hours. I did not put much effort into this, its not very good. Just for fun. Might add ridge regression later but lazy.
 
+-   Very low sample size as well - just 22 presidential elections included as training data.
 -   Also, this is a very unique presidential election - may be flawed to assume that past data can predict what will happen this time.
 
 **DONT FORGET TO NOT ONLY CHECK OUT ELECTORAL VOTE PREDICTIONS, BUT ALSO THE YES/NO PREDICTIONS.**
@@ -32,11 +33,11 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 -   As an input, I put Harris with a +1.2 lead in polls, as was the case on 538 and 270 to win on 2 Nov.
 
-Aggregate Prediction of All Models: Harris 239.7 Electoral College Votes, [Trump 298.3 Electoral College Votes]{.underline}.
+Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 297 Electoral College Votes]{.underline}.
 
 <br />
 
-**Random Forest (20 Variables Boostrap Sampled) with Heigh**t: Harris 225.648 Electoral Votes, [trump 312.351]{.underline}
+**Random Forest (20 Variables Boostrap Sampled) with Heigh**t: Harris 223.542 Electoral Votes, [trump 314.458]{.underline}
 
 (Quite Accurate, all numbers are electoral college votes of the incumbent party going into the election - ex. this year democrats are incumbent)
 
@@ -49,28 +50,24 @@ Aggregate Prediction of All Models: Harris 239.7 Electoral College Votes, [Trump
 
 \% of Variance Explained in $Y$ (Electoral Votes Recieved by Incumbent): 57.9%
 
-Mean Squared Residuals: 15.654 Electoral Votes (Over last 22 elections)
-
 <br />
 
-**Random Forest (5 Variables Bootstrap Sampled) With Height Excluded**: [Harris 274.141]{.underline} Electoral Votes, Trump 263.858
+**Random Forest (5 Variables Bootstrap Sampled) With Height Excluded**: [Harris 277.558]{.underline} Electoral Votes, Trump 260.442
 
 (I have reason to believe maybe height is not a relevant variable for this election)
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
-| Model (Incumbent)  | 249   | 264.7   | 315.5 | 192.2  | 283.6 | 277.8 |
+| Model (Incumbent)  | 249.9 | 264.7   | 315.5 | 192.2  | 283.6 | 277.8 |
 | Correct Winner?    | Yes   | Yes     | Yes   | Yes    | Yes   | No    |
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
 \% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 35.23%
 
-Mean Squared Residuals: 24.094 Electoral College Votes (Over last 22 elections)
-
 <br />
 
-**Random Forest (5 Variables Bootstrap Sampled) with Height**: Harris 260.041 Electoral Votes, [trump 277.958]{.underline}
+**Random Forest (5 Variables Bootstrap Sampled) with Height**: Harris 258.884 Electoral Votes, [trump 279.116]{.underline}
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
@@ -81,11 +78,9 @@ Mean Squared Residuals: 24.094 Electoral College Votes (Over last 22 elections)
 
 \% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 39.43%
 
-Mean Squared Residuals: 22.530 Electoral College Votes (Over last 22 elections)
-
 <br />
 
-**Bagging Model with Height Excluded**: Harris 226.943 Electoral Votes, [Trump 311.056]{.underline}
+**Bagging Model with Height Excluded**: Harris 229.867 Electoral Votes, [Trump 308.113]{.underline}
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
@@ -96,11 +91,9 @@ Mean Squared Residuals: 22.530 Electoral College Votes (Over last 22 elections)
 
 \% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 54%
 
-Mean Squared Residuals: 17.102 Electoral College Votes (Over last 22 elections)
-
 <br />
 
-**Random Forest (19 Variables Bootstrap Sampled) With Height Excluded**: Harris 230.164 Electoral Votes, [Trump 307.835]{.underline}
+**Random Forest (19 Variables Bootstrap Sampled) With Height Excluded**: Harris 235.134 Electoral Votes, [Trump 302.866]{.underline}
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
@@ -111,11 +104,9 @@ Mean Squared Residuals: 17.102 Electoral College Votes (Over last 22 elections)
 
 \% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 57.9%
 
-Mean Squared Residuals: 15.623 Electoral College Votes (Over last 22 elections)
-
 <br />
 
-**Bagging With Height**: Harris 221.320 Electoral Votes, [trump 316.679]{.underline}
+**Bagging With Height**: Harris 221.145 Electoral Votes, [trump 316.855]{.underline}
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
@@ -125,8 +116,6 @@ Mean Squared Residuals: 15.623 Electoral College Votes (Over last 22 elections)
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
 \% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 51.06%
-
-Mean Squared Residuals: 18.206 Electoral College Votes (Over last 22 elections)
 
 <br />
 
@@ -150,7 +139,7 @@ Do not pay too much attention to the acutal percentages - the estimation can be 
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
 
-Error rate over last 27 elections: 22.7%
+Error rate over last 22 elections: 22.7%
 
 <br />
 
@@ -164,7 +153,7 @@ Error rate over last 27 elections: 22.7%
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore  |
 
-Error rate over last 27 elections: 27.2%
+Error rate over last 22 elections: 27.2%
 
 <br />
 
@@ -180,7 +169,7 @@ Error rate over last 27 elections: 27.2%
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
 
-Error rate over last 27 elections: NA (too lazy to calculate)
+Error rate over last 22 elections: NA (too lazy to calculate)
 
 <br />
 
@@ -221,6 +210,8 @@ Error rate over last 22 elections: 27.2%
 | Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+
+Error rate over last 22 elections: too lazy to caclulate
 
 <br />
 

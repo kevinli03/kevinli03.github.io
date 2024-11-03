@@ -2791,6 +2791,8 @@ font-size: 0.95em;
 hours. I did not put much effort into this, its not very good. Just for
 fun. Might add ridge regression later but lazy.</p>
 <ul>
+<li>Very low sample size as well - just 22 presidential elections
+included as training data.</li>
 <li>Also, this is a very unique presidential election - may be flawed to
 assume that past data can predict what will happen this time.</li>
 </ul>
@@ -2810,12 +2812,12 @@ my model is trained on 22 presidential elections.</p>
 <li>As an input, I put Harris with a +1.2 lead in polls, as was the case
 on 538 and 270 to win on 2 Nov.</li>
 </ul>
-<p>Aggregate Prediction of All Models: Harris 239.7 Electoral College
-Votes, <u>Trump 298.3 Electoral College Votes</u>.</p>
+<p>Aggregate Prediction of All Models: Harris 241 Electoral College
+Votes, <u>Trump 297 Electoral College Votes</u>.</p>
 <p><br /></p>
 <p><strong>Random Forest (20 Variables Boostrap Sampled) with
-Heigh</strong>t: Harris 225.648 Electoral Votes, <u>trump
-312.351</u></p>
+Heigh</strong>t: Harris 223.542 Electoral Votes, <u>trump
+314.458</u></p>
 <p>(Quite Accurate, all numbers are electoral college votes of the
 incumbent party going into the election - ex. this year democrats are
 incumbent)</p>
@@ -2881,12 +2883,10 @@ incumbent)</p>
 </table>
 <p>% of Variance Explained in <span class="math inline">\(Y\)</span>
 (Electoral Votes Recieved by Incumbent): 57.9%</p>
-<p>Mean Squared Residuals: 15.654 Electoral Votes (Over last 22
-elections)</p>
 <p><br /></p>
 <p><strong>Random Forest (5 Variables Bootstrap Sampled) With Height
-Excluded</strong>: <u>Harris 274.141</u> Electoral Votes, Trump
-263.858</p>
+Excluded</strong>: <u>Harris 277.558</u> Electoral Votes, Trump
+260.442</p>
 <p>(I have reason to believe maybe height is not a relevant variable for
 this election)</p>
 <table style="width:100%;">
@@ -2913,7 +2913,7 @@ this election)</p>
 <tbody>
 <tr>
 <td align="left">Model (Incumbent)</td>
-<td align="left">249</td>
+<td align="left">249.9</td>
 <td align="left">264.7</td>
 <td align="left">315.5</td>
 <td align="left">192.2</td>
@@ -2951,12 +2951,10 @@ this election)</p>
 </table>
 <p>% of Variance Explained in <span class="math inline">\(Y\)</span>
 (Electoral Votes Received by Incumbent): 35.23%</p>
-<p>Mean Squared Residuals: 24.094 Electoral College Votes (Over last 22
-elections)</p>
 <p><br /></p>
 <p><strong>Random Forest (5 Variables Bootstrap Sampled) with
-Height</strong>: Harris 260.041 Electoral Votes, <u>trump
-277.958</u></p>
+Height</strong>: Harris 258.884 Electoral Votes, <u>trump
+279.116</u></p>
 <table style="width:100%;">
 <colgroup>
 <col width="30%" />
@@ -3019,11 +3017,9 @@ Height</strong>: Harris 260.041 Electoral Votes, <u>trump
 </table>
 <p>% of Variance Explained in <span class="math inline">\(Y\)</span>
 (Electoral Votes Received by Incumbent): 39.43%</p>
-<p>Mean Squared Residuals: 22.530 Electoral College Votes (Over last 22
-elections)</p>
 <p><br /></p>
-<p><strong>Bagging Model with Height Excluded</strong>: Harris 226.943
-Electoral Votes, <u>Trump 311.056</u></p>
+<p><strong>Bagging Model with Height Excluded</strong>: Harris 229.867
+Electoral Votes, <u>Trump 308.113</u></p>
 <table style="width:100%;">
 <colgroup>
 <col width="30%" />
@@ -3086,12 +3082,10 @@ Electoral Votes, <u>Trump 311.056</u></p>
 </table>
 <p>% of Variance Explained in <span class="math inline">\(Y\)</span>
 (Electoral Votes Received by Incumbent): 54%</p>
-<p>Mean Squared Residuals: 17.102 Electoral College Votes (Over last 22
-elections)</p>
 <p><br /></p>
 <p><strong>Random Forest (19 Variables Bootstrap Sampled) With Height
-Excluded</strong>: Harris 230.164 Electoral Votes, <u>Trump
-307.835</u></p>
+Excluded</strong>: Harris 235.134 Electoral Votes, <u>Trump
+302.866</u></p>
 <table style="width:100%;">
 <colgroup>
 <col width="30%" />
@@ -3154,11 +3148,9 @@ Excluded</strong>: Harris 230.164 Electoral Votes, <u>Trump
 </table>
 <p>% of Variance Explained in <span class="math inline">\(Y\)</span>
 (Electoral Votes Received by Incumbent): 57.9%</p>
-<p>Mean Squared Residuals: 15.623 Electoral College Votes (Over last 22
-elections)</p>
 <p><br /></p>
-<p><strong>Bagging With Height</strong>: Harris 221.320 Electoral Votes,
-<u>trump 316.679</u></p>
+<p><strong>Bagging With Height</strong>: Harris 221.145 Electoral Votes,
+<u>trump 316.855</u></p>
 <table style="width:100%;">
 <colgroup>
 <col width="30%" />
@@ -3221,8 +3213,6 @@ elections)</p>
 </table>
 <p>% of Variance Explained in <span class="math inline">\(Y\)</span>
 (Electoral Votes Received by Incumbent): 51.06%</p>
-<p>Mean Squared Residuals: 18.206 Electoral College Votes (Over last 22
-elections)</p>
 <p><br /></p>
 </div>
 <div id="winlose-probability-predictions" class="section level2">
@@ -3305,7 +3295,7 @@ Wins</u>, 38.2% Harris Wins</p>
 </tr>
 </tbody>
 </table>
-<p>Error rate over last 27 elections: 22.7%</p>
+<p>Error rate over last 22 elections: 22.7%</p>
 <p><br /></p>
 <p><strong>Random Forest (5 variables bootstrapped) Without
 Height</strong>: <u>59% Trump Wins</u>, 41% Harris Wins</p>
@@ -3378,7 +3368,7 @@ Height</strong>: <u>59% Trump Wins</u>, 41% Harris Wins</p>
 </tr>
 </tbody>
 </table>
-<p>Error rate over last 27 elections: 27.2%</p>
+<p>Error rate over last 22 elections: 27.2%</p>
 <p><br /></p>
 <p><strong>Naive Bayes Without Height</strong>: <u>93.98% Trump
 Wins</u>, 6.02% Harris Wins</p>
@@ -3453,7 +3443,7 @@ overconfident, so don’t focus on % chance, focus on winner)</p>
 </tr>
 </tbody>
 </table>
-<p>Error rate over last 27 elections: NA (too lazy to calculate)</p>
+<p>Error rate over last 22 elections: NA (too lazy to calculate)</p>
 <p><br /></p>
 <p><strong>Bagging Model With Height Included</strong>: <u>64.2% Trump
 wins</u>, 35.8% chance Harris wins</p>
@@ -3671,6 +3661,7 @@ wins</u>, 35.8% chance Harris wins</p>
 </tr>
 </tbody>
 </table>
+<p>Error rate over last 22 elections: too lazy to caclulate</p>
 <p><br /></p>
 </div>
 <div id="my-personal-gut-based-predictions" class="section level2">
