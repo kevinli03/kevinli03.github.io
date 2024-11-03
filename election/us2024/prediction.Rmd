@@ -21,9 +21,11 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 -   Very low sample size as well - just 22 presidential elections included as training data.
 -   Also, this is a very unique presidential election - may be flawed to assume that past data can predict what will happen this time.
 
-**DONT FORGET TO NOT ONLY CHECK OUT ELECTORAL VOTE PREDICTIONS, BUT ALSO THE YES/NO PREDICTIONS.**
+**3 types of models on here**
 
--   Those models have a 100% accuracy in the last 7 elections, including the 2016 and 2020 elections. Use the navbar or scroll down to find them!
+1.  [Electoral College Prediction Models](https://kevinli03.github.io/election/us2024/prediction.html#Electoral_Votes_Predictions)
+2.  [Winner/Loser Prediction Models](https://kevinli03.github.io/election/us2024/prediction.html#WinLose_Probability_Predictions)
+3.  [My own gut based prediction (with map!)](https://kevinli03.github.io/election/us2024/prediction.html#My_Personal_(Gut-Based)_Predictions)
 
 <br />
 
