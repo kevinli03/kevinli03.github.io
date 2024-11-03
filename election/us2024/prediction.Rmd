@@ -14,8 +14,6 @@ date: "2024-11-02"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# **Predictions**
-
 Disclamer: i collected all the data and ran all this models in like 2 hours. I did not put much effort into this, its not very good. Just for fun. Might add ridge lasso later but lazy.
 
 -   Very low sample size as well - just 22 presidential elections included as training data.
@@ -29,99 +27,149 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 <br />
 
-## Electoral Votes Predictions
+# **Electoral Votes Predictions**
 
-6 Models sorted roughly based on performance in last 7 elections, but my model is trained on 22 presidential elections.
+I create 3 different predictions for the 2024 election for each model.
 
--   As an input, I put Harris with a +1.2 lead in polls, as was the case on 538 and 270 to win on 2 Nov.
+-   **If polls say harris leads by 1.2% (according to 538 aggregator, seems to be most accurate)**
 
-Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 297 Electoral College Votes]{.underline}.
+-   If polls say harris leads by 2% (the economist aggregator)
 
-<br />
-
-**Random Forest (20 Variables Boostrap Sampled) with Heigh**t: Harris 223.542 Electoral Votes, [trump 314.458]{.underline}
-
-(all numbers are electoral college votes of the incumbent party going into the election - ex. this year democrats are incumbent)
-
-|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
-|:-------------------|:------|:--------|:------|:-------|:------|:------|
-| Model (Incumbent)  | 233.4 | 280     | 297.9 | 185.2  | 271.4 | 261.3 |
-| Correct Winner?    | Yes   | No      | Yes   | Yes    | Yes   | Yes   |
-| Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
-| Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
-
-\% of Variance Explained in $Y$ (Electoral Votes Recieved by Incumbent): 57.9%
+-   If polls say harris leads by 3% (a few polls say this, but unlikely to be true).
 
 <br />
 
-**Random Forest (5 Variables Bootstrap Sampled) With Height Excluded**: [Harris 277.558]{.underline} Electoral Votes, Trump 260.442
+### 2 Best Models (by recent performance)
 
-(I have reason to believe maybe height is not a relevant variable for this election)
+**Random Forest (5 Variables Bootstrap Sampled) With Height Excluded**:
+
+-   **If harris leads 1.2% in polls: Harris 266.97, [Trump 271.03]{.underline}**
+
+-   If harris leads 2% in polls: [Harris 269.24]{.underline}, Trump 268.76
+
+-   If harris leads 3% in polls (unlikely): [Harris 297]{.underline}, Trump 241
+
+Past Performance (5 out of last 6 elections correct winner)
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
-| Model (Incumbent)  | 249.9 | 264.7   | 315.5 | 192.2  | 283.6 | 277.8 |
+| Model (Incumbent)  | 250.5 | 264.2   | 317.4 | 188.6  | 285.1 | 272.9 |
 | Correct Winner?    | Yes   | Yes     | Yes   | Yes    | Yes   | No    |
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
-\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 35.23%
+: % of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 42.15%
 
 <br />
 
-**Random Forest (5 Variables Bootstrap Sampled) with Height**: Harris 258.884 Electoral Votes, [trump 279.116]{.underline}
+**Random Forest (5 Variables Bootstrap Sampled) with Height**:
+
+-   **If harris leads 1.2% in polls: Harris 267.88, [Trump 270.12]{.underline}**
+
+-   If harris leads 2% in polls: [Harris 271.96]{.underline}, Trump 266.04
+
+-   If harris leads 3% in polls (unlikely): [Harris 296.45]{.underline}, Trump 241.5
+
+Past performance (5 out of last 6 elections correct winner)
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
-| Model (Incumbent)  | 249.3 | 260.1   | 311   | 188.2  | 272.1 | 275.7 |
+| Model (Incumbent)  | 253.5 | 267.6   | 313.7 | 191.2  | 272.7 | 276.2 |
 | Correct Winner?    | Yes   | Yes     | Yes   | Yes    | Yes   | No    |
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
-\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 39.43%
+: % of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 37.64%
 
 <br />
 
-**Bagging Model with Height Excluded**: Harris 229.867 Electoral Votes, [Trump 308.113]{.underline}
+### Other Models
+
+**Random Forest (20 Variables Boostrap Sampled) with Heigh**t:
+
+-   **If harris leads 1.2% in polls: Harris 229.14 Electoral votes, [Trump 308.86]{.underline}**
+
+-   If Harris leads 2% in polls: Harris 232.33 Electoral Votes, [Trump 305.67]{.underline}
+
+-   If Harris leads by 3% in polls (unlikely): [Harris 290.29]{.underline} Electoral Votes, Trump 247.7
+
+Past performance (4 out of last 6 elections correct winner)
+
+|                    | 2020  | 2016    | 2012  | 2008   | 2004 | 2000  |
+|:-------------------|:------|:--------|:------|:-------|:-----|:------|
+| Model (Incumbent)  | 237.6 | 278.9   | 300.2 | 186.5  | 259  | 261.4 |
+| Correct Winner?    | Yes   | No      | Yes   | Yes    | No   | Yes   |
+| Actual (Incumbent) | 232   | 227     | 332   | 173    | 286  | 266   |
+| Incumbent          | Trump | Clinton | Obama | McCain | Bush | Gore  |
+
+\% of Variance Explained in $Y$ (Electoral Votes Recieved by Incumbent): 56.94%
+
+<br />
+
+**Bagging Model with Height Excluded**:
+
+-   **If harris leads 1.2% in polls: 229.66 Harris, [308.34 Trump]{.underline}**
+
+-   If harris leads 2% in polls: 235.41 Harris, [302.59 Trump]{.underline}
+
+-   If harris leads by 3% in polls (unlikely): [307 Harris]{.underline}, 231 Trump
+
+Past Performance (4 out of last 6 elections correct winner)
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
-| Model (Incumbent)  | 222.1 | 301.1   | 295.4 | 186.1  | 262.7 | 255.5 |
+| Model (Incumbent)  | 225   | 294.7   | 302.8 | 190.4  | 263.2 | 253.7 |
 | Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
-\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 54%
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 54.12%
 
 <br />
 
-**Random Forest (19 Variables Bootstrap Sampled) With Height Excluded**: Harris 235.134 Electoral Votes, [Trump 302.866]{.underline}
+**Random Forest (19 Variables Bootstrap Sampled) With Height Excluded**:
+
+-   **If harris leads 1.2% in polls: 227.07 Harris, [310.93 Trump]{.underline}**
+
+-   If harris leads 2% in polls: 229.9 Harris, [308.1 Trump]{.underline}
+
+-   If harris leads 3% in polls (unlikely): [290.72 Harris]{.underline}, 247.28 Harris
+
+Past Performance (4 out of last 6 elections correct winner)
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
-| Model (Incumbent)  | 230.9 | 287.1   | 296.6 | 177.9  | 264.4 | 255.8 |
+| Model (Incumbent)  | 227.5 | 281.8   | 306.2 | 184.2  | 264.3 | 258.2 |
 | Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
-\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 57.9%
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 56.42%
 
 <br />
 
-**Bagging With Height**: Harris 221.145 Electoral Votes, [trump 316.855]{.underline}
+**Bagging With Height**:
+
+-   **If harris leads 1.2% in polls: Harris 215.74, [Trump 332.26]{.underline}**
+
+-   If harris leads 2% in polls: Harris 221.1, [Trump 316.9]{.underline}
+
+-   If harris leads 3% in polls (unlikely): [Harris 293.18]{.underline}, Trump 244.82
+
+Past Peformance (4 out of last 6 elections correct winner)
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
-| Model (Incumbent)  | 236.3 | 291.1   | 298.0 | 187.1  | 260.8 | 264.6 |
+| Model (Incumbent)  | 230.7 | 292.4   | 296.2 | 185.2  | 254.4 | 259.4 |
 | Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
-\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 51.06%
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 55.92%
 
 <br />
 
-## Win/Lose Probability Predictions
+# **Win/Lose Probability Predictions**
 
 Note: Every model in this section correctly predicts the election winners of the last 7 elections.
 
@@ -276,7 +324,7 @@ data <- read_csv("data.csv")
 clean data
 
 ```{r}
-dta <- data[-1,] # get rid of first row
+dta <- data[-c(1:3),] # get rid of first 3 row
 dta <- dta %>%
   select(-c(Incumbent, Challenger))
 ```
@@ -285,16 +333,13 @@ dta <- dta %>%
 
 ### Models with Height
 
-Seed
-
-```{r}
-set.seed(32435)
-```
-
 Bagging:
 
 ```{r}
+set.seed(32435)
 bagging <- randomForest(Pct_incumb ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = dta,
                         na.action = na.omit,
                         mtry = 28,
@@ -303,12 +348,16 @@ bagging
 ```
 
 ```{r}
+set.seed(32435)
 #prediction
-data2024 <- data[1:7,]
+data2024 <- data[1:9,]
 data2024 <- data2024[,-c(2,3,4)]
 
+
+set.seed(32435)
 bagging_pred <- predict(bagging, newdata = data2024)
 bagging_pred * 538
+
 ```
 
 <br />
@@ -316,7 +365,10 @@ bagging_pred * 538
 Random Forest (5 variables boostrap Sampled):
 
 ```{r}
+set.seed(32435)
 forest <- randomForest(Pct_incumb ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = dta,
                         na.action = na.omit,
                         mtry = 5,
@@ -326,8 +378,10 @@ forest
 
 ```{r}
 # predictions
+set.seed(32435)
 forest_pred <- predict(forest, newdata = data2024)
 forest_pred * 538
+
 ```
 
 <br />
@@ -335,14 +389,20 @@ forest_pred * 538
 Random Forest (20 Variables boostrap sampled)
 
 ```{r}
+set.seed(32435)
 forest <- randomForest(Pct_incumb ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = dta,
                         na.action = na.omit,
                         mtry = 20,
                         importance = TRUE)
 forest
+
+set.seed(32435)
 forest_pred <- predict(forest, newdata = data2024)
 forest_pred * 538
+
 ```
 
 Importance
@@ -371,15 +431,20 @@ data2024_noheight <- data2024 %>%
 bagging
 
 ```{r}
+set.seed(32435)
 bagging1 <- randomForest(Pct_incumb ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = dta_noheight,
                         na.action = na.omit,
                         mtry = 27,
                         importance = TRUE)
 bagging1
 
+set.seed(32435)
 bagging_pred1 <- predict(bagging1, newdata = data2024_noheight)
 bagging_pred1 * 538
+
 ```
 
 <br />
@@ -387,15 +452,20 @@ bagging_pred1 * 538
 Random forst (19 variables boostrap sampled)
 
 ```{r}
+set.seed(32435)
 forest1 <- randomForest(Pct_incumb ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = dta_noheight,
                         na.action = na.omit,
                         mtry = 19,
                         importance = TRUE)
 forest1
 
+set.seed(32435)
 forest_pred1 <- predict(forest1, newdata = data2024_noheight)
 forest_pred1 * 538
+
 ```
 
 <br />
@@ -403,13 +473,17 @@ forest_pred1 * 538
 random forest (5 variables boostrap sampled):
 
 ```{r}
+set.seed(32435)
 forest1 <- randomForest(Pct_incumb ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = dta_noheight,
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
 forest1
 
+set.seed(32435)
 forest_pred1 <- predict(forest1, newdata = data2024_noheight)
 forest_pred1 * 538
 ```
@@ -424,9 +498,9 @@ clean data
 
 ```{r, message = FALSE}
 win <- read_csv("win.csv")
-win2024 <- win[1:7,]
+win2024 <- win[1:9,]
 win2024 <- win2024[,-2]
-win <- win[-1,] # get rid of first row
+win <- win[-c(1:3),] # get rid of first 3 row
 win$win <- as.factor(win$win)
 ```
 
@@ -435,7 +509,10 @@ win$win <- as.factor(win$win)
 bagging
 
 ```{r}
+set.seed(32435)
 bagging_win <- randomForest(win ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = win,
                         na.action = na.omit,
                         mtry = 28,
@@ -445,6 +522,7 @@ bagging_win
 
 ```{r}
 #prediction
+set.seed(32435)
 bagging_winpred <- predict(bagging_win, newdata = win2024, type = "prob")
 bagging_winpred
 ```
@@ -455,11 +533,14 @@ Random Forest (5 vairables boostrap sampled):
 
 ```{r}
 bagging_win <- randomForest(win ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = win,
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
 bagging_win
+set.seed(32435)
 bagging_winpred <- predict(bagging_win, newdata = win2024, type = "prob")
 bagging_winpred
 ```
@@ -474,6 +555,7 @@ library(e1071)
 
 ```{r}
 bayes <- naiveBayes(win ~ ., data = win)
+set.seed(32435)
 bayes_winpred <- predict(bayes, newdata = win2024, type = "raw")
 
 bayes_winpred
@@ -495,12 +577,17 @@ win2024_noheight <- win2024 %>%
 Bagging:
 
 ```{r}
+set.seed(32435)
 bagging_win1 <- randomForest(win ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = win_noheight,
                         na.action = na.omit,
                         mtry = 27,
                         importance = TRUE)
 bagging_win1
+
+set.seed(32435)
 bagging_winpred1 <- predict(bagging_win1, newdata = win2024_noheight, type = "prob")
 bagging_winpred1
 ```
@@ -510,12 +597,16 @@ bagging_winpred1
 Random Forest (5 Variables bootstrapped):
 
 ```{r}
+set.seed(32435)
 bagging_win1 <- randomForest(win ~ .,
+                        ntree = 501,
+                        nodesize = 1,
                         data = win_noheight,
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
 bagging_win1
+set.seed(32435)
 bagging_winpred1 <- predict(bagging_win1, newdata = win2024_noheight, type = "prob")
 bagging_winpred1
 ```
@@ -525,8 +616,10 @@ bagging_winpred1
 Naive Bayes:
 
 ```{r}
+set.seed(32435)
 bayes1 <- naiveBayes(win ~ ., data = win_noheight)
 bayes_winpred1 <- predict(bayes1, newdata = win2024_noheight, type = "raw")
 
+set.seed(32435)
 bayes_winpred1
 ```
