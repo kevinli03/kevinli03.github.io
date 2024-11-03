@@ -21,11 +21,11 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 -   Very low sample size as well - just 22 presidential elections included as training data.
 -   Also, this is a very unique presidential election - may be flawed to assume that past data can predict what will happen this time.
 
-**3 types of models on here**
+**3 types of models on here (use table of contents to access or scroll down)**
 
-1.  [Electoral College Prediction Models](https://kevinli03.github.io/election/us2024/prediction.html#Electoral_Votes_Predictions)
-2.  [Winner/Loser Prediction Models](https://kevinli03.github.io/election/us2024/prediction.html#WinLose_Probability_Predictions)
-3.  [My own gut based prediction (with map!)](https://kevinli03.github.io/election/us2024/prediction.html#My_Personal_(Gut-Based)_Predictions)
+1.  Electoral College Prediction Models
+2.  Winner/Loser Prediction Models
+3.  My own gut based prediction (with map!)
 
 <br />
 
