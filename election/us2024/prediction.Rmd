@@ -39,7 +39,7 @@ Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 2
 
 **Random Forest (20 Variables Boostrap Sampled) with Heigh**t: Harris 223.542 Electoral Votes, [trump 314.458]{.underline}
 
-(Quite Accurate, all numbers are electoral college votes of the incumbent party going into the election - ex. this year democrats are incumbent)
+(all numbers are electoral college votes of the incumbent party going into the election - ex. this year democrats are incumbent)
 
 |                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
