@@ -2804,9 +2804,14 @@ them!</li>
 <p><br /></p>
 <div id="electoral-votes-predictions" class="section level2">
 <h2>Electoral Votes Predictions</h2>
-<p>Ranked in Order of Accurateness. Quick summary - most models say
-trump will win, however, Harris does win one of the more accurate
-models, so…</p>
+<p>6 Models sorted roughly based on performance in last 7 elections, but
+my model is trained on 22 presidential elections.</p>
+<ul>
+<li>As an input, I put Harris with a +1.2 lead in polls, as was the case
+on 538 and 270 to win on 2 Nov.</li>
+</ul>
+<p>Aggregate Prediction of All Models: Harris 239.7 Electoral College
+Votes, <u>Trump 298.3 Electoral College Votes</u>.</p>
 <p><br /></p>
 <p><strong>Random Forest (20 Variables Boostrap Sampled) with
 Heigh</strong>t: Harris 225.648 Electoral Votes, <u>trump
@@ -2874,6 +2879,10 @@ incumbent)</p>
 </tr>
 </tbody>
 </table>
+<p>% of Variance Explained in <span class="math inline">\(Y\)</span>
+(Electoral Votes Recieved by Incumbent): 57.9%</p>
+<p>Mean Squared Residuals: 15.654 Electoral Votes (Over last 22
+elections)</p>
 <p><br /></p>
 <p><strong>Random Forest (5 Variables Bootstrap Sampled) With Height
 Excluded</strong>: <u>Harris 274.141</u> Electoral Votes, Trump
@@ -2940,6 +2949,10 @@ this election)</p>
 </tr>
 </tbody>
 </table>
+<p>% of Variance Explained in <span class="math inline">\(Y\)</span>
+(Electoral Votes Received by Incumbent): 35.23%</p>
+<p>Mean Squared Residuals: 24.094 Electoral College Votes (Over last 22
+elections)</p>
 <p><br /></p>
 <p><strong>Random Forest (5 Variables Bootstrap Sampled) with
 Height</strong>: Harris 260.041 Electoral Votes, <u>trump
@@ -3004,6 +3017,10 @@ Height</strong>: Harris 260.041 Electoral Votes, <u>trump
 </tr>
 </tbody>
 </table>
+<p>% of Variance Explained in <span class="math inline">\(Y\)</span>
+(Electoral Votes Received by Incumbent): 39.43%</p>
+<p>Mean Squared Residuals: 22.530 Electoral College Votes (Over last 22
+elections)</p>
 <p><br /></p>
 <p><strong>Bagging Model with Height Excluded</strong>: Harris 226.943
 Electoral Votes, <u>Trump 311.056</u></p>
@@ -3067,6 +3084,10 @@ Electoral Votes, <u>Trump 311.056</u></p>
 </tr>
 </tbody>
 </table>
+<p>% of Variance Explained in <span class="math inline">\(Y\)</span>
+(Electoral Votes Received by Incumbent): 54%</p>
+<p>Mean Squared Residuals: 17.102 Electoral College Votes (Over last 22
+elections)</p>
 <p><br /></p>
 <p><strong>Random Forest (19 Variables Bootstrap Sampled) With Height
 Excluded</strong>: Harris 230.164 Electoral Votes, <u>Trump
@@ -3131,6 +3152,10 @@ Excluded</strong>: Harris 230.164 Electoral Votes, <u>Trump
 </tr>
 </tbody>
 </table>
+<p>% of Variance Explained in <span class="math inline">\(Y\)</span>
+(Electoral Votes Received by Incumbent): 57.9%</p>
+<p>Mean Squared Residuals: 15.623 Electoral College Votes (Over last 22
+elections)</p>
 <p><br /></p>
 <p><strong>Bagging With Height</strong>: Harris 221.320 Electoral Votes,
 <u>trump 316.679</u></p>
@@ -3194,6 +3219,10 @@ Excluded</strong>: Harris 230.164 Electoral Votes, <u>Trump
 </tr>
 </tbody>
 </table>
+<p>% of Variance Explained in <span class="math inline">\(Y\)</span>
+(Electoral Votes Received by Incumbent): 51.06%</p>
+<p>Mean Squared Residuals: 18.206 Electoral College Votes (Over last 22
+elections)</p>
 <p><br /></p>
 </div>
 <div id="winlose-probability-predictions" class="section level2">
@@ -3276,6 +3305,7 @@ Wins</u>, 38.2% Harris Wins</p>
 </tr>
 </tbody>
 </table>
+<p>Error rate over last 27 elections: 22.7%</p>
 <p><br /></p>
 <p><strong>Random Forest (5 variables bootstrapped) Without
 Height</strong>: <u>59% Trump Wins</u>, 41% Harris Wins</p>
@@ -3348,6 +3378,7 @@ Height</strong>: <u>59% Trump Wins</u>, 41% Harris Wins</p>
 </tr>
 </tbody>
 </table>
+<p>Error rate over last 27 elections: 27.2%</p>
 <p><br /></p>
 <p><strong>Naive Bayes Without Height</strong>: <u>93.98% Trump
 Wins</u>, 6.02% Harris Wins</p>
@@ -3357,10 +3388,10 @@ overconfident, so don’t focus on % chance, focus on winner)</p>
 <colgroup>
 <col width="37%" />
 <col width="10%" />
-<col width="13%" />
+<col width="12%" />
 <col width="10%" />
 <col width="11%" />
-<col width="8%" />
+<col width="10%" />
 <col width="8%" />
 </colgroup>
 <thead>
@@ -3381,7 +3412,7 @@ overconfident, so don’t focus on % chance, focus on winner)</p>
 <td align="left">0.2%</td>
 <td align="left">99.9%</td>
 <td align="left">0%</td>
-<td align="left">9%</td>
+<td align="left">96.7%</td>
 <td align="left">0.3%</td>
 </tr>
 <tr>
@@ -3422,6 +3453,7 @@ overconfident, so don’t focus on % chance, focus on winner)</p>
 </tr>
 </tbody>
 </table>
+<p>Error rate over last 27 elections: NA (too lazy to calculate)</p>
 <p><br /></p>
 <p><strong>Bagging Model With Height Included</strong>: <u>64.2% Trump
 wins</u>, 35.8% chance Harris wins</p>
@@ -3494,6 +3526,7 @@ wins</u>, 35.8% chance Harris wins</p>
 </tr>
 </tbody>
 </table>
+<p>Error rate over last 22 elections: 22.7%</p>
 <p><br /></p>
 <p>Random Forest: <u>68% Trump Wins</u>, 41% Harris Wins</p>
 <table>
@@ -3565,6 +3598,7 @@ wins</u>, 35.8% chance Harris wins</p>
 </tr>
 </tbody>
 </table>
+<p>Error rate over last 22 elections: 27.2%</p>
 <p><br /></p>
 <p><strong>Naive Bayes With Height</strong>: <u>99% Trump Win</u>
 (again, take with grain of salt)</p>
@@ -3761,7 +3795,17 @@ forest_pred * 538</code></pre>
                         na.action = na.omit,
                         mtry = 20,
                         importance = TRUE)
-forest_pred &lt;- predict(forest, newdata = data2024)
+forest</code></pre>
+<pre><code>## 
+## Call:
+##  randomForest(formula = Pct_incumb ~ ., data = dta, mtry = 20,      importance = TRUE, na.action = na.omit) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 20
+## 
+##           Mean of squared residuals: 0.02909823
+##                     % Var explained: 57.92</code></pre>
+<pre class="r"><code>forest_pred &lt;- predict(forest, newdata = data2024)
 forest_pred * 538</code></pre>
 <pre><code>##        1        2        3        4        5        6        7 
 ## 223.5420 233.4702 280.0259 297.9410 185.2145 271.4409 261.3285</code></pre>
@@ -3785,8 +3829,17 @@ data2024_noheight &lt;- data2024 %&gt;%
                         na.action = na.omit,
                         mtry = 27,
                         importance = TRUE)
-
-bagging_pred1 &lt;- predict(bagging1, newdata = data2024_noheight)
+bagging1</code></pre>
+<pre><code>## 
+## Call:
+##  randomForest(formula = Pct_incumb ~ ., data = dta_noheight, mtry = 27,      importance = TRUE, na.action = na.omit) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 27
+## 
+##           Mean of squared residuals: 0.03178892
+##                     % Var explained: 54.03</code></pre>
+<pre class="r"><code>bagging_pred1 &lt;- predict(bagging1, newdata = data2024_noheight)
 bagging_pred1 * 538</code></pre>
 <pre><code>##        1        2        3        4        5        6        7 
 ## 229.8673 222.1883 301.1744 295.4541 186.1187 262.7473 255.5393</code></pre>
@@ -3797,8 +3850,17 @@ bagging_pred1 * 538</code></pre>
                         na.action = na.omit,
                         mtry = 19,
                         importance = TRUE)
-
-forest_pred1 &lt;- predict(forest1, newdata = data2024_noheight)
+forest1</code></pre>
+<pre><code>## 
+## Call:
+##  randomForest(formula = Pct_incumb ~ ., data = dta_noheight, mtry = 19,      importance = TRUE, na.action = na.omit) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 19
+## 
+##           Mean of squared residuals: 0.02903911
+##                     % Var explained: 58</code></pre>
+<pre class="r"><code>forest_pred1 &lt;- predict(forest1, newdata = data2024_noheight)
 forest_pred1 * 538</code></pre>
 <pre><code>##        1        2        3        4        5        6        7 
 ## 235.1341 230.9564 287.1452 296.6881 177.9952 264.4634 255.8408</code></pre>
@@ -3809,8 +3871,17 @@ forest_pred1 * 538</code></pre>
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
-
-forest_pred1 &lt;- predict(forest1, newdata = data2024_noheight)
+forest1</code></pre>
+<pre><code>## 
+## Call:
+##  randomForest(formula = Pct_incumb ~ ., data = dta_noheight, mtry = 5,      importance = TRUE, na.action = na.omit) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 5
+## 
+##           Mean of squared residuals: 0.04478616
+##                     % Var explained: 35.23</code></pre>
+<pre class="r"><code>forest_pred1 &lt;- predict(forest1, newdata = data2024_noheight)
 forest_pred1 * 538</code></pre>
 <pre><code>##        1        2        3        4        5        6        7 
 ## 277.5587 249.9019 264.7061 315.5547 192.2187 283.6197 277.8056</code></pre>
@@ -3867,7 +3938,20 @@ bagging_winpred</code></pre>
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
-bagging_winpred &lt;- predict(bagging_win, newdata = win2024, type = &quot;prob&quot;)
+bagging_win</code></pre>
+<pre><code>## 
+## Call:
+##  randomForest(formula = win ~ ., data = win, mtry = 5, importance = TRUE,      na.action = na.omit) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 5
+## 
+##         OOB estimate of  error rate: 27.27%
+## Confusion matrix:
+##   0 1 class.error
+## 0 8 2   0.2000000
+## 1 4 8   0.3333333</code></pre>
+<pre class="r"><code>bagging_winpred &lt;- predict(bagging_win, newdata = win2024, type = &quot;prob&quot;)
 bagging_winpred</code></pre>
 <pre><code>##       0     1
 ## 1 0.574 0.426
@@ -3909,7 +3993,20 @@ win2024_noheight &lt;- win2024 %&gt;%
                         na.action = na.omit,
                         mtry = 27,
                         importance = TRUE)
-bagging_winpred1 &lt;- predict(bagging_win1, newdata = win2024_noheight, type = &quot;prob&quot;)
+bagging_win1</code></pre>
+<pre><code>## 
+## Call:
+##  randomForest(formula = win ~ ., data = win_noheight, mtry = 27,      importance = TRUE, na.action = na.omit) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 27
+## 
+##         OOB estimate of  error rate: 22.73%
+## Confusion matrix:
+##   0 1 class.error
+## 0 8 2        0.20
+## 1 3 9        0.25</code></pre>
+<pre class="r"><code>bagging_winpred1 &lt;- predict(bagging_win1, newdata = win2024_noheight, type = &quot;prob&quot;)
 bagging_winpred1</code></pre>
 <pre><code>##       0     1
 ## 1 0.624 0.376
@@ -3928,7 +4025,20 @@ bagging_winpred1</code></pre>
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
-bagging_winpred1 &lt;- predict(bagging_win1, newdata = win2024_noheight, type = &quot;prob&quot;)
+bagging_win1</code></pre>
+<pre><code>## 
+## Call:
+##  randomForest(formula = win ~ ., data = win_noheight, mtry = 5,      importance = TRUE, na.action = na.omit) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 5
+## 
+##         OOB estimate of  error rate: 27.27%
+## Confusion matrix:
+##   0 1 class.error
+## 0 7 3        0.30
+## 1 3 9        0.25</code></pre>
+<pre class="r"><code>bagging_winpred1 &lt;- predict(bagging_win1, newdata = win2024_noheight, type = &quot;prob&quot;)
 bagging_winpred1</code></pre>
 <pre><code>##       0     1
 ## 1 0.586 0.414

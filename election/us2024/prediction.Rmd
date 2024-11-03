@@ -28,7 +28,11 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 ## Electoral Votes Predictions
 
-Ranked in Order of Accurateness. Quick summary - most models say trump will win, however, Harris does win one of the more accurate models, so...
+6 Models sorted roughly based on performance in last 7 elections, but my model is trained on 22 presidential elections.
+
+-   As an input, I put Harris with a +1.2 lead in polls, as was the case on 538 and 270 to win on 2 Nov.
+
+Aggregate Prediction of All Models: Harris 239.7 Electoral College Votes, [Trump 298.3 Electoral College Votes]{.underline}.
 
 <br />
 
@@ -43,6 +47,10 @@ Ranked in Order of Accurateness. Quick summary - most models say trump will win,
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
+\% of Variance Explained in $Y$ (Electoral Votes Recieved by Incumbent): 57.9%
+
+Mean Squared Residuals: 15.654 Electoral Votes (Over last 22 elections)
+
 <br />
 
 **Random Forest (5 Variables Bootstrap Sampled) With Height Excluded**: [Harris 274.141]{.underline} Electoral Votes, Trump 263.858
@@ -56,6 +64,10 @@ Ranked in Order of Accurateness. Quick summary - most models say trump will win,
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 35.23%
+
+Mean Squared Residuals: 24.094 Electoral College Votes (Over last 22 elections)
+
 <br />
 
 **Random Forest (5 Variables Bootstrap Sampled) with Height**: Harris 260.041 Electoral Votes, [trump 277.958]{.underline}
@@ -66,6 +78,10 @@ Ranked in Order of Accurateness. Quick summary - most models say trump will win,
 | Correct Winner?    | Yes   | Yes     | Yes   | Yes    | Yes   | No    |
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
+
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 39.43%
+
+Mean Squared Residuals: 22.530 Electoral College Votes (Over last 22 elections)
 
 <br />
 
@@ -78,6 +94,10 @@ Ranked in Order of Accurateness. Quick summary - most models say trump will win,
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 54%
+
+Mean Squared Residuals: 17.102 Electoral College Votes (Over last 22 elections)
+
 <br />
 
 **Random Forest (19 Variables Bootstrap Sampled) With Height Excluded**: Harris 230.164 Electoral Votes, [Trump 307.835]{.underline}
@@ -89,6 +109,10 @@ Ranked in Order of Accurateness. Quick summary - most models say trump will win,
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
 
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 57.9%
+
+Mean Squared Residuals: 15.623 Electoral College Votes (Over last 22 elections)
+
 <br />
 
 **Bagging With Height**: Harris 221.320 Electoral Votes, [trump 316.679]{.underline}
@@ -99,6 +123,10 @@ Ranked in Order of Accurateness. Quick summary - most models say trump will win,
 | Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
 | Actual (Incumbent) | 232   | 227     | 332   | 173    | 286   | 266   |
 | Incumbent          | Trump | Clinton | Obama | McCain | Bush  | Gore  |
+
+\% of Variance Explained in $Y$ (Electoral Votes Received by Incumbent): 51.06%
+
+Mean Squared Residuals: 18.206 Electoral College Votes (Over last 22 elections)
 
 <br />
 
@@ -122,6 +150,8 @@ Do not pay too much attention to the acutal percentages - the estimation can be 
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
 
+Error rate over last 27 elections: 22.7%
+
 <br />
 
 **Random Forest (5 variables bootstrapped) Without Height**: [59% Trump Wins]{.underline}, 41% Harris Wins
@@ -134,19 +164,23 @@ Do not pay too much attention to the acutal percentages - the estimation can be 
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore  |
 
+Error rate over last 27 elections: 27.2%
+
 <br />
 
 **Naive Bayes Without Height**: [93.98% Trump Wins]{.underline}, 6.02% Harris Wins
 
 (Note: naive bayes, as a result of its assumptions, is always overconfident, so don't focus on % chance, focus on winner)
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2020 |
-|:-------------------------|:------|:--------|:------|:-------|:-----|:-----|
-| Model (Incumbent Chance) | 2.3%  | 0.2%    | 99.9% | 0%     | 9%   | 0.3% |
-| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost |
-| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes  |
-| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost |
-| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore |
+|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2020 |
+|:-------------------------|:------|:--------|:------|:-------|:------|:-----|
+| Model (Incumbent Chance) | 2.3%  | 0.2%    | 99.9% | 0%     | 96.7% | 0.3% |
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+
+Error rate over last 27 elections: NA (too lazy to calculate)
 
 <br />
 
@@ -160,6 +194,8 @@ Do not pay too much attention to the acutal percentages - the estimation can be 
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore  |
 
+Error rate over last 22 elections: 22.7%
+
 <br />
 
 Random Forest: [68% Trump Wins]{.underline}, 41% Harris Wins
@@ -171,6 +207,8 @@ Random Forest: [68% Trump Wins]{.underline}, 41% Harris Wins
 | Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
 | Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
 | Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+
+Error rate over last 22 elections: 27.2%
 
 <br />
 
@@ -307,6 +345,7 @@ forest <- randomForest(Pct_incumb ~ .,
                         na.action = na.omit,
                         mtry = 20,
                         importance = TRUE)
+forest
 forest_pred <- predict(forest, newdata = data2024)
 forest_pred * 538
 ```
@@ -342,6 +381,7 @@ bagging1 <- randomForest(Pct_incumb ~ .,
                         na.action = na.omit,
                         mtry = 27,
                         importance = TRUE)
+bagging1
 
 bagging_pred1 <- predict(bagging1, newdata = data2024_noheight)
 bagging_pred1 * 538
@@ -357,6 +397,7 @@ forest1 <- randomForest(Pct_incumb ~ .,
                         na.action = na.omit,
                         mtry = 19,
                         importance = TRUE)
+forest1
 
 forest_pred1 <- predict(forest1, newdata = data2024_noheight)
 forest_pred1 * 538
@@ -372,6 +413,7 @@ forest1 <- randomForest(Pct_incumb ~ .,
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
+forest1
 
 forest_pred1 <- predict(forest1, newdata = data2024_noheight)
 forest_pred1 * 538
@@ -422,6 +464,7 @@ bagging_win <- randomForest(win ~ .,
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
+bagging_win
 bagging_winpred <- predict(bagging_win, newdata = win2024, type = "prob")
 bagging_winpred
 ```
@@ -462,6 +505,7 @@ bagging_win1 <- randomForest(win ~ .,
                         na.action = na.omit,
                         mtry = 27,
                         importance = TRUE)
+bagging_win1
 bagging_winpred1 <- predict(bagging_win1, newdata = win2024_noheight, type = "prob")
 bagging_winpred1
 ```
@@ -476,6 +520,7 @@ bagging_win1 <- randomForest(win ~ .,
                         na.action = na.omit,
                         mtry = 5,
                         importance = TRUE)
+bagging_win1
 bagging_winpred1 <- predict(bagging_win1, newdata = win2024_noheight, type = "prob")
 bagging_winpred1
 ```
