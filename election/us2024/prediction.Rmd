@@ -31,11 +31,11 @@ Disclamer: i collected all the data and ran all this models in like 2 hours. I d
 
 I create 3 different predictions for the 2024 election for each model.
 
--   **If polls say harris leads by 1.2% (according to 538 aggregator, seems to be most accurate)**
+-   **Most Likely: If polls say harris leads by 1.2% (according to 538 aggregator, seems to be most accurate)**
 
--   If polls say harris leads by 2% (the economist aggregator)
+-   Less Likely: If polls say harris leads by 2% (the economist aggregator)
 
--   If polls say harris leads by 3% (a few polls say this, but unlikely to be true).
+-   Unlikely: If polls say harris leads by 3% (a few polls say this, but unlikely to be true).
 
 <br />
 
@@ -173,101 +173,74 @@ Past Peformance (4 out of last 6 elections correct winner)
 
 Note: Every model in this section correctly predicts the election winners of the last 7 elections.
 
-Aggregate: All believe Trump will win.
-
-Do not pay too much attention to the acutal percentages - the estimation can be bizzare. [NOTE that this year, the percentages are far closer than previous years, indicating a close race]{.underline}.
+Aggregate: All believe Trump will win if Harris leads by only 1.2% or 2% in polls.
 
 <br />
 
-**Bagging Model Without Height**: [61.8% Trump Wins]{.underline}, 38.2% Harris Wins
+**Naive Bayes Without Height**:
 
-(All Correct)!
+-   If harris leads 1.2% in polls: Trump wins
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
-|:-------------------------|:------|:--------|:------|:-------|:------|:-----|
-| Model (Incumbent Chance) | 12.2% | 21.2%   | 83.4% | 3%     | 78.2% | 12%  |
-| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
-| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
-| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
-| Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+-   If harris leads 2% in polls: Trump wins
 
-Error rate over last 22 elections: 22.7%
+-   If harris leads 3% in polls: Harris wins
 
-<br />
+Past performance (6/6 for the last 6 elections)
 
-**Random Forest (5 variables bootstrapped) Without Height**: [59% Trump Wins]{.underline}, 41% Harris Wins
+|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2000 |
+|:-------------------------|:------|:--------|:------|:-------|:-----|:-----|
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes  |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore |
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2000  |
-|:-------------------------|:------|:--------|:------|:-------|:-----|:------|
-| Model (Incumbent Chance) | 15%   | 21%     | 85.8% | 3.8%   | 80%  | 14.2% |
-| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
-| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes   |
-| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
-| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore  |
-
-Error rate over last 22 elections: 27.2%
+: Error rate over last 22 elections: NA (too lazy to calculate)
 
 <br />
 
-**Naive Bayes Without Height**: [93.98% Trump Wins]{.underline}, 6.02% Harris Wins
+**Bagging Model Without Height**:
 
-(Note: naive bayes, as a result of its assumptions, is always overconfident, so don't focus on % chance, focus on winner)
+-   If harris leads 1.2% in polls: Trump Wins
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
-|:-------------------------|:------|:--------|:------|:-------|:------|:-----|
-| Model (Incumbent Chance) | 2.3%  | 0.2%    | 99.9% | 0%     | 96.7% | 0.3% |
-| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
-| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
-| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
-| Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+-   If harris leads 2% in polls: Trump wins
 
-Error rate over last 22 elections: NA (too lazy to calculate)
+-   If harris leads 3% in polls: Trump wins
 
-<br />
+Past performance (6/6 for the last 6 elections)
 
-**Bagging Model With Height Included**: [64.2% Trump wins]{.underline}, 35.8% chance Harris wins
+|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2000 |
+|:-------------------------|:------|:--------|:------|:-------|:-----|:-----|
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes  |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore |
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2000  |
-|:-------------------------|:------|:--------|:------|:-------|:-----|:------|
-| Model (Incumbent Chance) | 15.6% | 25.2%   | 83%   | 3.6%   | 80%  | 11.2% |
-| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
-| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes   |
-| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
-| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore  |
-
-Error rate over last 22 elections: 22.7%
+: Error rate over last 22 elections: 22.73%
 
 <br />
 
-**Random Forest with Height**: [68% Trump Wins]{.underline}, 41% Harris Wins
+**Random Forest (5 variables bootstrapped) Without Height**:
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
-|:-------------------------|:------|:--------|:------|:-------|:------|:-----|
-| Model (Incumbent Chance) | 15.2% | 19.4%   | 83.6% | 3.6%   | 77.8% | 17%  |
-| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
-| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
-| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
-| Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+-   If harris leads 1.2% in polls: Trump Wins
 
-Error rate over last 22 elections: 27.2%
+-   If harris leads 2% in polls: Trump wins
 
-<br />
+-   If harris leads 3% in polls: Trump wins
 
-**Naive Bayes With Height**: [99% Trump Win]{.underline} (again, take with grain of salt)
+Past performance (6/6 for the last 6 elections)
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
-|:-------------------------|:------|:--------|:------|:-------|:------|:-----|
-| Model (Incumbent Chance) | 0%    | 0%      | 99.9% | 0%     | 88.3% | 0.5% |
-| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
-| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes   | Yes  |
-| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won   | Lost |
-| Incumbent                | Trump | Clinton | Obama | McCain | Bush  | Gore |
+|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2000 |
+|:-------------------------|:------|:--------|:------|:-------|:-----|:-----|
+| Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost |
+| Correct Winner?          | Yes   | Yes     | Yes   | Yes    | Yes  | Yes  |
+| Actual (Incumbent)       | Lost  | Lost    | Won   | Lost   | Won  | Lost |
+| Incumbent                | Trump | Clinton | Obama | McCain | Bush | Gore |
 
-Error rate over last 22 elections: too lazy to caclulate
+Error rate over last 22 elections: 27.27%
 
 <br />
 
-## My Personal (Gut-Based) Predictions
+# **My Personal (Gut-Based) Predictions**
 
 **My Personal Map**
 
