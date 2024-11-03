@@ -41,7 +41,7 @@ Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 2
 
 (Quite Accurate, all numbers are electoral college votes of the incumbent party going into the election - ex. this year democrats are incumbent)
 
-|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
 | Model (Incumbent)  | 233.4 | 280     | 297.9 | 185.2  | 271.4 | 261.3 |
 | Correct Winner?    | Yes   | No      | Yes   | Yes    | Yes   | Yes   |
@@ -56,7 +56,7 @@ Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 2
 
 (I have reason to believe maybe height is not a relevant variable for this election)
 
-|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
 | Model (Incumbent)  | 249.9 | 264.7   | 315.5 | 192.2  | 283.6 | 277.8 |
 | Correct Winner?    | Yes   | Yes     | Yes   | Yes    | Yes   | No    |
@@ -69,7 +69,7 @@ Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 2
 
 **Random Forest (5 Variables Bootstrap Sampled) with Height**: Harris 258.884 Electoral Votes, [trump 279.116]{.underline}
 
-|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
 | Model (Incumbent)  | 249.3 | 260.1   | 311   | 188.2  | 272.1 | 275.7 |
 | Correct Winner?    | Yes   | Yes     | Yes   | Yes    | Yes   | No    |
@@ -82,7 +82,7 @@ Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 2
 
 **Bagging Model with Height Excluded**: Harris 229.867 Electoral Votes, [Trump 308.113]{.underline}
 
-|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
 | Model (Incumbent)  | 222.1 | 301.1   | 295.4 | 186.1  | 262.7 | 255.5 |
 | Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
@@ -95,7 +95,7 @@ Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 2
 
 **Random Forest (19 Variables Bootstrap Sampled) With Height Excluded**: Harris 235.134 Electoral Votes, [Trump 302.866]{.underline}
 
-|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
 | Model (Incumbent)  | 230.9 | 287.1   | 296.6 | 177.9  | 264.4 | 255.8 |
 | Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
@@ -108,7 +108,7 @@ Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 2
 
 **Bagging With Height**: Harris 221.145 Electoral Votes, [trump 316.855]{.underline}
 
-|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2020  |
+|                    | 2020  | 2016    | 2012  | 2008   | 2004  | 2000  |
 |:-------------------|:------|:--------|:------|:-------|:------|:------|
 | Model (Incumbent)  | 236.3 | 291.1   | 298.0 | 187.1  | 260.8 | 264.6 |
 | Correct Winner?    | Yes   | No      | Yes   | Yes    | No    | Yes   |
@@ -123,6 +123,8 @@ Aggregate Prediction of All Models: Harris 241 Electoral College Votes, [Trump 2
 
 Note: Every model in this section correctly predicts the election winners of the last 7 elections.
 
+Aggregate: All believe Trump will win.
+
 Do not pay too much attention to the acutal percentages - the estimation can be bizzare. [NOTE that this year, the percentages are far closer than previous years, indicating a close race]{.underline}.
 
 <br />
@@ -131,7 +133,7 @@ Do not pay too much attention to the acutal percentages - the estimation can be 
 
 (All Correct)!
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2020 |
+|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
 |:-------------------------|:------|:--------|:------|:-------|:------|:-----|
 | Model (Incumbent Chance) | 12.2% | 21.2%   | 83.4% | 3%     | 78.2% | 12%  |
 | Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
@@ -145,7 +147,7 @@ Error rate over last 22 elections: 22.7%
 
 **Random Forest (5 variables bootstrapped) Without Height**: [59% Trump Wins]{.underline}, 41% Harris Wins
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2020  |
+|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2000  |
 |:-------------------------|:------|:--------|:------|:-------|:-----|:------|
 | Model (Incumbent Chance) | 15%   | 21%     | 85.8% | 3.8%   | 80%  | 14.2% |
 | Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
@@ -161,7 +163,7 @@ Error rate over last 22 elections: 27.2%
 
 (Note: naive bayes, as a result of its assumptions, is always overconfident, so don't focus on % chance, focus on winner)
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2020 |
+|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
 |:-------------------------|:------|:--------|:------|:-------|:------|:-----|
 | Model (Incumbent Chance) | 2.3%  | 0.2%    | 99.9% | 0%     | 96.7% | 0.3% |
 | Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
@@ -175,7 +177,7 @@ Error rate over last 22 elections: NA (too lazy to calculate)
 
 **Bagging Model With Height Included**: [64.2% Trump wins]{.underline}, 35.8% chance Harris wins
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2020  |
+|                          | 2020  | 2016    | 2012  | 2008   | 2004 | 2000  |
 |:-------------------------|:------|:--------|:------|:-------|:-----|:------|
 | Model (Incumbent Chance) | 15.6% | 25.2%   | 83%   | 3.6%   | 80%  | 11.2% |
 | Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won  | Lost  |
@@ -189,7 +191,7 @@ Error rate over last 22 elections: 22.7%
 
 Random Forest: [68% Trump Wins]{.underline}, 41% Harris Wins
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2020 |
+|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
 |:-------------------------|:------|:--------|:------|:-------|:------|:-----|
 | Model (Incumbent Chance) | 15.2% | 19.4%   | 83.6% | 3.6%   | 77.8% | 17%  |
 | Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
@@ -203,7 +205,7 @@ Error rate over last 22 elections: 27.2%
 
 **Naive Bayes With Height**: [99% Trump Win]{.underline} (again, take with grain of salt)
 
-|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2020 |
+|                          | 2020  | 2016    | 2012  | 2008   | 2004  | 2000 |
 |:-------------------------|:------|:--------|:------|:-------|:------|:-----|
 | Model (Incumbent Chance) | 0%    | 0%      | 99.9% | 0%     | 88.3% | 0.5% |
 | Model (Incumbent Result) | Lost  | Lost    | Won   | Lost   | Won   | Lost |
