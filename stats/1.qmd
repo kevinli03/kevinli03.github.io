@@ -911,7 +911,7 @@ model2 <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
 summary(model2)
 ```
 
----
+------------------------------------------------------------------------
 
 We can see the output. In the coefficients table:
 
@@ -939,13 +939,14 @@ To calculate confidence intervals, we can use the *confint()* command, and simpl
 confint(model2)
 ```
 
----
+------------------------------------------------------------------------
 
 Here we can see that R has generated confidence intervals for $\hat{\alpha}_1$, $\hat{\beta}_1$, and $\hat{\beta}_2$.
 
 #### F-Test of Nested Models in R
 
 If we want an F-test between two models, with the first model being the null hypothesis $M_0$, we can use the *anova()* command (model 1 is just the previous model without *Total_Oil_Income_PC*
+
 ```{r, echo = FALSE, message = FALSE}
 model1 <- lm(polity_2 ~ Total_Oil_Income_PC, data = democracy_data)
 ```
@@ -954,7 +955,7 @@ model1 <- lm(polity_2 ~ Total_Oil_Income_PC, data = democracy_data)
 anova(model1, model2)
 ```
 
----
+------------------------------------------------------------------------
 
 The first row of the output refers to the null hypothesis model.
 
@@ -962,8 +963,7 @@ The second row of the output refers to the alternate hypothesis. We can see that
 
 -   We can see that model 2 is statistically significant (consult interpretation from the previous sections).
 
-
-## Explanatory Variable Analysis
+## Other Explanatory Variables
 
 ### Polynomial Transformations
 
@@ -1205,17 +1205,9 @@ You can get all of these interpretations above simply by plugging in $X_2 = 0$ a
 
 ### Explanatory Variables in R
 
+# Regression for Causal Inference
+
 ## Gauss-Markov Assumptions
-
-## Regression for Inference
-
-### Prediction
-
-### Causal Inference
-
-### Model Selection
-
-# Further Causal Inference Methods
 
 ## Panel and Clustered Data
 
@@ -1225,12 +1217,32 @@ You can get all of these interpretations above simply by plugging in $X_2 = 0$ a
 
 ### Further Approaches
 
-## Selection on Observables
+## Matching Regression
 
-## Instrumental Variables Estimator
+## Weighted Regression
+
+## Partial Identification and Sensitivity Analysis
+
+# Instrumental Variables Estimator
+
+## Instrumental Variables Framework
+
+## Other Instrumental Variable Designs
+
+### Continuous Independent Variables
+
+### Examiner Designs
+
+### Shift-Share Bartik Instruments
+
+### Recentered Instruments
+
+# Quasi-Experimental Methods
 
 ## Regression Discontinuity
 
-## Differences-in-Differences
+## Simple Differences-in-Differences
+
+## Generalised Differences-in-Differences
 
 ## Survey Experiments
