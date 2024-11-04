@@ -120,7 +120,7 @@ The fundamental problem of causal inference is that we only can observe one of t
 Since we cannot observe the individual treatment effects, we can change out estimand to the **average treatment effect (ATE)**. This is exactly what it sounds like - the treatment effect of all units averaged:
 
 $$
-\tau_{ATE} = E[\tau_i] = E[Y_{1i} - Y_{0i}] = \frac{1}{n}(\sum Y_{1i} - \sum Y_{0i})
+\tau_{ATE} = \mathbb{E}[\tau_i] = \mathbb{E}[Y_{1i} - Y_{0i}] = \frac{1}{n}(\sum Y_{1i} - \sum Y_{0i})
 $$
 
 There are also other treatment effects we can use to estimate.
@@ -128,19 +128,19 @@ There are also other treatment effects we can use to estimate.
 The **average treatment effect on the treated (ATT)** is the treatment effect of only units who recieved the treatment $D_i = 1$
 
 $$
-\tau_{ATT} = E[Y_{1i} - Y_{0i} | D_i = 1]
+\tau_{ATT} = \mathbb{E}[Y_{1i} - Y_{0i} | D_i = 1]
 $$
 
 The **average treatment effect on the controls (ATC)** is the treatment effect of units who only did not recieve the treatment $D_i = 0$
 
 $$
-\tau_{ATC} = E[Y_{1i} - Y_{0i} | D_i = 0]
+\tau_{ATC} = \mathbb{E}[Y_{1i} - Y_{0i} | D_i = 0]
 $$
 
 The **conditional average treatment effect (CATE)** is the treatment effect of units, given they have some other variable $X$ value. For example, if $X$ is gender, the CATE could be the treatment effect on only females.
 
 $$
-\tau_{CATE} = E[Y_{1i} - Y_{0i} | X = x]
+\tau_{CATE} = \mathbb{E}[Y_{1i} - Y_{0i} | X = x]
 $$
 
 ### Estimators, Bias, and Variance
@@ -168,7 +168,7 @@ Ideally, we want an unbiased estimator that has low variance. We will explore ma
 #### Naive Estimator
 
 The **naive estimator** is an estimator that only compares our observed outcomes, without any comparison to the counterfactual potential outcomes. This is often what many people initially do when trying to find a causal effect. Essentially, we are comparing units that are assigned to treatment, and the units that are not assigned to treatment, and their observed outcomes. $$
-E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 0]
+\mathbb{E}[Y_{1i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0]
 $$
 
 Or more intuitively, the average observed outcome $Y$ of those in the treatment group, minus the average observed outcome $Y$ of those in the control group.
@@ -184,24 +184,24 @@ However, this [naive estimator is a bad idea]{.underline}. Why?
 -   This is why counterfactual comparison is important - when we compare the potential outcomes of the same unit in control and treatment groups, we can be confident of the affect of the treatment, since it is the same unit of observation for both groups.
 
 We can prove this mathematically. We start with the naive estimator: $$
-E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 0]
+\mathbb{E}[Y_{1i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0]
 $$
 
 Then, we do a little algebra trick - we add a new term to this equation, and then subtract the same term. The two new terms thus cancel each other out to 0. $$
-= E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 0] + E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i - 1]
+= \mathbb{E}[Y_{1i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0] + \mathbb{E}[Y_{0i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i - 1]
 $$
 
 Then, we rearrange the terms, then simplify, getting the result: $$
 \begin{split}
-& = E[Y_{1i} | D_i = 1] - E[Y_{0i} | D_i = 1] + E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0] \\
-& = E[Y_{1i} - Y_{0i} | D_i = 1] + E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0]
+& = \mathbb{E}[Y_{1i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 1] + \mathbb{E}[Y_{0i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0] \\
+& = \mathbb{E}[Y_{1i} - Y_{0i} | D_i = 1] + \mathbb{E}[Y_{0i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0]
 \end{split}
 $$
 
 If we look at the final result, we can divide it into 2 parts:
 
-1.  The first part, $E[Y_{1i} - Y_{0i} | D_i = 1]$, is the average treatment effect of the treated $\tau_{ATT}$ that we introduced previously.
-2.  The second part $E[Y_{0i} | D_i = 1] - E[Y_{0i} | D_i = 0]$ is what we call the **selection bias**. Intuitively, it is the difference between the treatment and control groups prior to the treatment taking place (hence the potential outcome being $Y_{0i}$).
+1.  The first part, $\mathbb{E}[Y_{1i} - Y_{0i} | D_i = 1]$, is the average treatment effect of the treated $\tau_{ATT}$ that we introduced previously.
+2.  The second part $\mathbb{E}[Y_{0i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0]$ is what we call the **selection bias**. Intuitively, it is the difference between the treatment and control groups prior to the treatment taking place (hence the potential outcome being $Y_{0i}$).
 
 #### Selection Bias and Confounding Variables
 
@@ -221,13 +221,171 @@ The naive estimator will capture the effect of these confounders, which we do no
 
 ### Random Assignment and Experiments
 
+The **assignment mechanism** is how we decide which observations receive the treatment $D$. In the last chapter, we discussed how the Naive Estimator is biased, because of selection bias.
+
+However, we can address this concern by randomly assigning units into either the treatment or control group. Since by random selection, each observation has an equal likelihood of being in the treatment or control, we should expected the treatment and control groups to be similar - thus eliminating selection bias.
+
+Mathematically, we assume that after randomization, the potential outcomes are independent of treatment/control status:
+
+$$
+\mathbb{E}[Y_{1i} | D_i = 1] \approx \mathbb{E}[Y_{1i}|D_i = 0] \text{ and } \mathbb{E}[Y_{0i} | D_i = 1] \approx \mathbb{E}[Y_{0i}|D_i = 0]
+$$
+
+Or in other words, the potential outcomes are the same between control and treatment groups. If this assumption is met, then we can use the naive estimator to estimate the treatment effect. Remember the naive estimator:
+
+$$
+\mathbb{E}[Y_{1i} - Y_{0i} | D_i = 1] + \mathbb{E}[Y_{0i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0]
+$$
+
+The selection bias term $\mathbb{E}[Y_{0i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0] = 0$ under the above assumptions of randomisation. Thus, there is no longer selection bias, and confounding variables will have been accounted for.
+
 ### Estimation of Causal Effects
 
-### Uncertainty and Causal Inference
+After we have randomised our control and treatment groups, how do we identify the causal effect in a randomised controlled experiment?
+
+Our observed potential outcomes in our randomised experiments are $Y_{1i}$ and $Y_{0i}$. We know that the treatment group $D_i$ does not affect our potential outcomes (as shown in the previous section). Thus we know that: $$
+\begin{split}
+\mathbb{E} [Y_{1i} | D_i = 1] & = \mathbb{E} [Y_{1i}] \\
+\mathbb{E} [Y_{0i} | D_i = 0] & = \mathbb{E} [Y_{0i}]
+\end{split}
+$$
+
+Now that we have $\mathbb{E}[Y_{1i}]$ and $\mathbb{E}[Y_{0i}]$, we can calculate the average treatment effect:
+
+$$
+\tau_{ATE} = \mathbb{E}[\tau_i] = \mathbb{E}[Y_{1i}] - \mathbb{E}[Y_{0i}] = \bar{Y}_t - \bar{Y}_c
+$$
+
+Where $\bar{Y}_t$ is the average $Y$ value of the treatment group, and $\bar{Y}_c$ is the average $Y$ value of the control group. Thus, the causal effect is simply a difference of means between the treatment and control group.
 
 ### Blocking and Stratified Experiments
 
+#### Experimental Design
+
+Blocking, also called stratified experiments, is an extension of the random experiment to deal with some common issues.
+
+Imagine that you have four units in your experiment that you have to assign to treatment/control. Their pre-treatment outcomes are $Y_{0i} = \{2, 2, 8, 8\}$. This means that you have a 1/3 chance to end up with the random assignment of $\{2, 2 \}$ in one group and $\{8, 8\}$ in the other group.
+
+-   This is a major issue! After all, the core assumption of random experiments is that randomisation makes the treatment and control group similar, eliminating selection bias.
+
+With blocking, you can prevent this from happening. Before randomisation, you separate your sample of $N$ units into $J$ subgroups. Then, within each group, randomly assign units to treatment and control group (essentially, smaller randomised experiments within a bigger experiment).
+
+-   For example, we could divide our prior example into 2 subgroups: $\{2, 2\}$ and $\{ 8, 8 \}$. Then, within each group, randomly assign one observation to treatment, and one to control. Thus, we are guaranteed to get units from both subgroups in both our treatment and control groups.
+
+#### Estimation of Causal Effects
+
+To estimate our effects, we will have to take the weighted average of each subgroup's average treatment effect (ATE), with the weights being the proportion of units each group accounts for. Mathematically:
+
+$$
+\tau_{ATE} = \sum\limits_{j=1}^J \frac{N_j}{N} \tau_j
+$$
+
+Where $N$ is the total number of observations, $J$ is the total number of subgroups, $j$ is one of the subgroups, $N_j$ is the number of units within subgroup $j$, and $\tau_j$ is the ATE of the subgroup $j$.
+
+### Uncertainty and Standard Errors
+
+#### Intuition of Uncertainty
+
+Remember how we randomly assigned units to treatment or control? What if we ran the experiment again? The treatment and control groups would very likely not be exactly the same, and thus, we would get a slightly different causal effect. Thus, we have some uncertainty with our causal estimate - re-running the experiment might result in a different answer.
+
+The ATE we have calculated is only our specific sample average treatment effect (SATE), often notated $\hat{\tau}_{ATE}$ or $\hat{ATE}$.
+
+-   Why sample? Well, through random assignment, you are basically "randomly sampling" potential outcomes - since randomly choosing one unit to be in treatment/control means not seeing the other counterfactual potential outcome.
+
+Thus, we need some mechanism to account for sampling variability and how rerunning the experiment might result in slightly different results. We do this with sampling distributions and standard errors.
+
+#### Sampling Distributions and Standard Error
+
+A **sampling distribution** is a hypothetical construct that is useful to understanding how many of our statistical techniques work. A sampling distribution is as follows.
+
+-   Imagine that we take a sample from a population (or some random assignment mechanism). Then, we find the average treatment effect of the sample $\hat{\tau}_{ATE}$. [That is a **sample estimate**, which is often notated $\hat{\theta}$]{.underline}. (I use $\theta$, since this idea of uncertainty can be applied to any estimate, not just average treatment effect).
+
+-   Then, let us take another sample from the same population (or do another random assignment), and find the sample estimate. This will be slightly different than the first sample, since we are randomly sampling. That is another sample estimate. We keep taking samples from the same population (more random assignments), and getting more and more sample estimates.
+
+-   Now, let us plot all our sample estimates $\hat{\theta}$ (different $\hat{\tau}_{ATE}$ values) into a “histogram” or density plot. The $x$ axis labels the possible $\hat{\tau}_{ATE}$ values, and the $y$ axis is how frequently a specific sample estimate occurs. We will get a distribution, just like a random variable distribution.
+
+-   That distribution is the **sampling distribution**
+
+[A Sampling distribution is the imaginary distribution of estimates, if we repeated the sampling and estimation process many, many times]{.underline}.
+
+The **standard error** is the standard deviation of the sampling distribution. It is often notated $SE(\hat{\theta})$. The computer/software we use will calculate this for us.
+
+### Confidence Intervals and Hypothesis Testing
+
+#### Confidence Intervals
+
+Since there is variability of estimates between samples, we have to create an interval around our sample estimate $\hat{\theta}_j$ to account for this uncertainty. We assume our estimated $\hat{\theta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95% (the standard confidence level):
+
+$$
+\hat{\theta}_j ± 1.96 \times \hat{se}(\hat{\theta}_j)
+$$
+
+-   $\hat{se}(\hat{\theta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\theta_j$, introduced in the previous section.
+
+-   Why 1.96? It is because in a normal distribution, 95% of the data is contained within 1.96 standard deviations, and Central Limit Theorem states that sampling distributions are normally distributed. (The 1.96 can vary based on sample size however, if we do not meet Central Limit Theorem criteria, but that is not important for now).
+
+Confidence intervals say that if we repeated the sampling and estimation process many many times (like we did for our sampling distribution), 95% of the confidence intervals we construct from our samples, would correctly contain the true $\theta_j$.
+
+Every value in a given confidence interval is a plausible value of the true $\theta_j$ in the population. The most important thing is if 0 is included within the confidence interval. $\theta = 0$ means that there is no causal effect.
+
+#### Hypothesis Testing
+
+In academia, we are conservative - this means we do not claim we have found a new theory, unless we are quite confident that the old theory was not true. The old theory is called our **null hypothesis**, often notated $H_0$. This is the old theory that we are trying to disprove.
+
+-   Most often, the "old theory" we are trying to disprove is that *there is no causal effect of* $D$ on $Y$ (since it is very rare we are studying something that has already been proven). No relationship means that $\theta_j = 0$
+
+The new theory we have come up with, and are trying to prove, is called the **alternate hypothesis**, often notated $H_1$ or $H_a$.
+
+-   In general, our new hypothesis is that t*here is a causal effect of* $D$ on $Y$, or [$\theta_j ≠ 0$]{.underline}
+
+[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis (the new theory we proposed)]{.underline}.
+
+How do we actually test these hypotheses? First, we have to calculate a t-test statistic. The formula for such a statistic is the parameter divided by its standard error (calculated by the computer):
+
+$$
+t = \frac{\hat{\theta}_j}{\hat{se}(\hat{\theta}_j)}
+$$
+
+The t-test statistic basically tells us how far the parameter we tested is from 0, in terms of standard errors of the parameter.
+
+Then, we have to consult a t-distribution (see section 2.4). T-distributions only has one parameter - degrees of freedom, which is calculated by the number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$
+
+With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides from the middle of the t-distribution.
+
+Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below, with its blue highlighted area, shows this probability:
+
+![](figures/1/5.1.jpeg){fig-align="center" width="50%"}
+
+The area highlighted is our p-value. Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\theta_j$, given the null hypothesis is true.
+
+-   So if the p-value is very high, there is a high chance that the null hypothesis is true.
+
+-   If the p-value is very low, then there is a low chance that the null hypothesis is true
+
+Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
+
 ### Validity and Limitations of Randomised Experiments
+
+There are two types of validity in Randomised Experiments: Internal and External validity.
+
+**Internal validity** is about if our experiment accurately captures the average causal effect of our units in our experiment. Essentially - did we estimate the causal effect correctly? Some things that can cause lack of internal validity include:
+
+1.  Failure of randomisation: if treatment and control groups are not similar, we violate assumptions of random experiments and that will include selection bias in our estimates.
+2.  Non-Compliance: Sometimes, our subjects that are assigned to treatment, refuse to comply with the treatment (we cannot force them to). This will mess up the average treatment effect, since some units did not properly undergo the treatment.
+3.  Attrition: Sometimes, outcomes cannot be measured for some study participants, for example, if they drop out or refuse to answer. This is concerning - because the people who drop out might have some common characteristic (confounding variable), and we will miss this entirely in our estimation.
+
+**External Validity** is about the generalisation of our conclusions - we know the effect on our experimental subjects, but does this causal effect apply to other units across the world?
+
+-   For example, if we do a study in Japan, can we assume that the same effects are applicable in the US? South Africa?
+
+-   Generally to obtain this, you want the units included in your observation to be representative of the larger units you want to apply your results to. For example, if you are measuring the causal effect of some treatment on Americans, you want your subjects to be representative of Americans as a whole.
+
+Finally, Randomised Experiments have some **limitations**.
+
+1.  Ethical limitations: sometimes, it is unethical to have units take potentially dangerous treatments, or have some units not undergo potential benefits of treatment. We are essentially randomly selecting what happens to people's lives.
+2.  Practical limitations: often, running experiments is just not possible. For example, let us say you want to see if democracy increases economic growth. To do this, you would need to randomly assign countries to democracy or autocracy (control) groups. But let us be honest, you can't force Canada to be a dictatorship against their will.
+
+The rest of this course focuses on these limitations of experiments, and how we can address them.
 
 # Multiple Linear Regression
 
@@ -596,13 +754,11 @@ Thus, for OLS to be possible, $Var(X) ≠ 0$ must be true.
 
 ### Multivariate Regression Estimation
 
-Multivariate regression, as introduced previously, allows us to add additional control variables:
-$$
+Multivariate regression, as introduced previously, allows us to add additional control variables: $$
 Y_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + \hat{\beta}_2 X_{2i} + ... + \hat{\beta}_k X_{ki}
 $$
 
-Similar to our bivariate regression (but with additional variables), our minimisation condition is:
-$$
+Similar to our bivariate regression (but with additional variables), our minimisation condition is: $$
 \begin{split}
 (\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...) & = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i} ...)^2 \\
 & = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} S(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)
@@ -611,8 +767,7 @@ $$
 
 However, instead of a best-fit line in a 2-dimensional setting, we now have a best-fit plane in a 3-dimensional space (or higher depending on the number of explanatory variables).
 
-Taking the partial derivatives of each parameter as before, and setting them equal to 0, we get these three first order conditions:
-$$
+Taking the partial derivatives of each parameter as before, and setting them equal to 0, we get these three first order conditions: $$
 \begin{split}
 & -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
 & -2 \sum\limits_{i=1}^n X_{1i}(Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
@@ -729,24 +884,6 @@ The quality of a sample depends on two major factors: the sampling procedure, an
 -   Luck in sampling is called **noise** or **variance**: essentially, even if we have a perfect sampling procedure, every sample will differ slightly just due to luck.
 
 [The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the population.
-
-### Sampling Distributions and Standard Error
-
-A sampling distribution is a hypothetical construct that is useful to understanding how many of our statistical techniques work. A sampling distribution is as follows.
-
--   Imagine that we take a sample from a population. Then, we find the $\hat{\beta}_j$ coefficient between some $X_j$ and $Y$. That is a **sample estimate**.
-
--   Then, let us take another sample from the same population, and find the sample estimate. This will be slightly different than the first sample, since we are randomly sampling. That is another sample estimate. We keep taking samples from the same population, and getting more and more sample estimates.
-
--   Now, let us plot all our sample estimates (different $\hat{\beta}_j$ values) into a “histogram” or density plot. The $x$ axis labels the possible $\beta_j$ values, and the $y$ axis is how frequently a specific sample mean occurs. We will get a distribution, just like a random variable distribution.
-
--   That distribution is the **sampling distribution**
-
-[A Sampling distribution is the imaginary distribution of estimates, if we repeated the sampling and estimation process many, many times]{.underline}.
-
-The **standard error** is the standard deviation of the sampling distribution. It is often notated $se(\hat{\beta}_j)$. Our software will calculate an estimate of this value, which will be notated as $\hat{se} ( \hat{\beta}_j)$
-
--   A smaller standard error generally means a more accurate estimate, and is usually due to a larger sample size $n$ or lower residual standard deviation $\hat{\sigma}^2$
 
 ### Confidence Intervals
 
