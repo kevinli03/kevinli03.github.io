@@ -424,10 +424,10 @@ A regression model is the specification of the conditional distribution of $Y$, 
 Suppose we have a set of observed data, with response variable $Y$, and a number of $X$ variables for $n$ number of observations. Thus, we will have $n$ number of pairs of $(X_i, Y_i)$ observations. The linear model takes the following form:
 
 $$
-E[Y_i|\overrightarrow{X}_i] = \alpha + \beta_1 X_{1i} + ... + \beta_k X_{ki}
+\mathbb{E}[Y_i|\overrightarrow{X}_i] = \alpha + \beta_1 X_{1i} + ... + \beta_k X_{ki}
 $$
 
--   Where $E[Y_i|\overrightarrow{X}_i]$ is the expected value of the conditional distribution $Y_i|\overrightarrow{X}_i$
+-   Where $\mathbb{E}[Y_i|\overrightarrow{X}_i]$ is the expected value of the conditional distribution $Y_i|\overrightarrow{X}_i$
 
 -   The distribution of $Y_i|\overrightarrow{X}_i$ has a variance $Var(Y_i|\overrightarrow{X}_i) = \sigma^2$.
 
@@ -556,9 +556,9 @@ $$
 
 The only thing that must be true to estimate bivariate linear regression is that $Var(X) ≠ 0$.
 
-### Multivariate Regression Estimation
+### Multiple Regression Estimation Mechanics
 
-Multivariate regression, as introduced previously, allows us to add additional control variables: $$
+Multiple regression, as introduced previously, allows us to add additional control variables: $$
 Y_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + \hat{\beta}_2 X_{2i} + ... + \hat{\beta}_k X_{ki}
 $$
 
@@ -592,10 +592,10 @@ The other conditions are difficult to solve by hand, so the computer will do thi
 
 The only properties that are required to compute the multivariate regression OLS estimates are:
 
-1.  All explanatory variables have sample variability $Var(X_j \in \overrightarrow{X}) ≠ 0, \forall X_j \in X$.
-2.  No two explanatory variable have perfect collinearity - which means a correlation coefficient of -1 or 1, which only occurs if the two variables have the same exact values. Mathematically,$X_{ai} ≠ X_{ai}, \forall i, \forall X_a, X_b \in \overrightarrow{X}$.
+1.  All explanatory variables have sample variability $Var(X_j \in \overrightarrow{X}) ≠ 0, \space \forall X_j \in X$.
+2.  No two explanatory variable have **perfect collinearity** - which means a correlation coefficient of -1 or 1, which only occurs if the two variables have the same exact values. Mathematically,$X_{ai} ≠ X_{ai}, \space \forall i, \space \forall X_a, \space X_b \in \overrightarrow{X}$.
 
-### Matrix Notation of Regression
+### Matrix Notation of Multiple Regression
 
 By expressing models in linear algebra, it becomes easier to derive formal results without requiring messy algebra and the summation operator. It is also natural, since our data is stored in spreadsheets (big matrices).
 
@@ -608,7 +608,7 @@ $$
 The $i$th observation can be written in vector form as following:
 
 $$
-y = X_i'\beta + \epsilon_i, \text{ where }
+Y = X_i'\beta + \epsilon_i, \text{ where }
 \beta = \begin{bmatrix}
 \alpha \\ \beta_1 \\ \vdots \\ \beta_k
 \end{bmatrix} \text{ and }
@@ -674,6 +674,59 @@ $$
 -   The first row of $X$ is a vector of 1, which exists because these 1's are multiplied with $\alpha$ in our model.
 
 ### OLS Estimator with Linear Algebra
+
+Let us define our estimation vector $\hat{\beta}$ as:
+
+$$
+\hat{\beta} = \arg \min\limits_{b} (Y - Xb)' (Y - Xb) = \arg \min\limits_b S(b)
+$$
+
+We can expand $S(b)$ as follows:
+
+$$
+\begin{split}
+S(b) & = Y'Y - b'X'Y - Y'Xb + b'X'Xb \\
+& Y'Y - 2b'X'Y + b'X'Xb
+\end{split}
+$$
+
+Taking the partial derivative in respect to $b$, then setting equal to 0, we get:
+
+$$
+\frac{\partial S(b)}{\partial b} \biggr{|}_{\hat{\beta}} = 
+\begin{pmatrix}
+\frac{\partial S(b)}{\partial b_1} \\
+\vdots \\
+\frac{\partial S(b)}{\partial b_k}
+\end{pmatrix}
+\Biggr{|}_{\hat{\beta}} = 0
+$$
+
+Differentiating with the vector $b$ yeilds:
+
+$$
+\frac{\partial S(b)}{\partial b} = -2X'Y + 2X'Xb
+$$
+
+Evaluted at $\hat{\beta}$, the derivatives should equal zero (since first order condition of finding minimums):
+
+$$
+\frac{\partial S(b)}{\partial b} \biggr|_{\hat{\beta}} = -2X'Y + DX'X \hat{\beta} = 0
+$$
+
+When assuming $X'X$ is invertible, our solution is:
+
+$$
+\hat{\beta} = (X'X)^{-1} X'Y
+$$
+
+The matrix $X'X$ is invertible for the same criteria as the non-linear algebra solution - that all explanatory variables have non-zero variance, and there is no perfect collinearity.
+
+Once we have estimates of $\hat{\beta}$, we can plug them into our linear model to obtain fitted values:
+
+$$
+\hat{Y} = X\beta = X(X'X)^{-1} X'Y
+$$
 
 ## Interpretation and Hypothesis Testing
 
@@ -1207,7 +1260,126 @@ You can get all of these interpretations above simply by plugging in $X_2 = 0$ a
 
 # Regression for Causal Inference
 
-## Gauss-Markov Assumptions
+## Gauss-Markov Assumptions and Causal Effects
+
+### Gauss Markov Theorem
+
+The Gauss-Markov Theorem states that under a certain set of assumptions (called the Gauss-Markov Assumptions), the OLS estimator is the best linear unbiased estimator (BLUE) for the coefficients of a linear regression models. This is important, as if you meet the assumptions required, you can be confident that you are obtaining the best possible coefficient estimates of any linear model. So - if we are interested in accurately finding the causal effect of $D$ on $Y$, we can be confident we are getting the most accurate estimate.
+
+The **Gauss-Markov Assumptions** that make the OLS estimator the best linear unbiased estimator are:
+
+1.  Linearity of Parameters
+2.  Random Sampling from the Population
+3.  Non-Perfect Collinearity
+4.  Exogeneity
+5.  Homoscedasticity
+
+We will explore each of these assumptions in detail.
+
+### Linearity and Random Sampling
+
+The first Gauss-Markov Assumption is that the parameters $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ must be linear. This does not mean that the best-fit line has to be linear. Linearity of parameters refers to the coefficients $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ must not be multiplied/divided with each other. Different coefficients must be added together.
+
+For example, a moderating effect regression has explanatory variables multiplied together. However, see that all coefficients $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ are not multiplied together.
+
+$$
+\hat{Y}_i = \hat{\alpha} + \hat{\beta}_1 X_{1i} + \hat{\beta}_2 X_{2i} + \hat{\beta}_3 X_{1i} X_{2i}
+$$
+
+This is also the case for polynomial transformations, log transformations, and all models we have covered.
+
+The second Gauss-Markov Assumption is that our observations $(\overrightarrow{X}_i, Y_i)$ must be randomly sampled from the population. Remember that in Causal Inference, the population is actually the potential outcomes, and our sampling is done through our assignment mechanism.
+
+-   For example, random assignment in a randomised controlled trial is essentially randomly sampling potential outcomes.
+
+Thus, in theory, to get the best linear unbiased estimator for a causal effect, we must have a randomised controlled experiment.
+
+-   We do have some other ways to address not meeting this condition, that we will explore later in the book.
+
+### Non-Perfect Collinearity
+
+The third Gauss-Markov Assumption is that of our explanatory variables $X_1, ..., X_k$, no two can have perfect multicollinearity. Perfect multicollinearity means a perfect correlation/relationship between two of our explanatory variables. Or in other words, one explanatory variable is an exact linear function (with no error) of another explanatory variable.
+
+The reason this is required is mechanical - we discussed this briefly when deriving the OLS estimator in chapter 3. If there is perfect multicollinearity, $X'X$ is no longer invertible, thus making the mechanics of OLS impossible.
+
+To avoid this, when choosing explanatory variables, do not choose two variables that measure the same thing. For example, do not include GDP per capita, and GDP per capita in 1000s of dollars, since they are the same variable, just scaled differently.
+
+Note: This assumption does not mean regressors have to be uncorrelated - they can be correlated, even strongly, just not perfectly correlated.
+
+However, do note that the more correlated two explanatory variables are, the more variance there is in the estimates. This is because OLS tries to "partial" out effects to each variable, but it is hard to tell what effect one $X$ has on $Y$ compared to another $X$ that is very correlated with it.
+
+-   If we are selecting highly correlated control variables, this issue does not matter at all - after all, we don't care about the effect of control variables, they are just there to control for confounders.
+
+-   However, we probably do not want a highly correlated variable with our main treatment variable - since that can muddy the effect of the treatment variable.
+
+### Exogeniety and Endogeniety
+
+The fourth Gauss Markov Assumption is Exogeniety: the error term and regressors are uncorrelated. In other words, the change in $X$ should not affect the expected value of the error. Mathematically:
+
+$$
+\mathbb{E}[\epsilon_i|\overrightarrow{X}_i] = 0, \space \forall i
+$$
+
+We actually proved this theorem earlier when deriving the OLS estimator. Let us take the example of bivariate linear regression, since it is easier to show. First, let us recall the first-order conditions to maximise our sum of squared errors, for both $\hat{\alpha}$ and $\hat{\beta}$: $$
+\begin{split}
+& \sum_{i]1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = 0 \\
+& \sum_{i]1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = 0
+\end{split}
+$$
+
+We also know that the error/residual is $\epsilon_i = Y_i - \hat{\alpha} - \hat{\beta}$. Let us plug that in to our above equations, and we get: $$
+\begin{split}
+& \sum_{i]1}^n \epsilon_i = 0 \\
+& \sum_{i]1}^n X_i \epsilon_i = 0
+\end{split}
+$$
+
+These two equations tell us the following:
+
+1.  The first equation says the OLS residuals always add up to zero. Thus, the average error/residual is also 0.
+2.  The second equation shows that the sample covariance and correlation between $X$ and $\epsilon$ are uncorrelated.
+
+Thus, these two assumptions result in our Gauss-Markov Assumption of $\mathbb{E}[\epsilon_i|\overrightarrow{X}_i] = 0, \space \forall i$, where the explanatory variables are uncorrelated, and thus, also have a average error/residual of 0 for all explanatory variable inputs.
+
+When this assumption is met, we say that our explanatory variables are **exogenous**.
+
+However, when this assumption is not met, we say that the specific $X_j$ that are correlated with the error terms are **endogenous regressors**, and that our model has **endogeniety**.
+
+-   We will discuss the Instrumental Variable Estimator later, which deals with endogenous regressors.
+
+### Homoscedasticity
+
+The fifth Gauss-Markov Assumtion is homoscedasticity - that the variance of the error term is consistent and constant for all values of the explanatory variables. We discussed this briefly in Chapter 4. Mathematically:
+
+$$
+Var(\epsilon|\overrightarrow{X}) = \sigma^2
+$$
+
+When this condition holds, we have **homoscedasticity**.
+
+However, if this assumption is violated, we have **heteroscedasticity**. The simplest way to identify heteroscedasticity is to look at the residual plots - a plot with explanatory variables on the $x$-axis, and residuals on the $y$-axis.
+
+-   If the residuals show no pattern, then there is no heteroscedasticity. If there is a pattern, for example, if the residuals are very small when $X$ is small, and very big when $X$ is big, then we have heteroscedasticity.
+
+OLS is still unbiased as long as the first 4 assumptions are met. Heteroscedasticity does not cause bias or inconsistency in the estimates of coefficients. However, if heteroscedasticity is present, it may indicate a better estimator may exist (so OLS is no longer BLUE).
+
+Furthermore, and more useful for us, the usual standard error formula that we use to calculate confidence intervals and hypothesis tests no longer works. This is because the old standard errors are based on the assumption of homoscedasticity.
+
+Thus, we need to modify our standard errors so that they are still accurate. We do this by calculating the **robust standard errors**, and then conducting our tests using these robust standard errors. Do not worry about how to calculate these by hand. Our statistical software will include options to calculate robust standard errors.
+
+### Regression Design for Causal Inference
+
+We can use regression for causal inference by including treatment $D$ as an explanatory variable in our model. If we want to use regression, and only regression for causal inference, we have a few options.
+
+If we have random assignment mechanisms in our study, we can just use a single variable regression to determine causal effects, assuming all other Gauss-Markov assumptions are met (homoscedasticity is not required if we use robust standard errors). Many random controlled trials use regression to determine the causal effects.
+
+However, if we are dealing with observational designs without random assignment mechanisms, things become more complicated. In theory, if we control for every possible confounding variable with multiple linear regression, we can accurately calculate the causal effect of a treatment.
+
+-   So, we should include every possible confounding variable in our model to control for these confounders.
+
+-   However, in social sciences, this is nearly impossible. There are often thousands of confounding variables, some that we might not even know about.
+
+-   The rest of this book will focus on ways to slowly account for these confounding variables that still remain after we included what we could in the regression.
 
 ## Panel and Clustered Data
 
