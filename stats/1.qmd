@@ -383,13 +383,15 @@ There are two types of validity in Randomised Experiments: Internal and External
 Finally, Randomised Experiments have some **limitations**.
 
 1.  Ethical limitations: sometimes, it is unethical to have units take potentially dangerous treatments, or have some units not undergo potential benefits of treatment. We are essentially randomly selecting what happens to people's lives.
-2.  Practical limitations: often, running experiments is just not possible. For example, let us say you want to see if democracy increases economic growth. To do this, you would need to randomly assign countries to democracy or autocracy (control) groups. But let us be honest, you can't force Canada to be a dictatorship against their will.
+2.  Practical limitations: often, running experiments is just not possible. For example, let us say you want to see if democracy increases economic growth. To do this, you would need to randomly assign countries to democracy or autocracy (control) groups. But let us be honest, you can't force Canada to be a dictatorship against their will. Often, we will have to use **observational studies** - where we do not control assignment of treatment.
 
-The rest of this course focuses on these limitations of experiments, and how we can address them.
+The rest of this course focuses on observational studies. We will introduce regression - one of the most powerful tools in causal inference. Then, we will introduce extensions to regressions that help us address some of the limitations regressions have.
 
 # Multiple Linear Regression
 
-## Specification and Interpretation
+## Regression Models and Estimation
+
+Note: This chapter's later sections may become quite complex. However, do not worry if you do not understand section 3.3 and beyond, as only the sections 3.1-3.2 are absolutely essential.
 
 ### Introduction to Regression
 
@@ -413,11 +415,11 @@ Before we dive into the linear model, here are some conventional notation that i
 
 ### Specification of the Linear Model
 
-A regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. Essentially, it is stating that the distribution of possible $Y$ outcomes depends on the value of $\overrightarrow{X}$.
+A regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. Essentially, it is stating that the distribution of possible $Y$ outcomes depends on the value of $\overrightarrow{X}$. The linear regression model focuses on the **expected value** of the conditional distribution of $Y$ given $\overrightarrow{X}$.
 
--   I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$.
+-   I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$. The regression focuses on the expected value of $Y$ at some $X$.
 
-The linear regression model focuses on the **expected value** or mean of the conditional distribution of $Y$ given $\overrightarrow{X}$.
+#### Form of the Linear Model
 
 Suppose we have a set of observed data, with response variable $Y$, and a number of $X$ variables for $n$ number of observations. Thus, we will have $n$ number of pairs of $(X_i, Y_i)$ observations. The linear model takes the following form:
 
@@ -443,7 +445,7 @@ $$
 
 -   Essentially, $\epsilon_i$ is another way to think about the conditional distribution of $Y_i|\overrightarrow{X}_i$, and how not every 30 year old makes the exact same income - there is some variation (and error).
 
-### Estimation of Parameters
+#### Parameters and Estimation
 
 In our model, we have parameters $\alpha, \beta_1, ..., \beta_k$ that need to be estimated in order to create a best-fit line we can actually use. We estimate the parameters and fit the model by using our observed data points $(Y_i, \overrightarrow{X}_i)$, and fitting a best fit line to these points. Our result should take the following form:
 
@@ -455,175 +457,20 @@ $$
 
 -   Notice the error term $\epsilon_i$ is not present. This is because of our prior assumption that the error term $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, which says the expected value of $\epsilon_i$ is $E[\epsilon_i]=0$.
 
-However, how do we determine the estimates of our parameters $\alpha, \beta_1, ..., \beta_k$? **The Ordinary Least Squares Estimator (OLS).** OLS estimation attempts to **minimise the sum of squared errors** of our predicted line to our actual observed data. The estimation processes is as follows.
+However, how do we determine the estimates of our parameters $\alpha, \beta_1, ..., \beta_k$? **The Ordinary Least Squares Estimator (OLS).** OLS estimation attempts to **minimise the sum of squared errors** of our predicted line to our actual observed data.
 
-1.  Propose some coefficient values to test. Let $\tilde{\beta}$ represent the vector of our proposed coefficient values $\tilde{\alpha}, \tilde{\beta}_1, ..., \tilde{\beta}_k$
-2.  Use these proposed coefficients in our prediction line: $\hat{Y}_i (\tilde{\beta}) = \tilde{\alpha} + \tilde{\beta}_1 X_{1i},...  ,\tilde{\beta}_k X_{ki}$
-3.  Calculate the residuals $e_i$ of our predictions of $Y$ using our proposed coefficients, compared to the actual values of $Y_i$ : $e_i (\tilde{\beta}) = Y_i - \hat{Y}_i (\tilde{\beta})$
-4.  Calculate the sum of squared errors (SSE) for all residuals: $SSE(\tilde{\beta}) = \sum (Y_i - \hat{Y}_i (\tilde{\beta}))^2$
-
-[The set of proposed $\tilde{\beta}$ coefficients that produces the lowest SSE is chosen as our estimates]{.underline}.
-
-However, in reality, we do not do all this work - testing all different $\tilde{\beta}$ and seeing which one has a lower SSE. Instead, we can mathematically solve this problem. We will discuss this in the next chapter.
-
-### Interpretations of Coefficients
-
-Let us first focus on a descriptive context - we will focus on the causal interpretation later.
-
-#### Simple Linear Regression
-
-Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated?
-
-$\hat{\beta}$ is the slope of the the linear model. [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}.
-
--   A positive $\hat{\beta}$ means a positive relationship, a negative $\hat{\beta}$ means a negative relationship, and $\hat{\beta} = 0$ means no relationship.
--   This is only for continuous $X$ explanatory variables. See Chapter 5 for categorical/binary explanatory variables.
-
-$\hat{\alpha}$ is the y-intercept of the linear model. $\hat{\alpha}$ is the expected value of $\hat{Y}$, given $X=0$.
-
-#### Multiple Linear Regression
-
-Multiple linear regression is when there are multiple explanatory variables $X_1, X_2, ..., X_k$. How do we interpret these parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$ that we have calculated?
-
--   Note: I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ (the interpretation is all the same). In the model, $\hat{\beta}_j$ will be multiplied to variable $X_j$.
-
-Formally, [any coefficient $\hat{\beta}_j$ is the expected change in $Y$, corresponding to a one unit increase in $X_j$, holding all other explanatory variables $X_1, ..., X_k$ that are not $X_j$ constant.]{.underline}
-
--   Essentially, we do the same interpretation as the single linear regression, but adding the phrase "**holding all other explanatory variables constant**".
-
-$\hat{\alpha}$ is the expected value of $\hat{Y}$, given all explanatory variables $X_1, ...,X_k$ equal 0.
-
-#### Interpreting in Terms of Standard Deviation
-
-Sometimes, it is hard to understand what changes in $Y$ and $X$ mean in terms of units. For example, if democracy is measured on a 100 point scale, what does a 5 point change in democracy mean? Is it a big change, or a small change?
-
-We can add more relevant detail by expressing the change of $Y$ and $X$ in standard deviations.
-
-So, instead of the expected change of $Y$ given one unit increase of $X$, we instead do the [expected standard deviation change of $Y$, given a one standard deviation increase in $X$.]{.underline}
-
-How do we calculate this? There is a formula! $Y$ changes by $(SD_{X_j} \times \hat{\beta}_j) / SD_Y$, where $SD$ represents standard deviation, and $X_j$ is the variable whose coefficient we are interpreting.
-
-#### Binary $Y$ Variable Interpretation
-
-If our response variable is binary, (i.e. $Y$ only has two values, 0 and 1), then our interpretation differs slightly. We treat $Y$ as a variable of two categories, $Y = 0$ and $Y = 1$.
-
-[$\hat{\beta}_j$ is the expected change in the probability of getting category $Y = 1$, given a one-unit increase in $X_j$]{.underline}. We could multiply this by 100 to get the expected percentage point change.
-
-$\hat{\alpha}$ is the expected probability of getting category $Y=1$, when $X_j = 0$.
-
-An important note is that, in theory, for a linear regression model, $Y$ should be continuous, not binary. In theory, we should be using logistic regression instead of linear regression (which is covered in the Advanced Statistical Methods book).
-
--   However, in practice, researchers often do use linear regression for binary $Y$, simply because linear regression is easier to interpret, and easier to incorporate into more causal inference methods.
-
-### Model Summary Statistics
-
-#### Estimated Residual Standard Deviation
-
-We can derive the estimate of the **residual variance** $\sigma^2$ with this formula:
+What are the sum of squared errors? They are exactly what they sound like. First, calculate the difference between our estimated $Y$ from our model $\hat{Y}_i$, and the actual $Y_i$ value. Then, square that. Then sum all of those squared errors for every observation.
 
 $$
-\hat{\sigma}^2 = \frac{\sum(Y_i - \hat{Y}_i)^2}{n-k-1}
+SSE = \sum (Y_i - \hat{Y}_i)^2 = \sum (Y_i - \hat{\alpha} - \hat{\beta}X_{1i} - ... - \hat{\beta_k} X_{ki})
 $$
 
-But what is the residual variance? Recall the way we write our regression model:
+The final equation is obtained by substituting our fitted model in for $\hat{Y}_i$.
 
-$$
-Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
-$$
+### Bivariate Regression Estimation Mechanics
 
-We know that $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Our estimate of the residual variance $\hat{\sigma}^2$ is our estimate of the variance of the error term $\epsilon_i$'s variance. More intuitively, it explains how spread out observed values of $Y$ are from our prediction value $\hat{Y} = E(Y|X)$.
-
-The figure below better showcases this in 2 different models. The red lines are our predicted regression line, and the green lines represent the distribution of our error term $\epsilon_i$:
-
-![](figures/1/4.1.png){fig-align="center" width="70%"}
-
-The residual standard deviation $\hat{\sigma}$ (square root of variance) is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
-
-If $\hat{\sigma}$ varies depending on the value of $X$, then that is called **heteroscedasticity**. When this occurs, it is often a suggestion that our relationship may not be linear - and we perhaps need to try a few transformations. We will get into transformations in a later chapter.
-
-#### Total Sum of Squares
-
-The total sum of squares is the total amount of sample variation in $Y$:
-
-$$
-\begin{split}
-TSS & = \sum(Y_i - \bar{Y})^2 \\
-& = \sum (\hat{Y}_i - \bar{Y})^2 + \sum (Y_i - \hat{Y}_i)^2
-\end{split}
-$$
-
-Where TSS is the total sum of squares, SSM $\sum (\hat{Y}_i - \bar{Y})^2$ is the model sum of squares, and SSE $\sum (Y_i - \hat{Y}_i)^2$ is the sum of squared errors (that we used to fit the model).
-
-SSM (model sum of squares) represents the part of the variation of $Y$ that is explained by the model, while SSE (sum of squared errors) represents the part of the variation of $Y$ that is not explained by the model (hence, why it is called error).
-
-#### R-Squared Statistic
-
-[R-squared $R^2$ is a measure of the percentage of variation in $Y$, that is explained by our model]{.underline} (with our chosen explanatory variables). The percentage of variation in $Y$ explained by our model would be:
-
-$$
-R^2 = \frac{SSM}{TSS} = \frac{\sum (\hat{Y}_i - \bar{Y})^2}{\sum(Y_i - \bar{Y})^2}
-$$
-
-Since $R^2$ shows how much of the variation in $Y$ our model explains, it is often used as a metric for how good our model is - however, don't overly focus on $R^2$, it is just one metric with its benefits and drawbacks.
-
-### Linear Regression in R
-
-As for all of the examples in this book, we will use the "tidyverse" package. Let us also load our dataset that we will be using.
-
-```{r, message = FALSE}
-# if you haven't installed tidyverse, do: install.packages('tidyverse')
-library(tidyverse)
-democracy_data <- read_csv("data/democracy.csv")
-```
-
-We use the *lm()* function to run a regression: The general syntax is as follows:
-
--   Replace *model_name* with your model name, *Y* with the name of your response variable, *X1, X2...* with the name of your explanatory variable, and *mydata* with the name of your dataset.
-
--   Add additional explanatory variables with more $+$ signs, and you can remove them down to a minimum of one $X$
-
-```{r, eval = FALSE}
-model_name <- lm(Y ~ X1 + X2 + X3, data = mydata)
-summary(model_name)
-```
-
-For example, let us run a multiple linear regression with two explanatory variables:
-
-```{r, eval = FALSE}
-model2 <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
-    data = democracy_data)
-summary(model2)
-```
-
-![](figures/1/4.2.png){fig-align="left" width="75%"}
-
-We can see the output. In the coefficients table:
-
--   The *Intercept - Estimate* is $\hat{\alpha}$
-
--   The *GDP_Per_Cap_Haber_Men_2 - Estimate* is the coefficient $\hat{\beta}_1$.
-
--   The *Total_Oil_Income_PC - Estimate* is the coefficient $\hat{\beta}_2$.
-
--   For interpretation, see the preceding section on interpretation.
-
-Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value.
-
-## Ordinary Least Squares Estimator
-
-### Bivariate Regression Estimation
-
-#### Minimising Sum of Squared Errors
-
-A bivariate regression (also called a simple linear regression) is a linear regression model with only one explanatory variable $X$. We have some fitted model to our data (best-fit line) with estimated parameter values $\hat{\alpha}, \hat{\beta}$: $$
-\hat{Y}_1 = \hat{\alpha} + \hat{\beta}X_i
-$$
-
-We noted how the **ordinary least squares** (OLS) estimator is concerned with the sum of squared errors. Let us define the sum of squared errors as a function $S$. We can replace $\hat{Y}_i$ with the above equation. $$
-\begin{split}
-S(\hat{\alpha}, \hat{\beta}) & = \sum\limits_{i=1}^n (Y_i - \hat{Y}_i )^2 \\
-& = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
-\end{split}
+A bivariate regression (also called a simple linear regression) is a linear regression model with only one explanatory variable $X$. We noted how the **ordinary least squares** (OLS) estimator is concerned with the sum of squared errors. Let us define the sum of squared errors as a function $S$. $$
+S(\hat{\alpha}, \hat{\beta})  = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
 $$
 
 The OLS estimator wants to find the parameters that **minimise the sum of squared errors**. We can mathematically express this. $$
@@ -680,11 +527,14 @@ Once again, the -2 does not matter as same reason as before. Set equal to 0 to s
 0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right] \\
 0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y} - \hat{\beta}(X_i - \bar{X})) \right] \\
 0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y}) - X_i \hat{\beta}(X_i - \bar{X}) \right] \\
-0 & = \sum\limits_{i=1}^n X_i (Y_i - \bar{Y}) - \hat{\beta}_1 \sum\limits_{i=1}^nX_i (X_i - \bar{X}) \\
 \end{split}
 $$
 
-We could solve for $\hat{\beta}$, however, we can use a few facts about summation notation to create a more "nice looking" solution that is easier to interpret. The facts on summation are: $$
+$$
+0 = \sum\limits_{i=1}^n X_i (Y_i - \bar{Y}) - \hat{\beta}_1 \sum\limits_{i=1}^nX_i (X_i - \bar{X})
+$$
+
+Here are a few properties on summation that will help us solve this equation: $$
 \begin{split}
 & \sum\limits_{i=1}^n (X_i - \bar{X}) = 0 \\
 & \sum\limits_{i=1}^n X_i(Y_i - \bar{Y}) = \sum\limits_{i=1}^n(X_i - \bar{X}) (Y_i - \bar{Y}) \\
@@ -704,53 +554,7 @@ Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\
 \hat{Y}_i = \hat{\alpha} + \hat{\beta}X_i
 $$
 
-### Algebraic Properties
-
-A **residual** is the difference between the actual $Y$ vaues, and the predicted $\hat{Y}$ values of our fitted regression model: $$
-\begin{split}
-\hat{u}_i & = Y_i - \hat{Y}_i \\
-& = Y_i - \hat{\alpha} - \hat{\beta} X_i
-\end{split}
-$$
-
-Recall our OLS estimates were calculated by satisfying these properties: $$
-\begin{split}
-& \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0 \\
-& \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
-\end{split}
-$$
-
-**Residuals Sum to Zero:**
-
-If we plug $\hat{u}_i$ into the first condition, we get that:
-
-$$
-\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = \sum\limits_{i=1}^n \hat{u}_i = 0
-$$
-
-This means that with the OLS estimator, the [total sum of the residuals for all units $i$ is 0]{.underline}. Furthermore, since $\hat{u}_i = Y_i - \hat{Y}_i$, we know that the average $Y_i$ should be equal to the average $\hat{Y}_i$.
-
-**Homoscedasticity:**
-
-If we plug $\hat{u}_i$ into the second condition, we get that:
-
-$$
-\sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) = \sum\limits_{i=1}^nX_i \hat{u}_i = 0
-$$
-
-This tells us that the [sample covariance/correlation between the regressor $X$ and the residual $\hat{u}_i$ is always zero]{.underline}. Or in other words, there is no correlation/relationship between $X$ and the residuals we see in our model.
-
--   This property is called **homoscedasticity** - different $X$ values do not affect the residuals.
-
--   This relates to the Estimated Residual Standard Deviation that we talked about in the last chapter - how the standard deviation of the residuals is constant throughout the model, not affected by $X$.
-
-If there is a pattern in our residuals, that is called **heteroscedasticity**, and we will discuss this issue in a later chapter.
-
-**Variance of Explanatory Variables Cannot be 0:**
-
-Finally, since the formula we derived for $\hat{\beta}$ has $Var(X)$ in the denominator, if $Var(X) = 0$, then our $\hat{\beta}_1$ will be undefined, as we are dividing by zero.
-
-Thus, for OLS to be possible, $Var(X) ≠ 0$ must be true.
+The only thing that must be true to estimate bivariate linear regression is that $Var(X) ≠ 0$.
 
 ### Multivariate Regression Estimation
 
@@ -871,57 +675,129 @@ $$
 
 ### OLS Estimator with Linear Algebra
 
-## Confidence Intervals and Hypothesis Testing
+## Interpretation and Hypothesis Testing
 
-### Samples and Population
+### Interpretations of Coefficients
 
-A **sample** is a subset of a population, which ideally, can tell us something about the population. For example, we could use a sample to estimate the relationship between two features $X_j$ and $Y$ with a coefficient $\beta_j$. If our sample can reflect the population, then we can use the sample to learn about the true population $\beta_j$
+#### Simple Linear Regression
 
-The quality of a sample depends on two major factors: the sampling procedure, and luck.
+Simple Linear Regression is a special case of the linear model, when there is only one explanatory variable $X$. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated?
 
--   Sampling procedure can create **bias**: systematic reasons why our samples are not representative of the population.
+$\hat{\beta}$ is the slope of the the linear model. [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}.
 
--   Luck in sampling is called **noise** or **variance**: essentially, even if we have a perfect sampling procedure, every sample will differ slightly just due to luck.
+-   A positive $\hat{\beta}$ means a positive relationship, a negative $\hat{\beta}$ means a negative relationship, and $\hat{\beta} = 0$ means no relationship.
+-   This is only for continuous $X$ explanatory variables. See Chapter 5 for categorical/binary explanatory variables.
+
+$\hat{\alpha}$ is the y-intercept of the linear model. $\hat{\alpha}$ is the expected value of $\hat{Y}$, given $X=0$.
+
+#### Multiple Linear Regression
+
+Multiple linear regression is when there are multiple explanatory variables $X_1, X_2, ..., X_k$. How do we interpret these parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$ that we have calculated?
+
+-   Note: I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ (the interpretation is all the same). In the model, $\hat{\beta}_j$ will be multiplied to variable $X_j$.
+
+Formally, [any coefficient $\hat{\beta}_j$ is the expected change in $Y$, corresponding to a one unit increase in $X_j$, holding all other explanatory variables $X_1, ..., X_k$ that are not $X_j$ constant.]{.underline}
+
+-   Essentially, we do the same interpretation as the single linear regression, but adding the phrase "**holding all other explanatory variables constant**".
+
+$\hat{\alpha}$ is the expected value of $\hat{Y}$, given all explanatory variables $X_1, ...,X_k$ equal 0.
+
+#### Interpreting in Terms of Standard Deviation
+
+Sometimes, it is hard to understand what changes in $Y$ and $X$ mean in terms of units. For example, if democracy is measured on a 100 point scale, what does a 5 point change in democracy mean? Is it a big change, or a small change?
+
+We can add more relevant detail by expressing the change of $Y$ and $X$ in standard deviations.
+
+So, instead of the expected change of $Y$ given one unit increase of $X$, we instead do the [expected standard deviation change of $Y$, given a one standard deviation increase in $X$.]{.underline}
+
+How do we calculate this? There is a formula! $Y$ changes by $(SD_{X_j} \times \hat{\beta}_j) / SD_Y$, where $SD$ represents standard deviation, and $X_j$ is the variable whose coefficient we are interpreting.
+
+#### Binary $Y$ Variable Interpretation
+
+If our response variable is binary, (i.e. $Y$ only has two values, 0 and 1), then our interpretation differs slightly. We treat $Y$ as a variable of two categories, $Y = 0$ and $Y = 1$.
+
+[$\hat{\beta}_j$ is the expected change in the probability of getting category $Y = 1$, given a one-unit increase in $X_j$]{.underline}. We could multiply this by 100 to get the expected percentage point change.
+
+$\hat{\alpha}$ is the expected probability of getting category $Y=1$, when $X_j = 0$.
+
+An important note is that, in theory, for a linear regression model, $Y$ should be continuous, not binary. In theory, we should be using logistic regression instead of linear regression (which is covered in the Advanced Statistical Methods book).
+
+-   However, in practice, researchers often do use linear regression for binary $Y$, simply because linear regression is easier to interpret, and easier to incorporate into more causal inference methods.
+
+### Model Summary Statistics
+
+#### Estimated Residual Standard Deviation
+
+We can derive the estimate of the **residual variance** $\sigma^2$ with this formula:
+
+$$
+\hat{\sigma}^2 = \frac{\sum(Y_i - \hat{Y}_i)^2}{n-k-1}
+$$
+
+But what is the residual variance? Recall the way we write our regression model:
+
+$$
+Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
+$$
+
+We know that $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Our estimate of the residual variance $\hat{\sigma}^2$ is our estimate of the variance of the error term $\epsilon_i$'s variance. More intuitively, it explains how spread out observed values of $Y$ are from our prediction value $\hat{Y} = E(Y|X)$.
+
+The figure below better showcases this in 2 different models. The red lines are our predicted regression line, and the green lines represent the distribution of our error term $\epsilon_i$:
+
+![](figures/1/4.1.png){fig-align="center" width="70%"}
+
+The residual standard deviation $\hat{\sigma}$ (square root of variance) is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
+
+If $\hat{\sigma}$ varies depending on the value of $X$, then that is called **heteroscedasticity**. When this occurs, it is often a suggestion that our relationship may not be linear - and we perhaps need to try a few transformations. We will get into transformations in a later chapter.
+
+#### Total Sum of Squares
+
+The total sum of squares is the total amount of sample variation in $Y$:
+
+$$
+\begin{split}
+TSS & = \sum(Y_i - \bar{Y})^2 \\
+& = \sum (\hat{Y}_i - \bar{Y})^2 + \sum (Y_i - \hat{Y}_i)^2
+\end{split}
+$$
+
+Where TSS is the total sum of squares, SSM $\sum (\hat{Y}_i - \bar{Y})^2$ is the model sum of squares, and SSE $\sum (Y_i - \hat{Y}_i)^2$ is the sum of squared errors (that we used to fit the model).
+
+SSM (model sum of squares) represents the part of the variation of $Y$ that is explained by the model, while SSE (sum of squared errors) represents the part of the variation of $Y$ that is not explained by the model (hence, why it is called error).
+
+#### R-Squared Statistic
+
+[R-squared $R^2$ is a measure of the percentage of variation in $Y$, that is explained by our model]{.underline} (with our chosen explanatory variables). The percentage of variation in $Y$ explained by our model would be:
+
+$$
+R^2 = \frac{SSM}{TSS} = \frac{\sum (\hat{Y}_i - \bar{Y})^2}{\sum(Y_i - \bar{Y})^2}
+$$
+
+Since $R^2$ shows how much of the variation in $Y$ our model explains, it is often used as a metric for how good our model is - however, don't overly focus on $R^2$, it is just one metric with its benefits and drawbacks.
+
+### Uncertainty and Confidence Intervals
+
+#### Samples
+
+A **sample** is a subset of a population, which ideally, can tell us something about the population. For example, we could use a sample to estimate the relationship between two features $X_j$ and $Y$ with a coefficient $\beta_j$. If our sample can reflect the population, then we can use the sample to learn about the true population $\beta_j$.
+
+-   In causal inference, as we have discussed before, we are sampling from the population of potential outcomes.
 
 [The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the population.
 
-### Confidence Intervals
+#### Confidence Intervals
 
-Our OLS estimation (from chapter 3) has produced a $\hat{\beta}_j$ based on the data in one sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample, due to sampling variation.
+We previously discussed confidence intervals in section 2.4. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate.
 
-Thus, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95% (the standard confidence level):
+Our OLS estimation has produced a $\hat{\beta}_j$ based on the data in one sample. However, remember, the sample is just a fraction of the population - and the true $\hat{\beta}_j$ is unlikely to be exactly the one in our sample, due to sampling variation. Thus, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides:
 
 $$
 \hat{\beta}_j ± 1.96 \times \hat{se}(\hat{\beta}_j)
 $$
 
--   $\hat{se}(\hat{\beta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\beta_j$, introduced in the previous section.
-
--   The 1.96 can slightly deviate depending on the sample size and number of variables (do not worry, the computer will solve this for us).
-
--   Why 1.96? It is because in a normal distribution, 95% of the data is contained within 1.96 standard deviations (see section 2.4), and Central Limit Theorem states that sampling distributions are normally distributed.
-
-What does the confidence interval represent? Essentially, it means if we repeated the sampling and estimation process many many times (like we did for our sampling distribution), 95% of the confidence intervals we construct from our samples, would correctly contain the true $\beta_j$.
-
-Every value in a given confidence interval is a plausible value of the true $\beta_j$ in the population.
-
-The most important thing is if 0 is included within the confidence interval. $\beta_j = 0$ means that there is no relationship between $X_j$ and $Y$. If our confidence interval contains 0, that means we cannot be confident that there is no relationship between $X_j$ and $Y$.
-
 ### Hypothesis Testing of Parameters
 
-In academia, we are conservative - this means we do not claim we have found a new theory, unless we are quite confident that the old theory was not true.
-
-The old theory is called our **null hypothesis**, often notated $H_0$. This is the old theory that we are trying to disprove.
-
--   Most often, the "old theory" we are trying to disprove is that *there is no relationship between variables* $X_j$ *and* $Y$ (since it is very rare we are studying something that has already been proven). No relationship means that $\beta_j = 0$
-
-The new theory we have come up with, and are trying to prove, is called the **alternate hypothesis**, often notated $H_1$ or $H_a$.
-
--   In general, our new hypothesis is that t*here is a relationship between variables* $X_j$ *and* $Y$, or [$\beta_j ≠ 0$]{.underline}
-
-[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis (the new theory we proposed)]{.underline}. Why 95% confidence? It is just tradition - there have been several studies showing there is nothing special about this value.
-
-Generally, for regressions, our hypotheses that we test are:
+We previously discussed hypothesis testing in section 2.5. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate. Generally, for regressions, our hypotheses that we test are:
 
 -   $H_0 : \beta_j = 0$ - i.e. there is no relationship between $X_j$ and $Y$
 
@@ -935,15 +811,9 @@ $$
 
 The t-test statistic basically tells us how far the parameter we tested is from 0, in terms of standard errors of the parameter.
 
-Then, we have to consult a t-distribution (see section 2.4). T-distributions only has one parameter - degrees of freedom, which is calculated by the number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$
+Then, we have to consult a t-distribution (see section 2.4). We find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur.
 
-With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides from the middle of the t-distribution.
-
-Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below, with its blue highlighted area, shows this probability:
-
-![](figures/1/5.1.jpeg){fig-align="center" width="70%"}
-
-The area highlighted is our p-value. Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_j$, given the null hypothesis is true.
+Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_j$, given the null hypothesis is true.
 
 -   So if the p-value is very high, there is a high chance that the null hypothesis is true.
 
@@ -999,41 +869,99 @@ The p-values of the F-statistic show the following:
 
 F-tests of nested models can help us determine if we should include certain extra explanatory variables. If the addition of the explanatory variables does not statistically significantly improve the performance of the model, there is little reason to include them, unless we have some other theoretical reason to include them.
 
-### Hypothesis Testing in R
+### Linear Regression in R
 
-For hypothesis testing, we just run the regression like we would normally (see section 4.5). For example, let us run a model prediction *polity_2* with 2 explanatory variables
+#### Setup
 
-```{r}
-model <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
-    data = democracy_data)
-summary(model)
+As for all of the examples in this book, we will use the "tidyverse" package. Let us also load our dataset that we will be using.
+
+```{r, message = FALSE}
+# if you haven't installed tidyverse, do: install.packages('tidyverse')
+library(tidyverse)
+democracy_data <- read_csv("data/democracy.csv")
 ```
 
-Now, let us look at the coefficients table:
+```{r, echo = FALSE, message = FALSE}
+democracy_data <- democracy_data %>%
+    select(polity_2, GDP_Per_Cap_Haber_Men_2, Total_Oil_Income_PC)
 
--   *GPD_Per_Cap_Haber_Men_2* is our first explanatory variable, *Total_Oil_Income_PC* is our second explanatory variable
+democracy_data <- na.omit(democracy_data)
+```
+
+#### Syntax of Regression
+
+We use the *lm()* function to run a regression: The general syntax is as follows:
+
+-   Replace *model_name* with your model name, *Y* with the name of your response variable, *X1, X2...* with the name of your explanatory variable, and *mydata* with the name of your dataset.
+
+-   Add additional explanatory variables with more $+$ signs, and you can remove them down to a minimum of one $X$
+
+```{r, eval = FALSE}
+model_name <- lm(Y ~ X1 + X2 + X3, data = mydata)
+summary(model_name)
+```
+
+#### Example of Regression
+
+For example, let us run a model predicting *polity_2* with 2 explanatory variables
+
+```{r}
+model2 <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
+    data = democracy_data)
+summary(model2)
+```
+
+---
+
+We can see the output. In the coefficients table:
+
+-   The *Intercept - Estimate* is $\hat{\alpha}$
+
+-   The *GDP_Per_Cap_Haber_Men_2 - Estimate* is the coefficient $\hat{\beta}_1$.
+
+-   The *Total_Oil_Income_PC - Estimate* is the coefficient $\hat{\beta}_2$.
+
+Now, look further right in the coefficients table:
 
 -   Under the *Std. Error* column is the respective standard errors for both $\beta$ coefficients. This is used to calculate the t-statistic
 
--   Under the *t value* column is the t-test statistics for both $\beta$ coefficients. - Under the *Pr(\>\|t\|)* column is the p-values for each test statistic.
+-   Under the *t value* column is the t-test statistics for both $\beta$ coefficients.
 
--   The stars after the p-values are the significance level. One star \* means $p<0.05$, two stars \*\* means $p<0.01$, and three stars \*\*\* means $p<0.001$
+-   Under the *Pr(\>\|t\|)* column is the p-values for each test statistic. Stars symbolise statistical significance.
 
--   The bottom row shows the p-value of the F-test if $H_0 : \overrightarrow{\hat{\beta}} = 0$.
+Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value. Finally, at the very bottom, we have the p-value of the F-test if $H_0 : \overrightarrow{\hat{\beta}} = 0$.
 
--   For more details of interpretation, see the previous sections in this chapter.
+#### Confidence Intervals in R
 
 To calculate confidence intervals, we can use the *confint()* command, and simply input the name of our model within:
 
 ```{r}
-confint(model)
+confint(model2)
 ```
 
-If we want an F-test between two models, with the first model being the null hypothesis $M_0$, we can use the *anova()* command:
+---
 
-```{r, eval = FALSE}
+Here we can see that R has generated confidence intervals for $\hat{\alpha}_1$, $\hat{\beta}_1$, and $\hat{\beta}_2$.
+
+#### F-Test of Nested Models in R
+
+If we want an F-test between two models, with the first model being the null hypothesis $M_0$, we can use the *anova()* command (model 1 is just the previous model without *Total_Oil_Income_PC*
+```{r, echo = FALSE, message = FALSE}
+model1 <- lm(polity_2 ~ Total_Oil_Income_PC, data = democracy_data)
+```
+
+```{r}
 anova(model1, model2)
 ```
+
+---
+
+The first row of the output refers to the null hypothesis model.
+
+The second row of the output refers to the alternate hypothesis. We can see that this row has the $F$-statistic and the p-value.
+
+-   We can see that model 2 is statistically significant (consult interpretation from the previous sections).
+
 
 ## Explanatory Variable Analysis
 
