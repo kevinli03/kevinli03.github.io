@@ -1,6 +1,6 @@
 ---
 title: "Microeconomic Theory for Political Analysis"
-subtitle: "Introduction to Microeconomic Theory and Game Theory"
+subtitle: "Part of an Introduction to Political Economics"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -20,17 +20,21 @@ format:
 
 ## Preface {.unnumbered}
 
+**Political Economics** is the use of economic models and approaches to study politics. More specifically, it is the use of microeconomic-style rational choice models and game theory to study political behaviour and institutions, and how that impacts political outcomes. These models and predictions are then validated with real-world data using econometric techniques.
+
 This book is the first volume in a sequence on **Political Economics**.
 
 -   [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) (this book) introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
 
--   [Applied Microeconomic Analysis of Politics](https://kevinli03.github.io/politicaleconomy/2.pdf) applies the microeconomic theory and models discussed in the previous book to current academic topics.
+-   [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf) introduces key statistical/econometric methods used to empirically test models and phenomena with real-world data.
 
-**Political Economics** is the use of economic models and approaches to study politics. More specifically, it is the use of microeconomic-style rational choice models and game theory to study political behaviour and institutions, and how that impacts political outcomes.
+-   [Economic Analysis of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the microeconomic theory and econometric techniques discussed in the previous book to current academic topics.
+
+Furthermore, there is a companion sequence: *Quantitative Methods*, which discussed mathematical and statistical techniques useful for the study of Political Economics.
 
 This first book focuses on introducing the fundamentals of microeconomics, such as preference and utility theory, as well as introduce the essentials of game theory and formal models. Topics covered include preferences, static games, dynamic games, and bayesian games. Along the way, models relevant to political situations will be used as examples.
 
-This course requires, at a minimum, an understanding of single variable calculus and probability theory, up to the level of [Volume I](https://kevinli03.github.io/math/1.pdf)of the Quantitative Methods Sequence. Ideas and games presented in this book will utilise differential calculus and Bayes' theorem extensively. Furthermore, it is recommended that one has a baseline understanding of multivariate calculus and some experience with proofs, although this is not essential.
+This course requires, at a minimum, an understanding of single variable calculus and probability theory, up to the level of [Volume I](https://kevinli03.github.io/math/1.pdf) of the Quantitative Methods Sequence. Ideas and games presented in this book will utilise differential calculus and Bayes' theorem extensively. Furthermore, it is recommended that one has a baseline understanding of multivariate calculus and some experience with proofs, although this is not essential.
 
 It is also important to note that economics is a very notation-heavy discipline. The beginning sections introduce this notation, and it is essential to quickly pick up this notation to succeed.
 

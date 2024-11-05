@@ -1,6 +1,6 @@
 ---
 title: "Quantitative Methods (for Political Economics)"
-subtitle: "Single Variable Calculus, Probability Theory, and Statistical Theory"
+subtitle: "Volume I: Calculus and Statistical Theory"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
@@ -20,13 +20,17 @@ format:
 
 ## Preface {.unnumbered}
 
-This book is one of the 3 **mathematical-companian-guides** of the part of a series: **Introduction to Political Economics**. These companian guides are meant to ensure that one has the proper mathematical training prior to studying Political Economics:
+This book is one of the 5 companion-guides in the **Quantitative Methods** sequence, which provides the mathematics and statistics content useful for the study of Political Economics. The Quantitative Methods sequence consists of five volumes:
 
-1.  **Quantitative Methods** (This Book) introduces the essential mathematical concepts that are essential for studying Political Economics. Topics include algebra, single variable calculus, and probability and statistical theory.
-2.  **Further Quantitative Methods** expands on the topics taught in the previous book. These topics are not "essential", but it is highly recommended to have some grasp of these topics. Topics include linear algebra and multivariate calculus.
-3.  **Introductory Proofs and Analysis** is a high-level introduction to proofs in mathematics. This is not essential for studying Political Economics, but having a strong idea behind proofs is quite useful for more advanced Microeconomic Models that are used in the study of Political Economics.
+1.  [Volume I: Calculus and Statistical Theory](https://kevinli03.github.io/math/1.pdf) (this volume)contains essential mathematics for Political Economics. Covers topics in single variable calculus, probability theory, and statistical theory.
+2.  [Volume II: Linear Algebra and Multivariate Calculus](https://kevinli03.github.io/math/2.pdf) covers topics in linear algebra and calculus. Highly recommended, but not formally required for Political Economics.
+3.  [Volume III: Advanced Statistical Techniques](https://kevinli03.github.io/math/3.pdf) covers logit and count regression models, time series models, and latent variable models. This builds on the core sequence book: Econometrics for Political Analysis.
+4.  [Volume IV: Data Science Techniques](https://kevinli03.github.io/math/4.pdf) introduces modern data science and statistical learning techniques that have improved prediction accuracy. This builds on the core sequence book: Econometrics for Political Analysis.
+5.  [Volume V: Proof and Analysis](https://kevinli03.github.io/math/5.pdf) covers introductory proofs in mathematics. Useful, but not essential for the rest of the Political Economics.
 
-This book, Quantitative Methods, is a collection of mathematical and statistical topics that I consider to be essential to understand prior to starting any serious instruction in Political Economics. The book assumes a solid understanding of high-school level algebra, and discusses topics in algebra, single variable calculus, and probability and statistical theory. Note that this book is not a full mathematics course of those topics - topics have been selected based on what is commonly used in Political Economics and other social sciences.
+The 1st volume is a pre-requisite for the main series on Political Economics, and covers the core techniques in calculus, probability, and statistics needed. The 2nd volume is more advanced topics that are useful, but not formally required. Volumes 3-5 are advanced topics that are not required, but can be useful and interesting to those who enjoy Political Economics
+
+This volume is a collection of mathematical and statistical topics that I consider to be essential to understand prior to starting any serious instruction in Political Economics. The book assumes a solid understanding of high-school level algebra, and discusses topics in algebra, single variable calculus, and probability and statistical theory. Note that this book is not a full mathematics course of those topics - topics have been selected based on what is commonly used in Political Economics and other social sciences.
 
 # Single Variable Calculus
 
@@ -36,13 +40,9 @@ This book, Quantitative Methods, is a collection of mathematical and statistical
 
 #### Introduction to Sets
 
-A **set** is a collection of objects. The objects within a set are the **elements** of that set.
+A **set** is a collection of objects. The objects within a set are the **elements** of that set. We can define a set by either listing every element out, or through describing the properties of the elements of the set.
 
-We can define a set by either listing every element out, or through describing the properties of the elements of the set.
-
--   For example, $A = \{1,2,3,4,5\}$
-
--   Or, $A=\{n|n \in \mathbb{Z}; 1 ≤ n ≤ 5\}$ - or in other words, $A$ is the set of values $n$, *such that* $n$ is in the set of all *integers* $Z$, and $n$ is between 1 and 5 inclusive.
+-   For example, $A = \{1,2,3,4,5\}$, or, $A=\{n|n \in \mathbb{Z}; 1 ≤ n ≤ 5\}$ - or in other words, $A$ is the set of values $n$, *such that* $n$ is in the set of all *integers* $Z$, and $n$ is between 1 and 5 inclusive.
 
 Here are some common notation for sets:
 
@@ -73,8 +73,6 @@ A **infinite set** is one with infinitely many elements. Common examples of infi
 -   Set of all natural numbers $\mathbb{N} = \{1,2,3,...\}$.
 
 -   Set of all integers $\mathbb{Z} = \{..., -2, -1, 0, 1, 2, ... \}$.
-
--   Set of all rational numbers $\mathbb{Q}$, which are all numbers that can be written in a fraction (so excluding numbers like $\pi$).
 
 -   Set of all real numbers $\mathbb{R}$, which is any number on the real number line.
 
@@ -159,14 +157,11 @@ There is a special form of factoring: **difference of squares**. Essentially, an
 
 Multiplication expansion undoes factoring. To do this, we must multiply each term of one section by each other term of the other section. This is more intuitive with an example.
 
-**Example**: let us prove the difference of squares idea we saw earlier - multiply out $(x+3)(x-3)$:
-
-$$
-(x+3)(x-3) = (x \times x) + (x \times -3) + (3 \times x) + (3 \times -3)
-$$
-
-$$
-= x^2 - 3x + 3x -9 = x^2 - 9
+**Example**: let us prove the difference of squares idea we saw earlier - multiply out $(x+3)(x-3)$: $$
+\begin{split}
+(x+3)(x-3) & = (x \times x) + (x \times -3) + (3 \times x) + (3 \times -3) \\
+& = x^2 - 3x + 3x -9 = x^2 - 9
+\end{split}
 $$
 
 So we can see, that indeed, difference of squares is true, and $x^2 - 9 = (x+3)(x-3)$.
@@ -177,32 +172,25 @@ So we can see, that indeed, difference of squares is true, and $x^2 - 9 = (x+3)(
 
 Here are a few key properties of exponents that are important to note:
 
-1.  $a^x \times a^y = a^{x+y}$
+1.  $a^x \times a^y = a^{x+y}$ and $a^x / a^y = a^{x-y}$
 2.  $a^{-x} = \frac{1}{a^x}$
-3.  $a^x / a^y = a^{x-y}$
-4.  $(a^x)^y = a^{xy}$
-5.  $a^0 = 1$
-6.  $(a \times b)^n = a^n \times b^n$
-7.  $(a/b)^n = a^n / b^n$
+3.  $(a^x)^y = a^{xy}$
+4.  $a^0 = 1$
+5.  $(a \times b)^n = a^n \times b^n$ and $(a/b)^n = a^n / b^n$
 
 #### Solving Equations with Exponents
 
-Sometimes, you will have an equation that takes the form $x^n = a$, where $n$ is some number.
-
-To solve for $x$, the solution is $x = a^{(1/n)}$.
+Sometimes, you will have an equation that takes the form $x^n = a$, where $n$ is some number. To solve for $x$, the solution is $x = a^{(1/n)}$.
 
 **Proof**:
 
 We start with $x^n = a$. How to get rid of $n$ to isolate $x$?
 
-We know that $n \times (1/n) = 1$. We also know that $(a^x)^y = a^{xy}$. Thus:
-
-$$
-(x^n)^{(1/n)} = a^{(1/n)}
-$$
-
-$$
-x^{n \times (1/n)} =x^1 = x = a^{(1/n)}
+We know that $n \times (1/n) = 1$. We also know that $(a^x)^y = a^{xy}$. Thus: $$
+\begin{split}
+& (x^n)^{(1/n)} = a^{(1/n)} \\
+& x^{n \times (1/n)} =x^1 = x = a^{(1/n)}
+\end{split}
 $$
 
 #### Logarithms
@@ -217,11 +205,10 @@ Or more intuitively, take the example $y = \log_2(8)$ is basically asking, what 
 
 Here are a few key properties to know about logarithms.
 
-1.  $\log(xy) = \log(x) + \log(y)$
+1.  $\log(xy) = \log(x) + \log(y)$ and $\log(x/y) = \log(x) - \log(y)$
 2.  $\log(x^y) = y \times \log(x)$
 3.  $-\log(x) = \log(1/x)$
-4.  $\log(x/y) = \log(x) - \log(y)$
-5.  $\log(1) = \log(e^0) = 0$
+4.  $\log(1) = \log(e^0) = 0$
 
 Note that in statistics, political science, and economics, when we say $\log(x)$, we are talking about natural logs, such that $\log(x) = \ln(x) = \log_e(x)$. We can change the base of logarithms:
 
@@ -267,29 +254,21 @@ Product notation has the following properties:
 We can transition between summation and product notation with the properties of logarithms:
 
 $$
-\log \left( \prod\limits_{i=1}^n x_i \right) = \log(x_1 \times x_2 \times ... \times x_n)
-$$
-
-$$
-= \log(x_1) + \log(x_2) + ... + \log(x_n) = \sum\limits_{i=1}^n \log(x_i)
+\begin{split}
+\log \left( \prod\limits_{i=1}^n x_i \right)  & = \log(x_1 \times x_2 \times ... \times x_n) \\
+& = \log(x_1) + \log(x_2) + ... + \log(x_n) = \sum\limits_{i=1}^n \log(x_i)
+\end{split}
 $$
 
 When a constant is included (for a more general rule):
 
 $$
-\log \left( \prod\limits_{i=1}^n cx_i \right) = \log(cx_1 \times cx_2 \times ... \times cx_n)
-$$
-
-$$
-= \log(c^n \times x_1 \times x_2 \times ... \times x_n)
-$$
-
-$$
-= \log(c^n) + \log(x_1) + \log(x_2) + ... + \log(x_n)
-$$
-
-$$
-=n \log(c) + \sum\limits_{i=1}^n \log(x_i)
+\begin{split}
+\log \left( \prod\limits_{i=1}^n cx_i \right) & = \log(cx_1 \times cx_2 \times ... \times cx_n) \\
+& = \log(c^n \times x_1 \times x_2 \times ... \times x_n) \\
+& = \log(c^n) + \log(x_1) + \log(x_2) + ... + \log(x_n) \\
+& =n \log(c) + \sum\limits_{i=1}^n \log(x_i)
+\end{split}
 $$
 
 ### Functions and the Cartesian Plane
@@ -302,7 +281,7 @@ We have two sets, $X$ and $Y$. A function $f : X \rightarrow Y$ is some rule, wh
 
 -   We do not have to use $X$ and $Y$ specifically, we can use any variables.
 
-The **domain** of $f$ is the set of possible values of set $X$. Basically, what values can we input into $f(x)$
+The **domain** of $f$ is the set of possible values of set $X$. Basically, what values can we input into $f(x)$.
 
 The set of possible outputs of function $f$ is the **range** $R(f)$, and the range must be a subset of the set of $Y$: $R(f) \subseteq Y$.
 
@@ -312,9 +291,7 @@ Functions to not have to only have one input variable. For example, we can have 
 
 #### Cartesian Plane
 
-Remember that $\mathbb{R}$ is the set of all real numbers $\mathbb{R} = (-∞, ∞)$. That space is only one dimensional - a single number line.
-
-$\mathbb{R}^2$ is a 2 dimensional space - essentially two number lines, one perpendicular to the other. Essentially, a graph with $x$ and $y$-axes. This 2-dimensional space is called a **cartesian plane**.
+Remember that $\mathbb{R}$ is the set of all real numbers $\mathbb{R} = (-∞, ∞)$. That space is only one dimensional - a single number line. $\mathbb{R}^2$ is a 2 dimensional space - essentially two number lines, one perpendicular to the other. Essentially, a graph with $x$ and $y$-axes. This 2-dimensional space is called a **cartesian plane**.
 
 Every single point in the 2-dimensional cartesian plane can be specified with coordinates $(a,b)$, where both $a \in \mathbb{R}$ and $b \in \mathbb{R}$. $a$ is the $x$ coordinate, and $b$ is the $y$ coordinate - both who represent the distance from the **origin** with coordinates $(0, 0)$.
 
@@ -332,9 +309,7 @@ There are a few very common types of functions that we will encounter:
 
 #### Zeroes and Roots of Functions
 
-The zeroes/roots of a function are the input values of the function that make the output function equal to 0. Mathematically, for what $x$ does $f(x) = 0$.
-
-We can also think about this graphically. Since output $f(x)$ is graphed on the $y$-axis, we can see at what $x$-values the function cross the line $y=0$ (the $x$-axis line).
+The zeroes/roots of a function are the input values of the function that make the output function equal to 0. Mathematically, for what $x$ does $f(x) = 0$. We can also think about this graphically. Since output $f(x)$ is graphed on the $y$-axis, we can see at what $x$-values the function cross the line $y=0$ (the $x$-axis line).
 
 To solve for zeroes/roots, simply set the function equal to 0, and solve for $x$. Some functions can have more than one zero, especially polynomials, and some can have none.
 
@@ -367,9 +342,7 @@ $$
 f \circ g = f[g(x)]
 $$
 
-Essentially, we calculate the output value of $g(x)$, and immediately input that value into $f(x)$.
-
-For example, if $h(x) = x^2$, and $f(x) = x-5$, then $f \circ h = (x^2) - 5$
+Essentially, we calculate the output value of $g(x)$, and immediately input that value into $f(x)$. For example, if $h(x) = x^2$, and $f(x) = x-5$, then $f \circ h = (x^2) - 5$
 
 #### Surjective, Injective, and Bijective Functions
 
@@ -391,20 +364,17 @@ A function is **bijective** if it is both injective and surjective.
 
 #### Inverse Function
 
-Let $f: X \rightarrow Y$ be a bijective function. The sets $X$ and $Y$ are such that $X \subseteq \mathbb{R}$ and $Y \subseteq \mathbb{R}$.
-
-There is some unique function $f^{-1} : Y \rightarrow X$, called the **inverse function** of $f$, which is essentially the opposite of function $f$: when you input the ouputs of $f(x)$ into $f^{-1}$, you get the respective input of $f(x)$.
+Let $f: X \rightarrow Y$ be a bijective function. The sets $X$ and $Y$ are such that $X \subseteq \mathbb{R}$ and $Y \subseteq \mathbb{R}$. There is some unique function $f^{-1} : Y \rightarrow X$, called the **inverse function** of $f$, which is essentially the opposite of function $f$: when you input the ouputs of $f(x)$ into $f^{-1}$, you get the respective input of $f(x)$.
 
 -   Or mathematically: $y = f(x)$ if and only if $x = f^{-1}(y)$
 
 Because $f^{-1}$ essentially reverses function $f(x)$, the following must be true:
 
 $$
-f^{-1} (f(x)) = x \text{ for all } x \in X
-$$
-
-$$
-f(f^{-1}(y)) = y \text{ for all } y \in Y
+\begin{split}
+& f^{-1} (f(x)) = x \text{ for all } x \in X \\
+& f(f^{-1}(y)) = y \text{ for all } y \in Y
+\end{split}
 $$
 
 To find the inverse function, we simply solve for the input variable.
@@ -414,37 +384,24 @@ To find the inverse function, we simply solve for the input variable.
 1.  Let us define $y$ as the output of $f(x)$, such that $f(x) = y = 2x+3$
 2.  Now, solve for $x$: $y = 2x+3 \Longrightarrow 2x = y-3 \Longrightarrow x = \frac{y-3}{2}$
 
-Let us prove that this is an inverse function with the properties we showed above.
-
-$$
-\text{1st property: }f^{-1} (f(x)) = x \text{ for all } x \in X
-$$
-
-$$
-f^{-1}(y) = \frac{y-3}{2} \Longrightarrow f^{-1}(f(x)) = \frac{(2x + 3) - 3}{2} = \frac{2x}{2} = x
-$$
-
-$$
-\text{2nd property } f(f^{-1}(y)) = y \text{ for all } y \in Y
-$$
-
-$$
-f(x) = 2x +3 \Longrightarrow f(f^{-1}(y)) = 2\left( \frac{y - 3}{2} \right) + 3=y-3+3 = y
+Let us prove that this is an inverse function with the properties we showed above. $$
+\begin{split}
+& \text{1st property: }f^{-1} (f(x)) = x \text{ for all } x \in X \\
+& f^{-1}(y) = \frac{y-3}{2} \Longrightarrow f^{-1}(f(x)) = \frac{(2x + 3) - 3}{2} = \frac{2x}{2} = x \\
+& \text{2nd property } f(f^{-1}(y)) = y \text{ for all } y \in Y \\
+& f(x) = 2x +3 \Longrightarrow f(f^{-1}(y)) = 2\left( \frac{y - 3}{2} \right) + 3=y-3+3 = y
+\end{split}
 $$
 
 ### Limits and Continuity
 
 #### Definition of Limits
 
-A limit is when a function approaches some specific output value $y=f(x) = L$, as the input $x$ moves closer and closer to some value $c$.
-
-Or more intuitively, as the $x$ value becomes infinitely closer to $x=c$, the $y=f(x)$ value becomes infinitely close to $f(x) = L$.
-
-Limits are notated with the form: $\lim\limits_{x \rightarrow c} f(x) = L$
+A limit is when a function approaches some specific output value $y=f(x) = L$, as the input $x$ moves closer and closer to some value $c$. Or more intuitively, as the $x$ value becomes infinitely closer to $x=c$, the $y=f(x)$ value becomes infinitely close to $f(x) = L$. Limits are notated with the form: $\lim\limits_{x \rightarrow c} f(x) = L$
 
 For example, the figure below shows a function with a limit:
 
-![](figures/1/1.3.jpeg){fig-align="center" width="50%"}
+![](figures/1/1.3.jpeg){fig-align="center" width="35%"}
 
 For a limit to exist, it must approach the same $y$ value $L$, from both sides of $x = c$. For example, in the figure above, from both the left and right of $x=c$, the function $f(x)$ approaches L. Thus, a limit exists here.
 
@@ -471,11 +428,6 @@ We can express this intuition in more mathematical terms. Suppose that function 
 
 1.  $\lim\limits_{x \rightarrow c} f(x)$ exists, i.e. $\lim\limits_{x^- \rightarrow c} f(x) = \lim\limits_{x^+ \rightarrow c} f(x)$.
 2.  $\lim\limits_{x \rightarrow c} f(x) = f(c)$.
-
-These criteria make intuitive sense:
-
-1.  Criteria 1 says both sides of the limit have to approach the same $y$ value. That makes sense, since if they did not approach the same value, the function would have a jump.
-2.  Criteria 2 says the value of the limit must be the same as the value of the function. That means that 1st, the function must be defined at $f(c)$, which obviously is required for continuity, and 2nd, the value of the function is equal to the value the two sides are approaching, which if not true, would mean there would be a jump.
 
 Let us assume functions $f$ and $g$ are both continuous at $x=c$. Then, continuity has a few properties:
 
@@ -610,9 +562,7 @@ Method 2 (power rule):
 
 Let $f: X \rightarrow Y$ be a bijective function $y=f(x)$ (see sections 1.4-1.5). We want to find the derivative of the inverse function $f^{-1}: Y \rightarrow X$.
 
-The simplest way to do this is to find the inverse function (as shown in section 1.5), and calculate the derivative of that.
-
-However, the function $x = f^{-1}(y)$ is not always easily differentiable with the rules we have introduced. We can utilise an alternative approach. Remember the identity of inverse functions shown in section 1.5:
+The simplest way to do this is to find the inverse function (as shown in section 1.5), and calculate the derivative of that. However, the function $x = f^{-1}(y)$ is not always easily differentiable with the rules we have introduced. We can utilise an alternative approach. Remember the identity of inverse functions shown in section 1.5:
 
 $$
 f^{-1}(f(x)) = x \text{ for all } x \in X
@@ -624,14 +574,11 @@ $$
 [f(g(x))]' = f'[g(x)] \times g'(x)
 $$
 
-We can define our inverse original $f'$ function as $f$ for the chain rule, and the original $f(x)$ as $g(x)$ for the chain rule. Thus, using chain rule, we can get the derivative of the identity of inverse functions:
-
-$$
-f^{-1}(f(x)) = x, \text{ now differentiate both sides:}
-$$
-
-$$
-\frac{df^{-1}(f(x))}{dy} \times \frac{df(x)}{dx} = 1, \text{ since } y = f(x) \Longrightarrow \frac{df^{-1}(y)}{dy} \times \frac{df(x)}{dx} = 1
+We can define our inverse original $f'$ function as $f$ for the chain rule, and the original $f(x)$ as $g(x)$ for the chain rule. Thus, using chain rule, we can get the derivative of the identity of inverse functions: $$
+\begin{split}
+& f^{-1}(f(x)) = x, \text{ now differentiate both sides:} \\
+& \frac{df^{-1}(f(x))}{dy} \times \frac{df(x)}{dx} = 1, \text{ since } y = f(x) \Longrightarrow \frac{df^{-1}(y)}{dy} \times \frac{df(x)}{dx} = 1
+\end{split}
 $$
 
 Now, isolate the derivative of the inverse function to get the **derivative of the inverse**:
@@ -685,14 +632,11 @@ $$
 
 You probably have heard that multiple linear regression is powerful because it allows us to see the independent effects of explanatory variables on output variables (if you have not, do not worry).
 
-Let us say we are interested in only the effect of $X_1$ on $Y$. We can take the partial derivative in respect to $X_1$ as follows:
-
-$$
-\frac{\partial \hat{Y}}{\partial X_1} = \frac{\partial \hat{Y}}{\partial X_1}[\hat{\alpha}] + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_1X_1] + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_2X_2] + ... + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_kX_k]
-$$
-
-$$
-\frac{\partial \hat{y}}{\partial X_1} = 0 + \hat{\beta}_1 + 0 + ... + 0 \Longrightarrow \frac{\partial \hat{y}}{\partial X_1} = \hat{\beta}_1
+Let us say we are interested in only the effect of $X_1$ on $Y$. We can take the partial derivative in respect to $X_1$ as follows: $$
+\begin{split}
+& \frac{\partial \hat{Y}}{\partial X_1} = \frac{\partial \hat{Y}}{\partial X_1}[\hat{\alpha}] + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_1X_1] + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_2X_2] + ... + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_kX_k] \\
+& \frac{\partial \hat{y}}{\partial X_1} = 0 + \hat{\beta}_1 + 0 + ... + 0 \Longrightarrow \frac{\partial \hat{y}}{\partial X_1} = \hat{\beta}_1
+\end{split}
 $$
 
 So we can see, the effect of $X_1$ on $\hat{Y}$ is $\hat{\beta}_1$, and this is not affected by any other explanatory variables $X_2, ..., X_n$. This shows how multiple linear regression allows us to "hold other variables constant" and isolate the effect of one variable.
