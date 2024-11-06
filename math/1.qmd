@@ -620,7 +620,7 @@ To solve a partial derivative, we take the derivative in respect to our specific
 3.  Find derivatives, remember $z$ is constant here: $\frac{\partial f(x,z)}{\partial x} = 10z^3x + 2 + 0 + 0$.
 4.  Thus, $\frac{\partial f(x,z)}{\partial x} = 10z^3x + 2$.
 
-### Application: Multiple Regression
+#### Example: Multiple Regression
 
 Partial derivatives are very useful in economic modelling and econometrics/statistics. We will introduce an application of partial derivatives with linear regression model.
 
