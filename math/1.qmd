@@ -645,15 +645,105 @@ So we can see, the effect of $X_1$ on $\hat{Y}$ is $\hat{\beta}_1$, and this is 
 
 ### Local Extrema and Stationary Points
 
-### Concavity and Inflextion Points
+Maximums and minimums are quite intuitive concepts - for function $f$, the maximum is input that gives the highest output value, and the minimum is the input that gives the lowest output value. More formally:
+
+-   A **local maximum** of function $f:I \rightarrow \mathbb{R}$ is a point $a \in I$ with the property $f(a) ≥ f(x)$ for all $x$ sufficiently near $x=a$. A **strict local maximum** has the condition $f(a) > f(x)$ for all $x$ sufficiently near $x=a$
+
+-   A **local minimum** of function $f:I \rightarrow \mathbb{R}$ is a point $a \in I$ with the property $f(a) ≤ f(x)$ for all $x$ sufficiently near $x=a$. A **strict local minimum** has the condition $f(a) < f(x)$ for all $x$ sufficiently near $x=a$
+
+![](figures/1/3.1.png){fig-align="center" width="33%"}
+
+Take an open interval set $I$, and function $f : I \rightarrow \mathbb{R}$. A s**tationary point** at $a \in I$ exists if $f'(a) = 0$.
+
+More intuitively, a stationary point is when the function is neither increasing or decreasing, and since the derivative function is a measure of the rate of change, a function neither increases or decreases when $f'(a) = 0$. Visually:
+
+![](figures/1/3.2.png){fig-align="center" width="33%"}
+
+### Concavity and Inflection Points
+
+A function $f:I \rightarrow \mathbb{R}$ is called **convex**, if a line segment joining any two points on the graph of $f$ lies above or on the graph of $f$.
+
+A function $f: I \rightarrow \mathbb{R}$ is called **concave**, if a line segment joining any two points on the graph of $f$ lies below or on the graph of $f$.
+
+A function $f: I \rightarrow \mathbb{R}$ is **strictly convex/concave**, if a line segment joining any two points on the graph of $f$ lies always above, or always below, the graph of $f$.
+
+Below are three figures of convex and concave functions. The first function is strictly convex:
+
+![](figures/1/3.3.png){fig-align="center" width="65%"}
+
+If function $f: I \rightarrow \mathbb{R}$ is differentiable on an interval $I$, we also have an alternative definition of concavity.
+
+-   If for function $f$ in interval $I$, $f''(x) > 0$, then the function is convex.
+
+-   If for function $f$ in interval $I$, $f''(x) < 0$, then the function is concave.
+
+If a function $f$ changes from convex to concave at point $a$, or from concave or convex (or in other words, $f''(a) = 0$ and it changes sign before and after $a$), that point is an **inflection point**. Inflection points do not always have to be differentiable, just the concavity has to change. Inflection points can also be stationary points, but not always, if $f'(x) = f''(x) = 0$.
+
+![](figures/1/3.4.png){fig-align="center" width="70%"}
 
 ### Global Extrema
 
-### Optimisation Without Constraints
+Tkate the function $f: A \rightarrow \mathbb{R}$, in which $A$ is domain of $f$ such that $A \subseteq \mathbb{R}$.
 
-### Application: Linear Regression Estimation
+A **global maximum** of $f$ is a point $a \in A$ such that $f(a) ≥ f(x)$ for all $x \in A$. A **strict global maximum** is when the condition $f(a) > f(x)$ for all $x \in A$.
 
-### Simple Optimisation With Constraints
+A **global minimum** of $f$ is a point $a \in A$ such that $f(a) ≤ f(x)$ for all $x \in A$. A **strict global minimum** is when the condition $f(a) < f(x)$ for all $x \in A$.
+
+What is the difference between a local and global extrema? Well, a local exterma only has to be the maximum/minimum in its "neighbourhood", meaning there can be multiple local extrema. Global extrema are considered a subset of local extrema. There can only be one global maximum or minimum in a function.
+
+### Optimisation and Finding Extrema
+
+Optimisation is about finding the maximum or minimum point of a function. This is useful because we often want to optimise things in statistics and models - whether it be minimise error, or maximise utility, and so on.
+
+If a function is differentiable on an open interval, then a local extrema can only occur at a stationary point of this function. Since global extrema are a subset of local extrema, that means that global extrema must also occur at a stationary point of the function.
+
+For a stationary point to be a local maximum, the function should be concave. For a stationary point to be a local minimum, the function should be convex. Why? - consider the following diagram:
+
+![](figures/1/3.6.png){fig-align="center" width="55%"}
+
+Thus, knowing these facts, we can identify local extrema of a function $f(x)$ in an interval with the following steps:
+
+1.  Find $f'(x)$, then find for what $x$ makes $f'(x) = 0$. These are the stationary points.
+2.  Find $f''(x)$. Plug in the $x$ we solved for above. If $f''(x) > 0$, the function is convex, thus there is a local minimum. If $f''(x) < 0$, the function is concave, thus there is a local maximum.
+3.  Find which extrema is most extreme - that is likely (but not guaranteed) to be the extrema in the interval.
+
+However, we are not done with checking extrema - we have to calculate the edge cases. These are the end-points of our interval. Why? - look at the following figure below - on the interval $[-3, 7]$, clearly $x=7$ will have a larger maximum value than any local maximum, since the function tends towards infinity as $x$ approaches infinity:
+
+![](figures/1/3.7.jpeg){fig-align="center" width="55%"}
+
+Thus, we have to check the edges of our intervals and see if they are the maximum or minimum in the interval, and compare them to the local extrema we found. Once we have found the $x$ value that makes $f$ output its maxmimum/minimum value within an interval, we have completed optimisation.
+
+#### Example
+
+Find the maximum value of $f(x) = 2x^3 - 9x^2 + 12x$ in the interval $x \in [0, 3]$.
+
+1.  Find the first derivative: $f'(x) = 6x^2-18x+12$.
+2.  Find when $f'(x) = 0$. Thus, $0 = 6x^2 - 18x + 12$, factor so $\Longrightarrow 0 = 6(x-2)(x-1)$. Thus, the two $x$ values that make $'f(x) = 0$ are $x=2, x=1$.
+3.  Find the 2nd derivative to distinguish maximums and minimums: $f''(x) = 12x - 18$.
+4.  Plug in our stationary points $x=2, x=1$ we found earlier to find minimums and maximums: $f''(2) = 6$, $f''(1) = -6$. Since maximums are when $f''(x) < 0$, thus $x=1$ is the only local maxmimum. We can plug in $x=1$ into the original function to find the local maximum value of $f(1) = 5$.
+5.  Test our edge cases of our interval $[0,3]$. $f(0) = 0$, $f(3) = 9$. We can see that $f(3) = 9 > f(1) = 5$. Thus, $x=3$ is the maximum point in this interval.
+
+### Constrained Optimisation
+
+Sometimes, we have constraints when doing optimisation. This is best demonstrated with an example.
+
+Take this scenario: a company wants to spend money on advertising. They can choose to spend $x$ amount of money on TV advertising, and $y$ amount of money on YouTube advertising. $f(x, y) = xy$ is a function where the output is the increase in sales as a result of advertising. However, the company only has a total budget of \$10 to spend on both, thus $x+y = 10$.
+
+Simply, we want to maximise $f(x,y) = xy$, given the constraint $x + y = 10$.
+
+1.  Start by solving for one variable within the constraint. Let us solve for $y$, so $x + y = 10 \Longrightarrow y = 10 - x$.
+2.  Now, substitute the constraint into the function we want to maximise: $f(xy) = xy \Longrightarrow f(x) = x(10-x) \Longrightarrow f(x) = -x^2 + 10x$.
+3.  Find the first derivative of our constraint function: $f'(x) = -2x + 10$.
+4.  Then, find when $f'(x) = 0$ for stationary points: $0 = -2x+10 \Longrightarrow x = 5$.
+5.  Now, find second derivative to see if our stationary point $x=5$ is a maximum. $f''(x) = -2$, thus $f''(5) = -2$, thus $f''(5) < 0$ so it is a maximum.
+6.  Now that we know $x=5$ is a local maximum, plug into constraint to find value of $y$: $y = 10 - x \Longrightarrow y = 5$.
+7.  Thus, $x=5, y=5$ is the maximum of function $f(x,y) = xy$. Plugging in $x=5, y=5$, then the maximum output value if $f(5,5) = 25$.
+
+Thus, the general workflow of constrained optimisation is:
+
+1.  Solve for one variable in the constraint.
+2.  Plug into our function we want to optimise, and complete the optimisation process as normal.
+3.  Once we find the maximum value of one variable, plug into the constraint to find the other.
 
 ## Integrals
 
@@ -672,8 +762,6 @@ section 9.1 and 9.3
 ### Integration by Parts
 
 ### Integration by Partial Fractions
-
-### Application: Consumer and Producer Surplus
 
 # Probability and Statistical Theory
 
