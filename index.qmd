@@ -7,11 +7,11 @@ format:
         max-width: 1100px
         toc: TRUE
         toc-expand: TRUE
-        toc-depth: 2
+        toc-depth: 3
         toc-location: left
 ---
 
-# Hello!
+# **Hello!**
 
 ![](me.jpg){fig-align="center" width="60%"}
 
@@ -49,7 +49,7 @@ Email: k.l.li1\@lse.ac.uk
 
 ------------------------------------------------------------------------
 
-# Publications
+# **Publications**
 
 ### Co-Authored
 
@@ -67,9 +67,7 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
-------------------------------------------------------------------------
-
-# An Introduction to Political Economics
+### An Introduction to Political Economics
 
 This is a project that I am working on, that combines everything I have learned in the field of Political Economics in an easy-to-access format.
 
@@ -98,7 +96,13 @@ This sequence is a companion to the Introduction to Political Economics Sequence
 
 ------------------------------------------------------------------------
 
-# Projects/Cool Stuff
+# **Projects/Cool Stuff**
+
+### 2024 Presidential Election Predictions
+
+These are some (quick) predictions I made for the 2024 Presidential Elections using Random Forest/Bagging models, a few days before the election. I did correctly predict the winner!
+
+-   <https://kevinli03.github.io/election/us2024/prediction.html>
 
 ### Music Recordings
 
@@ -141,9 +145,9 @@ To see my notes for the 2024-2025 school year, see the link below.
 
 ------------------------------------------------------------------------
 
-# Full Academic History
+# **Full Academic History**
 
-## London School of Economics (MSc Political Science and Political Economy)
+### London School of Economics (MSc Political Science and Political Economy)
 
 Focus: Applied Statistics/Econometrics
 
@@ -195,7 +199,7 @@ Pre-Sessional Courses:
 
 <br />
 
-## London School of Economics (Summer School)
+### London School of Economics (Summer School)
 
 Summer Courses: Data Science and Machine Learning, Principles of Accounting
 
@@ -213,7 +217,7 @@ Final Classification: A+ (First Class)
 
 <br />
 
-## King's College London (BSc Politics)
+### King's College London (BSc Politics)
 
 Focuses: Quantitative Methods, Public Policy
 
@@ -277,7 +281,7 @@ Final Classification: First Class Honours
 
 <br />
 
-## Canyon Crest Academy (High School Diploma, ACT, AP)
+### Canyon Crest Academy (High School Diploma, ACT, AP)
 
 Dates: September 2017 - June 2021
 
