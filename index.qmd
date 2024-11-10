@@ -76,13 +76,13 @@ This is a project that I am working on, that combines everything I have learned 
 
 <br />
 
-#### **An Introduction to Political Economics (Core Sequence)**
+##### **An Introduction to Political Economics (Core Sequence)**
 
 1.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf): introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
 2.  [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf): introduces many of the core statistical concepts and methods used in Politics research. This book mainly covers Linear Regression models and techniques of Causal Inference.
 3.  [Economic Analysis of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf): Applies the microeconomic theory and models, as well as econometrics, to study political phenomena.
 
-#### **Quantitative Methods Sequence**
+##### **Quantitative Methods Sequence**
 
 This sequence is a companion to the Introduction to Political Economics Sequence, adding useful mathematical and statistical techniques.
 
@@ -147,139 +147,201 @@ To see my notes for the 2024-2025 school year, see the link below.
 
 # **Full Academic History**
 
-### London School of Economics (MSc Political Science and Political Economy)
+### London School of Economics (MSc)
 
-Focus: Applied Statistics/Econometrics
+[**Key Facts**]{.underline}
 
-Dates: September 2024 - September 2025
-
-Final Classification: N/A (no predicted grades yet)
-
--   Dissertation Topic:
-
--   Dissertation Supervisor:
-
--   Academic Mentor: Professor Torun Dewan
++--------------------------+--------------------------------------------------------------------+
+| Degree:                  | MSc Political Science and Political Economy                        |
++--------------------------+--------------------------------------------------------------------+
+| Concentration:           | Econometrics/Statistics and Game Theory                            |
++--------------------------+--------------------------------------------------------------------+
+| Dates:                   | September 2024 - September 2025                                    |
++--------------------------+--------------------------------------------------------------------+
+| Final Grade:             | N/A (No predicted grades as of now)                                |
++--------------------------+--------------------------------------------------------------------+
+| Dissertation Topic:      |                                                                    |
++--------------------------+--------------------------------------------------------------------+
+| Dissertation Supervisor: |                                                                    |
++--------------------------+--------------------------------------------------------------------+
+| Academic Mentor:         | [Professor Torun Dewan](https://en.wikipedia.org/wiki/Torun_Dewan) |
++--------------------------+--------------------------------------------------------------------+
 
 <br />
 
-[**Courses:**]{.underline}
+[**Classes/Modules**]{.underline}
 
-Registered Modules:
+Officially Registered Classes:
 
--   MY452 Applied Regression Analysis (Prof. Jouni Kuha)
++--------------+-------------------------------------------------------------+---------------------------+
+| MY452A       | Applied Regression Analysis                                 | Prof. Jouni Kuha          |
+|              |                                                             |                           |
+|              |                                                             | Dr. Johan Ahlback         |
++--------------+-------------------------------------------------------------+---------------------------+
+| MY455        | Multivariate Analysis                                       | Prof. Jouni Kuha          |
++--------------+-------------------------------------------------------------+---------------------------+
+| MY457        | Causal Inference for Observational and Experimental Studies | Dr. Daniel de Kadt        |
++--------------+-------------------------------------------------------------+---------------------------+
+| GV4C8        | Game Theory for Political Science                           | Dr. Rafael Hortala-Vallve |
+|              |                                                             |                           |
+|              |                                                             | Dr. Kun Byeonggeun Heo    |
++--------------+-------------------------------------------------------------+---------------------------+
+| GV481        | Quantitative Analysis for Political Science                 | Dr. Aliz Tóth             |
+|              |                                                             |                           |
+|              |                                                             | Dr. Filipe Torres-Raposo  |
++--------------+-------------------------------------------------------------+---------------------------+
+| GV482        | Current Issues in Political Science and Political Economy   | Prof. Stephane Wolton     |
++--------------+-------------------------------------------------------------+---------------------------+
+| GV499        | Dissertation                                                |                           |
++--------------+-------------------------------------------------------------+---------------------------+
 
--   MY455 Multivariate Analysis (Prof. Jouni Kuha)
+<br />
 
--   MY457 Causal Inference for Observational and Experimental Studies (Dr. Daniel de Kadt)
+Audited Modules:
 
--   GV481 Quantitative Analysis for Political Science (Dr. Aliz Tóth, Dr. Felipe Torres-Raposo)
++---------------+----------------------------------------+-----------------------+
+| MA102         | Mathematical Proof and Analysis        | Prof. Peter Allen     |
++---------------+----------------------------------------+-----------------------+
+| MA108         | Methods in Calculus and Linear Algebra | Dr. Ioannis Kouletsis |
++---------------+----------------------------------------+-----------------------+
+| ST304         | Time Series and Forescasting           | Dr. Yining Chen       |
++---------------+----------------------------------------+-----------------------+
 
--   GV4C8 Game Theory for Political Science (Prof. Rafael Hortala-Vallve, Dr. Kun Byeonggeun Heo)
-
--   GV482 Current Issues in Political Economy (Prof. Stephane Wolton)
-
--   GV499 Dissertation
-
-Audited Modules
-
--   MA102 Mathematical Proof and Analysis (Prof. Peter Allen)
-
--   MA108 Methods in Calculus and Linear Algebra (Dr. Ioannis Kouletsis)
-
--   ST304 Time Series and Forecasting (Dr. Yining Chen)
+<br />
 
 Pre-Sessional Courses:
 
--   GV4L8 Introductory Mathematics for Political Science (Dr. Marta Antonetti)
-
--   GV4L9 Introductory R for Political Science (Dr. Marta Antonetti)
-
--   EU409 Basic Economic Concepts
++---------------+------------------------------------------------+---------------------+
+| GV4L8         | Introductory Mathematics for Political Science | Dr. Marta Antonetti |
++---------------+------------------------------------------------+---------------------+
+| GV4L9         | Introductory R for Political Science           | Dr. Marta Antonetti |
++---------------+------------------------------------------------+---------------------+
 
 <br />
+
+------------------------------------------------------------------------
 
 ### London School of Economics (Summer School)
 
-Summer Courses: Data Science and Machine Learning, Principles of Accounting
+[**Key Facts:**]{.underline}
 
-Dates: July 2024 - August 2024
-
-Final Classification: A+ (First Class)
-
-<br />
-
-[**Courses:**]{.underline}
-
--   ME314 Introduction to Data Science & Machine Learning (Dr. Kenneth Benoit, Dr. Jack Blumenau)
-
--   AC110 Principles of Accounting (Dr. Jeroen Koenraadt, Dr. Gulnaz Khamidullina)
++-------------------+-------------------------------------------------+
+| Programme:        | Data Science & Machine Learning, Accounting     |
++-------------------+-------------------------------------------------+
+| Dates:            | July 2024 - August 2024                         |
++-------------------+-------------------------------------------------+
+| Final Grade:      | A (First Class Honours)                         |
++-------------------+-------------------------------------------------+
 
 <br />
 
-### King's College London (BSc Politics)
+[**Modules/Courses:**]{.underline}
 
-Focuses: Quantitative Methods, Public Policy
-
-Dates: September 2021 - July 2024
-
-Final Classification: First Class Honours
-
--   Academic Mentor: Dr. James Scott, Dr. Teresa Esteban-Casanelles
++---------------+---------------------------------------------------+-------------------------+
+| ME314         | Introduction to Data Science and Machine Learning | Dr. Kenneth Benoit      |
+|               |                                                   |                         |
+|               |                                                   | Dr. Jack Blumenau       |
++---------------+---------------------------------------------------+-------------------------+
+| AC110         | Principles of Accounting                          | Dr. Jeroen Koenraadt    |
+|               |                                                   |                         |
+|               |                                                   | Dr. Gulnaz Khamidullina |
++---------------+---------------------------------------------------+-------------------------+
 
 <br />
 
-[**Courses:**]{.underline}
+------------------------------------------------------------------------
+
+### King's College London (BSc)
+
+[**Key Facts:**]{.underline}
+
++-------------------+---------------------------------------------------------------------------------------------------------------------+
+| Degree:           | BSc (Honours) in Politics                                                                                           |
++-------------------+---------------------------------------------------------------------------------------------------------------------+
+| Concentration:    | Quantitative Methods, Public Policy                                                                                 |
++-------------------+---------------------------------------------------------------------------------------------------------------------+
+| Dates:            | September 2021 - July 2024                                                                                          |
++-------------------+---------------------------------------------------------------------------------------------------------------------+
+| Final Grade:      | First Class Honours (US Equivalent: 3.8-4.0 GPA)                                                                    |
++-------------------+---------------------------------------------------------------------------------------------------------------------+
+| Academic Mentors: | [Dr. James Scott](https://scholar.google.com/citations?user=j4PK-PUAAAAJ&hl=en)                                     |
+|                   |                                                                                                                     |
+|                   | [Dr. Teresa Esteban-Casanelles](https://teresaestebancasanelles.net)                                                |
+|                   |                                                                                                                     |
+|                   | [Dr. John Meadowcroft](https://www.google.com/search?client=safari&rls=en&q=dr.+john+meadowcroft&ie=UTF-8&oe=UTF-8) |
++-------------------+---------------------------------------------------------------------------------------------------------------------+
+
+<br />
+
+[**Modules/Courses:**]{.underline}
 
 3rd Year Courses:
 
--   6SSPP330 Economic Policy-Making (Dr. Julian Limberg)
++---------------+--------------------------------+------------------------------+
+| 6SSPP330      | Economic Policy-Making         | Dr. Julian Limberg           |
++---------------+--------------------------------+------------------------------+
+| 6SSPP403      | Advanced Game Theory           | Dr. Mehmet Ismail            |
++---------------+--------------------------------+------------------------------+
+| 6SSPP364      | Key Issues in Policy Making    | Prof. Kristel Koop           |
++---------------+--------------------------------+------------------------------+
+| 6SSPP388      | Environmental Governance       | Dr. Francesca Pia Vataggiato |
++---------------+--------------------------------+------------------------------+
+| 6SSPP         | American Foreign Policy        | Dr. Keith Smith              |
++---------------+--------------------------------+------------------------------+
+| 6SSPP341      | Global Power Europe            | Dr. Thomas Maltby            |
++---------------+--------------------------------+------------------------------+
+| 6SSPP356      | Authoritarianism               | Prof. Sarah Birch            |
++---------------+--------------------------------+------------------------------+
+| 6SSPP360      | Elections and Voting Behaviour | Dr. Krzysztof Krakowski      |
++---------------+--------------------------------+------------------------------+
 
--   6SSPP403 Advanced Game Theory (Dr. Mehmet Ismaili)
-
--   6SSPP364 Key Issues in Policy Making (Prof. Kristel Koop)
-
--   6SSPP388 Environmental Governance (Dr. Francesca Pia Vantaggiato)
-
--   6SSPP American Foreign Policy (Dr. Keith Smith)
-
--   6SSPP341 Global Power Europe (Dr. Thomas Maltby)
-
--   6SSPP356 Authoritarianism (Prof. Sarah Birch)
-
--   6SSPP360 Elections and Voting Behaviour (Dr. Krzysztof Krakowski)
+<br />
 
 2nd Year Courses:
 
--   5SSPP241 Statistics for Political Science II (Dr. Damien Bol)
++--------------+-----------------------------------------------------------+-------------------------------+
+| 5SSPP241     | Statistics for Political Science II                       | Dr. Damien Bol                |
++--------------+-----------------------------------------------------------+-------------------------------+
+| 5SSPP227     | Game Theory and Strategic Decision Making                 | Prof. Paul Lewis              |
+|              |                                                           |                               |
+|              |                                                           | Dr. Mehmet Ismail             |
++--------------+-----------------------------------------------------------+-------------------------------+
+| 5SSPP206     | Research Methods for Politics                             | Dr. Hannah Kleider            |
++--------------+-----------------------------------------------------------+-------------------------------+
+| 5SSPP231     | Policy Analysis: Decision, Implementation, and Evaluation | Dr. John Meadowcroft          |
++--------------+-----------------------------------------------------------+-------------------------------+
+| 5SSPP223     | Issues in International Politics                          | Dr. Keith Smith               |
++--------------+-----------------------------------------------------------+-------------------------------+
+| 5SSPP240     | American Political Development                            | Dr. Samuel DeCanio            |
++--------------+-----------------------------------------------------------+-------------------------------+
+| 5SSPP205     | Political Change in Europe                                | Dr. Teresa Esteban-Casanelles |
++--------------+-----------------------------------------------------------+-------------------------------+
+| 5SSPP242     | British Politics                                          | Prof. Peter John              |
++--------------+-----------------------------------------------------------+-------------------------------+
 
--   5SSPP227 Game Theory and Strategic Decision Making (Prof. Paul Lewis, Dr. Mehmet Ismail)
-
--   5SSPP206 Research Methods for Politics (Dr. Hanna Kleider)
-
--   5SSPP231 Policy Analysis: Decision, Implementation, and Evaluation (Dr. John Meadowcroft)
-
--   5SSPP223 Issues in International Politics (Dr. Keith Smith)
-
--   5SSPP240 American Political Development (Dr. Samuel DeCanio)
-
--   5SSPP205 Political Change in Europe (Dr. Teresa Esteban-Casanelles)
-
--   5SSPP242 British Politics (Prof. Peter John)
+<br />
 
 1st Year Courses:
 
--   4SSPP111 Statistics for Political Science (Dr. Adam Chalmers)
-
--   4SSPP101 Fundamentals of Politics Research (Prof. Adrian Blau)
-
--   4SSPP102 World Politics Since 1945 (Dr. Keith Smith, Dr. Jonathan Leader Manyard)
-
--   4SSPP103 Comparing Political Systems (Dr. Damien Bol, Dr. Julian Limberg)
-
--   4SSPP104 Introduction to Political Theory (Dr. Steven Klein, Dr. Billy Christmas)
++----------------+-----------------------------------+---------------------+
+| 4SSPP111       | Statistics for Political Science  | Dr. Adam Chalmers   |
++----------------+-----------------------------------+---------------------+
+| 4SSPP101       | Fundamentals of Politics Research | Prof. Adrian Blau   |
++----------------+-----------------------------------+---------------------+
+| 4SSPP102       | World Politics Since 1945         | Dr. Keith Smith     |
++----------------+-----------------------------------+---------------------+
+| 4SSPP103       | Comparing Political Systems       | Dr. Damien Bol      |
+|                |                                   |                     |
+|                |                                   | Dr. Julian Limberg  |
++----------------+-----------------------------------+---------------------+
+| 4SSPP104       | Introduction to Political Theory  | Dr. Steven Klein    |
+|                |                                   |                     |
+|                |                                   | Dr. Billy Christmas |
++----------------+-----------------------------------+---------------------+
 
 <br />
+
+------------------------------------------------------------------------
 
 ### Canyon Crest Academy (High School Diploma, ACT, AP)
 
@@ -289,13 +351,13 @@ Awards: National AP Scholar, AP Scholar with Distinction (3x), President's Volun
 
 <br />
 
-**ACT Standardised Test**:
+[**ACT Standardised Test:**]{.underline}
 
 Overall score: 35/36
 
 <br />
 
-**AP Tests and Courses:**
+[**AP Tests and Courses:**]{.underline}
 
 -   AP Calculus BC
 
