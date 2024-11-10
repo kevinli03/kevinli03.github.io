@@ -17,7 +17,7 @@ format:
 
 ### About me
 
-I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of statistics and formal mathematical modelling to study Political Science and Political Economy.
+I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of statistics/econometrics and microeconomic models to study political phenomena.
 
 Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London, receiving First Class Honours (US Equivalent: Summa Cum Laude). During my undergraduate degree, I also took summer courses in Data Science and Machine Learning at the London School of Economics.
 
