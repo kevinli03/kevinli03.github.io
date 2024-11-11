@@ -871,11 +871,7 @@ F-tests of nested models can help us determine if we should include certain extr
 
 ### Linear Regression in R
 
-#### Setup
-
-As for all of the examples in this book, we will use the "tidyverse" package. Let us also load our dataset that we will be using.
-
-```{r, message = FALSE}
+```{r, echo = FALSE, message = FALSE}
 # if you haven't installed tidyverse, do: install.packages('tidyverse')
 library(tidyverse)
 democracy_data <- read_csv("data/democracy.csv")
@@ -883,12 +879,10 @@ democracy_data <- read_csv("data/democracy.csv")
 
 ```{r, echo = FALSE, message = FALSE}
 democracy_data <- democracy_data %>%
-    select(polity_2, GDP_Per_Cap_Haber_Men_2, Total_Oil_Income_PC)
+    select(polity_2, GDP_Per_Cap_Haber_Men_2, Total_Oil_Income_PC, year, cnamehabmen)
 
 democracy_data <- na.omit(democracy_data)
 ```
-
-#### Syntax of Regression
 
 We use the *lm()* function to run a regression: The general syntax is as follows:
 
@@ -1306,13 +1300,129 @@ However, if we are dealing with observational designs without random assignment 
 
 ### Robust Standard Errors in R
 
+To calculate robust standard errors, we must install and load the **fixest** package.
+
+Then, the syntax is the same as a linear regression with the standard *lm()* function, but we add an additional argument of *se = "hetero"*, which tells R to calculate heteroscedasticity-robust standard errors.
+
+```{r, eval = FALSE}
+# load fixest package
+library(fixest)
+
+# model
+model_name <- feols(Y ~ X1 + X2 + X3, data = mydata, se = "hetero")
+summary(model_name)
+```
+
+Interpretation is the same as the standard linear regression.
+
 ## Panel and Clustered Data
 
 ### Hierarchical Data
 
+Hierarchical data is data that comes in different "clusters" or "levels". For example, if we have data on individuals from multiple different countries, that means our individual observations are clustered at the country-level.
+
+Hierarchical data can also be clustered over time. For example, we might have GDP data for all countries in the world from 1960-2024. Each year (ex. 2024) will have GDP data for all countries, thus, the data is clustered by year. Data clustered over years is often referred to as **panel data** or **longitudinal** data.
+
+Hiearchical data can be clustered over country and year at the same time. The previous example of GDP data can be clustered by year (ex. 2023, 2022, etc.) and clustered by country (ex. USA, UK, etc.).
+
+Why do we care about clusters? Well - this is because one cluster might be very different than another cluster. For example, if we were explaining individual voting turnout between countries, different electoral and cultural factors in each country might explain some of the differences. Another example is the 2008 financial crisis, which may mean 2008 values will be different from 2015 because of circumstances surrounding each particular year.
+
+These differences between clusters affect our regression results. For example, if we want to explain the outcome variable individual voter turnout with the explanatory variable individual education level, some of the effect of different countries and years may be captured in our regression. That means our regression is not accurately measuring the size of effects.
+
+Thus, we need some way to control for these clusters in our data to isolate the effect of our treatment $D$ and accurately assess the causal impact.
+
 ### Fixed Effects
 
-### Further Approaches
+Fixed Effects are a way to control for the issue of differences between clusters.
+
+Let us assume that we have $m$ number of clusters in our data. Thus, we have a specific cluster $i \in \{1, ..., m\}$. Each cluster $i$ will have $n$ number of observations, so we will have observation $t \in \{1, ..., n\}$ within cluster $i$.
+
+Using this framework, every observation can be defined as $Y_{it}$, which essentially means the $Y$ value of the $i$th cluster's $t$th observation. The corresponding explanatory variable values will be notated $\overrightarrow{X}_{it}$.
+
+Our fixed effects model will take the following form:
+
+$$
+Y_{it} = \alpha_i + \beta_1X_{1it} + ... + \beta_kX_{kit} + \epsilon_{it}
+$$
+
+Where $\alpha_i$ is the fixed effect for cluster $i$, defined as:
+
+$$
+\alpha_i = \beta_{00} + \beta_{02}D){i2} + ... + \beta_{0m}D_{im}
+$$
+
+Where $D_{i2} ,..., D_{im}$ are dummy variables for the clusters $2, ..., m$. Cluster 1 is the reference category (like a categorical explanatory variable). $\beta_{00}$ is the average $Y$ of the reference cluster category (cluster 1), when $\overrightarrow{X} = 0$. $\beta_{0j}$ is the difference between the average $Y$ of cluster $j$, and the reference category (cluster 1), when all $\overrightarrow{X} = 0$.
+
+Or in other words, including fixed effects for clusters $i$ means using the clusters as an additional categorical variable in our regression. We can demonstrating this by writing out $\alpha_i$ in our above linear model to get:
+
+$$
+Y_{it} = \beta_{00} + \beta_1X_{1it} + ... + \beta_kX_{kit} + \beta_{02}D_{i2} + ... + \beta_{0m}D_{im} + \epsilon_{it}
+$$
+
+The fixed effect $\alpha_i$ captures the predictors of $Y$ that are shared by all observations within their cluster $i$. For example, if our fixed effects were by countries, $\alpha_i$ would capture all the predictors of $Y$ that are shared by all observations from that same country.
+
+To interpret our coefficients $\beta_j$, we would do the same as we previously would, but adding the line - controlling for levels of $Y$ we would expect for that cluster in general.
+
+### Two-Way Fixed Effects
+
+Often in Political Economics, we will have 2-way clustered data by both country and year. For example, if you have data on GDP and Democracy level from all countries between 2006-2024, you will have two types of clusters - clusters by country, and clusters by year.
+
+We can combine these two for two-way fixed effects of both country and year. Two-way fixed effects takes the following form:
+
+$$
+Y_{it} = \alpha_i + \gamma_t + \beta_1X_{1it} + ... + \beta_k X_{kit} + \epsilon_{it}
+$$
+
+$\alpha_i$ represents country fixed effects, exactly as we described in the previous section.
+
+$\gamma_t$ represents year fixed effects. Why does it have the subscript $t$? Well, in panel data, for each country, you will have many different years of data (ex. USA will have data between 2006-2024). Thus, within cluster $i$ of the country, each observation $t$ is a different year. Thus, $t$ is the year of the data.
+
+To interpret our coefficients $\beta_j$, we would do the same as we previously would, but adding the line - controlling for levels of $Y$ we would expect for that country in that year in general.
+
+This allows us to account for differences in countries and differences in years, and is very very common in Political Economics. You will also sometimes see different variations of this, including State-Year, Country-Decade, District-5Years, or any Geographic-Time clustering.
+
+### Fixed Effects in R
+
+To calculate fixed effects, we must install and load the **plm** package (there is a way to do it in base-r, but plm makes it easier, and there are other packages as well).
+
+```{r, message = FALSE}
+library(plm)
+```
+
+The syntax is very similar to standard linear regression, however, we add an *index* parameter to indicate what variables we want fixed effects on, and a *model = "within"* parameter to specify we want fixed effects. For two ways, we need an additional parameter *effect = "twoways"*.
+
+```{r, eval = FALSE}
+# one-way fixed effects
+model1 <- plm(Y ~ X1 + X2, data = mydata,
+              index = "Cluster Variable Name", model = "within")
+summary(model1)
+
+# two-way fixed effects
+model2 <- plm(Y ~ X1 + X2, data = mydata,
+             index = c("Cluster 1 variable", "Cluster 2 variable"), 
+             effect = "twoways", model = "within")
+```
+
+Important note: Often, the variable *year* is encoded as numeric, but we want it to be a categorical variable for fixed effects, so use the *as.factor()* function to coerce the variable *year*.
+
+Also, you can do this in base-r with the *lm()* function as shown throughout the regression examples, just by including the cluster variable as a categorical explanatory variable, however, the output is not as nice.
+
+#### Example
+
+Let us run the same example we did in chapter 4, but this time with two-way fixed effects:
+
+```{r, eval = FALSE}
+# coerce year into factor
+democracy_data$year <- as.factor(democracy_data$year)
+
+# model
+model <- plm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
+    data = democracy_data, index = c("cnamehabmen", "year"),
+    effect = "twoways", model = "within")
+summary(model)
+```
+
+The resulting output is the same as a typical linear regression. The *plm()* function will not display the coefficients of the fixed effects (as these will typically be very long, since if you have for example, 120 countries, that is 119 dummy variables). That is the primary reason why it is preferred over the *lm()* function, which will include every dummy variable in the regression output. We typically do not care about the fixed effect values, we just care that the clusters have been accounted for.
 
 ## Matching Regression
 
