@@ -715,10 +715,6 @@ $$
 
 Note: $s.t.$ means such that.
 
-## Cournot Equilibrium
-
-# Spatial Models
-
 ## Downsian Model of Electoral Competition
 
 ### Downsian Model of Electoral Competition
@@ -745,25 +741,19 @@ Eventually, the two parties will converge at the median voter's preference $m$. 
 
 [Thus, the Nash Equilibrium of the Downsian Model is strategy profile $(p_A = m, p_B = m)$]{.underline}.
 
--   We can check this by checking profitable deviations. Here, with both players playing $m$, they get a payoff of 0.5 chance of winning the election.
-
--   If either player $i$ moves away from $m$, they automatically lose the election since they are further from the median voter, thus they get payoff 0. Thus, there is no profitable deviation.
+We can check this by checking profitable deviations. Here, with both players playing $m$, they get a payoff of 0.5 chance of winning the election. If either player $i$ moves away from $m$, they automatically lose the election since they are further from the median voter, thus they get payoff 0. Thus, there is no profitable deviation.
 
 Is the Downsian Model correct? Do parties actually converge at the median? When evaluating models, [we do not evaluate based on their conclusions]{.underline}. To assess any model, we must [critically assess the assumptions on which the model is built on]{.underline}.
 
 ### Unbounded and Multi-Dimensional Models
 
-In the Downsian Model, we assumed policy preferences are distributed in an interval $[-1, 1]$. However, even without this assumption, the Downsian Model still has a Nash Equilibrium at the median voter position $m$
+In the Downsian Model, we assumed policy preferences are distributed in an interval $[-1, 1]$. However, even without this assumption, the Downsian Model still has a Nash Equilibrium at the median voter position $m$. This is because the median voter is by definition, the 50th percentile. To win a majority, you need to win more than 50%. Thus, any bounds of is policy preferences will still have a Nash Equilibrium at the median voter position $m$
 
--   This is because the median voter is by definition, the 50th percentile. To win a majority, you need to win more than 50%. Thus, any bounds of is policy preferences will still have a Nash Equilibrium at the median voter position $m$
-
-In the Downsian Model, we also assumed policy preferences are only in a one-dimensional plain $\mathbb{R}^1$ (the real number line). However, in the real world, policy is often made on many different dimensions, such as a spectrum for environmental policy, immigration policy, social policy, and so on.
-
-[When we extend the model beyond one dimension, there is no Nash Equilibrium]{.underline} at all for the parties. The reason for this is that it imitates another game, called the *Budget Allocatio*n or *Divide the Dollar* game:
+In the Downsian Model, we also assumed policy preferences are only in a one-dimensional plain $\mathbb{R}^1$ (the real number line). However, in the real world, policy is often made on many different dimensions, such as a spectrum for environmental policy, immigration policy, social policy, and so on. [When we extend the model beyond one dimension, there is no Nash Equilibrium]{.underline} at all for the parties. The reason for this is that it imitates another game, called the *Budget Allocatio*n or *Divide the Dollar* game:
 
 *There are 3 "regions"* $1, 2, 3$ *that want budget from the central government, which has only a limited amount of funds. From each region, a politician is elected to represent them. To approve any budget, 2/3 of the politicians need to agree.*
 
-Let us represent the total budget as $1$ (100%). Thus, the amount of money distributed to each region $q_i$, must meet the criteria: $q_1 + q_2 + q_3 = 1$. Each politician wants to get the maximum amount of budget for their region.
+Let us represent the total budget as $1$ (100%). The amount of money distributed to each region $q_i$, must meet the criteria: $q_1 + q_2 + q_3 = 1$. Each politician wants the maximum amount of budget for their region.
 
 At first, we might think that a fair distribution between the 3 regions is $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$. However, there is a profitable deviation to this outcome. Take the budget $(\frac{1}{2}, \frac{1}{2}, 0)$ - remember, only 2/3 politicians need to agree to approve a budget. In this new budget, politician 1 increases the budget for their region from $1/3$ to $1/2,$, and politician 2 also increases the budget for their region. Thus, 2/3 politicians agree to the new budget, passing it.
 
@@ -775,7 +765,9 @@ In fact, for every single budget proposal, there is always an incentive for 2 pl
 
 We can model a multidimensional Downsian Model in the same way. Each "dimension" of policy, like environmental, defense, social, etc., is a different budget allocation. Each party will always be able to "outflank" the other party by diverting budget away from one issue and giving it to another, making some citizens happier. Thus, there is no Nash Equilibria is the Downsian Model has multiple policy dimensions.
 
-### Other Distributions of Citizens
+### Other Distributions, Preferences, and Costs
+
+#### Other Distributions of Citizens
 
 In the Downsian Model, we assumed that citizen/voter preferences are uniformly distributed. However, [with any distribution of voter preferences, the median voter theory still holds]{.underline}.
 
@@ -783,7 +775,7 @@ The reason for this is that the median voter position, $m$, by definition, is th
 
 Note that the median value can change. For example, in a country with very left-leaning citizens, the median position $m$ might not be at 0, it could be $m = -0.5$.
 
-### Asymmetrical Voter Preferences
+#### Asymmetrical Voter Preferences
 
 In the Downsian Model, we assumed that citizens will vote for the party whose preferences are closest to them. For example, if the citizen had an option of a party to the left within distance 0.2 and a party to the right within distance 0.3, they would prefer the party to the left.
 
@@ -791,15 +783,15 @@ However, some voters do not have symmetrical preferences. For example, a left-wi
 
 [Even with asymmetric voter preferences, the median voter is still the Nash Equilibrium]{.underline}, as long as the preferences of citizens are single-peaked. Single peaked preference means that they only have one most-preferred policy position, and moving away from this most-preferred policy position from both sides will reduce utility (no need to be symmetric).
 
-### Costs of Voting and Abstaining Voters
+#### Costs of Voting and Abstaining Voters
 
-In the Downsian Model, we assumed that there is no cost to voting for citizens, and all citizens will vote (rather than abstain).
+In the Downsian Model, we assumed that there is no cost to voting for citizens, and all citizens vote.
 
 If this assumption is removed, [there is no longer a Nash Equilibrium at the median voter]{.underline}. If both parties are situated at the median, no rational voter will vote if voting is costly - after all, no matter how they vote, the winning party will have the policy platform of the median voter. Thus, their vote is not pivotal to affect the policy actually implemented, and voting (with cost) would simply not be worth it.
 
 Only if parties are somewhat different, will voters be willing to bear the cost of voting to cast a vote. Thus, there is still a converging force towards the median in this scenario (since more towards the median means a higher chance of winning), but the two party's positions would stay far enough apart to incentivise voters to vote.
 
-### Expanding Downsian Competition to 3 Parties
+### Downsian Competition with 3 Parties
 
 In the Downsian Model, we assumed that there are only 2 parties and candidates. [In a 3 party election, there would no longer be a Nash Equilibrium at the median voter position]{.underline}. This is because any party $i$ has a profitable deviation in this scenario.
 
@@ -855,23 +847,17 @@ So essentially, the utility function of player $L$ is a expected utility of the 
 
 ### Citizen-Candidate Model
 
+#### Parameters of the Model
+
 The Downsian Model assumes that parties can select any policy position on the spectrum that will help them win the election. However, in reality, this is not the case. Let us take Bernie Sanders - pretend he was in a presidential election. Bernie decides that in order to maximise his chances of winning, he is going to move to the very centre of the political spectrum where the median voter is. Do you think the voters will believe Bernie has suddenly became a centrist? Likely not - they will assume that Bernie is still a far-left candidate, and many will still vote as if Bernie was a far-left candidate, despite his changed position.
 
 Now, it is not about the politician's policy promises on the political spectrum. Instead, voters are voting on the politician's personal identity and personal preferences on the political spectrum.
 
-The **Citizen-Candidate Game** is a new strategic game to represent this situation.
+The **Citizen-Candidate Game** is a new strategic game to represent this situation. The players of the game are a continuum of citizens along a spectrum, that are both potential voters and candidates. Each citizen has two actions: either remain a voter, or decide to run for office as a candidate. Citizens who remain voters will vote for the candidate closest to their personal preferences.
 
--   The players of the game are a continuum of citizens along a spectrum, that are both potential voters and candidates.
+The utility of a player is determined by how close the personal preferences of the candidate is from their own personal preferences. When no candidate enters the race, some status-quo policy $\hat{p}$ is implemented. There is a cost to choosing the action of becoming a candidate, the cost being some number $\delta$.Let us assume the preferred policy of the median citizen is $m=0$, on a spectrum between $[-1, 1]$.
 
--   Each citizen has two actions: either remain a voter, or decide to run for office as a candidate. Citizens who remain voters will vote for the candidate closest to their personal preferences.
-
--   The utility of a player is determined by how close the personal preferences of the candidate is from their own personal preferences.
-
--   When no candidate enters the race, some status-quo policy $\hat{p}$ is implemented.
-
--   There is a cost to choosing the action of becoming a candidate, the cost being some number $\delta$.
-
--   For simplicity, let us assume the preferred policy of the median citizen is $m=0$, on a spectrum between $[-1, 1]$
+#### Finding Nash Equilibria
 
 First, let us test if there is a Nash Equilibrium at the median voter $m=0$, where only the median voter decides to become a candidate:
 
@@ -899,17 +885,11 @@ Let us now test if there are any equilibrium with 2 candidates deciding to enter
 
 #### Parameters of the Model
 
-When political parties and candidates run, they often talk about how much taxes they will implement in order to provide government services and public goods. How should political parties decide what tax policy to implement, and how much public goods to provide?
+When political parties and candidates run, they often talk about how much taxes they will implement in order to provide government services and public goods.
 
-We can represent this situation more formally:
+We can represent this situation as a game. Citizens are different from each other, with varying incomes $y_i$. This is become some are "talented" and earn a lot, while others make less income. Citizens care about how much they consume privately $c_i$, and also how much they can enjoy the public good $g$.
 
--   Citizens are different from each other, with varying incomes $y_i$. This is become some are "talented" and earn a lot, while others make less income.
-
--   Citizens care about how much they consume privately $c_i$, and also how much they can enjoy the public good $g$
-
--   The government provides the public good $g$, but can only pay for this public good through taxes $t$ (we are assuming that there is no borrowing for funding public goods).
-
--   However, increasing taxes $t$ will be taken from the citizen's income $y_i$, which will reduce the amount they will be able to consume privately $c_i$
+The government provides the public good $g$, but can only pay for this public good through taxes $t$ (we are assuming that there is no borrowing for funding public goods). However, increasing taxes $t$ will be taken from the citizen's income $y_i$, which will reduce the amount they will be able to consume privately $c_i$.
 
 The game that follows has the following rules:
 
@@ -925,11 +905,9 @@ The utility of any citizen $i$ is $u_i = c_i + H(g)$, where $c_i$ is the private
 
 -   We will assume $H(g)$, the utility derived from the public good, has [decreasing marginal utility]{.underline}. This means that more $g$ will always yield a higher utility, however, with each additional $g$, the gain in utility is smaller.
 
-#### Individual Citizen Preferences
+#### Finding Nash Equilibrium
 
-Now the question is, what is each individual citizen's preferred amount of public good $g$? Well, we can solve for this.
-
-Recall that utility of any citizen is $u_i = c_i + H(g)$. We also know that $c_i = (1-t)y_i$. Let us substitute $c_i$ into the utility function: $$
+Now the question is, what is each individual citizen's preferred amount of public good $g$? Well, we can solve for this. Recall that utility of any citizen is $u_i = c_i + H(g)$. We also know that $c_i = (1-t)y_i$. Let us substitute $c_i$ into the utility function: $$
 \begin{split}
 & u_i = c-I + H(g) \\
 & u_i = (1-t)y_i + H(g)
@@ -966,33 +944,112 @@ $$
 
 What does this equation tell us? First, we know that $H(g)$ had decreasing marginal utility, which means $H'(g)$ must be decreasing as $g$ increases (see blue line below). We also know that when income $y_i$ is high, $H'(g)$ is high as well. When $y_i$ is low, $H'(g)$ is low.
 
-![](figures/1/5.2.png){fig-align="center" width="36%"}
+![](figures/1/5.2.png){fig-align="center" width="30%"}
 
-Thus, we can see, when $y_i$ is high $y^H$ (which means $H'(g)$ is high), the corresponding $g$ is quite small. When $y_i$ is low $y^L$ (which means $H'(g)$ is low), the corresponding $g$ is quite large.
+Thus, we can see, when $y_i$ is high $y^H$ (which means $H'(g)$ is high), the corresponding $g$ is quite small. When $y_i$ is low $y^L$ (which means $H'(g)$ is low), the corresponding $g$ is quite large. This tells us that richer individuals prefer smaller $g$ (less public good, which also implies lower taxes), which poorer individuals prefer larger $g$ (more public good, which also implies higher taxes).
 
-This tells us that richer individuals prefer smaller $g$ (less public good, which also implies lower taxes), which poorer individuals prefer larger $g$ (more public good, which also implies higher taxes). This makes sense based on common intuition.
-
-#### Spatial Model
-
-Now, we can model these preferences in a Downsian Game. Two parties $A$ and $B$ compete on the policy position of size of government, choosing positions $p_A$ and $p_B$ on the amount of public good provision (and rate of tax). These parties can either be rent-seeking or policy seeking, this does not matter. The party who wins a majority of the votes implements the public good policy that have chosen.
-
-As we have established before in the Downsian Model, the median voter is the Nash Equilibrium where both parties will converge to. Thus, the median voter's preferences, given their income $y_m$, is the outcome of the game:
+Now, we can model these preferences in a Downsian Game. Two parties $A$ and $B$ compete on the policy position of size of government, choosing positions $p_A$ and $p_B$ on the amount of public good provision (and rate of tax). The party who wins a majority of the votes implements the public good policy that have chosen. Thus, the median voter's preferences, given their income $y_m$, is the outcome of the game:
 
 $$
 H'(g) = \frac{y_i}{n \bar{y}} = \frac{y_m}{n \bar{y}}
 $$
 
-This model thus makes a few predictions (remember, lower $g$ means higher $H'(g)$:
+Remember, lower $g$ means higher $H'(g)$. Thus, a more skewed income distribution with a few very very rich people, which would mean a smaller $y_m$ compared to $\bar{y}$, would mean a smaller $H'(g)$ and thus larger $g$. This should mean that in a 2-party democracy, we should see a larger government that provides more public goods.
 
--   A more skewed income distribution with a few very very rich people, which would mean a smaller $y_m$ compared to $\bar{y}$, would mean a smaller $H'(g)$ and thus larger $g$. This should mean that in a 2-party democracy, we should see a larger government that provides more public goods.
-
--   A richer country, thus with a higher average income $\bar{y}$, would mean smaller $H'(g)$ and thus larger $g$. Thus, a richer country should also have a larger government.
-
-These predictions can be empirically tested. This shows how microeconomic models can be used to create hypotheses and theories regarding political phenomena, which we can then test with econometric methods and data.
+A richer country, thus with a higher average income $\bar{y}$, would mean smaller $H'(g)$ and thus larger $g$. Thus, a richer country should also have a larger government.
 
 ### Valence Politics Model
 
-## Complex Systems
+So far, we have focused on voters voting on policy. What about voters voting on competence? This is called a Downsian Model with valence.
+
+To simplify this model, let us assume that there are only 3 policy positions in our policy space: $\{-1, 0, 1 \}$ - corresponding to left wing, centrist, and right wing. Voters preferred policies are also distirbuted between these three positions, but we will not define the distribution it takes (could be uniform, skewed, anything).
+
+There are two parties, $L$ and $R$ who want to win the election. However, party $L$ is considered more "competent" by voters, so if party $L$ wins, they get extra payoff of $\delta \in (0, 1)$. We can define voter utility as:
+
+$$
+u_i(p) = -|p-p_i| + i(p_R, p_L) \times \delta
+$$
+
+Where $p$ is the winning party's policy position, $p_i$ is the voter's preferred policy position, $i(p_R, p_L)$ is a function where win party $L$ wins, $i(p_R, p_L) = 1$, and when party $R$ wins, the $i(p_R, p_L) = 0$.
+
+Essentially, the first part of the equation $-|p-p_i|$ represents the distance between the voter's preference and the winning party's preference, and the second part $i(p_R, p_L) \times \delta$ only applies $\delta$ when party $L$ wins, and equals 0 when party $R$ wins.
+
+Importantly, the two parties do not know the exact location of the median voter. They only know that the median is at $-1$ with probability $\alpha$, located at $1$ with probability $\alpha$, and located at 0 with probability $1-2\alpha$. Essentially, $\alpha \in (0, 1/2)$ captures the polarization of the electorate.
+
+This model basically says that valence/competence does not supersede policy, but when voters are indifferent between the two parties' policies, they will always prefer the more competent candidate.
+
+#### Finding Nash Equilibrium
+
+In this model, party $L$ wants to copy party $R$'s platform, since party $L$ is advantaged by $\delta$, so if both parties end with the same policy, party $L$ will always win. We can represent this game in a payoff matrix:
+
+|  |  |  |  |
+|------------------|:----------------:|:----------------:|:----------------:|
+|  | $p_R = -1$ | $p_R = 0$ | $p_R = 1$ |
+| $p_L = -1$ | $(1, 0)$ | $(\alpha, 1 - \alpha)$ | $(1 - \alpha, \alpha)$ |
+| $p_L = 0$ | $(1- \alpha, \alpha)$ | $(1, 0)$ | $(1 - \alpha, \alpha)$ |
+| $p_L = 1$ | $(1 - \alpha, \alpha)$ | $(\alpha, 1 - \alpha)$ | $(1, 0)$ |
+
+There are no pure strategy nash equilibria. Let us look at party $L$'s best responses. Let us define $\sigma_R(p_R = 0) = q$, and $\sigma_R(p_R = -1) = \sigma_R(p_R = 1) = \frac{1-q}{2}$.
+
+$$
+\begin{split}
+u_L(p_L = -1, \sigma_R) & = \frac{1-q}{2}(1) + q(\alpha) + \frac{1-q}{2}(1-\alpha) \\
+& = \frac{1-q}{2} + q\alpha + \frac{1-q}{2} - \frac{\alpha(1-q)}{2} \\
+& = 1-q+q\alpha - \frac{\alpha}{2} + \frac{q\alpha}{2} \\
+& = 1-q + \frac{3q\alpha}{2} - \frac{\alpha}{2} \\
+u_L(p_L = 0, \sigma_R) & = \frac{1-q}{2}(1-\alpha) + q(1) + \frac{1-q}{2}(1-\alpha) \\
+& = (1-q)(1-\alpha) + q \\
+& = 1 - \alpha - q + q\alpha + q \\
+& = 1-\alpha+q\alpha
+\end{split}
+$$
+
+We know that for mixed strategy, player $L$ must be indifferent, thus:
+
+$$
+\begin{split}
+u_L(p_L = -1, \sigma_R) & = u_L(p_L = 0, \sigma_R) \\
+1-q+ \frac{3q\alpha}{2} - \frac{\alpha}{2} & = 1- \alpha + q\alpha \\
+2 - 2q + 3q\alpha - \alpha & = 2 - 2\alpha + 2q\alpha \\
+-2q + q\alpha & = - \alpha\\
+-q(2 -\alpha) & = - \alpha \\
+q = \frac{\alpha}{2-\alpha}
+\end{split}
+$$
+
+We can do the same for player $R$, which will yield us $\sigma_L(p_L = 0) = p = \frac{2-3\alpha}{2-\alpha}$.
+
+What does this tell use? Well, we can see that if $\alpha \in (0, 1/2)$ consistent between the two players (it has to be), then $\sigma_R(p_R = 0) > \sigma_L(p_L = 0)$. Or more intuitively, this model predicts that the less "competent" candidate will optimally play the centrist policy less, and move towards more extreme policies more often.
+
+This makes sense - if the less competent candidate ends up with the same policy position as the more competent candidate, they will lose, so the less competent candidate must differentiate themselves with a more extreme platform. They will have to hope that the actual median voter is in those more extreme places (as the parties do not know the median voter).
+
+### Schelling Model Complex Systems
+
+The idea of complex systems is that, even if individuals have quite mild preferences, it can lead to drastic unintended consequences on a societal level.
+
+Schelling introduced this idea with his **model of segregation**. Imagine a society composed of two groups: the greens and the blues. A grid represents the geographical area where these two groups live.
+
+Each person is concerned about their neighbourhood - which are the 8 grid cells that surround their cell on the grid. Members of both groups have mild preferences - they are happy to be a minority in their neighbourhood, so long as they have at least 1/3 of their neighbours from the same group. If this condition is not met, they will move to another cell on the grid which fits this condition.
+
+We can randomly place greens and blues on a grid, and check each preference, and move the individuals when their preferences are not met. Every time one player moves, they not only affect the balance of the groups in neighbourhood they move into, but also the neighbourhood they left.
+
+If we continue to run this game until every individual has their preference met, we will be met with a quite shocking result - almost complete segregation of the greens and blues. Schilling created this model to show how relatively moderate preferences (players willing to be minority in their neighbourhood, as long as 1/3 is their own group), can result in drastic societal outcomes.
+
+Schilling generalised this idea into his concept of a complex system.
+
+::: callout-tip
+## Key Definition
+
+A **complex system** consists of these elements:
+
+1.  The system is composed of a set of elements/parts, such as inhabitants of a society.
+2.  These parts must interact with each other according to well-defined rules.
+3.  Following these rules, the system-level outcome has very different properties to those possessed by individual parts. In other words, mild individual preferences lead to drastic societal outcomes.
+4.  These drastic outcomes are a result of self-organisation according to the rules of the system. This is because of the **tipping process**: how one individual's actions affect others.
+5.  These drastic outcomes are novel: they are hard to predict from knowledge of the properties of the system's individual parts.
+:::
+
+Complex systems tell us that we need to be careful learning about individual preferences from only the collective outcome - since the collective outcome can be very different from the individual preferences.
 
 # Dynamic Games
 
@@ -1010,4 +1067,8 @@ These predictions can be empirically tested. This shows how microeconomic models
 
 ## Signalling Games
 
-# Advanced Games
+# Advanced Games from Economics
+
+## Cournot Competition
+
+## Stackleberg Competition
