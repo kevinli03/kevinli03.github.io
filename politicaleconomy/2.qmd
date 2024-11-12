@@ -304,41 +304,49 @@ Thus, we need some mechanism to account for sampling variability and how rerunni
 
 #### Sampling Distributions and Standard Error
 
-A **sampling distribution** is a hypothetical construct that is useful to understanding how many of our statistical techniques work. A sampling distribution is as follows.
+Imagine that we take a sample from a population (or some random assignment mechanism). Then, we find the average treatment effect of the sample $\hat{\tau}_{ATE}$. [That is a **sample estimate**, which is often notated $\hat{\theta}$]{.underline}. (I use $\theta$, since this idea of uncertainty can be applied to any estimate, not just average treatment effect).
 
--   Imagine that we take a sample from a population (or some random assignment mechanism). Then, we find the average treatment effect of the sample $\hat{\tau}_{ATE}$. [That is a **sample estimate**, which is often notated $\hat{\theta}$]{.underline}. (I use $\theta$, since this idea of uncertainty can be applied to any estimate, not just average treatment effect).
+Then, let us take another sample from the same population (or do another random assignment), and find the sample estimate. This will be slightly different than the first sample, since we are randomly sampling. That is another sample estimate. We keep taking samples from the same population (more random assignments), and getting more and more sample estimates.
 
--   Then, let us take another sample from the same population (or do another random assignment), and find the sample estimate. This will be slightly different than the first sample, since we are randomly sampling. That is another sample estimate. We keep taking samples from the same population (more random assignments), and getting more and more sample estimates.
+Now, let us plot all our sample estimates $\hat{\theta}$ (different $\hat{\tau}_{ATE}$ values) into a “histogram” or density plot. The $x$ axis labels the possible $\hat{\tau}_{ATE}$ values, and the $y$ axis is how frequently a specific sample estimate occurs. We will get a distribution, just like a random variable distribution. That distribution is the **sampling distribution**
 
--   Now, let us plot all our sample estimates $\hat{\theta}$ (different $\hat{\tau}_{ATE}$ values) into a “histogram” or density plot. The $x$ axis labels the possible $\hat{\tau}_{ATE}$ values, and the $y$ axis is how frequently a specific sample estimate occurs. We will get a distribution, just like a random variable distribution.
+::: callout-tip
+## Key Definition: Standard Error
 
--   That distribution is the **sampling distribution**
-
-[A Sampling distribution is the imaginary distribution of estimates, if we repeated the sampling and estimation process many, many times]{.underline}.
+A **sampling distribution** is the imaginary distribution of estimates, if we repeated the sampling and estimation process many, many times.
 
 The **standard error** is the standard deviation of the sampling distribution. It is often notated $SE(\hat{\theta})$. The computer/software we use will calculate this for us.
+:::
 
 ### Confidence Intervals and Hypothesis Testing
 
 #### Confidence Intervals
 
-Since there is variability of estimates between samples, we have to create an interval around our sample estimate $\hat{\theta}_j$ to account for this uncertainty. We assume our estimated $\hat{\theta}_j$ is the centre of this distribution, then add some "buffer" to both sides. The confidence interval's lower and upper bounds are defined as, given a confidence level of 95% (the standard confidence level):
+Since there is variability of estimates between samples, we have to create an interval around our sample estimate $\hat{\theta}_j$ to account for this uncertainty. We assume our estimated $\hat{\theta}_j$ is the centre of this distribution, then add some "buffer" to both sides.
+
+::: callout-tip
+## Key Definition: Confidence Intervals
+
+A **confidence interval**'s lower and upper bounds are defined as, given a confidence level of 95% (the standard confidence level):
 
 $$
 \hat{\theta}_j ± 1.96 \times \hat{se}(\hat{\theta}_j)
 $$
 
--   $\hat{se}(\hat{\theta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\theta_j$, introduced in the previous section.
+Where $\hat{se}(\hat{\theta}_j)$ is the standard error of our estimate of how precisely we have estimated the true value of $\theta_j$, introduced in the previous section.
 
--   Why 1.96? It is because in a normal distribution, 95% of the data is contained within 1.96 standard deviations, and Central Limit Theorem states that sampling distributions are normally distributed. (The 1.96 can vary based on sample size however, if we do not meet Central Limit Theorem criteria, but that is not important for now).
+ 
 
 Confidence intervals say that if we repeated the sampling and estimation process many many times (like we did for our sampling distribution), 95% of the confidence intervals we construct from our samples, would correctly contain the true $\theta_j$.
+:::
+
+Why 1.96? It is because in a normal distribution, 95% of the data is contained within 1.96 standard deviations, and Central Limit Theorem states that sampling distributions are normally distributed.
 
 Every value in a given confidence interval is a plausible value of the true $\theta_j$ in the population. The most important thing is if 0 is included within the confidence interval. $\theta = 0$ means that there is no causal effect.
 
 #### Hypothesis Testing
 
-In academia, we are conservative - this means we do not claim we have found a new theory, unless we are quite confident that the old theory was not true. The old theory is called our **null hypothesis**, often notated $H_0$. This is the old theory that we are trying to disprove.
+In academia, we do not claim we have found a new theory, unless we are quite confident that the old theory was not true. The old theory is called our **null hypothesis**, often notated $H_0$. This is the old theory that we are trying to disprove.
 
 -   Most often, the "old theory" we are trying to disprove is that *there is no causal effect of* $D$ on $Y$ (since it is rare to study something that has already been proven). No relationship means that $\theta_j = 0$
 
@@ -346,31 +354,35 @@ The new theory we have come up with, and are trying to prove, is called the **al
 
 -   In general, our new hypothesis is that t*here is a causal effect of* $D$ on $Y$, or [$\theta_j ≠ 0$]{.underline}
 
-[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis (the new theory we proposed)]{.underline}.
+[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis]{.underline}. How do we actually test these hypotheses? First, we have to calculate a t-test statistic:
 
-How do we actually test these hypotheses? First, we have to calculate a t-test statistic. The formula for such a statistic is the parameter divided by its standard error (calculated by the computer):
+::: callout-tip
+## Key Definition: T-test Statistic
+
+The t-test statistic basically tells us how far the parameter we tested is from 0, in terms of standard errors of the parameter:
 
 $$
 t = \frac{\hat{\theta}_j}{\hat{se}(\hat{\theta}_j)}
 $$
+:::
 
-The t-test statistic basically tells us how far the parameter we tested is from 0, in terms of standard errors of the parameter.
+Then, we calculate degrees of freedom:number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$. With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides from the middle of the t-distribution.
 
-Then, we have to consult a t-distribution. T-distributions only has one parameter - degrees of freedom, which is calculated by the number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$
+Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below, with its blue highlighted area, shows this probability (called the p-value):
 
-With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides from the middle of the t-distribution.
+![](figures/2/5.1.jpeg){fig-align="center" width="43%"}
 
-Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below, with its blue highlighted area, shows this probability:
+::: callout-tip
+## Key Definition: P-value
 
-![](figures/2/5.1.jpeg){fig-align="center" width="50%"}
-
-The area highlighted is our p-value. Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\theta_j$, given the null hypothesis is true.
+Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\theta_j$, given the null hypothesis is true.
 
 -   So if the p-value is very high, there is a high chance that the null hypothesis is true.
 
 -   If the p-value is very low, then there is a low chance that the null hypothesis is true
 
 Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
+:::
 
 ### Validity and Limitations of Randomised Experiments
 
@@ -401,7 +413,9 @@ The rest of this course focuses on observational studies. We will introduce regr
 
 Note: This chapter's later sections may become quite complex. However, do not worry if you do not understand section 3.3 and beyond, as only the sections 3.1-3.2 are absolutely essential.
 
-### Introduction to Regression
+### Linear Regression Model
+
+#### Introduction
 
 As we discussed in the previous sections, a randomised experiment is the best way of establishing causal relationships. This is because randomise treatments can get rid of the effect of confounding variables. However, in the social sciences, randomisation is often not possible.
 
@@ -421,7 +435,7 @@ Before we dive into the linear model, here are some conventional notation that i
 
 -   Note: our treatment variable (for causal inference) $D$ is considered one of the explanatory variables $\overrightarrow{X}$. We typically define the first of these explanatory variables $X_1$ as the treatment variable, and all others $X_2, ..., X_k$ as control variables.
 
-### Specification of the Linear Model
+#### Specification of the Linear Model
 
 A regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. The linear regression model focuses on the **expected value** of the conditional distribution of $Y$ given $\overrightarrow{X}$. I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$. The regression focuses on the expected value of $Y$ at some $X$.
 
@@ -582,7 +596,7 @@ The only properties that are required to compute the multivariate regression OLS
 1.  All explanatory variables have sample variability $Var(X_j \in \overrightarrow{X}) ≠ 0, \space \forall X_j \in X$.
 2.  No two explanatory variable have **perfect collinearity** - which means a correlation coefficient of -1 or 1, which only occurs if the two variables have the same exact values. Mathematically, $X_{ai} ≠ X_{ai}, \space \forall i, \space \forall X_a, \space X_b \in \overrightarrow{X}$.
 
-### Matrix Notation of Multiple Regression
+### Multiple Regression Estimation with Linear Algebra
 
 By expressing models in linear algebra, it becomes easier to derive formal results without requiring messy algebra and the summation operator. It is also natural, since our data is stored in spreadsheets (big matrices).
 
@@ -660,7 +674,7 @@ $$
 
 -   The first row of $X$ is a vector of 1, which exists because these 1's are multiplied with $\alpha$ in our model.
 
-### OLS Estimator with Linear Algebra
+#### OLS Estimator with Linear Algebra
 
 Let us define our estimation vector $\hat{\beta}$ as:
 
@@ -719,40 +733,75 @@ $$
 
 ### Interpretations of Coefficients
 
-#### Simple Linear Regression
+When there are multiple explanatory variables $X_1, X_2, ..., X_k$, how do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$? I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ , multiplied to $X_j$.
 
-How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}$ that we have calculated in a Simple Linear Regression $\hat{Y}_i = \hat{\alpha} + \hat{\beta}X_i$?
+First, what does $\hat{\beta}_j$ mean. Consider the regression equation $\hat{Y}_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + ...+ \hat{\beta}_j X_{ji}+... + \hat{\beta}_k X_{ki}$.
 
-$\hat{\beta}$ is the slope of the the linear model. [$\hat{\beta}$ is the expected change in $Y$, given a one-unit increase in $X$]{.underline}.
+If we find the partial derivative in respect to $X_{ji}$ of the above equation, we get: $$
+\begin{split}
+\frac{\partial \hat{Y}_i}{\partial X_{ji}} & = \frac{\partial \hat{Y}_i}{\partial X_{ji}} \left[ \hat{\alpha} + \hat{\beta}_1X_{1i} + ...+ \hat{\beta}_j X_{ji}+... + \hat{\beta}_k X_{ki} \right] \\
+& = 0 + 0 + ... + \hat{\beta}_j + .. + 0 \\
+& = \hat{\beta}_j
+\end{split}
+$$
 
--   A positive $\hat{\beta}$ means a positive relationship, a negative $\hat{\beta}$ means a negative relationship, and $\hat{\beta} = 0$ means no relationship.
--   This is only for continuous $X$ explanatory variables. See Chapter 5 for categorical/binary explanatory variables.
+This shows that $\hat{\beta}_j$ is the rate of change between $X_{ij}$ and $\hat{Y}_i$, holding other explanatory variables $X_{1i} ... X_{ki}$ constant. This is the case with any $\hat{\beta}_j$ parameter $j = 1, ..., k$.
 
-$\hat{\alpha}$ is the y-intercept of the linear model. $\hat{\alpha}$ is the expected value of $\hat{Y}$, given $X=0$.
+::: callout-note
+## Interpretation of $\hat{\beta}_j$
 
-#### Multiple Linear Regression
+When $X_j$ increases by one unit, there is an expected $\hat{\beta}_j$ unit change in $Y$, holding all other explanatory variables constant.
+:::
 
-When there are multiple explanatory variables $X_1, X_2, ..., X_k$, how do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$? I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ (the interpretation is all the same), multiplied to $X_j$.
+Second, what does intercept $\hat{\alpha}$ mean? Let us take a regression equation, and input $\overrightarrow{X} = 0$: $$
+\begin{split}
+\mathbb{E}[\hat{Y}_i| \overrightarrow{X} = 0] & = \hat{\alpha} + \hat{\beta}_1X_{1i} + ...+ \hat{\beta}_j X_{ji}+... + \hat{\beta}_k X_{ki} \\
+& = \hat{\alpha} + \hat{\beta}_1(0) + ...+ \hat{\beta}_j (0)+... + \hat{\beta}_k (0) \\
+& = \hat{\alpha}
+\end{split}
+$$
 
-Formally, [any coefficient $\hat{\beta}_j$ is the expected change in $Y$, corresponding to a one unit increase in $X_j$, holding all other explanatory variables $X_1, ..., X_k$ that are not $X_j$ constant.]{.underline} Essentially, we do the same interpretation as the single linear regression, but adding the phrase "**holding all other explanatory variables constant**".
+This shows that $\hat{\alpha} = \hat{Y}_i$ when $\overrightarrow{X} = 0$.
 
-$\hat{\alpha}$ is the expected value of $\hat{Y}$, given all explanatory variables $X_1, ...,X_k$ equal 0.
+::: callout-note
+## Interpretation of $\hat{\alpha}$
+
+When all explanatory variables equal 0, the expected value of $Y$ is $\hat{\alpha}$
+:::
 
 #### Interpreting in Terms of Standard Deviation
 
-Sometimes, it is hard to understand what changes in $Y$ and $X$ mean in terms of units. We can add more relevant detail by expressing the change of $Y$ and $X$ in standard deviations. So, instead of the expected change of $Y$ given one unit increase of $X$, we instead do the [expected standard deviation change of $Y$, given a one standard deviation increase in $X$.]{.underline}
+Sometimes, it is hard to understand what changes in $Y$ and $X$ mean in terms of units. For example, if we are measuring "democracy", what does a 5 unit change in democracy mean? Is that a lot? We can add more relevant detail by expressing the change of $Y$ and $X$ in standard deviations.
 
-How do we calculate this? There is a formula! $Y$ changes by $(SD_{X_j} \times \hat{\beta}_j) / SD_Y$, where $SD$ represents standard deviation, and $X_j$ is the variable whose coefficient we are interpreting.
+How do we calculate this? Well, let us solve for the change in $\hat{Y}$ given $X = x$ and $X = x + \sigma_X$. This will tell us how much $\hat{Y}$ changes by given a increase of one standard deviation in $X$. $$
+\begin{split}
+\mathbb{E}[\hat{Y}_i| X = x + \sigma_X] - \mathbb{E}[\hat{Y}_i| X = x] & = [\hat{\alpha} + \hat{\beta}(x + \sigma_X)] - [\hat{\alpha} + \hat{\beta}(x)] \\
+& = \hat{\alpha}+\hat{\beta}x + \hat{\beta} \sigma_X - \hat{\alpha} - \hat{\beta}x \\
+& = \hat{\beta} \sigma_X
+\end{split}
+$$
+
+To get the change in $\hat{Y}$ in terms of standard deviations of $Y$, we just divide $\hat{\beta} \sigma_X$ by $\sigma_Y$.
+
+::: callout-note
+## Interpretation in Terms of Standard Deviation
+
+For a one-std. deviation increase in $X_j$, there is an expected $\hat{\beta} \sigma_X / \sigma_Y$-std. deviation change in $Y$.
+:::
 
 #### Binary $Y$ Variable Interpretation
 
-If our response variable is binary, (i.e. $Y$ only has two values, 0 and 1), then our interpretation differs slightly. We treat $Y$ as a variable of two categories, $Y = 0$ and $Y = 1$.
+If our response variable is binary, (i.e. $Y$ only has two values, 0 and 1), then our interpretation differs slightly. We treat $Y$ as a variable of two categories, $Y = 0$ and $Y = 1$. The output $\hat{Y}_i$ indicates the probability of a specific observation $i$ of being in the $Y=1$ category - we can also interpret probability in percentages by multiplying by 100.
 
-[$\hat{\beta}_j$ is the expected change in the probability of getting category $Y = 1$, given a one-unit increase in $X_j$]{.underline}. We could multiply this by 100 to get the expected percentage point change.
+::: callout-note
+## Interpretation with Binary $Y$ Varibale
 
-$\hat{\alpha}$ is the expected probability of getting category $Y=1$, when $X_j = 0$.
+For a one-unit increase in $X_j$, there is an expected $\hat{\beta}_j \times 100$ percentage point change in the probability of being in category $Y=1$.
 
-An important note is that, in theory, for a linear regression model, $Y$ should be continuous, not binary. In theory, we should be using logistic regression instead of linear regression. However, in practice, researchers often do use linear regression for binary $Y$, simply because linear regression is easier to interpret, and easier to incorporate into more causal inference methods.
+ 
+
+$\hat{\alpha}$ is the expected probability of being in category $Y=1$ when all explanatory variables equal 0.
+:::
 
 ### Model Summary Statistics
 
@@ -770,7 +819,7 @@ We know that $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Our estimate of the res
 
 The figure below better showcases this in 2 different models. The red lines are our predicted regression line, and the green lines represent the distribution of our error term $\epsilon_i$:
 
-![](figures/2/4.1.png){fig-align="center" width="65%"}
+![](figures/2/4.1.png){fig-align="center" width="60%"}
 
 The residual standard deviation $\hat{\sigma}$ (square root of variance) is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
 
@@ -778,9 +827,7 @@ If $\hat{\sigma}$ varies depending on the value of $X$, then that is called **he
 
 #### Total Sum of Squares
 
-The total sum of squares is the total amount of sample variation in $Y$:
-
-$$
+The total sum of squares is the total amount of sample variation in $Y$: $$
 \begin{split}
 TSS & = \sum(Y_i - \bar{Y})^2 \\
 & = \sum (\hat{Y}_i - \bar{Y})^2 + \sum (Y_i - \hat{Y}_i)^2
@@ -793,15 +840,21 @@ SSM (model sum of squares) represents the part of the variation of $Y$ that is e
 
 #### R-Squared Statistic
 
-[R-squared $R^2$ is a measure of the percentage of variation in $Y$, that is explained by our model]{.underline} (with our chosen explanatory variables). The percentage of variation in $Y$ explained by our model would be:
+R-squared is one of the key summary statistics of our model.
+
+::: callout-tip
+## Key Definition: R-Squared
+
+R-squared $R^2$ is a measure of the percentage of variation in $Y$, that is explained by our model (with our chosen explanatory variables). The percentage of variation in $Y$ explained by our model would be:
 
 $$
 R^2 = \frac{SSM}{TSS} = \frac{\sum (\hat{Y}_i - \bar{Y})^2}{\sum(Y_i - \bar{Y})^2}
 $$
+:::
 
 Since $R^2$ shows how much of the variation in $Y$ our model explains, it is often used as a metric for how good our model is - however, don't overly focus on $R^2$, it is just one metric with its benefits and drawbacks.
 
-### Uncertainty and Confidence Intervals
+### Hypothesis Testing
 
 #### Samples
 
@@ -819,7 +872,7 @@ $$
 \hat{\beta}_j ± 1.96 \times \hat{se}(\hat{\beta}_j)
 $$
 
-### Hypothesis Testing of Parameters
+#### Hypothesis Testing of Parameters
 
 We previously discussed hypothesis testing in section 2.5. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate. Generally, for regressions, our hypotheses that we test are:
 
@@ -843,18 +896,7 @@ Then, we have to consult a t-distribution (see section 2.5). We find the probabi
 
 Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
 
-### F-Tests of Nested Models
-
-An F-test is a variation on the coefficient significance tests. The standard F-test is quite simple - it tests for the significance of a model across multiple coefficients: $$
-\begin{split}
-H_0: & \beta_1 = \beta_2 = ... = \beta_k = 0 \\
-H_1: & \text{ at least one of } \beta_1, \beta_2, ..., \beta_k ≠0
-\end{split}
-$$
-
-Thus, we assume that all explanatory variables in the model have no relationship to the outcome variable, unless we can reject the null hypothesis and show that at least one coefficient is statistically significant.
-
-For a standard Linear Regression, if we have any significant individual coefficients, then the F-test will also become significant. So what is the point of F-tests? Well, for some models that we will see later, such as categorical explanatory variables, the coefficient's significance levels mean something else. Thus, to see if the model is statistically significant, we need to use the F-test.
+#### F-Tests of Nested Models
 
 The **F-test of Nested Models** is an extension of the standard F-test, that allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically: $$
 \begin{split}
@@ -863,19 +905,11 @@ M_a : & E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g + \beta_{g+1} X_{g+1} + 
 \end{split}
 $$
 
-Importantly, note how the null hypothesis model is entirely contained within the alternate hypothesis model. This must be the case - all explanatory variables in model $M_0$ must also be in $M_a$, along with additional explanatory variables in $M_a$.
+Importantly, all explanatory variables in model $M_0$ must also be in $M_a$, along with additional explanatory variables in $M_a$.
 
 The F-test uses the F-test statistic. This statistic compared the $R^2$ values of the two models. Let us say the $R^2$ value of $M_0$ is notated $R^2_0$, and the $R^2$ value of $M_a$ is notated as $R^2_a$. The F-test statistic essentially measures the difference $R^2_a - R^2_0$. If the difference is sufficiently large, that means the $M_a$ model has significantly more explanatory power than $M_0$.
 
-Let $SSE_a$ and $R^2_a$ denote the sum of squared errors and $R^2$ values of model $M_a$, and $SSE_0$ and $R^2_0$ for model $M_0$. The total number of coefficients of $M_a$ are $k_a$, and for $M_0$ is $k_0$. Mathematically, the F-test statistic is as follows:
-
-$$
-F = \frac { (SSE_0 - SSE_a) / (k_a - k_0) } { SSE_a / [n - (k_a + 1)]}
-$$
-
-$$
-F = \frac{ \frac{R^2_a = R^2_0 }{[n - (k_0 + 1)] - [n - (k_a + 1)]} }{ (1 - R^2_a ) / [n - (k_a + 1)]}
-$$
+Mathematically, the F-test statistic is as follows, with $k_a$ being the number of explanatory variables in the alternate hypothesis:
 
 $$
 F = \frac{ R^2_{\text{change}} / df_{\text{change}} }{  (1 - R^2_a ) / [n - (k_a + 1)]}
@@ -887,7 +921,7 @@ The sampling distribution of the F-statistic is the F distribution with paramete
 
 -   If the p-value is large, that means $R^2_a$ is not much larger than $R^2_0$. This means there is no evidence against $M_0$, and $M_a$ is not the statistically significantly better model.
 
-F-tests of nested models can help us determine if we should include certain extra explanatory variables. If the addition of the explanatory variables does not statistically significantly improve the performance of the model, there is little reason to include them, unless we have some other theoretical reason to include them.
+F-tests of nested models can help us determine if we should include certain extra explanatory variables. If our model with more variables is statistically significant, it is an indication that we should include those extra variables.
 
 ### Linear Regression in R
 
@@ -981,29 +1015,33 @@ The second row of the output refers to the alternate hypothesis. We can see that
 
 ### Polynomial Transformations
 
-Sometimes, a linear (straight-line) best-fit line is a poor description of a relationship. For example, the relationship between two variables could be curved, not straight. We can model more flexible relationships that are not straight lines, by including a transformation of the variable $X$ that we are interested in.
+Sometimes, a linear (straight-line) best-fit line is a poor description of a relationship. We can model more flexible relationships that are not straight lines, by including a transformation of the variable $X$ that we are interested in.
 
 #### Quadratic Transformations
 
-Quadratic transformations of $X$ take the following form:
+::: callout-tip
+## Key Definition: Quadratic Transformation
+
+Quadratic transformations of $X_j$ take the following form:
 
 $$
-E[Y] = \alpha + \beta_1 X + \beta_2 X^2
+\mathbb{E}[Y_i |\overrightarrow{X}] = \alpha + \beta_1 X_{ji} + \beta_2 X^2_{ji} + \text{other explanatory variables}
 $$
+:::
 
-If you recall from high-school algebra, an equation that takes the form of $y = ax^2 + bx + c$ creates a *parabola*. Indeed, this transformation fits a parabola as the best-fit line. However, there are a few things to consider:
+If you recall from high-school algebra, an equation that takes the form of $y = ax^2 + bx + c$ creates a *parabola*. A true parabola has a domain of $(-∞, ∞)$. However, our model often does not need to do this. The best-fit parabola is only used for the range of plausible $X$ values, given the nature of our explanatory variable. For example, if $X$ was age, a negative number would make no sense. Because the parabola's domain often exceeds our plausible range of $X$ values, the vertex of the parabola (where it changes directions) may not be in our data.
 
--   A true parabola has a domain of $(-∞, ∞)$. However, our model often does not need to do this. The best-fit parabola is only used for the range of plausible $X$ values, given the nature of our explanatory variable. For example, if $X$ was age, a negative number would make no sense.
+We always include lower degree terms in our model. For example, in this quadratic (power 2) model, we also include the $X$ term without the square. To fit a model like this, we simply do the same process of minimising the sum of squared errors. How do we interpret the coefficients $\beta_1$ and $\beta_2$?
 
--   Because the parabola's domain often exceeds our plausible range of $X$ values, the vertex of the parabola (where it changes directions) may not be in our data.
+::: callout-note
+## Interpretation of Quadratic Transformations
 
--   We always include lower degree terms in our model. For example, in this quadratic (power 2) model, we also include the $X$ term without the square.
+$\beta_1$'s value is no longer directly interpretable. This is because we cannot "hold all other coefficients constant", since $\beta_2$ also contains the same $X$ variable.
 
-To fit a model like this, we simply do the same process of minimising the sum of squared errors. When we run a quadratic model in R, we get two coefficients: $\beta_1$ is attached to the $X$ term, while $\beta_2$ is attached to the $X^2$ term. How do we interpret these coefficients?
+ 
 
--   $\beta_1$'s value is no longer directly interpretable. This is because we cannot "hold all other coefficients constant", since $\beta_2$ also contains the same $X$ variable. Thus, we cannot isolate the effect of $X$ and $\beta_1$.
-
--   $\beta_2$'s value also cannot be directly interpreted. However, $\beta_2$ can tell us two things. First, [if the coefficient of $\beta_2$ is statistically significant, we can conclude that there is a non-linear relationship between $X$ and $Y$]{.underline}. Second, if $\beta_2$ is negative, the best-fit parabola will open downwards, and if $\beta_2$ is positive, the best-fit parabola will open upwards.
+$\beta_2$'s value also cannot be directly interpreted. [If the coefficient of $\beta_2$ is statistically significant, we can conclude that there is a non-linear relationship between $X$ and $Y$]{.underline}. If $\beta_2$ is negative, the best-fit parabola will open downwards, and if $\beta_2$ is positive, the best-fit parabola will open upwards.
+:::
 
 If we want to interpret the magnitude of the model, we are best off using predicted values of $Y$ (obtained using the model equation above).
 
@@ -1027,31 +1065,29 @@ While quadratic models are the most common polynomial transformation, we do not 
 
 -   Quartic: $E[Y] = \alpha + \beta_1 X + \beta_2 X^2 + \beta_3 X^3 + \beta_4 x^4$
 
-Each higher order coefficient, if statistically significant, indicates that the relationship between $X$ and $Y$, is not of the previous highest power.
-
--   For example, if the cubic term $\beta_3$ is statistically significant, we can reject a quadratic relationship between $X$ and $Y$
+Each higher order coefficient, if statistically significant, indicates that the relationship between $X$ and $Y$, is not of the previous highest power. For example, if the cubic term $\beta_3$ is statistically significant, we can reject a quadratic relationship between $X$ and $Y$
 
 Remember to always include the lower power monomials within our polynomial model. For example, if you have a quartic transformation, you must also have the linear, quadratic, and cubic terms.
 
 ### Logarithmic Transformations
 
-Logarithmic transformations are another form of non-linear transformations. Logarithmic transformations are commonly used for heavily skewed variables, such as when the explanatory variable is income, wealth, and so on.
+Logarithmic transformations are another form of non-linear transformations. These are commonly used for heavily skewed variables, such as when the explanatory variable is income, wealth, and so on.
 
 In situations with heavily skewed variables, we often replace $X$ in our models with $\log(X)$. Note that in statistics, when we refer to logarithms, we are referring to natural logarithms, such that $\log(X) = \ln(X)$.
 
-Thus, the logarithmic transformation takes the following form:
+::: callout-tip
+## Key Definition: Logarithmic Transformation
+
+The logarithmic transformation of explanatory variable $X_j$ takes the following form:
 
 $$
-E[Y] = \alpha + \beta \log(X)
+\mathbb{E}[Y_i | \overrightarrow{X}] = \alpha + \beta_j \log(X_j) + \text{other explanatory variables}
 $$
+:::
 
-**Interpretation** of the $\beta$ coefficient can be a little bit trickier for logarithmic transformations. We could interpret it in the same way we interpret linear regressions: given a one unit increase in the log of $X$, there is an expected $\beta$ change in $Y$.
+**Interpretation** of the $\beta$ coefficient can be a little bit trickier for logarithmic transformations. We could interpret it in the same way we interpret linear regressions: given a one unit increase in the log of $X$, there is an expected $\beta$ change in $Y$. However, this issue is that this does not really say much - I mean, who knows what a *one unit increase in the log of* $X$ even means?
 
-However, this issue is that this does not really say much - I mean, who knows what a *one unit increase in the log of* $X$ even means?
-
-However, with some properties of logarithms, we can actually create a more useful interpretation. Based on logarithm rules, we know the following to be true:
-
-$$
+With some properties of logarithms, we can actually create a more useful interpretation. Based on logarithm rules, we know the following to be true: $$
 \begin{split}
 \log(X) + A & = \log(X) + \log(e^A) \\
 & = \log(e^A \times X)
@@ -1074,13 +1110,17 @@ E[Y|e^A \times X] - E[Y|X] & = \beta A
 \end{split}
 $$
 
-Thus, we can seen that when we multiply $X$ by $e^A$, we get an expected $\beta A$ change in $Y$.
+Thus, we can seen that when we multiply $X$ by $e^A$, we get an expected $\beta A$ change in $Y$. We can make this interpretation more useful by purposely choosing some value $A$ that makes $e^A$ make more sense. For example, if $A = 0.095$, then $e^A = 1.1$, and multiplying by 1.1 is a 10% increase.
 
-We can make this interpretation more useful by purposely choosing some value $A$ that makes $e^A$ make more sense. For example, if $A = 0.095$, then $e^A = 1.1$. Why is that $A$ value useful? Well, that means when we multiply $X \times e^A$, we are actually doing $X \times 1.1$, which if you remember your percentages, means a 10% increase in $X$. [Thus, increasing $X$ by 10% is associated with an expected change of $0.095 \beta$ units of $Y$.]{.underline}
+::: callout-note
+## Interpreation: Logarithmic Transformation
 
-### Binary Explanatory Variable
+When $X_j$ increases by 10%, there is a expected $0.095\beta_j$ unit change in $Y$
+:::
 
-Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
+### Categorical Explanatory Variable
+
+**Binary explanatory** variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
 \begin{split}
 E[Y|X = 0] & = \alpha + \beta(0) = \alpha \\
 E[Y|X=1] & = \alpha + \beta(1) = \alpha + \beta \\
@@ -1088,13 +1128,15 @@ E[Y|X=1] - E[Y| & X =0] = (\alpha + \beta) - \alpha = \beta
 \end{split}
 $$
 
-From the above, we can see the following interpretations of our coefficients:
+::: callout-note
+## Interpretation of Binary Explanatory Variables
 
--   $\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
+$\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
 
--   $\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
+$\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
 
--   [$\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$]{.underline}
+$\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$
+:::
 
 Thus, we can see that $\beta$ is measuring the difference between the two categories. In fact, $\beta$ actually becomes a difference-in-means test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
 
@@ -1106,7 +1148,7 @@ Because of the unique coefficient meanings in a regression with binary explanato
 
 Where $\bar{Y}_1$ is the sample mean of $Y$ for observations in category $X=1$, and $\bar{Y}_0$ is the sample mean of $Y$ for observations in category $X = 0$.
 
-### Polytomous Explanatory Variable
+#### Polytomous Explanatory Variable
 
 A **polytomous** variable is one with 3 or more categories that are unranked. A classic example is the variable *country*, which is a categorical variable with all the different countries included in a dataset such as Argentina, France, Mexico, etc.
 
@@ -1154,25 +1196,39 @@ Thus, from these above equations, we can see the interpretation of the coefficie
 
 -   $\beta_a$ is the expected $Y$ difference between the *apple* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
 
-[More generally, the $\beta_j$ of category $j$'s dummy variable, represents the expected difference in $Y$ between category $j$ and the reference/baseline category]{.underline}.
+::: callout-note
+## Interpretation of Polytomous Explanatory Variables
 
-Notice how the coefficient $p$-values are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable *company* that has 3 different categories. To test the statistical significance of the entire categorical variable, we use an F-test.
+$\beta_j$ is the expected difference in $Y$ values between category $j$ and the baseline category.
 
-An F-test, simply, tests a model's explanatory power against the explanatory power of a model where all coefficients $\alpha, \beta_1, ..., \beta_n$ all are equal to 0. Thus, an F-test would allow us to test the significance of the effect of the variable *company* on $Y$, which our individual $\beta$ coefficients do not tell us.
+$\alpha$ is the expected value of $Y$ of the baseline category.
+
+ 
+
+The coefficient $p$-values of $\beta_j$ are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable.
+:::
+
+To test the statistical significance of the entire categorical variable, we use an F-test with a null hypothesis of all coefficients $\alpha, \beta_1, ..., \beta_n$ equal to 0. Thus, an F-test would allow us to test the significance of the effect of the variable *company* on $Y$, which our individual $\beta$ coefficients do not tell us.
 
 ### Interaction Effects
 
 Interactions, also called moderating effects, means that the effect of some $X_j$ on $Y$ is not constant, and depends on some third variable $X_k$. Essentially, $X_k$'s value changes the relationship between $X_j$ and $Y$.
 
-This is quite common in the real world. For example, imagine outcome variable $Y$ to be the severity of a car crash. $X_1$ can represent the darkness of the road at the time of the car crash. $X_2$ can represent the slipperiness of the road at the time of the car crash. We could quite reasonably expect that as the road is more slippery, i.e. $X_2$ increases, the darkness of the road $X_1$'s effect on the severity of a car crash $Y$ might be stronger, since slippery further enhances the danger of dark roads.
+For example, $Y$ could be the chance of a civil war occurring, $X_1$ is the severity of an economic crash, and $X_2$ is the development level of a country.
 
-Or for a more political example, $Y$ could be the chance of a civil war occurring, $X_1$ is the severity of an economic crash, and $X_2$ is the development level of a country. We could quite reasonably expect that in the effect of a economic crash on a chance of civil war would be significantly higher in developing nations rather than developed. Or in other words, the chance that a civil war occurs due to a economic crash is higher in countries like Venezuela, North Korea and Eritrea, compared to the relationship in Norway, Switzerland, and Denmark.
+We could quite reasonably expect that in the effect of a economic crash on a chance of civil war would be significantly higher in developing nations rather than developed. Or in other words, the chance that a civil war occurs due to a economic crash is higher in countries like Venezuela, North Korea and Eritrea, compared to the relationship in Norway, Switzerland, and Denmark.
+
+Essentially, $X_1$'s effect on $Y$ is affected by the value of $X_2$.
+
+::: callout-tip
+## Key Definition: Interaction Effect Regression
 
 Interaction effects are represented by two variables being multiplied together in a regression equation. In the model below, $X_1$ and $X_2$ are interacting with each other:
 
 $$
-E[Y] = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2
+\mathbb{E}[Y|\overrightarrow{X}] = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2 + \text{other explanatory variables}
 $$
+:::
 
 We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$. $$
 \begin{split}
@@ -1191,17 +1247,29 @@ We can also find the effect of $X_2$ on $Y$: $$
 \end{split}
 $$
 
-With these equations, we can interpret the coefficients of our model:
+With these equations, we can interpret the coefficients of our model more generally.
 
--   $\hat{\beta}_1$ is the relationship between $X_1$ and $Y$, given $X_2 = 0$.
+::: callout-note
+## Interpretation of Interaction Effects
 
--   $\hat{\beta}_2$ is the relationship between $X_2$ and $Y$, given $X_1 = 0$.
+$\hat{\beta}_1$ is the relationship between $X_1$ and $Y$, given $X_2 = 0$.
 
--   $\hat{\beta}_3$ represents two things. For every one unit increase of $X_2$, the magnitude of the relationship between $X_1$ and $Y$ changes by $\hat{\beta}_3$. Similarly, for every one unit increase of $X_1$, the magnitude of the relationship between $X_2$ and $Y$ changes by $\hat{\beta}_3$
+$\hat{\beta}_2$ is the relationship between $X_2$ and $Y$, given $X_1 = 0$.
 
--   $\alpha$ is still the expected value of $Y$ when all explanatory variables equal 0.
+ 
+
+$\hat{\beta}_3$ represents two things. For every one unit increase of $X_2$, the magnitude of the relationship between $X_1$ and $Y$ changes by $\hat{\beta}_3$. Similarly, for every one unit increase of $X_1$, the magnitude of the relationship between $X_2$ and $Y$ changes by $\hat{\beta}_3$.
+
+ 
+
+$\alpha$ is still the expected value of $Y$ when all explanatory variables equal 0.
+
+ 
 
 The coefficient $\beta_3$'s significance level tells us if there is a statistically significant interaction. If $\beta_3$ is not statistically significant, we can often remove the interaction term. However, if $\beta_3$ is statistically significant, that means we have found two terms that interact.
+:::
+
+#### Binary Moderating Effect
 
 Often times, our [moderating effect $X_2$ is a binary variable]{.underline} (for example, developed/developing country, true/false, yes/no). In this scenario:
 
@@ -1215,15 +1283,19 @@ You can get all of these interpretations above simply by plugging in $X_2 = 0$ a
 
 ### Explanatory Variables in R
 
-# Regression for Causal Inference
-
-## Gauss-Markov Assumptions and Causal Effects
+## Gauss-Markov Theorem and Causal Inference
 
 ### Gauss Markov Theorem
 
-The Gauss-Markov Theorem states that under a certain set of assumptions (called the Gauss-Markov Assumptions), the OLS estimator is the best linear unbiased estimator (BLUE) for the coefficients of a linear regression models. This is important, as if you meet the assumptions required, you can be confident that you are obtaining the best possible coefficient estimates of any linear model. So - if we are interested in accurately finding the causal effect of $D$ on $Y$, we can be confident we are getting the most accurate estimate.
+::: callout-tip
+## Key Definition: Gauss-Markov Theorem
 
-The **Gauss-Markov Assumptions** that make the OLS estimator the best linear unbiased estimator are: 1) Linearity of parameters; 2) Random sampling from the population; 3) Non-perfect collinearity; 4) Exogeneity; 5) Homoscedasticity. We will explore each of these assumptions in detail.
+If these assumptions are true: 1) Linearity of parameters; 2) Random sampling from the population; 3) Non-perfect collinearity; 4) Exogeneity; 5) Homoscedasticity.
+
+The Gauss-Markov Theorem states that the OLS estimator is the best linear unbiased estimator (BLUE) for the coefficients of a linear regression models.
+:::
+
+This is important, as if you meet the assumptions required, you can be confident that you are obtaining the best possible coefficient estimates of any linear model. So - if we are interested in accurately finding the causal effect of $D$ on $Y$, we can be confident we are getting the most accurate estimate.
 
 #### Linearity of Parameters
 
@@ -1249,25 +1321,31 @@ However, do note that the more correlated two explanatory variables are, the mor
 
 If we are selecting highly correlated control variables, this issue does not matter at all - after all, we don't care about the effect of control variables, they are just there to control for confounders. However, we probably do not want a highly correlated variable with our main treatment variable - since that can muddy the effect of the treatment variable.
 
-### Exogeniety and Endogeniety
+### Exogeniety, Endogeniety, and Homoscedasticity
+
+#### Exogeniety and Endogeniety
+
+::: callout-tip
+## Key Definition: Exogeniety
 
 The fourth Gauss Markov Assumption is Exogeniety: the error term and regressors are uncorrelated. In other words, the change in $X$ should not affect the expected value of the error. Mathematically:
 
 $$
 \mathbb{E}[\epsilon_i|\overrightarrow{X}_i] = 0, \space \forall i
 $$
+:::
 
 We actually proved this theorem earlier when deriving the OLS estimator. Let us take the example of bivariate linear regression, since it is easier to show. First, let us recall the first-order conditions to maximise our sum of squared errors, for both $\hat{\alpha}$ and $\hat{\beta}$: $$
 \begin{split}
-& \sum_{i]1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = 0 \\
-& \sum_{i]1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = 0
+& \sum_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = 0 \\
+& \sum_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = 0
 \end{split}
 $$
 
-We also know that the error/residual is $\epsilon_i = Y_i - \hat{\alpha} - \hat{\beta}$. Let us plug that in to our above equations, and we get: $$
+We also know that the error/residual is $\epsilon_i = Y_i - \hat{\alpha} - \hat{\beta}$. Let us plug that in to our above equations, we get: $$
 \begin{split}
-& \sum_{i]1}^n \epsilon_i = 0 \\
-& \sum_{i]1}^n X_i \epsilon_i = 0
+& \sum_{i=1}^n \epsilon_i = 0 \\
+& \sum_{i=1}^n X_i \epsilon_i = 0
 \end{split}
 $$
 
@@ -1284,25 +1362,34 @@ However, when this assumption is not met, we say that the specific $X_j$ that ar
 
 -   We will discuss the Instrumental Variable Estimator later, which deals with endogenous regressors.
 
-### Homoscedasticity
+#### Homoscedasticity and Heteroscedasticity
 
-The fifth Gauss-Markov Assumtion is homoscedasticity - that the variance of the error term is consistent and constant for all values of the explanatory variables. We discussed this briefly in Chapter 4. Mathematically:
+::: callout-tip
+## Key Definition: Homoscedasticity
+
+The fifth Gauss-Markov Assumtion is **homoscedasticity** - that the variance of the error term is consistent and constant for all values of the explanatory variables. Mathematically:
 
 $$
 Var(\epsilon|\overrightarrow{X}) = \sigma^2
 $$
 
-When this condition holds, we have **homoscedasticity**.
+If this assumption is violated, we have **heteroscedasticity**.
+:::
 
-However, if this assumption is violated, we have **heteroscedasticity**. The simplest way to identify heteroscedasticity is to look at the residual plots - a plot with explanatory variables on the $x$-axis, and residuals on the $y$-axis.
+The simplest way to identify heteroscedasticity is to look at the residual plots - a plot with explanatory variables on the $x$-axis, and residuals on the $y$-axis.
 
 -   If the residuals show no pattern, then there is no heteroscedasticity. If there is a pattern, for example, if the residuals are very small when $X$ is small, and very big when $X$ is big, then we have heteroscedasticity.
+
+-   There are also more formal tests for this, but they take more effort than it is worth. Thus, we will not delve into these heteroscedasticity tests.
 
 OLS is still unbiased as long as the first 4 assumptions are met. Heteroscedasticity does not cause bias or inconsistency in the estimates of coefficients. However, if heteroscedasticity is present, it may indicate a better estimator may exist (so OLS is no longer BLUE).
 
 Furthermore, and more useful for us, the usual standard error formula that we use to calculate confidence intervals and hypothesis tests no longer works. This is because the old standard errors are based on the assumption of homoscedasticity.
 
-Thus, we need to modify our standard errors so that they are still accurate. We do this by calculating the **robust standard errors**, and then conducting our tests using these robust standard errors. Do not worry about how to calculate these by hand. Our statistical software will include options to calculate robust standard errors.
+Thus, we need to modify our standard errors so that they are still accurate. We do this by calculating the **robust standard errors**, and then conducting our tests using these robust standard errors.
+
+-   Do not worry about how to calculate these by hand. Our statistical software will include options to calculate robust standard errors.
+-   It is becoming increasingly common to always use robust standard errors, even if we have not checked if our data is heteroscedastic.
 
 ### Regression Design for Causal Inference
 
@@ -1335,7 +1422,9 @@ summary(model_name)
 
 Interpretation is the same as the standard linear regression.
 
-## Panel and Clustered Data
+# Methods for Causal Inference
+
+## Fixed Effects Models
 
 ### Hierarchical Data
 
@@ -1359,7 +1448,10 @@ Let us assume that we have $m$ number of clusters in our data. Thus, we have a s
 
 Using this framework, every observation can be defined as $Y_{it}$, which essentially means the $Y$ value of the $i$th cluster's $t$th observation. The corresponding explanatory variable values will be notated $\overrightarrow{X}_{it}$.
 
-Our fixed effects model will take the following form:
+::: callout-tip
+## Key Definition: Fixed Effects Model
+
+A fixed effects model will take the following form:
 
 $$
 Y_{it} = \alpha_i + \beta_1X_{1it} + ... + \beta_kX_{kit} + \epsilon_{it}
@@ -1372,6 +1464,7 @@ $$
 $$
 
 Where $D_{i2} ,..., D_{im}$ are dummy variables for the clusters $2, ..., m$. Cluster 1 is the reference category (like a categorical explanatory variable). $\beta_{00}$ is the average $Y$ of the reference cluster category (cluster 1), when $\overrightarrow{X} = 0$. $\beta_{0j}$ is the difference between the average $Y$ of cluster $j$, and the reference category (cluster 1), when all $\overrightarrow{X} = 0$.
+:::
 
 Or in other words, including fixed effects for clusters $i$ means using the clusters as an additional categorical variable in our regression. We can demonstrating this by writing out $\alpha_i$ in our above linear model to get:
 
@@ -1379,13 +1472,14 @@ $$
 Y_{it} = \beta_{00} + \beta_1X_{1it} + ... + \beta_kX_{kit} + \beta_{02}D_{i2} + ... + \beta_{0m}D_{im} + \epsilon_{it}
 $$
 
-The fixed effect $\alpha_i$ captures the predictors of $Y$ that are shared by all observations within their cluster $i$. For example, if our fixed effects were by countries, $\alpha_i$ would capture all the predictors of $Y$ that are shared by all observations from that same country.
+The fixed effect $\alpha_i$ captures the predictors of $Y$ that are shared by all observations within their cluster $i$. For example, if our fixed effects were by countries, $\alpha_i$ would capture all the predictors of $Y$ that are shared by all observations from that same country. To interpret our coefficients $\beta_j$, we would do the same as we previously would, but adding the line - controlling for levels of $Y$ we would expect for that cluster in general.
 
-To interpret our coefficients $\beta_j$, we would do the same as we previously would, but adding the line - controlling for levels of $Y$ we would expect for that cluster in general.
-
-### Two-Way Fixed Effects
+#### Two-Way Fixed Effects
 
 Often in Political Economics, we will have 2-way clustered data by both country and year. For example, if you have data on GDP and Democracy level from all countries between 2006-2024, you will have two types of clusters - clusters by country, and clusters by year.
+
+::: callout-tip
+## Key Definition: Two-Way Fixed Effects
 
 We can combine these two for two-way fixed effects of both country and year. Two-way fixed effects takes the following form:
 
@@ -1396,6 +1490,7 @@ $$
 $\alpha_i$ represents country fixed effects, exactly as we described in the previous section.
 
 $\gamma_t$ represents year fixed effects. Why does it have the subscript $t$? Well, in panel data, for each country, you will have many different years of data (ex. USA will have data between 2006-2024). Thus, within cluster $i$ of the country, each observation $t$ is a different year. Thus, $t$ is the year of the data.
+:::
 
 To interpret our coefficients $\beta_j$, we would do the same as we previously would, but adding the line - controlling for levels of $Y$ we would expect for that country in that year in general.
 
@@ -1444,14 +1539,6 @@ summary(model)
 
 The resulting output is the same as a typical linear regression. The *plm()* function will not display the coefficients of the fixed effects (as these will typically be very long, since if you have for example, 120 countries, that is 119 dummy variables). That is the primary reason why it is preferred over the *lm()* function, which will include every dummy variable in the regression output. We typically do not care about the fixed effect values, we just care that the clusters have been accounted for.
 
-## Matching Regression
-
-## Weighted Regression
-
-## Partial Identification and Sensitivity Analysis
-
-# Instrumental Variables Estimator
-
 ## Instrumental Variables Framework
 
 ## Other Instrumental Variable Designs
@@ -1464,12 +1551,8 @@ The resulting output is the same as a typical linear regression. The *plm()* fun
 
 ### Recentered Instruments
 
-# Quasi-Experimental Methods
-
 ## Regression Discontinuity
 
-## Simple Differences-in-Differences
-
-## Generalised Differences-in-Differences
+## Differences-in-Differences
 
 ## Survey Experiments
