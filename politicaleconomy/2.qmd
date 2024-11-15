@@ -31,48 +31,28 @@ include-before-body:
     }
 ---
 
-## Preface {.unnumbered}
-
-**Political Economics** is the use of economic models and approaches to study politics. More specifically, it is the use of microeconomic-style rational choice models and game theory to study political behaviour and institutions, and how that impacts political outcomes. These models and predictions are then validated with real-world data using econometric techniques.
-
-This book is the second book in a sequence on **Political Economics**.
-
--   [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
-
--   [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf) (this book) introduces key statistical/econometric methods used to empirically test models and phenomena with real-world data.
-
--   [Economic Analysis of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the microeconomic theory and econometric techniques discussed in the previous book to current academic topics.
-
-Furthermore, there is a companion sequence: *Quantitative Methods*, which discussed mathematical and statistical techniques useful for the study of Political Economics.
-
-This book is designed to be both an approachable, but also rigorous, introduction to Econometrics and the use of statistical methods, specifically for the analysis of political institutions and actors. This volume specifically covers most topics you would study in a typical econometrics undergraduate course in an economics department, and is likely more in depth than what you would get in a political science department.
-
-I assume a basic understanding of statistics, including the topics of random variables and distributions, expectation and variance, and correlation. I also assume familiarity with calculus and some linear algebra - although this is only neccesarry if you are interested in how the methods work. If you are just interested in implementing methods and interpreting them, the mathematics is less important, however, I still recommend people to study the mathematics behind econometric techniques, as it often helps us understand the techniques better. To see what mathematics is specifically required, or to refresh on the mathematics needed, consult the **Quantitative Methods** sequence (particularly [the first volume](https://kevinli03.github.io/math/1.pdf)).
-
-This book will also use the R language for some calculations, so a basic understanding of the language is useful - however, this is not needed if you just want an understanding of the methods. This book will not teach the R language from scratch.
-
 # Econometrics and Causal Inference
 
 ## Causal Inference
 
 ### Introduction to Econometrics
 
-**Econometrics** is the field of applying statistical methods to analyse real-world economic and social science data. While econometrics was initially pioneered by economics, the techniques econometricians developed have been adopted by most of the social sciences, including Political Science.
+**Econometrics** is the field of applying statistical methods to analyse real-world economic and social science data. While econometrics was initially pioneered by economics, the techniques econometricians developed have been adopted by most of the social sciences, including Political Science. Econometrics has two primary goals:
 
-Econometrics has two primary goals:
-
-1.  **Causal Inference**: Establishing how one feature directly causes another feature. This is essential to understanding the world around us and designing better policies.
+1.  **Causal Inference**: Establishing how one feature directly causes another feature. This is essential to understanding the world around us and designing better policies. Key point: correlation ≠ causation.
 2.  **Predictive Inference/Forecasting**: Given data we have, how can we predict the values of data we do not have? For example, what will sales be next year? GDP? Who will win the next election? What are the likely costs/effects of a policy?
 
-This book will cover both topics, but will focus on causal inference, which is generally considered the most important role of econometrics in the social sciences. After all, understanding the causes of things is critical to designing better policy and understanding the world around us.
+This book is designed to be both an approachable, but also rigorous, introduction to Econometrics and the use of statistical methods for the analysis of political institutions and actors. This volume specifically covers most topics you would study in a typical econometrics undergraduate course in an economics department, and is likely more in depth than what you would get in a political science department.
 
-An important thing to note about causal inference is that [correlation does not equal causation]{.underline}:
+-   This books is the 2nd in the *An Introduction to Political Economics* series, which focuses on using economic methods, such as microeconomic modelling and econometrics, to study political phenomena. This book is designed to complement the other books in this series.
 
--   For example, ice cream sales are strongly correlated with shark attack frequency. Does that mean ice cream sales directly cause shark attacks? No - they happen to be correlated, because there is another variable, the warm weather and people going to the beach, that causes both to rise at the same time. Ice cream sales itself does not have any independent affect on shark attacks, they just happen to be correlated.
+I assume a solid understanding of basic statistics, including the topics of random variables and distributions, expectation/mean and variance, and correlation. I also assume familiarity with algebra, single variable calculus, and some linear algebra. While you will be able to still learn from this book without a solid mathematical background, you will gain much more from understanding the mathematics behind the methods.
 
-When correlation does not equal causation, that correlation is called a **spurious correlation**. [Tyler Vigen](https://www.tylervigen.com/spurious-correlations) has an entire website showcasing different spurious correlations if you want more examples. As social scientists, we want to avoid spurious correlations, and establish causal effects.
+-   To see what mathematics is specifically required, or to refresh on the mathematics needed, consult the **Quantitative Methods** sequence (particularly [the first volume](https://kevinli03.github.io/math/1.pdf) and some topics in the 2nd volume).
 
-In the first section of this book, we will establish what a causal effect even is, and discuss how randomised experiments are the "gold standard" of establishing causal relationships. Then, we will explore why randomised experiments are often impossible in the social sciences. The rest of the book will focus on techniques that try to find causal effects without randomised experiments.
+I will also add some reference code for the R-programming language in case you are interested in implementing these methods on your own.
+
+If you have completed this book, and want more econometrics training, the 4th book in the *An Introduction to Political Economics* series, *Advanced Econometrics for Political Analysis*, builds on this book by adding further statistical and econometric models that help with more advanced topics.
 
 ### Potential Outcomes Framework
 
@@ -113,9 +93,11 @@ This equation might be a little abstract, however, it is easy to understand by p
 \end{split}
 $$
 
-So intuitively, if the observation is in the control state $D_i = 0$, we observe the controlled state potential outcome $Y_{0i}$. When an observation is in the treatment state $D_i = 1$, we observe the treatment state potential outcome $Y_{1i}$.
+Intuitively, if the observation is in the control state $D_i = 0$, we observe potential outcome $Y_{0i}$. When an observation is in the treatment state $D_i = 1$, we observe potential outcome $Y_{1i}$.
 
-### Causal Estimands
+### Estimands and Estimators
+
+#### Causal Estimands
 
 The fundamental problem of causal inference is that we only can observe one of 2 potential outcomes. For example, if you get treatment $D$, we cannot observe the world where you do not get treatment $D$. Thus, we cannot estimate individual effects of the causal treatment. However, there are other estimands we can use.
 
@@ -151,7 +133,7 @@ $$
 \tau_{CATE} = \mathbb{E}[Y_{1i} - Y_{0i} | X = x]
 $$
 
-### Estimators, Bias, and Variance
+#### Estimators, Bias, and Variance
 
 The above causal estimands are not directly calculable, and we to estimate them with an **estimator**.
 
@@ -170,8 +152,6 @@ The above causal estimands are not directly calculable, and we to estimate them 
 Ideally, we want an unbiased estimator that has low variance. We will explore many different types of estimators for causal effects throughout this book, each with its own bias and variance.
 
 ### Naive Estimator and Selection Bias
-
-#### Naive Estimator
 
 The **naive estimator** is an estimator that only compares our observed outcomes, without any comparison to the counterfactual potential outcomes. This is often what many people initially do when trying to find a causal effect. Essentially, we are comparing units that are assigned to treatment, and the units that are not assigned to treatment, and their observed outcomes. $$
 \mathbb{E}[Y_{1i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0]
@@ -266,23 +246,23 @@ $$
 
 Where $\bar{Y}_t$ is the average $Y$ value of the treatment group, and $\bar{Y}_c$ is the average $Y$ value of the control group. Thus, the causal effect is simply a difference of means between the treatment and control group.
 
-### Blocking and Stratified Experiments
-
-#### Experimental Design
+#### Blocking and Stratified Experiments
 
 Blocking, also called stratified experiments, is an extension of the random experiment to deal with some common issues.
 
-Imagine that you have four units in your experiment that you have to assign to treatment/control. Their pre-treatment outcomes are $Y_{0i} = \{2, 2, 8, 8\}$. This means that you have a 1/3 chance to end up with the random assignment of $\{2, 2 \}$ in one group and $\{8, 8\}$ in the other group.
+Imagine that you have four units in your experiment that you have to assign to treatment/control. Their pre-treatment outcomes are $Y_{0i} = \{2, 2, 8, 8\}$.
 
+-   This means that you have a 1/3 chance to end up with the random assignment of $\{2, 2 \}$ in one group and $\{8, 8\}$ in the other group.
 -   This is a major issue! After all, the core assumption of random experiments is that randomisation makes the treatment and control group similar, eliminating selection bias.
 
-With blocking, you can prevent this from happening. Before randomisation, you separate your sample of $N$ units into $J$ subgroups. Then, within each group, randomly assign units to treatment and control group (essentially, smaller randomised experiments within a bigger experiment).
+With blocking, you can prevent this from happening.
 
--   For example, we could divide our prior example into 2 subgroups: $\{2, 2\}$ and $\{ 8, 8 \}$. Then, within each group, randomly assign one observation to treatment, and one to control. Thus, we are guaranteed to get units from both subgroups in both our treatment and control groups.
+1.  Before randomisation, you separate your sample of $N$ units into $J$ subgroups.
+2.  Within each group, randomly assign units to treatment and control group (essentially, smaller randomised experiments within a bigger experiment).
 
-#### Estimation of Causal Effects
+For example, we could divide our prior example into 2 subgroups: $\{2, 2\}$ and $\{ 8, 8 \}$. Then, within each group, randomly assign one observation to treatment, and one to control. Thus, we are guaranteed to get units from both subgroups in both our treatment and control groups.
 
-To estimate our effects, we will have to take the weighted average of each subgroup's average treatment effect (ATE), with the weights being the proportion of units each group accounts for. Mathematically:
+To estimate our effects for blocking experiments, we will have to take the weighted average of each subgroup's average treatment effect (ATE), with the weights being the proportion of units each group accounts for. Mathematically:
 
 $$
 \tau_{ATE} = \sum\limits_{j=1}^J \frac{N_j}{N} \tau_j
@@ -411,21 +391,15 @@ The rest of this course focuses on observational studies. We will introduce regr
 
 ## Regression Models and Estimation
 
-Note: This chapter's later sections may become quite complex. However, do not worry if you do not understand section 3.3 and beyond, as only the sections 3.1-3.2 are absolutely essential.
-
 ### Linear Regression Model
 
 #### Introduction
 
 As we discussed in the previous sections, a randomised experiment is the best way of establishing causal relationships. This is because randomise treatments can get rid of the effect of confounding variables. However, in the social sciences, randomisation is often not possible.
 
-Luckily, while we often cannot randomise treatment, we can account for the affect of confounding variables with a new tool: linear regression.
+Linear regression allows us to estimate a model with both our treatment and outcome variables, as well as a series of **control** variables. By including confounding variables as control variables in our regression model, we can (in theory), isolate the effect of our explanatory variable on our outcome variable.
 
-Linear regression allows us to estimate a model with both our explanatory and outcome variables, as well as a series of **control** variables. By including confounding variables as control variables in our regression model, we can (in theory), isolate the effect of our explanatory variable on our outcome variable.
-
--   In reality, as we will discuss in the later parts of this book, there are often thousands of control variables, many that are not possible to control for. We will introduce extensions to the linear model to deal with these.
-
-Regression is also a powerful tool for predictive inference. In fact, it forms much of the building blocks of more complicated data science and machine learning methods.
+-   In reality, as we will discuss in the later parts of this book, there are often thousands of control variables, many that are not possible to control for. We will introduce further techniques to deal with these.
 
 Before we dive into the linear model, here are some conventional notation that is important:
 
@@ -437,7 +411,11 @@ Before we dive into the linear model, here are some conventional notation that i
 
 #### Specification of the Linear Model
 
-A regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. The linear regression model focuses on the **expected value** of the conditional distribution of $Y$ given $\overrightarrow{X}$. I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$. The regression focuses on the expected value of $Y$ at some $X$.
+A regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. The linear regression model focuses on the **expected value** of the conditional distribution of $Y$ given $\overrightarrow{X}$.
+
+-   I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$.
+
+The regression model focuses on the expected value of $Y$ given some $X$ value.
 
 ::: callout-tip
 ## Key Definition: Linear Regression Model
@@ -448,8 +426,13 @@ $$
 \mathbb{E}[Y_i|\overrightarrow{X}_i] = \alpha + \beta_1 X_{1i} + ... + \beta_k X_{ki}
 $$
 
-Where $\mathbb{E}[Y_i|\overrightarrow{X}_i]$ is the expected value of the conditional distribution $Y_i|\overrightarrow{X}_i$, the distribution of $Y_i|\overrightarrow{X}_i$ has a variance $Var(Y_i|\overrightarrow{X}_i) = \sigma^2$, and the parameters of the model are the denoted by the vector $\overrightarrow{\beta}$, and contain $\alpha, \beta_1, ..., \beta_k$.
-:::
+-   Where $\mathbb{E}[Y_i|\overrightarrow{X}_i]$ is the expected value of the conditional distribution $Y_i|\overrightarrow{X}_i$.
+
+-   Where the distribution of $Y_i|\overrightarrow{X}_i$ has a variance $Var(Y_i|\overrightarrow{X}_i) = \sigma^2$.
+
+-   Where the parameters of the model are the denoted by the vector $\overrightarrow{\beta}$, and contain $\alpha, \beta_1, ..., \beta_k$.
+
+ 
 
 We can also write the linear model for the value of any point $Y_i$ in our data:
 
@@ -457,23 +440,40 @@ $$
 Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
 $$
 
-Where $\epsilon_i$ is the error term function - that determines the error for each point. We will go into detail on this later., and a key assumption (that we will discuss later) is that the error function overall is normally distributed: $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Essentially, $\epsilon_i$ is another way to think about the conditional distribution of $Y_i|\overrightarrow{X}_i$, and how not every 30 year old makes the exact same income - there is some variation (and error).
+Where $\epsilon_i$ is the error term function - that determines the error for each unit $i$.
 
-In our model, we have parameters $\alpha, \beta_1, ..., \beta_k$ that need to be estimated in order to create a best-fit line we can actually use. We estimate the parameters and fit the model by using our observed data points $(Y_i, \overrightarrow{X}_i)$, and fitting a best fit line to these points. Our result should take the following form:
+Essentially, $\epsilon_i$ is another way to think about the conditional distribution of $Y_i|\overrightarrow{X}_i$, and how not every 30 year old makes the exact same income - there is some variation (and error).
+:::
+
+In our model, we have parameters $\alpha, \beta_1, ..., \beta_k$ that need to be estimated (based on our data) in order to create a best-fit line we can actually use. We estimate the parameters and fit the model by using our observed data points $(Y_i, \overrightarrow{X}_i)$, and fitting a best fit line to these points. Our result should take the following form:
 
 $$
 \hat{Y}_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + ... + \hat{\beta}_k X_{ki}
 $$
 
-Where $\hat{Y}_i$ is our prediction of the value of $Y$, given any set of $\overrightarrow{X}$ values. Notice the error term $\epsilon_i$ is not present. This is because $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, which says the expected value of $\epsilon_i$ is $E[\epsilon_i]=0$.
+-   Where $\hat{Y}_i$ is our prediction of the value of $Y$, given any set of $\overrightarrow{X}$ values.
 
-How do we estimate our parameters $\alpha, \beta_1, ..., \beta_k$? **The Ordinary Least Squares Estimator (OLS)** does this by **minimising the sum of squared errors** of our predicted line to our actual observed data.
+-   Notice the error term $\epsilon_i$ is not present. This is the expected value of $\epsilon_i$ is $\mathbb{E}[\epsilon_i]=0$.
 
-What are the sum of squared errors? They are exactly what they sound like. First, calculate the difference between our estimated $Y$ from our model $\hat{Y}_i$, and the actual $Y_i$ value. Then, square that. Then sum all of those squared errors for every observation.
+How do we estimate our parameters $\alpha, \beta_1, ..., \beta_k$? Obviously, we want our model to be accurate - so we can estimate it through reducing the errors of models (more specifically, the sum of squared errors).
+
+::: callout-tip
+## Key Definition
+
+The **sum of squared errors** is as follows:
 
 $$
 SSE = \sum (Y_i - \hat{Y}_i)^2 = \sum (Y_i - \hat{\alpha} - \hat{\beta}X_{1i} - ... - \hat{\beta_k} X_{ki})
 $$
+
+Or more intuitively, it is exactly as it sounds - find the error of our prediction $Y_i - \hat{Y}$, square that difference, then sum up for all units $i$ in our data.
+
+-   Why squared? Well, because we do not care about the direction of our errors (positive or negative), just the size of them. Thus, squaring removes the negative signs so we are only concerned with magnitude.
+
+-   Then why not absolute value? There are a few reasons, but generally the primary reason is estimation is much more difficult with absolute value since an absolute value function is not differentiable at its vertex.
+
+The **Ordinary Least Squares (OLS) Estimator** estimates our parameters $\alpha, \beta_1, ..., \beta_k$ through finding the values of $\alpha, \beta_1, ..., \beta_k$ that minimizes the sum of squared errors for our predictions.
+:::
 
 ### Bivariate Regression Estimation Mechanics
 
@@ -515,11 +515,9 @@ The final step converting to $\bar{Y}$ and $\bar{X}$ is because of the mathemati
 
 #### Parameter $\hat{\beta}$
 
-Now, let us find the minimum $\hat{\beta}$ value by taking the partial derivative of the SSE function $S$ in respect to $\hat{\beta}$ and setting it equal to 0. This is almost the same as before - use chain rule, then use sum rule to get the deriative: $$
-\begin{split}
-\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\beta}} & = \sum\limits_{i=1}^n \left[ -2X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right] \\
-& = -2 \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i)
-\end{split}
+Let us find the $\hat{\beta}$ that minimises $S$ by taking the partial derivative of $S$ in respect to $\hat{\beta}$ and setting it equal to 0. This is almost the same as before - use chain rule, then use sum rule to get the deriative: $$
+\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\beta}} = \sum\limits_{i=1}^n \left[ -2X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right]
+= -2 \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i)
 $$
 
 Now, let us plug in our previously solved $\hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}$, and we get: $$
@@ -547,9 +545,13 @@ With these rules, we can transform what we had before into: $$
 0 = \sum\limits_{i=1}^n(X_i - \bar{X})(Y_i - \bar{Y}) - \hat{\beta} \sum\limits_{i=1}^n (X_i - \bar{X})^2
 $$
 
-Then solve for $\hat{\beta}$ to get: $$
+::: callout-tip
+## Key Definition
+
+Then solve for $\hat{\beta}$ to get the **OLS estimator** for bivariate regression: $$
 \hat{\beta} = \frac{\sum\limits_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum\limits_{i=1}^n(X_i - \bar{X})^2} = \frac{Cov(X, Y)}{Var(X)} = \frac{\sigma_{XY}}{\sigma_x^2}
 $$
+:::
 
 Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$, so we can quickly solve for that as well. Thus, we now have $\hat{\beta}, \hat{\alpha}$, completing our estimation. We can now put everything into the fitted model: $$
 \hat{Y}_i = \hat{\alpha} + \hat{\beta}X_i
@@ -715,11 +717,15 @@ $$
 \frac{\partial S(b)}{\partial b} \biggr|_{\hat{\beta}} = -2X'Y + DX'X \hat{\beta} = 0
 $$
 
-When assuming $X'X$ is invertible, our solution is:
+::: callout-tip
+## Key Definition
+
+When assuming $X'X$ is invertable, our OLS estimator solution for $\hat{\beta}$ is:
 
 $$
 \hat{\beta} = (X'X)^{-1} X'Y
 $$
+:::
 
 The matrix $X'X$ is invertible for the same criteria as the non-linear algebra solution - that all explanatory variables have non-zero variance, and there is no perfect collinearity.
 
@@ -856,14 +862,6 @@ Since $R^2$ shows how much of the variation in $Y$ our model explains, it is oft
 
 ### Hypothesis Testing
 
-#### Samples
-
-A **sample** is a subset of a population, which ideally, can tell us something about the population. If our sample reflects the population, we can use the sample estimate $\hat{\beta}_j$ to learn about the true population $\beta_j$.
-
--   In causal inference, as we have discussed before, we are sampling from the population of potential outcomes.
-
-[The gold standard of sampling procedure is a **random sample**]{.underline} - where individuals in the sample are selected at random from the population. In a random sample, every possible individual has an equal chance of being selected, and thus, the resulting sample is likely to be reflective of the population.
-
 #### Confidence Intervals
 
 We previously discussed confidence intervals in section 2.4. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate. To account for sampling variation, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides:
@@ -898,14 +896,14 @@ Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can
 
 #### F-Tests of Nested Models
 
-The **F-test of Nested Models** is an extension of the standard F-test, that allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically: $$
+The **F-test of Nested Models** allows us to compare different regression models. We use a smaller model as our null hypothesis, and a larger model (containing the smaller model) as our alternative hypothesis. More mathematically: $$
 \begin{split}
 M_0 : & E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g \\
 M_a : & E[Y] = \alpha + \beta_1 X_1 + ... + \beta_g X_g + \beta_{g+1} X_{g+1} + ... + \beta_k X_k
 \end{split}
 $$
 
-Importantly, all explanatory variables in model $M_0$ must also be in $M_a$, along with additional explanatory variables in $M_a$.
+Importantly, all explanatory variables in model $M_0$ must also be in $M_a$ (hence "nested").
 
 The F-test uses the F-test statistic. This statistic compared the $R^2$ values of the two models. Let us say the $R^2$ value of $M_0$ is notated $R^2_0$, and the $R^2$ value of $M_a$ is notated as $R^2_a$. The F-test statistic essentially measures the difference $R^2_a - R^2_0$. If the difference is sufficiently large, that means the $M_a$ model has significantly more explanatory power than $M_0$.
 
@@ -923,20 +921,7 @@ The sampling distribution of the F-statistic is the F distribution with paramete
 
 F-tests of nested models can help us determine if we should include certain extra explanatory variables. If our model with more variables is statistically significant, it is an indication that we should include those extra variables.
 
-### Linear Regression in R
-
-```{r, echo = FALSE, message = FALSE}
-# if you haven't installed tidyverse, do: install.packages('tidyverse')
-library(tidyverse)
-democracy_data <- read_csv("data/democracy.csv")
-```
-
-```{r, echo = FALSE, message = FALSE}
-democracy_data <- democracy_data %>%
-    select(polity_2, GDP_Per_Cap_Haber_Men_2, Total_Oil_Income_PC, year, cnamehabmen)
-
-democracy_data <- na.omit(democracy_data)
-```
+### Regression in R
 
 We use the *lm()* function to run a regression: The general syntax is as follows:
 
@@ -949,69 +934,200 @@ model_name <- lm(Y ~ X1 + X2 + X3, data = mydata)
 summary(model_name)
 ```
 
-#### Example of Regression
-
-For example, let us run a model predicting *polity_2* with 2 explanatory variables
-
-```{r}
-model2 <- lm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
-    data = democracy_data)
-summary(model2)
-```
-
-------------------------------------------------------------------------
-
-We can see the output. In the coefficients table:
-
--   The *Intercept - Estimate* is $\hat{\alpha}$
-
--   The *GDP_Per_Cap_Haber_Men_2 - Estimate* is the coefficient $\hat{\beta}_1$.
-
--   The *Total_Oil_Income_PC - Estimate* is the coefficient $\hat{\beta}_2$.
-
-Now, look further right in the coefficients table:
-
--   Under the *Std. Error* column is the respective standard errors for both $\beta$ coefficients. This is used to calculate the t-statistic
-
--   Under the *t value* column is the t-test statistics for both $\beta$ coefficients.
-
--   Under the *Pr(\>\|t\|)* column is the p-values for each test statistic. Stars symbolise statistical significance.
-
-Underneath, the *Residual Standard Error* is the Residual Standard Deviation $\hat{\sigma}^2$, and the *Multiple R-Squared* is the $R^2$ value. Finally, at the very bottom, we have the p-value of the F-test if $H_0 : \overrightarrow{\hat{\beta}} = 0$.
-
 #### Confidence Intervals in R
 
 To calculate confidence intervals, we can use the *confint()* command, and simply input the name of our model within:
 
-```{r}
-confint(model2)
+```{r, eval = FALSE}
+confint(model)
 ```
-
-------------------------------------------------------------------------
-
-Here we can see that R has generated confidence intervals for $\hat{\alpha}_1$, $\hat{\beta}_1$, and $\hat{\beta}_2$.
 
 #### F-Test of Nested Models in R
 
-If we want an F-test between two models, with the first model being the null hypothesis $M_0$, we can use the *anova()* command (model 1 is just the previous model without *Total_Oil_Income_PC*
+If we want an F-test between two models, we can use the *anova()* function, replacing *model1* with the name of the null hypothesis model $M_0$, and replacing *model2* with the name of the alternative hypothesis model $M_a$.
 
-```{r, echo = FALSE, message = FALSE}
-model1 <- lm(polity_2 ~ Total_Oil_Income_PC, data = democracy_data)
-```
-
-```{r}
+```{r, eval = FALSE}
 anova(model1, model2)
 ```
 
-------------------------------------------------------------------------
+## Categorical Explanatory Variables
 
-The first row of the output refers to the null hypothesis model.
+### Binary Explanatory Variables
 
-The second row of the output refers to the alternate hypothesis. We can see that this row has the $F$-statistic and the p-value.
+**Binary explanatory** variables are variables with 2 values, 0 and 1. These are extremely common in econometrics - as our treatment variable $D$ often takes two states: $D=1$ is the treatment group, and $D=0$ is the control group. We know that in a regression, $D$ is included as an explanatory variable $X$.
 
--   We can see that model 2 is statistically significant (consult interpretation from the previous sections).
+Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
+\begin{split}
+E[Y|X = 0] & = \alpha + \beta(0) = \alpha \\
+E[Y|X=1] & = \alpha + \beta(1) = \alpha + \beta \\
+E[Y|X=1] - E[Y| & X =0] = (\alpha + \beta) - \alpha = \beta
+\end{split}
+$$
 
-## Other Explanatory Variables
+::: callout-note
+## Interpretation of Binary Explanatory Variables
+
+$\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
+
+$\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
+
+$\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$
+:::
+
+Thus, we can see that $\beta$ is measuring the difference between the two categories. In fact, $\beta$ actually becomes a difference-in-means test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
+
+### OLS and Difference-in-Means Estimator
+
+Because of the unique coefficient meanings in a regression with binary explanatory variables, the OLS estimator can take a shortcut when estimated the coefficients $\alpha$ and $\beta$:
+
+-   Coefficient $\alpha$ is estimated as $\hat{\alpha} = \bar{Y}_0$
+
+-   Coefficient $\beta$ is estimated as $\hat{\beta} = \bar{Y}_1 - \bar{Y}_0$
+
+Where $\bar{Y}_1$ is the sample mean of $Y$ for observations in category $X=1$, and $\bar{Y}_0$ is the sample mean of $Y$ for observations in category $X = 0$. So essentially, OLS is using a **difference of means** estimator.
+
+#### Proof:
+
+Let us prove that the bivariate OLS estimator with binary $X$ is equivalent to a difference in means. In Chapter 3, we proved the OLS estimator produces the following $\hat{\beta}$ solution:
+
+$$
+\hat{\beta} = \frac{\sum\limits_{i=1}^N (X_i - \bar{X})(Y_i - \bar{Y})}{\sum\limits_{i=1}^N (X_i - \bar{X})^2}
+$$
+
+Let us focus on the numerator of the $\hat{\beta}$ OLS solution. Let us expand out the numerator as follows: $$
+\begin{split}
+\sum\limits_{i=1}^N (X_i - \bar{X})(Y_i - \bar{Y}) & = \sum\limits_{i=1}^N [ X_iY_i - X_i \bar{Y} - X_i \bar{Y} + \bar{X} \bar{Y} ] \\
+& = \sum\limits_{i=1}^N X_i Y_i - \sum\limits_{i=1}^N X_i \bar{Y} - \sum\limits_{i=1}^N \bar{X} Y_i + \sum\limits_{i=1}^N \bar{X} \bar{Y}
+\end{split}
+$$
+
+We know that $X$ is a binary variable with $X=1$ being the treatment state $t$, and $X=0$ being the control state $c$.
+
+Note, $N$ indicates the number of observations, and $N_t$ indicates number of observations in treatment group. We can now actually evaluate the 4 summations we have found from expanding, and simplify further: $$
+\begin{split}
+\sum\limits_{i=1}^N X_i Y_i - \sum\limits_{i=1}^N X_i \bar{Y} - \sum\limits_{i=1}^N \bar{X} Y_i + \sum\limits_{i=1}^N \bar{X} \bar{Y} & = N_t \bar{Y}_t - N_t \bar{Y} - N \left(\frac{N_t}{N} \right) \bar{Y} + N \left(\frac{N_t}{N} \right) \bar{Y} \\
+& = N_t\bar{Y}_t - N_t \bar{Y} - N_t \bar{Y} + N_t \bar{Y} \\
+& = N_t\bar{Y}_t - N_t \bar{Y} \\
+& = N_t(\bar{Y}_t - \bar{Y})
+\end{split}
+$$
+
+A weighted average formula means $\bar{Y} = \frac{1}{N} (N_t \bar{Y}_t+ N_c \bar{Y}_c)$. We can substitute $\bar{Y}$ in our numerator with that as follows: $$
+\begin{split}
+N_t(\bar{Y}_t - \bar{Y}) & = N_t \left( Y_t - \frac{1}{N}(N_t \bar{Y}_t + N_c \bar{Y}_c)\right) \\
+& = N_t \bar{Y}_t - \frac{N_t}{N}(N_t\bar{Y}_t + N_c \bar{Y}_c) \\
+& = N_t \bar{Y}_t - \frac{N_t^2 \bar{Y}_t}{N} - \frac{N_t N_c \bar{Y}_c}{N} \\
+& = \bar{Y}_t \left( N_t - \frac{N_t^2}{N} \right) - \bar{Y}_c \left( \frac{N_tN_c}{N} \right)
+\end{split}
+$$
+
+We know that $N_c = N - N_t$, thus $\frac{N_t N_c}{N} = \frac{N_t (N - N_t)}{N} = N_t - \frac{N_t^2}{N}$. Plugging that in to the numerator, and simplifying, we get: $$
+\begin{split}
+\bar{Y}_t \left( N_t - \frac{N_t^2}{N} \right) - \bar{Y}_c \left( \frac{N_tN_c}{N} \right) & = \bar{Y}_t \left( N_t - \frac{N_t^2}{N} \right) - \bar{Y}_c \left( N_t - \frac{N_t^2}{N} \right) \\
+& = \left( N_t - \frac{N_t^2}{N} \right)(\bar{Y}_t - \bar{Y}_c)
+\end{split}
+$$
+
+Thus, our $\hat{\beta}$ now looks like (putting in the changes we did to the numerator): $$
+\hat{\beta} = \frac{ \left( N_t - \frac{N_t^2}{N} \right)(\bar{Y}_t - \bar{Y}_c)}{\sum\limits_{i=1}^N(X_i - \bar{X})^2}
+$$
+
+Now, let us expand the denominator:
+
+$$
+\sum\limits_{i=1}^N(X_i - \bar{X})^2 = \sum\limits_{i=1}^NX_i^2 - \sum\limits_{i=1}^NX_i \bar{X} - \sum\limits_{i=1}^NX_i \bar{X} + \sum\limits_{i=1}^N \bar{X}^2
+$$
+
+Using the same ideas as previously in the numerator, we can solve the 4 separate sums here, and simplify the denominator further: $$
+\begin{split}
+\sum\limits_{i=1}^NX_i^2 - \sum\limits_{i=1}^NX_i \bar{X} - \sum\limits_{i=1}^NX_i \bar{X} + \sum\limits_{i=1}^N \bar{X}^2 
+& = N_t - N_t\frac{N_t}{N} - N_t\frac{N_t}{N} + N \left(\frac{N_t}{N} \right)^2 \\
+& = N_t - \frac{N_t^2}{N} - \frac{N_t^2}{N} + \frac{N_t^2}{N} \\
+& = N_t - \frac{N_t^2}{N}
+\end{split}
+$$
+
+Thus, putting our simplified denominator in, our $\hat{\beta}$ now looks like:
+
+$$
+\hat{\beta} = \frac{ \left( N_t - \frac{N_t^2}{N} \right)(\bar{Y}_t - \bar{Y}_c)}{ \left( N_t - \frac{N_t^2}{N} \right)}
+$$
+
+Then simplifying and cancelling out:
+
+$$
+\hat{\beta} = \bar{Y}_t - \bar{Y}_c
+$$
+
+Our final estimate of $\hat{\beta}$ with OLS is, as seen above, equivalent to difference of means.
+
+### Polytomous Explanatory Variable
+
+A **polytomous** variable is one with 3 or more categories that are unranked. A classic example is the variable *country*, which is a categorical variable with all the different countries included in a dataset such as Argentina, France, Mexico, etc.
+
+How do we run a regression with polytomous explanatory variables? What happens is that we divide the variables into a set of dummy binary variables.
+
+-   Dummy binary variables are created for all [except one]{.underline} of the categories in our variable. Each dummy variable has two values - 1 meaning the observation is in the category, and 0 meaning the observation is not in that category.
+
+-   The category without a dummy variable is the **reference/baseline** category. Essentially, when all other dummy variables are equal to 0, that is referring to the reference/baseline category (the intercept)
+
+::: callout-tip
+## Key Definition
+
+Thus, a **polytomous explanatory variable** with $n$ number of categories in $X$, we would create $n-1$ dummy variables, and input it into a regression equation as follows:
+
+$$
+E[Y] = \alpha + \beta_{x=1}X_{x=1} + ... + \beta_{x=n-1}X_{x=n-1}
+$$
+
+Where $\alpha$ is the mean of the reference category $n$, and the other categories $1, ..., n-1$ get their own dummy variable.
+:::
+
+For example, take the following polytomous variable: *company*, which contains the categories *microsoft, google,* and *apple*. Let us create dummy variables for 2 of the 3 categories:
+
+-   *Google* will become the first dummy variable $X_g$. When $X_g = 1$, that observation is part of the *google* category. When $X_g = 0$, that observation is NOT a part of the *google* category.
+
+-   *Apple* will become the second dummy variable $X_a$. When $X_a = 1$, that observation is part of the *apple* category. When $X_a = 0$, that observation is NOT a part of the *apple* category.
+
+-   *Microsoft* will not get its own dummy variable. This is because when both *apple* and *microsoft* $X_g = X_a = 0$ that is referring to the *microsoft* category (since these are the only observations not a part of either previous category).
+
+Mathematically, this is how it would be represented in a regression equation:
+
+$$
+E[Y] = \alpha + \beta_g X_g + \beta_a X_a
+$$
+
+To find the expected value of each category, we would do the following: $$
+\begin{split}
+E[Y|X = \text{Google}] & = E[Y|X_g = 1, X_a = 0] = \alpha + \beta_g(1) + \beta_a(0) = \alpha + \beta_g \\
+E[Y|X = \text{Apple}] & = E[Y|X_g = 0, X_a = 1] = \alpha + \beta_g(0) + \beta_a(1) = \alpha + \beta_a \\
+E[Y|X = \text{Microsoft}] & = E[Y|X_g = 0, X_a = 0] = \alpha + \beta_g(0) + \beta_a(0) = \alpha
+\end{split}
+$$
+
+Thus, from these above equations, we can see the interpretation of the coefficients:
+
+-   $\alpha$ is the expected value of the reference category, in this case, *microsoft*.
+
+-   $\beta_g$ is the expected $Y$ difference between the *google* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+
+-   $\beta_a$ is the expected $Y$ difference between the *apple* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+
+::: callout-note
+## Interpretation of Polytomous Explanatory Variables
+
+$\beta_j$ is the expected difference in $Y$ values between category $j$ and the baseline category.
+
+$\alpha$ is the expected value of $Y$ of the baseline category.
+
+&nbsp;
+
+The coefficient $p$-values of $\beta_j$ are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable.
+:::
+
+### Categorical Explanatory Variables in R
+
+## Transformations and Interactions
 
 ### Polynomial Transformations
 
@@ -1118,107 +1234,17 @@ Thus, we can seen that when we multiply $X$ by $e^A$, we get an expected $\beta 
 When $X_j$ increases by 10%, there is a expected $0.095\beta_j$ unit change in $Y$
 :::
 
-### Categorical Explanatory Variable
-
-**Binary explanatory** variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
-\begin{split}
-E[Y|X = 0] & = \alpha + \beta(0) = \alpha \\
-E[Y|X=1] & = \alpha + \beta(1) = \alpha + \beta \\
-E[Y|X=1] - E[Y| & X =0] = (\alpha + \beta) - \alpha = \beta
-\end{split}
-$$
-
-::: callout-note
-## Interpretation of Binary Explanatory Variables
-
-$\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
-
-$\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
-
-$\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$
-:::
-
-Thus, we can see that $\beta$ is measuring the difference between the two categories. In fact, $\beta$ actually becomes a difference-in-means test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
-
-Because of the unique coefficient meanings in a regression with binary explanatory variables, the OLS estimator also takes a shortcut when estimated the coefficients $\alpha$ and $\beta$:
-
--   Coefficient $\alpha$ is estimated as $\hat{\alpha} = \bar{Y}_0$
-
--   Coefficient $\beta$ is estimated as $\hat{\beta} = \bar{Y}_1 - \bar{Y}_0$
-
-Where $\bar{Y}_1$ is the sample mean of $Y$ for observations in category $X=1$, and $\bar{Y}_0$ is the sample mean of $Y$ for observations in category $X = 0$.
-
-#### Polytomous Explanatory Variable
-
-A **polytomous** variable is one with 3 or more categories that are unranked. A classic example is the variable *country*, which is a categorical variable with all the different countries included in a dataset such as Argentina, France, Mexico, etc.
-
-How do we run a regression with polytomous explanatory variables? What happens is that we divide the variables into a set of dummy binary variables.
-
--   Dummy binary variables are created for all [except one]{.underline} of the categories in our variable. Each dummy variable has two values - 1 meaning the observation is in the category, and 0 meaning the observation is not in that category.
-
--   The category without a dummy variable is the **reference/baseline** category. Essentially, when all other dummy variables are equal to 0, that is referring to the reference/baseline category.
-
-Thus, for the $n$ number of categories in $X$, we would create $n-1$ dummy variables, and input it into a regression equation as follows:
-
-$$
-E[Y] = \alpha + \beta_{x=0}X_{x=0} + \beta_{x=1}X_{x=1} + ... + \beta_{x=n-1}X_{x=n-1}
-$$
-
-For example, take the following polytomous variable: *company*, which contains the categories *microsoft, google,* and *apple*.
-
--   Let us create dummy variables for 2 of the 3 categories.
-
--   *Google* will become the first dummy variable $X_g$. When $X_g = 1$, that observation is part of the *google* category. When $X_g = 0$, that observation is NOT a part of the *google* category.
-
--   *Apple* will become the second dummy variable $X_a$. When $X_a = 1$, that observation is part of the *apple* category. When $X_a = 0$, that observation is NOT a part of the *apple* category.
-
--   *Microsoft* will not get its own dummy variable. This is because when both *apple* and *microsoft* $X_g = X_a = 0$ that is referring to the *microsoft* category (since these are the only observations not a part of either previous category).
-
-Mathematically, this is how it would be represented in a regression equation:
-
-$$
-E[Y] = \alpha + \beta_g X_g + \beta_a X_a
-$$
-
-To find the expected value of each category, we would do the following: $$
-\begin{split}
-E[Y|X = \text{Google}] & = E[Y|X_g = 1, X_a = 0] = \alpha + \beta_g(1) + \beta_a(0) = \alpha + \beta_g \\
-E[Y|X = \text{Apple}] & = E[Y|X_g = 0, X_a = 1] = \alpha + \beta_g(0) + \beta_a(1) = \alpha + \beta_a \\
-E[Y|X = \text{Microsoft}] & = E[Y|X_g = 0, X_a = 0] = \alpha + \beta_g(0) + \beta_a(0) = \alpha
-\end{split}
-$$
-
-Thus, from these above equations, we can see the interpretation of the coefficients:
-
--   $\alpha$ is the expected value of the reference category, in this case, *microsoft*.
-
--   $\beta_g$ is the expected $Y$ difference between the *google* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
-
--   $\beta_a$ is the expected $Y$ difference between the *apple* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
-
-::: callout-note
-## Interpretation of Polytomous Explanatory Variables
-
-$\beta_j$ is the expected difference in $Y$ values between category $j$ and the baseline category.
-
-$\alpha$ is the expected value of $Y$ of the baseline category.
-
- 
-
-The coefficient $p$-values of $\beta_j$ are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable.
-:::
-
-To test the statistical significance of the entire categorical variable, we use an F-test with a null hypothesis of all coefficients $\alpha, \beta_1, ..., \beta_n$ equal to 0. Thus, an F-test would allow us to test the significance of the effect of the variable *company* on $Y$, which our individual $\beta$ coefficients do not tell us.
-
 ### Interaction Effects
 
 Interactions, also called moderating effects, means that the effect of some $X_j$ on $Y$ is not constant, and depends on some third variable $X_k$. Essentially, $X_k$'s value changes the relationship between $X_j$ and $Y$.
 
-For example, $Y$ could be the chance of a civil war occurring, $X_1$ is the severity of an economic crash, and $X_2$ is the development level of a country.
+-   For example, $Y$ could be the chance of a civil war occurring, $X_1$ is the severity of an economic crash, and $X_2$ is the development level of a country.
 
-We could quite reasonably expect that in the effect of a economic crash on a chance of civil war would be significantly higher in developing nations rather than developed. Or in other words, the chance that a civil war occurs due to a economic crash is higher in countries like Venezuela, North Korea and Eritrea, compared to the relationship in Norway, Switzerland, and Denmark.
+-   We could quite reasonably expect that in the effect of a economic crash on a chance of civil war would be significantly higher in developing nations rather than developed.
 
-Essentially, $X_1$'s effect on $Y$ is affected by the value of $X_2$.
+-   Or in other words, the chance that a civil war occurs due to a economic crash is higher in countries like Venezuela, North Korea and Eritrea, compared to the relationship in Norway, Switzerland, and Denmark.
+
+-   Essentially, $X_1$'s effect on $Y$ is affected by the value of $X_2$.
 
 ::: callout-tip
 ## Key Definition: Interaction Effect Regression
@@ -1228,6 +1254,8 @@ Interaction effects are represented by two variables being multiplied together i
 $$
 \mathbb{E}[Y|\overrightarrow{X}] = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2 + \text{other explanatory variables}
 $$
+
+Note: you can see in the above equation, $X_1$ and $X_2$ both are interacted, as well as have their own separate coefficients. We should always include both variables independently along with the interaction effect.
 :::
 
 We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$. $$
@@ -1266,22 +1294,14 @@ $\alpha$ is still the expected value of $Y$ when all explanatory variables equal
 
  
 
-The coefficient $\beta_3$'s significance level tells us if there is a statistically significant interaction. If $\beta_3$ is not statistically significant, we can often remove the interaction term. However, if $\beta_3$ is statistically significant, that means we have found two terms that interact.
+The coefficient $\beta_3$'s significance level tells us if there is a statistically significant interaction.
+
+-   If $\beta_3$ is not statistically significant, we can often remove the interaction term.
+
+-   However, if $\beta_3$ is statistically significant, that means we have found two terms that interact.
 :::
 
-#### Binary Moderating Effect
-
-Often times, our [moderating effect $X_2$ is a binary variable]{.underline} (for example, developed/developing country, true/false, yes/no). In this scenario:
-
--   $\hat{\beta}_1$ is the relationship between $X_1$ and $Y$ when $X_2$ is in the category $X=0$.
-
--   $\hat{\beta}_1 + \beta_3$ is the relationship between $X_1$ and $Y$ when $X_2$ is in the category $X=1$.
-
--   $\hat{\beta}_3$ is the difference in the magnitude of the relationship between $X_1$ and $Y$, between the categories $X=1$ and $X=0$.
-
-You can get all of these interpretations above simply by plugging in $X_2 = 0$ and $X_2 = 1$ into the previous equations we have found.
-
-### Explanatory Variables in R
+### Transformations and Interactions in R
 
 ## Gauss-Markov Theorem and Causal Inference
 
@@ -1321,18 +1341,18 @@ However, do note that the more correlated two explanatory variables are, the mor
 
 If we are selecting highly correlated control variables, this issue does not matter at all - after all, we don't care about the effect of control variables, they are just there to control for confounders. However, we probably do not want a highly correlated variable with our main treatment variable - since that can muddy the effect of the treatment variable.
 
-### Exogeniety, Endogeniety, and Homoscedasticity
-
-#### Exogeniety and Endogeniety
+### Exogeniety and Endogeniety
 
 ::: callout-tip
-## Key Definition: Exogeniety
+## Key Definition
 
-The fourth Gauss Markov Assumption is Exogeniety: the error term and regressors are uncorrelated. In other words, the change in $X$ should not affect the expected value of the error. Mathematically:
+The fourth Gauss Markov Assumption is **Exogeniety**: the error term and regressors are uncorrelated. In other words, the change in $X$ should not affect the expected value of the error. Mathematically:
 
 $$
 \mathbb{E}[\epsilon_i|\overrightarrow{X}_i] = 0, \space \forall i
 $$
+
+The opposite is **Endogeniety**, when an explanatory variable is correlated with the error term.
 :::
 
 We actually proved this theorem earlier when deriving the OLS estimator. Let us take the example of bivariate linear regression, since it is easier to show. First, let us recall the first-order conditions to maximise our sum of squared errors, for both $\hat{\alpha}$ and $\hat{\beta}$: $$
@@ -1362,7 +1382,7 @@ However, when this assumption is not met, we say that the specific $X_j$ that ar
 
 -   We will discuss the Instrumental Variable Estimator later, which deals with endogenous regressors.
 
-#### Homoscedasticity and Heteroscedasticity
+### Homoscedasticity and Heteroscedasticity
 
 ::: callout-tip
 ## Key Definition: Homoscedasticity
@@ -1521,23 +1541,6 @@ model2 <- plm(Y ~ X1 + X2, data = mydata,
 Important note: Often, the variable *year* is encoded as numeric, but we want it to be a categorical variable for fixed effects, so use the *as.factor()* function to coerce the variable *year*.
 
 Also, you can do this in base-r with the *lm()* function as shown throughout the regression examples, just by including the cluster variable as a categorical explanatory variable, however, the output is not as nice.
-
-#### Example
-
-Let us run the same example we did in chapter 4, but this time with two-way fixed effects:
-
-```{r, eval = FALSE}
-# coerce year into factor
-democracy_data$year <- as.factor(democracy_data$year)
-
-# model
-model <- plm(polity_2 ~ GDP_Per_Cap_Haber_Men_2 + Total_Oil_Income_PC,
-    data = democracy_data, index = c("cnamehabmen", "year"),
-    effect = "twoways", model = "within")
-summary(model)
-```
-
-The resulting output is the same as a typical linear regression. The *plm()* function will not display the coefficients of the fixed effects (as these will typically be very long, since if you have for example, 120 countries, that is 119 dummy variables). That is the primary reason why it is preferred over the *lm()* function, which will include every dummy variable in the regression output. We typically do not care about the fixed effect values, we just care that the clusters have been accounted for.
 
 ## Instrumental Variables Framework
 
