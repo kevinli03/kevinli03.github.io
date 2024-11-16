@@ -32,7 +32,6 @@ This book, Further Quantitative Methods, is a collection of mathematical and sta
 
 ## Matrices
 
-
 ### Matrix Operations
 
 topics 3.2-3.3
@@ -49,7 +48,6 @@ topics 3.2-3.3
 
 ### Linear Systems of Invertible Square Matrix
 
-
 ## General Linear Systems
 
 ### Geometric Insight of a 2-Dimensional Plane
@@ -61,7 +59,6 @@ topics 3.2-3.3
 ### Solution Sets and Linearity
 
 ### Analysing Solution Sets with the Rank
-
 
 # Basics of Probability and Statistics
 

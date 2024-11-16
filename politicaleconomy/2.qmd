@@ -31,6 +31,34 @@ include-before-body:
     }
 ---
 
+## Preface {.unnumbered}
+
+This book is designed to be both an approachable, but also rigorous, introduction to Econometrics and the use of statistical methods for the analysis of political institutions and actors. This volume specifically covers most topics you would study in a typical econometrics undergraduate course in an economics department, and is likely more in depth than what you would get in a political science department.
+
+I assume a solid understanding of basic statistics, including the topics of conditional probabilities, random variables and distributions, expectation/mean and variance, and correlation.
+
+I also assume a solid understanding of mathematics, including algebra, single variable calculus, and some linear algebra. While you will be able to still learn from this book without a solid mathematical background, you will gain much more from understanding the mathematics behind the methods.
+
+To see what mathematics is specifically required, or to refresh on the mathematics needed, consult the **Quantitative Methods** sequence (particularly [the 1st volume](https://kevinli03.github.io/math/1.pdf) and some topics in the [2nd volume](https://kevinli03.github.io/math/2.pdf)).
+
+I will also add some reference code for the R-programming language and Stata in case you are interested in implementing these methods on your own.
+
+ 
+
+This book is the second book in a sequence on **Political Economics**.
+
+-   [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf) (this book) introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
+
+-   [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf) introduces key statistical/econometric methods used to empirically test models and phenomena with real-world data.
+
+-   [Economic Analysis of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf) applies the microeconomic theory and econometric techniques discussed in the previous book to current academic topics.
+
+-   [Advanced Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/4.pdf) introduces more complex topics in econometrics, including further regression models, multivariate analysis, and time series.
+
+This book is designed to provide the econometric/statistical skills to empirically analyse the microeconomic models of politics we go through in the first book. The third book combines topics from both microeconomics and econometrics and shows how they can be applied to current day research in politics.
+
+If you have completed this book, and want more econometrics training, the 4th book in the *An Introduction to Political Economics* series, *Advanced Econometrics for Political Analysis*, builds on this book by adding further statistical and econometric models that help with more advanced topics.
+
 # Econometrics and Causal Inference
 
 ## Causal Inference
@@ -42,17 +70,19 @@ include-before-body:
 1.  **Causal Inference**: Establishing how one feature directly causes another feature. This is essential to understanding the world around us and designing better policies. Key point: correlation ≠ causation.
 2.  **Predictive Inference/Forecasting**: Given data we have, how can we predict the values of data we do not have? For example, what will sales be next year? GDP? Who will win the next election? What are the likely costs/effects of a policy?
 
-This book is designed to be both an approachable, but also rigorous, introduction to Econometrics and the use of statistical methods for the analysis of political institutions and actors. This volume specifically covers most topics you would study in a typical econometrics undergraduate course in an economics department, and is likely more in depth than what you would get in a political science department.
+This book focuses mostly on Causal Inference, which is generally the more important and commonly used part of econometrics for political science. The later book in the series, *Advanced Econometrics for Political Analysis*, dives more into the predictive side of things.
 
--   This books is the 2nd in the *An Introduction to Political Economics* series, which focuses on using economic methods, such as microeconomic modelling and econometrics, to study political phenomena. This book is designed to complement the other books in this series.
+ 
 
-I assume a solid understanding of basic statistics, including the topics of random variables and distributions, expectation/mean and variance, and correlation. I also assume familiarity with algebra, single variable calculus, and some linear algebra. While you will be able to still learn from this book without a solid mathematical background, you will gain much more from understanding the mathematics behind the methods.
+The most important thing about econometrics and causal inference is that [**correlation does not equal causation**]{.underline}.
 
--   To see what mathematics is specifically required, or to refresh on the mathematics needed, consult the **Quantitative Methods** sequence (particularly [the first volume](https://kevinli03.github.io/math/1.pdf) and some topics in the 2nd volume).
+For example, *Ice Cream Sales* and *Number of Fatal Shark Attacks* are two highly correlated variables in the United States. Does this mean that selling ice cream causes fatal shark attacks? No!
 
-I will also add some reference code for the R-programming language in case you are interested in implementing these methods on your own.
+The reason this relationship exists is because of another variable - the *weather*. The weather, when it is sunny, causes both ice cream sales and more people to go to the beach, which causes more fatal shark attacks. However, there is no direct link between ice cream sales and the number of fatal shark attacks.
 
-If you have completed this book, and want more econometrics training, the 4th book in the *An Introduction to Political Economics* series, *Advanced Econometrics for Political Analysis*, builds on this book by adding further statistical and econometric models that help with more advanced topics.
+The goal of econometrics is to distinguish between correlation and causation. We want to "partial out" the effect of confounding variables (like the sunny weather in the above example), and isolate the causal effects.
+
+We will then discuss Randomised Controlled Trials, the best way of estimating causal effects. However, these randomised trials are often impossible to do in Economics and Political Science, so we will spend the remainder of the book finding different methods and techniques to approximate the true causal effects.
 
 ### Potential Outcomes Framework
 
@@ -389,7 +419,7 @@ The rest of this course focuses on observational studies. We will introduce regr
 
 # Multiple Linear Regression
 
-## Regression Models and Estimation
+## Linear Models and OLS Estimator
 
 ### Linear Regression Model
 
@@ -475,7 +505,7 @@ Or more intuitively, it is exactly as it sounds - find the error of our predicti
 The **Ordinary Least Squares (OLS) Estimator** estimates our parameters $\alpha, \beta_1, ..., \beta_k$ through finding the values of $\alpha, \beta_1, ..., \beta_k$ that minimizes the sum of squared errors for our predictions.
 :::
 
-### Bivariate Regression Estimation Mechanics
+### OLS Estimator for Bivariate Regression
 
 A bivariate regression is a regression model with one explanatory variable $X$. The **ordinary least squares** (OLS) estimator is concerned with the sum of squared errors. Let us define the sum of squared errors as a function $S$. $$
 S(\hat{\alpha}, \hat{\beta})  = \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2
@@ -553,28 +583,16 @@ Then solve for $\hat{\beta}$ to get the **OLS estimator** for bivariate regressi
 $$
 :::
 
-Thus, with this solution, we have estimated $\hat{\beta}$. If we recall, $\hat{\alpha} = \bar{Y} - \hat{\beta}\bar{X}$, so we can quickly solve for that as well. Thus, we now have $\hat{\beta}, \hat{\alpha}$, completing our estimation. We can now put everything into the fitted model: $$
-\hat{Y}_i = \hat{\alpha} + \hat{\beta}X_i
-$$
+### OLS Estimator for Multiple Regression
 
-The only thing that must be true to estimate bivariate linear regression is that $Var(X) ≠ 0$.
-
-### Multiple Regression Estimation Mechanics
-
-Multiple regression, as introduced previously, allows us to add additional control variables: $$
-Y_i = \hat{\alpha} + \hat{\beta}_1X_{1i} + \hat{\beta}_2 X_{2i} + ... + \hat{\beta}_k X_{ki}
-$$
-
-Similar to our bivariate regression (but with additional variables), our minimisation condition is: $$
+Multiple regression, as introduced previously, allows us to add additional control variables. Similar to our bivariate regression (but with additional variables), our minimisation condition is:$$
 \begin{split}
 (\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...) & = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i} ...)^2 \\
 & = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} S(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)
 \end{split}
 $$
 
-However, instead of a best-fit line in a 2-dimensional setting, we now have a best-fit plane in a 3-dimensional space (or higher depending on the number of explanatory variables).
-
-Taking the partial derivatives of each parameter as before, and setting them equal to 0, we get these three first order conditions: $$
+Taking the partial derivatives of each parameter as before, and setting them equal to 0, we get these first order conditions::$$
 \begin{split}
 & -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
 & -2 \sum\limits_{i=1}^n X_{1i}(Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
@@ -583,24 +601,9 @@ Taking the partial derivatives of each parameter as before, and setting them equ
 \end{split}
 $$
 
-Just like before, we can ignore the -2 in the conditions.
+The difficulty is that this is essentially a system of equations with $k+1$ variables and equations, with a bunch of summation notation, which is nearly impossible to solve. However, we have another method to solve this: Linear Algebra.
 
-The 1st equation, solving for $\hat{\alpha}$, is quite simple, just as in bivariate regression. We get:
-
-$$
-\hat{\alpha} = \bar{Y} - \hat{\beta}_1 \bar{X}_1 - \hat{\beta}_2 \bar{X}_2...
-$$
-
-The other conditions are difficult to solve by hand, so the computer will do this for us. However, it is still useful to understand what the computer is trying to do - minimise square errors.
-
-The only properties that are required to compute the multivariate regression OLS estimates are:
-
-1.  All explanatory variables have sample variability $Var(X_j \in \overrightarrow{X}) ≠ 0, \space \forall X_j \in X$.
-2.  No two explanatory variable have **perfect collinearity** - which means a correlation coefficient of -1 or 1, which only occurs if the two variables have the same exact values. Mathematically, $X_{ai} ≠ X_{ai}, \space \forall i, \space \forall X_a, \space X_b \in \overrightarrow{X}$.
-
-### Multiple Regression Estimation with Linear Algebra
-
-By expressing models in linear algebra, it becomes easier to derive formal results without requiring messy algebra and the summation operator. It is also natural, since our data is stored in spreadsheets (big matrices).
+#### Regression With Linear Algebra
 
 We start with the linear model:
 
@@ -608,9 +611,7 @@ $$
 Y_i = \alpha + \beta_1X_{1i} + \beta_2 X_{2i} + ... + \beta_k X_{ki} + \epsilon_i
 $$
 
-The $i$th observation can be written in vector form as following:
-
-$$
+The $i$th observation can be written in vector form as following:$$
 Y = X_i'\beta + \epsilon_i, \text{ where }
 \beta = \begin{bmatrix}
 \alpha \\ \beta_1 \\ \vdots \\ \beta_k
@@ -627,9 +628,7 @@ $$
 
 -   The first element of the $X_i$ matrix is 1, since $1 \times \alpha$ gives us the first parameter in the linear model.
 
-Since our model has $n$ different observations of $i$, we can express this into vector form, with the $X_i'$ and $\beta$ being vectors within a vector.
-
-$$
+Since our model has $n$ different observations of $i$, we can express this into vector form, with the $X_i'$ and $\beta$ being vectors within a vector.$$
 \begin{pmatrix}
 Y_1 \\ Y_2 \\ \vdots \\ Y_n
 \end{pmatrix} = 
@@ -644,9 +643,7 @@ X_1'\beta \\ X_2'\beta \\ \vdots \\ X_n'\beta
 \end{pmatrix}
 $$
 
-Since $\beta$ vector appears as a common factor for all observations $i=1,...,n$, we can factor it out and have an equation:
-
-$$
+Since $\beta$ vector appears as a common factor for all observations $i=1,...,n$, we can factor it out and have an equation:$$
 \begin{pmatrix}
 Y_1 \\ Y_2 \\ \vdots \\ Y_n
 \end{pmatrix} = 
@@ -658,9 +655,7 @@ X_1' \\ X_2' \\ \vdots \\ X_n'
 \end{pmatrix}
 $$
 
-We can expand the $X_1',...,X_n'$ vector into a matrix. Remember that each $X_1',...,X_n'$ is already a vector of different explanatory variables. Thus, we have a model:
-
-$$
+We can expand the $X_1',...,X_n'$ vector into a matrix. Remember that each $X_1',...,X_n'$ is already a vector of different explanatory variables. Thus, we have a model:$$
 Y = X \beta + \epsilon, \text{ where } X = 
 \begin{bmatrix}
 1 & X_{21} & \dots & x_{k1} \\
@@ -684,9 +679,7 @@ $$
 \hat{\beta} = \arg \min\limits_{b} (Y - Xb)' (Y - Xb) = \arg \min\limits_b S(b)
 $$
 
-We can expand $S(b)$ as follows:
-
-$$
+We can expand $S(b)$ as follows:$$
 \begin{split}
 S(b) & = Y'Y - b'X'Y - Y'Xb + b'X'Xb \\
 & Y'Y - 2b'X'Y + b'X'Xb
@@ -705,7 +698,7 @@ $$
 \Biggr{|}_{\hat{\beta}} = 0
 $$
 
-Differentiating with the vector $b$ yeilds:
+Differentiating with the vector $b$ yields:
 
 $$
 \frac{\partial S(b)}{\partial b} = -2X'Y + 2X'Xb
@@ -727,13 +720,94 @@ $$
 $$
 :::
 
-The matrix $X'X$ is invertible for the same criteria as the non-linear algebra solution - that all explanatory variables have non-zero variance, and there is no perfect collinearity.
-
 Once we have estimates of $\hat{\beta}$, we can plug them into our linear model to obtain fitted values:
 
 $$
 \hat{Y} = X\beta = X(X'X)^{-1} X'Y
 $$
+
+### Gauss-Markov Theorem
+
+Why do we specifically use the OLS estimator for estimating parameters? The reason is the Gauss-Markov Theorem:
+
+::: callout-tip
+## Key Definition: Gauss-Markov Theorem
+
+The Gauss-Markov Theorem states that the OLS esimator is the best linear unbiased estimate (BLUE) with the lowest sampling variance of any linear estimator, given 5 conditions are met:
+
+1.  Linearity of Parameters
+2.  Random sampling from the population
+3.  Non-perfect collinearity
+4.  Exogeniety
+5.  Homoscedasticity
+:::
+
+Or in other words, the OLS estimator under these conditions is both:
+
+-   Unbiased: The expected value of the estimator over multiple estimations, is the true parameter value (the proof of this is beyond the scope of this book).
+
+-   The linear unbiased estimator with the lowest sampling variance - i.e. each estimate will be the least spread out, in comparison to any other linear unbaised estimator.
+
+As discussed previously (section 1.3), we want a causal estimator that is low-bias and low-variance, and OLS, under these assumptions, is exactly that! Let us explore the assumptions - the first 3 are straight-forward:
+
+**Assumption 1: Linearity of Parameters**. This essentially means that the coefficients of the model $\alpha, \beta_1, ..., \beta_k$ are always added/subtracted from each other, and never multiplied together.
+
+-   Note: the actual explanatory variables $X_1, ..., X_k$ can be multiplied together (as we will show in later chapters). The key thing is that the parameters are linear, not the explanatory variables.
+
+**Assumption 2: Random Sampling from the Population**. This assumption is met when we do random assignment, which is essentially random sampling of potential outcomes.
+
+**Assumption 3: No Perfect Multicollinearity**. This means no two explanatory variables can have correlation coefficient of -1 or 1, which only occurs if the two variables have the same exact values. Mathematically, $X_{ai} ≠ X_{ai}, \space \forall i, \space \forall X_a, \space X_b \in \overrightarrow{X}$.
+
+-   The matrix $X'X$ is invertable only when these two conditions are met, so if this assumption is violated, we cannot even calculate the OLS estimate.
+
+#### Assumption 4: Exogeniety
+
+::: callout-tip
+## Key Definition
+
+**Exogeniety** is when the error term and regressors are uncorrelated. In other words, the change in $X$ should not affect the expected value of the error. Mathematically:
+
+$$
+\mathbb{E}[\epsilon_i|\overrightarrow{X}_i] = 0, \space \forall i
+$$
+
+The opposite is **Endogeniety**, when an explanatory variable is correlated with the error term.
+:::
+
+We can prove this with the OLS estimator. First, let us recall the first-order conditions to maximise our sum of squared errors, for both $\hat{\alpha}$ and $\hat{\beta}$. We also know that the error/residual is $\epsilon_i = Y_i - \hat{\alpha} - \hat{\beta}$. substituting in, we get:$$
+\begin{split}
+& \sum_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = \sum_{i=1}^n \epsilon_i = 0 \quad \text{sum of residuals is 0} \\
+& \sum_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = \sum_{i=1}^n X_i \epsilon_i = 0 \quad \text{no covariance/corre between } X \text{ and } \epsilon
+\end{split}
+$$
+
+Thus, naturally, if the average residuals are 0, and they are uncorrelated with any $X$, then the residuals conditional on $X$ should also be 0.
+
+When we have some $X$ that is **endogenous**, we violate the assumption. We will discuss the Instrumental Variable Estimator later, which deals with endogenous regressors.
+
+#### Assumption 5: Homoscedasticity
+
+::: callout-tip
+## Key Definition: Homoscedasticity
+
+**Homoscedasticity** is the assumption that the variance of the error term is consistent and constant for all values of the explanatory variables. Mathematically:
+
+$$
+Var(\epsilon|\overrightarrow{X}) = \sigma^2
+$$
+
+If this assumption is violated, we have **heteroscedasticity**.
+:::
+
+The simplest way to identify heteroscedasticity is to look at the residual plots - a plot with explanatory variables on the $x$-axis, and residuals on the $y$-axis.
+
+-   If the residuals show no pattern, then there is no heteroscedasticity. If there is a pattern, for example, if the residuals are very small when $X$ is small, and very big when $X$ is big, then we have heteroscedasticity.
+
+-   There are also more formal tests for this, but they take more effort than it is worth. Thus, we will not delve into these heteroscedasticity tests.
+
+OLS is still unbiased as long as the first 4 assumptions are met. Heteroscedasticity does not cause bias or inconsistency in the estimates of coefficients.
+
+-   However, heteroscedasticity does have some implications for causal inference and hypothesis testing, which we will discuss in the next chapter.
 
 ## Interpretation and Hypothesis Testing
 
@@ -862,9 +936,23 @@ Since $R^2$ shows how much of the variation in $Y$ our model explains, it is oft
 
 ### Hypothesis Testing
 
+#### Robust Standard Errors
+
+So far, we have focused on using standard errors of parameter estimates that were introduced in section 2.2.
+
+However, these "default" standard errors rely on the assumption of **homoscedasticity** (see section 3.4). However, homoscedasticity is frequently violated.
+
+When homoscedasticity is violated, we have to use an alternative estimation of the standard error: **heteroscedasticity-robust standard errors**.
+
+-   These robust standard errors are typically larger than the homoscedastic "default" standard errors.
+
+-   Because homoscedasticity is frequently violated, and that robust standard errors are more "conservative", we typically use robust standard errors as the "default" in econometrics.
+
+The calculation of robust-standard errors will be done with calculators, and it is not important to know how the mathematics work.
+
 #### Confidence Intervals
 
-We previously discussed confidence intervals in section 2.4. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate. To account for sampling variation, we have to create an interval around our estimate $\hat{\beta}_j$ to account for this uncertainty. We assume our estimated $\hat{\beta}_j$ is the centre of this distribution, then add some "buffer" to both sides:
+We previously discussed confidence intervals in section 2.4. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate.
 
 $$
 \hat{\beta}_j ± 1.96 \times \hat{se}(\hat{\beta}_j)
@@ -921,36 +1009,118 @@ The sampling distribution of the F-statistic is the F distribution with paramete
 
 F-tests of nested models can help us determine if we should include certain extra explanatory variables. If our model with more variables is statistically significant, it is an indication that we should include those extra variables.
 
-### Regression in R
+### Interpreting Regression Tables
 
-We use the *lm()* function to run a regression: The general syntax is as follows:
+In most research papers, regression results will be presented in a table. A typical regression table will look like this:
 
--   Replace *model_name* with your model name, *Y* with the name of your response variable, *X1, X2...* with the name of your explanatory variable, and *mydata* with the name of your dataset.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{l c c c c}
+\hline
+ & Education & Mosques per 1,000 & Prop.in Poverty & Total Budget \\
+\hline
+Intercept               & $11.503^{***}$ & $1.474^{***}$ & $0.405^{***}$ & $81.983^{***}$ \\
+                        & $(0.196)$      & $(0.060)$     & $(0.015)$     & $(2.980)$      \\
+Treatment               & $-0.069$       & $-0.062$      & $0.009$       & $-1.760$       \\
+                        & $(0.241)$      & $(0.074)$     & $(0.019)$     & $(4.179)$      \\
+\hline
+Num. obs.               & $562$          & $565$         & $560$         & $565$          \\
+R$^2$ (full model)      & $0.000$        & $0.001$       & $0.000$       & $0.000$        \\
+Adj. R$^2$ (full model) & $-0.002$       & $-0.001$      & $-0.001$      & $-0.002$       \\
+\hline
+\multicolumn{5}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$}}
+\end{tabular}
+\caption{Coefficients estimated with OLS estimator. Robust standard errors provided in Parentheses}
+\label{table:coefficients}
+\end{center}
+\end{table}
 
--   Add additional explanatory variables with more $+$ signs, and you can remove them down to a minimum of one $X$
+Each column in the table represents a different model. In this table, *Education*, *Mosques per 1,000*, *Prop in Poverty*, and *Total budget* are the different models.
+
+-   If the models have different outcome variables (the paper should make this clear), the column names are typically the outcome variable names. This table is a case of that.
+
+-   However, often, the outcome variables are the same between all columns, and each is a slightly different model that indicates how coefficients change with different control variables.
+
+In the table, we can see the rows *Intercept* and *Treatment**.***
+
+-   The *Intercept* row represents the intercept $\hat{\alpha}$. The main number is the coefficient estimate, and the parentheses include the robust standard errors.
+
+-   The *Treatment* row represents the $\hat{\beta}$ coefficient that is multiplied to the variable *Treatment*. The main number is the coefficient estimate, and the parentheses include the robust standard errors.
+
+-   If there are more explanatory variables, they will be included in further rows, each indicated by the name of the variable in question.
+
+-   The stars (\*\*\*) represent significance level (as indicated in the legend at the bottom of the table).
+
+Below, we have some model summary statistics, including the number of observations, $R^2$, and adjusted $R^2$ numbers.
+
+This table is a good example of how a typical regression table is made - so if you ever run a regression for a research paper, this is how you would report your results.
+
+### Implementation in R and Stata
+
+#### Implementation in R
+
+We will first need the *fixest* package. If you have never used it before, install it as follows:
 
 ```{r, eval = FALSE}
-model_name <- lm(Y ~ X1 + X2 + X3, data = mydata)
+install.packages("fixest")
+```
+
+Once you have installed it (or previously installed it), load it every time you open R as follows:
+
+```{r, eval = FALSE}
+library(fixest)
+```
+
+We use the *feols()* function to run a **regression**: The general syntax is as follows:
+
+```{r, eval = FALSE}
+model_name <- lm(Y ~ X1 + X2 + X3, data = mydata, se = "hetero")
 summary(model_name)
 ```
 
-#### Confidence Intervals in R
+-   Replace *model_name* with your model name, *Y* with the name of your response variable, *X1, X2...* with the name of your explanatory variable, and *mydata* with the name of your dataset.
 
-To calculate confidence intervals, we can use the *confint()* command, and simply input the name of our model within:
+-   Add additional explanatory variables with more $+$ signs, and you can remove down to one $X$.
+
+-   The final argument, *se = "hetero"*, tells R to calculate heteroscedasticity-robust standard errors, which are standard in econometrics. However, if you can prove homoscedasticity, you can remove this argument for default standard errors.
+
+We can also use the base-R *lm()* function, however, this function is unable to calculate robust standard errors. The syntax for *lm()* is the same, just without the *se = "hetero"* argument.
+
+To calculate **confidence intervals**, we can use the *confint()* command, and simply input the name of our model within:
 
 ```{r, eval = FALSE}
 confint(model)
 ```
 
-#### F-Test of Nested Models in R
-
-If we want an F-test between two models, we can use the *anova()* function, replacing *model1* with the name of the null hypothesis model $M_0$, and replacing *model2* with the name of the alternative hypothesis model $M_a$.
+If we want an **F-test** between two models, we can use the *anova()* function, replacing *model1* with the name of the null hypothesis model $M_0$, and replacing *model2* with the name of the alternative hypothesis model $M_a$.
 
 ```{r, eval = FALSE}
 anova(model1, model2)
 ```
 
-## Categorical Explanatory Variables
+#### Implementation in Stata
+
+To run **regression** in Stata, use the *regress* function:
+
+```         
+regress Y X1 X2 X3, robust
+```
+
+-   Replace *Y* with the name of your response variable, *X1, X2...* with the name of your explanatory variable.
+
+-   Add additional explanatory variables by simply adding more seperated by a space, and you can remove down to one explanatory variable.
+
+-   The final argument, *robust*, tells Stata to calculate heteroscedasticity-robust standard errors, which are standard in econometrics. However, if you can prove homoscedasticity, you can remove this argument for default standard errors.
+
+To calculate **confidence intervals**, we first use the *collect* function to create a collection, *collect* prefix to store our coefficients from our regression, then *collect layout* to display the results:
+
+```         
+collect create confidence
+collect _r_b _r_ci: regress Y X1 X2 X3, robust
+collect layout (colname) (result)
+```
+
+## Further Topics in Regression
 
 ### Binary Explanatory Variables
 
@@ -974,19 +1144,9 @@ $\alpha + \beta$ is the expected value of $Y$ given an observation in category $
 $\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$
 :::
 
-Thus, we can see that $\beta$ is measuring the difference between the two categories. In fact, $\beta$ actually becomes a difference-in-means test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
+Thus, we can see that $\beta$ is measuring the difference between the two categories. In fact, $\beta$ actually becomes a **difference-in-means** test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
 
 ### OLS and Difference-in-Means Estimator
-
-Because of the unique coefficient meanings in a regression with binary explanatory variables, the OLS estimator can take a shortcut when estimated the coefficients $\alpha$ and $\beta$:
-
--   Coefficient $\alpha$ is estimated as $\hat{\alpha} = \bar{Y}_0$
-
--   Coefficient $\beta$ is estimated as $\hat{\beta} = \bar{Y}_1 - \bar{Y}_0$
-
-Where $\bar{Y}_1$ is the sample mean of $Y$ for observations in category $X=1$, and $\bar{Y}_0$ is the sample mean of $Y$ for observations in category $X = 0$. So essentially, OLS is using a **difference of means** estimator.
-
-#### Proof:
 
 Let us prove that the bivariate OLS estimator with binary $X$ is equivalent to a difference in means. In Chapter 3, we proved the OLS estimator produces the following $\hat{\beta}$ solution:
 
@@ -1001,9 +1161,7 @@ Let us focus on the numerator of the $\hat{\beta}$ OLS solution. Let us expand o
 \end{split}
 $$
 
-We know that $X$ is a binary variable with $X=1$ being the treatment state $t$, and $X=0$ being the control state $c$.
-
-Note, $N$ indicates the number of observations, and $N_t$ indicates number of observations in treatment group. We can now actually evaluate the 4 summations we have found from expanding, and simplify further: $$
+We know that $X$ is a binary variable with $X=1$ being the treatment state $t$, and $X=0$ being the control state $c$. $N$ indicates the number of observations, and $N_t$ indicates number of observations in treatment group. We can evaluate the 4 summations we have found from expanding, and simplify further: $$
 \begin{split}
 \sum\limits_{i=1}^N X_i Y_i - \sum\limits_{i=1}^N X_i \bar{Y} - \sum\limits_{i=1}^N \bar{X} Y_i + \sum\limits_{i=1}^N \bar{X} \bar{Y} & = N_t \bar{Y}_t - N_t \bar{Y} - N \left(\frac{N_t}{N} \right) \bar{Y} + N \left(\frac{N_t}{N} \right) \bar{Y} \\
 & = N_t\bar{Y}_t - N_t \bar{Y} - N_t \bar{Y} + N_t \bar{Y} \\
@@ -1059,7 +1217,7 @@ $$
 \hat{\beta} = \bar{Y}_t - \bar{Y}_c
 $$
 
-Our final estimate of $\hat{\beta}$ with OLS is, as seen above, equivalent to difference of means.
+Our final estimate of $\hat{\beta}$ with OLS is thus equivalent to difference of means. If we remember, the Average Treatment Effect $\mathbb{E}[\tau_i]$ in a randomised experiment is also the difference in means. Thus, we can use the OLS estimator to estimate the average treatment effect.
 
 ### Polytomous Explanatory Variable
 
@@ -1125,115 +1283,6 @@ $\alpha$ is the expected value of $Y$ of the baseline category.
 The coefficient $p$-values of $\beta_j$ are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable.
 :::
 
-### Categorical Explanatory Variables in R
-
-## Transformations and Interactions
-
-### Polynomial Transformations
-
-Sometimes, a linear (straight-line) best-fit line is a poor description of a relationship. We can model more flexible relationships that are not straight lines, by including a transformation of the variable $X$ that we are interested in.
-
-#### Quadratic Transformations
-
-::: callout-tip
-## Key Definition: Quadratic Transformation
-
-Quadratic transformations of $X_j$ take the following form:
-
-$$
-\mathbb{E}[Y_i |\overrightarrow{X}] = \alpha + \beta_1 X_{ji} + \beta_2 X^2_{ji} + \text{other explanatory variables}
-$$
-:::
-
-If you recall from high-school algebra, an equation that takes the form of $y = ax^2 + bx + c$ creates a *parabola*. A true parabola has a domain of $(-∞, ∞)$. However, our model often does not need to do this. The best-fit parabola is only used for the range of plausible $X$ values, given the nature of our explanatory variable. For example, if $X$ was age, a negative number would make no sense. Because the parabola's domain often exceeds our plausible range of $X$ values, the vertex of the parabola (where it changes directions) may not be in our data.
-
-We always include lower degree terms in our model. For example, in this quadratic (power 2) model, we also include the $X$ term without the square. To fit a model like this, we simply do the same process of minimising the sum of squared errors. How do we interpret the coefficients $\beta_1$ and $\beta_2$?
-
-::: callout-note
-## Interpretation of Quadratic Transformations
-
-$\beta_1$'s value is no longer directly interpretable. This is because we cannot "hold all other coefficients constant", since $\beta_2$ also contains the same $X$ variable.
-
- 
-
-$\beta_2$'s value also cannot be directly interpreted. [If the coefficient of $\beta_2$ is statistically significant, we can conclude that there is a non-linear relationship between $X$ and $Y$]{.underline}. If $\beta_2$ is negative, the best-fit parabola will open downwards, and if $\beta_2$ is positive, the best-fit parabola will open upwards.
-:::
-
-If we want to interpret the magnitude of the model, we are best off using predicted values of $Y$ (obtained using the model equation above).
-
-There is one more thing we can interpret with the quadratic transformation: the **vertex** of the best-fit parabola. The vertex, if we remember our algebra, is either the maximum or minimum point of a parabola. Thus, if we remember from calculus and optimisation, we can find the maximum and minimums through setting the derivative equal to 0. For the quadratic model, this is as follows - we first find the derivative, then set the derivative equal to 0: $$
-\begin{split}
-& \hat{Y} = \hat{\alpha} + \hat{\beta}_1X + \hat{\beta}_2 X^2 \\
-& \frac{d \hat{Y}}{dX} = 0 + \hat{\beta}_1 + 2\hat{\beta}_2X \\
-& 0 = \hat{\beta}_1 + 2 \hat{\beta}_2X \\
-& - \hat{\beta}_1 = 2 \hat{\beta}_2 X \\
-& X = \frac{-\hat{\beta}_1}{2 \hat{\beta}_2}
-\end{split}
-$$
-
-This point is useful, as it is either the maximum or minimum of our best-fit parabola. This means that at the $X$ value we calculate from this equation, we will either see the highest or lowest expected $Y$ value.
-
-#### General Polynomial Models
-
-While quadratic models are the most common polynomial transformation, we do not have to stop there. We can continue to add further polynomials (although anything beyond cubic is exceedingly rare):
-
--   Cubic: $E[Y] = \alpha + \beta_1 X + \beta_2 X^2 + \beta_3 X^3$
-
--   Quartic: $E[Y] = \alpha + \beta_1 X + \beta_2 X^2 + \beta_3 X^3 + \beta_4 x^4$
-
-Each higher order coefficient, if statistically significant, indicates that the relationship between $X$ and $Y$, is not of the previous highest power. For example, if the cubic term $\beta_3$ is statistically significant, we can reject a quadratic relationship between $X$ and $Y$
-
-Remember to always include the lower power monomials within our polynomial model. For example, if you have a quartic transformation, you must also have the linear, quadratic, and cubic terms.
-
-### Logarithmic Transformations
-
-Logarithmic transformations are another form of non-linear transformations. These are commonly used for heavily skewed variables, such as when the explanatory variable is income, wealth, and so on.
-
-In situations with heavily skewed variables, we often replace $X$ in our models with $\log(X)$. Note that in statistics, when we refer to logarithms, we are referring to natural logarithms, such that $\log(X) = \ln(X)$.
-
-::: callout-tip
-## Key Definition: Logarithmic Transformation
-
-The logarithmic transformation of explanatory variable $X_j$ takes the following form:
-
-$$
-\mathbb{E}[Y_i | \overrightarrow{X}] = \alpha + \beta_j \log(X_j) + \text{other explanatory variables}
-$$
-:::
-
-**Interpretation** of the $\beta$ coefficient can be a little bit trickier for logarithmic transformations. We could interpret it in the same way we interpret linear regressions: given a one unit increase in the log of $X$, there is an expected $\beta$ change in $Y$. However, this issue is that this does not really say much - I mean, who knows what a *one unit increase in the log of* $X$ even means?
-
-With some properties of logarithms, we can actually create a more useful interpretation. Based on logarithm rules, we know the following to be true: $$
-\begin{split}
-\log(X) + A & = \log(X) + \log(e^A) \\
-& = \log(e^A \times X)
-\end{split}
-$$
-
-Now, let us plug this into our original regression model: $$
-\begin{split}
-E[Y|X] & = \alpha + \beta\log(X) \\
-E[Y|e^A \times X] & = \alpha + \beta \log(e^A \times X) \\
-& = \alpha + \beta[\log(X) + A] \\
-& = \alpha + \beta A + \beta \log(X)
-\end{split}
-$$
-
-Now find the difference between $E[Y|e^A \times X]$ and $E[Y|X]$: $$
-\begin{split}
-E[Y|e^A \times X] - E[Y|X] & = [\alpha + \beta A + \beta\log(X)] - [\alpha + \beta\log(X)] \\
-E[Y|e^A \times X] - E[Y|X] & = \beta A
-\end{split}
-$$
-
-Thus, we can seen that when we multiply $X$ by $e^A$, we get an expected $\beta A$ change in $Y$. We can make this interpretation more useful by purposely choosing some value $A$ that makes $e^A$ make more sense. For example, if $A = 0.095$, then $e^A = 1.1$, and multiplying by 1.1 is a 10% increase.
-
-::: callout-note
-## Interpreation: Logarithmic Transformation
-
-When $X_j$ increases by 10%, there is a expected $0.095\beta_j$ unit change in $Y$
-:::
-
 ### Interaction Effects
 
 Interactions, also called moderating effects, means that the effect of some $X_j$ on $Y$ is not constant, and depends on some third variable $X_k$. Essentially, $X_k$'s value changes the relationship between $X_j$ and $Y$.
@@ -1242,9 +1291,7 @@ Interactions, also called moderating effects, means that the effect of some $X_j
 
 -   We could quite reasonably expect that in the effect of a economic crash on a chance of civil war would be significantly higher in developing nations rather than developed.
 
--   Or in other words, the chance that a civil war occurs due to a economic crash is higher in countries like Venezuela, North Korea and Eritrea, compared to the relationship in Norway, Switzerland, and Denmark.
-
--   Essentially, $X_1$'s effect on $Y$ is affected by the value of $X_2$.
+Or in other words, the chance that a civil war occurs due to a economic crash is higher in countries like Venezuela, North Korea and Eritrea, compared to the relationship in Norway, Switzerland, and Denmark. Essentially, $X_1$'s effect on $Y$ is affected by the value of $X_2$.
 
 ::: callout-tip
 ## Key Definition: Interaction Effect Regression
@@ -1258,7 +1305,7 @@ $$
 Note: you can see in the above equation, $X_1$ and $X_2$ both are interacted, as well as have their own separate coefficients. We should always include both variables independently along with the interaction effect.
 :::
 
-We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$. We show this through finding the partial derivative of $X_1$ on $Y$, since the derivative is, by definition, the function of the rate of change between $X_1$ and $Y$. $$
+We can mathematically show that the effect of $X_1$ on $Y$ is not constant - and varies due to the value of $X_2$: $$
 \begin{split}
 \hat{Y} & = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2 \\
 \frac{\partial \hat{Y}}{\partial X_1} & = 0 + \hat{\beta}_1 + 0 + \hat{\beta}_3X_2 \\
@@ -1280,17 +1327,15 @@ With these equations, we can interpret the coefficients of our model more genera
 ::: callout-note
 ## Interpretation of Interaction Effects
 
-$\hat{\beta}_1$ is the relationship between $X_1$ and $Y$, given $X_2 = 0$.
+The coefficients in a regression with interaction effects are interpreted as:
 
-$\hat{\beta}_2$ is the relationship between $X_2$ and $Y$, given $X_1 = 0$.
+-   $\hat{\beta}_1$ is the relationship between $X_1$ and $Y$, given $X_2 = 0$.
 
- 
+-   $\hat{\beta}_2$ is the relationship between $X_2$ and $Y$, given $X_1 = 0$.
 
-$\hat{\beta}_3$ represents two things. For every one unit increase of $X_2$, the magnitude of the relationship between $X_1$ and $Y$ changes by $\hat{\beta}_3$. Similarly, for every one unit increase of $X_1$, the magnitude of the relationship between $X_2$ and $Y$ changes by $\hat{\beta}_3$.
+-   $\hat{\beta}_3$ represents two things. For every one unit increase of $X_2$, the magnitude of the relationship between $X_1$ and $Y$ changes by $\hat{\beta}_3$. Similarly, for every one unit increase of $X_1$, the magnitude of the relationship between $X_2$ and $Y$ changes by $\hat{\beta}_3$.
 
- 
-
-$\alpha$ is still the expected value of $Y$ when all explanatory variables equal 0.
+-   $\alpha$ is still the expected value of $Y$ when all explanatory variables equal 0.
 
  
 
@@ -1301,151 +1346,11 @@ The coefficient $\beta_3$'s significance level tells us if there is a statistica
 -   However, if $\beta_3$ is statistically significant, that means we have found two terms that interact.
 :::
 
-### Transformations and Interactions in R
+### Implementation in R and Stata
 
-## Gauss-Markov Theorem and Causal Inference
+## Panel Data and Fixed Effects
 
-### Gauss Markov Theorem
-
-::: callout-tip
-## Key Definition: Gauss-Markov Theorem
-
-If these assumptions are true: 1) Linearity of parameters; 2) Random sampling from the population; 3) Non-perfect collinearity; 4) Exogeneity; 5) Homoscedasticity.
-
-The Gauss-Markov Theorem states that the OLS estimator is the best linear unbiased estimator (BLUE) for the coefficients of a linear regression models.
-:::
-
-This is important, as if you meet the assumptions required, you can be confident that you are obtaining the best possible coefficient estimates of any linear model. So - if we are interested in accurately finding the causal effect of $D$ on $Y$, we can be confident we are getting the most accurate estimate.
-
-#### Linearity of Parameters
-
-The first Gauss-Markov Assumption is that the parameters $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ must be **linear**. This does not mean that the best-fit line has to be linear. Linearity of parameters refers to the coefficients $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ must not be multiplied/divided with each other. Different coefficients must be added together.
-
-For example, a moderating effect regression has explanatory variables multiplied together. However, see that all coefficients $\hat{\alpha}, \hat{\beta}_1, ..., \hat{\beta}_k$ are not multiplied together. This is also the case for polynomial transformations, log transformations, and all models we have covered.
-
-#### Random Sampling from Population
-
-The second Gauss-Markov Assumption is that our observations $(\overrightarrow{X}_i, Y_i)$ must be **randomly sampled from the population**. Remember that in Causal Inference, the population is actually the potential outcomes, and our sampling is done through our assignment mechanism.
-
-Thus, in theory, to get the best linear unbiased estimator for a causal effect, we must have a randomised controlled experiment. We do have some other ways to address not meeting this condition, that we will explore later in the book.
-
-#### Non-Perfect Collinearity
-
-The third Gauss-Markov Assumption is that of our explanatory variables $X_1, ..., X_k$, no two can have perfect multicollinearity. Perfect multicollinearity means a perfect correlation/relationship between two of our explanatory variables. Or in other words, one explanatory variable is an exact linear function (with no error) of another explanatory variable.
-
-The reason this is required is mechanical - we discussed this briefly when deriving the OLS estimator in chapter 3. If there is perfect multicollinearity, $X'X$ is no longer invertible, thus making the mechanics of OLS impossible.
-
-To avoid this, when choosing explanatory variables, do not choose two variables that measure the same thing. For example, do not include GDP per capita, and GDP per capita in 1000s of dollars, since they are the same variable, just scaled differently.
-
-However, do note that the more correlated two explanatory variables are, the more variance there is in the estimates. This is because OLS tries to "partial" out effects to each variable, but it is hard to tell what effect one $X$ has on $Y$ compared to another $X$ that is very correlated with it.
-
-If we are selecting highly correlated control variables, this issue does not matter at all - after all, we don't care about the effect of control variables, they are just there to control for confounders. However, we probably do not want a highly correlated variable with our main treatment variable - since that can muddy the effect of the treatment variable.
-
-### Exogeniety and Endogeniety
-
-::: callout-tip
-## Key Definition
-
-The fourth Gauss Markov Assumption is **Exogeniety**: the error term and regressors are uncorrelated. In other words, the change in $X$ should not affect the expected value of the error. Mathematically:
-
-$$
-\mathbb{E}[\epsilon_i|\overrightarrow{X}_i] = 0, \space \forall i
-$$
-
-The opposite is **Endogeniety**, when an explanatory variable is correlated with the error term.
-:::
-
-We actually proved this theorem earlier when deriving the OLS estimator. Let us take the example of bivariate linear regression, since it is easier to show. First, let us recall the first-order conditions to maximise our sum of squared errors, for both $\hat{\alpha}$ and $\hat{\beta}$: $$
-\begin{split}
-& \sum_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = 0 \\
-& \sum_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}_1X_i) = 0
-\end{split}
-$$
-
-We also know that the error/residual is $\epsilon_i = Y_i - \hat{\alpha} - \hat{\beta}$. Let us plug that in to our above equations, we get: $$
-\begin{split}
-& \sum_{i=1}^n \epsilon_i = 0 \\
-& \sum_{i=1}^n X_i \epsilon_i = 0
-\end{split}
-$$
-
-These two equations tell us the following:
-
-1.  The first equation says the OLS residuals always add up to zero. Thus, the average error/residual is also 0.
-2.  The second equation shows that the sample covariance and correlation between $X$ and $\epsilon$ are uncorrelated.
-
-Thus, these two assumptions result in our Gauss-Markov Assumption of $\mathbb{E}[\epsilon_i|\overrightarrow{X}_i] = 0, \space \forall i$, where the explanatory variables are uncorrelated, and thus, also have a average error/residual of 0 for all explanatory variable inputs.
-
-When this assumption is met, we say that our explanatory variables are **exogenous**.
-
-However, when this assumption is not met, we say that the specific $X_j$ that are correlated with the error terms are **endogenous regressors**, and that our model has **endogeniety**.
-
--   We will discuss the Instrumental Variable Estimator later, which deals with endogenous regressors.
-
-### Homoscedasticity and Heteroscedasticity
-
-::: callout-tip
-## Key Definition: Homoscedasticity
-
-The fifth Gauss-Markov Assumtion is **homoscedasticity** - that the variance of the error term is consistent and constant for all values of the explanatory variables. Mathematically:
-
-$$
-Var(\epsilon|\overrightarrow{X}) = \sigma^2
-$$
-
-If this assumption is violated, we have **heteroscedasticity**.
-:::
-
-The simplest way to identify heteroscedasticity is to look at the residual plots - a plot with explanatory variables on the $x$-axis, and residuals on the $y$-axis.
-
--   If the residuals show no pattern, then there is no heteroscedasticity. If there is a pattern, for example, if the residuals are very small when $X$ is small, and very big when $X$ is big, then we have heteroscedasticity.
-
--   There are also more formal tests for this, but they take more effort than it is worth. Thus, we will not delve into these heteroscedasticity tests.
-
-OLS is still unbiased as long as the first 4 assumptions are met. Heteroscedasticity does not cause bias or inconsistency in the estimates of coefficients. However, if heteroscedasticity is present, it may indicate a better estimator may exist (so OLS is no longer BLUE).
-
-Furthermore, and more useful for us, the usual standard error formula that we use to calculate confidence intervals and hypothesis tests no longer works. This is because the old standard errors are based on the assumption of homoscedasticity.
-
-Thus, we need to modify our standard errors so that they are still accurate. We do this by calculating the **robust standard errors**, and then conducting our tests using these robust standard errors.
-
--   Do not worry about how to calculate these by hand. Our statistical software will include options to calculate robust standard errors.
-
-### Regression Design for Causal Inference
-
-We can use regression for causal inference by including treatment $D$ as an explanatory variable in our model. If we want to use regression, and only regression for causal inference, we have a few options.
-
-If we have random assignment mechanisms in our study, we can just use a single variable regression to determine causal effects, assuming all other Gauss-Markov assumptions are met (homoscedasticity is not required if we use robust standard errors). Many random controlled trials use regression to determine the causal effects.
-
-However, if we are dealing with observational designs without random assignment mechanisms, things become more complicated. In theory, if we control for every possible confounding variable with multiple linear regression, we can accurately calculate the causal effect of a treatment.
-
--   So, we should include every possible confounding variable in our model to control for these confounders.
-
--   However, in social sciences, this is nearly impossible. There are often thousands of confounding variables, some that we might not even know about.
-
--   The rest of this book will focus on ways to slowly account for these confounding variables that still remain after we included what we could in the regression.
-
-### Robust Standard Errors in R
-
-To calculate robust standard errors, we must install and load the **fixest** package.
-
-Then, the syntax is the same as a linear regression with the standard *lm()* function, but we add an additional argument of *se = "hetero"*, which tells R to calculate heteroscedasticity-robust standard errors.
-
-```{r, eval = FALSE}
-# load fixest package
-library(fixest)
-
-# model
-model_name <- feols(Y ~ X1 + X2 + X3, data = mydata, se = "hetero")
-summary(model_name)
-```
-
-Interpretation is the same as the standard linear regression.
-
-# Methods for Causal Inference
-
-## Fixed Effects Models
-
-### Hierarchical Data
+### Hierarchical and Panel Data
 
 Hierarchical data is data that comes in different "clusters" or "levels". For example, if we have data on individuals from multiple different countries, that means our individual observations are clustered at the country-level.
 
@@ -1541,11 +1446,11 @@ Important note: Often, the variable *year* is encoded as numeric, but we want it
 
 Also, you can do this in base-r with the *lm()* function as shown throughout the regression examples, just by including the cluster variable as a categorical explanatory variable, however, the output is not as nice.
 
-## Instrumental Variables Framework
+# Methods for Causal Inference
 
-## Other Instrumental Variable Designs
+## Instrumental Variables Estimator
 
-### Continuous Independent Variables
+## Instrumental Variable Designs
 
 ### Examiner Designs
 
@@ -1553,8 +1458,10 @@ Also, you can do this in base-r with the *lm()* function as shown throughout the
 
 ### Recentered Instruments
 
-## Regression Discontinuity
+## Differences-in-Differences Design
 
-## Differences-in-Differences
+## General Differences-in-Differences
+
+## Regression Discontinuity
 
 ## Survey Experiments
