@@ -1120,7 +1120,7 @@ $\beta_j$ is the expected difference in $Y$ values between category $j$ and the 
 
 $\alpha$ is the expected value of $Y$ of the baseline category.
 
-&nbsp;
+ 
 
 The coefficient $p$-values of $\beta_j$ are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable.
 :::
@@ -1409,7 +1409,6 @@ Furthermore, and more useful for us, the usual standard error formula that we us
 Thus, we need to modify our standard errors so that they are still accurate. We do this by calculating the **robust standard errors**, and then conducting our tests using these robust standard errors.
 
 -   Do not worry about how to calculate these by hand. Our statistical software will include options to calculate robust standard errors.
--   It is becoming increasingly common to always use robust standard errors, even if we have not checked if our data is heteroscedastic.
 
 ### Regression Design for Causal Inference
 

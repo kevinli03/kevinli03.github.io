@@ -9,8 +9,8 @@ format:
         documentclass: report
         papersize: A4
         geometry:
-            - width=150mm
-            - height=238mm
+            - width=165mm
+            - height=245mm
             - top=27mm
         number-sections: true
         number-depth: 1
@@ -24,25 +24,27 @@ This book is one of the 5 companion-guides in the **Quantitative Methods** seque
 
 1.  [Volume I: Calculus and Statistical Theory](https://kevinli03.github.io/math/1.pdf) (this volume)contains essential mathematics for Political Economics. Covers topics in single variable calculus, probability theory, and statistical theory.
 2.  [Volume II: Linear Algebra and Multivariate Calculus](https://kevinli03.github.io/math/2.pdf) covers topics in linear algebra and calculus. Highly recommended, but not formally required for Political Economics.
-3.  [Volume III: Advanced Statistical Techniques](https://kevinli03.github.io/math/3.pdf) covers logit and count regression models, time series models, and latent variable models. This builds on the core sequence book: Econometrics for Political Analysis.
-4.  [Volume IV: Data Science Techniques](https://kevinli03.github.io/math/4.pdf) introduces modern data science and statistical learning techniques that have improved prediction accuracy. This builds on the core sequence book: Econometrics for Political Analysis.
-5.  [Volume V: Proof and Analysis](https://kevinli03.github.io/math/5.pdf) covers introductory proofs in mathematics. Useful, but not essential for the rest of the Political Economics.
+3.  [Volume V: Proof and Analysis](https://kevinli03.github.io/math/5.pdf) covers introductory proofs in mathematics. Useful, but not essential for the rest of the Political Economics.
 
-The 1st volume is a pre-requisite for the main series on Political Economics, and covers the core techniques in calculus, probability, and statistics needed. The 2nd volume is more advanced topics that are useful, but not formally required. Volumes 3-5 are advanced topics that are not required, but can be useful and interesting to those who enjoy Political Economics
+The 1st volume is a pre-requisite for the main series on Political Economics, and covers the core techniques in calculus, probability, and statistics needed. The 2nd volume is more advanced topics that are useful, but not formally required. Volume 3 contains advanced topics that are not required, but can be useful and interesting to those who enjoy Political Economics
 
 This volume is a collection of mathematical and statistical topics that I consider to be essential to understand prior to starting any serious instruction in Political Economics. The book assumes a solid understanding of high-school level algebra, and discusses topics in algebra, single variable calculus, and probability and statistical theory. Note that this book is not a full mathematics course of those topics - topics have been selected based on what is commonly used in Political Economics and other social sciences.
 
-# Single Variable Calculus
+# Algebra and Pre-Calculus
 
-## Algebra and Precalculus
+## Topics in Algebra
 
 ### Set Theory
 
 #### Introduction to Sets
 
+::: callout-tip
+## Key Definition: Sets
+
 A **set** is a collection of objects. The objects within a set are the **elements** of that set. We can define a set by either listing every element out, or through describing the properties of the elements of the set.
 
--   For example, $A = \{1,2,3,4,5\}$, or, $A=\{n|n \in \mathbb{Z}; 1 ≤ n ≤ 5\}$ - or in other words, $A$ is the set of values $n$, *such that* $n$ is in the set of all *integers* $Z$, and $n$ is between 1 and 5 inclusive.
+-   For example, $A = \{1,2,3,4,5\}$, or, $A=\{n \in \mathbb{Z}: 1 ≤ n ≤ 5\}$ - or in other words, $A$ is the set of values of $n$ is in the set of all *integers* $Z$, such that $n$ is between 1 and 5 inclusive.
+:::
 
 Here are some common notation for sets:
 
@@ -64,7 +66,7 @@ There are a few common operations of sets:
 
 -   The **intersection** of sets, notated $A \cap B$, is the set of elements that belong to $A$ [and]{.underline} $B$. For example, if $A = \{1,2,3\}, B = \{3,4,5\}$, then $A \cap B = \{3\}$.
 
-The **cardinality** of a set $A$ is the number of elements within set $A$, and is notated $|A|$. For example, if $A = \{1,2,3\}$, then $|A| = 3$. An **empty set** is a set with a cardinality of 0, or in other words, with no elements. It is notated with $\varnothing$
+-   The **cardinality** of a set $A$ is the number of elements within set $A$, and is notated $|A|$. For example, if $A = \{1,2,3\}$, then $|A| = 3$. An **empty set** is a set with a cardinality of 0, or in other words, with no elements. It is notated with $\varnothing$
 
 #### Types of Sets and Notation
 
@@ -86,9 +88,7 @@ The set of all real numbers $\mathbb{R}$ is the most common used set. A subset o
 
 In all these intervals, $a$ and $b$ are called **endpoints** of the interval. Any point inside of an interval that is not an endpoint is an **interior point**.
 
-### Algebra Review
-
-Before we go into calculus topics, let us introduce a few key properties of algebra that will occur frequently throughout Political Economics.
+### Solving Equations
 
 #### Solving Equations with One Variable
 
@@ -128,17 +128,7 @@ The solution to a system of equations is the point where the two lines meet on a
 
 Thus, the solution to the system of equations is $x=4, y = \frac{1}{2}$
 
-#### Linear Equations and Slope
-
-Linear equations take the form $y = mx+b$, where $m$ is the slope. The slope is the amount $y$ changes, for every increase of one unit of $x$.
-
-More formally, slope is the change in $y$ over the change in $x$. We can calculate the slope between two points $(x_1, y_1)$ and $(x_2, y_2)$ as follows:
-
-$$
-m = \Delta y / \Delta x = \frac{y_2 - y_1}{x_2 - x_1}
-$$
-
-#### Factoring and Difference of Squares
+### Factoring and Expansion
 
 Factorisation is the process of changing an equation from the form $ax^2+bx+c$ to the form $(x+i)(x+j)$. To do this, we need to:
 
@@ -153,8 +143,6 @@ Factorisation is the process of changing an equation from the form $ax^2+bx+c$ t
 
 There is a special form of factoring: **difference of squares**. Essentially, any expression that takes the form of $a^2 - b^2$ can be rewritten as $(a+b)(a-b)$. Example: $x^2 - 9 = (x+3)(x-3)$.
 
-#### Multiplication Expansion
-
 Multiplication expansion undoes factoring. To do this, we must multiply each term of one section by each other term of the other section. This is more intuitive with an example.
 
 **Example**: let us prove the difference of squares idea we saw earlier - multiply out $(x+3)(x-3)$: $$
@@ -166,9 +154,9 @@ $$
 
 So we can see, that indeed, difference of squares is true, and $x^2 - 9 = (x+3)(x-3)$.
 
-### Exponents, Logarithms, Sum and Product Notation
+### Exponents and Logarithms
 
-#### Exponent Rules
+#### Exponents
 
 Here are a few key properties of exponents that are important to note:
 
@@ -178,15 +166,9 @@ Here are a few key properties of exponents that are important to note:
 4.  $a^0 = 1$
 5.  $(a \times b)^n = a^n \times b^n$ and $(a/b)^n = a^n / b^n$
 
-#### Solving Equations with Exponents
+Sometimes, you will have an equation that takes the form $x^n = a$, where $n$ is some number.
 
-Sometimes, you will have an equation that takes the form $x^n = a$, where $n$ is some number. To solve for $x$, the solution is $x = a^{(1/n)}$.
-
-**Proof**:
-
-We start with $x^n = a$. How to get rid of $n$ to isolate $x$?
-
-We know that $n \times (1/n) = 1$. We also know that $(a^x)^y = a^{xy}$. Thus: $$
+How to get rid of $n$ to isolate $x$? We know that $n \times (1/n) = 1$. We also know that $(a^x)^y = a^{xy}$. Thus: $$
 \begin{split}
 & (x^n)^{(1/n)} = a^{(1/n)} \\
 & x^{n \times (1/n)} =x^1 = x = a^{(1/n)}
@@ -210,13 +192,18 @@ Here are a few key properties to know about logarithms.
 3.  $-\log(x) = \log(1/x)$
 4.  $\log(1) = \log(e^0) = 0$
 
-Note that in statistics, political science, and economics, when we say $\log(x)$, we are talking about natural logs, such that $\log(x) = \ln(x) = \log_e(x)$. We can change the base of logarithms:
+Note that in statistics, when we say $\log(x)$, we are talking about natural logs (base $e$). We can change the base of logarithms:
 
 $$
 \log_b(x) = \frac{\log_a(x)}{\log_a(b)}
 $$
 
+### Summation and Product Notation
+
 #### Summation Notation
+
+::: callout-tip
+## Key Definition: Summation Notation
 
 Summation Notation is a way of expressing the sums of many values:
 
@@ -224,11 +211,12 @@ $$
 \sum\limits_{i=1}^n x_i = x_1 + x_2 + ... + x_n
 $$
 
--   $i = 1$ indicates that we start summing from index $i=1$, or basically, we start with $x_1$. Sometimes, you will see $i=0$, but it will rarely be anything else.
+-   $i = 1$ indicates that we start summing from index $i=1$, or basically, we start with $x_1$.
 
--   $n$ is the value of the index at which we stop summing. This is often the sample size, where we have no more observations.
+-   $n$ is the value of the index at which we stop summing. This is often the sample size.
 
 -   $x_i$ is the value of an element within set $X = \{x_1, x_2, ..., x_n \}$ with index $i$. For example, is $i = 1$, $x_i = x_1$, the first element in set $X$.
+:::
 
 Summation notation has a few properties:
 
@@ -238,31 +226,38 @@ Summation notation has a few properties:
 
 #### Product Notation
 
-Product notation is the same as summation notation, but except summing, we product all the elements. Product notation is defined as the following:
+::: callout-tip
+## Key Definition: Product Notation
+
+Product notation is a way of expressing the products of many values:
 
 $$
 \prod\limits_{i=1}^n x_i = x_1 \times x_2 \times ... \times x_n
 $$
+
+-   $i = 1$ indicates that we start multiplying from index $i=1$, or basically, we start with $x_1$.
+
+-   $n$ is the value of the index at which we stop multiplying. This is often the sample size.
+
+-   $x_i$ is the value of an element within set $X = \{x_1, x_2, ..., x_n \}$ with index $i$. For example, is $i = 1$, $x_i = x_1$, the first element in set $X$.
+:::
 
 Product notation has the following properties:
 
 1.  $\prod cx_i = c^n \times \prod x_i$, where $c$ is some constant.
 2.  $\prod\limits_{i=1}^nc = c^n$, where $c$ is some constant.
 
-#### Converting Between Sum and Prodct Notation
+#### Converting Between Sum and Product Notation
 
-We can transition between summation and product notation with the properties of logarithms:
-
-$$
+We can convert between summation and product notation with the properties of logarithms:$$
 \begin{split}
-\log \left( \prod\limits_{i=1}^n x_i \right)  & = \log(x_1 \times x_2 \times ... \times x_n) \\
-& = \log(x_1) + \log(x_2) + ... + \log(x_n) = \sum\limits_{i=1}^n \log(x_i)
+\log \left( \prod\limits_{i=1}^n x_i\right) & = \log(x_1 \times x_2 \times ... \times x_n) \\
+& = \log(x_1) + \log(x_2) + ... + \log(x_n) \\
+& = \sum\limits_{i=1}^n \log(x_i)
 \end{split}
 $$
 
-When a constant is included (for a more general rule):
-
-$$
+Or a more general rule with constant $c$:$$
 \begin{split}
 \log \left( \prod\limits_{i=1}^n cx_i \right) & = \log(cx_1 \times cx_2 \times ... \times cx_n) \\
 & = \log(c^n \times x_1 \times x_2 \times ... \times x_n) \\
@@ -271,21 +266,25 @@ $$
 \end{split}
 $$
 
+## Pre-Calculus Topics
+
 ### Functions and the Cartesian Plane
 
 #### Functions
 
+::: callout-tip
+## Key Definition: Functions
+
 We have two sets, $X$ and $Y$. A function $f : X \rightarrow Y$ is some rule, which assigns each element $x \in X$ to one, and only one element $y = f(x) \in Y$.
 
 -   For every input $x \in X$, we must only have one output $y \in Y$. If we have two outputs, that is not a function.
-
--   We do not have to use $X$ and $Y$ specifically, we can use any variables.
+:::
 
 The **domain** of $f$ is the set of possible values of set $X$. Basically, what values can we input into $f(x)$.
 
 The set of possible outputs of function $f$ is the **range** $R(f)$, and the range must be a subset of the set of $Y$: $R(f) \subseteq Y$.
 
-Functions to not have to only have one input variable. For example, we can have a function $f(x,z)$, with two input values $x \in X$ and $z \in Z$.
+Functions to not have to only have one input variable. For example, we can have a function $f(x,z)$, with two input values $x \in X$ and $z \in Z$, notated $f:X,Z \rightarrow Y$.
 
 -   However, we once again can only have one output $y \in Y$ for each different input $(x,z)$. If we have multiple outputs for one input, that is not a function.
 
@@ -297,7 +296,7 @@ Every single point in the 2-dimensional cartesian plane can be specified with co
 
 Any real-valued function of one variable can be represented in the $\mathbb{R}^2$ space. On the $x$-axis, we put the input number, and on the $y$-axis, we put the output of the function. For each input variable value, there must only be one output variable value. Graphically in $\mathbb{R}^2$, we can show this:
 
-![](figures/1/1.2.jpeg)
+![](figures/1/1.2.jpeg){fig-align="center" width="80%"}
 
 Of course, functions can be in more than 2 dimensions. A function with two input variables $f(x,z)$, would be depicted in the 3-dimensional space $\mathbb{R}^3$, as $x \in \mathbb{R}$, $z \in \mathbb{R}$, and output $f(x) \in \mathbb{R}$. The more input variables, the more dimensions the function is depicted in.
 
@@ -307,9 +306,33 @@ There are a few very common types of functions that we will encounter:
 
 ![](figures/1/1.1.png){width="100%"}
 
+### Properties of Functions
+
+#### Linear Equations and Slope
+
+Linear equations take the form $f(x) = mx+b$, where $m$ is the slope.
+
+::: callout-tip
+## Key Definition: Slope
+
+More formally, slope is the change in $y$ over the change in $x$, or the amount $y$ changes, for every increase of one unit of $x$.We can calculate the slope between two points $(x_1, y_1)$ and $(x_2, y_2)$ as follows:
+
+$$
+m = \Delta y / \Delta x = \frac{y_2 - y_1}{x_2 - x_1}
+$$
+:::
+
 #### Zeroes and Roots of Functions
 
-The zeroes/roots of a function are the input values of the function that make the output function equal to 0. Mathematically, for what $x$ does $f(x) = 0$. We can also think about this graphically. Since output $f(x)$ is graphed on the $y$-axis, we can see at what $x$-values the function cross the line $y=0$ (the $x$-axis line).
+::: callout-tip
+## Key Definition: Zeroes and Roots
+
+The zeroes/roots of a function are the input values of the function that make the output function equal to 0.
+
+-   Mathematically, for what $x$ does $f(x) = 0$.
+
+-   Graphically. Since output $f(x)$ is graphed on the $y$-axis, we can see at what $x$-values the function cross the line $y=0$ (the $x$-axis line).
+:::
 
 To solve for zeroes/roots, simply set the function equal to 0, and solve for $x$. Some functions can have more than one zero, especially polynomials, and some can have none.
 
@@ -318,7 +341,7 @@ To solve for zeroes/roots, simply set the function equal to 0, and solve for $x$
 1.  Set function output equal to 0: $0 = x-5$
 2.  Solve for $x$ and we get: $x = 5$.
 
-For **quadratic functions**, there are two ways to find roots. First, we can use factorisation, covered in section 1.2.
+For **quadratic functions**, there are two ways to find roots. We can factor, covered in section 1.2.
 
 **Example:** Find the root of $f(x) = x^2 + 5x +6$
 
@@ -326,7 +349,7 @@ For **quadratic functions**, there are two ways to find roots. First, we can use
 2.  Factor: $0 = (x+2)(x+3)$
 3.  $x=-2$ and $x=-3$ make this equation true.
 
-Finally, we can use the quadratic formula to find the roots of unfactorable equations. Given a quadratic in the form of $ax^2 + bx + c$, the roots are:
+We can also use the quadratic formula to find the roots of unfactorable equations. Given a quadratic in the form of $ax^2 + bx + c$, the roots are:
 
 $$
 x = \frac{-b ± \sqrt{b^2 - 4ac} }{2a}
@@ -395,9 +418,15 @@ $$
 
 ### Limits and Continuity
 
-#### Definition of Limits
+::: callout-tip
+## Key Definition: Limits
 
-A limit is when a function approaches some specific output value $y=f(x) = L$, as the input $x$ moves closer and closer to some value $c$. Or more intuitively, as the $x$ value becomes infinitely closer to $x=c$, the $y=f(x)$ value becomes infinitely close to $f(x) = L$. Limits are notated with the form: $\lim\limits_{x \rightarrow c} f(x) = L$
+A limit is when a function approaches some specific output value $y=f(x) = L$, as the input $x$ moves closer and closer to some value $c$.
+
+-   Or more intuitively, as the $x$ value becomes infinitely closer to $x=c$, the $y=f(x)$ value becomes infinitely close to $f(x) = L$.
+
+-   Limits are notated with the form: $\lim\limits_{x \rightarrow c} f(x) = L$
+:::
 
 For example, the figure below shows a function with a limit:
 
@@ -440,15 +469,23 @@ Let us assume functions $f$ and $g$ are both continuous at $x=c$. Then, continui
 
 Finally, if $f$ is continuous in interval $[a, b]$, then $f$ must have a maximum and minimum value within $[a, b]$.
 
+# Single Variable Calculus
+
 ## Derivatives
 
 ### Definition of a Derivative
 
-A derivative function $f'$ outputs the slope of the function of $f$ at any input. So, if we want to know the slope of $f$ at $f(a)$, we would plug $a$ into $f'$.
+::: callout-tip
+## Key Definition: Derivative Function
+
+A derivative function $f'$ outputs the slope (rate of change) of the function of $f$ at any input. So, if we want to know the slope of $f$ at $f(a)$, we would plug $a$ into $f'$.
+
+ 
 
 The figure shows a function $f$ and a point $P$. The red tangent line shows the slope at point $P$:
 
 ![](figures/1/2.1.png){fig-align="center" width="40%"}
+:::
 
 We know the definition of slope between two points (from section 1.2) is:
 
@@ -468,15 +505,25 @@ $$
 \Delta y / \Delta x = \frac{f(x+h) - f(x)}{x + h - x} = \frac{f(x+h) - f(x)}{h}
 $$
 
-So that is essentially another way to rewrite the definition of a slope between two points. However, the issue is, that a derivative is the slope at **one point**, not between two points. What we have calculated so far is the slope between two points (the secant green line in the figure above). We need the red-tangent line - the slope at one point. How do we calculate the slope at one point?
+So that is essentially another way to rewrite the definition of a slope between two points.
 
-To calculate the slope at one point, we can slowly move the two points $x$ and $x+h$ closer and closer to each other. How do we do that? With **limits** (that we covered in section 1.6). By making $h$ smaller and smaller until it approaches 0, the two points will get closer and closer until they are on top of each other, and then, we will have the slope at one point.
+-   However, the issue is, that a derivative is the slope at **one point**, not between two points. What we have calculated so far is the slope between two points (the secant green line in the figure above).
+
+-   We need the red-tangent line - the slope at one point. How do we calculate the slope at one point?
+
+To calculate the slope at one point, we can slowly move the two points $x$ and $x+h$ closer and closer to each other.
+
+-   How do we do that? With **limits** (that we covered in section 1.6). By making $h$ smaller and smaller until it approaches 0, the two points will get closer and closer until they are on top of each other, and then, we will have the slope at one point.
+
+::: callout-tip
+## Key Definition: Formal Definition of a Derivative
+
+Thus, below is the **formal definition of a derivative**. We can calculate any derivative with this rule (although, this can become difficult sometimes).
 
 $$
 f'(x) = \lim\limits_{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
 $$
-
-That is the **formal definition of a derivative**. We can calculate any derivative with this rule (although, this can become difficult sometimes).
+:::
 
 A note on notation: so far, I have used $f'$ (apostrophes) to notate a derivative. We can also use the form $\frac{dy}{dx}$ to indicate a derivative. We can change $y$ and $x$ in this notation if we are using different variables.
 
@@ -484,11 +531,11 @@ Finally, it is also possible to take the derivative of a derivative. This is a s
 
 ### Rules of Differentiation
 
-#### Rules
+You can calculate any derivative by plugging it into the formal definition from above. However, this can be tedious and involve a lot of algebra.
 
-You can calculate any derivative by plugging it into the formal definition from above. However, this can be tedious.
+However, there are a few generalised forms of functions, whose derivatives are consistent. These rules allow us to quickly calculate derivatives.
 
-However, there are a few generalised forms of functions, whose derivatives are consistent. These rules allow us to quickly calculate derivatives. Note - these rules are all obtained from the definition of the derivative - they do not magically appear from thin air.
+-   Note: these rules are all obtained from the definition of the derivative - they do not magically appear from thin air.
 
 ##### **Standard Derivatives**
 
@@ -562,7 +609,13 @@ Method 2 (power rule):
 
 Let $f: X \rightarrow Y$ be a bijective function $y=f(x)$ (see sections 1.4-1.5). We want to find the derivative of the inverse function $f^{-1}: Y \rightarrow X$.
 
-The simplest way to do this is to find the inverse function (as shown in section 1.5), and calculate the derivative of that. However, the function $x = f^{-1}(y)$ is not always easily differentiable with the rules we have introduced. We can utilise an alternative approach. Remember the identity of inverse functions shown in section 1.5:
+The simplest way to do this is to find the inverse function (as shown in section 1.5), and calculate the derivative of that.
+
+-   However, the function $x = f^{-1}(y)$ is not always easily differentiable with the rules we have introduced.
+
+-   We can utilise an alternative approach to find inverse derivatives.
+
+Remember the identity of inverse functions shown in section 1.5:
 
 $$
 f^{-1}(f(x)) = x \text{ for all } x \in X
@@ -574,7 +627,9 @@ $$
 [f(g(x))]' = f'[g(x)] \times g'(x)
 $$
 
-We can define our inverse original $f'$ function as $f$ for the chain rule, and the original $f(x)$ as $g(x)$ for the chain rule. Thus, using chain rule, we can get the derivative of the identity of inverse functions: $$
+We can define our inverse original $f'$ function as $f$ for the chain rule, and the original $f(x)$ as $g(x)$ for the chain rule.
+
+Thus, using chain rule, we can get the derivative of the identity of inverse functions: $$
 \begin{split}
 & f^{-1}(f(x)) = x, \text{ now differentiate both sides:} \\
 & \frac{df^{-1}(f(x))}{dy} \times \frac{df(x)}{dx} = 1, \text{ since } y = f(x) \Longrightarrow \frac{df^{-1}(y)}{dy} \times \frac{df(x)}{dx} = 1
@@ -597,9 +652,16 @@ $$
 
 ### Partial Derivatives
 
-Suppose that we have a function $f : X_1, X_2, ..., X_n \rightarrow \mathbb{R}$. Or in other words, a function with more than one variable input. However, we might only be interested in the rate of change (slope) relative to only one of the variables.
+Suppose that we have a function $f : X_1, X_2, ..., X_n \rightarrow \mathbb{R}$. Or in other words, a function with more than one variable input.
 
-We can do this with a partial derivative, which is defined as:
+-   However, we might only be interested in the rate of change (slope) relative to only one of the variables.
+
+-   A partial derivative is what we will need to find.
+
+::: callout-tip
+## Key Definition: Partial Derivative
+
+A partial derivative is defined as:
 
 $$
 \frac{\partial}{\partial x_i} f(x_1, ..., x_i, ..., x_n) = \lim\limits_{h \rightarrow 0 } \frac{f(x_1, ..., x_i + h, ..., x_n) - f(x_1, ..., x_i, ..., x_n)}{h}
@@ -610,6 +672,7 @@ $$
 -   Where we are only interested in the rate of change in respect to $x_i$ (hence why only $x_i$ has a $+h$ in the numerator).
 
 -   As a result, we treat $x_1, ..., x_n$ that are not $x_i$ as simply constants.
+:::
 
 To solve a partial derivative, we take the derivative in respect to our specific variable $x_i$, while treating all other input variables $x_1, ..., x_n$ like a constant, like you would treat the number 5.
 
@@ -645,6 +708,9 @@ So we can see, the effect of $X_1$ on $\hat{Y}$ is $\hat{\beta}_1$, and this is 
 
 ### Local Extrema and Stationary Points
 
+::: callout-tip
+## Key Definition: Maximum and Minimum
+
 Maximums and minimums are quite intuitive concepts - for function $f$, the maximum is input that gives the highest output value, and the minimum is the input that gives the lowest output value. More formally:
 
 -   A **local maximum** of function $f:I \rightarrow \mathbb{R}$ is a point $a \in I$ with the property $f(a) ≥ f(x)$ for all $x$ sufficiently near $x=a$. A **strict local maximum** has the condition $f(a) > f(x)$ for all $x$ sufficiently near $x=a$
@@ -652,6 +718,7 @@ Maximums and minimums are quite intuitive concepts - for function $f$, the maxim
 -   A **local minimum** of function $f:I \rightarrow \mathbb{R}$ is a point $a \in I$ with the property $f(a) ≤ f(x)$ for all $x$ sufficiently near $x=a$. A **strict local minimum** has the condition $f(a) < f(x)$ for all $x$ sufficiently near $x=a$
 
 ![](figures/1/3.1.png){fig-align="center" width="33%"}
+:::
 
 Take an open interval set $I$, and function $f : I \rightarrow \mathbb{R}$. A s**tationary point** at $a \in I$ exists if $f'(a) = 0$.
 
@@ -671,45 +738,55 @@ Below are three figures of convex and concave functions. The first function is s
 
 ![](figures/1/3.3.png){fig-align="center" width="65%"}
 
+::: callout-tip
+## Key Definition: Concavity with Second Derivatives
+
 If function $f: I \rightarrow \mathbb{R}$ is differentiable on an interval $I$, we also have an alternative definition of concavity.
 
 -   If for function $f$ in interval $I$, $f''(x) > 0$, then the function is convex.
 
 -   If for function $f$ in interval $I$, $f''(x) < 0$, then the function is concave.
+:::
 
 If a function $f$ changes from convex to concave at point $a$, or from concave or convex (or in other words, $f''(a) = 0$ and it changes sign before and after $a$), that point is an **inflection point**. Inflection points do not always have to be differentiable, just the concavity has to change. Inflection points can also be stationary points, but not always, if $f'(x) = f''(x) = 0$.
 
 ![](figures/1/3.4.png){fig-align="center" width="70%"}
 
-### Global Extrema
+### Optimisation and Finding Extrema
 
-Tkate the function $f: A \rightarrow \mathbb{R}$, in which $A$ is domain of $f$ such that $A \subseteq \mathbb{R}$.
+#### Global Extrema
+
+Tate the function $f: A \rightarrow \mathbb{R}$, in which $A$ is domain of $f$ such that $A \subseteq \mathbb{R}$.
 
 A **global maximum** of $f$ is a point $a \in A$ such that $f(a) ≥ f(x)$ for all $x \in A$. A **strict global maximum** is when the condition $f(a) > f(x)$ for all $x \in A$.
 
 A **global minimum** of $f$ is a point $a \in A$ such that $f(a) ≤ f(x)$ for all $x \in A$. A **strict global minimum** is when the condition $f(a) < f(x)$ for all $x \in A$.
 
-What is the difference between a local and global extrema? Well, a local exterma only has to be the maximum/minimum in its "neighbourhood", meaning there can be multiple local extrema. Global extrema are considered a subset of local extrema. There can only be one global maximum or minimum in a function.
+What is the difference between a local and global extrema? Well, a local exterma only has to be the maximum/minimum in its "neighbourhood", meaning there can be multiple local extrema. Global extrema are a subset of local extrema. There can only be one global maximum or minimum in a function.
 
-### Optimisation and Finding Extrema
+#### Optimisation
 
-Optimisation is about finding the maximum or minimum point of a function. This is useful because we often want to optimise things in statistics and models - whether it be minimise error, or maximise utility, and so on.
+::: callout-tip
+## Key Definition: Optimisation
+
+Optimisation is about finding the maximum or minimum point of a function. This is useful because we often want to minimise error, or maximise utility, or so on.
+:::
 
 If a function is differentiable on an open interval, then a local extrema can only occur at a stationary point of this function. Since global extrema are a subset of local extrema, that means that global extrema must also occur at a stationary point of the function.
 
 For a stationary point to be a local maximum, the function should be concave. For a stationary point to be a local minimum, the function should be convex. Why? - consider the following diagram:
 
-![](figures/1/3.6.png){fig-align="center" width="55%"}
+![](figures/1/3.6.png){fig-align="center" width="50%"}
 
-Thus, knowing these facts, we can identify local extrema of a function $f(x)$ in an interval with the following steps:
+Thus, we can identify local extrema of a function $f(x)$ in an interval with these steps:
 
 1.  Find $f'(x)$, then find for what $x$ makes $f'(x) = 0$. These are the stationary points.
 2.  Find $f''(x)$. Plug in the $x$ we solved for above. If $f''(x) > 0$, the function is convex, thus there is a local minimum. If $f''(x) < 0$, the function is concave, thus there is a local maximum.
 3.  Find which extrema is most extreme - that is likely (but not guaranteed) to be the extrema in the interval.
 
-However, we are not done with checking extrema - we have to calculate the edge cases. These are the end-points of our interval. Why? - look at the following figure below - on the interval $[-3, 7]$, clearly $x=7$ will have a larger maximum value than any local maximum, since the function tends towards infinity as $x$ approaches infinity:
+However, we are not done - we have to calculate the edge cases. These are the end-points of our interval. Why? - look at the following figure below - on the interval $[-3, 7]$, clearly $x=7$ will have a larger maximum value than any local maximum, since the function tends towards infinity as $x$ approaches infinity:
 
-![](figures/1/3.7.jpeg){fig-align="center" width="55%"}
+![](figures/1/3.7.jpeg){fig-align="center" width="50%"}
 
 Thus, we have to check the edges of our intervals and see if they are the maximum or minimum in the interval, and compare them to the local extrema we found. Once we have found the $x$ value that makes $f$ output its maxmimum/minimum value within an interval, we have completed optimisation.
 
@@ -749,11 +826,167 @@ Thus, the general workflow of constrained optimisation is:
 
 ### Indefinite Integrals
 
-section 9.1 and 9.3
+Integrals, also called anti-derivatives, are the opposite of derivatives.
+
+::: callout-tip
+## Key Definition: Indefinite Integral
+
+Let $X, Y \subseteq \mathbb{R}$. Let function $f : X \rightarrow Y$ be a function.
+
+An **indefinite integral** of $f: X \rightarrow Y$ is a function $F$ of form:
+
+$$
+F(x) = \int f(x) dx
+$$
+
+Such that its derivative is function $f$:
+
+$$
+\frac{d}{dx} \left( \int f(x)dx \right) = f(x)
+$$
+
+So essentially, integrals reverse derivatives, and derivatives reverse integrals.
+:::
+
+Note: there are many indefinite integrals $F$, for any given function $f$. This is because when we take a derivative, we lose any constants, since $\frac{d}{dx} [c] = 0$. Thus, many different functions $F$ with different $c$, when taking the derivative, will result in function $f$.
+
+-   This is why you will see a $+C$ at the end of integrals - which indicates that any constant $C$ in integral $F$ will result in the same derivative $f$.
+
+### Integration Rules
+
+Since integrals are the opposite of derivatives, we can reverse many derivative rules to find rules of integration:
+
+Constant Rule: $\int \alpha f(x)dx = \alpha \int f(x)$, where $\alpha$ is a constant.
+
+Sum Rule: $\int [f(x) + g(x)]dx = \int f(x)dx + \int g(x)dx$.
+
+Reverse power rule: $\int x^\alpha dx = \frac{x^{\alpha + 1}}{\alpha + 1} + C$, when constant $\alpha ≠ -1$.
+
+Nested power rule: $\int [f(x)]^\alpha f'(x)dx = \frac{1}{\alpha + 1} [f(x)]^{n+1} + C$.
+
+Positive natural log integral: $\int x^{-1} dx = \ln(x) + C$, when $x > 0$.
+
+Negative natural log integral: $\int x^{-1}dx = \ln (-x) + C$, when $x < 0$.
+
+Reverse nested log integral: $\int \frac{f'(x)}{f(x)} = \ln (f(x)) + C$.
+
+Exponential integral: $\int e^x dx = e^x + C$.
+
+Nested exponential integral: $\int e^{f(x)} f'(x)dx = e^{f(x)} + C$.
+
+Cosine integral: $\int \cos(x)dx = \sin(x) + C$.
+
+Sine integral: $\int \sin(x)dx = - \cos(x) + C$.
+
+Arctan integral: $\int \frac{1}{x^2 + 1}dx = \arctan(x) + C$.
+
+Arcsine integral: $\int \frac{1}{\sqrt{1-x^2}}dx = \arcsin(x) + C$, when $x \in (-1, 1)$.
+
+#### **Example 1:**
+
+Find $\int f(x)$ where $f(x) = 3x^2 + 2x + 1$:
+
+1.  Using sum rule, we know: $\int f(x) = \int3x^2dx + \int 2xdx + \int 1dx$.
+2.  Using constant rule, we know: $\int f(x) = 3 \int x^2dx + 2 \int xdx + \int1dx$.
+3.  Using reverse power rule, we know: $\int f(x) = 3 \left( \frac{1}{2+1} x^{2+1}\right) + 2 \left( \frac{1}{1+1} x^{1+1} \right) + x + C$.
+4.  Simplifying: $\int f(x) = 3 \left( \frac{1}{3} x^3 \right) + 2 \left( \frac{1}{2} x^2 \right) + x + C$.
+5.  Multiply out: $\int f(x) = x2 + x2 + x + C$.
+
+#### **Example 2:**
+
+Find $\int(fx)$ where $f(x) = e^xe^{e^x}$:
+
+1.  We know that $\frac{d}{dx}[e^x] = e^x$.
+2.  Using nested exponential integral rule: $\int e^{f(x)} f'(x)dx = e^{f(x)} + C$, we can define $f(x) = e^x$ and $f'(x) = e^x$.
+3.  Putting it into this form, we get $\int f(x) = e^{e^x} + C$.
 
 ### Definite Integrals and Riemann Sums
 
+Integrals are not only the opposite of derivatives, but are also a function for the area under a curve.
+
+For example, say we have some function $f(x)$. The area between $f(x)$ and $y=0$ can be calculated with the integral $F(x) = \int f(x)dx$.
+
+::: callout-tip
+## Key Definition: Definite Integral
+
+A definite integral is the function $F$ which measures the area under the curve of function $f$ between $x=a$ and $x=b$. We notate the area under the curve of $f$ between $a$ and $b$ as:
+
+$$
+\int\limits_a^b f(x)dx
+$$
+:::
+
+Now knowing that an definite integral is the area under a curve between $a$ and $b$, how do we actually evaluate this function and calculate this area?
+
+With a straight linear $f(x)$, this is quite easy. However, when $f(x)$ is non-linear and curved, it might seem quite hard to find the area under the curve.
+
+However, there is a strategy we can use - we can approximate the area under the curve using rectangles. The figure below shows this:
+
+![](figures/1/5.1.png){fig-align="center" width="80%"}
+
+Notice how with more and more rectangles (with each rectangle having a smaller width), the more and more accurate our approximation of the area under a curve becomes.
+
+How do we calculate the area of a rectangle? Of course: width $\times$ height.
+
+-   Let us call the width of each rectange $\Delta x$ (change in $x$).
+
+-   What is the height of each rectangle? Well, it is the value of $y = f(x)$, the output of the function.
+
+-   Thus, the area of each rectangle is $f(x) \times \Delta x$.
+
+Thus, to approximate the area under the curve, we can sum up all the rectangles as follows:
+
+$$
+\sum\limits_{i=1}^n f(x_i) \Delta x
+$$
+
+However, as we noted, the smaller the width of each rectangle is, the more accurate our estimation of the area. How do we make the width of each rectangle infinitely smaller?
+
+We can use a limit! With $\lim\limits_{\Delta x \rightarrow 0}$, we can infinitely reduce the width of each rectangle, until we have a perfect measurement of the area under the curve.
+
+::: callout-tip
+## Key Definition: Riemann Integral
+
+The **Riemann integral** is a way to calculate the definite integral - the area under the function $f$ between points $a$ and $b$. Mathematically:
+
+$$
+\int\limits_a^b f(x)dx = \lim\limits_{\Delta x \rightarrow 0} \sum\limits_{i=1}^n f(x_i) \Delta x
+$$
+
+A Riemann Integral can, in theory, calculate any definite integral.
+:::
+
+A Riemann integral can calculate any integral. However, just like the formal definition of derivatives, sometimes, this can be very difficult to compute.
+
+-   Luckily for us, there is an alternative way to calculate definite integrals, that we will discuss in the next section.
+
 ### Fundamental Theorem of Calculus
+
+::: callout-tip
+## Key Definition: The Fundamental Theorem of Calculus
+
+The Fundamental Theorem of Calculus links definite and indefinite integrals. The theorem states:
+
+$$
+\int\limits_a^bf(x)dx = F(b) - F(a)
+$$
+
+Where $F$ is the indefinite integral of function $f$.
+:::
+
+More intuitively, it says that if we evaluate the indefinite integral $F$, we can then plug in $F(b)$ and $F(a)$ and find the difference, in order to evaluate the definite integral. This allows us to not use Riemann Sums.
+
+#### Example:
+
+Find the area under the curve between $x =1$ and $x=5$ for function $f(x) = 3x^2$.
+
+1.  Let us find indefinite integral. Using reverse power rule: $\int f(x)dx = F(x) = x^3+C$.
+2.  Now, fundamental theorem of calculus says $\int\limits_a^b f(x)dx = F(b) - F(a)$.
+3.  Let us plug in $b$ and $a$. $F(b) = F(5) = 5^3 = 125$, and $F(a) = F(1) = 1^3 = 1$.
+4.  Find the difference: $F(b) - F(a) = F(5) - F(1) = 125 - 1 = 124$.
+5.  Thus, $\int\limits_1^5 3x^2dx = 124$.
+
+## Advanced Integration
 
 ### Integration by Recognition
 
