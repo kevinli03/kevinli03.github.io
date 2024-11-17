@@ -67,30 +67,47 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 <br />
 
-### An Introduction to Political Economics
+------------------------------------------------------------------------
 
-This is a project that I am working on, that combines everything I have learned in the field of Political Economics in an easy-to-access format.
+# **Notes on Methods for Political Science and Political Economics**
 
--   This series on Political Economics includes 3 sequences: Political Economics Sequence, Econometrics Sequence, and the Quantitative Methods Sequence.
--   **NOTE:** This is a work in progress, everything is incomplete.
+This series of notes on Methods in Political Science and Political Economics includes 3 sequences: Econometrics Sequence, Political Economics Sequence, and the Quantitative Methods Sequence.
+
+**NOTE:** This is a work in progress, everything is incomplete.
 
 <br />
 
-##### **An Introduction to Political Economics (Core Sequence)**
+#### Econometric Methods for Political Analysis
 
-1.  [Microeconomic Theory for Political Analysis](https://kevinli03.github.io/politicaleconomy/1.pdf): introduces key concepts microeconomic theory and game theory that form the foundations of economic models of politics.
-2.  [Econometrics for Political Analysis](https://kevinli03.github.io/politicaleconomy/2.pdf): introduces many of the core statistical concepts and methods used in Politics research. This book mainly covers Linear Regression models and techniques of Causal Inference.
-3.  [Economic Analysis of Politics](https://kevinli03.github.io/politicaleconomy/3.pdf): Applies the microeconomic theory and models, as well as econometrics, to study political phenomena.
+This series introduces econometric/statistical methods for analysing political phenomena empirically.
 
-##### **Quantitative Methods Sequence**
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume I: Causal Inference and Regression](https://kevinli03.github.io/metrics/1.pdf)              | Topics include: causal inference, causal estimands, random experiments, linear regression, logistic regression, regression for counts.                |
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume II: Causal Estimation for Observational Studies](https://kevinli03.github.io/metrics/2.pdf) | Topics include: selection on observables, instrumental variables estimator, differences-in-differences, regression discontinuity, survey experiments. |
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume III: Measurement and Prediction](https://kevinli03.github.io/metrics/3.pdf)                 | Topics include: principle components analysis, models for latent variables, cluster analysis, classification methods, text analysis.                  |
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-This sequence is a companion to the Introduction to Political Economics Sequence, adding useful mathematical and statistical techniques.
+#### Economic Modelling of Politics
 
-1.  [Volume I: Calculus and Statistical Theory](https://kevinli03.github.io/math/1.pdf): Essential mathematics for Political Economics. Covers topics in single variable calculus, probability theory, and statistical theory.
-2.  [Volume II: Linear Algebra and Multivariate Calculus](https://kevinli03.github.io/math/2.pdf): Covers topics in linear algebra and calculus. Highly recommended, but not formally required for Political Economics.
-3.  [Volume III: Advanced Statistical Techniques](https://kevinli03.github.io/math/3.pdf): This book mainly covers logit and count regression models, time series models, and latent variable models. This builds on the core sequence book: Econometrics for Political Analysis.
-4.  [Volume IV: Data Science Techniques](https://kevinli03.github.io/math/4.pdf): introduces modern data science and statistical learning techniques that have improved prediction accuracy. This builds on the core sequence book: Econometrics for Political Analysis.
-5.  [Volume V: Proof and Analysis](https://kevinli03.github.io/math/5.pdf): Covers introductory proofs in mathematics. Useful, but not essential for the rest of the Political Economics.
+This series introduces using economic theory to model political behaviour and institutions.
+
+|  |  |
+|----|----|
+| [Volume I: Microeconomic Game Theory](https://kevinli03.github.io/polecon/1.pdf) | Topics include: preferences and utility functions, pure and mixed nash equilibrium, dynamic games, bayesian games of incomplete information. |
+| [Volume II: Formal Models of Politics](https://kevinli03.github.io/polecon/2.pdf) |  |
+| [Volume III: Advanced Game Theory](https://kevinli03.github.io/polecon/3.pdf) |  |
+
+#### Quantitative Methods
+
+This companion series provides useful mathematical and statistical background knowledge. Volume I is highly recommended before starting any of the other series in these notes.
+
+|  |  |
+|----|----|
+| [Volume I: Calculus and Statistical Theory](https://kevinli03.github.io/math/1.pdf) | Topics include: algebra review, single variable differentiation and integration, partial derivatives, basic probability theory, random variables. |
+| [Volume II: Linear Algebra and Multivariate Calculus](https://kevinli03.github.io/math/2.pdf) | Topics include: matrices, system of linear equations, eigenvalues and markov chains, multivariate integration and differentiation. |
+| [Volume III: Proof and Analysis](https://kevinli03.github.io/math/5.pdf) |  |
 
 <br />
 
@@ -225,27 +242,27 @@ Pre-Sessional Courses:
 
 [**Key Facts:**]{.underline}
 
-+-------------------+-------------------------------------------------+
-| Programme:        | Data Science & Machine Learning, Accounting     |
-+-------------------+-------------------------------------------------+
-| Dates:            | July 2024 - August 2024                         |
-+-------------------+-------------------------------------------------+
-| Final Grade:      | A (First Class Honours)                         |
-+-------------------+-------------------------------------------------+
++-----------------+---------------------------------------------+
+| Programme:      | Data Science & Machine Learning, Accounting |
++-----------------+---------------------------------------------+
+| Dates:          | July 2024 - August 2024                     |
++-----------------+---------------------------------------------+
+| Final Grade:    | A (First Class Honours)                     |
++-----------------+---------------------------------------------+
 
 <br />
 
 [**Modules/Courses:**]{.underline}
 
-+---------------+---------------------------------------------------+-------------------------+
-| ME314         | Introduction to Data Science and Machine Learning | Dr. Kenneth Benoit      |
-|               |                                                   |                         |
-|               |                                                   | Dr. Jack Blumenau       |
-+---------------+---------------------------------------------------+-------------------------+
-| AC110         | Principles of Accounting                          | Dr. Jeroen Koenraadt    |
-|               |                                                   |                         |
-|               |                                                   | Dr. Gulnaz Khamidullina |
-+---------------+---------------------------------------------------+-------------------------+
++--------------+---------------------------------------------------+-------------------------+
+| ME314        | Introduction to Data Science and Machine Learning | Dr. Kenneth Benoit      |
+|              |                                                   |                         |
+|              |                                                   | Dr. Jack Blumenau       |
++--------------+---------------------------------------------------+-------------------------+
+| AC110        | Principles of Accounting                          | Dr. Jeroen Koenraadt    |
+|              |                                                   |                         |
+|              |                                                   | Dr. Gulnaz Khamidullina |
++--------------+---------------------------------------------------+-------------------------+
 
 <br />
 

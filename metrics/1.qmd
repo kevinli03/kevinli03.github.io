@@ -1,6 +1,6 @@
 ---
-title: "Econometrics for Political Analysis"
-subtitle: "Part of an Introduction to Political Economics"
+title: "Econometric Methods for Political Analysis"
+subtitle: "Volume I: Causal Inference and Regression"
 author: "Kevin Lingfeng Li"
 format:
     pdf:

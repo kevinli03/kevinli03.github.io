@@ -1,6 +1,6 @@
 ---
-title: "Advanced Econometrics for Political Analysis"
-subtitle: "Part of an Introduction to Political Economics"
+title: "Econometric Methods for Political Analysis"
+subtitle: "Volume II: Causal Estimation for Observational Studies"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
