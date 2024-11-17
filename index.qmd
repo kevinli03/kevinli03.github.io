@@ -93,21 +93,25 @@ This series introduces econometric/statistical methods for analysing political p
 
 This series introduces using economic theory to model political behaviour and institutions.
 
-|  |  |
-|----|----|
-| [Volume I: Microeconomic Game Theory](https://kevinli03.github.io/polecon/1.pdf) | Topics include: preferences and utility functions, pure and mixed nash equilibrium, dynamic games, bayesian games of incomplete information. |
-| [Volume II: Formal Models of Politics](https://kevinli03.github.io/polecon/2.pdf) |  |
-| [Volume III: Advanced Game Theory](https://kevinli03.github.io/polecon/3.pdf) |  |
++-----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume I: Microeconomic Game Theory](https://kevinli03.github.io/polecon/1.pdf)  | Topics include: preferences and utility functions, pure and mixed nash equilibrium, dynamic games, bayesian games of incomplete information. |
++-----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume II: Formal Models of Politics](https://kevinli03.github.io/polecon/2.pdf) |                                                                                                                                              |
++-----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume III: Advanced Game Theory](https://kevinli03.github.io/polecon/3.pdf)     |                                                                                                                                              |
++-----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 #### Quantitative Methods
 
 This companion series provides useful mathematical and statistical background knowledge. Volume I is highly recommended before starting any of the other series in these notes.
 
-|  |  |
-|----|----|
-| [Volume I: Calculus and Statistical Theory](https://kevinli03.github.io/math/1.pdf) | Topics include: algebra review, single variable differentiation and integration, partial derivatives, basic probability theory, random variables. |
-| [Volume II: Linear Algebra and Multivariate Calculus](https://kevinli03.github.io/math/2.pdf) | Topics include: matrices, system of linear equations, eigenvalues and markov chains, multivariate integration and differentiation. |
-| [Volume III: Proof and Analysis](https://kevinli03.github.io/math/5.pdf) |  |
++-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume I: Calculus and Statistical Theory](https://kevinli03.github.io/math/1.pdf)           | Topics include: algebra review, single variable differentiation and integration, partial derivatives, basic probability theory, random variables. |
++-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume II: Linear Algebra and Multivariate Calculus](https://kevinli03.github.io/math/2.pdf) | Topics include: matrices, system of linear equations, eigenvalues and markov chains, multivariate integration and differentiation.                |
++-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume III: Proof and Analysis](https://kevinli03.github.io/math/5.pdf)                      |                                                                                                                                                   |
++-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 
 <br />
 
