@@ -869,9 +869,7 @@ Below, we have some model summary statistics, including the number of observatio
 
 This table is a good example of how a typical regression table is made - so if you ever run a regression for a research paper, this is how you would report your results.
 
-### Implementation in R and Stata {.unnumbered}
-
-#### Implementation in R
+### Implementation in R {.unnumbered}
 
 We will first need the *fixest* package. If you have never used it before, install it as follows:
 
@@ -884,6 +882,8 @@ Once you have installed it (or previously installed it), load it every time you 
 ```{r, eval = FALSE}
 library(fixest)
 ```
+
+#### Regression
 
 We use the *feols()* function to run a **regression**: The general syntax is as follows:
 
@@ -900,11 +900,15 @@ summary(model_name)
 
 We can also use the base-R *lm()* function, however, this function is unable to calculate robust standard errors. The syntax for *lm()* is the same, just without the *se = "hetero"* argument.
 
-To calculate **confidence intervals**, we can use the *confint()* command, and simply input the name of our model within:
+#### Confidence Intervals
+
+To calculate confidence intervals, we can use the *confint()* command, and simply input the name of our model within:
 
 ```{r, eval = FALSE}
 confint(model)
 ```
+
+#### F-Tests of Nested Models
 
 If we want an **F-test** between two models, we can use the *anova()* function, replacing *model1* with the name of the null hypothesis model $M_0$, and replacing *model2* with the name of the alternative hypothesis model $M_a$.
 
@@ -912,7 +916,11 @@ If we want an **F-test** between two models, we can use the *anova()* function, 
 anova(model1, model2)
 ```
 
-#### Implementation in Stata
+------------------------------------------------------------------------
+
+### Implementation in STATA {.unnumbered}
+
+#### Regression
 
 To run **regression** in Stata, use the *regress* function:
 
@@ -925,6 +933,8 @@ regress Y X1 X2 X3, robust
 -   Add additional explanatory variables by simply adding more seperated by a space, and you can remove down to one explanatory variable.
 
 -   The final argument, *robust*, tells Stata to calculate heteroscedasticity-robust standard errors, which are standard in econometrics. However, if you can prove homoscedasticity, you can remove this argument for default standard errors.
+
+#### Confidence Intervals
 
 To calculate **confidence intervals**, we first use the *collect* function to create a collection, *collect* prefix to store our coefficients from our regression, then *collect layout* to display the results:
 
@@ -1365,6 +1375,48 @@ OLS is still unbiased as long as the first 4 assumptions are met. Heteroscedasti
 
 ### Omitted Variable Bias
 
+As mentioned multiple times, to get an accurate causal estimate with OLS, we must account for every possible confounding variable.
+
+But why is this? Let us mathematically show this. Consider two regressions (replaced $\alpha$ with $\beta_0$ for simplicity of the next section):$$
+\begin{split}
+Y_i & = \beta_0^S + \beta_1^SD_i + \epsilon_i^S \quad \text{"short" regression} \\
+Y_i & = \beta_0 + \beta_1D_i + \beta_2X_i + \epsilon_i \quad \text{"long" regression}
+\end{split}
+$$
+
+Essentially, the "long" regression contains the "short" regression, with one additional explanatory variable $X$. This additional variable $X$ is **omitted** in the "short" regression.
+
+Now consider an auxiliary regression, where the omitted variable $X$ is the outcome variable, and $D_i$ is the explanatory variable:$$
+X_i = \delta_0 + \delta_1 D_i + u_i \quad \text{where } u_i \text{ is error and } \delta_0, \delta_1 \text{ are coefficients}
+$$
+
+Now we have that, let us plug $X_i$ into our long regression:$$
+\begin{split}
+Y_i & = \beta_0 + \beta_1D_i + \beta_2X_i + \epsilon_i \\
+Y_i & = \beta_0 + \beta_1 D_i + \beta_2(\delta_0 + \delta_1D_i + u_i) + \epsilon_i \\
+Y_i & = \beta_0 + \beta_1 D_i + \beta_2 \delta_0 + \beta_2 \delta_1 D_i + \beta_2u_i + \epsilon_i \\
+Y_i & = \beta_0 + \beta_2 \delta_0 + (\beta_1 + \beta_2 \delta_1)D_i + \beta_2u_i + \epsilon_i
+\end{split}
+$$
+
+Notice the last equation only has one dependent variable $D_i$: this is in the same form as the "short" regression. The coefficient of $D_i$ in the short regression was $\beta_1^S$, and now in our final equation $\beta_1 + \beta_2 \delta_1$. Thus:$$
+\beta_1^S = \beta_1 + \beta_2 \delta_1
+$$
+
+Or in other words, the difference between the coefficient of $D_i$ in the "short" regression $\beta_1^S$, and the coefficient of $D_i$ in the long regression $\beta_1$, the difference is $\beta_2 \delta_1$. Essentially, our "short" regression's coefficient estimate was incorrect/biased by $\beta_2 \delta_1$.
+
+::: callout-tip
+## Omitted Variable Bias
+
+Omitted Variable Bias is the difference between the $\beta$ coefficients of our treatment $D_i$, between a model a certain control variable $X$, and a model without that variable. [By omitting that control variable $X$, our causal estimate changes by $\beta_2 \delta_1$]{.underline}, or in other words, our causal estimate is off by $\beta_2 \delta_1$.
+
+ 
+
+Thus, in order to use regression for accurate causal estimation, we must be confident all confounders are included as control variables.
+:::
+
+Of course, this is easier said than done. For many social science relationships, there are thousands of confounders, many not measurable or observable. We will introduce more techniques in Volume II to deal with this issue.
+
 ## Further Topics in Linear Regression
 
 ### Categorical Explanatory Variable
@@ -1687,31 +1739,103 @@ Thus, we can seen that when we multiply $X$ by $e^A$, we get an expected $\beta 
 When $X_j$ increases by 10%, there is a expected $0.095\beta_j$ unit change in $Y$
 :::
 
-### Implementation in R and Stata {.unnumbered}
+### Implementation in R {.unnumbered}
 
-To calculate fixed effects, we must install and load the **plm** package (there is a way to do it in base-r, but plm makes it easier, and there are other packages as well).
-
-```{r, message = FALSE}
-library(plm)
-```
-
-The syntax is very similar to standard linear regression, however, we add an *index* parameter to indicate what variables we want fixed effects on, and a *model = "within"* parameter to specify we want fixed effects. For two ways, we need an additional parameter *effect = "twoways"*.
+For R, we will need the package *fixest.*
 
 ```{r, eval = FALSE}
-# one-way fixed effects
-model1 <- plm(Y ~ X1 + X2, data = mydata,
-              index = "Cluster Variable Name", model = "within")
-summary(model1)
+library(fixest)
+```
 
-# two-way fixed effects
-model2 <- plm(Y ~ X1 + X2, data = mydata,
-             index = c("Cluster 1 variable", "Cluster 2 variable"), 
-             effect = "twoways", model = "within")
+#### Categorical Explanatory Variables
+
+R automatically treats character/string and boolean/logical data types as categorical variables, so we can just include them in the regression like any other variable.
+
+For variables that are numeric (but need to be represented as categorical variables), we use the as.factor() function in the linear regression. For example, below, X2 is being coerced into a factor variable:
+
+```{r, eval = FALSE}
+model <- feols(Y ~ X1 + as.factor(X2) + X3, data = mydata, se = "hetero")
+summary(model)
+```
+
+We can also do this before even entering the linear regression by modifying the variable.
+
+```{r, eval = FALSE}
+mydata$X2 <- as.factor(mydata$X2)
+```
+
+If we want to change the reference category of the categorical variable, we can use the *relevel()* function (for numeric or logical factor variables, there is no need for the quotation marks).
+
+```{r, eval = FALSE}
+mydata$X2 <- as.factor(mydata$X2)
+mydata$X2 <- relevel(mydata$X2, ref = "category name")
+```
+
+#### Interaction Effect
+
+To do an interaction effect, we simply use a asterisk between the two variables we want to interact:
+
+```{r, eval = FALSE}
+model <- feols(Y ~ X1*X2 + X3, data = mydata, se = "hetero")
+summary(model)
+```
+
+#### Polynomial Transformations
+
+To do a polynomial regression, we use the *I()* function within our regression model, with the first argument being the variable, and 2nd argument being the polynomial degree. For example, let us make a model with X1 with a cubic polynomial:
+
+```{r, eval = FALSE}
+model <- feols(Y ~ I(X1, 3) + X2 + X3, data = mydata, se = "hetero")
+summary(model)
+```
+
+#### Logarithmic Transformations
+
+To do a logarithmic transformation, we put the variable in question in the *log()* function. Note: if you have any 0's in the variable, this may create an error.
+
+```{r, eval = FALSE}
+model <- feols(Y ~ log(X1) + X2 + X3, data = mydata, se = "hetero")
+```
+
+#### Fixed Effects
+
+One way fixed effects: The syntax is very similar to standard linear regression, we just add fixed effects after a bar "\|". In the example below, *fix1* is the variable we are using as fixed effects:
+
+```{r, eval = FALSE}
+model <- feols(Y ~ X1 + X2 | fix1, data = mydata)
+summary(model)
+```
+
+Two way fixed effects: just add another fixed effect variable after *fix1* with a "+" sign:
+
+```{r, eval = FALSE}
+model <- feols(Y ~ X1 + X2 | fix1 + fix2, data = mydata)
+summary(model)
 ```
 
 Important note: Often, the variable *year* is encoded as numeric, but we want it to be a categorical variable for fixed effects, so use the *as.factor()* function to coerce the variable *year*.
 
 Also, you can do this in base-r with the *lm()* function as shown throughout the regression examples, just by including the cluster variable as a categorical explanatory variable, however, the output is not as nice.
+
+### Implementation in STATA {.unnumbered}
+
+#### Categorical Explanatory Variables
+
+In Stata, we simply put an *i.* in front of the variable to make STATA treat it as a categorical variable:
+
+```         
+regress Y X1 i.X2 X3, robust
+```
+
+#### Interaction Effects
+
+In Stata, to do an interaction effect, we add two hashtags \## between the two variables we want to interact:
+
+```         
+regress Y X1##X2 X3, robust
+```
+
+#### 
 
 # Discrete Regression Models
 
