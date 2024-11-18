@@ -1,5 +1,5 @@
 ---
-title: "Quantitative Methods (for Political Economics)"
+title: "Quantitative Methods (for Social Scientists)"
 subtitle: "Volume I: Calculus and Statistical Theory"
 author: "Kevin Lingfeng Li"
 format:
@@ -88,6 +88,8 @@ The set of all real numbers $\mathbb{R}$ is the most common used set. A subset o
 
 In all these intervals, $a$ and $b$ are called **endpoints** of the interval. Any point inside of an interval that is not an endpoint is an **interior point**.
 
+------------------------------------------------------------------------
+
 ### Solving Equations
 
 #### Solving Equations with One Variable
@@ -113,7 +115,7 @@ To solve a system of equations (such as 2 different equations with 2 variables $
 2.  Substitute that equation that we just solved, into the other equation. This will make that equation only have one variable. Solve that equation for the remaining variable.
 3.  Then, plug the variable we have found, into either of the original equations, and find the value of the other variable.
 
-The solution to a system of equations is the point where the two lines meet on a graph.
+The solution to a system of equations is also the point where the two lines meet on a graph.
 
 **Example**: Solve the system of equations: $3x + 2y = 13$, $x - 2y = 3$.
 
@@ -128,6 +130,8 @@ The solution to a system of equations is the point where the two lines meet on a
 
 Thus, the solution to the system of equations is $x=4, y = \frac{1}{2}$
 
+------------------------------------------------------------------------
+
 ### Factoring and Expansion
 
 Factorisation is the process of changing an equation from the form $ax^2+bx+c$ to the form $(x+i)(x+j)$. To do this, we need to:
@@ -141,14 +145,23 @@ Factorisation is the process of changing an equation from the form $ax^2+bx+c$ t
 2.  $2$ and $3$ are two numbers that add to 5, while multiplying to 6.
 3.  Now, put it into the factored form: $(x+2)(x+3)$
 
-There is a special form of factoring: **difference of squares**. Essentially, any expression that takes the form of $a^2 - b^2$ can be rewritten as $(a+b)(a-b)$. Example: $x^2 - 9 = (x+3)(x-3)$.
+ 
 
-Multiplication expansion undoes factoring. To do this, we must multiply each term of one section by each other term of the other section. This is more intuitive with an example.
+There is a special form of factoring: **difference of squares**.
+
+-   Essentially, any expression that takes the form of $a^2 - b^2$ can be rewritten as $(a+b)(a-b)$.
+
+-   For example: $x^2 - 9 = (x+3)(x-3)$.
+
+ 
+
+**Multiplication expansion** undoes factoring. To do this, we must multiply each term of one section by each other term of the other section. This is more intuitive with an example.
 
 **Example**: let us prove the difference of squares idea we saw earlier - multiply out $(x+3)(x-3)$: $$
 \begin{split}
 (x+3)(x-3) & = (x \times x) + (x \times -3) + (3 \times x) + (3 \times -3) \\
-& = x^2 - 3x + 3x -9 = x^2 - 9
+& = x^2 - 3x + 3x -9 \\
+&= x^2 - 9
 \end{split}
 $$
 
@@ -168,12 +181,17 @@ Here are a few key properties of exponents that are important to note:
 
 Sometimes, you will have an equation that takes the form $x^n = a$, where $n$ is some number.
 
-How to get rid of $n$ to isolate $x$? We know that $n \times (1/n) = 1$. We also know that $(a^x)^y = a^{xy}$. Thus: $$
-\begin{split}
-& (x^n)^{(1/n)} = a^{(1/n)} \\
-& x^{n \times (1/n)} =x^1 = x = a^{(1/n)}
-\end{split}
-$$
+How to get rid of $n$ to isolate $x$?
+
+-   We know that $n \times (1/n) = 1$.
+
+-   We also know that $(a^x)^y = a^{xy}$. Thus: $$
+    \begin{split}
+    & (x^n)^{(1/n)} = a^{(1/n)} \\
+    & x^{n \times (1/n)} =x^1 = x = a^{(1/n)} \\
+    & \text{thus}, x = a^{1/n}
+    \end{split}
+    $$
 
 #### Logarithms
 
@@ -183,7 +201,9 @@ $$
 y = \log_a(x) \Longrightarrow a^y = x
 $$
 
-Or more intuitively, take the example $y = \log_2(8)$ is basically asking, what power $y$ should I take base 2 to, in order to get an answer of $8$. Of course, $2^3 = 8$, so the answer is $y=3$.
+Or more intuitively, take the example $y = \log_2(8)$ is basically asking, what power $y$ should I take base 2 to, in order to get an answer of $8$.
+
+-   Of course, $2^3 = 8$, so the answer is $y=3$.
 
 Here are a few key properties to know about logarithms.
 
@@ -192,7 +212,7 @@ Here are a few key properties to know about logarithms.
 3.  $-\log(x) = \log(1/x)$
 4.  $\log(1) = \log(e^0) = 0$
 
-Note that in statistics, when we say $\log(x)$, we are talking about natural logs (base $e$). We can change the base of logarithms:
+Note that in statistics, when we say $\log(x)$, we are talking about natural logs (base $e$). We will specify any other base with a subscript in the logarithm. We can change the base of logarithms with the following formula:
 
 $$
 \log_b(x) = \frac{\log_a(x)}{\log_a(b)}
@@ -249,15 +269,7 @@ Product notation has the following properties:
 
 #### Converting Between Sum and Product Notation
 
-We can convert between summation and product notation with the properties of logarithms:$$
-\begin{split}
-\log \left( \prod\limits_{i=1}^n x_i\right) & = \log(x_1 \times x_2 \times ... \times x_n) \\
-& = \log(x_1) + \log(x_2) + ... + \log(x_n) \\
-& = \sum\limits_{i=1}^n \log(x_i)
-\end{split}
-$$
-
-Or a more general rule with constant $c$:$$
+We can convert between summation and product notation with the properties of logarithms::$$
 \begin{split}
 \log \left( \prod\limits_{i=1}^n cx_i \right) & = \log(cx_1 \times cx_2 \times ... \times cx_n) \\
 & = \log(c^n \times x_1 \times x_2 \times ... \times x_n) \\
@@ -306,7 +318,9 @@ There are a few very common types of functions that we will encounter:
 
 ![](figures/1/1.1.png){width="100%"}
 
-### Properties of Functions
+------------------------------------------------------------------------
+
+### Slope and Zeroes of Functions
 
 #### Linear Equations and Slope
 
@@ -334,12 +348,16 @@ The zeroes/roots of a function are the input values of the function that make th
 -   Graphically. Since output $f(x)$ is graphed on the $y$-axis, we can see at what $x$-values the function cross the line $y=0$ (the $x$-axis line).
 :::
 
-To solve for zeroes/roots, simply set the function equal to 0, and solve for $x$. Some functions can have more than one zero, especially polynomials, and some can have none.
+To solve for zeroes/roots, simply set the function equal to 0, and solve for $x$.
+
+-   Some functions can have more than one zero, especially polynomials, and some can have none.
 
 **Example**: Find the root of $f(x) = x -5$
 
 1.  Set function output equal to 0: $0 = x-5$
 2.  Solve for $x$ and we get: $x = 5$.
+
+ 
 
 For **quadratic functions**, there are two ways to find roots. We can factor, covered in section 1.2.
 
@@ -349,11 +367,15 @@ For **quadratic functions**, there are two ways to find roots. We can factor, co
 2.  Factor: $0 = (x+2)(x+3)$
 3.  $x=-2$ and $x=-3$ make this equation true.
 
-We can also use the quadratic formula to find the roots of unfactorable equations. Given a quadratic in the form of $ax^2 + bx + c$, the roots are:
+We can also use the **quadratic formula** to find the roots of unfactorable equations. Given a quadratic in the form of $ax^2 + bx + c$, the roots are:
 
 $$
 x = \frac{-b ± \sqrt{b^2 - 4ac} }{2a}
 $$
+
+Note: we will often have two roots in quadratics (although not always).
+
+------------------------------------------------------------------------
 
 ### Special Types of Functions
 
@@ -365,7 +387,11 @@ $$
 f \circ g = f[g(x)]
 $$
 
-Essentially, we calculate the output value of $g(x)$, and immediately input that value into $f(x)$. For example, if $h(x) = x^2$, and $f(x) = x-5$, then $f \circ h = (x^2) - 5$
+Essentially, we calculate the output value of $g(x)$, and immediately input that value into $f(x)$.
+
+For example, if $h(x) = x^2$, and $f(x) = x-5$, then $f \circ h = (x^2) - 5$
+
+-   Note, $f \circ h$ and $h \circ f$ are different, so make sure you are doing the correct one!
 
 #### Surjective, Injective, and Bijective Functions
 
@@ -375,11 +401,15 @@ A function $f:X \rightarrow Y$ is a **surjective** function if its range is equa
 
 -   For example: $f(x)=x$ is surjective, as the range of $f(x) = x$ is $(-∞, ∞)$, which covers the entire set of $Y$. Thus, $R(f) = Y$.
 
+ 
+
 A function $f:X \rightarrow Y$ is an **injective** function if distinct inputs are mapped to distinct outputs. Basically, no two input values of $x \in X$ produce the same value output $f(x)$.
 
 -   Mathematically, for all $x_1 \in X, x_2 \in X$, if $x_1 ≠ x_2$, then $f(x_1) ≠ f(x_2)$
 
 -   For example: $f(x) = x$ is injective, because no two inputs of $x$ produce the same output $f(x)$.
+
+ 
 
 A function is **bijective** if it is both injective and surjective.
 
@@ -402,6 +432,8 @@ $$
 
 To find the inverse function, we simply solve for the input variable.
 
+ 
+
 **Example**: Find the inverse of $f(x) = 2x+3$
 
 1.  Let us define $y$ as the output of $f(x)$, such that $f(x) = y = 2x+3$
@@ -416,7 +448,7 @@ Let us prove that this is an inverse function with the properties we showed abov
 \end{split}
 $$
 
-### Limits and Continuity
+### Limits
 
 ::: callout-tip
 ## Key Definition: Limits
@@ -430,15 +462,19 @@ A limit is when a function approaches some specific output value $y=f(x) = L$, a
 
 For example, the figure below shows a function with a limit:
 
-![](figures/1/1.3.jpeg){fig-align="center" width="35%"}
+![](figures/1/1.3.jpeg){fig-align="center" width="45%"}
 
-For a limit to exist, it must approach the same $y$ value $L$, from both sides of $x = c$. For example, in the figure above, from both the left and right of $x=c$, the function $f(x)$ approaches L. Thus, a limit exists here.
+For a limit to exist, it must approach the same $y$ value $L$, from both sides of $x = c$.
 
--   However, if the function were to approach different $y$ values on both sides of $x=c$, then there would be no limit.
+-   For example, in the figure above, from both the left and right of $x=c$, the function $f(x)$ approaches L. Thus, a limit exists here.
+
+However, if the function were to approach different $y$ values on both sides of $x=c$, then there would be no limit.
 
 -   We can notate the limit from the left side of $x=c$ as $\lim\limits_{x^- \rightarrow c} f(x) = L$, and the limit from the right side of $x=c$ as $\lim\limits_{x^+ \rightarrow c} f(x) = L$.
 
-Importantly, $f(x)$ does not need to be defined at point $x=c$ for the limit to exist. The figure above has a function $y=f(x)$ that is not defined at $f(c)$, however, the limit still exists.
+Importantly, $f(x)$ does not need to be defined at point $x=c$ for the limit to exist.
+
+-   For example, the figure above has a function $y=f(x)$ that is not defined at $f(c)$, however, the limit still exists.
 
 #### Properties of Limits
 
@@ -449,7 +485,7 @@ Let us have functions $f$ and $g$, where $\lim\limits_{x \rightarrow c} f(x) = A
 3.  $\lim\limits_{x \rightarrow c} [f(x) \times g(x)] = \lim\limits_{x \rightarrow c} f(x) \times \lim\limits_{x \rightarrow c}g(x)$
 4.  $\lim\limits_{x \rightarrow c} [f(x) / g(x)] = \lim\limits_{x \rightarrow c} f(x) / \lim\limits_{x \rightarrow c}g(x)$
 
-#### Continuity
+### Continuity
 
 Continuity as a concept is quite intuitive: if a function has no breaks or jumps within an interval, then it is continuous within that interval.
 
@@ -457,6 +493,13 @@ We can express this intuition in more mathematical terms. Suppose that function 
 
 1.  $\lim\limits_{x \rightarrow c} f(x)$ exists, i.e. $\lim\limits_{x^- \rightarrow c} f(x) = \lim\limits_{x^+ \rightarrow c} f(x)$.
 2.  $\lim\limits_{x \rightarrow c} f(x) = f(c)$.
+
+These rules make sense intuitively:
+
+1.  The limit must exist for continuity, since if a function approaches a different $Y$ value on each side at a certain $x=c$, then it cannot be continuous. Thus, the first condition must be true.
+2.  If the function is not defined at $c$, or is defined by not equal to the limit, that means there will be a break or jump in the function. Thus, the second condition must be true for continuity.
+
+ 
 
 Let us assume functions $f$ and $g$ are both continuous at $x=c$. Then, continuity has a few properties:
 
@@ -529,6 +572,8 @@ A note on notation: so far, I have used $f'$ (apostrophes) to notate a derivativ
 
 Finally, it is also possible to take the derivative of a derivative. This is a second-order derivative, and we notate it $f''$ (with two apostrophes).
 
+------------------------------------------------------------------------
+
 ### Rules of Differentiation
 
 You can calculate any derivative by plugging it into the formal definition from above. However, this can be tedious and involve a lot of algebra.
@@ -575,7 +620,7 @@ Derivative of sine: $[\sin(x)]' = \cos(x)$.
 
 Derivative of cosine: $[\cos(x)]' = -\sin(x)$.
 
-#### Examples:
+ 
 
 **Example 1:** Find the derivative of $f(x) = 5x^4 - 6x^3 + x^2 - 5x + 6$.
 
@@ -583,6 +628,8 @@ Derivative of cosine: $[\cos(x)]' = -\sin(x)$.
 2.  Constant rule says that $f'(x) = 5[x^4]' - 6[x^3]' + [x^2]' - 5[x] + [6]'$
 3.  Power rule says that: $f'(x) = 5(4x^3) - 6(3x^2) + (2x) - 5 + 0$
 4.  Simplify: $f'(x) = 20x^3 - 18x^2 + 2x - 5 + 0$
+
+ 
 
 **Example 2:** Find the derivative of $f(x) = (x^3)(2x^4)$.
 
@@ -597,6 +644,8 @@ Method 2 (power rule):
 
 1.  Simplify $f(x)$ to get $f(x) = 2x^7$.
 2.  Use constant rule and power rule: $f'(x) = 2[x^7]' = 2(7x^6) \Longrightarrow f'(x) = 14x^6$
+
+ 
 
 **Example 3:** Find the derivative of $f(x) = (3x^2 + 5x -7)^6$
 
@@ -614,6 +663,8 @@ The simplest way to do this is to find the inverse function (as shown in section
 -   However, the function $x = f^{-1}(y)$ is not always easily differentiable with the rules we have introduced.
 
 -   We can utilise an alternative approach to find inverse derivatives.
+
+ 
 
 Remember the identity of inverse functions shown in section 1.5:
 
@@ -642,6 +693,10 @@ $$
 \frac{df^{-1}(y)}{dy} = \frac{1}{ \frac{df(x)}{dx} }, \text{ and since } y=f(x),x = f(y), \Longrightarrow \frac{dx}{dy} = \frac{1}{ \frac{dy}{dx} }
 $$
 
+We can use this property to solve for the derivative of the inverse of a function that we do not know how to differentiate with our above rules.
+
+ 
+
 **Example**: Find the derivative of the inverse function for $f(x) = \ln(x)$.
 
 1.  First, find the inverse $f^{-1}(y)$. We do this by solving for $x$ in $y = \ln(x)$. Through the definition of logarithms, we know that $x = e^y$. Thus, $f^{-1}(y) = e^y$.
@@ -656,7 +711,9 @@ Suppose that we have a function $f : X_1, X_2, ..., X_n \rightarrow \mathbb{R}$.
 
 -   However, we might only be interested in the rate of change (slope) relative to only one of the variables.
 
--   A partial derivative is what we will need to find.
+-   A partial derivative is what we will need to find - the rate of change only in relation to one variable.
+
+ 
 
 ::: callout-tip
 ## Key Definition: Partial Derivative
@@ -674,7 +731,13 @@ $$
 -   As a result, we treat $x_1, ..., x_n$ that are not $x_i$ as simply constants.
 :::
 
-To solve a partial derivative, we take the derivative in respect to our specific variable $x_i$, while treating all other input variables $x_1, ..., x_n$ like a constant, like you would treat the number 5.
+ 
+
+To solve a partial derivative, we take the derivative in respect to our specific variable $x_i$, while treating all other input variables $x_1, ..., x_n$ like a constant.
+
+-   So essentially, we treat other variables like we would the number 5 - i.e. the derivative of a constant is 0, so the derivative of other variables is also 0.
+
+ 
 
 **Example**: Find the partial derivative in respect to $x$ for $f(x, z) = 5x^2z^3 + 2x + 3z + 5$
 
@@ -683,7 +746,9 @@ To solve a partial derivative, we take the derivative in respect to our specific
 3.  Find derivatives, remember $z$ is constant here: $\frac{\partial f(x,z)}{\partial x} = 10z^3x + 2 + 0 + 0$.
 4.  Thus, $\frac{\partial f(x,z)}{\partial x} = 10z^3x + 2$.
 
-#### Example: Multiple Regression
+------------------------------------------------------------------------
+
+### Application: Multiple Regression
 
 Partial derivatives are very useful in economic modelling and econometrics/statistics. We will introduce an application of partial derivatives with linear regression model.
 
@@ -703,6 +768,20 @@ Let us say we are interested in only the effect of $X_1$ on $Y$. We can take the
 $$
 
 So we can see, the effect of $X_1$ on $\hat{Y}$ is $\hat{\beta}_1$, and this is not affected by any other explanatory variables $X_2, ..., X_n$. This shows how multiple linear regression allows us to "hold other variables constant" and isolate the effect of one variable.
+
+ 
+
+Alternatively, we can also use partial derivatives to find the effect of one variable in a moderating effect regression:
+
+$$
+\begin{split}
+\hat{Y} & = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2 \\
+\frac{\partial \hat{Y}}{\partial X_1} & = 0 + \hat{\beta}_1 + 0 + \hat{\beta}_3X_2 \\
+\frac{\partial \hat{Y}}{\partial X_1} & = \hat{\beta}_1 + \hat{\beta}_3X_2
+\end{split}
+$$
+
+As you can see, the relationship between $X_1$ and $Y$ here depends on the value of $X_2$. In more intuitive words, given a one unit increase in $X_1$, there is an expected $\hat{\beta}_1 + \hat{\beta_3}X_2$ increase in $Y$.
 
 ## Optimisation
 
@@ -752,9 +831,9 @@ If a function $f$ changes from convex to concave at point $a$, or from concave o
 
 ![](figures/1/3.4.png){fig-align="center" width="70%"}
 
-### Optimisation and Finding Extrema
+------------------------------------------------------------------------
 
-#### Global Extrema
+### Global Extrema
 
 Tate the function $f: A \rightarrow \mathbb{R}$, in which $A$ is domain of $f$ such that $A \subseteq \mathbb{R}$.
 
@@ -762,9 +841,15 @@ A **global maximum** of $f$ is a point $a \in A$ such that $f(a) ≥ f(x)$ for a
 
 A **global minimum** of $f$ is a point $a \in A$ such that $f(a) ≤ f(x)$ for all $x \in A$. A **strict global minimum** is when the condition $f(a) < f(x)$ for all $x \in A$.
 
-What is the difference between a local and global extrema? Well, a local exterma only has to be the maximum/minimum in its "neighbourhood", meaning there can be multiple local extrema. Global extrema are a subset of local extrema. There can only be one global maximum or minimum in a function.
+What is the difference between a local and global extrema?
 
-#### Optimisation
+Well, a local exterma only has to be the maximum/minimum in its "neighbourhood", meaning there can be multiple local extrema. There is only one global minimum and maximum in a function.
+
+Global extrema are a subset of local extrema. That means we can find global extrema by first finding local extrema, then eliminating some local extrema that are not global extrema. There can only be one global maximum or minimum in a function.
+
+------------------------------------------------------------------------
+
+### Optimisation
 
 ::: callout-tip
 ## Key Definition: Optimisation
@@ -776,7 +861,7 @@ If a function is differentiable on an open interval, then a local extrema can on
 
 For a stationary point to be a local maximum, the function should be concave. For a stationary point to be a local minimum, the function should be convex. Why? - consider the following diagram:
 
-![](figures/1/3.6.png){fig-align="center" width="50%"}
+![](figures/1/3.6.png){fig-align="center" width="44%"}
 
 Thus, we can identify local extrema of a function $f(x)$ in an interval with these steps:
 
@@ -786,7 +871,7 @@ Thus, we can identify local extrema of a function $f(x)$ in an interval with the
 
 However, we are not done - we have to calculate the edge cases. These are the end-points of our interval. Why? - look at the following figure below - on the interval $[-3, 7]$, clearly $x=7$ will have a larger maximum value than any local maximum, since the function tends towards infinity as $x$ approaches infinity:
 
-![](figures/1/3.7.jpeg){fig-align="center" width="50%"}
+![](figures/1/3.7.jpeg){fig-align="center" width="48%"}
 
 Thus, we have to check the edges of our intervals and see if they are the maximum or minimum in the interval, and compare them to the local extrema we found. Once we have found the $x$ value that makes $f$ output its maxmimum/minimum value within an interval, we have completed optimisation.
 
@@ -799,6 +884,8 @@ Find the maximum value of $f(x) = 2x^3 - 9x^2 + 12x$ in the interval $x \in [0, 
 3.  Find the 2nd derivative to distinguish maximums and minimums: $f''(x) = 12x - 18$.
 4.  Plug in our stationary points $x=2, x=1$ we found earlier to find minimums and maximums: $f''(2) = 6$, $f''(1) = -6$. Since maximums are when $f''(x) < 0$, thus $x=1$ is the only local maxmimum. We can plug in $x=1$ into the original function to find the local maximum value of $f(1) = 5$.
 5.  Test our edge cases of our interval $[0,3]$. $f(0) = 0$, $f(3) = 9$. We can see that $f(3) = 9 > f(1) = 5$. Thus, $x=3$ is the maximum point in this interval.
+
+------------------------------------------------------------------------
 
 ### Constrained Optimisation
 
@@ -826,7 +913,7 @@ Thus, the general workflow of constrained optimisation is:
 
 ### Indefinite Integrals
 
-Integrals, also called anti-derivatives, are the opposite of derivatives.
+Integrals, also called anti-derivatives, are the opposite of derivatives - i.e. applying an integral to a derivative results in the original function as they cancel each other out.
 
 ::: callout-tip
 ## Key Definition: Indefinite Integral
@@ -848,11 +935,13 @@ $$
 So essentially, integrals reverse derivatives, and derivatives reverse integrals.
 :::
 
-Note: there are many indefinite integrals $F$, for any given function $f$. This is because when we take a derivative, we lose any constants, since $\frac{d}{dx} [c] = 0$. Thus, many different functions $F$ with different $c$, when taking the derivative, will result in function $f$.
+Note: there are many indefinite integrals $F$, for any given function $f$. This is because when we take a derivative, we lose any constants, since $\frac{d}{dx} [c] = 0$.
+
+-   Many different functions $F$ with different $c$, when taking the derivative, will result in function $f$.
 
 -   This is why you will see a $+C$ at the end of integrals - which indicates that any constant $C$ in integral $F$ will result in the same derivative $f$.
 
-### Integration Rules
+#### Integration Rules
 
 Since integrals are the opposite of derivatives, we can reverse many derivative rules to find rules of integration:
 
@@ -900,6 +989,8 @@ Find $\int(fx)$ where $f(x) = e^xe^{e^x}$:
 2.  Using nested exponential integral rule: $\int e^{f(x)} f'(x)dx = e^{f(x)} + C$, we can define $f(x) = e^x$ and $f'(x) = e^x$.
 3.  Putting it into this form, we get $\int f(x) = e^{e^x} + C$.
 
+------------------------------------------------------------------------
+
 ### Definite Integrals and Riemann Sums
 
 Integrals are not only the opposite of derivatives, but are also a function for the area under a curve.
@@ -922,7 +1013,7 @@ With a straight linear $f(x)$, this is quite easy. However, when $f(x)$ is non-l
 
 However, there is a strategy we can use - we can approximate the area under the curve using rectangles. The figure below shows this:
 
-![](figures/1/5.1.png){fig-align="center" width="80%"}
+![](figures/1/5.1.png){fig-align="center" width="70%"}
 
 Notice how with more and more rectangles (with each rectangle having a smaller width), the more and more accurate our approximation of the area under a curve becomes.
 
@@ -986,15 +1077,93 @@ Find the area under the curve between $x =1$ and $x=5$ for function $f(x) = 3x^2
 4.  Find the difference: $F(b) - F(a) = F(5) - F(1) = 125 - 1 = 124$.
 5.  Thus, $\int\limits_1^5 3x^2dx = 124$.
 
-## Advanced Integration
-
-### Integration by Recognition
+------------------------------------------------------------------------
 
 ### Integration by Substitution
 
+Integration by substitution is a technique that allows us to solve more complex integrals.
+
+::: callout-tip
+## Key Definition: Integration by Substitution
+
+Integration by substitution, derived from the chain rule, is a rule that states:
+
+$$
+\int f[u(x)] u'(x)dx = F[u(x)] + c
+$$
+
+Or in other words, if we can rearrange a function into the form $f[u(x)]u'(x)$, we know its derivative will be in the form $F[u(x)]+c$.
+:::
+
+So, to solve an integral, we need to:
+
+1.  Look at our original function in the integral, and see what $f(x)$ and $u(x)$ could make our original function take the form $f[u(x)]u'(x)$. We need to make sure our function in this form is equal to the original function (so we are solving the same problem). This can involve some tinkering, including dividing our new form by a constant (see example 2).
+2.  Once we have our integral in that form, we know the integral will be equal to $F[u(x)]+c$. So we must find $F(x) = \int f(x)$, and we will have our integral (since $u(x)$ is already defined in the first step.
+
+If we can re-represent our integral in the form $f(x)$'s and $u(x)$'s in the form of integration by substitution, and ensure that the $f(x)$ we chose in that process is able to be integrated, we can find the integral.
+
+**Example 1:** find $\int (x+4)^5 dx$.
+
+1.  Let us think how we can rewrite this in the form $f[u(x)]u'(x)$. We could define $f(x) = u^5$ and $u(x) = x+4$ so that $f[u(x)]$ section looks like $(x+4)^5$.
+2.  However, we cannot forget about the extra $u'(x)$ at the end of the form $f[u(x)]u'(x)$. What is $u'(x)$. Using simple derivation on $u(x) = x+4$, we know $u'(x) = 1$. Thus, in the form $f[u(x)]u'(x)$, we have $(x+4)^5 \times 1$, which is equivalent to our original equation.
+3.  Using integration by substitution, we know $\int f[u(x)] u'(x)dx = F[u(x)] + c$. So knowing $f(x)$ and $u(x)$, how do we get the integration answer in the form $F[u(x)] + c$?
+4.  We need to first find what $F(x) = \int f(x)dx$ is. The integral of $u^5$, using reverse power rule, is $\frac{1}{5+1} u^{5+1} + c= \frac{1}{6} u^6 + c$.
+5.  Now that we know $F(x)$, and $u(x)$ from the very first step, we can put it in the form $F[u(x)] + c$. Thus, our answer is $\frac{1}{6}(x+4)^2 + c$.
+
+ 
+
+**Example 2:** find $\int e^{4x^2}x \ dx$.
+
+1.  Let us think how we can rewrite this in the form $f[u(x)]u'(x)$. We could define $f(x) = e^{u}$ and $u(x) = 4x^2$ so the $f[u(x)]$ section looks like $e^{4x^2}$.
+2.  However, we cannot forget about the extra $u'(x)$ at the end of the form $f[u(x)]u'(x)$. What is $u'(x)$? Using power rule of $u(x) = 4x^2, \ u'(x) = 8x$. Thus, in the form $f[u(x)]u'(x)$, we know have $e^{4x^2}8x$.
+3.  But notice, our new form $e^{4x^2}8x$ still does not equal our original equation $f(x) = e^{4x^2}x$. We can adjust this by multiplying our new form by $\frac{1}{8}$, getting $\frac{1}{8} e^{4x^2}8x$.
+4.  Using integration by substitution, we know $\int f[u(x)] u'(x)dx = F[u(x)] + c$, thus $\frac{1}{8} \int e^{4x^2} 8xdx = F[u(x)]$. But what is $F = \int f(x)$? since $f(x)=e^{u}$, using integration rules, $F(x) = e^u + c$.
+5.  Since the integral by substitution is $F[u(x)]$, we input our $u(x) = 4x^2$ into this to get $F[u(x)] = e^{4x^2} + C$
+6.  Let us not forget the $\frac{1}{8}$ outside of our interval! Thus, our integral is $\frac{1}{8} e^{4x^2} + c$.
+
+------------------------------------------------------------------------
+
 ### Integration by Parts
 
-### Integration by Partial Fractions
+Integration by parts is another technique for solving more difficult integrals.
+
+::: callout-tip
+## Key Definition: Integration by Parts
+
+Integration by parts, derived from the product rule, is defined as:
+
+$$
+\int f(x) g'(x) dx = f(x)g(x) - \int f'(x) g(x)dx
+$$
+
+So, if we can find some way to represent our initial integral equation in the form $f(x) g'(x)$, and $f'(x)g(x)$ is able to be integrated, we can find the integral.
+:::
+
+So, to solve an integral, we need to:
+
+1.  Look at our original function in the integral, and see what $f(x)$ and $g'(x)$ could make our original function take the form $f(x)g'(x)$. We need to make sure our function in this form is equal to the original function (so we are solving the same problem).
+2.  Then we can solve for $\int f'(x)g(x)dx$ and $\int g'(x)dx = g(x)$.
+3.  WIth that, we can find the final integral which is in the form $f(x)g(x) - \int f'(x) g(x)dx$.
+
+So, if we can find some way to represent our initial integral equation in the form $f(x) g'(x)$, and $f'(x)g(x)$ is able to be integrated, we can find the integral.
+
+ 
+
+**Example 1**: Find $\int xe^xdx$.
+
+1.  Let us define $f(x) = x$ and $g'(x) = e^x$. This means the form $f(x) g'(x)$ will equal our original equation.
+2.  Thus, we know $f'(x) = 1$ and $\int g'(x)dx = \int e^xdx = e^x$.
+3.  That means $\int f'(x)g(x)dx = \int 1e^xdx = \int e^x = e^x+c$.
+4.  Now with all the parts, we can put into the final form $f(x)g(x) - \int f'(x) g(x)d$. Thus, our answer is $xe^x -e^x + c$.
+
+ 
+
+**Example 2**: find $\int \ln(x)dx$.
+
+1.  Let us define $f(x) = \ln (x)$ and $g'(x) = 1$. That means the form $f(x) g'(x)$ will equal our original equation.
+2.  Thus, we know $f'(x) = \frac{1}{x}$ and $g(x) = \int g'(x) = \int 1dx = x$.
+3.  That means $\int f'(x)g(x)dx = \int \frac{1}{x}xdx = \int 1dx = x + c$.
+4.  Now with all the parts, we can put into the final form $f(x)g(x) - \int f'(x) g(x)d$. Thus, our answer is $\ln(x) - x + c$.
 
 # Probability and Statistical Theory
 

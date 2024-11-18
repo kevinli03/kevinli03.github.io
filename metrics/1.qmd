@@ -1,5 +1,5 @@
 ---
-title: "Econometric Methods for Political Analysis"
+title: "Econometric Methods for Social Scientists"
 subtitle: "Volume I: Causal Inference and Regression"
 author: "Kevin Lingfeng Li"
 format:
@@ -39,7 +39,7 @@ This book is the 1st book in a sequence on **Econometric Methods for Political A
 2.  [Volume II: Causal Estimation for Observational Studies](https://kevinli03.github.io/metrics/2.pdf) expands on the first book by discusses modern causal inference techniques, such as instrumental variables and quasi-experimental techniques, which are useful when regression or randomised experiments are not feasible.
 3.  [Volume III: Measurement and Prediction](https://kevinli03.github.io/metrics/3.pdf) discusses topics in latent variable measurement, prediction and classification methods, and measurement of textual data for statistical analysis.
 
-This series is designed to be both an approachable, but also rigorous, introduction to Econometrics and the use of statistical methods for the analysis of political institutions and actors.
+This series is designed to be both an approachable, but also rigorous, introduction to Econometrics and the use of statistical methods for the analysis of political institutions and actors, as well as social phenomena in general.
 
  
 
@@ -61,7 +61,7 @@ If you have completed this book, or already have a strong understanding of poten
 
 ### Introduction to Econometrics
 
-**Econometrics** is the field of applying statistical methods to analyse real-world economic and social science data. While econometrics was initially pioneered by economics, the techniques econometricians developed have been adopted by most of the social sciences, including Political Science. Econometrics has two primary goals:
+**Econometrics** is the field of applying statistical methods to analyse real-world economic and social science data. While econometrics was initially pioneered by economics, the techniques econometricians developed have been adopted by most of the social sciences. Econometrics has two primary goals:
 
 1.  **Causal Inference**: Establishing how one feature directly causes another feature. This is essential to understanding the world around us and designing better policies. Key point: correlation ≠ causation.
 2.  **Predictive Inference/Forecasting**: Given data we have, how can we predict the values of data we do not have? For example, what will sales be next year? GDP? Who will win the next election? What are the likely costs/effects of a policy?

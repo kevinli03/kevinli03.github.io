@@ -69,39 +69,41 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 ------------------------------------------------------------------------
 
-# **Notes on Methods for Political Science and Political Economics**
+# **Notes: Methods for Social Science Research**
 
-This series of notes on Methods in Political Science and Political Economics includes 3 sequences: Econometrics Sequence, Political Economics Sequence, and the Quantitative Methods Sequence.
+This is a series of notes on Methods in Political Science and Political Economics.
 
 **NOTE:** This is a work in progress, everything is incomplete.
 
 <br />
 
-#### Econometric Methods for Political Analysis
+#### Econometric Methods for Social Scientists
 
-This series introduces econometric/statistical methods for analysing political phenomena empirically.
+This series introduces econometric/statistical methods for analysing social and political phenomena empirically.
 
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume I: Causal Inference and Regression](https://kevinli03.github.io/metrics/1.pdf)              | Topics include: causal inference, causal estimands, random experiments, linear regression, logistic regression, regression for counts.                |
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume II: Causal Estimation for Observational Studies](https://kevinli03.github.io/metrics/2.pdf) | Topics include: selection on observables, instrumental variables estimator, differences-in-differences, regression discontinuity, survey experiments. |
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume III: Measurement and Prediction](https://kevinli03.github.io/metrics/3.pdf)                 | Topics include: principle components analysis, models for latent variables, cluster analysis, classification methods, text analysis.                  |
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume I: Causal Inference and Regression](https://kevinli03.github.io/metrics/1.pdf)              | Topics include: causal inference, causal estimands, random experiments, linear regression, logistic regression, regression for counts.                                  |
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume II: Causal Estimation for Observational Studies](https://kevinli03.github.io/metrics/2.pdf) | Topics include: selection on observables, instrumental variables estimator, differences-in-differences, regression discontinuity, survey experiments.                   |
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume III: Forecasting and Prediction](https://kevinli03.github.io/metrics/3.pdf)                 | Topics include: time series models, non-linear prediction models, classification models, cross-validation, regularisation.                                              |
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume IV: Measurement Issues](https://kevinli03.github.io/metrics/4.pdf)                          | Topics include: latent variable modelling, structural equation models, principle components analysis, dictionary methods, text classification, structural topic models. |
++-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-#### Economic Modelling of Politics
+#### Economic Modelling for Political Analysis
 
 This series introduces using economic theory to model political behaviour and institutions.
 
-+-----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume I: Microeconomic Game Theory](https://kevinli03.github.io/polecon/1.pdf)  | Topics include: preferences and utility functions, pure and mixed nash equilibrium, dynamic games, bayesian games of incomplete information. |
-+-----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume II: Formal Models of Politics](https://kevinli03.github.io/polecon/2.pdf) |                                                                                                                                              |
-+-----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume III: Advanced Game Theory](https://kevinli03.github.io/polecon/3.pdf)     |                                                                                                                                              |
-+-----------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume I: Economic Game Theory](https://kevinli03.github.io/polecon/1.pdf)           | Topics include: preferences and utility functions, pure and mixed nash equilibrium, dynamic games, bayesian games of incomplete information. |
++---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume II: Models in Political Economics](https://kevinli03.github.io/polecon/2.pdf) |                                                                                                                                              |
++---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
+| [Volume III: Advanced Game Theory](https://kevinli03.github.io/polecon/3.pdf)         |                                                                                                                                              |
++---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
-#### Quantitative Methods
+#### Quantitative Methods for Social Scientists
 
 This companion series provides useful mathematical and statistical background knowledge. Volume I is highly recommended before starting any of the other series in these notes.
 

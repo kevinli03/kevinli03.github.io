@@ -1,6 +1,6 @@
 ---
-title: "Microeconomic Theory for Political Analysis"
-subtitle: "Part of an Introduction to Political Economics"
+title: "Economic Modelling for Political Analysis"
+subtitle: "Volume I: Economic Game Theory"
 author: "Kevin Lingfeng Li"
 format:
     pdf:
