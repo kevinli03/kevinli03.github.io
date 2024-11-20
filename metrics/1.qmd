@@ -60,7 +60,7 @@ There are three reasons why variables are correlated with each other.
 2.  There could be a third variable, $W$, causing both $X$ and $Y$ to change.
 3.  There is a causal effect of $Y$ on $X$.
 
-The most important thing about econometrics and causal inference is that [**correlation does not equal causation**]{.underline}. This is because of the 2nd reason listed above - our correlation could be caused by a third variable $W$, called a **confounder**.
+The most important thing about econometrics and causal inference is that [**correlation does not equal causation**]{.underline}. This is because of the 2nd reason listed above - our correlation between $X$ and $Y$ could be caused by a third variable $W$, called a **confounder**.
 
 For example, *Ice Cream Sales* and *Number of Fatal Shark Attacks* are two highly correlated variables in the United States. Does this mean that selling ice cream causes fatal shark attacks? No!
 
@@ -167,7 +167,7 @@ $$
 
 Ideally, [we want an unbiased estimator that has low variance]{.underline}. We will explore many different types of estimators for causal effects throughout this book, each with its own bias and variance.
 
-### Correlation is not Causation: Naive Estimator
+### Naive Estimator of Observed Outcomes
 
 The **naive estimator** is an estimator that only compares our observed outcomes, without any comparison to the counterfactual potential outcomes: $$
 \mathbb{E}[Y_{1i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0]
@@ -279,18 +279,16 @@ $$
 
 The selection bias term $\mathbb{E}[Y_{0i} | D_i = 1] - \mathbb{E}[Y_{0i} | D_i = 0] = 0$ under the above assumptions of randomisation. Thus, there is no longer selection bias, and confounding variables will have been accounted for.
 
-Our observed potential outcomes in our randomised experiments are $Y_{1i}$ and $Y_{0i}$. We know that the treatment group $D_i$ does not affect our potential outcomes. Thus we know that: $$
+Our observed potential outcomes in our randomised experiments are $Y_{1i}$ and $Y_{0i}$. We know that the treatment group $D_i$ does not affect our potential outcomes, since units are the same in both treatment and control. Thus we know that: $$
 \begin{split}
 \mathbb{E} [Y_{1i} | D_i = 1] & = \mathbb{E} [Y_{1i}] \\
 \mathbb{E} [Y_{0i} | D_i = 0] & = \mathbb{E} [Y_{0i}]
 \end{split}
 $$
 
-Now we have $\mathbb{E}[Y_{1i}]$ and $\mathbb{E}[Y_{0i}]$. But what actually are these?
+$\mathbb{E}[Y_{1i}]$ is the expected value of $Y$ in the treatment group. Basically, we just find the mean $Y$ value of all observations of the treatment group.
 
--   $\mathbb{E}[Y_{1i}]$ is the expected value of $Y$ in the treatment group. Basically, we just find the mean $Y$ value of all observations of the treatment group.
-
--   $\mathbb{E}[Y_{0i}]$ is the expected value of $Y$ in the control group. Basically, we just find the mean $Y$ value of all observations in the control group.
+$\mathbb{E}[Y_{0i}]$ is the expected value of $Y$ in the control group. Basically, we just find the mean $Y$ value of all observations in the control group.
 
 Thus with these, we can find the average treatment effect:
 
@@ -303,7 +301,7 @@ $$
 \hat{\tau}_{ATE} = \mathbb{E}[\tau_i] = \mathbb{E}[Y_{1i}] - \mathbb{E}[Y_{0i}] = \bar{Y}_t - \bar{Y}_c
 $$
 
-Where $\bar{Y}_t$ is the average $Y$ value of the treatment group, and $\bar{Y}_c$ is the average $Y$ value of the control group. Thus, the causal effect is simply a **difference of means** between the treatment and control group.
+Where $\bar{Y}_t$ is the average $Y$ value of the treatment group, and $\bar{Y}_c$ is the average $Y$ value of the control group. Thus, the causal effect is simply a **difference-in-means** of the two groups.
 :::
 
 Or in other words, to calculate the average treatment effect of a randomised experiment, we:
@@ -314,9 +312,89 @@ Or in other words, to calculate the average treatment effect of a randomised exp
 
 For this estimate of the ATE to be true, there must be random assignment of treatment, and the treatment and control groups must be similar to each other on all confounding variables.
 
--   If this assumption is violated (either due to lack of random assignment, or failure of randomisation), we can no longer estimate the causal effects with the difference-in-means estimator.
+If this assumption is violated (either due to lack of random assignment, or failure of randomisation), we can no longer estimate the causal effects with the difference-in-means estimator. This is because if the control and treatment groups are not similar to each other on all confounders, there is the possibility of selection bias in our difference-in-means estimator.
 
--   This is because if the control and treatment groups are not similar to each other on all confounders, there is the possibility of selection bias in our difference-in-means estimator.
+Finally, note that we can also use a different estimator, the OLS estimator (with simple linear regression), to get the same final estimate. We will discuss this in chapter 3.
+
+### Uncertainty and Standard Errors
+
+#### Intuition of Uncertainty
+
+Remember how we randomly assigned units to treatment or control? What if we ran the experiment again? The treatment and control groups would very likely not be exactly the same, and thus, we would get a slightly different causal effect.
+
+Thus, we have some uncertainty with our causal estimate - re-running the experiment might result in a different answer. The ATE we have calculated is only our specific sample average treatment effect (SATE), often notated $\hat{\tau}_{ATE}$ or $\hat{ATE}$.
+
+-   Why sample? Well, through random assignment, you are basically "randomly sampling" potential outcomes - since randomly choosing one unit to be in treatment/control means not seeing the other counterfactual potential outcome.
+
+Thus, we need some mechanism to account for sampling variability and how rerunning the experiment might result in slightly different results. We do this with sampling distributions and standard errors.
+
+#### Sampling Distributions and Standard Error
+
+Imagine that we take a sample from a population (or some random assignment mechanism). Then, we find the average treatment effect of the sample $\hat{\tau}_{ATE}$.
+
+[That is a **sample estimate**, which is often notated $\hat{\theta}$]{.underline}. (I use $\theta$, since this idea of uncertainty can be applied to any estimate, not just average treatment effect).
+
+Then, let us take another sample from the same population (or do another random assignment), and find the sample estimate. This will be slightly different than the first sample, since we are randomly sampling. That is another sample estimate.
+
+We keep taking samples from the same population (more random assignments), and getting more and more sample estimates.
+
+Let us plot all our sample estimates $\hat{\theta}$ (different $\hat{\tau}_{ATE}$ values) into a “histogram” or density plot. The $x$ axis labels the possible $\hat{\tau}_{ATE}$ values, and the $y$ axis is how frequently a specific sample estimate occurs.
+
+The result is a distribution, just like a random variable distribution. That distribution is the **sampling distribution**.
+
+According to **central limit theorem**, the sampling distribution approximates that of a **normal distribution** (or t-distribution if our sample size is small). We know that a normal distribution is defined by two parameters - mean and variance.
+
+Standard deviation is the square root of variance. The standard deviation of our sampling distribution is what is called the **standard error** of our estimate.
+
+::: callout-tip
+## Key Definition: Standard Error
+
+A **sampling distribution** is the imaginary distribution of estimates, if we repeated the sampling and estimation process many, many times.
+
+The **standard error** is the standard deviation of the sampling distribution. It is often notated $SE(\hat{\theta})$. The computer/software we use will calculate an estimate for us.
+:::
+
+### Hypothesis Testing and Causal Inference
+
+We know there is some uncertainty with our sample estimate, as defined by the standard error. So, how do we know if we actually have a causal effect with this uncertainty?
+
+What we do is hypothesis testing: a way to test, given a certain level of uncertainty, whether or not we believe there is a causal effect.
+
+We start off with the status-quo "old theory", and try to disprove it. This status quo theory, called the **null hypothesis** and notated $H_0$, is typically that *there is no causal effect of* $D$ on $Y$. The new theory we have come up with, and are trying to prove, is called the **alternate hypothesis**, often notated $H_1$ or $H_a$.
+
+Mathematically, our hypothesis are: $$
+H_0 : \tau_{ATE} = 0 \quad \text{and} \quad H_1 : \tau_{ATE} ≠ 0
+$$
+
+[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis]{.underline}.
+
+How do we actually test these hypotheses? First, we have to calculate a t-test statistic:
+
+::: callout-tip
+## Key Definition: T-test Statistic
+
+The t-test statistic tells us how far our estimate is from the null $\theta_0$, in terms of standard errors:
+
+$$
+t = \frac{\hat{\theta}_j - \theta_0}{\widehat{SE}(\hat{\theta}_j)}
+$$
+:::
+
+Then, we find the corresponding t-distribution based on the degrees of freedom ( $n-2$). Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-statistic. We do this on both sides from the middle of the t-distribution.
+
+Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below shows this probability (called the p-value):
+
+![](figures/2/5.1.jpeg){fig-align="center" width="40%"}
+
+::: callout-tip
+## Key Definition: P-value
+
+Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\theta_j$, given the null hypothesis is true. If this is less than 0.05 (5%), then we reject the null hypothesis as no longer true.
+
+-   So if the p-value is above 0.05, there is a high chance that the null hypothesis is true. Thus, we cannot reject that there is no causal effect of $D$ on $Y$.
+
+-   If the p-value is lower than 0.05, then there is a low chance that the null hypothesis is true. Thus, we can reject the null hypothesis, and conclude a causal effect of $D$ on $Y$.
+:::
 
 ### Balance Table and Stratified Experiments
 
@@ -368,121 +446,97 @@ $$
 
 Where $N$ is the total number of observations, $J$ is the total number of subgroups, $j$ is one of the subgroups, $N_j$ is the number of units within subgroup $j$, and $\tau_j$ is the ATE of the subgroup $j$.
 
-### Uncertainty and Standard Errors
+### Validity and Issues with Experiments
 
-#### Intuition of Uncertainty
+Randomisation, when it works, is magical - it can help us obtain the best estimates of causal effects that are possible.
 
-Remember how we randomly assigned units to treatment or control? What if we ran the experiment again? The treatment and control groups would very likely not be exactly the same, and thus, we would get a slightly different causal effect.
+But, randomised controlled trials do have several issues that can affect our validity of our estimates and conclusions:
 
-Thus, we have some uncertainty with our causal estimate - re-running the experiment might result in a different answer. The ATE we have calculated is only our specific sample average treatment effect (SATE), often notated $\hat{\tau}_{ATE}$ or $\hat{ATE}$.
+1.  **Failure of randomisation**: if for some reason, randomisation does not result in control and treatment groups being similar, we cannot accurately estimate the average treatment effect. Blocking should help us deal with this, but it is still possible for randomisation to fail.
+2.  **Non-Compliance**: Sometimes, despite assigning certain units to treatment or control, the units do not comply and do the opposite (i.e. people assigned to control still take the treatment). This is a huge issue since researchers are not gods - we cannot force people to take treatment. The biggest threat non-compliance creates is that perhaps, a confounder is causing certain units to be more likely to not comply. We will deal with this issue in the later parts of this book with Instrumental Variables.
+3.  Attrition: sometimes, it is not possible to measure the outcomes of some people in a study, either due to people moving away, passing away, or refusing to answer surveys or have their measurements be taken. This once again is an issue - since perhaps a confounding variable is causing this issue.
 
--   Why sample? Well, through random assignment, you are basically "randomly sampling" potential outcomes - since randomly choosing one unit to be in treatment/control means not seeing the other counterfactual potential outcome.
+However, the biggest issue with randomised controlled trials is the impracticality and infeasability of them in many situations, especially in social science research.
 
-Thus, we need some mechanism to account for sampling variability and how rerunning the experiment might result in slightly different results. We do this with sampling distributions and standard errors.
+-   For example, let us say you want to run an experiment on how democracy affects economic growth. It is nearly impossible to randomly assign countries to be a democracy. First, if you assign, for example, Russia to be a democracy, you have no power to make them actually follow through with your study. Second, there are ethical concerns about randomly allocating millions to democracy or autocracy.
 
-#### Sampling Distributions and Standard Error
+-   Another major issue is that even when experiments are theoretically feasible, they can be too expensive to implement. Randomised Controlled Trials are extremely expensive even when they are possible to run.
 
-Imagine that we take a sample from a population (or some random assignment mechanism). Then, we find the average treatment effect of the sample $\hat{\tau}_{ATE}$.
+Thus, we will need to introduce ways to address for confounders and estimate causal effects for the vast majority of cases where we will not be able to run a randomised controlled trial.
 
-[That is a **sample estimate**, which is often notated $\hat{\theta}$]{.underline}. (I use $\theta$, since this idea of uncertainty can be applied to any estimate, not just average treatment effect).
+The rest of the book focuses on these techniques. A brief overview of them:
 
-Then, let us take another sample from the same population (or do another random assignment), and find the sample estimate. This will be slightly different than the first sample, since we are randomly sampling. That is another sample estimate.
+-   Simple Linear Regression will not be of much use for this, as it typically only is feasible in ideal random situations, however, it is the core that many further methods build on, and can help us explore continuous treatment variables.
 
-We keep taking samples from the same population (more random assignments), and getting more and more sample estimates.
+-   Multiple Linear Regression, in theory, can control for confounding variables. However, the limitation of this is that for an accurate estimation, all possible confounding variables (including unobservable or unmeasureable) confounders have to be included to prevent bias, which is very infeasible most of the time.
 
-Let us plot all our sample estimates $\hat{\theta}$ (different $\hat{\tau}_{ATE}$ values) into a “histogram” or density plot. The $x$ axis labels the possible $\hat{\tau}_{ATE}$ values, and the $y$ axis is how frequently a specific sample estimate occurs.
+-   Instrumental Variables Estimator, in theory, can deal with both non-compliance and confounders, however, there are also drawbacks to this method that we will cover later.
 
-The result is a distribution, just like a random variable distribution. That distribution is the **sampling distribution**.
-
-According to **central limit theorem**, the sampling distribution approximates that of a **normal distribution** (or t-distribution if our sample size is small). We know that a normal distribution is defined by two parameters - mean and variance.
-
-Standard deviation is the square root of variance. The standard deviation of our sampling distribution is what is called the **standard error** of our estimate.
-
-::: callout-tip
-## Key Definition: Standard Error
-
-A **sampling distribution** is the imaginary distribution of estimates, if we repeated the sampling and estimation process many, many times.
-
-The **standard error** is the standard deviation of the sampling distribution. It is often notated $SE(\hat{\theta})$. The computer/software we use will calculate this for us.
-:::
-
-### Hypothesis Testing
-
-In academia, we do not claim we have found a new theory, unless we are quite confident that the old theory was not true. The old theory is called our **null hypothesis**, often notated $H_0$. Most often, the "old theory" we are trying to disprove is that *there is no causal effect of* $D$ on $Y$ (since it is rare to study something that has already been proven).
-
--   No relationship between $D$ and $Y$ means the null hypothesis is $H_0 : \theta_j = 0$.
-
-The new theory we have come up with, and are trying to prove, is called the **alternate hypothesis**, often notated $H_1$ or $H_a$.
-
--   Our new hypothesis is typically that t*here is a causal effect of* $D$ on $Y$, or $H_1 : \theta_j ≠ 0$
-
-[We assume that the null hypothesis is true, unless we are 95% confident that we can reject the null hypothesis, and only then, can we accept the alternative hypothesis]{.underline}.
-
-How do we actually test these hypotheses? First, we have to calculate a t-test statistic:
-
-::: callout-tip
-## Key Definition: T-test Statistic
-
-The t-test statistic basically tells us how far the parameter we tested is from 0, in terms of standard errors of the parameter:
-
-$$
-t = \frac{\hat{\theta}_j}{\hat{se}(\hat{\theta}_j)}
-$$
-:::
-
-Then, we calculate degrees of freedom:number of observations $n$, minus the number of variables $k$, then minus 1: $DF = n - k -1$. With the degrees of freedom, we can find the corresponding t-distribution, labeled $t_{n-k-1}$. Then, we start from the middle of that t distribution, and go the *number of standard errors* away based on the t-test statistic. We do this on both sides from the middle of the t-distribution.
-
-Once we have found that point, we find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. The figure below shows this probability (called the p-value):
-
-![](figures/2/5.1.jpeg){fig-align="center" width="43%"}
-
-::: callout-tip
-## Key Definition: P-value
-
-Essentially, a p-value is how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\theta_j$, given the null hypothesis is true. If this is less than 0.05 (5%), then we reject the null hypothesis as no longer true.
-
--   So if the p-value is above 0.05, there is a high chance that the null hypothesis is true. Thus, we cannot reject that there is no causal effect of $D$ on $Y$.
-
--   If the p-value is lower than 0.05, then there is a low chance that the null hypothesis is true. Thus, we can reject the null hypothesis, and conclude a causal effect of $D$ on $Y$.
-:::
+-   Finally, we will discuss quasi-experimental methods, like regression discontinuity and differences-in-differences, which are the most popular methods of causal inference today.
 
 # Ordinary Least Squares Estimator
 
-## Linear Regression and OLS Estimation
+## Simple Linear Regression and Causal Inference
 
-### The Linear Regression Model
+### Introduction to Regression
 
-In the social sciences, randomisation is often not possible. Linear regression allows us to estimate a model with both our treatment and outcome variables, as well as a series of **control** variables.
+So far, we have looked at only binary treatment variables $D$, that can either be $D= 0$ control group or $D=1$ treatment group. However, a lot of the relationships we are interested in are not binary. For example, you might be interested in how someone's income affects their likelihood to vote. Or how someone's age affects their political beliefs. Or how a country's GDP affects the chance a country becomes a democracy. Income, age, and GDP are all treatment variables that are not binary.
 
-In theory, by including every single confounding variable as a control variable in our regression model, we can partial out the effect of confounders and find the average treatment effect.
+How can we explore the causal relationship between a continuous treatment variable $D$ (often instead notated as $X$ in statistics), and a continuous $Y$ variable (we will focus on non-continuous $Y$ later in chapter 5)?
 
-The **response variable** (outcome variable) is notated $Y$. The **explanatory variable** (independent variable) is notated $X$. There is often more than one explanatory variable, so we denote them with subscripts $X_1, X_2, ..., X_k$. We sometimes also denote all explanatory variables as the vector $\overrightarrow{X}$.
+One way is that we can explore this relationship with a linear best-fit line. A best-fit line is useful, since the **slope** of the line represents how much $Y$ changes for every unit change of $D$.
 
--   Our treatment variable $D$ is considered one of the explanatory variables $\overrightarrow{X}$.
+![](figures/2/3.3.png){fig-align="center" width="30%"}
 
-A linear regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. The linear regression model focuses on the **expected value** of the conditional distribution, notated $\mathbb{E}[Y_i|\overrightarrow{X}_i]$. Essentially, as $\overrightarrow{X}$ changes, the expected value of $Y$ changes.
+The graph here introduces some common terminology:
 
--   I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$.
+-   The **independent variable**, also called the **explanatory variable** or **treatment variable**, often notated $X$ (or $D$ in casual inference settings) is the variable we believe to be doing the causing.
+
+-   The **independent variable**, also called the **response variable** or **outcome variable** is notated $Y$. This is the variable that is being caused.
+
+With regression, we are interested in how $X$ causes $Y$. Given a set of data with $n$ number of observations, each observation $i$ being a data point $(X_i, Y_i)$, the goal of regression is to fit a best-fit line through this data. With this best-fit line, the slope will tell use the average affect of a one unit change in $X$ on $Y$.
+
+### Simple Linear Regression Model
+
+A linear regression model is the specification of the conditional distribution of $Y$, given $X$ (or $D$ in causal settings).
+
+-   Why a distribution? For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$.
+
+-   Why conditional? Well, if we believe $X$ causes $Y$, then we should expect the distribution of $Y$ values to change based on $X$ values. If $Y$ values do not change when $X$ changes, then there is no causal effect.
+
+The linear regression model focuses on the **expected value** of the conditional distribution, notated $\mathbb{E}[Y_i|X_i]$. Essentially, as $X$ changes, the expected value of $Y$ changes.
 
 ::: callout-tip
-## Key Definition: Linear Regression Model
+## Key Definition: Simple Linear Regression
 
-Take a set of observed data with $n$ number of pairs of $(\overrightarrow{X}_i, Y_i)$ observations. The linear model takes the following form: $$
-\mathbb{E}[Y_i|\overrightarrow{X}_i] = \alpha + \beta_1 X_{1i} + ... + \beta_k X_{ki}
+Take a set of observed data with $n$ number of pairs of $(D_i, Y_i)$ observations. The linear model takes the following form:$$
+\mathbb{E}[Y_i|X_i] = \beta_0 + \beta_1 X_i
 $$
 
--   Where the distribution of $Y_i|\overrightarrow{X}_i$ has a variance $Var(Y_i|\overrightarrow{X}_i) = \sigma^2$.
-
--   Where the coefficients of the model (that need to be estimated) are $\alpha, \beta_1, ..., \beta_k$.
+-   Where $\mathbb{E}[Y_i|X_i]$ is the expected value of $Y$, given some value of $X$ for observation $i$.
+-   Where $X_i$ is the observed value of $X$ for observation $i$.
+-   Where the coefficients of the model are $\beta_0$ (the intercept) and $\beta_1$ (the slope). These are unknown quantities - we need to estimate these by finding what intercept and slope make the best best-fit line.
 
  
 
-We can also write the linear model for the value of any point $Y_i$ in our data: $$
-Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
+We can also write the linear model for the value of any point $Y_i$ in our data, which is more common: $$
+Y_i = \beta_0 + \beta_1 X_i + \epsilon_i
 $$
 
--   Where $\epsilon_i$ is the error term function - that determines the error for each unit $i$.
+-   Where $Y_i$ is the observed value of $Y$ for observation $i$.
+-   Where $X_i$ is the observed value of $X$ for observation $i$.
+-   Where coefficients $\beta_0$ and $\beta_1$ need to be estimated.
+-   Where $\epsilon_i$ is the error term function - that determines the error for each unit $i$. This error term essentially reflects the "distribution" that we discussed earlier.
 :::
+
+As I noted before, we need to estimate intercept $\beta_0$ and slope $\beta_1$ before we can use our model. This will be covered in the next section.
+
+Once we have the estimates of $\beta_0$ and $\beta_1$, what can we do with this model?
+
+1.  Causal inference and estimation: given a few (important) conditions that have to be met, $\beta_1$ can be interpreted as the causal effect of $X$ on $Y$ (or the average treatment effect). We can also use the regression model to estimate the average treatment effect of binary $D$ treatment variables, and randomised controlled trials.
+2.  Prediction: Once we have the intercept and slope, we can plug in $X$ values and get a prediction of what the $Y$ value is likely to be. This book does not focus too much on prediction, because most real-world things are not linear-straight-line relationships, so the linear regression model may not make the most accurate predictions.
+
+Simple Linear Regression is also a very important building block for all advanced causal inference and predictive techniques, many that we will introduce later in this book and series.
 
 ### Simple Linear Regression Estimation
 
@@ -579,6 +633,234 @@ Then solve for $\hat{\beta}$ to get the **OLS estimator** for bivariate regressi
 $$
 
 When $\hat{\beta}$ is the coefficient of our treatment variable $D$, then the OLS estimator produces our estimate of the average treatment effect (we will discuss if this is a good estimate later)
+:::
+
+### Interpretations of Coefficients
+
+We have now estimated our coefficients with the OLS estimator. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$? What do these estimates mean?
+
+I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ , multiplied to explanatory variable $X_j$. $\hat{\beta}_j$ is the rate of change between $X_{ij}$ and $\hat{Y}_i$, holding other explanatory variables $X_{1i} ... X_{ki}$ constant. This is the case with any $\hat{\beta}_j$ parameter $j = 1, ..., k$.
+
+::: callout-note
+## Interpretation of $\hat{\beta}_j$
+
+When $X_j$ increases by one unit, there is an expected $\hat{\beta}_j$ unit change in $Y$, holding all other explanatory variables constant.
+
+ 
+
+If coefficient $\hat{\beta}_j$ is multiplied to our treatment variable of interest $D$, then that means $\hat{\beta}_j$ is the estimate of the average treatment effect of increasing $D$ by one.
+
+-   Assuming $D$ is continuous. Iff not the case, i.e. only control and treatment categories, see the binary explanatory variable section.
+
+-   NOTE: we have not discussed yet if this estimate is good or not. See the following chapter for more information on this.
+:::
+
+What does intercept $\hat{\alpha}$ mean? Let us take a regression equation, and input $\overrightarrow{X} = 0$, which turns all $\hat{\beta}_j$ and $X_j$ into 0s. Thus, we are left with $\hat{\alpha} = \hat{Y}_i$ when $\overrightarrow{X} = 0$.
+
+::: callout-note
+## Interpretation of $\hat{\alpha}$
+
+When all explanatory variables equal 0, the expected value of $Y$ is $\hat{\alpha}$
+:::
+
+#### Interpreting in Terms of Standard Deviation
+
+Sometimes, it is hard to understand what changes in $Y$ and $X$ mean in terms of units.
+
+-   For example, if we are measuring "democracy", what does a 5 unit change in democracy mean? Is that a lot?
+
+We can add more relevant detail by expressing the change of $Y$ and $X$ in standard deviations.
+
+How do we calculate this? Well, let us solve for the change in $\hat{Y}$ given $X = x$ and $X = x + \sigma_X$. This will tell us how much $\hat{Y}$ changes by given a increase of one standard deviation in $X$. $$
+\begin{split}
+\mathbb{E}[\hat{Y}_i| X = x + \sigma_X] - \mathbb{E}[\hat{Y}_i| X = x] & = [\hat{\alpha} + \hat{\beta}(x + \sigma_X)] - [\hat{\alpha} + \hat{\beta}(x)] \\
+& = \hat{\alpha}+\hat{\beta}x + \hat{\beta} \sigma_X - \hat{\alpha} - \hat{\beta}x \\
+& = \hat{\beta} \sigma_X
+\end{split}
+$$
+
+To get the change in $\hat{Y}$ in terms of standard deviations of $Y$, we just divide $\hat{\beta} \sigma_X$ by $\sigma_Y$.
+
+::: callout-note
+## Interpretation in Terms of Standard Deviation
+
+For a one-std. deviation increase in $X_j$, there is an expected $\hat{\beta} \sigma_X / \sigma_Y$-std. deviation change in $Y$.
+:::
+
+### Categorical Explanatory Variable Interpretation
+
+#### Binary Explanatory Variables
+
+**Binary explanatory** variables are variables with 2 values, 0 and 1.
+
+-   These are extremely common in econometrics - as our treatment variable $D$ often takes two states: $D=1$ is the treatment group, and $D=0$ is the control group. We know that in a regression, $D$ is included as an explanatory variable $X$.
+
+Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
+\begin{split}
+E[Y|X = 0] & = \alpha + \beta(0) = \alpha \\
+E[Y|X=1] & = \alpha + \beta(1) = \alpha + \beta \\
+E[Y|X=1] - E[Y| & X =0] = (\alpha + \beta) - \alpha = \beta
+\end{split}
+$$
+
+Thus, we can interpret the coefficients $\alpha$ and $\beta$ as follows:
+
+::: callout-note
+## Intepretation of Binary Explanatory Variables
+
+When $X$ is a binary explanatory variable:
+
+-   $\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
+
+-   $\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
+
+-   $\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$
+:::
+
+We can see that $\beta$ is measuring the difference between the two categories.
+
+-   In fact, $\beta$ actually becomes a **difference-in-means** test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
+
+Remember that our ATE in our randomised experiment was estimated with a difference in means. Thus, if we include all possible confounding variables, the $\beta$ coefficient of $D$ will estimate the ATE.
+
+#### Categorical Explanatory Variable
+
+A **categorical polytomous** variable is one with 3 or more categories that are unranked. A classic example is the variable *country*, which is a categorical variable with all the different countries included in a dataset such as Argentina, France, Mexico, etc.
+
+How do we run a regression with polytomous explanatory variables? What happens is that we divide the variables into a set of dummy binary variables (see how dummy variables are interpreted in section 3.2).
+
+-   Dummy binary variables are created for all [except one]{.underline} of the categories in our variable. Each dummy variable has two values - 1 meaning the observation is in the category, and 0 meaning the observation is not in that category.
+
+-   The category without a dummy variable is the **reference/baseline** category. Essentially, when all other dummy variables are equal to 0, that is referring to the reference/baseline category (the intercept)
+
+::: callout-tip
+## Key Definition
+
+Thus, a **polytomous explanatory variable** with $n$ number of categories in $X$, we would create $n-1$ dummy variables, and input it into a regression equation as follows:
+
+$$
+E[Y] = \alpha + \beta_{x=1}X_{x=1} + ... + \beta_{x=n-1}X_{x=n-1}
+$$
+
+Where $\alpha$ is the mean of the reference category $n$, and the other categories $1, ..., n-1$ get their own dummy variable.
+:::
+
+For example, take the following polytomous variable: *company*, which contains the categories *microsoft, google,* and *apple*. Let us create dummy variables for 2 of the 3 categories:
+
+-   *Google* will become the first dummy variable $X_g$. When $X_g = 1$, that observation is part of the *google* category. When $X_g = 0$, that observation is NOT a part of the *google* category.
+
+-   *Apple* will become the second dummy variable $X_a$. When $X_a = 1$, that observation is part of the *apple* category. When $X_a = 0$, that observation is NOT a part of the *apple* category.
+
+-   *Microsoft* will not get its own dummy variable. This is because when both *apple* and *microsoft* $X_g = X_a = 0$ that is referring to the *microsoft* category (observations not a part of either previous category).
+
+Mathematically, this is how it would be represented in a regression equation:
+
+$$
+E[Y] = \alpha + \beta_g X_g + \beta_a X_a
+$$
+
+To find the expected value of each category, we would do the following: $$
+\begin{split}
+E[Y|X = \text{Google}] & = E[Y|X_g = 1, X_a = 0] = \alpha + \beta_g(1) + \beta_a(0) = \alpha + \beta_g \\
+E[Y|X = \text{Apple}] & = E[Y|X_g = 0, X_a = 1] = \alpha + \beta_g(0) + \beta_a(1) = \alpha + \beta_a \\
+E[Y|X = \text{Microsoft}] & = E[Y|X_g = 0, X_a = 0] = \alpha + \beta_g(0) + \beta_a(0) = \alpha
+\end{split}
+$$
+
+Thus, from these above equations, we can see the interpretation of the coefficients:
+
+-   $\alpha$ is the expected value of the reference category, in this case, *microsoft*.
+
+-   $\beta_g$ is the expected $Y$ difference between the *google* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+
+-   $\beta_a$ is the expected $Y$ difference between the *apple* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+
+::: callout-note
+## Interpretation of Polytomous Explanatory Variables
+
+$\beta_j$ is the expected difference in $Y$ values between category $j$ and the baseline category.
+
+$\alpha$ is the expected value of $Y$ of the baseline category.
+
+ 
+
+The coefficient $p$-values of $\beta_j$ are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable.
+:::
+
+### Hypothesis Testing and Causal Inference
+
+#### Robust Standard Errors
+
+So far, we have focused on using standard errors of parameter estimates that were introduced in section 2.2.
+
+However, these "default" standard errors rely on the assumption of **homoscedasticity** (see section 3.4). However, homoscedasticity is frequently violated.
+
+When homoscedasticity is violated, we have to use an alternative estimation of the standard error: **heteroscedasticity-robust standard errors**.
+
+-   These robust standard errors are typically larger than the homoscedastic "default" standard errors.
+
+-   Because homoscedasticity is frequently violated, and that robust standard errors are more "conservative", we typically use robust standard errors as the "default" in econometrics.
+
+The calculation of robust-standard errors will be done with calculators, and it is not important to know how the mathematics work.
+
+#### Hypothesis Testing of Parameters
+
+We previously discussed hypothesis testing in section 2.5. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate. Generally, for regressions, our hypotheses that we test are:
+
+-   $H_0 : \beta_j = 0$ - i.e. there is no relationship between $X_j$ and $Y$
+
+-   $H_1: \beta_j ≠ 0$ - i.e. there is a relationship between $X_j$ and $Y$
+
+Just like previously discussed in section 2.5, we calculate a t-statistic:
+
+$$
+t = \frac{\hat{\beta}_j}{\hat{se}(\hat{\beta}_j)}
+$$
+
+The t-test statistic tells us how far the estimate is from 0, in terms of standard errors of the estimate.
+
+Then, we have to consult a t-distribution (see section 2.5). We find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. This is the p-value: how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_j$, given the null hypothesis is true.
+
+-   So if the p-value is very high, there is a high chance that the null hypothesis is true.
+
+-   If the p-value is very low, then there is a low chance that the null hypothesis is true
+
+Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
+
+## Multiple Linear Regression and Causal Inference
+
+### The Multiple Linear Regression Model
+
+In the social sciences, randomisation is often not possible. Linear regression allows us to estimate a model with both our treatment and outcome variables, as well as a series of **control** variables.
+
+In theory, by including every single confounding variable as a control variable in our regression model, we can partial out the effect of confounders and find the average treatment effect.
+
+The **response variable** (outcome variable) is notated $Y$. The **explanatory variable** (independent variable) is notated $X$. There is often more than one explanatory variable, so we denote them with subscripts $X_1, X_2, ..., X_k$. We sometimes also denote all explanatory variables as the vector $\overrightarrow{X}$.
+
+-   Our treatment variable $D$ is considered one of the explanatory variables $\overrightarrow{X}$.
+
+A linear regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. The linear regression model focuses on the **expected value** of the conditional distribution, notated $\mathbb{E}[Y_i|\overrightarrow{X}_i]$. Essentially, as $\overrightarrow{X}$ changes, the expected value of $Y$ changes.
+
+-   I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$.
+
+::: callout-tip
+## Key Definition: Linear Regression Model
+
+Take a set of observed data with $n$ number of pairs of $(\overrightarrow{X}_i, Y_i)$ observations. The linear model takes the following form: $$
+\mathbb{E}[Y_i|\overrightarrow{X}_i] = \alpha + \beta_1 X_{1i} + ... + \beta_k X_{ki}
+$$
+
+-   Where the distribution of $Y_i|\overrightarrow{X}_i$ has a variance $Var(Y_i|\overrightarrow{X}_i) = \sigma^2$.
+
+-   Where the coefficients of the model (that need to be estimated) are $\alpha, \beta_1, ..., \beta_k$.
+
+ 
+
+We can also write the linear model for the value of any point $Y_i$ in our data: $$
+Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
+$$
+
+-   Where $\epsilon_i$ is the error term function - that determines the error for each unit $i$.
 :::
 
 ### Multiple Regression Estimation
@@ -712,59 +994,7 @@ $$
 \hat{Y} = X\beta = X(X'X)^{-1} X'Y
 $$
 
-### Interpretations of Coefficients
-
-We have now estimated our coefficients with the OLS estimator. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$? What do these estimates mean?
-
-I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ , multiplied to explanatory variable $X_j$. $\hat{\beta}_j$ is the rate of change between $X_{ij}$ and $\hat{Y}_i$, holding other explanatory variables $X_{1i} ... X_{ki}$ constant. This is the case with any $\hat{\beta}_j$ parameter $j = 1, ..., k$.
-
-::: callout-note
-## Interpretation of $\hat{\beta}_j$
-
-When $X_j$ increases by one unit, there is an expected $\hat{\beta}_j$ unit change in $Y$, holding all other explanatory variables constant.
-
- 
-
-If coefficient $\hat{\beta}_j$ is multiplied to our treatment variable of interest $D$, then that means $\hat{\beta}_j$ is the estimate of the average treatment effect of increasing $D$ by one.
-
--   Assuming $D$ is continuous. Iff not the case, i.e. only control and treatment categories, see the binary explanatory variable section.
-
--   NOTE: we have not discussed yet if this estimate is good or not. See the following chapter for more information on this.
-:::
-
-What does intercept $\hat{\alpha}$ mean? Let us take a regression equation, and input $\overrightarrow{X} = 0$, which turns all $\hat{\beta}_j$ and $X_j$ into 0s. Thus, we are left with $\hat{\alpha} = \hat{Y}_i$ when $\overrightarrow{X} = 0$.
-
-::: callout-note
-## Interpretation of $\hat{\alpha}$
-
-When all explanatory variables equal 0, the expected value of $Y$ is $\hat{\alpha}$
-:::
-
-#### Interpreting in Terms of Standard Deviation
-
-Sometimes, it is hard to understand what changes in $Y$ and $X$ mean in terms of units.
-
--   For example, if we are measuring "democracy", what does a 5 unit change in democracy mean? Is that a lot?
-
-We can add more relevant detail by expressing the change of $Y$ and $X$ in standard deviations.
-
-How do we calculate this? Well, let us solve for the change in $\hat{Y}$ given $X = x$ and $X = x + \sigma_X$. This will tell us how much $\hat{Y}$ changes by given a increase of one standard deviation in $X$. $$
-\begin{split}
-\mathbb{E}[\hat{Y}_i| X = x + \sigma_X] - \mathbb{E}[\hat{Y}_i| X = x] & = [\hat{\alpha} + \hat{\beta}(x + \sigma_X)] - [\hat{\alpha} + \hat{\beta}(x)] \\
-& = \hat{\alpha}+\hat{\beta}x + \hat{\beta} \sigma_X - \hat{\alpha} - \hat{\beta}x \\
-& = \hat{\beta} \sigma_X
-\end{split}
-$$
-
-To get the change in $\hat{Y}$ in terms of standard deviations of $Y$, we just divide $\hat{\beta} \sigma_X$ by $\sigma_Y$.
-
-::: callout-note
-## Interpretation in Terms of Standard Deviation
-
-For a one-std. deviation increase in $X_j$, there is an expected $\hat{\beta} \sigma_X / \sigma_Y$-std. deviation change in $Y$.
-:::
-
-#### Binary $Y$ Variable Interpretation
+### Linear Probability Model
 
 If our response variable is binary, (i.e. $Y$ only has two values, 0 and 1), then our interpretation differs slightly.
 
@@ -781,88 +1011,6 @@ $\hat{\alpha}$ is the expected probability of being in category $Y=1$ when all e
 :::
 
 This model with binary $Y$ is also called the **linear probability model**.
-
-#### Binary Explanatory Variables
-
-**Binary explanatory** variables are variables with 2 values, 0 and 1.
-
--   These are extremely common in econometrics - as our treatment variable $D$ often takes two states: $D=1$ is the treatment group, and $D=0$ is the control group. We know that in a regression, $D$ is included as an explanatory variable $X$.
-
-Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
-\begin{split}
-E[Y|X = 0] & = \alpha + \beta(0) = \alpha \\
-E[Y|X=1] & = \alpha + \beta(1) = \alpha + \beta \\
-E[Y|X=1] - E[Y| & X =0] = (\alpha + \beta) - \alpha = \beta
-\end{split}
-$$
-
-Thus, we can interpret the coefficients $\alpha$ and $\beta$ as follows:
-
-::: callout-note
-## Intepretation of Binary Explanatory Variables
-
-When $X$ is a binary explanatory variable:
-
--   $\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
-
--   $\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
-
--   $\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$
-:::
-
-We can see that $\beta$ is measuring the difference between the two categories.
-
--   In fact, $\beta$ actually becomes a **difference-in-means** test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
-
-Remember that our ATE in our randomised experiment was estimated with a difference in means. Thus, if we include all possible confounding variables, the $\beta$ coefficient of $D$ will estimate the ATE.
-
-### Hypothesis Testing
-
-#### Robust Standard Errors
-
-So far, we have focused on using standard errors of parameter estimates that were introduced in section 2.2.
-
-However, these "default" standard errors rely on the assumption of **homoscedasticity** (see section 3.4). However, homoscedasticity is frequently violated.
-
-When homoscedasticity is violated, we have to use an alternative estimation of the standard error: **heteroscedasticity-robust standard errors**.
-
--   These robust standard errors are typically larger than the homoscedastic "default" standard errors.
-
--   Because homoscedasticity is frequently violated, and that robust standard errors are more "conservative", we typically use robust standard errors as the "default" in econometrics.
-
-The calculation of robust-standard errors will be done with calculators, and it is not important to know how the mathematics work.
-
-#### Confidence Intervals
-
-We previously discussed confidence intervals in section 2.4. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate.
-
-$$
-\hat{\beta}_j ± 1.96 \times \hat{se}(\hat{\beta}_j)
-$$
-
-#### Hypothesis Testing of Parameters
-
-We previously discussed hypothesis testing in section 2.5. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate. Generally, for regressions, our hypotheses that we test are:
-
--   $H_0 : \beta_j = 0$ - i.e. there is no relationship between $X_j$ and $Y$
-
--   $H_1: \beta_j ≠ 0$ - i.e. there is a relationship between $X_j$ and $Y$
-
-Just like previously discussed in section 2.5, we calculate a t-statistic:
-
-$$
-t = \frac{\hat{\beta}_j}{\hat{se}(\hat{\beta}_j)}
-$$
-
-The t-test statistic tells us how far the estimate is from 0, in terms of standard errors of the estimate.
-
-Then, we have to consult a t-distribution (see section 2.5). We find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. This is the p-value: how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_j$, given the null hypothesis is true.
-
--   So if the p-value is very high, there is a high chance that the null hypothesis is true.
-
--   If the p-value is very low, then there is a low chance that the null hypothesis is true
-
-Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
 
 ## Causal Estimation with Regression and OLS
 
