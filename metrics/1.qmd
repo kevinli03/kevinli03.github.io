@@ -490,57 +490,61 @@ One way is that we can explore this relationship with a linear best-fit line. A 
 
 The graph here introduces some common terminology:
 
--   The **independent variable**, also called the **explanatory variable** or **treatment variable**, often notated $X$ (or $D$ in casual inference settings) is the variable we believe to be doing the causing.
+-   The **independent variable**, also called the **explanatory variable** or **treatment variable**, often notated $x$ (or $D$ in casual inference settings) is the variable we believe to be doing the causing.
 
--   The **independent variable**, also called the **response variable** or **outcome variable** is notated $Y$. This is the variable that is being caused.
+-   The **independent variable**, also called the **response variable** or **outcome variable** is notated $y$. This is the variable that is being caused.
 
-With regression, we are interested in how $X$ causes $Y$. Given a set of data with $n$ number of observations, each observation $i$ being a data point $(X_i, Y_i)$, the goal of regression is to fit a best-fit line through this data. With this best-fit line, the slope will tell use the average affect of a one unit change in $X$ on $Y$.
+With regression, we are interested in how $x$ causes $y$. Given a set of data with $n$ number of observations, each observation $i$ being a data point $(x_i, y_i)$, the goal of regression is to fit a best-fit line through this data. With this best-fit line, the slope will tell use the average affect of a one unit change in $x$ on $y$.
 
 ### Simple Linear Regression Model
 
-A linear regression model is the specification of the conditional distribution of $Y$, given $X$ (or $D$ in causal settings).
+A linear regression model is the specification of the conditional distribution of $y$, given $x$:
 
--   Why a distribution? For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$.
+-   Why a distribution? For example, if $x$ was age and $y$ was income, at age $x=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $y$ at age $x=30$.
 
--   Why conditional? Well, if we believe $X$ causes $Y$, then we should expect the distribution of $Y$ values to change based on $X$ values. If $Y$ values do not change when $X$ changes, then there is no causal effect.
+-   Why conditional? Well, if we believe $x$ causes $y$, then we should expect the distribution of $y$ values to change based on $x$ values. If $y$ values do not change when $x$ changes, then there is no causal effect.
 
-The linear regression model focuses on the **expected value** of the conditional distribution, notated $\mathbb{E}[Y_i|X_i]$. Essentially, as $X$ changes, the expected value of $Y$ changes.
+The linear regression model focuses on the **expected value** of the conditional distribution, notated $\mathbb{E}[y_i|x_i]$. Essentially, as $x$ changes, the expected value of $y$ changes.
 
 ::: callout-tip
 ## Key Definition: Simple Linear Regression
 
-Take a set of observed data with $n$ number of pairs of $(D_i, Y_i)$ observations. The linear model takes the following form:$$
-\mathbb{E}[Y_i|X_i] = \beta_0 + \beta_1 X_i
+Take a set of observed data with $n$ number of pairs of $(x_i, y_i)$ observations. The linear model takes the following form:$$
+\mathbb{E}[y_i|x_i] = \beta_0 + \beta_1 x_i
 $$
 
--   Where $\mathbb{E}[Y_i|X_i]$ is the expected value of $Y$, given some value of $X$ for observation $i$.
--   Where $X_i$ is the observed value of $X$ for observation $i$.
+-   Where $\mathbb{E}[y_i|x_i]$ is the expected value of $y$, given some value of $x$ for observation $i$, and $x_i$ is the observed value of $x$ for observation $i$.
 -   Where the coefficients of the model are $\beta_0$ (the intercept) and $\beta_1$ (the slope). These are unknown quantities - we need to estimate these by finding what intercept and slope make the best best-fit line.
 
  
 
 We can also write the linear model for the value of any point $Y_i$ in our data, which is more common: $$
-Y_i = \beta_0 + \beta_1 X_i + \epsilon_i
+y_i = \beta_0 + \beta_1 x_i + u_i
 $$
 
--   Where $Y_i$ is the observed value of $Y$ for observation $i$.
--   Where $X_i$ is the observed value of $X$ for observation $i$.
+-   Where $y_i$ is the observed value of $y$ for observation $i$, and $x_i$ is the observed value of $x$ for observation $i$.
 -   Where coefficients $\beta_0$ and $\beta_1$ need to be estimated.
--   Where $\epsilon_i$ is the error term function - that determines the error for each unit $i$. This error term essentially reflects the "distribution" that we discussed earlier.
+-   Where $u_i$ is the error term - that determines the error for each unit $i$. This error term essentially reflects the "distribution" that we discussed earlier.
 :::
 
-As I noted before, we need to estimate intercept $\beta_0$ and slope $\beta_1$ before we can use our model. This will be covered in the next section.
+Once we have the estimates of $\beta_0$ and $\beta_1$ (estimation process explained in next section), we will get the **fitted values** model:$$
+\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i
+$$
 
-Once we have the estimates of $\beta_0$ and $\beta_1$, what can we do with this model?
+-   The \^ on top of the $y_i$, $\beta_0$, and $\beta_1$ indicate estimates. This is because we estimate the coefficients $\beta_0$ and $\beta_1$, which are then used to estimate $y_i$.
 
-1.  Causal inference and estimation: given a few (important) conditions that have to be met, $\beta_1$ can be interpreted as the causal effect of $X$ on $Y$ (or the average treatment effect). We can also use the regression model to estimate the average treatment effect of binary $D$ treatment variables, and randomised controlled trials.
-2.  Prediction: Once we have the intercept and slope, we can plug in $X$ values and get a prediction of what the $Y$ value is likely to be. This book does not focus too much on prediction, because most real-world things are not linear-straight-line relationships, so the linear regression model may not make the most accurate predictions.
+-   Notice that the error term $u_i$ is no longer here. This is because we assume $\mathbb{E}[u_i] = 0$.
+
+With these fitted values, we can do the following:
+
+1.  Prediction: since we have estimated the coefficients, we can plug in $x_i$ to see what the predicted $\hat{y}_i$ would be.
+2.  Causal Inference: If we assume that treatment $x_i$ is randomly assigned, then $\hat{\beta}_1$ can be used for causal estimation. We will illustrate this in the next few sections.
 
 Simple Linear Regression is also a very important building block for all advanced causal inference and predictive techniques, many that we will introduce later in this book and series.
 
-### Simple Linear Regression Estimation
+### Ordinary Least Squares Estimator
 
-How do we estimate our parameters $\alpha, \beta_1, ..., \beta_k$? Obviously, we want our model to be accurate - so we can estimate it through reducing the errors of models (more specifically, the sum of squared errors).
+How do we estimate our parameters $\beta_0, \beta_1$? Obviously, we want our model to be accurate - so we can estimate it through reducing the errors of models (more specifically, the sum of squared errors).
 
 ::: callout-tip
 ## Key Definition: Sum of Squared Errors
@@ -548,41 +552,41 @@ How do we estimate our parameters $\alpha, \beta_1, ..., \beta_k$? Obviously, we
 The **sum of squared errors** (SSE) is as follows:
 
 $$
-SSE = \sum (Y_i - \hat{Y}_i)^2 = \sum (Y_i - \hat{\alpha} - \hat{\beta}X_{1i} - ... - \hat{\beta_k} X_{ki})
+SSE = \sum (y_i - \hat{y}_i)^2 = \sum (y_i - \hat{\beta}_0 - \hat{\beta}_1x_i)
 $$
 
-Or more intuitively, it is exactly as it sounds - find the error of our prediction $Y_i - \hat{Y}$ for every observation $i$, square that difference, then sum up for all units $i$ in our data.
+Or more intuitively, it is exactly as it sounds - find the error of our prediction $y_i - \hat{y}_i$ for every observation $i$, square that difference, then sum up for all units $i$ in our data.
 
  
 
-The **Ordinary Least Squares (OLS) Estimator** estimates our parameters $\alpha, \beta_1, ..., \beta_k$ through finding the values of $\alpha, \beta_1, ..., \beta_k$ that minimizes the sum of squared errors for our predictions.
+The **Ordinary Least Squares (OLS) Estimator** estimates our parameters by finding the values of $\beta_0, \beta_1$ that minimizes the sum of squared errors for our predictions.
+
+-   Why squared? this is because squaring the error removes the direction (positive or negative error), and keeps the magnitude. OLS also has some unique properties that we will explore this in more detail in chapter 4 that make it the best estimator.
 :::
 
-A bivariate regression is a regression model with one explanatory variable $X$, and a fitted simple linear regression takes the form $\hat{Y}_i = \hat{\alpha} + \hat{\beta}X_i$.
-
 Let us define the SSE as function $S$. The OLS estimator wants to find the parameters that **minimise SSE**: $$
-(\hat{\alpha}, \hat{\beta}) = \arg \min\limits_{\hat{\alpha}, \hat{\beta}} \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 = \arg \min\limits_{\hat{\alpha}, \hat{\beta}} S(\hat{\alpha}, \hat{\beta})
+(\hat{\beta}_0, \hat{\beta}_1) = \arg \min\limits_{\hat{\beta}_0, \hat{\beta}_1} \sum\limits_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1x_i)^2 = \arg \min\limits_{\hat{\alpha}, \hat{\beta}} S(\hat{\beta}_0, \hat{\beta}_1)
 $$
 
 #### First Order Conditions
 
-Let us first look at the parameter $\hat{\alpha}$. How do we find what value $\hat{\alpha}$ minimises the sum of squared errors? We know through calculus, that deriving the function to find the first order condition can accomplish this:
+Let us first look at the parameter $\hat{\beta}_0$. How do we find what value $\hat{\alpha}$ minimises the sum of squared errors? We know through calculus, that deriving the function to find the first order condition can accomplish this:
 
 $$
-\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} = \frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right]
+\frac{\partial S(\hat{\beta}_0, \hat{\beta}_1)}{\partial \hat{\alpha}} = \frac{\partial S(\hat{\beta}_0, \hat{\beta}_1)}{\partial \hat{\alpha}} \left[ \sum\limits_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1x_i)^2 \right]
 $$
 
 First, ignore the summation. The partial derivative of the internal section, using chain rule, is the following: $$
-\frac{\partial}{\partial \hat{\alpha}} \left[ (Y_i - \hat{\alpha} - \hat{\beta}X_i)^2 \right] = -2(Y_i - \hat{\alpha} - \hat{\beta}X_i)
+\frac{\partial}{\partial \hat{\alpha}} \left[ (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2 \right] = -2(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)
 $$
 
 But how do we deal with the summation? We know that there is the sum rule of derivatives $[f(x) + g(x)]' = f'(x) + g'(x)$. Thus, we know we just sum up the derivatives to get the derivative: $$
-\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\alpha}} = \sum\limits_{-i=1}^n \left[ -2(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right] = -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i)
+\frac{\partial S(\hat{\beta}_0, \hat{\beta}_1)}{\partial \hat{\beta}_0} = \sum\limits_{-i=1}^n \left[ -2(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) \right] = -2 \sum\limits_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)
 $$
 
-Let us do the same for $\hat{\beta}$: find the derivative: $$
-\frac{\partial S(\hat{\alpha}, \hat{\beta})}{\partial \hat{\beta}} = \sum\limits_{i=1}^n \left[ -2X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) \right]
-= -2 \sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i)
+Let us do the same for $\hat{\beta}_1$: find the derivative: $$
+\frac{\partial S(\hat{\beta}_0, \hat{\beta}_1)}{\partial \hat{\beta}_1} = \sum\limits_{i=1}^n \left[ -2x_i(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) \right]
+= -2 \sum\limits_{i=1}^n x_i(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)
 $$
 
 We set the two derivatives equal to 0 (first order conditions) We can ignore the -2 out front.
@@ -591,100 +595,103 @@ We set the two derivatives equal to 0 (first order conditions) We can ignore the
 ## Key Definition: First Order Conditions of OLS
 
 Thus, our first order conditions are a system of equations:$$
-\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0 \quad \text{and} \quad
-\sum\limits_{i=1}^n X_i(Y_i - \hat{\alpha} - \hat{\beta}X_i) = 0
+\sum\limits_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) = 0 \quad \text{and} \quad
+\sum\limits_{i=1}^n x_i(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) = 0
 $$
 :::
 
 Now we have to solve this system of 2 equations. Let us first solve for $\hat{\alpha}$ in terms of $\hat{\beta}$:\
 $$
 \begin{split}
-\sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}X_i) = 
-\sum\limits_{i=1}^n Y_i - n \hat{\alpha} - \hat{\beta} \sum\limits_{i=1}^n X_i & = 0 \\
--n\hat{\alpha} &= -\sum\limits_{i=1}^n Y_i + \hat{\beta}\sum\limits_{i=1}^nX_i \\
-\hat{\alpha} & = \frac{1}{n} \sum\limits_{i=1}^nY_i - \frac{1}{n}\hat{\beta} \sum\limits_{i=1}^n X_i = \bar{Y} - \hat{\beta} \bar{X}
+\sum\limits_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) = 
+\sum\limits_{i=1}^n y_i - n \hat{\beta}_0 - \hat{\beta}_1 \sum\limits_{i=1}^n x_i & = 0 \\
+-n\hat{\beta}_0 &= -\sum\limits_{i=1}^n y_i + \hat{\beta}_1\sum\limits_{i=1}^nx_i \\
+\hat{\beta}_0 & = \frac{1}{n} \sum\limits_{i=1}^n y_i - \frac{1}{n}\hat{\beta}_1 \sum\limits_{i=1}^n x_i = \bar{y} - \hat{\beta}_1 \bar{x}
 \end{split}
 $$
 
-Now, let us substitute our calculated $\hat{\alpha} = \bar{Y} - \hat{\beta} \bar{X}$ into the $\hat{\beta}$ condition and solve: for $\hat{\beta}$:$$
+Now, let us substitute our calculated $\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$ into the $\hat{\beta}_1$ condition and solve: for $\hat{\beta}_1$:$$
 \begin{split}
-0 & = \sum\limits_{i=1}^n \left[ X_i(Y_i - [\bar{Y} - \hat{\beta}\bar{X}] - \hat{\beta}X_i) \right] = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y} - \hat{\beta}(X_i - \bar{X})) \right] \\
-& = \sum\limits_{i=1}^n \left[ X_i(Y_i - \bar{Y}) - X_i \hat{\beta}(X_i - \bar{X}) \right] = \sum\limits_{i=1}^n X_i (Y_i - \bar{Y}) - \hat{\beta}_1 \sum\limits_{i=1}^nX_i (X_i - \bar{X})
+0 & = \sum\limits_{i=1}^n \left[ x_i(y_i - [\bar{y} - \hat{\beta}_1\bar{x}] - \hat{\beta}_1x_i) \right] = \sum\limits_{i=1}^n \left[ x_i(y_i - \bar{y} - \hat{\beta}_1 (x_i - \bar{x})) \right] \\
+& = \sum\limits_{i=1}^n \left[ x_i(y_i - \bar{y}) - x_i \hat{\beta}_1(x_i - \bar{x}) \right] = \sum\limits_{i=1}^n x_i (y_i - \bar{y}) - \hat{\beta}_1 \sum\limits_{i=1}^nx_i (x_i - \bar{x})
 \end{split}
 $$
 
 Here are a few properties on summation that will help us solve this equation: $$
 \begin{split}
-& \sum\limits_{i=1}^n (X_i - \bar{X}) = 0 \\
-& \sum\limits_{i=1}^n X_i(Y_i - \bar{Y}) = \sum\limits_{i=1}^n(X_i - \bar{X}) (Y_i - \bar{Y}) \\
-& \sum\limits_{i=1}^n X_i(X_i - \bar{X}) = \sum\limits_{i=1}^n(X_i - \bar{X})^2
+& \sum\limits_{i=1}^n (x_i - \bar{x}) = 0 \\
+& \sum\limits_{i=1}^n x_i(y_i - \bar{y}) = \sum\limits_{i=1}^n(x_i - \bar{x}) (y_i - \bar{y}) \\
+& \sum\limits_{i=1}^n x_i(x_i - \bar{x}) = \sum\limits_{i=1}^n(x_i - \bar{x})^2
 \end{split}
 $$
 
 With these rules, we can transform what we had before into: $$
-0 = \sum\limits_{i=1}^n(X_i - \bar{X})(Y_i - \bar{Y}) - \hat{\beta} \sum\limits_{i=1}^n (X_i - \bar{X})^2
+0 = \sum\limits_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}) - \hat{\beta}_1 \sum\limits_{i=1}^n (x_i - \bar{x})^2
 $$
 
 ::: callout-tip
-## Key Definition
+## Key Definition: OLS Estimate
 
-Then solve for $\hat{\beta}$ to get the **OLS estimator** for bivariate regression:$$
-\hat{\beta} = \frac{\sum\limits_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum\limits_{i=1}^n(X_i - \bar{X})^2} = \frac{Cov(X, Y)}{Var(X)} = \frac{\sigma_{XY}}{\sigma_x^2}
+Then solve for $\hat{\beta}_1$ to get the **OLS estimator** for bivariate regression:$$
+\hat{\beta} = \frac{\sum\limits_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum\limits_{i=1}^n(x_i - \bar{x})^2} = \frac{Cov(x, y)}{Var(x)} = \frac{\sigma_{xy}}{\sigma_x^2}
 $$
 
-When $\hat{\beta}$ is the coefficient of our treatment variable $D$, then the OLS estimator produces our estimate of the average treatment effect (we will discuss if this is a good estimate later)
+If treatment was randomly assigned in our data, $\hat{\beta}_1$ is the OLS estimate of the average treatment effect (we will discuss if this is a good estimate later).
 :::
 
 ### Interpretations of Coefficients
 
-We have now estimated our coefficients with the OLS estimator. How do we interpret parameters $\hat{\alpha}$ and $\hat{\beta}_1, \hat{\beta}_2, ..., \hat{\beta}_k$? What do these estimates mean?
+#### Coefficient $\hat{\beta}_1$
 
-I will define $\hat{\beta}_j$ as any one of $\hat{\beta}_1, ..., \hat{\beta}_k$ , multiplied to explanatory variable $X_j$. $\hat{\beta}_j$ is the rate of change between $X_{ij}$ and $\hat{Y}_i$, holding other explanatory variables $X_{1i} ... X_{ki}$ constant. This is the case with any $\hat{\beta}_j$ parameter $j = 1, ..., k$.
+We know that in a linear model $\mathbb{E}[y_i|x_i] = \beta_0 + \beta_1 x_i$, the coefficient $\beta_1$ is the slope, or the rate of change of $y$ given a one unit increase in $x$. Thus:
 
 ::: callout-note
-## Interpretation of $\hat{\beta}_j$
+## Interpretation of $\hat{\beta}_1$
 
-When $X_j$ increases by one unit, there is an expected $\hat{\beta}_j$ unit change in $Y$, holding all other explanatory variables constant.
+When $x$ increases by one unit, there is an expected $\hat{\beta}_1$ unit change in $y$.
 
  
 
-If coefficient $\hat{\beta}_j$ is multiplied to our treatment variable of interest $D$, then that means $\hat{\beta}_j$ is the estimate of the average treatment effect of increasing $D$ by one.
+If random assignment is present, $\hat{\beta}_1$ is also the estimate of the causal effect of $x$ on $y$. However, we still need to conduct hypothesis tests for causal inference.
 
--   Assuming $D$ is continuous. Iff not the case, i.e. only control and treatment categories, see the binary explanatory variable section.
-
--   NOTE: we have not discussed yet if this estimate is good or not. See the following chapter for more information on this.
+-   [If random assignment did not occur, we cannot interpret single linear regression coefficients causally. We will need further methods.]{.underline}
 :::
 
-What does intercept $\hat{\alpha}$ mean? Let us take a regression equation, and input $\overrightarrow{X} = 0$, which turns all $\hat{\beta}_j$ and $X_j$ into 0s. Thus, we are left with $\hat{\alpha} = \hat{Y}_i$ when $\overrightarrow{X} = 0$.
+#### Coefficient $\hat{\beta}_0$
+
+What does intercept $\hat{\beta}_0$ mean? Let us take a regression equation, and input $x = 0$.$$
+\begin{split}
+& \mathbb{E}[y_i |x_i] = \beta_0 + \beta_1 x_i \\
+& \mathbb{E}[y_i|x_i = 0] = \beta_0 + \beta_1 (0) = \beta_0
+\end{split}
+$$
 
 ::: callout-note
-## Interpretation of $\hat{\alpha}$
+## Interpretation of $\hat{\beta}_0$
 
-When all explanatory variables equal 0, the expected value of $Y$ is $\hat{\alpha}$
+When $x=0$, the expected value of $y$ is $\hat{\alpha}$
 :::
 
 #### Interpreting in Terms of Standard Deviation
 
-Sometimes, it is hard to understand what changes in $Y$ and $X$ mean in terms of units.
+Sometimes, it is hard to understand what changes in $y$ and $x$ mean in terms of units. For example, if we are measuring "democracy", what does a 5 unit change in democracy mean? Is that a lot?
 
--   For example, if we are measuring "democracy", what does a 5 unit change in democracy mean? Is that a lot?
+We can add more relevant detail by expressing the change of $y$ and $x$ in standard deviations.
 
-We can add more relevant detail by expressing the change of $Y$ and $X$ in standard deviations.
-
-How do we calculate this? Well, let us solve for the change in $\hat{Y}$ given $X = x$ and $X = x + \sigma_X$. This will tell us how much $\hat{Y}$ changes by given a increase of one standard deviation in $X$. $$
+How do we calculate this? Well, let us solve for the change in $\hat{y}$ given $x = x$ and $x = x + \sigma_X$. This will tell us how much $\hat{y}$ changes by given a increase of one standard deviation in $x$.$$
 \begin{split}
-\mathbb{E}[\hat{Y}_i| X = x + \sigma_X] - \mathbb{E}[\hat{Y}_i| X = x] & = [\hat{\alpha} + \hat{\beta}(x + \sigma_X)] - [\hat{\alpha} + \hat{\beta}(x)] \\
-& = \hat{\alpha}+\hat{\beta}x + \hat{\beta} \sigma_X - \hat{\alpha} - \hat{\beta}x \\
-& = \hat{\beta} \sigma_X
+\mathbb{E}[\hat{y}_i| x = x + \sigma_x] - \mathbb{E}[\hat{y}_i| x = x] & = [\hat{\beta}_0 + \hat{\beta}_1 (x + \sigma_x)] - [\hat{\beta}_0 + \hat{\beta}_1(x)] \\
+& = \hat{\beta}_0+\hat{\beta}_1 x + \hat{\beta}_1 \sigma_x - \hat{\beta}_0 - \hat{\beta}_1x \\
+& = \hat{\beta}_1 \sigma_x
 \end{split}
 $$
 
-To get the change in $\hat{Y}$ in terms of standard deviations of $Y$, we just divide $\hat{\beta} \sigma_X$ by $\sigma_Y$.
+To get the change in $\hat{y}$ in terms of standard deviations of $y$, we just divide $\hat{\beta}_1 \sigma_x$ by $\sigma_y$.
 
 ::: callout-note
 ## Interpretation in Terms of Standard Deviation
 
-For a one-std. deviation increase in $X_j$, there is an expected $\hat{\beta} \sigma_X / \sigma_Y$-std. deviation change in $Y$.
+For a one-std. deviation increase in $x$, there is an expected $\hat{\beta}_1 \sigma_x / \sigma_y$-std. deviation change in $Y$.
 :::
 
 ### Categorical Explanatory Variable Interpretation
@@ -693,41 +700,44 @@ For a one-std. deviation increase in $X_j$, there is an expected $\hat{\beta} \s
 
 **Binary explanatory** variables are variables with 2 values, 0 and 1.
 
--   These are extremely common in econometrics - as our treatment variable $D$ often takes two states: $D=1$ is the treatment group, and $D=0$ is the control group. We know that in a regression, $D$ is included as an explanatory variable $X$.
+-   These are extremely common in econometrics - as our treatment variable $D$ often takes two states: $D=1$ is the treatment group, and $D=0$ is the control group. We know that in a regression, $D$ is included as an explanatory variable $x$.
 
-Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given the standard linear model $E[Y] = \alpha + \beta X$, given $X$ has two categories $X=0, X =1$: $$
+Binary explanatory variables will change the interpretations of our coefficients. We can "solve" for these interpretations given $x$ has two categories $x=0, x =1$: $$
 \begin{split}
-E[Y|X = 0] & = \alpha + \beta(0) = \alpha \\
-E[Y|X=1] & = \alpha + \beta(1) = \alpha + \beta \\
-E[Y|X=1] - E[Y| & X =0] = (\alpha + \beta) - \alpha = \beta
+& \mathbb{E}[y|x = 0] = \beta_0 + \beta_1(0) = \beta_0 \\
+& \mathbb{E}[y|x=1] = \beta_0 + \beta_1(1) = \beta_0 + \beta_1 \\
+& \mathbb{E}[y|x=1] - \mathbb{E}[y| x =0] = (\beta_0 + \beta_1) - \beta_0 = \beta_1
 \end{split}
 $$
 
-Thus, we can interpret the coefficients $\alpha$ and $\beta$ as follows:
+Thus, we can interpret the coefficients as follows:
 
 ::: callout-note
 ## Intepretation of Binary Explanatory Variables
 
-When $X$ is a binary explanatory variable:
+When $x$ is a binary explanatory variable:
 
--   $\alpha$ is the expected value of $Y$ given an observation in category $X = 0$
+-   $\beta_0$ is the expected value of $y$ given an observation in category $x = 0$
 
--   $\alpha + \beta$ is the expected value of $Y$ given an observation in category $X = 1$
+-   $\beta_0 + \beta_1$ is the expected value of $y$ given an observation in category $x = 1$
 
--   $\beta$ is the expected difference in $Y$ between the categories $X=1$ and $X=0$
+-   $\beta_1$ is the expected difference in $y$ between the categories $x=1$ and $x=0$.
+
+ 
+
+We can see that $\beta_1$ is measuring the difference between the two categories.
+
+-   In fact, $\beta_1$ actually becomes a **difference-in-means** test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $y$ between the two categories.
+-   [If our treatment is randomly assigned (such as in a randomised controlled trial), $\beta_1$ is the estimate of the average treatment effect. Thus, we can use regression to estimate randomised controlled trials.]{.underline}
 :::
 
-We can see that $\beta$ is measuring the difference between the two categories.
-
--   In fact, $\beta$ actually becomes a **difference-in-means** test, meaning that if $\beta$ is statistically significant, we can conclude a significant difference in the mean $Y$ between the two categories.
-
-Remember that our ATE in our randomised experiment was estimated with a difference in means. Thus, if we include all possible confounding variables, the $\beta$ coefficient of $D$ will estimate the ATE.
+Once again, if random assignment did not occur, we cannot interpret single linear regression coefficients causally. We will need further methods.
 
 #### Categorical Explanatory Variable
 
-A **categorical polytomous** variable is one with 3 or more categories that are unranked. A classic example is the variable *country*, which is a categorical variable with all the different countries included in a dataset such as Argentina, France, Mexico, etc.
+A **categorical polytomous** variable is one with 3 or more categories. A classic example is the variable *country*, which has categories USA, Germany, UK, Australia, etc.
 
-How do we run a regression with polytomous explanatory variables? What happens is that we divide the variables into a set of dummy binary variables (see how dummy variables are interpreted in section 3.2).
+How do we run a regression with polytomous explanatory variables? What happens is that we divide the variables into a set of binary variables (also called dummy variables).
 
 -   Dummy binary variables are created for all [except one]{.underline} of the categories in our variable. Each dummy variable has two values - 1 meaning the observation is in the category, and 0 meaning the observation is not in that category.
 
@@ -736,90 +746,76 @@ How do we run a regression with polytomous explanatory variables? What happens i
 ::: callout-tip
 ## Key Definition
 
-Thus, a **polytomous explanatory variable** with $n$ number of categories in $X$, we would create $n-1$ dummy variables, and input it into a regression equation as follows:
+Thus, a **polytomous explanatory variable** with $n$ number of categories in $x$, we would create $n-1$ dummy variables, and input it into a regression equation as follows:
 
 $$
-E[Y] = \alpha + \beta_{x=1}X_{x=1} + ... + \beta_{x=n-1}X_{x=n-1}
+\mathbb{E}[y] = \beta_0 + \beta_{x=1}x_{x=1} + ... + \beta_{x=n-1}x_{x=n-1}
 $$
 
-Where $\alpha$ is the mean of the reference category $n$, and the other categories $1, ..., n-1$ get their own dummy variable.
+Where $\beta_0$ is the mean of the reference category $n$, and the other categories $1, ..., n-1$ get their own dummy variable.
 :::
 
 For example, take the following polytomous variable: *company*, which contains the categories *microsoft, google,* and *apple*. Let us create dummy variables for 2 of the 3 categories:
 
--   *Google* will become the first dummy variable $X_g$. When $X_g = 1$, that observation is part of the *google* category. When $X_g = 0$, that observation is NOT a part of the *google* category.
+-   *Google* will become the first dummy variable $x_g$. When $x_g = 1$, that observation is part of the *google* category. When $x_g = 0$, that observation is NOT a part of the *google* category.
 
--   *Apple* will become the second dummy variable $X_a$. When $X_a = 1$, that observation is part of the *apple* category. When $X_a = 0$, that observation is NOT a part of the *apple* category.
+-   *Apple* will become the second dummy variable $x_a$. When $x_a = 1$, that observation is part of the *apple* category. When $x_a = 0$, that observation is NOT a part of the *apple* category.
 
--   *Microsoft* will not get its own dummy variable. This is because when both *apple* and *microsoft* $X_g = X_a = 0$ that is referring to the *microsoft* category (observations not a part of either previous category).
+-   *Microsoft* will not get its own dummy variable. This is because when both *apple* and *microsoft* $x_g = x_a = 0$ that is referring to the *microsoft* category (observations not a part of either previous category).
 
 Mathematically, this is how it would be represented in a regression equation:
 
 $$
-E[Y] = \alpha + \beta_g X_g + \beta_a X_a
+\mathbb{E}[y] = \beta_0 + \beta_g x_g + \beta_a x_a
 $$
 
 To find the expected value of each category, we would do the following: $$
 \begin{split}
-E[Y|X = \text{Google}] & = E[Y|X_g = 1, X_a = 0] = \alpha + \beta_g(1) + \beta_a(0) = \alpha + \beta_g \\
-E[Y|X = \text{Apple}] & = E[Y|X_g = 0, X_a = 1] = \alpha + \beta_g(0) + \beta_a(1) = \alpha + \beta_a \\
-E[Y|X = \text{Microsoft}] & = E[Y|X_g = 0, X_a = 0] = \alpha + \beta_g(0) + \beta_a(0) = \alpha
+& \mathbb{E}[y|x = \text{Google}] = \mathbb{E}[y|x_g = 1, x_a = 0] = \beta_0 + \beta_g(1) + \beta_a(0) = \beta_0 + \beta_g \\
+& \mathbb{E}[y|x = \text{Apple}] = \mathbb{E}[y|x_g = 0, x_a = 1] = \beta_0 + \beta_g(0) + \beta_a(1) = \beta_0 + \beta_a \\
+& \mathbb{E}[y|x = \text{Microsoft}] = \mathbb{E}[y|x_g = 0, x_a = 0] = \beta_0 + \beta_g(0) + \beta_a(0) = \beta_0
 \end{split}
 $$
 
 Thus, from these above equations, we can see the interpretation of the coefficients:
 
--   $\alpha$ is the expected value of the reference category, in this case, *microsoft*.
+-   $\beta_0$ is the expected value of the reference category, in this case, *microsoft*.
 
--   $\beta_g$ is the expected $Y$ difference between the *google* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+-   $\beta_g$ is the expected $y$ difference between the *google* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
 
--   $\beta_a$ is the expected $Y$ difference between the *apple* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
+-   $\beta_a$ is the expected $y$ difference between the *apple* category and the reference category *microsoft*. The statistical significance of this coefficient would be a difference of means test between the two categories.
 
 ::: callout-note
 ## Interpretation of Polytomous Explanatory Variables
 
-$\beta_j$ is the expected difference in $Y$ values between category $j$ and the baseline category.
+$\beta_j$ is the expected difference in $y$ values between category $j$ and the baseline category.
 
-$\alpha$ is the expected value of $Y$ of the baseline category.
+$\beta_0$ is the expected value of $y$ of the baseline category.
 
  
 
-The coefficient $p$-values of $\beta_j$ are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable.
+Additional note: The coefficient $p$-values of $\beta_j$ (discussed in the next section) are a difference-of-means test between two categories, and not a statistical significance test of the entire categorical variable.
 :::
 
 ### Hypothesis Testing and Causal Inference
 
-#### Robust Standard Errors
-
-So far, we have focused on using standard errors of parameter estimates that were introduced in section 2.2.
-
-However, these "default" standard errors rely on the assumption of **homoscedasticity** (see section 3.4). However, homoscedasticity is frequently violated.
-
-When homoscedasticity is violated, we have to use an alternative estimation of the standard error: **heteroscedasticity-robust standard errors**.
-
--   These robust standard errors are typically larger than the homoscedastic "default" standard errors.
-
--   Because homoscedasticity is frequently violated, and that robust standard errors are more "conservative", we typically use robust standard errors as the "default" in econometrics.
-
-The calculation of robust-standard errors will be done with calculators, and it is not important to know how the mathematics work.
-
 #### Hypothesis Testing of Parameters
 
-We previously discussed hypothesis testing in section 2.5. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_j$ as our sample estimate. Generally, for regressions, our hypotheses that we test are:
+We previously discussed hypothesis testing in section 2.4. The mechanics are practically the same, but we replace the sample average treatment effect with $\hat{\beta}_1$ as our sample estimate. Generally, for regressions, our hypotheses that we test are:
 
--   $H_0 : \beta_j = 0$ - i.e. there is no relationship between $X_j$ and $Y$
+-   $H_0 : \beta_1 = 0$ - i.e. there is no relationship between $x$ and $y$
 
--   $H_1: \beta_j ≠ 0$ - i.e. there is a relationship between $X_j$ and $Y$
+-   $H_1: \beta_1 ≠ 0$ - i.e. there is a relationship between $x$ and $y$
 
-Just like previously discussed in section 2.5, we calculate a t-statistic:
+Just like previously discussed in section 2.5, we calculate a t-statistic (minus 0 since that is null hypothesis):
 
 $$
-t = \frac{\hat{\beta}_j}{\hat{se}(\hat{\beta}_j)}
+t = \frac{\hat{\beta}_1 - 0} {\hat{se}(\hat{\beta}_j)}
 $$
 
 The t-test statistic tells us how far the estimate is from 0, in terms of standard errors of the estimate.
 
-Then, we have to consult a t-distribution (see section 2.5). We find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. This is the p-value: how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_j$, given the null hypothesis is true.
+Then, we have to consult a t-distribution (see section 2.4). We find the probability (area under the distribution) of a t-test statistic of ours, or more extreme, could occur. This is the p-value: how likely we are to get a test statistic at or more extreme than the one we got for our estimated $\beta_1$, given the null hypothesis is true.
 
 -   So if the p-value is very high, there is a high chance that the null hypothesis is true.
 
@@ -827,92 +823,103 @@ Then, we have to consult a t-distribution (see section 2.5). We find the probabi
 
 Generally, in the social sciences, if the p-value is less that 0.05 (5%), we can **reject the null hypothesis**, and conclude the alternate hypothesis.
 
+#### Causl Inference in Simple Linear Regression
+
+Remember, correlation does not mean causation. Simple linear regression by itself only measures correlation between variables, not causation.
+
+This is why causal inference, and claiming $\beta_1$ is the causal effect of $x$ on $y$ (even if it is statistically significant and we reject the null) [is only possible when random assignment of treatment has occurred]{.underline} (as I have mentioned multiple times).
+
+-   Thus, we can use regression to estimate the ATE of a randomised controlled trial.
+
+The reason we cannot make causal claims when randomisation (even if our hypothesis test is significant) is because of two factors:
+
+1.  Without randomisation, we might have confounders and selection bias. Clearly, our one variable linear regression does not account for any confounders. In the next chapter, we will introduce Multiple Linear Regression, which will allow us to control for confounders.
+2.  Without randomisation, we might have reverse causality. It could be that $y$ is causing $x$. Randomisation prevents this because the random selection is causing $x$, so $y$ has no independent effect on $x$. We will introduce further techniques like instrumental variables and quasi-experimental techniques to deal with this.
+
+This chapter has also left out any discussion of the OLS estimator itself - how good is the actual estimator (answer: it is very good under certain conditions). We will cover this in the next chapter as well.
+
 ## Multiple Linear Regression and Causal Inference
 
 ### The Multiple Linear Regression Model
 
 In the social sciences, randomisation is often not possible. Linear regression allows us to estimate a model with both our treatment and outcome variables, as well as a series of **control** variables.
 
-In theory, by including every single confounding variable as a control variable in our regression model, we can partial out the effect of confounders and find the average treatment effect.
+-   We will explore the idea of "controlling" in later in the chapter.
 
-The **response variable** (outcome variable) is notated $Y$. The **explanatory variable** (independent variable) is notated $X$. There is often more than one explanatory variable, so we denote them with subscripts $X_1, X_2, ..., X_k$. We sometimes also denote all explanatory variables as the vector $\overrightarrow{X}$.
+In theory, by including every single confounding variable as a control variable in our regression model, we can partial out the effect of confounders and find the average treatment effect. In reality, as we will cover later, it is often impossible to account for all confounding variables, so we may need additional techniques to account for those situations.
 
--   Our treatment variable $D$ is considered one of the explanatory variables $\overrightarrow{X}$.
+The **response variable** (outcome variable) is notated $y$, just like in single linear regression. The **explanatory variable**s are $x_1, x_2, ..., x_k$. We sometimes also denote all explanatory variables as the vector $\overrightarrow{x}$. Our treatment variable $D$ is considered one of the explanatory variables $\overrightarrow{x}$ (most often $x_1$).
 
-A linear regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{X}$. The linear regression model focuses on the **expected value** of the conditional distribution, notated $\mathbb{E}[Y_i|\overrightarrow{X}_i]$. Essentially, as $\overrightarrow{X}$ changes, the expected value of $Y$ changes.
-
--   I say **distribution** because there are often a range of $Y$ outcomes, each with their own probabilities, for any given $X$. For example, if $X$ was age and $Y$ was income, at age $X=30$, not every single 30 year old makes the same amount of money. There is some distribution of incomes $Y$ at age $X=30$.
+A linear regression model is the specification of the conditional distribution of $Y$, given $\overrightarrow{x}$. The linear regression model focuses on the **expected value** of the conditional distribution, notated $\mathbb{E}[y_i|\overrightarrow{x}_i]$.
 
 ::: callout-tip
 ## Key Definition: Linear Regression Model
 
-Take a set of observed data with $n$ number of pairs of $(\overrightarrow{X}_i, Y_i)$ observations. The linear model takes the following form: $$
-\mathbb{E}[Y_i|\overrightarrow{X}_i] = \alpha + \beta_1 X_{1i} + ... + \beta_k X_{ki}
+Take a set of observed data with $n$ number of pairs of $(\overrightarrow{x}_i, y_i)$ observations. The linear model takes the following form: $$
+\mathbb{E}[y_i|\overrightarrow{x}_i] = \beta_0 + \beta_1 x_{1i} + ... + \beta_k x_{ki}
 $$
 
--   Where the distribution of $Y_i|\overrightarrow{X}_i$ has a variance $Var(Y_i|\overrightarrow{X}_i) = \sigma^2$.
-
--   Where the coefficients of the model (that need to be estimated) are $\alpha, \beta_1, ..., \beta_k$.
+-   Where the coefficients (that need to be estimated) are vector$\overrightarrow{\beta} = \beta_0, \beta_1, ..., \beta_k$.
 
  
 
 We can also write the linear model for the value of any point $Y_i$ in our data: $$
-Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i
+y_i = \beta_0 + \beta_1x_{1i} + ... + \beta_k x_{ki} + u_i
 $$
 
--   Where $\epsilon_i$ is the error term function - that determines the error for each unit $i$.
+-   Where $u_i$ is the error term function - that determines the error for each unit $i$. Error $u_i$ has a variance of $\sigma^2$, and expectation $\mathbb{E}[u_i] = 0$.
 :::
 
-### Multiple Regression Estimation
+### Ordinary Least Squares Estimator
 
-Multiple regression, as introduced previously, allows us to add additional control variables. Similar to our bivariate regression (but with additional variables), our minimisation condition is:$$
-(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...) = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i} ...)^2 = \arg \min\limits_{(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)} S(\hat{\alpha}, \hat{\beta}_1, \hat{\beta}_2, ...)
+Similar to our bivariate regression (but with additional variables), our minimisation condition is:$$
+(\hat{\beta}_0, \hat{\beta}_1, \hat{\beta}_2, ...) = \arg \min\limits_{(\hat{\beta}_0, \hat{\beta}_1, \hat{\beta}_2, ...)} (y_i - \hat{\beta}_0 - \hat{\beta}_1x_{1i} -  \hat{\beta}_2x_{2i} ...)^2 = \arg \min\limits_{(\hat{\beta}_0, \hat{\beta}_1, \hat{\beta}_2, ...)} S(\hat{\beta}_0, \hat{\beta}_1, \hat{\beta}_2, ...)
 $$
 
 Taking the partial derivatives of each parameter as before, we get these first order conditions::$$
 \begin{split}
-& -2 \sum\limits_{i=1}^n (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
-& -2 \sum\limits_{i=1}^n X_{1i}(Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
-& -2 \sum\limits_{i=1}^n X_{2i} (Y_i - \hat{\alpha} - \hat{\beta}_1X_{1i} -  \hat{\beta}_2X_{2i}...) = 0 \\
+& \sum\limits_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1x_{1i} -  \hat{\beta}_2x_{2i}...) = 0 \\
+& \sum\limits_{i=1}^n X_{1i}(y_i - \hat{\beta}_0 - \hat{\beta}_1x_{1i} -  \hat{\beta}_2x_{2i}...) = 0 \\
+& \sum\limits_{i=1}^n X_{2i} (y_i - \hat{\beta}_0 - \hat{\beta}_1x_{1i} -  \hat{\beta}_2x_{2i}...) = 0 \\
 & \text{and so on for } X_{3i}, ..., X_{ki}
 \end{split}
 $$
 
-This system of equations is way too difficult to solve. Instead, we can use linear algebra. We start with the linear model:
+This system of equations includes $k+1$ variables and $k+1$ equations, which is way too difficult to solve. Instead, we can use linear algebra. We start with the linear model:
 
 $$
-Y_i = \alpha + \beta_1X_{1i} + \beta_2 X_{2i} + ... + \beta_k X_{ki} + \epsilon_i
+y_i = \beta_0 + \beta_1x_{1i} + \beta_2x_{2i} + ... + \beta_k x_{ki} + u_i
 $$
 
 The $i$th observation can be written in vector form as following:$$
-Y = X_i'\beta + \epsilon_i, \text{ where }
+y_i = x_i'\beta + u_i, \text{ where }
 \beta = \begin{bmatrix}
-\alpha \\ \beta_1 \\ \vdots \\ \beta_k
+\beta_0 \\ \beta_1 \\ \vdots \\ \beta_k
 \end{bmatrix} \text{ and }
-X_i = \begin{bmatrix}
+x_i = \begin{bmatrix}
 1 \\
-X_{1i} \\
+x_{1i} \\
 \vdots \\
-X_{ki}
+x_{ki}
 \end{bmatrix}
 $$
 
--   The $X_i'$ in the equation is the transpose of $X_i$, to make matrix multiplication possible.
+-   The $x_i'$ in the equation is the transpose of $x_i$, to make matrix multiplication possible.
 
--   The first element of the $X_i$ matrix is 1, since $1 \times \alpha$ gives us the first parameter in the linear model.
+-   The first element of the $x_i$ matrix is 1, since $1 \times \beta_0$ gives us the first parameter (intercept) in the linear model.
 
 Since our model has $n$ different observations of $i$, we can express this into vector form, with the $X_i'$ and $\beta$ being vectors within a vector.$$
 \begin{pmatrix}
 y_1 \\ y_2 \\ \vdots \\ y_n
 \end{pmatrix} = 
 \begin{pmatrix}
-X_1'\beta + \epsilon_1 \\ X_2'\beta + \epsilon_2 \\ \vdots \\ X_n'\beta + \epsilon_n
+x_1'\beta + u_1 \\ x_2'\beta + u_2 \\ \vdots \\ x_n'\beta + u_n
 \end{pmatrix} = 
 \begin{pmatrix}
-X_1'\beta \\ X_2'\beta \\ \vdots \\ X_n'\beta
+x_1'\beta \\ x_2'\beta \\ \vdots \\ x_n'\beta
 \end{pmatrix} + 
 \begin{pmatrix}
-\epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_n
+u_1 \\ u_2 \\ \vdots \\ u_n
 \end{pmatrix}
 $$
 
@@ -921,17 +928,17 @@ Since $\beta$ vector appears as a common factor for all observations $i=1,...,n$
 y_1 \\ y_2 \\ \vdots \\ y_n
 \end{pmatrix} = 
 \begin{pmatrix}
-X_1' \\ X_2' \\ \vdots \\ X_n'
+x_1' \\ x_2' \\ \vdots \\ x_n'
 \end{pmatrix} \space \beta + 
 \begin{pmatrix}
-\epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_n
+u_1 \\ u_2 \\ \vdots \\ u_n
 \end{pmatrix}
 $$
 
-We can expand the $X_1',...,X_n'$ vector into a matrix. Remember that each $X_1',...,X_n'$ is already a vector of different explanatory variables. Thus, we have a model in the form:
+We can expand the $x_1',...,x_n'$ vector into a matrix. Remember that each $x_1',...,x_n'$ is already a vector of different explanatory variables. Thus, we have a model in the form:
 
 $$
-Y = X \beta + \epsilon, \text{ where } X = 
+y = X \beta + u, \text{ where } X = 
 \begin{bmatrix}
 1 & x_{21} & \dots & x_{k1} \\
 1 & x_{22} & \dots & x_{k2} \\
@@ -942,16 +949,16 @@ $$
 
 -   Where the notation for elements of $X$ is $x_{ki}$, with $i$ being the unit of observation $i = 1, \dots n$, and $k$ being the explanatory variables index.
 
--   Where $Y$ and $\epsilon$ are $n \times 1$ vectors (as seen above), and $\beta$ is a $k \times 1$ vector.
+-   Where $y$ and $u$ are $n \times 1$ vectors (as seen above), and $\beta$ is a $k \times 1$ vector.
 
--   The first row of $X$ is a vector of 1, which exists because these 1's are multiplied with $\alpha$ in our model.
+-   The first row of $X$ is a vector of 1, which exists because these 1's are multiplied with $\beta_0$ in our model.
 
 Now, let us estimate our coefficients. Let us define our estimation vector $\hat{\beta}$ as:$$
-\hat{\beta} = \arg \min\limits_{b} (Y - Xb)' (Y - Xb) = \arg \min\limits_b S(b)
+\hat{\beta} = \arg \min\limits_{b} (y - Xb)' (y - Xb) = \arg \min\limits_b S(b)
 $$
 
 We can expand $S(b)$ as follows:$$
-S(b) = Y'Y - b'X'Y - Y'Xb + b'X'Xb  \ = \ Y'Y - 2b'X'Y + b'X'Xb
+S(b) = y'y - b'X'y - y'Xb + b'X'Xb  \ = \ y'y - 2b'X'y + b'X'Xb
 $$
 
 Taking the partial derivative in respect to $b$, then setting equal to 0, we get:
@@ -969,13 +976,13 @@ $$
 Differentiating with the vector $b$ yields:
 
 $$
-\frac{\partial S(b)}{\partial b} = -2X'Y + 2X'Xb
+\frac{\partial S(b)}{\partial b} = -2X'y + 2X'Xb
 $$
 
 Evaluted at $\hat{\beta}$, the derivatives should equal zero (since first order condition of finding minimums):
 
 $$
-\frac{\partial S(b)}{\partial b} \biggr|_{\hat{\beta}} = -2X'Y + DX'X \hat{\beta} = 0
+\frac{\partial S(b)}{\partial b} \biggr|_{\hat{\beta}} = -2X'y + DX'X \hat{\beta} = 0
 $$
 
 ::: callout-tip
@@ -984,15 +991,25 @@ $$
 When assuming $X'X$ is invertable, our OLS estimator solution for $\hat{\beta}$ is:
 
 $$
-\hat{\beta} = (X'X)^{-1} X'Y
+\hat{\beta} = (X'X)^{-1} X'y
 $$
 :::
 
 Once we have estimates of $\hat{\beta}$, we can plug them into our linear model to obtain fitted values:
 
 $$
-\hat{Y} = X\beta = X(X'X)^{-1} X'Y
+\hat{y} = X\hat{\beta} = X(X'X)^{-1} X'y
 $$
+
+### Regression Anatomy and Coefficient Interpretation
+
+### Gauss-Markov Theorem and Causal Estimation with OLS
+
+### Omitted Variable Bias
+
+### Model Selection for Causal Inference
+
+## Additional Topics in Linear Regression
 
 ### Linear Probability Model
 
@@ -1012,14 +1029,36 @@ $\hat{\alpha}$ is the expected probability of being in category $Y=1$ when all e
 
 This model with binary $Y$ is also called the **linear probability model**.
 
-## Causal Estimation with Regression and OLS
+### Fixed Effects Estimator for Panel Data
 
-### Gauss Markov Theorem
+### Interactions and Conditional Average Treatment Effect
 
-### Endogeniety
+### Polynomial Transformations and Estimation
 
-### Heteroscedasticity
+### Logarithmic Transformations and Estimation
 
-### Omitted Variable Bias
+# Instrumental Variables Estimator
 
-### Model Selection for Causal Inference
+## Instrumental Variable Design
+
+### Non-Compliance and Reverse Causality
+
+### Instrumental Variables
+
+### Assumptions for Identification
+
+### Causal Estimands and Wald Estimator
+
+### Two Stage Least Squares
+
+### Weaknesses and Falsification Tests
+
+## Continuous Instrumental Variables
+
+# Quasi Experimental Designs
+
+## Differences-in-Differences Design
+
+## Expanded Differences-in-Differences
+
+## Regression Discontinuity
