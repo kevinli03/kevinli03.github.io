@@ -3,15 +3,24 @@ title: "Kevin Lingfeng Li"
 subtitle: "Postgraduate Student, London School of Economics"
 format:
     html:
-        theme: cosmo
-        max-width: 1100px
+        page-layout: article
+        grid:
+          sidebar-width: 300px
+          body-width: 725px
+          margin-width: 250px
+          gutter-width: 2em
+        fontsize: 12.5pt
+        theme: yeti
         toc: TRUE
-        toc-expand: TRUE
         toc-depth: 3
         toc-location: left
+        toc-expand: true
+        toc-title: "Kevin Lingfeng Li"
+        mainfont: "Computer Modern"
+        title-block-banner: true
+        classoption: fleqn
+        html-math-method: katex
 ---
-
-# **Hello!**
 
 ![](me.jpg){fig-align="center" width="60%"}
 
@@ -69,57 +78,15 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 ------------------------------------------------------------------------
 
-# **Notes: Methods for Social Science Research**
-
-This is a series of notes on Methods in Political Science and Political Economics.
-
-**NOTE:** This is a work in progress, everything is incomplete.
-
-<br />
-
-#### Econometric Methods for Social Scientists
-
-This series introduces econometric/statistical methods for analysing social and political phenomena empirically.
-
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume I: Causal Inference and Regression](https://kevinli03.github.io/metrics/1.pdf)              | Topics include: causal inference, causal estimands, random experiments, linear regression, logistic regression, regression for counts.                                  |
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume II: Causal Estimation for Observational Studies](https://kevinli03.github.io/metrics/2.pdf) | Topics include: selection on observables, instrumental variables estimator, differences-in-differences, regression discontinuity, survey experiments.                   |
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume III: Forecasting and Prediction](https://kevinli03.github.io/metrics/3.pdf)                 | Topics include: time series models, non-linear prediction models, classification models, cross-validation, regularisation.                                              |
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume IV: Measurement Issues](https://kevinli03.github.io/metrics/4.pdf)                          | Topics include: latent variable modelling, structural equation models, principle components analysis, dictionary methods, text classification, structural topic models. |
-+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-#### Economic Modelling for Political Analysis
-
-This series introduces using economic theory to model political behaviour and institutions.
-
-+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume I: Economic Game Theory](https://kevinli03.github.io/polecon/1.pdf)           | Topics include: preferences and utility functions, pure and mixed nash equilibrium, dynamic games, bayesian games of incomplete information. |
-+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume II: Models in Political Economics](https://kevinli03.github.io/polecon/2.pdf) |                                                                                                                                              |
-+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume III: Advanced Game Theory](https://kevinli03.github.io/polecon/3.pdf)         |                                                                                                                                              |
-+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-#### Quantitative Methods for Social Scientists
-
-This companion series provides useful mathematical and statistical background knowledge. Volume I is highly recommended before starting any of the other series in these notes.
-
-+-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume I: Calculus and Statistical Theory](https://kevinli03.github.io/math/1.pdf)           | Topics include: algebra review, single variable differentiation and integration, partial derivatives, basic probability theory, random variables. |
-+-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume II: Linear Algebra and Multivariate Calculus](https://kevinli03.github.io/math/2.pdf) | Topics include: matrices, system of linear equations, eigenvalues and markov chains, multivariate integration and differentiation.                |
-+-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Volume III: Proof and Analysis](https://kevinli03.github.io/math/5.pdf)                      |                                                                                                                                                   |
-+-----------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-
-<br />
-
-------------------------------------------------------------------------
-
 # **Projects/Cool Stuff**
+
+### Quantitative Methods for Political Science Website
+
+-   <https://politicalscience.github.io>
+-   These are notes for political science that I am creating to keep all my knowledge in one place.
+-   Notes include econometrics, game theory, mathematics.
+
+<br />
 
 ### 2024 Presidential Election Predictions
 
@@ -127,24 +94,19 @@ These are some (quick) predictions I made for the 2024 Presidential Elections us
 
 -   <https://kevinli03.github.io/election/us2024/prediction.html>
 
+<br />
+
 ### Music Recordings
 
 Here are some of the recordings I have made of me playing violin and piano
 
 -   My own composition for CCA Conservatory: <https://youtu.be/-VkJFQiv4ps>
-
 -   Borowski - Adoration: <https://youtu.be/rp4HV2AKm4A>
-
 -   Shostakovich - Prelude: <https://youtu.be/llQZ1jnh_ik>
-
 -   Elgar - Salut dAmour: <https://youtu.be/QhHTsEqjC2U>
-
 -   My cover of Ailee - I will go to you like the first snow: <https://youtu.be/DFyVmGi3_i8>
-
 -   Mozart - Violin Concerto No. 5: <https://youtu.be/-YB5BJMvmJg>
-
 -   Sarasate - Zigeunerweisen: <https://youtu.be/-WIrp25443I>
-
 -   My arrangement of Charlie Puth - One Call Away: <https://youtu.be/Rtt7LULcPmc>
 
 <br />
@@ -152,7 +114,6 @@ Here are some of the recordings I have made of me playing violin and piano
 ### Varieties of Capitalism and Tax Dataset
 
 -   <https://github.com/kevinli03/VocTaxDataset>
-
 -   This is a dataset that I created on the Varieties of Capitalism Framework (Political Economy) for an undergraduate paper. It includes OECD countries, their respective Variety of Capitalism as defined by the Varieties of Capitalism Framework, and relevant tax levels and economic data on the countries.
 
 <br />
@@ -248,13 +209,13 @@ Pre-Sessional Courses:
 
 [**Key Facts:**]{.underline}
 
-+-----------------+---------------------------------------------+
-| Programme:      | Data Science & Machine Learning, Accounting |
-+-----------------+---------------------------------------------+
-| Dates:          | July 2024 - August 2024                     |
-+-----------------+---------------------------------------------+
-| Final Grade:    | A (First Class Honours)                     |
-+-----------------+---------------------------------------------+
++----------------+---------------------------------------------+
+| Programme:     | Data Science & Machine Learning, Accounting |
++----------------+---------------------------------------------+
+| Dates:         | July 2024 - August 2024                     |
++----------------+---------------------------------------------+
+| Final Grade:   | A (First Class Honours)                     |
++----------------+---------------------------------------------+
 
 <br />
 
