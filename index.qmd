@@ -26,7 +26,7 @@ format:
 
 ### About me
 
-I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of statistics/econometrics and microeconomic models to study political phenomena.
+I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My interests relate to the use of econometrics and microeconomic models to study political phenomena.
 
 Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London, receiving First Class Honours (US Equivalent: Summa Cum Laude). During my undergraduate degree, I also took summer courses in Data Science and Machine Learning at the London School of Economics.
 
@@ -34,7 +34,7 @@ Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London
 
 My work experience includes two internships with the United Nations Development Programme. My first internship was with the Foresight Team within the Regional Bureau of Asia and the Pacific. There, I contributed to a publication on the potential effects of climate migration on Pakistan and Vietnam, and helped draft potential policy solutions. I, along with my colleagues, organised an online consultation with local stakeholders in Pakistan and Vietnam to facilitate inclusive policy-making.
 
-My second internship was with the inclusive growth team of the Bureau for Programme and Policy Support. There, I contributed to a publication on UNDP's effectiveness in promoting the Samoa Plan of Action for Small Islands and Developing States (SIDS). I also worked on a database of "best practices" regarding UNDP social protection programmes.
+My second internship was with the inclusive growth team of the Bureau for Programme and Policy Support. There, I contributed to a publication on UNDP's effectiveness in promoting the Samoa Plan of Action for Small Islands and Developing States (SIDS). I worked on a database of "best practices" regarding UNDP social protection programmes. I also completed mapping work on extractive industries for COP29.
 
 <br />
 
@@ -203,6 +203,8 @@ Pre-Sessional Courses:
 
 <br />
 
+<br />
+
 ------------------------------------------------------------------------
 
 ### London School of Economics (Summer School)
@@ -230,6 +232,8 @@ Pre-Sessional Courses:
 |              |                                                   |                         |
 |              |                                                   | Dr. Gulnaz Khamidullina |
 +--------------+---------------------------------------------------+-------------------------+
+
+<br />
 
 <br />
 
@@ -325,6 +329,8 @@ Pre-Sessional Courses:
 
 <br />
 
+<br />
+
 ------------------------------------------------------------------------
 
 ### Canyon Crest Academy (High School Diploma, ACT, AP)
@@ -344,33 +350,18 @@ Overall score: 35/36
 [**AP Tests and Courses:**]{.underline}
 
 -   AP Calculus BC
-
 -   AP Statistics
-
 -   AP Physics 1
-
 -   AP Physics 2
-
 -   AP Chemistry
-
 -   AP Computer Science Principles
-
 -   AP Macroeconomics
-
 -   AP English Language and Composition
-
 -   AP English Literature and Compoisition
-
 -   AP United States Government and Politics
-
 -   AP World History: Modern
-
 -   AP United States History
-
 -   AP European History
-
 -   AP Psychology
-
 -   AP Chinese Language and Culture
-
 -   AP Music Theory
