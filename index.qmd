@@ -80,10 +80,14 @@ Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Antici
 
 # **Projects/Cool Stuff**
 
-### Notes on Statistics for Social Scientists
+### Guides on Political Science and Statistics
 
--   <https://statsnotes.github.io>
--   In progress
+There are two guides that I have created to organise all my knowledge through my education.
+
+-   Statistics for Social Scientists notes: <https://statsnotes.github.io>
+-   Political Science notes: <https://politicalscience.github.io>
+
+Note: These are in progress.
 
 <br />
 
@@ -257,23 +261,23 @@ Pre-Sessional Courses:
 
 3rd Year Courses:
 
-+------------------------------------------+----------------------------------+
-| 6SSPP330 Economic Policy-Making          | -   Dr. Julian Limberg           |
-+------------------------------------------+----------------------------------+
-| 6SSPP403 Advanced Game Theory            | -   Dr. Mehmet Ismail            |
-+------------------------------------------+----------------------------------+
-| 6SSPP364 Key Issues in Policy Making     | -   Prof. Kristel Koop           |
-+------------------------------------------+----------------------------------+
-| 6SSPP388 Environmental Governance        | -   Dr. Francesca Pia Vataggiato |
-+------------------------------------------+----------------------------------+
-| 6SSPP378 American Foreign Policy         | -   Dr. Keith Smith              |
-+------------------------------------------+----------------------------------+
-| 6SSPP341 Global Power Europe             | -   Dr. Thomas Maltby            |
-+------------------------------------------+----------------------------------+
-| 6SSPP356 Authoritarianism                | -   Prof. Sarah Birch            |
-+------------------------------------------+----------------------------------+
-| 6SSPP360 Elections and Voting Behaviour  | -   Dr. Krzysztof Krakowski      |
-+------------------------------------------+----------------------------------+
++-----------------------------------------+----------------------------------+
+| 6SSPP330 Economic Policy-Making         | -   Dr. Julian Limberg           |
++-----------------------------------------+----------------------------------+
+| 6SSPP403 Advanced Game Theory           | -   Dr. Mehmet Ismail            |
++-----------------------------------------+----------------------------------+
+| 6SSPP364 Key Issues in Policy Making    | -   Prof. Kristel Koop           |
++-----------------------------------------+----------------------------------+
+| 6SSPP388 Environmental Governance       | -   Dr. Francesca Pia Vataggiato |
++-----------------------------------------+----------------------------------+
+| 6SSPP378 American Foreign Policy        | -   Dr. Keith Smith              |
++-----------------------------------------+----------------------------------+
+| 6SSPP341 Global Power Europe            | -   Dr. Thomas Maltby            |
++-----------------------------------------+----------------------------------+
+| 6SSPP356 Authoritarianism               | -   Prof. Sarah Birch            |
++-----------------------------------------+----------------------------------+
+| 6SSPP360 Elections and Voting Behaviour | -   Dr. Krzysztof Krakowski      |
++-----------------------------------------+----------------------------------+
 
 <br />
 
@@ -302,19 +306,19 @@ Pre-Sessional Courses:
 
 1st Year Courses:
 
-+------------------------------------------------+-------------------------+
-| 4SSPP111 Statistics for Political Science      | -   Dr. Adam Chalmers   |
-+------------------------------------------------+-------------------------+
-| 4SSPP101 Fundamentals of Politics Research     | -   Prof. Adrian Blau   |
-+------------------------------------------------+-------------------------+
-| 4SSPP102 World Politics Since 1945             | -   Dr. Keith Smith     |
-+------------------------------------------------+-------------------------+
-| 4SSPP103 Comparing Political Systems           | -   Dr. Damien Bol      |
-|                                                | -   Dr. Julian Limberg  |
-+------------------------------------------------+-------------------------+
-| 4SSPP104 Introduction to Political Theory      | -   Dr. Steven Klein    |
-|                                                | -   Dr. Billy Christmas |
-+------------------------------------------------+-------------------------+
++---------------------------------------------+-------------------------+
+| 4SSPP111 Statistics for Political Science   | -   Dr. Adam Chalmers   |
++---------------------------------------------+-------------------------+
+| 4SSPP101 Fundamentals of Politics Research  | -   Prof. Adrian Blau   |
++---------------------------------------------+-------------------------+
+| 4SSPP102 World Politics Since 1945          | -   Dr. Keith Smith     |
++---------------------------------------------+-------------------------+
+| 4SSPP103 Comparing Political Systems        | -   Dr. Damien Bol      |
+|                                             | -   Dr. Julian Limberg  |
++---------------------------------------------+-------------------------+
+| 4SSPP104 Introduction to Political Theory   | -   Dr. Steven Klein    |
+|                                             | -   Dr. Billy Christmas |
++---------------------------------------------+-------------------------+
 
 <br />
 
