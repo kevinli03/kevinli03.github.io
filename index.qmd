@@ -168,7 +168,7 @@ Officially Registered Classes:
 |                                                                   | -   Dr. Kun Byeonggeun Heo    |
 +-------------------------------------------------------------------+-------------------------------+
 | GV481 Quantitative Analysis for Political Science                 | -   Dr. Aliz Tóth             |
-|                                                                   | -   Dr. Filipe Torres-Raposo  |
+|                                                                   | -   Dr. Felipe Torres-Raposo  |
 +-------------------------------------------------------------------+-------------------------------+
 | GV482 Current Issues in Political Science and Political Economy   | -   Prof. Stephane Wolton     |
 +-------------------------------------------------------------------+-------------------------------+
