@@ -51,23 +51,7 @@ Aside from coefficients, the Linear Regression model also has a few summary stat
 
 #### Estimated Residual Standard Deviation
 
-We can derive the estimate of the **residual variance** $\sigma^2$ with this formula:
 
-$$
-\hat{\sigma}^2 = \frac{\sum(Y_i - \hat{Y}_i)^2}{n-k-1}
-$$
-
-But what is the residual variance? Recall our regression model: $Y_i = \alpha + \beta_1X_{1i} + ... + \beta_k X_{ki} + \epsilon_i$
-
-We know that $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$. Our estimate of the residual variance $\hat{\sigma}^2$ is our estimate of the variance of the error term $\epsilon_i$'s variance. More intuitively, it explains how spread out observed values of $Y$ are from our prediction value $\hat{Y} = E(Y|X)$.
-
-The figure below better showcases this in 2 different models. The red lines are our predicted regression line, and the green lines represent the distribution of our error term $\epsilon_i$:
-
-![](figures/2/4.1.png){fig-align="center" width="60%"}
-
-The residual standard deviation $\hat{\sigma}$ (square root of variance) is consistent throughout a model. This is one of the assumptions of the linear regression model - that errors are consistently distributed, no matter the value of $X$. This assumption is called **homoscedasticity**.
-
-If $\hat{\sigma}$ varies depending on the value of $X$, then that is called **heteroscedasticity**. When this occurs, it is often a suggestion that our relationship may not be linear - and we perhaps need to try a few transformations. We will get into transformations in a later chapter.
 
 #### Total Sum of Squares
 
