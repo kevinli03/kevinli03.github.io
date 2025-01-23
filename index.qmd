@@ -9,97 +9,124 @@ format:
           body-width: 725px
           margin-width: 250px
           gutter-width: 2em
-        fontsize: 12.5pt
-        theme: yeti
+        fontsize: 12pt
+        theme: default
         toc: TRUE
         toc-depth: 3
         toc-location: left
         toc-expand: true
         toc-title: "Kevin Lingfeng Li"
-        mainfont: "Computer Modern"
         title-block-banner: true
-        classoption: fleqn
-        html-math-method: katex
 ---
+
+To see my PSPE notes (stats, econometrics, game theory), go to [kevinli03.github.io/notes](https://kevinli03.github.io/notes/)
 
 ![](me.jpg){fig-align="center" width="60%"}
 
 ### About me
 
-I am a student at the London School of Economics, studying for a MSc in Political Science & Political Economy. My primary interests is the use of econometrics and quantitative methods to study political phenomena.
+I am a postgraduate student at the London School of Economics. My primary interests is the use of econometrics and quantitative methods to study political phenomena. I also am a current intern at the United Nations Development Programme (UNDP).
 
-Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London, receiving First Class Honours (US Equivalent: Summa Cum Laude). During my undergraduate degree, I also took summer courses in Data Science and Machine Learning at the London School of Economics.
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## My Education
 
-<br />
+I am currently a student at the London School of Economics, studying for a Masters of Science in Political Economics. My coursework mainly focuses around statistics/econometrics and game theory/mathematical modelling.
 
-My work experience includes two internships with the United Nations Development Programme. My first internship was with the Foresight Team within the Regional Bureau of Asia and the Pacific. There, I contributed to a publication on the potential effects of climate migration on Pakistan and Vietnam, and helped draft potential policy solutions. I, along with my colleagues, organised an online consultation with local stakeholders in Pakistan and Vietnam to facilitate inclusive policy-making.
+Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London, receiving First Class Honours (US Equivalent: Summa Cum Laude). My undergraduate degree was focused on Public Policy and Quantitative Methods in Political Science.
+
+During my undergraduate degree, I also took summer courses in Data Science + Machine Learning and Accounting at the London School of Economics.
+
+I did my high school education in the United States at Canyon Crest Academy.
+
+Fun fact: I received an offer to do my Master's at Cambridge (MPhil Politics and International Studies). I made the difficult choice of turning this down for LSE, as my interests lie in more quantitative approaches to political science, rather than international relations.
+:::
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## My Work Experience
+
+My work experience includes two internships with the United Nations Development Programme.
+
+My first internship was with the Foresight Team within the Regional Bureau of Asia and the Pacific. There, I contributed to a publication on the potential effects of climate migration on Pakistan and Vietnam, and helped draft potential policy solutions. I, along with my colleagues, organised an online consultation with local stakeholders in Pakistan and Vietnam to facilitate inclusive policy-making.
 
 My second internship was with the inclusive growth team of the Bureau for Programme and Policy Support. There, I contributed to a publication on UNDP's effectiveness in promoting the Samoa Plan of Action for Small Islands and Developing States (SIDS). I worked on a database of "best practices" regarding UNDP social protection programmes. I also completed mapping work on extractive industries for COP29.
+:::
 
-<br />
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## My Personal Life
 
-I am originally from San Diego, California, but I have now spent the last 3 years of my life in London. Outside of my academic interests and work, my hobbies include watching Basketball and Football, playing the Violin and Piano, and studying linguistics and creating constructed languages.
+I am originally from San Diego, California, but I have now spent the last 3 years of my life in London.
 
-Also, fun fact (also a little bit of a brag), but I was offered a place on the MPhil Politics and International Studies programme at the University of Cambridge. I ended up choosing the London School of Economics over Cambridge, mainly because my interests lie in Political Economics and Quantitative Political Science.
+Outside of my academic interests and work, my hobbies include watching Basketball and Football, playing the Violin and Piano, and studying linguistics and creating constructed languages.
+:::
 
-<br />
-
-This is my personal website. I don't really have a purpose for this site, besides using it to post some of my accomplishments or what I find interesting!
-
-<br />
-
-### Contact Details
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Contact Details
 
 LinkedIn: <https://www.linkedin.com/in/kevinlingfengli/>
 
 Email: k.l.li1\@lse.ac.uk
+:::
 
 <br />
 
 ------------------------------------------------------------------------
 
-# **Publications**
+# Publications
 
 ### Co-Authored
 
-Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.” *United Nations Development Programme*, (May 2024). <https://www.undp.org/publications/sids-looking-back-and-forward>
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.” *United Nations Development Programme*, (May 2024).
+
+<br />
+
+I co-authored this report while working with the Inclusive Growth team in the Bureau of Policy and Programme Support at the United Nations Development Programme. This report investigates and reports the impact that the UNDP's programmes and policies had on the development of small island and developing states between 2014 and 2024.
+
+<https://www.undp.org/publications/sids-looking-back-and-forward>
 
 -   Internal Site Link: <https://kevinli03.github.io/publications/undp-sids.pdf>
+:::
 
 <br />
 
 ### Contributed/Acknowledged
 
-Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresign Process", *United Nations Development Programme*, (Sep 2024). <https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam>
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresign Process", *United Nations Development Programme*, (Sep 2024).
+
+<br />
+
+I contributed to this report while working with the Strategic Foresight Team of the United Nation Development Programme's Regional Bureau of Asia and the Pacific. I was involved in running the online public consultation for this paper, as well as doing background research.
+
+<https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam>
 
 -   Internal Site Link: <https://kevinli03.github.io/publications/undp-climatemigration.pdf>
+:::
 
 <br />
 
 ------------------------------------------------------------------------
 
-# **Projects/Cool Stuff**
+# Projects/Cool Stuff
 
-### Guides on Political Science and Statistics
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Kevin's PSPE Notes
 
-There are two guides that I have created to organise all my knowledge through my education.
+These are polished notes that I took during my Masters Degree. I hope they can be useful for me in the future, as well as help others as well. The notes include statistics, econometrics, game theory, and mathematics.
 
--   Statistics for Social Scientists notes: <https://statsnotes.github.io>
--   Political Science notes: <https://politicalscience.github.io>
+[kevinli03.github.io/notes](https://kevinli03.github.io/notes/)
+:::
 
-Note: These are in progress.
-
-<br />
-
-### 2024 Presidential Election Predictions
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## 2024 Presidential Election Predictions
 
 These are some (quick) predictions I made for the 2024 Presidential Elections using Random Forest/Bagging models, a few days before the election. I did correctly predict the winner!
 
--   <https://kevinli03.github.io/election/us2024/prediction.html>
+<https://kevinli03.github.io/election/us2024/prediction.html>
+:::
 
-<br />
-
-### Music Recordings
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## My Music Recordings
 
 Here are some of the recordings I have made of me playing violin and piano
 
@@ -111,32 +138,24 @@ Here are some of the recordings I have made of me playing violin and piano
 -   Mozart - Violin Concerto No. 5: <https://youtu.be/-YB5BJMvmJg>
 -   Sarasate - Zigeunerweisen: <https://youtu.be/-WIrp25443I>
 -   My arrangement of Charlie Puth - One Call Away: <https://youtu.be/Rtt7LULcPmc>
+:::
 
-<br />
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Varieties of Capitalism and Tax Dataset
 
-### Varieties of Capitalism and Tax Dataset
+This is a dataset that I created on the Varieties of Capitalism Framework (Political Economy) for an undergraduate paper. It includes OECD countries, their respective Variety of Capitalism as defined by the Varieties of Capitalism Framework, and relevant tax levels and economic data on the countries.
 
--   <https://github.com/kevinli03/VocTaxDataset>
--   This is a dataset that I created on the Varieties of Capitalism Framework (Political Economy) for an undergraduate paper. It includes OECD countries, their respective Variety of Capitalism as defined by the Varieties of Capitalism Framework, and relevant tax levels and economic data on the countries.
-
-<br />
-
-### 2024-2025 Lecture Notes
-
-To see my notes for the 2024-2025 school year, see the link below.
-
--   [kevinli03.github.io/notes](https://kevinli03.github.io/notes/)
--   Note: these notes are not meant to be "publishable", they may contain mistakes, and may not be organised perfectly. They were taken during lectures/videos/readings that I have done. See the stats notes above for polished notes.
+<https://github.com/kevinli03/VocTaxDataset>
+:::
 
 <br />
 
 ------------------------------------------------------------------------
 
-# **Full Academic History**
+# Full Academic History
 
-### London School of Economics (MSc)
-
-[**Key Facts**]{.underline}
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## London School of Economics (MSc)
 
 +--------------------------+--------------------------------------------------------------------+
 | Degree:                  | MSc Political Science and Political Economy                        |
@@ -156,9 +175,7 @@ To see my notes for the 2024-2025 school year, see the link below.
 
 <br />
 
-[**Classes/Modules**]{.underline}
-
-Officially Registered Classes:
+**Classes/Modules:**
 
 +-------------------------------------------------------------------+-------------------------------+
 | MY452A Applied Regression Analysis                                | -   Prof. Jouni Kuha          |
@@ -168,6 +185,10 @@ Officially Registered Classes:
 +-------------------------------------------------------------------+-------------------------------+
 | MY457 Causal Inference for Observational and Experimental Studies | -   Dr. Daniel de Kadt        |
 +-------------------------------------------------------------------+-------------------------------+
+| ST304 Time Series and Forecasting\*                               | -   Dr. Yining Chen           |
++-------------------------------------------------------------------+-------------------------------+
+| GY460 Techniques in Spatial Econometric Analysis\*                | -   Prof. Steve Gibbons       |
++-------------------------------------------------------------------+-------------------------------+
 | GV4C8 Game Theory for Political Science                           | -   Dr. Rafael Hortala-Vallve |
 |                                                                   | -   Dr. Kun Byeonggeun Heo    |
 +-------------------------------------------------------------------+-------------------------------+
@@ -175,53 +196,28 @@ Officially Registered Classes:
 |                                                                   | -   Dr. Felipe Torres-Raposo  |
 +-------------------------------------------------------------------+-------------------------------+
 | GV482 Current Issues in Political Science and Political Economy   | -   Prof. Stephane Wolton     |
+|                                                                   | -   Dr. Kun Byeonggeun Heo    |
++-------------------------------------------------------------------+-------------------------------+
+| MA108 Methods in Calculus and Linear Algebra\*                    | -   Dr. Ioannis Kouletsis     |
 +-------------------------------------------------------------------+-------------------------------+
 | GV499 Dissertation                                                |                               |
 +-------------------------------------------------------------------+-------------------------------+
 
-<br />
+\*indicates classes that were audited.
+:::
 
-Audited Modules:
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## London School of Economics (Summer School)
 
-+--------------------------------------------------+---------------------------+
-| ST304 Time Series and Forecasting                | -   Dr. Yining Chen       |
-+--------------------------------------------------+---------------------------+
-| GY460 Techniques in Spatial Econometric Analysis | -   Prof. Steve Gibbons   |
-+--------------------------------------------------+---------------------------+
-| MA108 Methods in Calculus and Linear Algebra     | -   Dr. Ioannis Kouletsis |
-+--------------------------------------------------+---------------------------+
-
-<br />
-
-Pre-Sessional Courses:
-
-+------------------------------------------------------+-------------------------+
-| GV4L8 Introductory Mathematics for Political Science | -   Dr. Marta Antonetti |
-+------------------------------------------------------+-------------------------+
-| GV4L9 Introductory R for Political Science           | -   Dr. Marta Antonetti |
-+------------------------------------------------------+-------------------------+
+|              |                                             |
+|--------------|---------------------------------------------|
+| Programme:   | Data Science & Machine Learning, Accounting |
+| Dates:       | July 2024 - August 2024                     |
+| Final Grade: | A (First Class Honours)                     |
 
 <br />
 
-<br />
-
-------------------------------------------------------------------------
-
-### London School of Economics (Summer School)
-
-[**Key Facts:**]{.underline}
-
-+----------------+---------------------------------------------+
-| Programme:     | Data Science & Machine Learning, Accounting |
-+----------------+---------------------------------------------+
-| Dates:         | July 2024 - August 2024                     |
-+----------------+---------------------------------------------+
-| Final Grade:   | A (First Class Honours)                     |
-+----------------+---------------------------------------------+
-
-<br />
-
-[**Modules/Courses:**]{.underline}
+**Classes/Modules**
 
 +---------------------------------------------------------+-----------------------------+
 | ME314 Introduction to Data Science and Machine Learning | -   Dr. Kenneth Benoit      |
@@ -230,16 +226,10 @@ Pre-Sessional Courses:
 | AC110 Principles of Accounting                          | -   Dr. Jeroen Koenraadt    |
 |                                                         | -   Dr. Gulnaz Khamidullina |
 +---------------------------------------------------------+-----------------------------+
+:::
 
-<br />
-
-<br />
-
-------------------------------------------------------------------------
-
-### King's College London (BSc)
-
-[**Key Facts:**]{.underline}
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## King's College London (BSc)
 
 +-------------------+-------------------------------------------------------------------------------------------------------------------------+
 | Degree:           | BSc (Honours) in Politics                                                                                               |
@@ -257,7 +247,7 @@ Pre-Sessional Courses:
 
 <br />
 
-[**Modules/Courses:**]{.underline}
+**Modules/Courses:**
 
 3rd Year Courses:
 
@@ -306,33 +296,27 @@ Pre-Sessional Courses:
 
 1st Year Courses:
 
-+---------------------------------------------+-------------------------+
-| 4SSPP111 Statistics for Political Science   | -   Dr. Adam Chalmers   |
-+---------------------------------------------+-------------------------+
-| 4SSPP101 Fundamentals of Politics Research  | -   Prof. Adrian Blau   |
-+---------------------------------------------+-------------------------+
-| 4SSPP102 World Politics Since 1945          | -   Dr. Keith Smith     |
-+---------------------------------------------+-------------------------+
-| 4SSPP103 Comparing Political Systems        | -   Dr. Damien Bol      |
-|                                             | -   Dr. Julian Limberg  |
-+---------------------------------------------+-------------------------+
-| 4SSPP104 Introduction to Political Theory   | -   Dr. Steven Klein    |
-|                                             | -   Dr. Billy Christmas |
-+---------------------------------------------+-------------------------+
++--------------------------------------------+-------------------------+
+| 4SSPP111 Statistics for Political Science  | -   Dr. Adam Chalmers   |
++--------------------------------------------+-------------------------+
+| 4SSPP101 Fundamentals of Politics Research | -   Prof. Adrian Blau   |
++--------------------------------------------+-------------------------+
+| 4SSPP102 World Politics Since 1945         | -   Dr. Keith Smith     |
++--------------------------------------------+-------------------------+
+| 4SSPP103 Comparing Political Systems       | -   Dr. Damien Bol      |
+|                                            | -   Dr. Julian Limberg  |
++--------------------------------------------+-------------------------+
+| 4SSPP104 Introduction to Political Theory  | -   Dr. Steven Klein    |
+|                                            | -   Dr. Billy Christmas |
++--------------------------------------------+-------------------------+
+:::
 
-<br />
-
-<br />
-
-------------------------------------------------------------------------
-
-### Canyon Crest Academy (High School Diploma, ACT, AP)
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Canyon Crest Academy (High School, ACT, AP)
 
 Dates: September 2017 - June 2021
 
 Awards: National AP Scholar, AP Scholar with Distinction (3x), President's Volunteer Service Award (2x)
-
-<br />
 
 [**ACT Standardised Test:**]{.underline}
 
@@ -358,3 +342,4 @@ Overall score: 35/36
 -   AP Psychology
 -   AP Chinese Language and Culture
 -   AP Music Theory
+:::
