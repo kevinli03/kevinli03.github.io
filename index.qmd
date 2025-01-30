@@ -19,7 +19,7 @@ format:
         title-block-banner: true
 ---
 
-To see my PSPE notes (stats, econometrics, game theory), go to [kevinli03.github.io/notes](https://kevinli03.github.io/notes/)
+To see my PSPE notes (stats, econometrics, game theory), go to <https://politicalscience.github.io>
 
 ![](me.jpg){fig-align="center" width="60%"}
 
