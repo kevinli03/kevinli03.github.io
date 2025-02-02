@@ -112,9 +112,9 @@ I contributed to this report while working with the Strategic Foresight Team of 
 ::: {.callout-tip collapse="true" appearance="simple" icon="false"}
 ## Kevin's PSPE Notes
 
-These are polished notes that I took during my Masters Degree. I hope they can be useful for me in the future, as well as help others as well. The notes include statistics, econometrics, game theory, and mathematics.
+These are polished notes that I took during my Masters Degree. I hope they can be useful for me in the future, as well as help others as well.
 
-[kevinli03.github.io/notes](https://kevinli03.github.io/notes/)
+<https://politicalscience.github.io>
 :::
 
 ::: {.callout-tip collapse="true" appearance="simple" icon="false"}
