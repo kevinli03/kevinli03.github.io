@@ -19,7 +19,7 @@ format:
         title-block-banner: true
 ---
 
-To see my PSPE notes (stats, econometrics, game theory), go to <https://politicalscience.github.io>
+To see my Political Science and Political Economy notes, go to <https://politicalscience.github.io>
 
 ![](me.jpg){fig-align="center" width="60%"}
 
@@ -133,11 +133,19 @@ Here are some of the recordings I have made of me playing violin and piano
 -   My own composition for CCA Conservatory: <https://youtu.be/-VkJFQiv4ps>
 -   Borowski - Adoration: <https://youtu.be/rp4HV2AKm4A>
 -   Shostakovich - Prelude: <https://youtu.be/llQZ1jnh_ik>
--   Elgar - Salut dAmour: <https://youtu.be/QhHTsEqjC2U>
+-   Elgar - Salut d'Amour: <https://youtu.be/QhHTsEqjC2U>
 -   My cover of Ailee - I will go to you like the first snow: <https://youtu.be/DFyVmGi3_i8>
 -   Mozart - Violin Concerto No. 5: <https://youtu.be/-YB5BJMvmJg>
 -   Sarasate - Zigeunerweisen: <https://youtu.be/-WIrp25443I>
 -   My arrangement of Charlie Puth - One Call Away: <https://youtu.be/Rtt7LULcPmc>
+
+Some group recording of me:
+
+-   Haydn Bird Quartet, Mvt. 4 - <https://youtu.be/PZg5tvuPPvg>
+-   Hadyn Bird Quartet, Mvt. 3 - <https://youtu.be/ytTFMK6Z8l8>
+-   Salut d'Amour with my sister - <https://youtu.be/j1bAfFD9AmQ>
+-   Sleigh Ride - <https://youtu.be/EIa9A11ASq0>
+-   Cool Piece of Chamber Music - <https://youtu.be/f3efaP1yKrQ>
 :::
 
 ::: {.callout-tip collapse="true" appearance="simple" icon="false"}
