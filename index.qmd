@@ -1,353 +1,42 @@
 ---
 title: "Kevin Lingfeng Li"
-subtitle: "Postgraduate Student, London School of Economics"
-format:
-    html:
-        page-layout: article
-        grid:
-          sidebar-width: 300px
-          body-width: 725px
-          margin-width: 250px
-          gutter-width: 2em
-        fontsize: 12pt
-        theme: default
-        toc: TRUE
-        toc-depth: 3
-        toc-location: left
-        toc-expand: true
-        toc-title: "Kevin Lingfeng Li"
-        title-block-banner: true
+abstract-title: ""
+abstract: "I am a postgraduate student at the London School of Economics, interested in applying econometrics to study political phenomena. I also am a research intern at the United Nations Development Programme."
+about:
+  template: trestles
+  image: kevinli.jpg
+  links:
+    - icon: envelope
+      text: k.l.li1@lse.ac.uk
+      href: mailto:k.l.li1@lse.ac.uk
+    - icon: book
+      text: PSPE Resources
+      href: https://politicalscience.github.io
+sidebar: side
 ---
 
-To see my Political Science and Political Economy notes, go to <https://politicalscience.github.io>
-
-![](me.jpg){fig-align="center" width="60%"}
-
-### About me
-
-I am a postgraduate student at the London School of Economics. My primary interests is the use of econometrics and quantitative methods to study political phenomena. I also am a current intern at the United Nations Development Programme (UNDP).
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## My Education
-
-I am currently a student at the London School of Economics, studying for a Masters of Science in Political Economics. My coursework mainly focuses around statistics/econometrics and game theory/mathematical modelling.
-
-Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London, receiving First Class Honours (US Equivalent: Summa Cum Laude). My undergraduate degree was focused on Public Policy and Quantitative Methods in Political Science.
-
-During my undergraduate degree, I also took summer courses in Data Science + Machine Learning and Accounting at the London School of Economics.
-
-I did my high school education in the United States at Canyon Crest Academy.
-
-Fun fact: I received an offer to do my Master's at Cambridge (MPhil Politics and International Studies). I made the difficult choice of turning this down for LSE, as my interests lie in more quantitative approaches to political science, rather than international relations.
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## My Work Experience
-
-My work experience includes two internships with the United Nations Development Programme.
-
-My first internship was with the Foresight Team within the Regional Bureau of Asia and the Pacific. There, I contributed to a publication on the potential effects of climate migration on Pakistan and Vietnam, and helped draft potential policy solutions. I, along with my colleagues, organised an online consultation with local stakeholders in Pakistan and Vietnam to facilitate inclusive policy-making.
-
-My second internship was with the inclusive growth team of the Bureau for Programme and Policy Support. There, I contributed to a publication on UNDP's effectiveness in promoting the Samoa Plan of Action for Small Islands and Developing States (SIDS). I worked on a database of "best practices" regarding UNDP social protection programmes. I also completed mapping work on extractive industries for COP29.
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## My Personal Life
-
-I am originally from San Diego, California, but I have now spent the last 3 years of my life in London.
-
-Outside of my academic interests and work, my hobbies include watching Basketball and Football, playing the Violin and Piano, and studying linguistics and creating constructed languages.
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## Contact Details
-
-LinkedIn: <https://www.linkedin.com/in/kevinlingfengli/>
-
-Email: k.l.li1\@lse.ac.uk
-:::
-
 <br />
 
-------------------------------------------------------------------------
+## Experience
 
-# Publications
+**United Nations Development Programme** \| London, UK
 
-### Co-Authored
+Research Intern \| Apr 2023 - Present
 
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.” *United Nations Development Programme*, (May 2024).
+## Education
 
-<br />
+**London School of Economics (LSE)** \| London, UK
 
-I co-authored this report while working with the Inclusive Growth team in the Bureau of Policy and Programme Support at the United Nations Development Programme. This report investigates and reports the impact that the UNDP's programmes and policies had on the development of small island and developing states between 2014 and 2024.
+[MSc in Political Science and Political Economy](lse.qmd){style="color:gray;"} \| Sep 2024 - Present
 
-<https://www.undp.org/publications/sids-looking-back-and-forward>
+[Summer School](summer.qmd){style="color: gray;"} \| Jun 2024 - Aug 2024
 
--   Internal Site Link: <https://kevinli03.github.io/publications/undp-sids.pdf>
-:::
+**King's College London** \| London, UK
 
-<br />
+[BSc in Politics](kcl.qmd){style="color: gray;"} \| Sep 2021 - May 2024
 
-### Contributed/Acknowledged
+## Publications
 
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresign Process", *United Nations Development Programme*, (Sep 2024).
+Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “[SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.](https://www.undp.org/publications/sids-looking-back-and-forward){style="color: gray;"}” *United Nations Development Programme*, (May 2024).
 
-<br />
-
-I contributed to this report while working with the Strategic Foresight Team of the United Nation Development Programme's Regional Bureau of Asia and the Pacific. I was involved in running the online public consultation for this paper, as well as doing background research.
-
-<https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam>
-
--   Internal Site Link: <https://kevinli03.github.io/publications/undp-climatemigration.pdf>
-:::
-
-<br />
-
-------------------------------------------------------------------------
-
-# Projects/Cool Stuff
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## Kevin's PSPE Notes
-
-These are polished notes that I took during my Masters Degree. I hope they can be useful for me in the future, as well as help others as well.
-
-<https://politicalscience.github.io>
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## 2024 Presidential Election Predictions
-
-These are some (quick) predictions I made for the 2024 Presidential Elections using Random Forest/Bagging models, a few days before the election. I did correctly predict the winner!
-
-<https://kevinli03.github.io/election/us2024/prediction.html>
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## My Music Recordings
-
-Here are some of the recordings I have made of me playing violin and piano
-
--   My own composition for CCA Conservatory: <https://youtu.be/-VkJFQiv4ps>
--   Borowski - Adoration: <https://youtu.be/rp4HV2AKm4A>
--   Shostakovich - Prelude: <https://youtu.be/llQZ1jnh_ik>
--   Elgar - Salut d'Amour: <https://youtu.be/QhHTsEqjC2U>
--   My cover of Ailee - I will go to you like the first snow: <https://youtu.be/DFyVmGi3_i8>
--   Mozart - Violin Concerto No. 5: <https://youtu.be/-YB5BJMvmJg>
--   Sarasate - Zigeunerweisen: <https://youtu.be/-WIrp25443I>
--   My arrangement of Charlie Puth - One Call Away: <https://youtu.be/Rtt7LULcPmc>
-
-Some group recording of me:
-
--   Haydn Bird Quartet, Mvt. 4 - <https://youtu.be/PZg5tvuPPvg>
--   Hadyn Bird Quartet, Mvt. 3 - <https://youtu.be/ytTFMK6Z8l8>
--   Salut d'Amour with my sister - <https://youtu.be/j1bAfFD9AmQ>
--   Sleigh Ride - <https://youtu.be/EIa9A11ASq0>
--   Cool Piece of Chamber Music - <https://youtu.be/f3efaP1yKrQ>
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## Varieties of Capitalism and Tax Dataset
-
-This is a dataset that I created on the Varieties of Capitalism Framework (Political Economy) for an undergraduate paper. It includes OECD countries, their respective Variety of Capitalism as defined by the Varieties of Capitalism Framework, and relevant tax levels and economic data on the countries.
-
-<https://github.com/kevinli03/VocTaxDataset>
-:::
-
-<br />
-
-------------------------------------------------------------------------
-
-# Full Academic History
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## London School of Economics (MSc)
-
-+--------------------------+--------------------------------------------------------------------+
-| Degree:                  | MSc Political Science and Political Economy                        |
-+--------------------------+--------------------------------------------------------------------+
-| Concentration:           | Applied Econometrics/Statistics                                    |
-+--------------------------+--------------------------------------------------------------------+
-| Dates:                   | September 2024 - September 2025                                    |
-+--------------------------+--------------------------------------------------------------------+
-| Final Grade:             | N/A (No predicted grades as of now)                                |
-+--------------------------+--------------------------------------------------------------------+
-| Dissertation Topic:      |                                                                    |
-+--------------------------+--------------------------------------------------------------------+
-| Dissertation Supervisor: |                                                                    |
-+--------------------------+--------------------------------------------------------------------+
-| Academic Mentor:         | [Professor Torun Dewan](https://en.wikipedia.org/wiki/Torun_Dewan) |
-+--------------------------+--------------------------------------------------------------------+
-
-<br />
-
-**Classes/Modules:**
-
-+-------------------------------------------------------------------+-------------------------------+
-| MY452A Applied Regression Analysis                                | -   Prof. Jouni Kuha          |
-|                                                                   | -   Dr. Johan Ahlback         |
-+-------------------------------------------------------------------+-------------------------------+
-| MY455 Multivariate Analysis and Measurement                       | -   Prof. Jouni Kuha          |
-+-------------------------------------------------------------------+-------------------------------+
-| MY457 Causal Inference for Observational and Experimental Studies | -   Dr. Daniel de Kadt        |
-+-------------------------------------------------------------------+-------------------------------+
-| ST304 Time Series and Forecasting\*                               | -   Dr. Yining Chen           |
-+-------------------------------------------------------------------+-------------------------------+
-| GY460 Techniques in Spatial Econometric Analysis\*                | -   Prof. Steve Gibbons       |
-+-------------------------------------------------------------------+-------------------------------+
-| GV4C8 Game Theory for Political Science                           | -   Dr. Rafael Hortala-Vallve |
-|                                                                   | -   Dr. Kun Byeonggeun Heo    |
-+-------------------------------------------------------------------+-------------------------------+
-| GV481 Quantitative Analysis for Political Science                 | -   Dr. Aliz Tóth             |
-|                                                                   | -   Dr. Felipe Torres-Raposo  |
-+-------------------------------------------------------------------+-------------------------------+
-| GV482 Current Issues in Political Science and Political Economy   | -   Prof. Stephane Wolton     |
-|                                                                   | -   Dr. Kun Byeonggeun Heo    |
-+-------------------------------------------------------------------+-------------------------------+
-| MA108 Methods in Calculus and Linear Algebra\*                    | -   Dr. Ioannis Kouletsis     |
-+-------------------------------------------------------------------+-------------------------------+
-| GV499 Dissertation                                                |                               |
-+-------------------------------------------------------------------+-------------------------------+
-
-\*indicates classes that were audited.
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## London School of Economics (Summer School)
-
-|              |                                             |
-|--------------|---------------------------------------------|
-| Programme:   | Data Science & Machine Learning, Accounting |
-| Dates:       | July 2024 - August 2024                     |
-| Final Grade: | A (First Class Honours)                     |
-
-<br />
-
-**Classes/Modules**
-
-+---------------------------------------------------------+-----------------------------+
-| ME314 Introduction to Data Science and Machine Learning | -   Dr. Kenneth Benoit      |
-|                                                         | -   Dr. Jack Blumenau       |
-+---------------------------------------------------------+-----------------------------+
-| AC110 Principles of Accounting                          | -   Dr. Jeroen Koenraadt    |
-|                                                         | -   Dr. Gulnaz Khamidullina |
-+---------------------------------------------------------+-----------------------------+
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## King's College London (BSc)
-
-+-------------------+-------------------------------------------------------------------------------------------------------------------------+
-| Degree:           | BSc (Honours) in Politics                                                                                               |
-+-------------------+-------------------------------------------------------------------------------------------------------------------------+
-| Concentration:    | Quantitative Methods, Public Policy                                                                                     |
-+-------------------+-------------------------------------------------------------------------------------------------------------------------+
-| Dates:            | September 2021 - July 2024                                                                                              |
-+-------------------+-------------------------------------------------------------------------------------------------------------------------+
-| Final Grade:      | First Class Honours (US Equivalent: 3.8-4.0 GPA)                                                                        |
-+-------------------+-------------------------------------------------------------------------------------------------------------------------+
-| Academic Mentors: | -   [Dr. James Scott](https://scholar.google.com/citations?user=j4PK-PUAAAAJ&hl=en)                                     |
-|                   | -   [Dr. Teresa Esteban-Casanelles](https://teresaestebancasanelles.net)                                                |
-|                   | -   [Dr. John Meadowcroft](https://www.google.com/search?client=safari&rls=en&q=dr.+john+meadowcroft&ie=UTF-8&oe=UTF-8) |
-+-------------------+-------------------------------------------------------------------------------------------------------------------------+
-
-<br />
-
-**Modules/Courses:**
-
-3rd Year Courses:
-
-+-----------------------------------------+----------------------------------+
-| 6SSPP330 Economic Policy-Making         | -   Dr. Julian Limberg           |
-+-----------------------------------------+----------------------------------+
-| 6SSPP403 Advanced Game Theory           | -   Dr. Mehmet Ismail            |
-+-----------------------------------------+----------------------------------+
-| 6SSPP364 Key Issues in Policy Making    | -   Prof. Kristel Koop           |
-+-----------------------------------------+----------------------------------+
-| 6SSPP388 Environmental Governance       | -   Dr. Francesca Pia Vataggiato |
-+-----------------------------------------+----------------------------------+
-| 6SSPP378 American Foreign Policy        | -   Dr. Keith Smith              |
-+-----------------------------------------+----------------------------------+
-| 6SSPP341 Global Power Europe            | -   Dr. Thomas Maltby            |
-+-----------------------------------------+----------------------------------+
-| 6SSPP356 Authoritarianism               | -   Prof. Sarah Birch            |
-+-----------------------------------------+----------------------------------+
-| 6SSPP360 Elections and Voting Behaviour | -   Dr. Krzysztof Krakowski      |
-+-----------------------------------------+----------------------------------+
-
-<br />
-
-2nd Year Courses:
-
-+--------------------------------------------------------------------+-----------------------------------+
-| 5SSPP241 Statistics for Political Science II                       | -   Dr. Damien Bol                |
-+--------------------------------------------------------------------+-----------------------------------+
-| 5SSPP227 Game Theory and Strategic Decision Making                 | -   Prof. Paul Lewis              |
-|                                                                    | -   Dr. Mehmet Ismail             |
-+--------------------------------------------------------------------+-----------------------------------+
-| 5SSPP206 Research Methods for Politics                             | -   Dr. Hannah Kleider            |
-+--------------------------------------------------------------------+-----------------------------------+
-| 5SSPP231 Policy Analysis: Decision, Implementation, and Evaluation | -   Dr. John Meadowcroft          |
-+--------------------------------------------------------------------+-----------------------------------+
-| 5SSPP223 Issues in International Politics                          | -   Dr. Keith Smith               |
-+--------------------------------------------------------------------+-----------------------------------+
-| 5SSPP240 American Political Development                            | -   Dr. Samuel DeCanio            |
-+--------------------------------------------------------------------+-----------------------------------+
-| 5SSPP205 Political Change in Europe                                | -   Dr. Teresa Esteban-Casanelles |
-+--------------------------------------------------------------------+-----------------------------------+
-| 5SSPP242 British Politics                                          | -   Prof. Peter John              |
-+--------------------------------------------------------------------+-----------------------------------+
-
-<br />
-
-1st Year Courses:
-
-+--------------------------------------------+-------------------------+
-| 4SSPP111 Statistics for Political Science  | -   Dr. Adam Chalmers   |
-+--------------------------------------------+-------------------------+
-| 4SSPP101 Fundamentals of Politics Research | -   Prof. Adrian Blau   |
-+--------------------------------------------+-------------------------+
-| 4SSPP102 World Politics Since 1945         | -   Dr. Keith Smith     |
-+--------------------------------------------+-------------------------+
-| 4SSPP103 Comparing Political Systems       | -   Dr. Damien Bol      |
-|                                            | -   Dr. Julian Limberg  |
-+--------------------------------------------+-------------------------+
-| 4SSPP104 Introduction to Political Theory  | -   Dr. Steven Klein    |
-|                                            | -   Dr. Billy Christmas |
-+--------------------------------------------+-------------------------+
-:::
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## Canyon Crest Academy (High School, ACT, AP)
-
-Dates: September 2017 - June 2021
-
-Awards: National AP Scholar, AP Scholar with Distinction (3x), President's Volunteer Service Award (2x)
-
-[**ACT Standardised Test:**]{.underline}
-
-Overall score: 35/36
-
-<br />
-
-[**AP Tests and Courses:**]{.underline}
-
--   AP Calculus BC
--   AP Statistics
--   AP Physics 1
--   AP Physics 2
--   AP Chemistry
--   AP Computer Science Principles
--   AP Macroeconomics
--   AP English Language and Composition
--   AP English Literature and Compoisition
--   AP United States Government and Politics
--   AP World History: Modern
--   AP United States History
--   AP European History
--   AP Psychology
--   AP Chinese Language and Culture
--   AP Music Theory
-:::
+(Acknowledged) Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "[Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresign Process](https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam){style="color: gray;"}", *United Nations Development Programme*, (Sep 2024).

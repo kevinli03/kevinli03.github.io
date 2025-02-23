@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Lingfeng Li">
+
+<title>Quantitative Methods (for Social Scientists) – Kevin Lingfeng Li</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="mathjax-config.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Quantitative Methods (for Social Scientists)</h1>
+<p class="subtitle lead">Volume I: Calculus and Statistical Theory</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Lingfeng Li </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="preface" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="preface">Preface</h2>
+<p>This book is one of the 5 companion-guides in the <strong>Quantitative Methods</strong> sequence, which provides the mathematics and statistics content useful for the study of Political Economics. The Quantitative Methods sequence consists of five volumes:</p>
+<ol type="1">
+<li><a href="https://kevinli03.github.io/math/1.pdf">Volume I: Calculus and Statistical Theory</a> (this volume)contains essential mathematics for Political Economics. Covers topics in single variable calculus, probability theory, and statistical theory.</li>
+<li><a href="https://kevinli03.github.io/math/2.pdf">Volume II: Linear Algebra and Multivariate Calculus</a> covers topics in linear algebra and calculus. Highly recommended, but not formally required for Political Economics.</li>
+<li><a href="https://kevinli03.github.io/math/5.pdf">Volume V: Proof and Analysis</a> covers introductory proofs in mathematics. Useful, but not essential for the rest of the Political Economics.</li>
+</ol>
+<p>The 1st volume is a pre-requisite for the main series on Political Economics, and covers the core techniques in calculus, probability, and statistics needed. The 2nd volume is more advanced topics that are useful, but not formally required. Volume 3 contains advanced topics that are not required, but can be useful and interesting to those who enjoy Political Economics</p>
+<p>This volume is a collection of mathematical and statistical topics that I consider to be essential to understand prior to starting any serious instruction in Political Economics. The book assumes a solid understanding of high-school level algebra, and discusses topics in algebra, single variable calculus, and probability and statistical theory. Note that this book is not a full mathematics course of those topics - topics have been selected based on what is commonly used in Political Economics and other social sciences.</p>
+</section>
+<section id="algebra-and-pre-calculus" class="level1">
+<h1>Algebra and Pre-Calculus</h1>
+<section id="topics-in-algebra" class="level2">
+<h2 class="anchored" data-anchor-id="topics-in-algebra">Topics in Algebra</h2>
+<section id="set-theory" class="level3">
+<h3 class="anchored" data-anchor-id="set-theory">Set Theory</h3>
+<section id="introduction-to-sets" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-to-sets">Introduction to Sets</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Sets
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>set</strong> is a collection of objects. The objects within a set are the <strong>elements</strong> of that set. We can define a set by either listing every element out, or through describing the properties of the elements of the set.</p>
+<ul>
+<li>For example, <span class="math inline">\(A = \{1,2,3,4,5\}\)</span>, or, <span class="math inline">\(A=\{n \in \mathbb{Z}: 1 ≤ n ≤ 5\}\)</span> - or in other words, <span class="math inline">\(A\)</span> is the set of values of <span class="math inline">\(n\)</span> is in the set of all <em>integers</em> <span class="math inline">\(Z\)</span>, such that <span class="math inline">\(n\)</span> is between 1 and 5 inclusive.</li>
+</ul>
+</div>
+</div>
+<p>Here are some common notation for sets:</p>
+<ul>
+<li><p>If two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have the same elements, they are equal: <span class="math inline">\(A = B\)</span>.</p></li>
+<li><p>If <span class="math inline">\(a\)</span> is an element of set <span class="math inline">\(A\)</span>, we use the notation: <span class="math inline">\(a \in A\)</span>.</p></li>
+<li><p>If <span class="math inline">\(a\)</span> is not an element of set <span class="math inline">\(A\)</span>, we use the notation: <span class="math inline">\(a \notin A\)</span>.</p></li>
+<li><p>If all elements of set <span class="math inline">\(A\)</span> are also within set <span class="math inline">\(B\)</span>, then it is considered a <strong>subset</strong>, and notated <span class="math inline">\(A \subseteq B\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A \subseteq B\)</span>, but <span class="math inline">\(A ≠ B\)</span>, then <span class="math inline">\(A\)</span> is a <strong>proper subset</strong> of <span class="math inline">\(B\)</span>, notated: <span class="math inline">\(A \subset B\)</span>.</p></li>
+</ul>
+</section>
+<section id="set-operations" class="level4">
+<h4 class="anchored" data-anchor-id="set-operations">Set Operations</h4>
+<p>There are a few common operations of sets:</p>
+<ul>
+<li><p>The <strong>union</strong> of sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, notated <span class="math inline">\(A \cup B\)</span>, is the set of elements that belong to either <span class="math inline">\(A\)</span> <u>or</u> <span class="math inline">\(B\)</span>. For example, if <span class="math inline">\(A = \{1,2,3\}, B = \{3,4,5\}\)</span>, then <span class="math inline">\(A \cup B = \{1,2,3,4,5\}\)</span>.</p></li>
+<li><p>The <strong>intersection</strong> of sets, notated <span class="math inline">\(A \cap B\)</span>, is the set of elements that belong to <span class="math inline">\(A\)</span> <u>and</u> <span class="math inline">\(B\)</span>. For example, if <span class="math inline">\(A = \{1,2,3\}, B = \{3,4,5\}\)</span>, then <span class="math inline">\(A \cap B = \{3\}\)</span>.</p></li>
+<li><p>The <strong>cardinality</strong> of a set <span class="math inline">\(A\)</span> is the number of elements within set <span class="math inline">\(A\)</span>, and is notated <span class="math inline">\(|A|\)</span>. For example, if <span class="math inline">\(A = \{1,2,3\}\)</span>, then <span class="math inline">\(|A| = 3\)</span>. An <strong>empty set</strong> is a set with a cardinality of 0, or in other words, with no elements. It is notated with <span class="math inline">\(\varnothing\)</span></p></li>
+</ul>
+</section>
+<section id="types-of-sets-and-notation" class="level4">
+<h4 class="anchored" data-anchor-id="types-of-sets-and-notation">Types of Sets and Notation</h4>
+<p>A <strong>infinite set</strong> is one with infinitely many elements. Common examples of infinite sets include:</p>
+<ul>
+<li><p>Set of all natural numbers <span class="math inline">\(\mathbb{N} = \{1,2,3,...\}\)</span>.</p></li>
+<li><p>Set of all integers <span class="math inline">\(\mathbb{Z} = \{..., -2, -1, 0, 1, 2, ... \}\)</span>.</p></li>
+<li><p>Set of all real numbers <span class="math inline">\(\mathbb{R}\)</span>, which is any number on the real number line.</p></li>
+</ul>
+<p>The set of all real numbers <span class="math inline">\(\mathbb{R}\)</span> is the most common used set. A subset of <span class="math inline">\(\mathbb{R}\)</span> is called an <strong>interval</strong>, and can be notated with either brackets or parentheses as follows:</p>
+<ul>
+<li><p>Closed interval: <span class="math inline">\([a,b] = \{  x \in \mathbb{R} | a ≤ x ≤ b \}\)</span></p></li>
+<li><p>Open interval: <span class="math inline">\((a, b) = \{ x \in \mathbb{R}|a &lt; x &lt; b \}\)</span></p></li>
+<li><p>We can also mix closed and open intervals: <span class="math inline">\([a, b) = \{ x \in \mathbb{R}|a≤x&lt;b\}\)</span></p></li>
+</ul>
+<p>In all these intervals, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are called <strong>endpoints</strong> of the interval. Any point inside of an interval that is not an endpoint is an <strong>interior point</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="solving-equations" class="level3">
+<h3 class="anchored" data-anchor-id="solving-equations">Solving Equations</h3>
+<section id="solving-equations-with-one-variable" class="level4">
+<h4 class="anchored" data-anchor-id="solving-equations-with-one-variable">Solving Equations with One Variable</h4>
+<p>To solve an equation with one variable, we look to isolate the variable on one side. We can do this by either <em>adding/subtracting</em> to both sides of the equation, or <em>multiplying/dividing</em> the equation on both sides by the same value.</p>
+<p><strong>Example</strong>: Solve for <span class="math inline">\(x\)</span> in the equation: <span class="math inline">\(\frac{x+3}{4} = 6\)</span></p>
+<ol type="1">
+<li>Multiply both sides by 4: <span class="math inline">\(4 \left( \frac{x+3}{4}\right) = 6 \times 4\)</span></li>
+<li>Simplify to get: <span class="math inline">\(x+3 - 24\)</span></li>
+<li>Now, subtract 3 from both sides: <span class="math inline">\(x+3 - 3 = 24 -3\)</span></li>
+<li>Thus, we get <span class="math inline">\(x = 21\)</span></li>
+</ol>
+</section>
+<section id="solving-inequalities" class="level4">
+<h4 class="anchored" data-anchor-id="solving-inequalities">Solving Inequalities</h4>
+<p>Solving inequalities is the same as solving equations (for both one variable, and more, as we will see later). There is only one difference: <u>if we multiply both sides by a negative number, we flip the direction of the inequality sign</u>.</p>
+</section>
+<section id="solving-system-of-equations" class="level4">
+<h4 class="anchored" data-anchor-id="solving-system-of-equations">Solving System of Equations</h4>
+<p>To solve a system of equations (such as 2 different equations with 2 variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>), we do the following procedure:</p>
+<ol type="1">
+<li>With one of the equations, solve for one of the variables (either <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> generally)</li>
+<li>Substitute that equation that we just solved, into the other equation. This will make that equation only have one variable. Solve that equation for the remaining variable.</li>
+<li>Then, plug the variable we have found, into either of the original equations, and find the value of the other variable.</li>
+</ol>
+<p>The solution to a system of equations is also the point where the two lines meet on a graph.</p>
+<p><strong>Example</strong>: Solve the system of equations: <span class="math inline">\(3x + 2y = 13\)</span>, <span class="math inline">\(x - 2y = 3\)</span>.</p>
+<ol type="1">
+<li>First, solve one of the equations for one of the variables.
+<ul>
+<li>Let us take <span class="math inline">\(x - 2y = 3\)</span>. We can solve for <span class="math inline">\(x\)</span> to get: <span class="math inline">\(x = 2y+3\)</span></li>
+</ul></li>
+<li>Now, plug the equation we just got into the other equation
+<ul>
+<li>The other equation is <span class="math inline">\(3x + 2y = 13\)</span>. Plug in the <span class="math inline">\(x\)</span> we found: <span class="math inline">\(3(2y+3) + 2y = 13\)</span></li>
+</ul></li>
+<li>Now, solve that equation for the remaining variable:
+<ul>
+<li><span class="math inline">\(3(2y+3)+2y = 13 \Longrightarrow 6y + 9 +2y = 13 \Longrightarrow 8y = 4 \Longrightarrow y = \frac{1}{2}\)</span></li>
+</ul></li>
+<li>Now, plug <span class="math inline">\(y\)</span> back into either equation to find <span class="math inline">\(x\)</span>:
+<ul>
+<li><span class="math inline">\(x = 2y+3\)</span> that we solved for earlier. Plug in <span class="math inline">\(y\)</span> to get <span class="math inline">\(x =2(\frac{1}{2}) +3 = 4\)</span></li>
+</ul></li>
+</ol>
+<p>Thus, the solution to the system of equations is <span class="math inline">\(x=4, y = \frac{1}{2}\)</span></p>
+<hr>
+</section>
+</section>
+<section id="factoring-and-expansion" class="level3">
+<h3 class="anchored" data-anchor-id="factoring-and-expansion">Factoring and Expansion</h3>
+<p>Factorisation is the process of changing an equation from the form <span class="math inline">\(ax^2+bx+c\)</span> to the form <span class="math inline">\((x+i)(x+j)\)</span>. To do this, we need to:</p>
+<ol type="1">
+<li>Find 2 numbers <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, that sum to <span class="math inline">\(b\)</span>, and multiply to <span class="math inline">\(c\)</span></li>
+<li>Once we have done that, simply put it into the form <span class="math inline">\((x+i)(x+j)\)</span></li>
+</ol>
+<p><strong>Example</strong>: Factor <span class="math inline">\(x^2 + 5x + 6\)</span></p>
+<ol type="1">
+<li>We need to find two numbers <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, that add to 5, and multiply to 6.</li>
+<li><span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span> are two numbers that add to 5, while multiplying to 6.</li>
+<li>Now, put it into the factored form: <span class="math inline">\((x+2)(x+3)\)</span></li>
+</ol>
+<p>&nbsp;</p>
+<p>There is a special form of factoring: <strong>difference of squares</strong>.</p>
+<ul>
+<li><p>Essentially, any expression that takes the form of <span class="math inline">\(a^2 - b^2\)</span> can be rewritten as <span class="math inline">\((a+b)(a-b)\)</span>.</p></li>
+<li><p>For example: <span class="math inline">\(x^2 - 9 = (x+3)(x-3)\)</span>.</p></li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Multiplication expansion</strong> undoes factoring. To do this, we must multiply each term of one section by each other term of the other section. This is more intuitive with an example.</p>
+<p><strong>Example</strong>: let us prove the difference of squares idea we saw earlier - multiply out <span class="math inline">\((x+3)(x-3)\)</span>: <span class="math display">\[
+\begin{split}
+(x+3)(x-3) &amp; = (x \times x) + (x \times -3) + (3 \times x) + (3 \times -3) \\
+&amp; = x^2 - 3x + 3x -9 \\
+&amp;= x^2 - 9
+\end{split}
+\]</span></p>
+<p>So we can see, that indeed, difference of squares is true, and <span class="math inline">\(x^2 - 9 = (x+3)(x-3)\)</span>.</p>
+</section>
+<section id="exponents-and-logarithms" class="level3">
+<h3 class="anchored" data-anchor-id="exponents-and-logarithms">Exponents and Logarithms</h3>
+<section id="exponents" class="level4">
+<h4 class="anchored" data-anchor-id="exponents">Exponents</h4>
+<p>Here are a few key properties of exponents that are important to note:</p>
+<ol type="1">
+<li><span class="math inline">\(a^x \times a^y = a^{x+y}\)</span> and <span class="math inline">\(a^x / a^y = a^{x-y}\)</span></li>
+<li><span class="math inline">\(a^{-x} = \frac{1}{a^x}\)</span></li>
+<li><span class="math inline">\((a^x)^y = a^{xy}\)</span></li>
+<li><span class="math inline">\(a^0 = 1\)</span></li>
+<li><span class="math inline">\((a \times b)^n = a^n \times b^n\)</span> and <span class="math inline">\((a/b)^n = a^n / b^n\)</span></li>
+</ol>
+<p>Sometimes, you will have an equation that takes the form <span class="math inline">\(x^n = a\)</span>, where <span class="math inline">\(n\)</span> is some number.</p>
+<p>How to get rid of <span class="math inline">\(n\)</span> to isolate <span class="math inline">\(x\)</span>?</p>
+<ul>
+<li><p>We know that <span class="math inline">\(n \times (1/n) = 1\)</span>.</p></li>
+<li><p>We also know that <span class="math inline">\((a^x)^y = a^{xy}\)</span>. Thus: <span class="math display">\[
+\begin{split}
+&amp; (x^n)^{(1/n)} = a^{(1/n)} \\
+&amp; x^{n \times (1/n)} =x^1 = x = a^{(1/n)} \\
+&amp; \text{thus}, x = a^{1/n}
+\end{split}
+\]</span></p></li>
+</ul>
+</section>
+<section id="logarithms" class="level4">
+<h4 class="anchored" data-anchor-id="logarithms">Logarithms</h4>
+<p>Logarithms are the inverse for exponential functions. The relationship is as follows:</p>
+<p><span class="math display">\[
+y = \log_a(x) \Longrightarrow a^y = x
+\]</span></p>
+<p>Or more intuitively, take the example <span class="math inline">\(y = \log_2(8)\)</span> is basically asking, what power <span class="math inline">\(y\)</span> should I take base 2 to, in order to get an answer of <span class="math inline">\(8\)</span>.</p>
+<ul>
+<li>Of course, <span class="math inline">\(2^3 = 8\)</span>, so the answer is <span class="math inline">\(y=3\)</span>.</li>
+</ul>
+<p>Here are a few key properties to know about logarithms.</p>
+<ol type="1">
+<li><span class="math inline">\(\log(xy) = \log(x) + \log(y)\)</span> and <span class="math inline">\(\log(x/y) = \log(x) - \log(y)\)</span></li>
+<li><span class="math inline">\(\log(x^y) = y \times \log(x)\)</span></li>
+<li><span class="math inline">\(-\log(x) = \log(1/x)\)</span></li>
+<li><span class="math inline">\(\log(1) = \log(e^0) = 0\)</span></li>
+</ol>
+<p>Note that in statistics, when we say <span class="math inline">\(\log(x)\)</span>, we are talking about natural logs (base <span class="math inline">\(e\)</span>). We will specify any other base with a subscript in the logarithm. We can change the base of logarithms with the following formula:</p>
+<p><span class="math display">\[
+\log_b(x) = \frac{\log_a(x)}{\log_a(b)}
+\]</span></p>
+</section>
+</section>
+<section id="summation-and-product-notation" class="level3">
+<h3 class="anchored" data-anchor-id="summation-and-product-notation">Summation and Product Notation</h3>
+<section id="summation-notation" class="level4">
+<h4 class="anchored" data-anchor-id="summation-notation">Summation Notation</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Summation Notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Summation Notation is a way of expressing the sums of many values:</p>
+<p><span class="math display">\[
+\sum\limits_{i=1}^n x_i = x_1 + x_2 + ... + x_n
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(i = 1\)</span> indicates that we start summing from index <span class="math inline">\(i=1\)</span>, or basically, we start with <span class="math inline">\(x_1\)</span>.</p></li>
+<li><p><span class="math inline">\(n\)</span> is the value of the index at which we stop summing. This is often the sample size.</p></li>
+<li><p><span class="math inline">\(x_i\)</span> is the value of an element within set <span class="math inline">\(X = \{x_1, x_2, ..., x_n \}\)</span> with index <span class="math inline">\(i\)</span>. For example, is <span class="math inline">\(i = 1\)</span>, <span class="math inline">\(x_i = x_1\)</span>, the first element in set <span class="math inline">\(X\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<p>Summation notation has a few properties:</p>
+<ol type="1">
+<li><span class="math inline">\(\sum cx_i = c \times \sum x_i\)</span>, where <span class="math inline">\(c\)</span> is some constant.</li>
+<li><span class="math inline">\(\sum (x_i + y_i) = \sum x_i + \sum y_i\)</span></li>
+<li><span class="math inline">\(\sum\limits_{i=1}^n c = n \times c\)</span>, where <span class="math inline">\(c\)</span> is some constant.</li>
+</ol>
+</section>
+<section id="product-notation" class="level4">
+<h4 class="anchored" data-anchor-id="product-notation">Product Notation</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Product Notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Product notation is a way of expressing the products of many values:</p>
+<p><span class="math display">\[
+\prod\limits_{i=1}^n x_i = x_1 \times x_2 \times ... \times x_n
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(i = 1\)</span> indicates that we start multiplying from index <span class="math inline">\(i=1\)</span>, or basically, we start with <span class="math inline">\(x_1\)</span>.</p></li>
+<li><p><span class="math inline">\(n\)</span> is the value of the index at which we stop multiplying. This is often the sample size.</p></li>
+<li><p><span class="math inline">\(x_i\)</span> is the value of an element within set <span class="math inline">\(X = \{x_1, x_2, ..., x_n \}\)</span> with index <span class="math inline">\(i\)</span>. For example, is <span class="math inline">\(i = 1\)</span>, <span class="math inline">\(x_i = x_1\)</span>, the first element in set <span class="math inline">\(X\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<p>Product notation has the following properties:</p>
+<ol type="1">
+<li><span class="math inline">\(\prod cx_i = c^n \times \prod x_i\)</span>, where <span class="math inline">\(c\)</span> is some constant.</li>
+<li><span class="math inline">\(\prod\limits_{i=1}^nc = c^n\)</span>, where <span class="math inline">\(c\)</span> is some constant.</li>
+</ol>
+</section>
+<section id="converting-between-sum-and-product-notation" class="level4">
+<h4 class="anchored" data-anchor-id="converting-between-sum-and-product-notation">Converting Between Sum and Product Notation</h4>
+<p>We can convert between summation and product notation with the properties of logarithms::<span class="math display">\[
+\begin{split}
+\log \left( \prod\limits_{i=1}^n cx_i \right) &amp; = \log(cx_1 \times cx_2 \times ... \times cx_n) \\
+&amp; = \log(c^n \times x_1 \times x_2 \times ... \times x_n) \\
+&amp; = \log(c^n) + \log(x_1) + \log(x_2) + ... + \log(x_n) \\
+&amp; =n \log(c) + \sum\limits_{i=1}^n \log(x_i)
+\end{split}
+\]</span></p>
+</section>
+</section>
+</section>
+<section id="pre-calculus-topics" class="level2">
+<h2 class="anchored" data-anchor-id="pre-calculus-topics">Pre-Calculus Topics</h2>
+<section id="functions-and-the-cartesian-plane" class="level3">
+<h3 class="anchored" data-anchor-id="functions-and-the-cartesian-plane">Functions and the Cartesian Plane</h3>
+<section id="functions" class="level4">
+<h4 class="anchored" data-anchor-id="functions">Functions</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Functions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have two sets, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. A function <span class="math inline">\(f : X \rightarrow Y\)</span> is some rule, which assigns each element <span class="math inline">\(x \in X\)</span> to one, and only one element <span class="math inline">\(y = f(x) \in Y\)</span>.</p>
+<ul>
+<li>For every input <span class="math inline">\(x \in X\)</span>, we must only have one output <span class="math inline">\(y \in Y\)</span>. If we have two outputs, that is not a function.</li>
+</ul>
+</div>
+</div>
+<p>The <strong>domain</strong> of <span class="math inline">\(f\)</span> is the set of possible values of set <span class="math inline">\(X\)</span>. Basically, what values can we input into <span class="math inline">\(f(x)\)</span>.</p>
+<p>The set of possible outputs of function <span class="math inline">\(f\)</span> is the <strong>range</strong> <span class="math inline">\(R(f)\)</span>, and the range must be a subset of the set of <span class="math inline">\(Y\)</span>: <span class="math inline">\(R(f) \subseteq Y\)</span>.</p>
+<p>Functions to not have to only have one input variable. For example, we can have a function <span class="math inline">\(f(x,z)\)</span>, with two input values <span class="math inline">\(x \in X\)</span> and <span class="math inline">\(z \in Z\)</span>, notated <span class="math inline">\(f:X,Z \rightarrow Y\)</span>.</p>
+<ul>
+<li>However, we once again can only have one output <span class="math inline">\(y \in Y\)</span> for each different input <span class="math inline">\((x,z)\)</span>. If we have multiple outputs for one input, that is not a function.</li>
+</ul>
+</section>
+<section id="cartesian-plane" class="level4">
+<h4 class="anchored" data-anchor-id="cartesian-plane">Cartesian Plane</h4>
+<p>Remember that <span class="math inline">\(\mathbb{R}\)</span> is the set of all real numbers <span class="math inline">\(\mathbb{R} = (-∞, ∞)\)</span>. That space is only one dimensional - a single number line. <span class="math inline">\(\mathbb{R}^2\)</span> is a 2 dimensional space - essentially two number lines, one perpendicular to the other. Essentially, a graph with <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>-axes. This 2-dimensional space is called a <strong>cartesian plane</strong>.</p>
+<p>Every single point in the 2-dimensional cartesian plane can be specified with coordinates <span class="math inline">\((a,b)\)</span>, where both <span class="math inline">\(a \in \mathbb{R}\)</span> and <span class="math inline">\(b \in \mathbb{R}\)</span>. <span class="math inline">\(a\)</span> is the <span class="math inline">\(x\)</span> coordinate, and <span class="math inline">\(b\)</span> is the <span class="math inline">\(y\)</span> coordinate - both who represent the distance from the <strong>origin</strong> with coordinates <span class="math inline">\((0, 0)\)</span>.</p>
+<p>Any real-valued function of one variable can be represented in the <span class="math inline">\(\mathbb{R}^2\)</span> space. On the <span class="math inline">\(x\)</span>-axis, we put the input number, and on the <span class="math inline">\(y\)</span>-axis, we put the output of the function. For each input variable value, there must only be one output variable value. Graphically in <span class="math inline">\(\mathbb{R}^2\)</span>, we can show this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/1.2.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>Of course, functions can be in more than 2 dimensions. A function with two input variables <span class="math inline">\(f(x,z)\)</span>, would be depicted in the 3-dimensional space <span class="math inline">\(\mathbb{R}^3\)</span>, as <span class="math inline">\(x \in \mathbb{R}\)</span>, <span class="math inline">\(z \in \mathbb{R}\)</span>, and output <span class="math inline">\(f(x) \in \mathbb{R}\)</span>. The more input variables, the more dimensions the function is depicted in.</p>
+</section>
+<section id="common-types-of-functions" class="level4">
+<h4 class="anchored" data-anchor-id="common-types-of-functions">Common Types of Functions</h4>
+<p>There are a few very common types of functions that we will encounter:</p>
+<p><img src="figures/1/1.1.png" class="img-fluid" style="width:100.0%"></p>
+<hr>
+</section>
+</section>
+<section id="slope-and-zeroes-of-functions" class="level3">
+<h3 class="anchored" data-anchor-id="slope-and-zeroes-of-functions">Slope and Zeroes of Functions</h3>
+<section id="linear-equations-and-slope" class="level4">
+<h4 class="anchored" data-anchor-id="linear-equations-and-slope">Linear Equations and Slope</h4>
+<p>Linear equations take the form <span class="math inline">\(f(x) = mx+b\)</span>, where <span class="math inline">\(m\)</span> is the slope.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Slope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>More formally, slope is the change in <span class="math inline">\(y\)</span> over the change in <span class="math inline">\(x\)</span>, or the amount <span class="math inline">\(y\)</span> changes, for every increase of one unit of <span class="math inline">\(x\)</span>.We can calculate the slope between two points <span class="math inline">\((x_1, y_1)\)</span> and <span class="math inline">\((x_2, y_2)\)</span> as follows:</p>
+<p><span class="math display">\[
+m = \Delta y / \Delta x = \frac{y_2 - y_1}{x_2 - x_1}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="zeroes-and-roots-of-functions" class="level4">
+<h4 class="anchored" data-anchor-id="zeroes-and-roots-of-functions">Zeroes and Roots of Functions</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Zeroes and Roots
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The zeroes/roots of a function are the input values of the function that make the output function equal to 0.</p>
+<ul>
+<li><p>Mathematically, for what <span class="math inline">\(x\)</span> does <span class="math inline">\(f(x) = 0\)</span>.</p></li>
+<li><p>Graphically. Since output <span class="math inline">\(f(x)\)</span> is graphed on the <span class="math inline">\(y\)</span>-axis, we can see at what <span class="math inline">\(x\)</span>-values the function cross the line <span class="math inline">\(y=0\)</span> (the <span class="math inline">\(x\)</span>-axis line).</p></li>
+</ul>
+</div>
+</div>
+<p>To solve for zeroes/roots, simply set the function equal to 0, and solve for <span class="math inline">\(x\)</span>.</p>
+<ul>
+<li>Some functions can have more than one zero, especially polynomials, and some can have none.</li>
+</ul>
+<p><strong>Example</strong>: Find the root of <span class="math inline">\(f(x) = x -5\)</span></p>
+<ol type="1">
+<li>Set function output equal to 0: <span class="math inline">\(0 = x-5\)</span></li>
+<li>Solve for <span class="math inline">\(x\)</span> and we get: <span class="math inline">\(x = 5\)</span>.</li>
+</ol>
+<p>&nbsp;</p>
+<p>For <strong>quadratic functions</strong>, there are two ways to find roots. We can factor, covered in section 1.2.</p>
+<p><strong>Example:</strong> Find the root of <span class="math inline">\(f(x) = x^2 + 5x +6\)</span></p>
+<ol type="1">
+<li>Set function output equal to 0: <span class="math inline">\(0 = x^2 + 5x + 6\)</span></li>
+<li>Factor: <span class="math inline">\(0 = (x+2)(x+3)\)</span></li>
+<li><span class="math inline">\(x=-2\)</span> and <span class="math inline">\(x=-3\)</span> make this equation true.</li>
+</ol>
+<p>We can also use the <strong>quadratic formula</strong> to find the roots of unfactorable equations. Given a quadratic in the form of <span class="math inline">\(ax^2 + bx + c\)</span>, the roots are:</p>
+<p><span class="math display">\[
+x = \frac{-b ± \sqrt{b^2 - 4ac} }{2a}
+\]</span></p>
+<p>Note: we will often have two roots in quadratics (although not always).</p>
+<hr>
+</section>
+</section>
+<section id="special-types-of-functions" class="level3">
+<h3 class="anchored" data-anchor-id="special-types-of-functions">Special Types of Functions</h3>
+<section id="composite-functions" class="level4">
+<h4 class="anchored" data-anchor-id="composite-functions">Composite Functions</h4>
+<p>Composite functions are when the output of one function, is used as the input of another function. Composite functions are defined as the following:</p>
+<p><span class="math display">\[
+f \circ g = f[g(x)]
+\]</span></p>
+<p>Essentially, we calculate the output value of <span class="math inline">\(g(x)\)</span>, and immediately input that value into <span class="math inline">\(f(x)\)</span>.</p>
+<p>For example, if <span class="math inline">\(h(x) = x^2\)</span>, and <span class="math inline">\(f(x) = x-5\)</span>, then <span class="math inline">\(f \circ h = (x^2) - 5\)</span></p>
+<ul>
+<li>Note, <span class="math inline">\(f \circ h\)</span> and <span class="math inline">\(h \circ f\)</span> are different, so make sure you are doing the correct one!</li>
+</ul>
+</section>
+<section id="surjective-injective-and-bijective-functions" class="level4">
+<h4 class="anchored" data-anchor-id="surjective-injective-and-bijective-functions">Surjective, Injective, and Bijective Functions</h4>
+<p>A function <span class="math inline">\(f:X \rightarrow Y\)</span> is a <strong>surjective</strong> function if its range is equal to the set of <span class="math inline">\(Y\)</span>. Mathematically, <span class="math inline">\(R(f) = Y\)</span>.</p>
+<ul>
+<li><p>In other words, for all <span class="math inline">\(y \in Y\)</span>, there exists an <span class="math inline">\(x \in X\)</span> such that <span class="math inline">\(f(x) = y\)</span>.</p></li>
+<li><p>For example: <span class="math inline">\(f(x)=x\)</span> is surjective, as the range of <span class="math inline">\(f(x) = x\)</span> is <span class="math inline">\((-∞, ∞)\)</span>, which covers the entire set of <span class="math inline">\(Y\)</span>. Thus, <span class="math inline">\(R(f) = Y\)</span>.</p></li>
+</ul>
+<p>&nbsp;</p>
+<p>A function <span class="math inline">\(f:X \rightarrow Y\)</span> is an <strong>injective</strong> function if distinct inputs are mapped to distinct outputs. Basically, no two input values of <span class="math inline">\(x \in X\)</span> produce the same value output <span class="math inline">\(f(x)\)</span>.</p>
+<ul>
+<li><p>Mathematically, for all <span class="math inline">\(x_1 \in X, x_2 \in X\)</span>, if <span class="math inline">\(x_1 ≠ x_2\)</span>, then <span class="math inline">\(f(x_1) ≠ f(x_2)\)</span></p></li>
+<li><p>For example: <span class="math inline">\(f(x) = x\)</span> is injective, because no two inputs of <span class="math inline">\(x\)</span> produce the same output <span class="math inline">\(f(x)\)</span>.</p></li>
+</ul>
+<p>&nbsp;</p>
+<p>A function is <strong>bijective</strong> if it is both injective and surjective.</p>
+<ul>
+<li><span class="math inline">\(f(x) = x\)</span>, as we have shown previously is both injective and surjective, and thus bijective.</li>
+</ul>
+</section>
+<section id="inverse-function" class="level4">
+<h4 class="anchored" data-anchor-id="inverse-function">Inverse Function</h4>
+<p>Let <span class="math inline">\(f: X \rightarrow Y\)</span> be a bijective function. The sets <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are such that <span class="math inline">\(X \subseteq \mathbb{R}\)</span> and <span class="math inline">\(Y \subseteq \mathbb{R}\)</span>. There is some unique function <span class="math inline">\(f^{-1} : Y \rightarrow X\)</span>, called the <strong>inverse function</strong> of <span class="math inline">\(f\)</span>, which is essentially the opposite of function <span class="math inline">\(f\)</span>: when you input the ouputs of <span class="math inline">\(f(x)\)</span> into <span class="math inline">\(f^{-1}\)</span>, you get the respective input of <span class="math inline">\(f(x)\)</span>.</p>
+<ul>
+<li>Or mathematically: <span class="math inline">\(y = f(x)\)</span> if and only if <span class="math inline">\(x = f^{-1}(y)\)</span></li>
+</ul>
+<p>Because <span class="math inline">\(f^{-1}\)</span> essentially reverses function <span class="math inline">\(f(x)\)</span>, the following must be true:</p>
+<p><span class="math display">\[
+\begin{split}
+&amp; f^{-1} (f(x)) = x \text{ for all } x \in X \\
+&amp; f(f^{-1}(y)) = y \text{ for all } y \in Y
+\end{split}
+\]</span></p>
+<p>To find the inverse function, we simply solve for the input variable.</p>
+<p>&nbsp;</p>
+<p><strong>Example</strong>: Find the inverse of <span class="math inline">\(f(x) = 2x+3\)</span></p>
+<ol type="1">
+<li>Let us define <span class="math inline">\(y\)</span> as the output of <span class="math inline">\(f(x)\)</span>, such that <span class="math inline">\(f(x) = y = 2x+3\)</span></li>
+<li>Now, solve for <span class="math inline">\(x\)</span>: <span class="math inline">\(y = 2x+3 \Longrightarrow 2x = y-3 \Longrightarrow x = \frac{y-3}{2}\)</span></li>
+</ol>
+<p>Let us prove that this is an inverse function with the properties we showed above. <span class="math display">\[
+\begin{split}
+&amp; \text{1st property: }f^{-1} (f(x)) = x \text{ for all } x \in X \\
+&amp; f^{-1}(y) = \frac{y-3}{2} \Longrightarrow f^{-1}(f(x)) = \frac{(2x + 3) - 3}{2} = \frac{2x}{2} = x \\
+&amp; \text{2nd property } f(f^{-1}(y)) = y \text{ for all } y \in Y \\
+&amp; f(x) = 2x +3 \Longrightarrow f(f^{-1}(y)) = 2\left( \frac{y - 3}{2} \right) + 3=y-3+3 = y
+\end{split}
+\]</span></p>
+</section>
+</section>
+<section id="limits" class="level3">
+<h3 class="anchored" data-anchor-id="limits">Limits</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Limits
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A limit is when a function approaches some specific output value <span class="math inline">\(y=f(x) = L\)</span>, as the input <span class="math inline">\(x\)</span> moves closer and closer to some value <span class="math inline">\(c\)</span>.</p>
+<ul>
+<li><p>Or more intuitively, as the <span class="math inline">\(x\)</span> value becomes infinitely closer to <span class="math inline">\(x=c\)</span>, the <span class="math inline">\(y=f(x)\)</span> value becomes infinitely close to <span class="math inline">\(f(x) = L\)</span>.</p></li>
+<li><p>Limits are notated with the form: <span class="math inline">\(\lim\limits_{x \rightarrow c} f(x) = L\)</span></p></li>
+</ul>
+</div>
+</div>
+<p>For example, the figure below shows a function with a limit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/1.3.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%"></p>
+</figure>
+</div>
+<p>For a limit to exist, it must approach the same <span class="math inline">\(y\)</span> value <span class="math inline">\(L\)</span>, from both sides of <span class="math inline">\(x = c\)</span>.</p>
+<ul>
+<li>For example, in the figure above, from both the left and right of <span class="math inline">\(x=c\)</span>, the function <span class="math inline">\(f(x)\)</span> approaches L. Thus, a limit exists here.</li>
+</ul>
+<p>However, if the function were to approach different <span class="math inline">\(y\)</span> values on both sides of <span class="math inline">\(x=c\)</span>, then there would be no limit.</p>
+<ul>
+<li>We can notate the limit from the left side of <span class="math inline">\(x=c\)</span> as <span class="math inline">\(\lim\limits_{x^- \rightarrow c} f(x) = L\)</span>, and the limit from the right side of <span class="math inline">\(x=c\)</span> as <span class="math inline">\(\lim\limits_{x^+ \rightarrow c} f(x) = L\)</span>.</li>
+</ul>
+<p>Importantly, <span class="math inline">\(f(x)\)</span> does not need to be defined at point <span class="math inline">\(x=c\)</span> for the limit to exist.</p>
+<ul>
+<li>For example, the figure above has a function <span class="math inline">\(y=f(x)\)</span> that is not defined at <span class="math inline">\(f(c)\)</span>, however, the limit still exists.</li>
+</ul>
+<section id="properties-of-limits" class="level4">
+<h4 class="anchored" data-anchor-id="properties-of-limits">Properties of Limits</h4>
+<p>Let us have functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, where <span class="math inline">\(\lim\limits_{x \rightarrow c} f(x) = A\)</span>, and <span class="math inline">\(\lim\limits_{x \rightarrow c} f(x) = B\)</span>. The following properties are thus true:</p>
+<ol type="1">
+<li><span class="math inline">\(\lim\limits_{x \rightarrow c} [f(x) + g(x)] = \lim\limits_{x \rightarrow c} f(x) + \lim\limits_{x \rightarrow c} g(x)\)</span></li>
+<li><span class="math inline">\(\lim\limits_{x \rightarrow c} [\alpha \times f(x) = \alpha \times \lim\limits_{x \rightarrow c} f(x)\)</span>, where <span class="math inline">\(\alpha\)</span> is some constant.</li>
+<li><span class="math inline">\(\lim\limits_{x \rightarrow c} [f(x) \times g(x)] = \lim\limits_{x \rightarrow c} f(x) \times \lim\limits_{x \rightarrow c}g(x)\)</span></li>
+<li><span class="math inline">\(\lim\limits_{x \rightarrow c} [f(x) / g(x)] = \lim\limits_{x \rightarrow c} f(x) / \lim\limits_{x \rightarrow c}g(x)\)</span></li>
+</ol>
+</section>
+</section>
+<section id="continuity" class="level3">
+<h3 class="anchored" data-anchor-id="continuity">Continuity</h3>
+<p>Continuity as a concept is quite intuitive: if a function has no breaks or jumps within an interval, then it is continuous within that interval.</p>
+<p>We can express this intuition in more mathematical terms. Suppose that function <span class="math inline">\(f\)</span> has some input interval containing <span class="math inline">\(x=c\)</span>. <span class="math inline">\(f\)</span> is continuous at point <span class="math inline">\(c\)</span>, given these 2 criteria are both met:</p>
+<ol type="1">
+<li><span class="math inline">\(\lim\limits_{x \rightarrow c} f(x)\)</span> exists, i.e.&nbsp;<span class="math inline">\(\lim\limits_{x^- \rightarrow c} f(x) = \lim\limits_{x^+ \rightarrow c} f(x)\)</span>.</li>
+<li><span class="math inline">\(\lim\limits_{x \rightarrow c} f(x) = f(c)\)</span>.</li>
+</ol>
+<p>These rules make sense intuitively:</p>
+<ol type="1">
+<li>The limit must exist for continuity, since if a function approaches a different <span class="math inline">\(Y\)</span> value on each side at a certain <span class="math inline">\(x=c\)</span>, then it cannot be continuous. Thus, the first condition must be true.</li>
+<li>If the function is not defined at <span class="math inline">\(c\)</span>, or is defined by not equal to the limit, that means there will be a break or jump in the function. Thus, the second condition must be true for continuity.</li>
+</ol>
+<p>&nbsp;</p>
+<p>Let us assume functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are both continuous at <span class="math inline">\(x=c\)</span>. Then, continuity has a few properties:</p>
+<ol type="1">
+<li><span class="math inline">\(f(x) + g(x)\)</span> is continuous at <span class="math inline">\(x=c\)</span>.</li>
+<li><span class="math inline">\(f(x) - g(x)\)</span> is continuous at <span class="math inline">\(x=c\)</span>.</li>
+<li><span class="math inline">\(f(x) \times g(x)\)</span> is continuous at <span class="math inline">\(x=c\)</span>.</li>
+<li><span class="math inline">\(|f(x)|\)</span>$ is continuous at <span class="math inline">\(x=c\)</span>.</li>
+<li><span class="math inline">\(\alpha \times f(x)\)</span> is continuous at <span class="math inline">\(x=c\)</span>, where <span class="math inline">\(\alpha\)</span> is some constant.</li>
+<li><span class="math inline">\(f(x) / g(x)\)</span> is continuous at <span class="math inline">\(x=c\)</span> given <span class="math inline">\(g(c) ≠ 0\)</span>.</li>
+</ol>
+<p>Finally, if <span class="math inline">\(f\)</span> is continuous in interval <span class="math inline">\([a, b]\)</span>, then <span class="math inline">\(f\)</span> must have a maximum and minimum value within <span class="math inline">\([a, b]\)</span>.</p>
+</section>
+</section>
+</section>
+<section id="single-variable-calculus" class="level1">
+<h1>Single Variable Calculus</h1>
+<section id="derivatives" class="level2">
+<h2 class="anchored" data-anchor-id="derivatives">Derivatives</h2>
+<section id="definition-of-a-derivative" class="level3">
+<h3 class="anchored" data-anchor-id="definition-of-a-derivative">Definition of a Derivative</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Derivative Function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A derivative function <span class="math inline">\(f'\)</span> outputs the slope (rate of change) of the function of <span class="math inline">\(f\)</span> at any input. So, if we want to know the slope of <span class="math inline">\(f\)</span> at <span class="math inline">\(f(a)\)</span>, we would plug <span class="math inline">\(a\)</span> into <span class="math inline">\(f'\)</span>.</p>
+<p>&nbsp;</p>
+<p>The figure shows a function <span class="math inline">\(f\)</span> and a point <span class="math inline">\(P\)</span>. The red tangent line shows the slope at point <span class="math inline">\(P\)</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/2.1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We know the definition of slope between two points (from section 1.2) is:</p>
+<p><span class="math display">\[
+\Delta y / \Delta x = \frac{y_2 - y_1}{x_2 - x_1}
+\]</span></p>
+<p>First, since we are dealing with functions where output <span class="math inline">\(y=f(x)\)</span>, let us replace the <span class="math inline">\(y\)</span>’s in our equation with <span class="math inline">\(f(x)\)</span>’s:</p>
+<p><span class="math display">\[
+\Delta y / \Delta x = \frac{f(x_2) - f(x_1)}{x_2 - x_1}
+\]</span></p>
+<p>We can rewrite <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_1\)</span> relative to a single point of <span class="math inline">\(x\)</span> as <span class="math inline">\(x_1 = x\)</span> and <span class="math inline">\(x_2 = x+h\)</span>. Why? this is because point <span class="math inline">\(x_2\)</span> is just some <span class="math inline">\(x\)</span>-distance away from point <span class="math inline">\(x_1\)</span>. Now, let us replace <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> with <span class="math inline">\(x\)</span> and <span class="math inline">\(x+h\)</span>:</p>
+<p><span class="math display">\[
+\Delta y / \Delta x = \frac{f(x+h) - f(x)}{x + h - x} = \frac{f(x+h) - f(x)}{h}
+\]</span></p>
+<p>So that is essentially another way to rewrite the definition of a slope between two points.</p>
+<ul>
+<li><p>However, the issue is, that a derivative is the slope at <strong>one point</strong>, not between two points. What we have calculated so far is the slope between two points (the secant green line in the figure above).</p></li>
+<li><p>We need the red-tangent line - the slope at one point. How do we calculate the slope at one point?</p></li>
+</ul>
+<p>To calculate the slope at one point, we can slowly move the two points <span class="math inline">\(x\)</span> and <span class="math inline">\(x+h\)</span> closer and closer to each other.</p>
+<ul>
+<li>How do we do that? With <strong>limits</strong> (that we covered in section 1.6). By making <span class="math inline">\(h\)</span> smaller and smaller until it approaches 0, the two points will get closer and closer until they are on top of each other, and then, we will have the slope at one point.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Formal Definition of a Derivative
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Thus, below is the <strong>formal definition of a derivative</strong>. We can calculate any derivative with this rule (although, this can become difficult sometimes).</p>
+<p><span class="math display">\[
+f'(x) = \lim\limits_{h \rightarrow 0} \frac{f(x+h) - f(x)}{h}
+\]</span></p>
+</div>
+</div>
+<p>A note on notation: so far, I have used <span class="math inline">\(f'\)</span> (apostrophes) to notate a derivative. We can also use the form <span class="math inline">\(\frac{dy}{dx}\)</span> to indicate a derivative. We can change <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> in this notation if we are using different variables.</p>
+<p>Finally, it is also possible to take the derivative of a derivative. This is a second-order derivative, and we notate it <span class="math inline">\(f''\)</span> (with two apostrophes).</p>
+<hr>
+</section>
+<section id="rules-of-differentiation" class="level3">
+<h3 class="anchored" data-anchor-id="rules-of-differentiation">Rules of Differentiation</h3>
+<p>You can calculate any derivative by plugging it into the formal definition from above. However, this can be tedious and involve a lot of algebra.</p>
+<p>However, there are a few generalised forms of functions, whose derivatives are consistent. These rules allow us to quickly calculate derivatives.</p>
+<ul>
+<li>Note: these rules are all obtained from the definition of the derivative - they do not magically appear from thin air.</li>
+</ul>
+<section id="standard-derivatives" class="level5">
+<h5 class="anchored" data-anchor-id="standard-derivatives"><strong>Standard Derivatives</strong></h5>
+<p>Linear Rule: <span class="math inline">\([\alpha x]' = \alpha\)</span>, where <span class="math inline">\(\alpha\)</span> is a constant.</p>
+<p>Derivative of a constant: <span class="math inline">\([\alpha]' = 0\)</span>, where <span class="math inline">\(\alpha\)</span> is a constant.</p>
+<p>Power Rule: <span class="math inline">\([x^k]' = kx^{k-1}\)</span>, where <span class="math inline">\(k\)</span> is some constant and <span class="math inline">\(x^k\)</span> is a monomial.</p>
+<p>Sum Rule: <span class="math inline">\([f(x) ± g(x)]' = f'(x) + g'(x)\)</span>.</p>
+<p>Constant Rule: <span class="math inline">\([\alpha \times f(x)]' = \alpha \times f'(x)\)</span>, where <span class="math inline">\(\alpha\)</span> is some constant.</p>
+<p>Product Rule: <span class="math inline">\([f(x) \times g(x)]' = f'(x) \times g(x) + f(x) \times g'(x)\)</span>.</p>
+<p>Quotient Rule: <span class="math inline">\([f(x)/g(x)]' = \frac{f'(x) \times g(x) + f(x) \times g'(x)}{[g(x)]^2}\)</span>.</p>
+<p>Chain Rule: <span class="math inline">\([f(g(x))]' = f'[g(x)] \times g'(x)\)</span> (used for composite/nested functions).</p>
+</section>
+<section id="exponential-and-log-derivatives" class="level5">
+<h5 class="anchored" data-anchor-id="exponential-and-log-derivatives">Exponential and Log Derivatives</h5>
+<p>Exponential: <span class="math inline">\([e^x]' = e^x\)</span>.</p>
+<p>Exponential Nested: <span class="math inline">\([e^{u(x)}]' = e^{u(x)} \times u'(x)\)</span>.</p>
+<p>Other Based Exponentials: <span class="math inline">\([b^x]' = \ln(b) \times b^x\)</span>.</p>
+<p>Natural Log Derivative: <span class="math inline">\([\ln(x)]' = \frac{1}{x}\)</span>.</p>
+<p>Log derivative with a power: <span class="math inline">\([\ln(x^k)]' = \frac{k}{x}\)</span>.</p>
+<p>Nested Log Derivative: <span class="math inline">\([\ln(u(x))]' = \frac{u'(x)}{u(x)}\)</span></p>
+</section>
+<section id="trigonometric-derviatives" class="level5">
+<h5 class="anchored" data-anchor-id="trigonometric-derviatives">Trigonometric Derviatives</h5>
+<p>Derivative of sine: <span class="math inline">\([\sin(x)]' = \cos(x)\)</span>.</p>
+<p>Derivative of cosine: <span class="math inline">\([\cos(x)]' = -\sin(x)\)</span>.</p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong> Find the derivative of <span class="math inline">\(f(x) = 5x^4 - 6x^3 + x^2 - 5x + 6\)</span>.</p>
+<ol type="1">
+<li>Sum rule says that <span class="math inline">\(f'(x) = [5x^4]' - [6x^3]' + [x^2]' - [5x]' + [6]'\)</span></li>
+<li>Constant rule says that <span class="math inline">\(f'(x) = 5[x^4]' - 6[x^3]' + [x^2]' - 5[x] + [6]'\)</span></li>
+<li>Power rule says that: <span class="math inline">\(f'(x) = 5(4x^3) - 6(3x^2) + (2x) - 5 + 0\)</span></li>
+<li>Simplify: <span class="math inline">\(f'(x) = 20x^3 - 18x^2 + 2x - 5 + 0\)</span></li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>Example 2:</strong> Find the derivative of <span class="math inline">\(f(x) = (x^3)(2x^4)\)</span>.</p>
+<p>Two methods to do this problem. Method 1 (product rule):</p>
+<ol type="1">
+<li>Product rule says that <span class="math inline">\([f(x) \times g(x)]' = f'(x) \times g(x) + f(x) \times g'(x)\)</span>. Let us define <span class="math inline">\(f(x) = x^3\)</span> and <span class="math inline">\(g(x) = 2x^4\)</span>.</li>
+<li>Let us find <span class="math inline">\(f'(x)\)</span> and <span class="math inline">\(g'(x)\)</span>. Using power rule: <span class="math inline">\(f'(x) = 3x^2\)</span>, and <span class="math inline">\(g'(x) = 2[x^4]' = 2(4x^3) = 8x^3\)</span></li>
+<li>Put it into the product rule form: <span class="math inline">\(f'(x) = (3x^2)(2x^4) + (x^3)(8x^3)\)</span>.</li>
+<li>Simplify: <span class="math inline">\(f'(x) = 6x^6 + 8x^6 \Longrightarrow f'(x) =14x^6\)</span>.</li>
+</ol>
+<p>Method 2 (power rule):</p>
+<ol type="1">
+<li>Simplify <span class="math inline">\(f(x)\)</span> to get <span class="math inline">\(f(x) = 2x^7\)</span>.</li>
+<li>Use constant rule and power rule: <span class="math inline">\(f'(x) = 2[x^7]' = 2(7x^6) \Longrightarrow f'(x) = 14x^6\)</span></li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>Example 3:</strong> Find the derivative of <span class="math inline">\(f(x) = (3x^2 + 5x -7)^6\)</span></p>
+<ol type="1">
+<li>This is a composite function, so we use chain rule <span class="math inline">\([f(g(x))]' = f'[g(x)] \times g'(x)\)</span>. Let us define <span class="math inline">\(f(x) = x^6\)</span> and <span class="math inline">\(g(x) = 3x^2 + 5x - 7\)</span>.</li>
+<li>Let us find <span class="math inline">\(f'(x)\)</span> and <span class="math inline">\(g'(x)\)</span>. Power rule says <span class="math inline">\(f'(x) = 6x^5\)</span>. Sum, constant, and power rule says <span class="math inline">\(g'(x) = 6x + 5\)</span>.</li>
+<li>Put it into the form of chain rule: <span class="math inline">\(f'(x) = 6(3x^2 + 5x -7)^5 \times 6x+5\)</span>.</li>
+<li>Distribute out <span class="math inline">\(6x+5\)</span> to get <span class="math inline">\(f'(x) = 36x(3x^2+5x-7)^5 + 30(3x^2+5x-7)^5\)</span>.</li>
+</ol>
+</section>
+</section>
+<section id="derivative-of-an-inverse-function" class="level3">
+<h3 class="anchored" data-anchor-id="derivative-of-an-inverse-function">Derivative of an Inverse Function</h3>
+<p>Let <span class="math inline">\(f: X \rightarrow Y\)</span> be a bijective function <span class="math inline">\(y=f(x)\)</span> (see sections 1.4-1.5). We want to find the derivative of the inverse function <span class="math inline">\(f^{-1}: Y \rightarrow X\)</span>.</p>
+<p>The simplest way to do this is to find the inverse function (as shown in section 1.5), and calculate the derivative of that.</p>
+<ul>
+<li><p>However, the function <span class="math inline">\(x = f^{-1}(y)\)</span> is not always easily differentiable with the rules we have introduced.</p></li>
+<li><p>We can utilise an alternative approach to find inverse derivatives.</p></li>
+</ul>
+<p>&nbsp;</p>
+<p>Remember the identity of inverse functions shown in section 1.5:</p>
+<p><span class="math display">\[
+f^{-1}(f(x)) = x \text{ for all } x \in X
+\]</span></p>
+<p>We know that chain rule says:</p>
+<p><span class="math display">\[
+[f(g(x))]' = f'[g(x)] \times g'(x)
+\]</span></p>
+<p>We can define our inverse original <span class="math inline">\(f'\)</span> function as <span class="math inline">\(f\)</span> for the chain rule, and the original <span class="math inline">\(f(x)\)</span> as <span class="math inline">\(g(x)\)</span> for the chain rule.</p>
+<p>Thus, using chain rule, we can get the derivative of the identity of inverse functions: <span class="math display">\[
+\begin{split}
+&amp; f^{-1}(f(x)) = x, \text{ now differentiate both sides:} \\
+&amp; \frac{df^{-1}(f(x))}{dy} \times \frac{df(x)}{dx} = 1, \text{ since } y = f(x) \Longrightarrow \frac{df^{-1}(y)}{dy} \times \frac{df(x)}{dx} = 1
+\end{split}
+\]</span></p>
+<p>Now, isolate the derivative of the inverse function to get the <strong>derivative of the inverse</strong>:</p>
+<p><span class="math display">\[
+\frac{df^{-1}(y)}{dy} = \frac{1}{ \frac{df(x)}{dx} }, \text{ and since } y=f(x),x = f(y), \Longrightarrow \frac{dx}{dy} = \frac{1}{ \frac{dy}{dx} }
+\]</span></p>
+<p>We can use this property to solve for the derivative of the inverse of a function that we do not know how to differentiate with our above rules.</p>
+<p>&nbsp;</p>
+<p><strong>Example</strong>: Find the derivative of the inverse function for <span class="math inline">\(f(x) = \ln(x)\)</span>.</p>
+<ol type="1">
+<li>First, find the inverse <span class="math inline">\(f^{-1}(y)\)</span>. We do this by solving for <span class="math inline">\(x\)</span> in <span class="math inline">\(y = \ln(x)\)</span>. Through the definition of logarithms, we know that <span class="math inline">\(x = e^y\)</span>. Thus, <span class="math inline">\(f^{-1}(y) = e^y\)</span>.</li>
+<li>Using derivative rules, we know that <span class="math inline">\(f'(x) = \frac{1}{x}\)</span></li>
+<li>Using the inverse derivative relationship, we know <span class="math inline">\(f'(y) = \frac{1}{f'(x)}\)</span>.</li>
+<li>Thus, <span class="math inline">\(f'(y) = \frac{1}{1/x} = x\)</span></li>
+<li>Since we solved <span class="math inline">\(x = e^y\)</span>, we can plug in to get: <span class="math inline">\(f'(y) = e^y\)</span>.</li>
+</ol>
+</section>
+<section id="partial-derivatives" class="level3">
+<h3 class="anchored" data-anchor-id="partial-derivatives">Partial Derivatives</h3>
+<p>Suppose that we have a function <span class="math inline">\(f : X_1, X_2, ..., X_n \rightarrow \mathbb{R}\)</span>. Or in other words, a function with more than one variable input.</p>
+<ul>
+<li><p>However, we might only be interested in the rate of change (slope) relative to only one of the variables.</p></li>
+<li><p>A partial derivative is what we will need to find - the rate of change only in relation to one variable.</p></li>
+</ul>
+<p>&nbsp;</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Partial Derivative
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A partial derivative is defined as:</p>
+<p><span class="math display">\[
+\frac{\partial}{\partial x_i} f(x_1, ..., x_i, ..., x_n) = \lim\limits_{h \rightarrow 0 } \frac{f(x_1, ..., x_i + h, ..., x_n) - f(x_1, ..., x_i, ..., x_n)}{h}
+\]</span></p>
+<ul>
+<li><p>Where <span class="math inline">\(x_1, ..., x_i, ...., x_n\)</span> are all the inputs of function <span class="math inline">\(f\)</span>.</p></li>
+<li><p>Where we are only interested in the rate of change in respect to <span class="math inline">\(x_i\)</span> (hence why only <span class="math inline">\(x_i\)</span> has a <span class="math inline">\(+h\)</span> in the numerator).</p></li>
+<li><p>As a result, we treat <span class="math inline">\(x_1, ..., x_n\)</span> that are not <span class="math inline">\(x_i\)</span> as simply constants.</p></li>
+</ul>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>To solve a partial derivative, we take the derivative in respect to our specific variable <span class="math inline">\(x_i\)</span>, while treating all other input variables <span class="math inline">\(x_1, ..., x_n\)</span> like a constant.</p>
+<ul>
+<li>So essentially, we treat other variables like we would the number 5 - i.e.&nbsp;the derivative of a constant is 0, so the derivative of other variables is also 0.</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>Example</strong>: Find the partial derivative in respect to <span class="math inline">\(x\)</span> for <span class="math inline">\(f(x, z) = 5x^2z^3 + 2x + 3z + 5\)</span></p>
+<ol type="1">
+<li>Use sum rule to split up derivative: <span class="math inline">\(\frac{\partial f(x,z)}{\partial x} = \frac{\partial}{\partial x}[5x^2z^3] + \frac{\partial}{\partial x}[2x] + \frac{\partial}{\partial x}[3z] + \frac{\partial}{\partial x}[5]\)</span>.</li>
+<li>Take out constants from first term (remember <span class="math inline">\(z\)</span> is constant here) <span class="math inline">\(\frac{\partial f(x,z)}{\partial x}  = 5z^3 \frac{\partial}{\partial x} [x^2] + \frac{\partial}{\partial x}[2x] + \frac{\partial}{\partial x}[3z] + \frac{\partial}{\partial x}[5]\)</span>.</li>
+<li>Find derivatives, remember <span class="math inline">\(z\)</span> is constant here: <span class="math inline">\(\frac{\partial f(x,z)}{\partial x} = 10z^3x + 2 + 0 + 0\)</span>.</li>
+<li>Thus, <span class="math inline">\(\frac{\partial f(x,z)}{\partial x} = 10z^3x + 2\)</span>.</li>
+</ol>
+<hr>
+</section>
+<section id="application-multiple-regression" class="level3">
+<h3 class="anchored" data-anchor-id="application-multiple-regression">Application: Multiple Regression</h3>
+<p>Partial derivatives are very useful in economic modelling and econometrics/statistics. We will introduce an application of partial derivatives with linear regression model.</p>
+<p>The multiple linear regression model takes the following form (do not worry too much about this, this will be covered in the Econometrics sequence):</p>
+<p><span class="math display">\[
+\hat{Y} = \hat{\alpha} + \hat{\beta}_1X_1 + \hat{\beta}_2X_2 + ... + \hat{\beta}_k X_k
+\]</span></p>
+<p>You probably have heard that multiple linear regression is powerful because it allows us to see the independent effects of explanatory variables on output variables (if you have not, do not worry).</p>
+<p>Let us say we are interested in only the effect of <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span>. We can take the partial derivative in respect to <span class="math inline">\(X_1\)</span> as follows: <span class="math display">\[
+\begin{split}
+&amp; \frac{\partial \hat{Y}}{\partial X_1} = \frac{\partial \hat{Y}}{\partial X_1}[\hat{\alpha}] + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_1X_1] + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_2X_2] + ... + \frac{\partial \hat{Y}}{\partial X_1}[\hat{\beta}_kX_k] \\
+&amp; \frac{\partial \hat{y}}{\partial X_1} = 0 + \hat{\beta}_1 + 0 + ... + 0 \Longrightarrow \frac{\partial \hat{y}}{\partial X_1} = \hat{\beta}_1
+\end{split}
+\]</span></p>
+<p>So we can see, the effect of <span class="math inline">\(X_1\)</span> on <span class="math inline">\(\hat{Y}\)</span> is <span class="math inline">\(\hat{\beta}_1\)</span>, and this is not affected by any other explanatory variables <span class="math inline">\(X_2, ..., X_n\)</span>. This shows how multiple linear regression allows us to “hold other variables constant” and isolate the effect of one variable.</p>
+<p>&nbsp;</p>
+<p>Alternatively, we can also use partial derivatives to find the effect of one variable in a moderating effect regression:</p>
+<p><span class="math display">\[
+\begin{split}
+\hat{Y} &amp; = \hat{\alpha} + \hat{\beta}_1 X_1 + \hat{\beta}_2 X_2 + \hat{\beta}_3 X_1 X_2 \\
+\frac{\partial \hat{Y}}{\partial X_1} &amp; = 0 + \hat{\beta}_1 + 0 + \hat{\beta}_3X_2 \\
+\frac{\partial \hat{Y}}{\partial X_1} &amp; = \hat{\beta}_1 + \hat{\beta}_3X_2
+\end{split}
+\]</span></p>
+<p>As you can see, the relationship between <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span> here depends on the value of <span class="math inline">\(X_2\)</span>. In more intuitive words, given a one unit increase in <span class="math inline">\(X_1\)</span>, there is an expected <span class="math inline">\(\hat{\beta}_1 + \hat{\beta_3}X_2\)</span> increase in <span class="math inline">\(Y\)</span>.</p>
+</section>
+</section>
+<section id="optimisation" class="level2">
+<h2 class="anchored" data-anchor-id="optimisation">Optimisation</h2>
+<section id="local-extrema-and-stationary-points" class="level3">
+<h3 class="anchored" data-anchor-id="local-extrema-and-stationary-points">Local Extrema and Stationary Points</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Maximum and Minimum
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Maximums and minimums are quite intuitive concepts - for function <span class="math inline">\(f\)</span>, the maximum is input that gives the highest output value, and the minimum is the input that gives the lowest output value. More formally:</p>
+<ul>
+<li><p>A <strong>local maximum</strong> of function <span class="math inline">\(f:I \rightarrow \mathbb{R}\)</span> is a point <span class="math inline">\(a \in I\)</span> with the property <span class="math inline">\(f(a) ≥ f(x)\)</span> for all <span class="math inline">\(x\)</span> sufficiently near <span class="math inline">\(x=a\)</span>. A <strong>strict local maximum</strong> has the condition <span class="math inline">\(f(a) &gt; f(x)\)</span> for all <span class="math inline">\(x\)</span> sufficiently near <span class="math inline">\(x=a\)</span></p></li>
+<li><p>A <strong>local minimum</strong> of function <span class="math inline">\(f:I \rightarrow \mathbb{R}\)</span> is a point <span class="math inline">\(a \in I\)</span> with the property <span class="math inline">\(f(a) ≤ f(x)\)</span> for all <span class="math inline">\(x\)</span> sufficiently near <span class="math inline">\(x=a\)</span>. A <strong>strict local minimum</strong> has the condition <span class="math inline">\(f(a) &lt; f(x)\)</span> for all <span class="math inline">\(x\)</span> sufficiently near <span class="math inline">\(x=a\)</span></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/3.1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:33.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Take an open interval set <span class="math inline">\(I\)</span>, and function <span class="math inline">\(f : I \rightarrow \mathbb{R}\)</span>. A s<strong>tationary point</strong> at <span class="math inline">\(a \in I\)</span> exists if <span class="math inline">\(f'(a) = 0\)</span>.</p>
+<p>More intuitively, a stationary point is when the function is neither increasing or decreasing, and since the derivative function is a measure of the rate of change, a function neither increases or decreases when <span class="math inline">\(f'(a) = 0\)</span>. Visually:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/3.2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:33.0%"></p>
+</figure>
+</div>
+</section>
+<section id="concavity-and-inflection-points" class="level3">
+<h3 class="anchored" data-anchor-id="concavity-and-inflection-points">Concavity and Inflection Points</h3>
+<p>A function <span class="math inline">\(f:I \rightarrow \mathbb{R}\)</span> is called <strong>convex</strong>, if a line segment joining any two points on the graph of <span class="math inline">\(f\)</span> lies above or on the graph of <span class="math inline">\(f\)</span>.</p>
+<p>A function <span class="math inline">\(f: I \rightarrow \mathbb{R}\)</span> is called <strong>concave</strong>, if a line segment joining any two points on the graph of <span class="math inline">\(f\)</span> lies below or on the graph of <span class="math inline">\(f\)</span>.</p>
+<p>A function <span class="math inline">\(f: I \rightarrow \mathbb{R}\)</span> is <strong>strictly convex/concave</strong>, if a line segment joining any two points on the graph of <span class="math inline">\(f\)</span> lies always above, or always below, the graph of <span class="math inline">\(f\)</span>.</p>
+<p>Below are three figures of convex and concave functions. The first function is strictly convex:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/3.3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Concavity with Second Derivatives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If function <span class="math inline">\(f: I \rightarrow \mathbb{R}\)</span> is differentiable on an interval <span class="math inline">\(I\)</span>, we also have an alternative definition of concavity.</p>
+<ul>
+<li><p>If for function <span class="math inline">\(f\)</span> in interval <span class="math inline">\(I\)</span>, <span class="math inline">\(f''(x) &gt; 0\)</span>, then the function is convex.</p></li>
+<li><p>If for function <span class="math inline">\(f\)</span> in interval <span class="math inline">\(I\)</span>, <span class="math inline">\(f''(x) &lt; 0\)</span>, then the function is concave.</p></li>
+</ul>
+</div>
+</div>
+<p>If a function <span class="math inline">\(f\)</span> changes from convex to concave at point <span class="math inline">\(a\)</span>, or from concave or convex (or in other words, <span class="math inline">\(f''(a) = 0\)</span> and it changes sign before and after <span class="math inline">\(a\)</span>), that point is an <strong>inflection point</strong>. Inflection points do not always have to be differentiable, just the concavity has to change. Inflection points can also be stationary points, but not always, if <span class="math inline">\(f'(x) = f''(x) = 0\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/3.4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<hr>
+</section>
+<section id="global-extrema" class="level3">
+<h3 class="anchored" data-anchor-id="global-extrema">Global Extrema</h3>
+<p>Tate the function <span class="math inline">\(f: A \rightarrow \mathbb{R}\)</span>, in which <span class="math inline">\(A\)</span> is domain of <span class="math inline">\(f\)</span> such that <span class="math inline">\(A \subseteq \mathbb{R}\)</span>.</p>
+<p>A <strong>global maximum</strong> of <span class="math inline">\(f\)</span> is a point <span class="math inline">\(a \in A\)</span> such that <span class="math inline">\(f(a) ≥ f(x)\)</span> for all <span class="math inline">\(x \in A\)</span>. A <strong>strict global maximum</strong> is when the condition <span class="math inline">\(f(a) &gt; f(x)\)</span> for all <span class="math inline">\(x \in A\)</span>.</p>
+<p>A <strong>global minimum</strong> of <span class="math inline">\(f\)</span> is a point <span class="math inline">\(a \in A\)</span> such that <span class="math inline">\(f(a) ≤ f(x)\)</span> for all <span class="math inline">\(x \in A\)</span>. A <strong>strict global minimum</strong> is when the condition <span class="math inline">\(f(a) &lt; f(x)\)</span> for all <span class="math inline">\(x \in A\)</span>.</p>
+<p>What is the difference between a local and global extrema?</p>
+<p>Well, a local exterma only has to be the maximum/minimum in its “neighbourhood”, meaning there can be multiple local extrema. There is only one global minimum and maximum in a function.</p>
+<p>Global extrema are a subset of local extrema. That means we can find global extrema by first finding local extrema, then eliminating some local extrema that are not global extrema. There can only be one global maximum or minimum in a function.</p>
+<hr>
+</section>
+<section id="optimisation-1" class="level3">
+<h3 class="anchored" data-anchor-id="optimisation-1">Optimisation</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Optimisation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Optimisation is about finding the maximum or minimum point of a function. This is useful because we often want to minimise error, or maximise utility, or so on.</p>
+</div>
+</div>
+<p>If a function is differentiable on an open interval, then a local extrema can only occur at a stationary point of this function. Since global extrema are a subset of local extrema, that means that global extrema must also occur at a stationary point of the function.</p>
+<p>For a stationary point to be a local maximum, the function should be concave. For a stationary point to be a local minimum, the function should be convex. Why? - consider the following diagram:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/3.6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:44.0%"></p>
+</figure>
+</div>
+<p>Thus, we can identify local extrema of a function <span class="math inline">\(f(x)\)</span> in an interval with these steps:</p>
+<ol type="1">
+<li>Find <span class="math inline">\(f'(x)\)</span>, then find for what <span class="math inline">\(x\)</span> makes <span class="math inline">\(f'(x) = 0\)</span>. These are the stationary points.</li>
+<li>Find <span class="math inline">\(f''(x)\)</span>. Plug in the <span class="math inline">\(x\)</span> we solved for above. If <span class="math inline">\(f''(x) &gt; 0\)</span>, the function is convex, thus there is a local minimum. If <span class="math inline">\(f''(x) &lt; 0\)</span>, the function is concave, thus there is a local maximum.</li>
+<li>Find which extrema is most extreme - that is likely (but not guaranteed) to be the extrema in the interval.</li>
+</ol>
+<p>However, we are not done - we have to calculate the edge cases. These are the end-points of our interval. Why? - look at the following figure below - on the interval <span class="math inline">\([-3, 7]\)</span>, clearly <span class="math inline">\(x=7\)</span> will have a larger maximum value than any local maximum, since the function tends towards infinity as <span class="math inline">\(x\)</span> approaches infinity:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/3.7.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:48.0%"></p>
+</figure>
+</div>
+<p>Thus, we have to check the edges of our intervals and see if they are the maximum or minimum in the interval, and compare them to the local extrema we found. Once we have found the <span class="math inline">\(x\)</span> value that makes <span class="math inline">\(f\)</span> output its maxmimum/minimum value within an interval, we have completed optimisation.</p>
+<section id="example" class="level4">
+<h4 class="anchored" data-anchor-id="example">Example</h4>
+<p>Find the maximum value of <span class="math inline">\(f(x) = 2x^3 - 9x^2 + 12x\)</span> in the interval <span class="math inline">\(x \in [0, 3]\)</span>.</p>
+<ol type="1">
+<li>Find the first derivative: <span class="math inline">\(f'(x) = 6x^2-18x+12\)</span>.</li>
+<li>Find when <span class="math inline">\(f'(x) = 0\)</span>. Thus, <span class="math inline">\(0 = 6x^2 - 18x + 12\)</span>, factor so <span class="math inline">\(\Longrightarrow 0 = 6(x-2)(x-1)\)</span>. Thus, the two <span class="math inline">\(x\)</span> values that make <span class="math inline">\('f(x) = 0\)</span> are <span class="math inline">\(x=2, x=1\)</span>.</li>
+<li>Find the 2nd derivative to distinguish maximums and minimums: <span class="math inline">\(f''(x) = 12x - 18\)</span>.</li>
+<li>Plug in our stationary points <span class="math inline">\(x=2, x=1\)</span> we found earlier to find minimums and maximums: <span class="math inline">\(f''(2) = 6\)</span>, <span class="math inline">\(f''(1) = -6\)</span>. Since maximums are when <span class="math inline">\(f''(x) &lt; 0\)</span>, thus <span class="math inline">\(x=1\)</span> is the only local maxmimum. We can plug in <span class="math inline">\(x=1\)</span> into the original function to find the local maximum value of <span class="math inline">\(f(1) = 5\)</span>.</li>
+<li>Test our edge cases of our interval <span class="math inline">\([0,3]\)</span>. <span class="math inline">\(f(0) = 0\)</span>, <span class="math inline">\(f(3) = 9\)</span>. We can see that <span class="math inline">\(f(3) = 9 &gt; f(1) = 5\)</span>. Thus, <span class="math inline">\(x=3\)</span> is the maximum point in this interval.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="constrained-optimisation" class="level3">
+<h3 class="anchored" data-anchor-id="constrained-optimisation">Constrained Optimisation</h3>
+<p>Sometimes, we have constraints when doing optimisation. This is best demonstrated with an example.</p>
+<p>Take this scenario: a company wants to spend money on advertising. They can choose to spend <span class="math inline">\(x\)</span> amount of money on TV advertising, and <span class="math inline">\(y\)</span> amount of money on YouTube advertising. <span class="math inline">\(f(x, y) = xy\)</span> is a function where the output is the increase in sales as a result of advertising. However, the company only has a total budget of $10 to spend on both, thus <span class="math inline">\(x+y = 10\)</span>.</p>
+<p>Simply, we want to maximise <span class="math inline">\(f(x,y) = xy\)</span>, given the constraint <span class="math inline">\(x + y = 10\)</span>.</p>
+<ol type="1">
+<li>Start by solving for one variable within the constraint. Let us solve for <span class="math inline">\(y\)</span>, so <span class="math inline">\(x + y = 10 \Longrightarrow y = 10 - x\)</span>.</li>
+<li>Now, substitute the constraint into the function we want to maximise: <span class="math inline">\(f(xy) = xy \Longrightarrow f(x) = x(10-x) \Longrightarrow f(x) = -x^2 + 10x\)</span>.</li>
+<li>Find the first derivative of our constraint function: <span class="math inline">\(f'(x) = -2x + 10\)</span>.</li>
+<li>Then, find when <span class="math inline">\(f'(x) = 0\)</span> for stationary points: <span class="math inline">\(0 = -2x+10 \Longrightarrow x = 5\)</span>.</li>
+<li>Now, find second derivative to see if our stationary point <span class="math inline">\(x=5\)</span> is a maximum. <span class="math inline">\(f''(x) = -2\)</span>, thus <span class="math inline">\(f''(5) = -2\)</span>, thus <span class="math inline">\(f''(5) &lt; 0\)</span> so it is a maximum.</li>
+<li>Now that we know <span class="math inline">\(x=5\)</span> is a local maximum, plug into constraint to find value of <span class="math inline">\(y\)</span>: <span class="math inline">\(y = 10 - x \Longrightarrow y = 5\)</span>.</li>
+<li>Thus, <span class="math inline">\(x=5, y=5\)</span> is the maximum of function <span class="math inline">\(f(x,y) = xy\)</span>. Plugging in <span class="math inline">\(x=5, y=5\)</span>, then the maximum output value if <span class="math inline">\(f(5,5) = 25\)</span>.</li>
+</ol>
+<p>Thus, the general workflow of constrained optimisation is:</p>
+<ol type="1">
+<li>Solve for one variable in the constraint.</li>
+<li>Plug into our function we want to optimise, and complete the optimisation process as normal.</li>
+<li>Once we find the maximum value of one variable, plug into the constraint to find the other.</li>
+</ol>
+</section>
+</section>
+<section id="integrals" class="level2">
+<h2 class="anchored" data-anchor-id="integrals">Integrals</h2>
+<section id="indefinite-integrals" class="level3">
+<h3 class="anchored" data-anchor-id="indefinite-integrals">Indefinite Integrals</h3>
+<p>Integrals, also called anti-derivatives, are the opposite of derivatives - i.e.&nbsp;applying an integral to a derivative results in the original function as they cancel each other out.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Indefinite Integral
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X, Y \subseteq \mathbb{R}\)</span>. Let function <span class="math inline">\(f : X \rightarrow Y\)</span> be a function.</p>
+<p>An <strong>indefinite integral</strong> of <span class="math inline">\(f: X \rightarrow Y\)</span> is a function <span class="math inline">\(F\)</span> of form:</p>
+<p><span class="math display">\[
+F(x) = \int f(x) dx
+\]</span></p>
+<p>Such that its derivative is function <span class="math inline">\(f\)</span>:</p>
+<p><span class="math display">\[
+\frac{d}{dx} \left( \int f(x)dx \right) = f(x)
+\]</span></p>
+<p>So essentially, integrals reverse derivatives, and derivatives reverse integrals.</p>
+</div>
+</div>
+<p>Note: there are many indefinite integrals <span class="math inline">\(F\)</span>, for any given function <span class="math inline">\(f\)</span>. This is because when we take a derivative, we lose any constants, since <span class="math inline">\(\frac{d}{dx} [c] = 0\)</span>.</p>
+<ul>
+<li><p>Many different functions <span class="math inline">\(F\)</span> with different <span class="math inline">\(c\)</span>, when taking the derivative, will result in function <span class="math inline">\(f\)</span>.</p></li>
+<li><p>This is why you will see a <span class="math inline">\(+C\)</span> at the end of integrals - which indicates that any constant <span class="math inline">\(C\)</span> in integral <span class="math inline">\(F\)</span> will result in the same derivative <span class="math inline">\(f\)</span>.</p></li>
+</ul>
+<section id="integration-rules" class="level4">
+<h4 class="anchored" data-anchor-id="integration-rules">Integration Rules</h4>
+<p>Since integrals are the opposite of derivatives, we can reverse many derivative rules to find rules of integration:</p>
+<p>Constant Rule: <span class="math inline">\(\int \alpha f(x)dx = \alpha \int f(x)\)</span>, where <span class="math inline">\(\alpha\)</span> is a constant.</p>
+<p>Sum Rule: <span class="math inline">\(\int [f(x) + g(x)]dx = \int f(x)dx + \int g(x)dx\)</span>.</p>
+<p>Reverse power rule: <span class="math inline">\(\int x^\alpha dx = \frac{x^{\alpha + 1}}{\alpha + 1} + C\)</span>, when constant <span class="math inline">\(\alpha ≠ -1\)</span>.</p>
+<p>Nested power rule: <span class="math inline">\(\int [f(x)]^\alpha f'(x)dx = \frac{1}{\alpha + 1} [f(x)]^{n+1} + C\)</span>.</p>
+<p>Positive natural log integral: <span class="math inline">\(\int x^{-1} dx = \ln(x) + C\)</span>, when <span class="math inline">\(x &gt; 0\)</span>.</p>
+<p>Negative natural log integral: <span class="math inline">\(\int x^{-1}dx = \ln (-x) + C\)</span>, when <span class="math inline">\(x &lt; 0\)</span>.</p>
+<p>Reverse nested log integral: <span class="math inline">\(\int \frac{f'(x)}{f(x)} = \ln (f(x)) + C\)</span>.</p>
+<p>Exponential integral: <span class="math inline">\(\int e^x dx = e^x + C\)</span>.</p>
+<p>Nested exponential integral: <span class="math inline">\(\int e^{f(x)} f'(x)dx = e^{f(x)} + C\)</span>.</p>
+<p>Cosine integral: <span class="math inline">\(\int \cos(x)dx = \sin(x) + C\)</span>.</p>
+<p>Sine integral: <span class="math inline">\(\int \sin(x)dx = - \cos(x) + C\)</span>.</p>
+<p>Arctan integral: <span class="math inline">\(\int \frac{1}{x^2 + 1}dx = \arctan(x) + C\)</span>.</p>
+<p>Arcsine integral: <span class="math inline">\(\int \frac{1}{\sqrt{1-x^2}}dx = \arcsin(x) + C\)</span>, when <span class="math inline">\(x \in (-1, 1)\)</span>.</p>
+</section>
+<section id="example-1" class="level4">
+<h4 class="anchored" data-anchor-id="example-1"><strong>Example 1:</strong></h4>
+<p>Find <span class="math inline">\(\int f(x)\)</span> where <span class="math inline">\(f(x) = 3x^2 + 2x + 1\)</span>:</p>
+<ol type="1">
+<li>Using sum rule, we know: <span class="math inline">\(\int f(x) = \int3x^2dx + \int 2xdx + \int 1dx\)</span>.</li>
+<li>Using constant rule, we know: <span class="math inline">\(\int f(x) = 3 \int x^2dx + 2 \int xdx + \int1dx\)</span>.</li>
+<li>Using reverse power rule, we know: <span class="math inline">\(\int f(x) = 3 \left( \frac{1}{2+1} x^{2+1}\right) + 2 \left( \frac{1}{1+1} x^{1+1} \right) + x + C\)</span>.</li>
+<li>Simplifying: <span class="math inline">\(\int f(x) = 3 \left( \frac{1}{3} x^3 \right) + 2 \left( \frac{1}{2} x^2 \right) + x + C\)</span>.</li>
+<li>Multiply out: <span class="math inline">\(\int f(x) = x2 + x2 + x + C\)</span>.</li>
+</ol>
+</section>
+<section id="example-2" class="level4">
+<h4 class="anchored" data-anchor-id="example-2"><strong>Example 2:</strong></h4>
+<p>Find <span class="math inline">\(\int(fx)\)</span> where <span class="math inline">\(f(x) = e^xe^{e^x}\)</span>:</p>
+<ol type="1">
+<li>We know that <span class="math inline">\(\frac{d}{dx}[e^x] = e^x\)</span>.</li>
+<li>Using nested exponential integral rule: <span class="math inline">\(\int e^{f(x)} f'(x)dx = e^{f(x)} + C\)</span>, we can define <span class="math inline">\(f(x) = e^x\)</span> and <span class="math inline">\(f'(x) = e^x\)</span>.</li>
+<li>Putting it into this form, we get <span class="math inline">\(\int f(x) = e^{e^x} + C\)</span>.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="definite-integrals-and-riemann-sums" class="level3">
+<h3 class="anchored" data-anchor-id="definite-integrals-and-riemann-sums">Definite Integrals and Riemann Sums</h3>
+<p>Integrals are not only the opposite of derivatives, but are also a function for the area under a curve.</p>
+<p>For example, say we have some function <span class="math inline">\(f(x)\)</span>. The area between <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(y=0\)</span> can be calculated with the integral <span class="math inline">\(F(x) = \int f(x)dx\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Definite Integral
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A definite integral is the function <span class="math inline">\(F\)</span> which measures the area under the curve of function <span class="math inline">\(f\)</span> between <span class="math inline">\(x=a\)</span> and <span class="math inline">\(x=b\)</span>. We notate the area under the curve of <span class="math inline">\(f\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> as:</p>
+<p><span class="math display">\[
+\int\limits_a^b f(x)dx
+\]</span></p>
+</div>
+</div>
+<p>Now knowing that an definite integral is the area under a curve between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, how do we actually evaluate this function and calculate this area?</p>
+<p>With a straight linear <span class="math inline">\(f(x)\)</span>, this is quite easy. However, when <span class="math inline">\(f(x)\)</span> is non-linear and curved, it might seem quite hard to find the area under the curve.</p>
+<p>However, there is a strategy we can use - we can approximate the area under the curve using rectangles. The figure below shows this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/1/5.1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<p>Notice how with more and more rectangles (with each rectangle having a smaller width), the more and more accurate our approximation of the area under a curve becomes.</p>
+<p>How do we calculate the area of a rectangle? Of course: width <span class="math inline">\(\times\)</span> height.</p>
+<ul>
+<li><p>Let us call the width of each rectange <span class="math inline">\(\Delta x\)</span> (change in <span class="math inline">\(x\)</span>).</p></li>
+<li><p>What is the height of each rectangle? Well, it is the value of <span class="math inline">\(y = f(x)\)</span>, the output of the function.</p></li>
+<li><p>Thus, the area of each rectangle is <span class="math inline">\(f(x) \times \Delta x\)</span>.</p></li>
+</ul>
+<p>Thus, to approximate the area under the curve, we can sum up all the rectangles as follows:</p>
+<p><span class="math display">\[
+\sum\limits_{i=1}^n f(x_i) \Delta x
+\]</span></p>
+<p>However, as we noted, the smaller the width of each rectangle is, the more accurate our estimation of the area. How do we make the width of each rectangle infinitely smaller?</p>
+<p>We can use a limit! With <span class="math inline">\(\lim\limits_{\Delta x \rightarrow 0}\)</span>, we can infinitely reduce the width of each rectangle, until we have a perfect measurement of the area under the curve.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Riemann Integral
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>Riemann integral</strong> is a way to calculate the definite integral - the area under the function <span class="math inline">\(f\)</span> between points <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Mathematically:</p>
+<p><span class="math display">\[
+\int\limits_a^b f(x)dx = \lim\limits_{\Delta x \rightarrow 0} \sum\limits_{i=1}^n f(x_i) \Delta x
+\]</span></p>
+<p>A Riemann Integral can, in theory, calculate any definite integral.</p>
+</div>
+</div>
+<p>A Riemann integral can calculate any integral. However, just like the formal definition of derivatives, sometimes, this can be very difficult to compute.</p>
+<ul>
+<li>Luckily for us, there is an alternative way to calculate definite integrals, that we will discuss in the next section.</li>
+</ul>
+</section>
+<section id="fundamental-theorem-of-calculus" class="level3">
+<h3 class="anchored" data-anchor-id="fundamental-theorem-of-calculus">Fundamental Theorem of Calculus</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: The Fundamental Theorem of Calculus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Fundamental Theorem of Calculus links definite and indefinite integrals. The theorem states:</p>
+<p><span class="math display">\[
+\int\limits_a^bf(x)dx = F(b) - F(a)
+\]</span></p>
+<p>Where <span class="math inline">\(F\)</span> is the indefinite integral of function <span class="math inline">\(f\)</span>.</p>
+</div>
+</div>
+<p>More intuitively, it says that if we evaluate the indefinite integral <span class="math inline">\(F\)</span>, we can then plug in <span class="math inline">\(F(b)\)</span> and <span class="math inline">\(F(a)\)</span> and find the difference, in order to evaluate the definite integral. This allows us to not use Riemann Sums.</p>
+<section id="example-3" class="level4">
+<h4 class="anchored" data-anchor-id="example-3">Example:</h4>
+<p>Find the area under the curve between <span class="math inline">\(x =1\)</span> and <span class="math inline">\(x=5\)</span> for function <span class="math inline">\(f(x) = 3x^2\)</span>.</p>
+<ol type="1">
+<li>Let us find indefinite integral. Using reverse power rule: <span class="math inline">\(\int f(x)dx = F(x) = x^3+C\)</span>.</li>
+<li>Now, fundamental theorem of calculus says <span class="math inline">\(\int\limits_a^b f(x)dx = F(b) - F(a)\)</span>.</li>
+<li>Let us plug in <span class="math inline">\(b\)</span> and <span class="math inline">\(a\)</span>. <span class="math inline">\(F(b) = F(5) = 5^3 = 125\)</span>, and <span class="math inline">\(F(a) = F(1) = 1^3 = 1\)</span>.</li>
+<li>Find the difference: <span class="math inline">\(F(b) - F(a) = F(5) - F(1) = 125 - 1 = 124\)</span>.</li>
+<li>Thus, <span class="math inline">\(\int\limits_1^5 3x^2dx = 124\)</span>.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="integration-by-substitution" class="level3">
+<h3 class="anchored" data-anchor-id="integration-by-substitution">Integration by Substitution</h3>
+<p>Integration by substitution is a technique that allows us to solve more complex integrals.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Integration by Substitution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Integration by substitution, derived from the chain rule, is a rule that states:</p>
+<p><span class="math display">\[
+\int f[u(x)] u'(x)dx = F[u(x)] + c
+\]</span></p>
+<p>Or in other words, if we can rearrange a function into the form <span class="math inline">\(f[u(x)]u'(x)\)</span>, we know its derivative will be in the form <span class="math inline">\(F[u(x)]+c\)</span>.</p>
+</div>
+</div>
+<p>So, to solve an integral, we need to:</p>
+<ol type="1">
+<li>Look at our original function in the integral, and see what <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(u(x)\)</span> could make our original function take the form <span class="math inline">\(f[u(x)]u'(x)\)</span>. We need to make sure our function in this form is equal to the original function (so we are solving the same problem). This can involve some tinkering, including dividing our new form by a constant (see example 2).</li>
+<li>Once we have our integral in that form, we know the integral will be equal to <span class="math inline">\(F[u(x)]+c\)</span>. So we must find <span class="math inline">\(F(x) = \int f(x)\)</span>, and we will have our integral (since <span class="math inline">\(u(x)\)</span> is already defined in the first step.</li>
+</ol>
+<p>If we can re-represent our integral in the form <span class="math inline">\(f(x)\)</span>’s and <span class="math inline">\(u(x)\)</span>’s in the form of integration by substitution, and ensure that the <span class="math inline">\(f(x)\)</span> we chose in that process is able to be integrated, we can find the integral.</p>
+<p><strong>Example 1:</strong> find <span class="math inline">\(\int (x+4)^5 dx\)</span>.</p>
+<ol type="1">
+<li>Let us think how we can rewrite this in the form <span class="math inline">\(f[u(x)]u'(x)\)</span>. We could define <span class="math inline">\(f(x) = u^5\)</span> and <span class="math inline">\(u(x) = x+4\)</span> so that <span class="math inline">\(f[u(x)]\)</span> section looks like <span class="math inline">\((x+4)^5\)</span>.</li>
+<li>However, we cannot forget about the extra <span class="math inline">\(u'(x)\)</span> at the end of the form <span class="math inline">\(f[u(x)]u'(x)\)</span>. What is <span class="math inline">\(u'(x)\)</span>. Using simple derivation on <span class="math inline">\(u(x) = x+4\)</span>, we know <span class="math inline">\(u'(x) = 1\)</span>. Thus, in the form <span class="math inline">\(f[u(x)]u'(x)\)</span>, we have <span class="math inline">\((x+4)^5 \times 1\)</span>, which is equivalent to our original equation.</li>
+<li>Using integration by substitution, we know <span class="math inline">\(\int f[u(x)] u'(x)dx = F[u(x)] + c\)</span>. So knowing <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(u(x)\)</span>, how do we get the integration answer in the form <span class="math inline">\(F[u(x)] + c\)</span>?</li>
+<li>We need to first find what <span class="math inline">\(F(x) = \int f(x)dx\)</span> is. The integral of <span class="math inline">\(u^5\)</span>, using reverse power rule, is <span class="math inline">\(\frac{1}{5+1} u^{5+1} + c= \frac{1}{6} u^6 + c\)</span>.</li>
+<li>Now that we know <span class="math inline">\(F(x)\)</span>, and <span class="math inline">\(u(x)\)</span> from the very first step, we can put it in the form <span class="math inline">\(F[u(x)] + c\)</span>. Thus, our answer is <span class="math inline">\(\frac{1}{6}(x+4)^2 + c\)</span>.</li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>Example 2:</strong> find <span class="math inline">\(\int e^{4x^2}x \ dx\)</span>.</p>
+<ol type="1">
+<li>Let us think how we can rewrite this in the form <span class="math inline">\(f[u(x)]u'(x)\)</span>. We could define <span class="math inline">\(f(x) = e^{u}\)</span> and <span class="math inline">\(u(x) = 4x^2\)</span> so the <span class="math inline">\(f[u(x)]\)</span> section looks like <span class="math inline">\(e^{4x^2}\)</span>.</li>
+<li>However, we cannot forget about the extra <span class="math inline">\(u'(x)\)</span> at the end of the form <span class="math inline">\(f[u(x)]u'(x)\)</span>. What is <span class="math inline">\(u'(x)\)</span>? Using power rule of <span class="math inline">\(u(x) = 4x^2, \ u'(x) = 8x\)</span>. Thus, in the form <span class="math inline">\(f[u(x)]u'(x)\)</span>, we know have <span class="math inline">\(e^{4x^2}8x\)</span>.</li>
+<li>But notice, our new form <span class="math inline">\(e^{4x^2}8x\)</span> still does not equal our original equation <span class="math inline">\(f(x) = e^{4x^2}x\)</span>. We can adjust this by multiplying our new form by <span class="math inline">\(\frac{1}{8}\)</span>, getting <span class="math inline">\(\frac{1}{8} e^{4x^2}8x\)</span>.</li>
+<li>Using integration by substitution, we know <span class="math inline">\(\int f[u(x)] u'(x)dx = F[u(x)] + c\)</span>, thus <span class="math inline">\(\frac{1}{8} \int e^{4x^2} 8xdx = F[u(x)]\)</span>. But what is <span class="math inline">\(F = \int f(x)\)</span>? since <span class="math inline">\(f(x)=e^{u}\)</span>, using integration rules, <span class="math inline">\(F(x) = e^u + c\)</span>.</li>
+<li>Since the integral by substitution is <span class="math inline">\(F[u(x)]\)</span>, we input our <span class="math inline">\(u(x) = 4x^2\)</span> into this to get <span class="math inline">\(F[u(x)] = e^{4x^2} + C\)</span></li>
+<li>Let us not forget the <span class="math inline">\(\frac{1}{8}\)</span> outside of our interval! Thus, our integral is <span class="math inline">\(\frac{1}{8} e^{4x^2} + c\)</span>.</li>
+</ol>
+<hr>
+</section>
+<section id="integration-by-parts" class="level3">
+<h3 class="anchored" data-anchor-id="integration-by-parts">Integration by Parts</h3>
+<p>Integration by parts is another technique for solving more difficult integrals.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Definition: Integration by Parts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Integration by parts, derived from the product rule, is defined as:</p>
+<p><span class="math display">\[
+\int f(x) g'(x) dx = f(x)g(x) - \int f'(x) g(x)dx
+\]</span></p>
+<p>So, if we can find some way to represent our initial integral equation in the form <span class="math inline">\(f(x) g'(x)\)</span>, and <span class="math inline">\(f'(x)g(x)\)</span> is able to be integrated, we can find the integral.</p>
+</div>
+</div>
+<p>So, to solve an integral, we need to:</p>
+<ol type="1">
+<li>Look at our original function in the integral, and see what <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g'(x)\)</span> could make our original function take the form <span class="math inline">\(f(x)g'(x)\)</span>. We need to make sure our function in this form is equal to the original function (so we are solving the same problem).</li>
+<li>Then we can solve for <span class="math inline">\(\int f'(x)g(x)dx\)</span> and <span class="math inline">\(\int g'(x)dx = g(x)\)</span>.</li>
+<li>WIth that, we can find the final integral which is in the form <span class="math inline">\(f(x)g(x) - \int f'(x) g(x)dx\)</span>.</li>
+</ol>
+<p>So, if we can find some way to represent our initial integral equation in the form <span class="math inline">\(f(x) g'(x)\)</span>, and <span class="math inline">\(f'(x)g(x)\)</span> is able to be integrated, we can find the integral.</p>
+<p>&nbsp;</p>
+<p><strong>Example 1</strong>: Find <span class="math inline">\(\int xe^xdx\)</span>.</p>
+<ol type="1">
+<li>Let us define <span class="math inline">\(f(x) = x\)</span> and <span class="math inline">\(g'(x) = e^x\)</span>. This means the form <span class="math inline">\(f(x) g'(x)\)</span> will equal our original equation.</li>
+<li>Thus, we know <span class="math inline">\(f'(x) = 1\)</span> and <span class="math inline">\(\int g'(x)dx = \int e^xdx = e^x\)</span>.</li>
+<li>That means <span class="math inline">\(\int f'(x)g(x)dx = \int 1e^xdx = \int e^x = e^x+c\)</span>.</li>
+<li>Now with all the parts, we can put into the final form <span class="math inline">\(f(x)g(x) - \int f'(x) g(x)d\)</span>. Thus, our answer is <span class="math inline">\(xe^x -e^x + c\)</span>.</li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>Example 2</strong>: find <span class="math inline">\(\int \ln(x)dx\)</span>.</p>
+<ol type="1">
+<li>Let us define <span class="math inline">\(f(x) = \ln (x)\)</span> and <span class="math inline">\(g'(x) = 1\)</span>. That means the form <span class="math inline">\(f(x) g'(x)\)</span> will equal our original equation.</li>
+<li>Thus, we know <span class="math inline">\(f'(x) = \frac{1}{x}\)</span> and <span class="math inline">\(g(x) = \int g'(x) = \int 1dx = x\)</span>.</li>
+<li>That means <span class="math inline">\(\int f'(x)g(x)dx = \int \frac{1}{x}xdx = \int 1dx = x + c\)</span>.</li>
+<li>Now with all the parts, we can put into the final form <span class="math inline">\(f(x)g(x) - \int f'(x) g(x)d\)</span>. Thus, our answer is <span class="math inline">\(\ln(x) - x + c\)</span>.</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="probability-and-statistical-theory" class="level1">
+<h1>Probability and Statistical Theory</h1>
+<section id="probability-theory" class="level2">
+<h2 class="anchored" data-anchor-id="probability-theory">Probability Theory</h2>
+<section id="rules-of-probability" class="level3">
+<h3 class="anchored" data-anchor-id="rules-of-probability">Rules of Probability</h3>
+</section>
+<section id="counting" class="level3">
+<h3 class="anchored" data-anchor-id="counting">Counting</h3>
+</section>
+<section id="independence-and-conditional-probability" class="level3">
+<h3 class="anchored" data-anchor-id="independence-and-conditional-probability">Independence and Conditional Probability</h3>
+</section>
+<section id="law-of-total-probability" class="level3">
+<h3 class="anchored" data-anchor-id="law-of-total-probability">Law of Total Probability</h3>
+</section>
+<section id="bayes-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="bayes-theorem">Bayes’ Theorem</h3>
+</section>
+</section>
+<section id="random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="random-variables">Random Variables</h2>
+<section id="discrete-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-random-variables">Discrete Random Variables</h3>
+</section>
+<section id="continuous-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-random-variables">Continuous Random Variables</h3>
+</section>
+<section id="expectations" class="level3">
+<h3 class="anchored" data-anchor-id="expectations">Expectations</h3>
+</section>
+<section id="moments" class="level3">
+<h3 class="anchored" data-anchor-id="moments">Moments</h3>
+</section>
+</section>
+<section id="distributions" class="level2">
+<h2 class="anchored" data-anchor-id="distributions">Distributions</h2>
+<section id="discrete-uniform-and-bernoulli-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-uniform-and-bernoulli-distribution">Discrete Uniform and Bernoulli Distribution</h3>
+</section>
+<section id="binomial-and-poisson-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="binomial-and-poisson-distribution">Binomial and Poisson Distribution</h3>
+</section>
+<section id="continous-uniform-and-exponential-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="continous-uniform-and-exponential-distribution">Continous Uniform and Exponential Distribution</h3>
+</section>
+<section id="normal-gaussian-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="normal-gaussian-distribution">Normal (Gaussian) Distribution</h3>
+</section>
+<section id="normal-approximation-of-the-binomial-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="normal-approximation-of-the-binomial-distribution">Normal Approximation of the Binomial Distribution</h3>
+</section>
+</section>
+<section id="multivariate-random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="multivariate-random-variables">Multivariate Random Variables</h2>
+<section id="joint-probability-functions" class="level3">
+<h3 class="anchored" data-anchor-id="joint-probability-functions">Joint Probability Functions</h3>
+</section>
+<section id="marginal-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="marginal-distributions">Marginal Distributions</h3>
+</section>
+<section id="continuous-multivaraite-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-multivaraite-distributions">Continuous Multivaraite Distributions</h3>
+</section>
+<section id="conditional-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-distributions">Conditional Distributions</h3>
+</section>
+<section id="covariance-and-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="covariance-and-correlation">Covariance and Correlation</h3>
+</section>
+<section id="independent-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="independent-random-variables">Independent Random Variables</h3>
+</section>
+<section id="sums-and-products-of-random-variables" class="level3">
+<h3 class="anchored" data-anchor-id="sums-and-products-of-random-variables">Sums and Products of Random Variables</h3>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

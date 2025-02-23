@@ -1,0 +1,28 @@
+---
+title: "Kevin Lingfeng Li"
+abstract-title: ""
+abstract: "I am a postgraduate student at the London School of Economics, interested in applying econometrics to study political phenomena. I also am a research intern at the United Nations Development Programme."
+about:
+  template: trestles
+  image: kevinli.jpg
+  links:
+    - icon: envelope
+      text: k.l.li1@lse.ac.uk
+      href: mailto:k.l.li1@lse.ac.uk
+    - icon: book
+      text: PSPE Resources
+      href: https://politicalscience.github.io
+sidebar: side
+---
+
+# More About Me
+
+Hi, I'm Kevin. I am a postgraduate student at the London School of Economics. I also am a current intern at the United Nations Development Programme (UNDP).
+
+Prior to my MSc, I completed a BSc (Hons) in Politics from King's College London, receiving First Class Honours (US Equivalent: Summa Cum Laude). During my undergraduate degree, I also took summer courses in Data Science and Accounting at the London School of Economics.
+
+My first internship was with the Foresight Team within the Regional Bureau of Asia and the Pacific. There, I contributed to a publication on the potential effects of climate migration on Pakistan and Vietnam, and helped draft potential policy solutions. I, along with my colleagues, organised an online consultation with local stakeholders in Pakistan and Vietnam to facilitate inclusive policy-making.
+
+My second internship was with the inclusive growth team of the Bureau for Programme and Policy Support. There, I contributed to a publication on UNDP's effectiveness in promoting the Samoa Plan of Action for Small Islands and Developing States (SIDS). I worked on a database of "best practices" regarding UNDP social protection programmes. I also completed mapping work on extractive industries for COP29.
+
+I am originally from San Diego, California, but I have now spent the last 3 years of my life in London. Outside of my academic interests and work, my hobbies include watching Basketball and Football, playing the Violin and Piano, and studying linguistics and creating constructed languages.

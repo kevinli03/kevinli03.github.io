@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Kevin Lingfeng Li"
+  sidebar:
+    - id: side
+      title: "Kevin Li"
+      search: true
+      style: "docked"
+      pinned: true
+      contents:
+        - text: "Home"
+          href: index.qmd
+        - text: "My PSPE Resources"
+          href: https://politicalscience.github.io
+        - text: "---"
+        - text: "More About Me"
+          href: about.qmd
+        - text: "My Publications"
+          href: publications.qmd
+        - text: "My Projects"
+          href: projects.qmd
+        - text: "My Music"
+          href: music.qmd
+        - text: "---"
+        - text: "Education Details"
+        - text: "LSE (MSc)"
+          href: lse.qmd
+        - text: "LSE (Summer School)"
+          href: summer.qmd
+        - text: "King's College London (BSc)"
+          href: kcl.qmd
+        - text: "Canyon Crest Academy"
+          href: cca.qmd
+
+format:
+  html:
+    theme: default
+    css: styles.css
+    page-layout: full
+    grid:
+      sidebar-width: 250px
+      body-width: 700px
+      margin-width: 100px
+      gutter-width: 2em
+    fontsize: 11pt
+    toc: false
+    toc-title: "On This Page"
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script src="mathjax-config.js"></script>
+editor: visual
+

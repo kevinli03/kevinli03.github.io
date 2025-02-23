@@ -1,0 +1,86 @@
+---
+title: "Kevin Lingfeng Li"
+abstract-title: ""
+abstract: "I am a postgraduate student at the London School of Economics, interested in applying econometrics to study political phenomena. I also am a research intern at the United Nations Development Programme."
+about:
+  template: trestles
+  image: kevinli.jpg
+  links:
+    - icon: envelope
+      text: k.l.li1@lse.ac.uk
+      href: mailto:k.l.li1@lse.ac.uk
+    - icon: book
+      text: PSPE Resources
+      href: https://politicalscience.github.io
+sidebar: side
+---
+
+# BSc, King's College London
+
+### Key Information
+
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+| Degree:           | BSc (Honours) in Politics                                                                                                                     |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+| Dates:            | September 2021 - July 2024                                                                                                                    |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+| Final Grade:      | First Class Honours (US Equivalent: 3.8-4.0 GPA)                                                                                              |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+| Academic Mentors: | -   [Dr. James Scott](https://scholar.google.com/citations?user=j4PK-PUAAAAJ&hl=en){style="color: gray;"}                                     |
+|                   | -   [Dr. Teresa Esteban-Casanelles](https://teresaestebancasanelles.net){style="color: gray;"}                                                |
+|                   | -   [Dr. John Meadowcroft](https://www.google.com/search?client=safari&rls=en&q=dr.+john+meadowcroft&ie=UTF-8&oe=UTF-8){style="color: gray;"} |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+### Third Year Modules
+
++-----------------------------------------+------------------------------+
+| 6SSPP330 Economic Policy-Making         | Dr. Julian Limberg           |
++-----------------------------------------+------------------------------+
+| 6SSPP403 Advanced Game Theory           | Dr. Mehmet Ismail            |
++-----------------------------------------+------------------------------+
+| 6SSPP364 Key Issues in Policy Making    | Prof. Kristel Koop           |
++-----------------------------------------+------------------------------+
+| 6SSPP388 Environmental Governance       | Dr. Francesca Pia Vataggiato |
++-----------------------------------------+------------------------------+
+| 6SSPP378 American Foreign Policy        | Dr. Keith Smith              |
++-----------------------------------------+------------------------------+
+| 6SSPP341 Global Power Europe            | Dr. Thomas Maltby            |
++-----------------------------------------+------------------------------+
+| 6SSPP356 Authoritarianism               | Prof. Sarah Birch            |
++-----------------------------------------+------------------------------+
+| 6SSPP360 Elections and Voting Behaviour | Dr. Krzysztof Krakowski      |
++-----------------------------------------+------------------------------+
+
+### Second Year Modules
+
++--------------------------------------------------------------------+-------------------------------------+
+| 5SSPP241 Statistics for Political Science II                       | Dr. Damien Bol                      |
++--------------------------------------------------------------------+-------------------------------------+
+| 5SSPP227 Game Theory and Strategic Decision Making                 | Prof. Paul Lewis, Dr. Mehmet Ismail |
++--------------------------------------------------------------------+-------------------------------------+
+| 5SSPP206 Research Methods for Politics                             | Dr. Hannah Kleider                  |
++--------------------------------------------------------------------+-------------------------------------+
+| 5SSPP231 Policy Analysis: Decision, Implementation, and Evaluation | Dr. John Meadowcroft                |
++--------------------------------------------------------------------+-------------------------------------+
+| 5SSPP223 Issues in International Politics                          | Dr. Keith Smith                     |
++--------------------------------------------------------------------+-------------------------------------+
+| 5SSPP240 American Political Development                            | Dr. Samuel DeCanio                  |
++--------------------------------------------------------------------+-------------------------------------+
+| 5SSPP205 Political Change in Europe                                | Dr. Teresa Esteban-Casanelles       |
++--------------------------------------------------------------------+-------------------------------------+
+| 5SSPP242 British Politics                                          | Prof. Peter John                    |
++--------------------------------------------------------------------+-------------------------------------+
+
+### First Year Modules
+
++--------------------------------------------+---------------------------------------+
+| 4SSPP111 Statistics for Political Science  | Dr. Adam Chalmers                     |
++--------------------------------------------+---------------------------------------+
+| 4SSPP101 Fundamentals of Politics Research | Prof. Adrian Blau                     |
++--------------------------------------------+---------------------------------------+
+| 4SSPP102 World Politics Since 1945         | Dr. Keith Smith                       |
++--------------------------------------------+---------------------------------------+
+| 4SSPP103 Comparing Political Systems       | Dr. Damien Bol, Dr. Julian Limberg    |
++--------------------------------------------+---------------------------------------+
+| 4SSPP104 Introduction to Political Theory  | Dr. Steven Klein, Dr. Billy Christmas |
++--------------------------------------------+---------------------------------------+
