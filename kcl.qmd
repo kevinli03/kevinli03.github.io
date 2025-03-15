@@ -1,7 +1,7 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "I am a postgraduate student at the London School of Economics, interested in applying econometrics to study political phenomena. I also am a research intern at the United Nations Development Programme."
+abstract: "I am a postgraduate student at the London School of Economics, interested in applied econometrics, political economy, and development economics. I am an intern at the United Nations Development Programme."
 about:
   template: trestles
   image: kevinli.jpg

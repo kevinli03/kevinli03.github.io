@@ -1,7 +1,7 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "I am a postgraduate student at the London School of Economics, interested in applying econometrics to study political phenomena. I also am a research intern at the United Nations Development Programme."
+abstract: "I am a postgraduate student at the London School of Economics, interested in applied econometrics, political economy, and development economics. I am an intern at the United Nations Development Programme."
 about:
   template: trestles
   image: kevinli.jpg
@@ -17,26 +17,26 @@ sidebar: side
 
 <br />
 
-## Experience
-
-**United Nations Development Programme** \| London, UK
-
-Research Intern \| Apr 2023 - Present
-
 ## Education
 
 **London School of Economics (LSE)** \| London, UK
 
-[MSc in Political Science and Political Economy](lse.qmd){style="color:gray;"} \| Sep 2024 - Present
+[Master of Science](lse.qmd){style="color:gray;"} \| Sep 2024 - Present
 
 [Summer School](summer.qmd){style="color: gray;"} \| Jun 2024 - Aug 2024
 
 **King's College London** \| London, UK
 
-[BSc in Politics](kcl.qmd){style="color: gray;"} \| Sep 2021 - May 2024
+[Bachelor of Science (Honours)](kcl.qmd){style="color: gray;"} \| Sep 2021 - May 2024
+
+## Experience
+
+**United Nations Development Programme** \| London, UK
+
+Intern, Bureau of Policy and Programme Support \| Aug 2023 - Present
+
+Intern, Regional Bureau of Asia and the Pacific \| Apr 2023 - Aug 2023
 
 ## Publications
 
 Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “[SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.](https://www.undp.org/publications/sids-looking-back-and-forward){style="color: gray;"}” *United Nations Development Programme*, (May 2024).
-
-(Acknowledged) Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "[Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresign Process](https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam){style="color: gray;"}", *United Nations Development Programme*, (Sep 2024).
