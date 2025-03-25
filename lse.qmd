@@ -19,24 +19,23 @@ sidebar: side
 
 ### Key Information
 
-|                          |                                                                                                                                   |
-|----------------|--------------------------------------------------------|
-| Degree:                  | MSc Political Science and Political Economy                                                                                       |
-| Dates:                   | September 2024 - September 2025                                                                                                   |
-| Final Grade:             | N/A (No predicted grades as of now)                                                                                               |
-| Dissertation:            |                                                                                                                                   |
-| Dissertation Supervisor: | [Professor Valentino Larcinese](https://www.lse.ac.uk/government/people/academic-staff/valentino-larcinese){style="color: gray;"} |
-| Academic Mentor          | [Professor Torun Dewan](https://en.wikipedia.org/wiki/Torun_Dewan){style="color: gray;"}                                          |
+|                          |                                                                                                                               |
+|------------------|------------------------------------------------------|
+| Degree:                  | MSc Political Science and Political Economy                                                                                   |
+| Dates:                   | September 2024 - September 2025                                                                                               |
+| Final Grade:             | N/A (No predicted grades as of now)                                                                                           |
+| Dissertation:            |                                                                                                                               |
+| Dissertation Supervisor: | [Prof. Valentino Larcinese](https://www.lse.ac.uk/government/people/academic-staff/valentino-larcinese){style="color: gray;"} |
+| Academic Mentor:         | [Prof. Torun Dewan](https://en.wikipedia.org/wiki/Torun_Dewan){style="color: gray;"}                                          |
 
 ### Modules
 
-|                                                                   |                                                   |
+|                                                                   |                             |
 |-----------------------------------------|-------------------------------|
-| MY452A Applied Regression Analysis                                | Prof. Jouni Kuha, Dr. Johan Ahlback               |
-| MY455 Multivariate Analysis and Measurement                       | Prof. Jouni Kuha                                  |
-| MY457 Causal Inference for Observational and Experimental Studies | Dr. Daniel de Kadt                                |
-| GV4C8 Game Theory for Political Science                           | Dr. Rafael Hortala-Vallve, Dr. Kun Byeonggeun Heo |
-| GV481 Quantitative Analysis for Political Science                 | Dr. Aliz Tóth, Dr. Felipe Torres-Raposo           |
-| GV482 Current Issues in Political Science and Political Economy   | Prof. Stephane Wolton, Dr. Kun Byeonggeun Heo     |
-| MA108 Methods in Calculus and Linear Algebra\*                    | Dr. Ioannis Kouletsis                             |
-| GV499 Dissertation                                                |                                                   |
+| MY452A Applied Regression Analysis                                | Prof. Jouni Kuha            |
+| MY455 Multivariate Analysis and Measurement                       | Prof. Jouni Kuha            |
+| MY457 Causal Inference for Observational and Experimental Studies | Dr. Daniel de Kadt          |
+| GV4C8 Game Theory for Political Science                           | Prof. Rafael Hortala-Vallve |
+| GV481 Quantitative Analysis for Political Science                 | Dr. Aliz Tóth               |
+| GV482 Current Issues in Political Science and Political Economy   | Prof. Stephane Wolton       |
+| GV499 Dissertation                                                | Prof. Valentino Larcinese   |
