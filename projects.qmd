@@ -11,7 +11,7 @@ about:
       href: mailto:k.l.li1@lse.ac.uk
     - icon: book
       text: PSPE Resources
-      href: https://politicalscience.github.io
+      href: https://kevinpspe.github.io
 sidebar: side
 ---
 
@@ -21,7 +21,7 @@ sidebar: side
 
 This is a collection of materials I have collected on Political Science and Political Economy methodology.
 
-[https://politicalscience.github.io](https://politicalscience.github.io){.uri style="color: gray;"}
+<https://kevinpspe.github.io>
 
 ### 2024 Presidential Elections
 

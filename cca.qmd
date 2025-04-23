@@ -11,7 +11,7 @@ about:
       href: mailto:k.l.li1@lse.ac.uk
     - icon: book
       text: PSPE Resources
-      href: https://politicalscience.github.io
+      href: https://kevinpspe.github.io
 sidebar: side
 ---
 
@@ -20,7 +20,7 @@ sidebar: side
 ### Key Information
 
 |              |                                                               |
-|----------------|-------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | Degree:      | High School Diploma                                           |
 | Dates:       | August 2017 - June 2021                                       |
 | Final Grade: | 35 ACT Score                                                  |

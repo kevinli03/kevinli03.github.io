@@ -11,7 +11,7 @@ about:
       href: mailto:k.l.li1@lse.ac.uk
     - icon: book
       text: PSPE Resources
-      href: https://politicalscience.github.io
+      href: https://kevinpspe.github.io
 sidebar: side
 ---
 
@@ -20,7 +20,7 @@ sidebar: side
 ### Key Information
 
 |                          |                                                                                                                               |
-|------------------|------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | Degree:                  | MSc Political Science and Political Economy                                                                                   |
 | Dates:                   | September 2024 - September 2025                                                                                               |
 | Final Grade:             | N/A (No predicted grades as of now)                                                                                           |
@@ -31,7 +31,7 @@ sidebar: side
 ### Modules
 
 |                                                                   |                             |
-|-----------------------------------------|-------------------------------|
+|--------------------------------------------------|----------------------|
 | MY452A Applied Regression Analysis                                | Prof. Jouni Kuha            |
 | MY455 Multivariate Analysis and Measurement                       | Prof. Jouni Kuha            |
 | MY457 Causal Inference for Observational and Experimental Studies | Dr. Daniel de Kadt          |

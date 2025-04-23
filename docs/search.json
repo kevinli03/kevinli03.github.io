@@ -228,7 +228,7 @@
     "href": "projects.html",
     "title": "Kevin Lingfeng Li",
     "section": "",
-    "text": "My Projects\n\nKevin’s PSPE Resources\nThis is a collection of materials I have collected on Political Science and Political Economy methodology.\nhttps://politicalscience.github.io\n\n\n2024 Presidential Elections\nThese are some (quick) predictions I made for the 2024 Presidential Elections using Random Forest/Bagging models, a few days before the election. I did correctly predict the winner!\nhttps://kevinli03.github.io/election/us2024/prediction.html\n\n\nVarieties of Capitalism and Tax Dataset\nThis is a dataset that I created on the Varieties of Capitalism Framework (Political Economy) for an undergraduate paper. It includes OECD countries, their respective Variety of Capitalism as defined by the Varieties of Capitalism Framework, and relevant tax levels and economic data on the countries.\nhttps://github.com/kevinli03/VocTaxDataset\n\n\nMy Music\nSee my music page for more details.",
+    "text": "My Projects\n\nKevin’s PSPE Resources\nThis is a collection of materials I have collected on Political Science and Political Economy methodology.\nhttps://kevinpspe.github.io\n\n\n2024 Presidential Elections\nThese are some (quick) predictions I made for the 2024 Presidential Elections using Random Forest/Bagging models, a few days before the election. I did correctly predict the winner!\nhttps://kevinli03.github.io/election/us2024/prediction.html\n\n\nVarieties of Capitalism and Tax Dataset\nThis is a dataset that I created on the Varieties of Capitalism Framework (Political Economy) for an undergraduate paper. It includes OECD countries, their respective Variety of Capitalism as defined by the Varieties of Capitalism Framework, and relevant tax levels and economic data on the countries.\nhttps://github.com/kevinli03/VocTaxDataset\n\n\nMy Music\nSee my music page for more details.",
     "crumbs": [
       "My Projects"
     ]
@@ -288,6 +288,6 @@
     "href": "start.html",
     "title": "Kevin Lingfeng Li",
     "section": "",
-    "text": "Kevin’s Start Page\n\nLSE Links\n\n\n\nMoodle\nStudent For You\nLSE For you\n\n\nCausal Inference\nPostgrad Modules\nUndergrad Modules\n\n\n\n\n\nOnline\n\n\n\nGmail\nOutlook\nLSE Email\n\n\nOneDrive\nGoogle Drive\nGithub\n\n\nDeepseek\nChatGPT\nPerplexity"
+    "text": "Kevin’s Start Page\n\nLSE Links\n\n\n\nMoodle\nStudent For You\nLSE For you\n\n\nCausal Inference\nPostgrad Modules\nUndergrad Modules\n\n\n\n\n\nOnline\nhttps://kevinpspe.github.io\n\n\n\nGmail\nOutlook\nLSE Email\n\n\nOneDrive\nGoogle Drive\nGithub\n\n\nDeepseek\nChatGPT\nPerplexity"
   }
 ]
