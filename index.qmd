@@ -1,14 +1,14 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "I am a postgraduate student at the London School of Economics, interested in applied econometrics, political economy, and development economics. I am an intern at the United Nations Development Programme."
+abstract: "Postgraduate at the London School of Economics"
 about:
   template: trestles
   image: kevinli.jpg
   links:
-    - icon: envelope
-      text: k.l.li1@lse.ac.uk
-      href: mailto:k.l.li1@lse.ac.uk
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/kevinlingfengli/
     - icon: book
       text: PSPE Resources
       href: https://kevinpspe.github.io
@@ -17,26 +17,52 @@ sidebar: side
 
 <br />
 
-## Education
+### Experience
 
-**London School of Economics (LSE)** \| London, UK
+::: myclass
+United Nations Development Programme (UNDP)
 
-[Master of Science](lse.qmd){style="color:gray;"} \| Sep 2024 - Present
+::: small
+**Research Intern**, Inclusive Growth Team \| Aug 2023 - Present
 
-[Summer School](summer.qmd){style="color: gray;"} \| Jun 2024 - Aug 2024
+**Research Intern**, Strategic Foresight Team \| Mar 2023 - Aug 2023
+:::
+:::
 
-**King's College London** \| London, UK
+### Education
 
-[Bachelor of Science (Honours)](kcl.qmd){style="color: gray;"} \| Sep 2021 - May 2024
+::: myclass
+London School of Economics (LSE)
 
-## Experience
+::: small
+**Master of Science (MSc)**, Political Science and Political Economy
 
-**United Nations Development Programme** \| London, UK
+September 2024 - August 2025
+:::
+:::
 
-Intern, Bureau of Policy and Programme Support \| Aug 2023 - Present
+::: myclass
+King's College London
 
-Intern, Regional Bureau of Asia and the Pacific \| Apr 2023 - Aug 2023
+::: small
+**Bachelor of Science (BSc)**, Political Science
 
-## Publications
+September 2021 - July 2024
 
-Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “[SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.](https://www.undp.org/publications/sids-looking-back-and-forward){style="color: gray;"}” *United Nations Development Programme*, (May 2024).
+First Class Honours
+:::
+:::
+
+### Research Interests
+
+::: myclass
+::: small
+Econometrics, specifically causal inference
+
+Multivariate statistics, specifically latent variable modelling
+
+Political economy, specifically welfare policy and development policy
+
+Sports statistics, particularly NBA advanced statistics
+:::
+:::

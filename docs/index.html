@@ -38,11 +38,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -70,113 +70,53 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Kevin Lingfeng Li</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./music.html"> 
+<span class="menu-text">Music</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./education.html"> 
+<span class="menu-text">Education</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://kevinpspe.github.io"> 
+<span class="menu-text">PSPE Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Kevin Li</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://politicalscience.github.io" class="sidebar-item-text sidebar-link">
- <span class="menu-text">My PSPE Resources</span></a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">More About Me</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./publications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">My Publications</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./projects.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">My Projects</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./music.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">My Music</span></a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
- <span class="menu-text">Education Details</span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./lse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">LSE (MSc)</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">LSE (Summer School)</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./kcl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">King’s College London (BSc)</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./cca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Canyon Crest Academy</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-trestles column-page-right">
+<div class="quarto-about-trestles column-page">
   <div class="about-entity">
     <img src="kevinli.jpg" class="about-image
   rounded " style="width: 20em;">
@@ -184,19 +124,19 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title">
 <h1 class="title">Kevin Lingfeng Li</h1>
 </div>
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-page">
   </div>
 <div>
   <div class="abstract">
     <div class="block-title"></div>
-    I am a postgraduate student at the London School of Economics, interested in applied econometrics, political economy, and development economics. I am an intern at the United Nations Development Programme.
+    Postgraduate at the London School of Economics
   </div>
 </div>
 </header>
     <div class="about-links">
-  <a href="mailto:k.l.li1@lse.ac.uk" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">k.l.li1@lse.ac.uk</span>
+  <a href="https://www.linkedin.com/in/kevinlingfengli/" class="about-link" rel="" target="">
+    <i class="bi bi-linkedin"></i>
+     <span class="about-link-text">LinkedIn</span>
   </a>
   <a href="https://kevinpspe.github.io" class="about-link" rel="" target="">
     <i class="bi bi-book"></i>
@@ -204,25 +144,46 @@ ul.task-list li input[type="checkbox"] {
   </a>
 </div>
   </div>
-  <div class="about-contents"><main class="content column-page-right" id="quarto-document-content">
+  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
 <p><br></p>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p><strong>London School of Economics (LSE)</strong> | London, UK</p>
-<p><a href="./lse.html" style="color:gray;">Master of Science</a> | Sep 2024 - Present</p>
-<p><a href="./summer.html" style="color: gray;">Summer School</a> | Jun 2024 - Aug 2024</p>
-<p><strong>King’s College London</strong> | London, UK</p>
-<p><a href="./kcl.html" style="color: gray;">Bachelor of Science (Honours)</a> | Sep 2021 - May 2024</p>
+<section id="experience" class="level3">
+<h3 data-anchor-id="experience">Experience</h3>
+<div class="myclass">
+<p>United Nations Development Programme (UNDP)</p>
+<div class="small">
+<p><strong>Research Intern</strong>, Inclusive Growth Team | Aug 2023 - Present</p>
+<p><strong>Research Intern</strong>, Strategic Foresight Team | Mar 2023 - Aug 2023</p>
+</div>
+</div>
 </section>
-<section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
-<p><strong>United Nations Development Programme</strong> | London, UK</p>
-<p>Intern, Bureau of Policy and Programme Support | Aug 2023 - Present</p>
-<p>Intern, Regional Bureau of Asia and the Pacific | Apr 2023 - Aug 2023</p>
+<section id="education" class="level3">
+<h3 data-anchor-id="education">Education</h3>
+<div class="myclass">
+<p>London School of Economics (LSE)</p>
+<div class="small">
+<p><strong>Master of Science (MSc)</strong>, Political Science and Political Economy</p>
+<p>September 2024 - August 2025</p>
+</div>
+</div>
+<div class="myclass">
+<p>King’s College London</p>
+<div class="small">
+<p><strong>Bachelor of Science (BSc)</strong>, Political Science</p>
+<p>September 2021 - July 2024</p>
+<p>First Class Honours</p>
+</div>
+</div>
 </section>
-<section id="publications" class="level2">
-<h2 data-anchor-id="publications">Publications</h2>
-<p>Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “<a href="https://www.undp.org/publications/sids-looking-back-and-forward" style="color: gray;">SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.</a>” <em>United Nations Development Programme</em>, (May 2024).</p>
+<section id="research-interests" class="level3">
+<h3 data-anchor-id="research-interests">Research Interests</h3>
+<div class="myclass">
+<div class="small">
+<p>Econometrics, specifically causal inference</p>
+<p>Multivariate statistics, specifically latent variable modelling</p>
+<p>Political economy, specifically welfare policy and development policy</p>
+<p>Sports statistics, particularly NBA advanced statistics</p>
+</div>
+</div>
 
 
 </section>
