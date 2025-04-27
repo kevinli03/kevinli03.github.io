@@ -11,7 +11,7 @@ about:
       href: https://www.linkedin.com/in/kevinlingfengli/
     - icon: book
       text: PSPE Resources
-      href: https://kevinpspe.github.io
+      href: https://kevinli03.github.io/pspe/
 sidebar: side
 ---
 

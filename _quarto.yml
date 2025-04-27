@@ -16,7 +16,7 @@ website:
         - text: "Education"
           href: education.qmd
         - text: "PSPE Resources"
-          href: https://kevinpspe.github.io
+          href: https://kevinli03.github.io/pspe/
 
 format:
   html:

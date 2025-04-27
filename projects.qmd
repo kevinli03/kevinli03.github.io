@@ -11,7 +11,7 @@ about:
       href: https://www.linkedin.com/in/kevinlingfengli/
     - icon: book
       text: PSPE Resources
-      href: https://kevinpspe.github.io
+      href: https://kevinli03.github.io/pspe/
 sidebar: side
 ---
 
@@ -68,7 +68,7 @@ Kevin's PSPE Resources
 ::: small
 This is a collection of materials I have collected on Political Science and Political Economy methodology, focusing on causal inference and latent variable modelling.
 
-<https://kevinpspe.github.io>
+<https://kevinli03.github.io/pspe/>
 :::
 :::
 
