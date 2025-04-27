@@ -15,3 +15,9 @@
   font-size: 0.8em;
   color: #666;
 }
+
+@media (max-width: 991px) {
+    .about-entity img {
+        display: none;
+    }
+}
