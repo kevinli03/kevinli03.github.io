@@ -15,8 +15,8 @@ website:
           href: music.qmd
         - text: "Education"
           href: education.qmd
-        - text: "PSPE Resources"
-          href: https://kevinli03.github.io/pspe/
+        - text: "DiD Resources"
+          href: https://kevinli03.github.io/did/
 
 format:
   html:
