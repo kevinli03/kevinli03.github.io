@@ -21,26 +21,26 @@ sidebar: side
 ## Papers
 
 ::: myclass
-Masters Dissertation
+Impact of Conditional Cash Transfers on Political Participation
 
 ::: small
-Currently in progress, I will update this when ready
+My Master's Dissertation. \[In progress, link will be updated shortly\]
 :::
 :::
 
 ::: myclass
-Paper on Cultural Backlash and Populism
+Reappraisal of Tellez (2022)
 
 ::: small
-Currently in progress, I will update this when ready
+A paper created for my Causal Inference class. \[In progress, link will be updated shortly\]
 :::
 :::
 
 ::: myclass
-Replication Paper for Causal Inference
+Cultural Backlash Hypothesis: How Legalisation of LGBTQ+ Marriage Affects Right-wing Populist Support
 
 ::: small
-Currently in progress, I will update this when ready
+A paper created for my political economy class. \[In progress, link will be updated shortly\]
 :::
 :::
 
@@ -60,15 +60,25 @@ UNDP Publication on Climate Migration
 :::
 :::
 
-## Other Projects
+## Academic Resources
 
 ::: myclass
-Kevin's PSPE Resources
+Kevin's Difference-in-Differences Resources
 
 ::: small
-This is a collection of materials I have collected on Political Science and Political Economy methodology, focusing on causal inference and latent variable modelling.
+This is a collection of materials I have collected on modern advancements in difference-in-differences (DiD) over my Master's degree.
 
-<https://kevinli03.github.io/pspe/>
+<https://kevinli03.github.io/did/>
+:::
+:::
+
+::: myclass
+Causal Inference Lectures
+
+::: small
+This is a series of slideshows/powerpoints I made to summarise and teach the basics of Causal Inference.
+
+\[link coming soon\]
 :::
 :::
 
@@ -82,15 +92,7 @@ These are some (quick) predictions I made for the 2024 Presidential Elections us
 :::
 :::
 
-::: myclass
-Varieties of Capitalism and Tax Dataset
-
-::: small
-This is a dataset that I created on the Varieties of Capitalism Framework (Political Economy) for an undergraduate paper. It includes OECD countries, their respective Variety of Capitalism as defined by the Varieties of Capitalism Framework, and relevant tax levels and economic data on the countries.
-
-<https://github.com/kevinli03/VocTaxDataset>
-:::
-:::
+## Other Projects
 
 ::: myclass
 My Music Recordings

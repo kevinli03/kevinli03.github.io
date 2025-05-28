@@ -57,10 +57,8 @@ First Class Honours
 
 ::: myclass
 ::: small
-Econometrics, specifically difference-in-differences/causal panel analysis
+Causal Inference/Econometrics, specifically Difference-in-Differences.
 
-Political economy, specifically welfare policy and development policy
-
-Sports statistics, particularly NBA advanced statistics
+Political Economy, specifically welfare and institutions.
 :::
 :::

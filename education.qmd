@@ -38,11 +38,11 @@ Academic Mentor: [Professor Torun Dewan](https://en.wikipedia.org/wiki/Torun_Dew
 Research Details
 
 ::: small
-Dissertation Topic:
+Dissertation: The Impact of Conditional Cash Transfers on Political Participation and Trust.
 
 Dissertation Supervisor: [Professor Valentino Larcinese](https://www.lse.ac.uk/government/people/academic-staff/valentino-larcinese)
 
-Research Interests: Causal Inference, Latent Variable Modelling, Political Economy, Welfare.
+Research Interests: Causal Inference, Latent Variable Modelling, Political Economy.
 :::
 :::
 
