@@ -17,6 +17,8 @@ website:
           href: education.qmd
         - text: "DiD Resources"
           href: https://kevinli03.github.io/did/
+        - text: "Causal Inference"
+          href: https://kevinli03.github.io/causal/
 
 format:
   html:

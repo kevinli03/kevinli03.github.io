@@ -12,6 +12,9 @@ about:
     - icon: book
       text: DiD Resources
       href: https://kevinli03.github.io/did/
+    - icon: book
+      text: Causal Inference
+      href: https://kevinli03.github.io/causal/
 sidebar: side
 ---
 
