@@ -20,10 +20,10 @@ sidebar: side
 
 # Education Details
 
-::: {.panel-tabset .nav-pills}
+::::::::::::::::::::: {.panel-tabset .nav-pills}
 ## Masters
 
-::: myclass
+:::: myclass
 London School of Economics and Political Science (LSE)
 
 ::: small
@@ -35,27 +35,27 @@ Final Grade: N/A (not available as of yet)
 
 Academic Mentor: [Professor Torun Dewan](https://en.wikipedia.org/wiki/Torun_Dewan)
 :::
-:::
+::::
 
-::: myclass
+:::: myclass
 Research Details
 
 ::: small
-Dissertation: The Impact of Conditional Cash Transfers on Political Participation and Trust.
+Dissertation: Conditional Cash Transfers and Political Participation: Evidence from the Earned Income Tax Credit.
 
 Dissertation Supervisor: [Professor Valentino Larcinese](https://www.lse.ac.uk/government/people/academic-staff/valentino-larcinese)
 
-Research Interests: Causal Inference, Latent Variable Modelling, Political Economy.
+Research Interests: Causal Inference, Political Economy, Development Economics.
 :::
-:::
+::::
 
-::: myclass
+:::: myclass
 Coursework Details
 
 ::: small
-MY455 Multivariate Analysis and Measurement
-
 MY457 Causal Inference for Observational and Experimental Studies
+
+MY455 Multivariate Analysis and Measurement
 
 MY452A Applied Regression Analysis
 
@@ -69,11 +69,11 @@ GV482 Current Issues in Political Science and Political Economy
 
 AC110 Principles of Accounting
 :::
-:::
+::::
 
 ## Bachelors
 
-::: myclass
+:::: myclass
 King's College London
 
 ::: small
@@ -85,9 +85,9 @@ Final Grade: First-Class Honours (1:1)
 
 Academic Mentors: [Dr. James Scott](https://scholar.google.com/citations?user=j4PK-PUAAAAJ&hl=en), [Dr. Teresa Esteban-Casanelles](https://teresaestebancasanelles.net/)
 :::
-:::
+::::
 
-::: myclass
+:::: myclass
 Coursework Details
 
 ::: small
@@ -133,11 +133,11 @@ Coursework Details
 
 4SSPP104 Introduction to Political Theory
 :::
-:::
+::::
 
 ## High School
 
-::: myclass
+:::: myclass
 Canyon Crest Academy
 
 ::: small
@@ -145,21 +145,21 @@ Degree: High School Diploma
 
 Dates: August 2017 - June 2021
 :::
-:::
+::::
 
-::: myclass
+:::: myclass
 Awards
 
 ::: small
 National AP Scholar (2020)
 
-AP Scholar with Distinction (2x, 2019, 2020)
+AP Scholar with Distinction (2x: 2019, 2020)
 
-President's Volunteer Service Award (2x. 2018, 2019)
+President's Volunteer Service Award (2x: 2018, 2019)
 :::
-:::
+::::
 
-::: myclass
+:::: myclass
 Standardised Test Scores (ACT)
 
 ::: small
@@ -173,9 +173,9 @@ Mathematics Score: 35/36
 
 Science Score: 36/36
 :::
-:::
+::::
 
-::: myclass
+:::: myclass
 Advanced Placement (AP) Programme
 
 ::: small
@@ -211,5 +211,5 @@ AP Chinese Language and Culture
 
 AP Music Theory
 :::
-:::
-:::
+::::
+:::::::::::::::::::::

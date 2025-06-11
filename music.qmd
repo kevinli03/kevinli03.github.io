@@ -20,7 +20,7 @@ sidebar: side
 
 # My Music
 
-::: myclass
+:::: myclass
 Solo Recordings
 
 ::: small
@@ -40,9 +40,9 @@ Solo Recordings
 
 [Cover: One Call Away (Charlie Puth)](https://youtu.be/Rtt7LULcPmc){style="color: gray;"}
 :::
-:::
+::::
 
-::: myclass
+:::: myclass
 Group Recordings
 
 ::: small
@@ -56,4 +56,4 @@ Group Recordings
 
 [Cool Chamber Piece with CCA Orchestra](https://youtu.be/f3efaP1yKrQ){style="color: gray;"}
 :::
-:::
+::::

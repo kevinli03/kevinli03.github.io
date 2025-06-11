@@ -9,16 +9,16 @@ website:
       search: true
       pinned: true
       left:
-        - text: "Projects"
+        - text: "Papers and Projects"
           href: projects.qmd
         - text: "Music"
           href: music.qmd
         - text: "Education"
           href: education.qmd
-        - text: "DiD Resources"
-          href: https://kevinli03.github.io/did/
         - text: "Causal Inference"
           href: https://kevinli03.github.io/causal/
+        - text: "DiD Resources"
+          href: https://kevinli03.github.io/did/
 
 format:
   html:

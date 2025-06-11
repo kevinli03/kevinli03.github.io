@@ -18,54 +18,70 @@ about:
 sidebar: side
 ---
 
-# My Projects
+# My Papers and Projects
 
-::: {.panel-tabset .nav-pills}
+::::::::::::::::::::: {.panel-tabset .nav-pills}
 ## Papers
 
-::: myclass
-Impact of Conditional Cash Transfers on Political Participation
+:::: myclass
+MSc Dissertation
 
 ::: small
-My Master's Dissertation. \[In progress, link will be updated shortly\]
-:::
-:::
+Conditional Cash Transfers and Political Participation: Evidence from the Earned Income Tax Credit.
 
-::: myclass
-Reappraisal of Tellez (2022)
+\[Link will be updated after marking is complete\]
+:::
+::::
+
+:::: myclass
+Causal Inference Reppraisal
 
 ::: small
-A paper created for my Causal Inference class. \[In progress, link will be updated shortly\]
-:::
-:::
+Replication and Reppraisal of Tellez (2022) "Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia".
 
-::: myclass
+\[Link will be updated after marking is complete\]
+:::
+::::
+
+:::: myclass
+Cultural Backlash Hypothesis of Populism
+
+::: small
 Cultural Backlash Hypothesis: How Legalisation of LGBTQ+ Marriage Affects Right-wing Populist Support
 
-::: small
-A paper created for my political economy class. \[In progress, link will be updated shortly\]
+\[Link will be updated after marking is complete\]
 :::
-:::
+::::
 
-::: myclass
-UNDP Publication on Small Island Developing States
+:::: myclass
+UNDP Publication: Small Island Developing States
 
 ::: small
 Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. “[SIDS: Looking Back and Forward – Accelerating Action in the Next 10 Years.](https://www.undp.org/publications/sids-looking-back-and-forward)” *United Nations Development Programme*, (May 2024).
 :::
-:::
+::::
 
-::: myclass
-UNDP Publication on Climate Migration
+:::: myclass
+UNDP Publication: Climate Migration
 
 ::: small
 (Contributed) Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. "[Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresight Process](https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam)", *United Nations Development Programme*, (Sep 2024).
 :::
+::::
+
+## Resources
+
+:::: myclass
+Causal Inference Lectures
+
+::: small
+This is a series of slideshows/powerpoints I made to summarise and teach the basics of Causal Inference.
+
+<https://kevinli03.github.io/causal/>
 :::
+::::
 
-## Academic Resources
-
-::: myclass
+:::: myclass
 Kevin's Difference-in-Differences Resources
 
 ::: small
@@ -73,19 +89,11 @@ This is a collection of materials I have collected on modern advancements in dif
 
 <https://kevinli03.github.io/did/>
 :::
-:::
+::::
 
-::: myclass
-Causal Inference Lectures
+## Other Projects
 
-::: small
-This is a series of slideshows/powerpoints I made to summarise and teach the basics of Causal Inference.
-
-\[link coming soon\]
-:::
-:::
-
-::: myclass
+:::: myclass
 2024 US Presidential Election Predictions
 
 ::: small
@@ -93,15 +101,13 @@ These are some (quick) predictions I made for the 2024 Presidential Elections us
 
 <https://kevinli03.github.io/election/us2024/prediction.html>
 :::
-:::
+::::
 
-## Other Projects
-
-::: myclass
+:::: myclass
 My Music Recordings
 
 ::: small
 See [my music](music.qmd){style="color: gray;"} page for more details.
 :::
-:::
-:::
+::::
+:::::::::::::::::::::

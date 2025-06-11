@@ -22,7 +22,7 @@ sidebar: side
 
 ### Experience
 
-::: myclass
+:::: myclass
 United Nations Development Programme (UNDP)
 
 ::: small
@@ -30,11 +30,11 @@ United Nations Development Programme (UNDP)
 
 **Research Intern**, Strategic Foresight Team \| Mar 2023 - Aug 2023
 :::
-:::
+::::
 
 ### Education
 
-::: myclass
+:::: myclass
 London School of Economics (LSE)
 
 ::: small
@@ -42,9 +42,9 @@ London School of Economics (LSE)
 
 September 2024 - August 2025
 :::
-:::
+::::
 
-::: myclass
+:::: myclass
 King's College London
 
 ::: small
@@ -52,16 +52,18 @@ King's College London
 
 September 2021 - July 2024
 
-First Class Honours
+1:1 (First Class Honours)
 :::
-:::
+::::
 
 ### Research Interests
 
-::: myclass
+:::: myclass
 ::: small
-Causal Inference/Econometrics, specifically Difference-in-Differences.
+Applied Econometrics regarding causal inference.
 
 Political Economy, specifically welfare and institutions.
+
+Development economics and inclusive growth.
 :::
-:::
+::::
