@@ -15,7 +15,7 @@ about:
 sidebar: side
 ---
 
-::::::::::::::::::::::::::::::: {.panel-tabset .nav-pills}
+::::::::::::::::::::::::::::::: panel-tabset
 ## About
 
 #### Experience
