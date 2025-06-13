@@ -80,7 +80,7 @@ Conditional Cash Transfers and Political Trust: Evidence from the Earned Income 
 
 :::: myclass
 ::: small
-Cultural Backlash Hypothesis: How Legalisation of LGBTQ+ Marriage Affects Right-wing Populist Support (Jun 2025).
+Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences (Jun 2025).
 
 -   [Paper](https://kevinli03.github.io/papers/gv482/paper.pdf) \| [Replication Data and Code](https://github.com/kevinli03/kevinli03.github.io/tree/main/papers/gv482)
 :::

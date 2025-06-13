@@ -1,6 +1,6 @@
 ---
-title: "Cultural Backlash Hypothesis"
-subtitle: "How Legalisation of LGBTQ+ Marriage Affects Right-wing Populist Support: Evidence from Europe with a Difference-in-Differences Design"
+title: "Legalisation of LGBTQ+ Marriage and Right-wing Populism"
+subtitle: "Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences"
 author:
   - name: Kevin Lingfeng Li
     affiliations:
