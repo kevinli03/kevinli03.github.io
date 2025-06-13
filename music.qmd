@@ -6,12 +6,12 @@ about:
   template: trestles
   image: kevinli.jpg
   links:
+    - icon: house-door-fill
+      text: Homepage
+      href: https://kevinli03.github.io
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/kevinlingfengli/
-    - icon: book
-      text: Papers and Projects
-      href: https://kevinli03.github.io/projects.html
 sidebar: side
 ---
 

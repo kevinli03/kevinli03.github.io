@@ -1,7 +1,7 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "Postgraduate at the London School of Economics"
+abstract: "Postgraduate at the London School of Economics; Research Intern at the UNDP"
 about:
   template: trestles
   image: kevinli.jpg
@@ -10,34 +10,35 @@ about:
       text: LinkedIn
       href: https://www.linkedin.com/in/kevinlingfengli/
     - icon: book
-      text: Papers and Projects
-      href: https://kevinli03.github.io/projects.html
+      text: Causal Inference Resources
+      href: https://kevinli03.github.io/causal
 sidebar: side
 ---
 
-<br />
+::::::::::::::::::::::::::::: {.panel-tabset .nav-pills}
+## About
 
-### Experience
+#### Experience
 
 :::: myclass
 United Nations Development Programme (UNDP)
 
 ::: small
-**Research Intern**, Inclusive Growth Team \| Aug 2023 - Present
+*Research Intern*, Inclusive Growth Team \| Aug 2023 - Present
 
-**Research Intern**, Strategic Foresight Team \| Mar 2023 - Aug 2023
+*Research Intern*, Strategic Foresight Team \| Mar 2023 - Aug 2023
 :::
 ::::
 
-### Education
+#### Education
 
 :::: myclass
 London School of Economics (LSE)
 
 ::: small
-**Master of Science (MSc)**, Political Science and Political Economy
+*Master of Science (MSc)*, Political Science and Political Economy
 
-September 2024 - August 2025
+-   September 2024 - August 2025
 :::
 ::::
 
@@ -45,15 +46,14 @@ September 2024 - August 2025
 King's College London
 
 ::: small
-**Bachelor of Science (BSc)**, Political Science
+*Bachelor of Science (BSc)*, Political Science
 
-September 2021 - July 2024
-
-1:1 (First Class Honours)
+-   September 2021 - July 2024
+-   1:1 (First Class Honours)
 :::
 ::::
 
-### Research Interests
+#### Research Interests
 
 :::: myclass
 ::: small
@@ -64,3 +64,96 @@ Political Economy, specifically welfare and institutions.
 Development economics and inclusive growth.
 :::
 ::::
+
+## Papers
+
+#### My Personal Papers
+
+:::: myclass
+::: small
+Conditional Cash Transfers and Political Trust: Evidence from the Earned Income Tax Credit (Aug 2025).
+
+-   \[Link will be updated after marking is complete\]
+:::
+::::
+
+:::: myclass
+::: small
+Cultural Backlash Hypothesis: How Legalisation of LGBTQ+ Marriage Affects Right-wing Populist Support (Jun 2025).
+
+-   [Paper](https://kevinli03.github.io/papers/gv482/paper.pdf) \| [Replication Data and Code](https://github.com/kevinli03/kevinli03.github.io/tree/main/papers/gv482)
+:::
+::::
+
+:::: myclass
+::: small
+Replication and Reppraisal of Tellez (2022) 'Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia' (Jun 2025).
+
+-   \[Link will be updated after marking is complete\]
+:::
+::::
+
+#### Publications
+
+:::: myclass
+::: small
+Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. (2024) 'SIDS: Looking Back and Forward - Accelerating Action in the Next 10 Years', *United Nations Development Programme*.
+
+-   [Paper](https://www.undp.org/publications/sids-looking-back-and-forward) \| [Local Version of Paper](https://kevinli03.github.io/papers/undp/sids.pdf)
+:::
+::::
+
+:::: myclass
+::: small
+(Contributed) Krishnan, Aarathi, Beth Allen, Sophia Robele, Aaron Martin, Wajiha Khan. (2024) 'Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam: Insights from a Participatory Foresight Process', *United Nations Development Programme*, (Sep 2024).
+
+-   [Paper](https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam) \| [Local Version of Paper](https://kevinli03.github.io/papers/undp/climate.pdf)
+:::
+::::
+
+## Projects
+
+#### Academic Resources
+
+:::: myclass
+Causal Inference Lectures
+
+::: small
+This is a series of slideshows/powerpoints I made to summarise and teach the basics of Causal Inference.
+
+-   <https://kevinli03.github.io/causal/>
+:::
+::::
+
+:::: myclass
+Kevin's Difference-in-Differences Resources
+
+::: small
+This is a collection of materials I have collected on modern advancements in difference-in-differences (DiD) over my Master's degree.
+
+-   <https://kevinli03.github.io/did/>
+:::
+::::
+
+#### Other Projects
+
+:::: myclass
+2024 US Presidential Election Predictions
+
+::: small
+These are some (quick) predictions I made for the 2024 Presidential Elections using Random Forest/Bagging models, a few days before the election. I did correctly predict the winner!
+
+-   <https://kevinli03.github.io/election/us2024/prediction.html>
+:::
+::::
+
+:::: myclass
+My Music Recordings
+
+::: small
+-   See [my music](music.qmd){style="color: gray;"} page for more details.
+:::
+::::
+:::::::::::::::::::::::::::::
+
+###

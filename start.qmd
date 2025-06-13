@@ -6,12 +6,12 @@ about:
   template: trestles
   image: kevinli.jpg
   links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/kevinlingfengli/
+    - icon: house-door-fill
+      text: Homepage
+      href: https://kevinli03.github.io
     - icon: book
-      text: Papers and Projects
-      href: https://kevinli03.github.io/projects.html
+      text: Causal Inference Resources
+      href: https://kevinli03.github.io/causal
 sidebar: side
 ---
 
@@ -19,15 +19,15 @@ sidebar: side
 
 ### LSE Links
 
-|                                                  |                                                                                                                                                                                                          |                                                                                                                                                                                                                                                          |
-|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Moodle](https://moodle.lse.ac.uk/my/)           | [Student For You](https://portal.lse.ac.uk/studentservices/s/?_gl=11c1xkmp_gcl_auMTU2NDcwMzc5MS4xNzIxMjM1NTAz_gaOTczMzc3MTk2LjE3MTMzODQ0NzI._ga_LWTEVFESYX*MTcyNzM4MTg5Ny4yMDMuMS4xNzI3MzgyNzQyLjguMC4w) | [LSE For you](https://auth.lse.ac.uk/auth/login?service=https%3A%2F%2Flfy.lse.ac.uk%2Fportal%2Fp%2F&renew=true&_gl=15ghr49_gcl_auMTk0MjQzMTI2MS4xNzEzMzg0NDcy_gaOTczMzc3MTk2LjE3MTMzODQ0NzI._ga_LWTEVFESYX*MTcyMDU2MDcyMy44Mi4xLjE3MjA1NjA3NjIuMjEuMC4w) |
-| [Causal Inference](https://lse-my457.github.io/) | [Postgrad Modules](https://www.lse.ac.uk/resources/calendar/courseGuides/graduate.htm)                                                                                                                   | [Undergrad Modules](https://www.lse.ac.uk/resources/calendar/courseGuides/undergraduate.htm)                                                                                                                                                             |
+|  |  |  |
+|-------------------|------------------------|-----------------------------|
+| [Moodle](https://moodle.lse.ac.uk/my/) | [Student For You](https://portal.lse.ac.uk/studentservices/s/?_gl=11c1xkmp_gcl_auMTU2NDcwMzc5MS4xNzIxMjM1NTAz_gaOTczMzc3MTk2LjE3MTMzODQ0NzI._ga_LWTEVFESYX*MTcyNzM4MTg5Ny4yMDMuMS4xNzI3MzgyNzQyLjguMC4w) | [LSE For you](https://auth.lse.ac.uk/auth/login?service=https%3A%2F%2Flfy.lse.ac.uk%2Fportal%2Fp%2F&renew=true&_gl=15ghr49_gcl_auMTk0MjQzMTI2MS4xNzEzMzg0NDcy_gaOTczMzc3MTk2LjE3MTMzODQ0NzI._ga_LWTEVFESYX*MTcyMDU2MDcyMy44Mi4xLjE3MjA1NjA3NjIuMjEuMC4w) |
+| [Causal Inference](https://lse-my457.github.io/) | [Postgrad Modules](https://www.lse.ac.uk/resources/calendar/courseGuides/graduate.htm) | [Undergrad Modules](https://www.lse.ac.uk/resources/calendar/courseGuides/undergraduate.htm) |
 
 ### Online
 
-|                                                                     |                                                         |                                                                                                                                          |
-|---------------------------------------------------------------------|---------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| [Gmail](https://mail.google.com/mail/u/0/#inbox)                    | [Outlook](https://outlook.live.com/mail/0/)             | [LSE Email](https://outlook.office.com/mail/inbox/id/AAQkADU3NWU3M2RlLTk2NmMtNGEyZS1iYTU2LTQ2NTRhZWMzNTMyZQAQAIHp9iDvCC9KkshVxv4XT9U%3D) |
-| [OneDrive](https://onedrive.live.com/?id=root&cid=2B9362CA6119DD78) | [Google Drive](https://drive.google.com/drive/my-drive) | [Github](https://github.com)                                                                                                             |
-| [Deepseek](https://chat.deepseek.com)                               | [ChatGPT](https://chat.openai.com/)                     | [Grok](https://grok.com)                                                                                                                 |
+|  |  |  |
+|-------------------|-------------------|----------------------------------|
+| [Gmail](https://mail.google.com/mail/u/0/#inbox) | [Outlook](https://outlook.live.com/mail/0/) | [LSE Email](https://outlook.office.com/mail/inbox/id/AAQkADU3NWU3M2RlLTk2NmMtNGEyZS1iYTU2LTQ2NTRhZWMzNTMyZQAQAIHp9iDvCC9KkshVxv4XT9U%3D) |
+| [OneDrive](https://onedrive.live.com/?id=root&cid=2B9362CA6119DD78) | [Google Drive](https://drive.google.com/drive/my-drive) | [Github](https://github.com) |
+| [Grok](https://grok.com) | [ChatGPT](https://chat.openai.com/) | [Deepseek](https://chat.deepseek.com) |
