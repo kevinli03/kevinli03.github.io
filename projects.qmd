@@ -39,7 +39,7 @@ Paper on Populism and Cultural Backlash.
 ::: small
 Cultural Backlash Hypothesis: How Legalisation of LGBTQ+ Marriage Affects Right-wing Populist Support
 
--   Paper: <https://github.com/kevinli03/kevinli03.github.io/papers/gv482.pdf>
+-   Paper: <https://kevinli03.github.io/papers/gv482/paper.pdf>
 -   Replication Data and Code: <https://github.com/kevinli03/kevinli03.github.io/tree/main/papers/gv482>
 :::
 ::::
