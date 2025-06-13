@@ -34,20 +34,21 @@ Conditional Cash Transfers and Political Participation: Evidence from the Earned
 ::::
 
 :::: myclass
-Causal Inference Reppraisal
+Paper on Populism and Cultural Backlash.
 
 ::: small
-Replication and Reppraisal of Tellez (2022) "Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia".
+Cultural Backlash Hypothesis: How Legalisation of LGBTQ+ Marriage Affects Right-wing Populist Support
 
-\[Link will be updated after marking is complete\]
+-   Paper: <https://github.com/kevinli03/kevinli03.github.io/papers/gv482.pdf>
+-   Replication Data and Code: <https://github.com/kevinli03/kevinli03.github.io/tree/main/papers/gv482>
 :::
 ::::
 
 :::: myclass
-Cultural Backlash Hypothesis of Populism
+Causal Inference Reppraisal
 
 ::: small
-Cultural Backlash Hypothesis: How Legalisation of LGBTQ+ Marriage Affects Right-wing Populist Support
+Replication and Reppraisal of Tellez (2022) "Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia".
 
 \[Link will be updated after marking is complete\]
 :::
