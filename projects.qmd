@@ -10,11 +10,8 @@ about:
       text: LinkedIn
       href: https://www.linkedin.com/in/kevinlingfengli/
     - icon: book
-      text: DiD Resources
-      href: https://kevinli03.github.io/did/
-    - icon: book
-      text: Causal Inference
-      href: https://kevinli03.github.io/causal/
+      text: Papers and Projects
+      href: https://kevinli03.github.io/projects.html
 sidebar: side
 ---
 
