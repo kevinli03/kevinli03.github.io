@@ -24,9 +24,9 @@ sidebar: side
 United Nations Development Programme
 
 ::: small
-*Research Intern*, Inclusive Growth Team \| Aug 2023 - Present
+*Research Intern*, Inclusive Growth \| Aug 2023 - Aug 2025
 
-*Research Intern*, Strategic Foresight Team \| Mar 2023 - Aug 2023
+*Research Intern*, Strategic Foresight \| Mar 2023 - Aug 2023
 :::
 :::
 
@@ -36,9 +36,7 @@ United Nations Development Programme
 London School of Economics (LSE)
 
 ::: small
-*Master of Science (MSc)*, Political Science and Political Economy
-
-September 2024 - August 2025
+*Master of Science -* MSc \| Sep 2024 - Aug 2025
 :::
 :::
 
@@ -46,9 +44,7 @@ September 2024 - August 2025
 King's College London
 
 ::: small
-*Bachelor of Science (BSc)*, Political Science
-
-September 2021 - July 2024
+*Bachelor of Science* - BSc \| Sep 2021 - Jul 2024
 
 1:1 (First Class Honours)
 :::
