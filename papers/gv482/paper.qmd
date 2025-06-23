@@ -94,7 +94,7 @@ One noticeable change in cultural values in recent decades has been the increase
 
 The vote share of right-wing populist parties in Europe is the outcome variable. I focus on right-wing populist parties only, because a significant portion of the "cultural backlash" comes from white male voters who feel alienated and worse off by the progress other demographic groups have made (Inglehard and Norris 2016, Margalit 2019). Right-wing populist parties tend to be more conservative, pro-traditional values, and thus feed more into the discontent felt by white male voters (Inglehard and Norris 2016). Thus, if the cultural backlash hypothesis is true, we should expect that cultural changes, such as LGBTQ+ marriage, should have the largest noticeable effect on right-wing populist support.
 
-&nbsp;
+ 
 
 ```{r sumstats, echo = FALSE, eval = FALSE}
 # --- SUMMARY STATS: POPULISTRIGHT ---
@@ -141,7 +141,6 @@ max(dta_2015$PopulistRight)
 \end{center}
 \end{table}
 ```
-
 ```{r popgraph, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
 ## demean
 dta <- dta %>%
@@ -161,7 +160,7 @@ ggplot(dta, aes(x = Year, y = deR)) +
   theme_minimal()
 ```
 
-&nbsp;
+ 
 
 Right-wing populists have gained significant vote share in Europe in the last few decades. Table 1 shows the mean vote share of right-wing populist parties in European countries from different time periods. In figure 1, we see a positive trend in right-wing populist support over time.
 
@@ -343,7 +342,7 @@ did::ggdid(att_group, title = "Figure 6: Group-Time ATT by Intial Treatment Year
 
 Interestingly, the ATT of countries initially treated in 2003 and 2019 are statistically significant, but in a negative direction. This implies that the legalisation of LGBTQ+ marriage in countries in 2003 and 2019 resulted in a decrease in right-wing populist support, which is contrary to the cultural backlash hypothesis. However, since only specific countries were initially treated in those years, it is hard to generalise those specific group ATT results. The weighted average of all the group-time ATT's (in table 3) shows that as a whole, there is no significant causal effect of legalising LGBTQ+ marriage on right-wing populist vote share.
 
-&nbsp;
+ 
 
 ```{r csatt, echo = F, eval = F}
 # calculate weighted att
