@@ -64,6 +64,11 @@ options(scipen=999)
 
 ```
 
+
+
+
+
+
 ## Abstract {.unnumbered}
 
 This paper was created for the summative assignment of the course: MY457 Causal Inference for Experimental and Observational Studies (2024-2025 Winter Term). This paper is a replication and reappraisal of the following paper:
@@ -127,6 +132,11 @@ $$
 -   In the fourth model, $G_{it}$ is an indicator for the presence of FARC, a left-wing paramilitary group that generally opposes landowners and is less likely to collaborate with local elites.[^3]
 
 [^3]: Model 4 is actually mis-specified (at least based on how the author's define it). Model 4\* adjusts this error.
+
+
+
+
+
 
 ```{r}
 # --- LOAD DATA ---
@@ -240,6 +250,11 @@ Num. obs.                     & $14192$      & $14192$       & $14192$        & 
 \end{center}
 \end{table}
 ```
+
+
+
+
+
 The reproduced results of all four models are provided in table 1. For replication, I chose to use the more modern and faster *fixest* package, rather than the older *felm* package. The replication results are identical to those presented in the paper.
 
 There is one slight concern with model 4 in the original paper: the author fails to include one of the covariates, FARC-attacks, which was included in all the other models.[^4] This choice of omission was likely intentional, as this control is very similar to the dummy FARC presence interaction variable. However, the paper does not explain or acknowledge dropping this control variable for model 4. For completeness, I have included an additional model 4\*, which includes this control variable.[^5]
@@ -251,6 +266,11 @@ There is one slight concern with model 4 in the original paper: the author fails
 Tellez (2022) also runs an estimation of dynamic treatment effects using the Sun and Abraham (2021) estimator. For unclear reasons, Tellez only includes these results in the appendix, but because dynamic treatment effects are useful for both visualising treatment effects over time, as well as assessing the parallel trends assumption, I have (successfully) replicated the results in figure 1.
 
 Tellez (2022) later runs an analysis on how the treatment, palm oil plantations, correlates with modern claims of "land restitution". However, this analysis is not causal - Tellez himself states "these results cannot be interpreted causally" (Tellez 2022, p. 411). Tellez also runs an household analysis, which he comments that "the causal interpretation of these estimates is limited". Thus, I do not consider this analysis to be a core part of the paper's causal analysis. I provide the replication in the appendix.
+
+
+
+
+
 
 ```{r}
 #| fig-align: center
@@ -293,6 +313,11 @@ ggiplot(
 )
 ```
 
+
+
+
+
+
 # Evaluation of Assumptions
 
 ## Parallel Trends Assumption
@@ -308,6 +333,11 @@ However, significance testing individual pre-treatment coefficients is not a suf
 Figure 2 contains two of these pre-trend tests using the fixed effects counterfactual (FEct) estimator proposed by Liu, Xu, and Wang (2024).[^7] Imputation estimators like FEct generally have greater power in testing pre-trend deviations (Chiu et al 2025). FEct also allows the easy implementation of a joint-significance test (F-test) and a equivalence test (TOST) for substantive significance.
 
 [^7]: I chose to use FEct instead of IFEct because IFEct's inclusion of time-varying latent factors makes it more robust to parallel trends. However, the goal if this test is to see if parallel trends holds for most other estimators that rely on parallel trends without a latent factor.
+
+
+
+
+
 
 ```{r}
 #| fig-align: center
@@ -349,6 +379,11 @@ plot(p.trends,
 
 ```
 
+
+
+
+
+
 The joint significance F-test of the pre-treatment coefficients checks if there is a significant pre-treatment differential trend: statistical significance indicates there is a differential trend. For this study, the p-value is insignificant for the last 5 pre-treatment years, thus we do not find evidence of violating the parallel trends assumption with this test.
 
 The equivalence test (TOST) for substantive size of estimated deviations checks if the confidence intervals of estimates in the pre-treatment trend exceed an "equivalence" range around 0. The equivalence range is defined as 0.36 times the standard deviation of the outcome variable, after partialling out unit and time fixed effects. A significant result means the pre-treatment estimates are within the equivalence range. For this study, the p-value is insignificant, indicating evidence for a potential violation in parallel trends.
@@ -356,6 +391,11 @@ The equivalence test (TOST) for substantive size of estimated deviations checks 
 Notably, it seems as the estimate in pre-treatment period -5 is abnormally high, while the others seem to be closer to 0. Since the pre-treatment period -5 is still 5 years before treatment, it may not be entirely relevant to the parallel trends between pre-treatment and post-treatment.[^8] Figure 3 re-runs the tests, this time only for 4 pre-treatment periods. The p-value for the F-test is higher, which is a good sign for meeting parallel trends. However, the study still fails the equivalence test.
 
 [^8]: The parallel trends assumption requires that the potential outcomes are "parallel" in trend between treatment and control from the pre-treatment period to the post-treatment period. The 5th year before treatment is likely not important to parallel trends if the final 4 pre-treatment periods are parallel.
+
+
+
+
+
 
 ```{r}
 #| fig-align: center
@@ -383,7 +423,17 @@ plot(p.trends,
 )
 ```
 
+
+
+
+
+
 A notable choice the authors make is that they transform the outcome variable, rate of civilian displacement, with an inverse-sine transformation. Their theoretical justification for including an inverse-sine transformation is that it can make the outcome more normally distributed and reduce outliers. However, transformations affect the parallel trends assumption. Figure 4 contains the same parallel trends tests on a non-transformed outcome variable.
+
+
+
+
+
 
 ```{r}
 #| fig-align: center
@@ -418,6 +468,11 @@ plot(p.trends.disp,
 )
 
 ```
+
+
+
+
+
 
 Interestingly, the non-transformed outcome variable passes both tests for the parallel trends assumption in 4 pre-treatment years. If parallel trends is met on the non-transformed outcome, that implies that parallel trends cannot be met on the inverse-sine transformed outcome (and vice versa).
 
@@ -454,6 +509,11 @@ Tellez (2022) primarily relies on the two-way fixed effects estimator for the ma
 The difference-in-differences revolution post 2021 has introduced several new unbiased estimators of the ATT. Tellez (2022) only uses the Sun and Abraham (2021) estimator, and only includes it in the appendix as a check for parallel trends. I will implement several of these modern difference-in-differences estimators, and compare their overall ATT estimates with the results of model (1) from Tellez (2022). The results are shown in figure 5.[^10]
 
 [^10]: The ATT is in terms of the inverse-sine transformed outcome variable. For csdid, the doubly-robust estimator is used. For PanelMatch, units are matched on treatment/outcome history for 3 lag periods, and matches are weighted by mahalanobis distance for covariates. Covariates are included for all except DIDmultiple.
+
+
+
+
+
 
 ```{r}
 
@@ -662,9 +722,19 @@ ggplot(model.dta, aes(x = model.names, y = model.est)) +
         plot.caption = element_text(size = 10, color = "gray40", hjust = 0.5))
 ```
 
+
+
+
+
+
 Interestingly, it seems the imputation/counterfactual based estimators (did2s, IFEct, ETWFE) produce significant results, while the matching and reweighting estimators (csdid, IW, DIDmultiple, PanelMatch) produce insignificant effects. The consequence of these results is hard to evaluate, as some estimators find significant effects, while others do not. Imputation/counterfactual estimators are generally more vulnerable to poor model specification - but if the models are specified correctly, they tend to perform better (Chiu et al 2025, Roth et al, 2022). Matching and reweighting methods are more robust to model mispecification, but rely more on the assumptions of Difference-in-differences. It is hard to say which case this study lies in - thus, these new results do not provide conclusive robustness or rejection of the result Tellez (2022) obtains.
 
 As noted in the section on evaluating identification assumptions, it seems that the parallel trends assumption is violated with the inverse-sine transformed outcome. This also puts into question if the above results are valid (although some of the above estimators, such as IFEct, can be somewhat robust to minor violations in parallel trends). Thus, in figure 6, I also implement the same estimators, but with the non-transformed outcome variable.
+
+
+
+
+
 
 ```{r}
 # --- MODERN DID ESTIMATORS, NON-TRANSFORMED ---
@@ -880,6 +950,11 @@ ggplot(model.dta, aes(x = model.names, y = model.est)) +
         plot.caption = element_text(size = 10, color = "gray40", hjust = 0.5))
 ```
 
+
+
+
+
+
 More of the estimators find a significant causal effect when the outcome variable is not transformed. However, there are two reasons we should be cautious about these results. First, conditioning our analysis based off of if we pass the parallel trends test can bias our ATT estimates (Roth, 2020). Second, without the inverse-sine transformations, outliers are more influential, which may impact our results.
 
 Overall, there is not enough evidence to conclusively support or reject the findings of Tellez (2022). Most new estimators provide similar point estimates to that of the two-way fixed effects estimator. However, in both the transformed and non-transformed outcome models, there are multiple estimators that do not find a significant causal result.
@@ -926,6 +1001,11 @@ Thus, Gardner's did2s can be used to uncover heterogeneous treatment effects wit
 [^13]: The proof for this is provided by Gardner (2022).
 
  
+
+
+
+
+
 
 ```{r}
 
@@ -991,6 +1071,11 @@ Plantation x FARC presence    &               &                & $-0.543$  & $-0
 \end{center}
 \end{table}
 ```
+
+
+
+
+
 The Gardner (2021) estimates for models 3, 4, and 4\* are relatively similar in magnitude to the original two-way fixed effects estimates. The notable difference is in model 4 and 4\*, where the effect of a palm-oil plantation in municipalities without a FARC presence is now statistically significant. Model 3's similarity in Gardner's estimator provides robustness to the result Tellez (2022) finds.
 
 The results of model 2 differ quite a lot between the two estimators. In Gardner's estimator, national production now no longer significantly increases the causal effect of the presence of a palm-oil plantation. This does not support Tellez's finding.
@@ -1034,6 +1119,11 @@ Tellez, J. F. (2021) 'Replication Data for: Land, Opportunism, and Displacement 
 \clearpage
 
 # Appendix
+
+
+
+
+
 
 ```{r}
 
@@ -1371,3 +1461,4 @@ ggplot(pDat) +
         panel.grid.major = element_blank(),
         axis.text.x = element_blank())
 ```
+
