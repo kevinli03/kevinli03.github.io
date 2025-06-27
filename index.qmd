@@ -1,7 +1,7 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "Postgraduate at the London School of Economics; Research Intern at the UNDP"
+abstract: "Postgraduate at the London School of Economics"
 about:
   template: trestles
   image: kevinli.jpg
@@ -9,6 +9,9 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/kevinlingfengli/
+    - icon: envelope-fill
+      text: k.l.li1@lse.ac.uk
+      href: mailto:k.l.li1@lse.ac.uk
     - icon: book
       text: DiD Resources
       href: https://kevinli03.github.io/did
@@ -50,15 +53,15 @@ King's College London
 :::
 :::
 
-#### Research Interests
+#### Skills
 
 ::: myclass
 ::: small
-Applied Econometrics regarding causal inference.
+Coding: R, Python, Julia (learning), Stata
 
-Political Economy, specifically welfare and institutions.
+Computer: Excel, LaTeX, Markdown, Html
 
-Development economics and inclusive growth.
+Languages: English (native), Mandarin Chinese (native)
 :::
 :::
 
@@ -113,6 +116,18 @@ Rubian, Renata, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper. (2
 #### Academic Resources
 
 ::: myclass
+Kevin's Difference-in-Differences Resources
+
+::: small
+This is a collection of materials I have collected on modern advancements in difference-in-differences (DiD) over my Master's degree.
+
+-   <https://kevinli03.github.io/did/>
+:::
+:::
+
+#### 
+
+::: myclass
 Causal Inference Lectures
 
 ::: small
@@ -123,14 +138,16 @@ This is a series of slideshows/powerpoints I made to summarise and teach the bas
 :::
 
 ::: myclass
-Kevin's Difference-in-Differences Resources
+Kevin's Coding Resources
 
 ::: small
-This is a collection of materials I have collected on modern advancements in difference-in-differences (DiD) over my Master's degree.
+This is a collection of coding resources for my personal use, but others can use it for help as well.
 
--   <https://kevinli03.github.io/did/>
+-   <https://kevinli03.github.io/code/>
 :::
 :::
+
+#### 
 
 #### Other Projects
 
