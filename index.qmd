@@ -60,7 +60,7 @@ First Class Honours (74/100)
 ::: small
 Coding: R, Python, Julia (learning), Stata
 
-Computer: Excel, LaTeX, Markdown, Html
+Computer: Excel, LaTeX, Markdown, html
 
 Languages: English (native), Mandarin Chinese (native)
 :::
