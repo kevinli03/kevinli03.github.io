@@ -1,7 +1,7 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "Incoming Associate at PwC • Ex-UNDP Development Researcher"
+abstract: "Incoming Associate at PwC • Ex-UNDP Researcher"
 about:
   template: trestles
   image: kevinli.jpg
@@ -16,15 +16,15 @@ sidebar: side
 ---
 
 ::::::::::::::::::::::::::::::::::: panel-tabset
-## Resumé
+## Résumé
 
-#### Experience
+#### [• Experience •]{.smallcaps}
 
 :::: myclass
 PwC (UK)
 
 ::: small
-(Incoming) Associate \| 09/2025 -
+(Incoming) Associate • Audit \| 09/2025 -
 :::
 ::::
 
@@ -38,7 +38,7 @@ Research Intern • Foresight \| 03/2023 - 08/2023
 :::
 ::::
 
-#### Education
+#### [• Education •]{.smallcaps}
 
 :::: myclass
 London School of Economics
@@ -60,95 +60,93 @@ First Class Honours (74/100)
 :::
 ::::
 
-#### Skills
+#### [• Skills •]{.smallcaps}
 
 :::: myclass
 ::: small
 Coding: R, Python, Stata
 
 Computer: Excel, LaTeX, Markdown, html
+
+Languages: English, Chinese (Mandarin)
 :::
 ::::
 
 ## Publications
 
-#### Published
+#### [• Published •]{.smallcaps}
 
 :::: myclass
 ::: small
-Renata Rubian, Dajna Sorenson, Rishi Chakraborty, and Kevin Li (2025). '[Landlocked Developing Countries: Looking Back and Ahead.](https://www.undp.org/publications/landlocked-developing-countries-looking-back-and-ahead-accelerating-action-next-10-years){style="color: gray;"}', *United Nations Development Programme*.
+Renata Rubian, Dajna Sorenson, Rishi Chakraborty, and **Kevin Li** (2025). '[Landlocked Developing Countries: Looking Back and Ahead](https://www.undp.org/publications/landlocked-developing-countries-looking-back-and-ahead-accelerating-action-next-10-years){style="color: gray;"}', *United Nations Development Programme*.
 :::
 ::::
 
 :::: myclass
 ::: small
-Renata Rubian, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper (2024). '[SIDS: Looking Back and Forward](https://www.undp.org/publications/sids-looking-back-and-forward){style="color: gray;"}', *United Nations Development Programme*.
+Renata Rubian, Dajna Sorenson, Rishi Chakraborty, **Kevin Li**, and Jade Cooper (2024). '[SIDS: Looking Back and Forward](https://www.undp.org/publications/sids-looking-back-and-forward){style="color: gray;"}', *United Nations Development Programme*.
+:::
+::::
+
+#### [• Working Papers •]{.smallcaps}
+
+:::: myclass
+::: small
+**Kevin Li** (2025). 'Conditional Cash Transfers. Perceptions of Political Institutions, and Turnout: Evidence from the California Earned Income Tax Credit'.
 :::
 ::::
 
 :::: myclass
 ::: small
-(Contributed) Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024). '[Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam](https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam){style="color: gray;"}', *United Nations Development Programme*.
-:::
-::::
-
-#### Working Papers
-
-:::: myclass
-::: small
-Kevin Li (2025). 'Conditional Cash Transfers. Perceptions of Political Institutions, and Turnout: Evidence from the California Earned Income Tax Credit'. London School of Economics: Prepared for GV499 Dissertation.
+**Kevin Li** (2025). '[Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences](https://kevinli03.github.io/papers/gv482/paper.pdf){style="color: gray;"}'.
 :::
 ::::
 
 :::: myclass
 ::: small
-Kevin Li (2025). '[Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences](https://kevinli03.github.io/papers/gv482/paper.pdf){style="color: gray;"}'. London School of Economics: Prepared for GV482 Current Issues in Political Science and Political Economy.
+**Kevin Li** (2025). '[Causal Replication and Reppraisal of Tellez (2022) 'Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia](https://kevinli03.github.io/papers/my457/paper.pdf){style="color: gray;"}'.
 :::
 ::::
 
+#### [• Contributed •]{.smallcaps}
+
 :::: myclass
 ::: small
-Kevin Li (2025). '[Causal Replication and Reppraisal of Tellez (2022) 'Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia](https://kevinli03.github.io/papers/my457/paper.pdf){style="color: gray;"}'. London School of Economics: Prepared for MY457 Causal Inference for Observational and Experimental Studies.
+Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024). '[Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam](https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam){style="color: gray;"}', *United Nations Development Programme*.
 :::
 ::::
 
 ## Projects
 
-:::: myclass
-Kevin's Difference-in-Differences Resources
+#### [• Academic Projects •]{.smallcaps}
 
+:::: myclass
 ::: small
-[https://kevinli03.github.io/did/](https://kevinli03.github.io/did/){.uri style="color: gray;"}
+[Difference-in-Differences (DiD) Resources](https://kevinli03.github.io/did/){.uri style="color: gray;"} • A page with R and python code for modern DiD estimators.
 :::
 ::::
 
 :::: myclass
-Causal Inference Lectures
-
 ::: small
-[https://kevinli03.github.io/causal/](https://kevinli03.github.io/causal/){.uri style="color: gray;"}
+[Causal Econometrics Resources](https://kevinli03.github.io/causal/){.uri style="color: gray;"} • A set of slideshows relating to methods in causal inference and econometrics.
 :::
 ::::
 
 :::: myclass
-Kevin's Accounting Notes
-
 ::: small
-[https://kevinli03.github.io/aca/](https://kevinli03.github.io/aca/){.uri style="color: gray;"}
+[Kevin's Accounting Notes](https://kevinli03.github.io/aca/){.uri style="color: gray;"} • A webpage with notes on accounting, business, and finance.
 :::
 ::::
 
 :::: myclass
-2024 US Presidential Election Predictions
-
 ::: small
-[https://kevinli03.github.io/election/us2024/prediction.html](https://kevinli03.github.io/election/us2024/prediction.html){.uri style="color: gray;"}
+[2024 US Presidential Election Predictions](https://kevinli03.github.io/election/us2024/prediction.html){.uri style="color: gray;"} • Quick and simple predictions I made for the US elections with machine learning methods.
 :::
 ::::
 
-:::: myclass
-Music
+#### [• Music Recordings •]{.smallcaps}
 
+:::: myclass
 ::: small
 [My own composition (For CCA Conservatory)](https://youtu.be/-VkJFQiv4ps){style="color: gray;"}
 
@@ -166,13 +164,11 @@ Music
 
 [Cover: One Call Away (Charlie Puth)](https://youtu.be/Rtt7LULcPmc){style="color: gray;"}
 
-[Mvmt. 4, Bird Quartet (Haydn)](https://youtu.be/PZg5tvuPPvg){style="color: gray;"}
-
-[Mvmt. 3, Bird Quartet (Haydn)](https://youtu.be/ytTFMK6Z8l8){style="color: gray;"}
-
 [Salut d'Amour (Elgar) with my sister](https://youtu.be/j1bAfFD9AmQ){style="color: gray;"}
 
-[Sleigh Ride (Anderson) with the CCA Orchestra](https://youtu.be/EIa9A11ASq0){style="color: gray;"}
+[Mvmt. 4, Bird Quartet (Haydn)](https://youtu.be/PZg5tvuPPvg){style="color: gray;"} • [Mvmt. 3, Bird Quartet (Haydn)](https://youtu.be/ytTFMK6Z8l8){style="color: gray;"}
+
+[Sleigh Ride (Anderson) with CCA Orchestra](https://youtu.be/EIa9A11ASq0){style="color: gray;"}
 
 [Cool Chamber Piece with CCA Orchestra](https://youtu.be/f3efaP1yKrQ){style="color: gray;"}
 :::
