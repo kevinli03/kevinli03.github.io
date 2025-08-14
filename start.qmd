@@ -15,6 +15,30 @@ about:
 sidebar: side
 ---
 
+<style>
+.button-square {
+  display: inline-flex;
+  flex-direction: column;     /* icon above text */
+  justify-content: center;
+  align-items: center;
+  width: 90px;                 /* square size */
+  height: 90px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.5rem;           /* icon size */
+  margin: 8px;
+  transition: background-color 0.2s;
+}
+.button-square span {
+  font-size: 0.8rem;           /* text size */
+  margin-top: 4px;             /* space below icon */
+}
+.button-square:hover {
+  background-color: #ddd;
+}
+</style>
 
 <a href="https://mail.google.com/mail/u/0/#inbox" class="button-square">
   <i class="bi bi-google"></i>
