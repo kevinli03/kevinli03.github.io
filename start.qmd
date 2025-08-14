@@ -1,7 +1,7 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "Postgraduate at the London School of Economics"
+abstract: "Incoming Associate at PwC • Ex-UNDP Researcher"
 about:
   template: trestles
   image: kevinli.jpg
@@ -9,36 +9,77 @@ about:
     - icon: house-door-fill
       text: Homepage
       href: https://kevinli03.github.io
-    - icon: book
-      text: DiD Resources
-      href: https://kevinli03.github.io/did
+    - icon: envelope-fill
+      text: k.l.li1@lse.ac.uk
+      href: mailto:k.l.li1@lse.ac.uk
 sidebar: side
 ---
 
-# Kevin's Start Page
 
-|                                                   |                                                         |                                                       |
-|---------------------------------------------------|---------------------------------------------------------|-------------------------------------------------------|
-| [DiD Resources](https://kevinli03.github.io/did/) | [Causal Inference](https://kevinli03.github.io/causal/) | [Coding Resources](https://kevinli03.github.io/code/) |
+<a href="https://mail.google.com/mail/u/0/#inbox" class="button-square">
+  <i class="bi bi-google"></i>
+  <span>Gmail</span>
+</a> <a href="https://outlook.live.com/mail/0/" class="button-square">
+  <i class="bi bi-windows"></i>
+  <span>Outlook</span>
+</a> <a href="https://outlook.office.com/mail/inbox/id/AAQkADU3NWU3M2RlLTk2NmMtNGEyZS1iYTU2LTQ2NTRhZWMzNTMyZQAQAIHp9iDvCC9KkshVxv4XT9U%3D" class="button-square">
+  <i class="bi bi-mortarboard-fill"></i>
+  <span>LSE Mail</span>
+</a>  <a href="https://onedrive.live.com/?id=root&cid=2B9362CA6119DD78" class="button-square">
+  <i class="bi bi-cloud-check-fill"></i>
+  <span>OneDrive</span>
+</a> <a href="https://drive.google.com/drive/my-drive" class="button-square">
+  <i class="bi bi-android"></i>
+  <span>Google Drive</span>
+</a>
 
-: {tbl-colwidths="\[33,34,33\]"}
+<a href="https://www.linkedin.com/in/kevinlingfengli/" class="button-square">
+  <i class="bi bi-linkedin"></i>
+  <span>LinkedIn</span>
+</a> <a href="https://www.youtube.com" class="button-square">
+  <i class="bi bi-youtube"></i>
+  <span>YouTube</span>
+</a> <a href="https://github.com/" class="button-square">
+  <i class="bi bi-github"></i>
+  <span>Github</span>
+</a> <a href="https://chat.openai.com/" class="button-square">
+  <i class="bi bi-robot"></i>
+  <span>ChatGPT</span>
+</a> <a href="https://www.google.com/maps" class="button-square">
+  <i class="bi bi-geo-alt-fill"></i>
+  <span>Maps</span>
+</a>
 
-### LSE Links
 
-|                                                  |                                                                                                                                                                                                          |                                                                                                                                                                                                                                                          |
-|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Moodle](https://moodle.lse.ac.uk/my/)           | [Student For You](https://portal.lse.ac.uk/studentservices/s/?_gl=11c1xkmp_gcl_auMTU2NDcwMzc5MS4xNzIxMjM1NTAz_gaOTczMzc3MTk2LjE3MTMzODQ0NzI._ga_LWTEVFESYX*MTcyNzM4MTg5Ny4yMDMuMS4xNzI3MzgyNzQyLjguMC4w) | [LSE For you](https://auth.lse.ac.uk/auth/login?service=https%3A%2F%2Flfy.lse.ac.uk%2Fportal%2Fp%2F&renew=true&_gl=15ghr49_gcl_auMTk0MjQzMTI2MS4xNzEzMzg0NDcy_gaOTczMzc3MTk2LjE3MTMzODQ0NzI._ga_LWTEVFESYX*MTcyMDU2MDcyMy44Mi4xLjE3MjA1NjA3NjIuMjEuMC4w) |
-| [Causal Inference](https://lse-my457.github.io/) | [Postgrad Modules](https://www.lse.ac.uk/resources/calendar/courseGuides/graduate.htm)                                                                                                                   | [Undergrad Modules](https://www.lse.ac.uk/resources/calendar/courseGuides/undergraduate.htm)                                                                                                                                                             |
+<a href="https://www.edfenergy.com/myaccount/login" class="button-square">
+  <i class="bi bi-power"></i>
+  <span>EDF</span>
+</a> <a href="https://www.virginmedia.com/myvmo2" class="button-square">
+  <i class="bi bi-router-fill"></i>
+  <span>Virgin</span>
+</a> <a href="https://www.thameswater.co.uk/my-account/select-account" class="button-square">
+  <i class="bi bi-droplet-half"></i>
+  <span>Thames</span>
+</a> <a href="https://www.bankofamerica.com" class="button-square">
+  <i class="bi bi-cash-coin"></i>
+  <span>BoA</span>
+</a> <a href="https://wise.com/login?redirectUrl=%2Fhome" class="button-square">
+  <i class="bi bi-flag"></i>
+  <span>Wise</span>
+</a>
 
-: {tbl-colwidths="\[33,34,33\]"}
+------------------------------------
 
-### Other
 
-|                                                                     |                                                         |                                                                                                                                          |
-|---------------------------------------------------------------------|---------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| [Gmail](https://mail.google.com/mail/u/0/#inbox)                    | [Outlook](https://outlook.live.com/mail/0/)             | [LSE Email](https://outlook.office.com/mail/inbox/id/AAQkADU3NWU3M2RlLTk2NmMtNGEyZS1iYTU2LTQ2NTRhZWMzNTMyZQAQAIHp9iDvCC9KkshVxv4XT9U%3D) |
-| [OneDrive](https://onedrive.live.com/?id=root&cid=2B9362CA6119DD78) | [Google Drive](https://drive.google.com/drive/my-drive) | [Github](https://github.com)                                                                                                             |
-| [Grok](https://grok.com)                                            | [ChatGPT](https://chat.openai.com/)                     | [Deepseek](https://chat.deepseek.com)                                                                                                    |
-| [PwC Onboarding](https://pwcuk.service-now.com/onboarding)          | [MyMobility](https://mymobility.vialto.com/)            | [UK Visa](https://apply-to-visit-or-stay-in-the-uk.homeoffice.gov.uk/dashboard/landing-page)                                             |
+<a href="https://pwcuk.service-now.com/onboarding" class="button-square">
+  <i class="bi bi-person-workspace"></i>
+  <span>Workday</span>
+</a> <a href="#" class="button-square">
+  <i class="bi bi-microsoft-teams"></i>
+  <span>Teams</span>
+</a> <a href="https://www.icaew.com/#" class="button-square">
+  <i class="bi bi-calculator-fill"></i>
+  <span>ICAEW</span>
+</a>
 
-: {tbl-colwidths="\[33,34,33\]"}
+
