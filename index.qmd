@@ -1,7 +1,7 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "Incoming Associate at PwC • Ex-UNDP Researcher"
+abstract: "Associate at PwC • Ex-UNDP Researcher"
 about:
   template: trestles
   image: kevinli.jpg
@@ -24,7 +24,7 @@ sidebar: side
 PwC (UK)
 
 ::: small
-(Incoming) Associate • Audit \| 09/2025 -
+Associate • Audit \| 09/2025 -
 :::
 ::::
 
@@ -64,9 +64,9 @@ First Class Honours (74/100)
 
 :::: myclass
 ::: small
-Coding: R, Python, Stata
+Coding: R, Python, Stata, Julia (Learning)
 
-Computer: Excel, LaTeX, Markdown, html
+Computer Skills: Excel, LaTeX, Markdown, html, CSS
 
 Languages: English, Chinese (Mandarin)
 :::
