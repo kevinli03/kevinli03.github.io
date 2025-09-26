@@ -15,7 +15,7 @@ about:
 sidebar: side
 ---
 
-:::::::::::::::::::::::::::::::::: panel-tabset
+::::::::::::::::::::::::::::::::: panel-tabset
 ## Résumé
 
 #### [• Experience •]{.smallcaps}
@@ -46,7 +46,7 @@ London School of Economics
 ::: small
 Master of Science • Political Economy
 
-Distinction (82.5/100)
+Distinction (82.7/100)
 :::
 ::::
 
@@ -98,13 +98,13 @@ Renata Rubian, Dajna Sorenson, Rishi Chakraborty, **Kevin Li**, and Jade Cooper 
 
 :::: myclass
 ::: small
-**Kevin Li** (2025). '[Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences](https://kevinli03.github.io/papers/gv482/paper.pdf){style="color: gray;"}'.
+**Kevin Li** (2025). '[Causal Replication and Reppraisal of Tellez (2022) 'Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia](https://kevinli03.github.io/papers/my457/paper.pdf){style="color: gray;"}'.
 :::
 ::::
 
 :::: myclass
 ::: small
-**Kevin Li** (2025). '[Causal Replication and Reppraisal of Tellez (2022) 'Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia](https://kevinli03.github.io/papers/my457/paper.pdf){style="color: gray;"}'.
+**Kevin Li** (2025). '[Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences](https://kevinli03.github.io/papers/gv482/paper.pdf){style="color: gray;"}'.
 :::
 ::::
 
@@ -131,9 +131,6 @@ Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024
 [Causal Econometrics Resources](https://kevinli03.github.io/causal/){.uri style="color: gray;"} • A set of slideshows relating to methods in causal inference and econometrics.
 :::
 ::::
-
-::: myclass
-:::
 
 :::: myclass
 ::: small
@@ -168,4 +165,4 @@ Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024
 [Cool Chamber Piece with CCA Orchestra](https://youtu.be/f3efaP1yKrQ){style="color: gray;"}
 :::
 ::::
-::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::
