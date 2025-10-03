@@ -1,7 +1,5 @@
 ---
 title: "Kevin Lingfeng Li"
-abstract-title: ""
-abstract: "Associate @ PwC • Political Economist and Musician"
 about:
   template: trestles
   image: kevinli.jpg
@@ -15,66 +13,32 @@ about:
 sidebar: side
 ---
 
-::::::::::::::::::::::::::::::::: panel-tabset
-## Cirriculum Vitae
+::::::::::::::::::::::: panel-tabset
+## About
 
-#### [• Experience •]{.smallcaps}
+::: grey
+#### Hi, I'm Kevin.
 
-:::: myclass
-PwC (UK)
+I am currently an **Associate at PwC** in London.
 
-::: small
-Associate • 2025 -
+Previously, I was a researcher with the **United Nations Development Programme (UNDP)**, where I worked on inclusive growth, co-authoring several publications.
+
+I received a MSc from the **London School of Economics (LSE)** and a **BSc from King's College London**. In High School (in the United States), I received the **National AP Scholar** award for academic achievement.
+
+My main research interests lie in the application of **causal econometrics**, **latent variable modelling**, and **game theoretic modelling** in researching topics in **political economy**. I use **R**, **Python**, **Stata**, and **Julia** for data analysis.
+
+Aside from my work and research, I am also a **violinist** and **pianist**.
+
+ 
+
+I have included my papers/publications, econometrics resources, and music recordings in this portfolio.
+
+For my CV, see my [LinkedIn](https://www.linkedin.com/in/kevinlingfengli/). Contact me at [k.l.li1\@lse.ac.uk](mailto:k.l.li1@lse.ac.uk).
 :::
-::::
-
-:::: myclass
-United Nations Development Programme
-
-::: small
-Researcher (Inclusive Growth) • 2023-2025
-
-Researcher (Foresight) • 2023
-:::
-::::
-
-#### [• Education •]{.smallcaps}
-
-:::: myclass
-London School of Economics
-
-::: small
-Master of Science • 2024-2025
-
-Distinction (82.7)
-:::
-::::
-
-:::: myclass
-King's College London
-
-::: small
-Bachelor of Science • 2021-2024
-
-First Class Honours (74)
-:::
-::::
-
-#### [• Skills •]{.smallcaps}
-
-:::: myclass
-::: small
-Coding: R, Python, Stata, Julia (Learning)
-
-Computer Skills: Excel, Alteryx, LaTeX, Markdown, html, CSS
-
-Languages: English, Chinese
-:::
-::::
 
 ## Papers
 
-#### [• Working Papers •]{.smallcaps}
+#### [Working Papers]{.smallcaps}
 
 :::: myclass
 ::: small
@@ -94,7 +58,7 @@ Languages: English, Chinese
 :::
 ::::
 
-#### [• Published •]{.smallcaps}
+#### [Published]{.smallcaps}
 
 :::: myclass
 ::: small
@@ -108,7 +72,7 @@ Renata Rubian, Dajna Sorenson, Rishi Chakraborty, **Kevin Li**, and Jade Cooper 
 :::
 ::::
 
-#### [• Contributed •]{.smallcaps}
+#### [Contributed]{.smallcaps}
 
 :::: myclass
 ::: small
@@ -116,53 +80,73 @@ Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024
 :::
 ::::
 
-## Music & Projects
+## Econometrics
 
-#### [• Academic Projects •]{.smallcaps}
+#### [Applied Econometrics Resources]{.smallcaps}
+
+::: small
+-   [Simple Econometric Theory Review](https://kevinli03.github.io/resources/reg.pdf)
+
+-   Causal Frameworks Slides
+
+-   Generalised Difference-in-Differences Slides
+
+-   Modern Advancements in Differences-in-Differences Slides
+
+-   Instrumental Variables and 2SLS Slides
+
+-   Regression Discontinuity Slides
+
+-   Selection on Observables Slides
+
+-   Latent Variable Model Slides
+:::
+
+#### [Coding Resources]{.smallcaps}
 
 :::: myclass
 ::: small
-[Difference-in-Differences (DiD) Resources](https://kevinli03.github.io/did/){.uri style="color: gray;"} • A page with R and python code for modern DiD estimators.
+-   [Difference-in-Differences (DiD) Resources](https://kevinli03.github.io/did/){.uri style="color: gray;"} • A page with R and python code for modern DiD estimators.
 :::
 ::::
 
 :::: myclass
 ::: small
-[Causal Econometrics Resources](https://kevinli03.github.io/causal/){.uri style="color: gray;"} • A set of slideshows relating to methods in causal inference and econometrics.
+ 
+
+*Thanks to Dr. Daniel de Kadt, Dr. Aliz Toth, Prof. Jouni Kuha, and Dr. Yiqing Xu for their instruction and resources that have helped me learn and create these slides.*
 :::
 ::::
+
+## Music
 
 :::: myclass
 ::: small
-[2024 US Presidential Election Predictions](https://kevinli03.github.io/election/us2024/prediction.html){.uri style="color: gray;"} • Quick and simple predictions I made for the US elections with machine learning methods.
+-   [Salut d'Amour (Elgar)](https://youtu.be/QhHTsEqjC2U){style="color: gray;"}
+
+-   [Salut d'Amour with my sister](https://youtu.be/j1bAfFD9AmQ){style="color: gray;"}
+
+-   [Adoration (Borowski)](https://youtu.be/rp4HV2AKm4A){style="color: gray;"}
+
+-   [My own composition (For CCA Conservatory)](https://youtu.be/-VkJFQiv4ps){style="color: gray;"}
+
+-   [Cover: I Will go to you like the first snow (Ailee)](https://youtu.be/DFyVmGi3_i8){style="color: gray;"}
+
+-   [Prelude for 2 Violins (Shostakovich)](https://youtu.be/llQZ1jnh_ik){style="color: gray;"}
+
+-   [Violin Concerto No. 5 (Mozart)](https://youtu.be/-YB5BJMvmJg){style="color: gray;"}
+
+-   [Zigunerweisen (Sarasate)](https://youtu.be/-WIrp25443I){style="color: gray;"}
+
+-   [Cover: One Call Away (Charlie Puth)](https://youtu.be/Rtt7LULcPmc){style="color: gray;"}
+
+-   [Mvmt. 3, Bird Quartet](https://youtu.be/ytTFMK6Z8l8){style="color: gray;"}
+
+-   [Mvmt. 4, Bird Quartet (Haydn)](https://youtu.be/PZg5tvuPPvg){style="color: gray;"}
+
+-   [Sleigh Ride (Anderson) with CCA Orchestra](https://youtu.be/EIa9A11ASq0){style="color: gray;"}
+
+-   [Cool Chamber Piece with CCA Orchestra](https://youtu.be/f3efaP1yKrQ){style="color: gray;"}
 :::
 ::::
-
-#### [• Music Recordings •]{.smallcaps}
-
-:::: myclass
-::: small
-[Salut d'Amour (Elgar)](https://youtu.be/QhHTsEqjC2U){style="color: gray;"} • [Salut d'Amour with my sister](https://youtu.be/j1bAfFD9AmQ){style="color: gray;"}
-
-[Adoration (Borowski)](https://youtu.be/rp4HV2AKm4A){style="color: gray;"}
-
-[My own composition (For CCA Conservatory)](https://youtu.be/-VkJFQiv4ps){style="color: gray;"}
-
-[Cover: I Will go to you like the first snow (Ailee)](https://youtu.be/DFyVmGi3_i8){style="color: gray;"}
-
-[Prelude for 2 Violins (Shostakovich)](https://youtu.be/llQZ1jnh_ik){style="color: gray;"}
-
-[Violin Concerto No. 5 (Mozart)](https://youtu.be/-YB5BJMvmJg){style="color: gray;"}
-
-[Zigunerweisen (Sarasate)](https://youtu.be/-WIrp25443I){style="color: gray;"}
-
-[Cover: One Call Away (Charlie Puth)](https://youtu.be/Rtt7LULcPmc){style="color: gray;"}
-
-[Mvmt. 4, Bird Quartet (Haydn)](https://youtu.be/PZg5tvuPPvg){style="color: gray;"} • [Mvmt. 3, Bird Quartet](https://youtu.be/ytTFMK6Z8l8){style="color: gray;"}
-
-[Sleigh Ride (Anderson) with CCA Orchestra](https://youtu.be/EIa9A11ASq0){style="color: gray;"}
-
-[Cool Chamber Piece with CCA Orchestra](https://youtu.be/f3efaP1yKrQ){style="color: gray;"}
-:::
-::::
-:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::

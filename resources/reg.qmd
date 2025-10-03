@@ -1,0 +1,194 @@
+---
+title: "Simple Econometric Theory Review"
+subtitle: "Kevin's Econometrics Resources"
+author: "Kevin Li"
+format:
+  beamer:
+    slide-number: true
+    aspectratio: 1610
+    theme: CambridgeUS
+header-includes: |
+  \usepackage{mathastext}
+  \usepackage{upgreek}
+  \setbeamertemplate{footline}[frame number]  % Forces slide numbers in footline
+  \setbeamertemplate{navigation symbols}{}   % Optional: Removes navigation symbols
+editor: visual
+---
+
+## Model Specification
+
+For independent variables $X_1, X_2, \dots, X_p$, and outcome variable $Y$ for units $i = 1, 2, \dots, n$:
+
+$$
+Y_i = \upbeta_0 + \upbeta_1 X_{i1} + \upbeta_2X_{i2} + \dots + \upbeta_p X_{ip} + \upvarepsilon_i
+$$
+
+$\upbeta_0, \upbeta_1, \dots, \upbeta_p$ are parameters that describe the deterministic part of the relationship between $Y$ and $X_1, \dots, X_p$.
+
+-   Read: the part of $Y$ explained by $X_1, \dots, X_p$.
+
+$\upvarepsilon_i$ error term is the non-deterministic relationship between $Y$ and $X_1, \dots, X_p$.
+
+-   Read: part of $Y$ **not** explained by $X_1, \dots, X_p$.
+-   $\mathbb E[\pmb\upvarepsilon] = 0$
+
+Additional assumptions will be imposed on the model later.
+
+## Matrix Form
+
+Condensed form:
+
+$$
+y_i = \mathbf x_i' \pmb\upbeta + \upvarepsilon_i, \quad \mathbf x_i = \begin{pmatrix} 1 \\ x_{i1} \\ x_{i2} \\ \vdots
+\end{pmatrix}, \quad \pmb\upbeta = \begin{pmatrix} \upbeta_0 \\ \upbeta_1 \\ \upbeta_2 \\ \vdots
+\end{pmatrix}
+$$
+
+Even more condensed matrix form:
+
+$$
+\mathbf y = \mathbf X \pmb \upbeta + \pmb \upvarepsilon, \quad \mathbf y = \begin{pmatrix}y_1 \\ y_2 \\ \vdots \\ y_n\end{pmatrix}, \mathbf X = \begin{pmatrix} 1 & x_{11} & x_{12} & \dots & x_{1p} \\ 1 & x_{21} & x_{22} & \dots & x_{2p} \\ \vdots & \vdots & \vdots & \vdots & \vdots \\ 1 & x_{n1} & x_{n2} & \dots & x_{np} \end{pmatrix}, \pmb\upbeta = \begin{pmatrix} \upbeta_0 \\ \upbeta_1 \\ \vdots \\ \upbeta_p \end{pmatrix}, \pmb\upvarepsilon = \begin{pmatrix} \upvarepsilon_1  \\ \upvarepsilon_2 \\ \vdots \\ \upvarepsilon_n \end{pmatrix}
+$$
+
+## Sum of Squared Errors
+
+Naturally, we want to choose the values $b_0, \dots, b_p$ for the unkown $\upbeta_0, \dots, \upbeta_p$ that **minimise** the sum (squared) error of predicted $\hat Y_i$ in respect to the true population.
+
+-   Actual true $Y$ values: $Y_i$, with unknown $\upbeta$
+
+-   Predicted $\hat Y$ values, with some choice of $\upbeta$ value of $b$.
+
+Thus, the sum (squared) error is the sum of the differences between actual $Y_i$ and predicted $\hat Y_i$:
+
+$$
+SSE = \sum(Y_i - \hat Y_i)^2 = (\mathbf y- \hat{\mathbf y})'(\mathbf y- \hat{\mathbf y})
+$$
+
+Why squared?
+
+1.  gets rid of direction, only keeps magnitude
+2.  Easier for calculus as absolute value function is non-differentiable at vertex.
+3.  Nice properties (see later in the slides).
+
+## Ordinary Least Squares (1)
+
+We want to minimise sum of squared errors to find the values of $\upbeta$
+
+$$
+SSE = \sum(Y_i - \hat Y_i)^2 = (\mathbf y- \hat{\mathbf y})'(\mathbf y- \hat{\mathbf y})
+$$
+
+Remember predictions $\hat{\mathbf y}$ use the values of vector $\mathbf b$ for the unknown $\pmb\upbeta$. That means $\hat{\mathbf y} = \mathbf{Xb}$
+
+-   (This is because we just plug $\mathbf b = \pmb\upbeta$ into the linear regression, and $\pmb\upvarepsilon = 0$ since $\mathbb E[\pmb\upvarepsilon] = 0$).
+
+Knowing $\hat{\mathbf y} = \mathbf{Xb}$, we can plug it in to the SSE and expand.
+
+$$
+\begin{split}
+SSE & = (\mathbf y- \hat{\mathbf y})'(\mathbf y- \hat{\mathbf y}) \\
+& = (\mathbf y - \mathbf{Xb})'(\mathbf y - \mathbf{Xb}) \\
+& = \mathbf y' \mathbf y - \mathbf y' \mathbf{Xb} - \mathbf b' \mathbf X' \mathbf y + \mathbf b' \mathbf X' \mathbf{Xb}
+\end{split}
+$$
+
+## Ordinary Least Squares (2)
+
+We want to minimise the SSE, so take the derivative in respect to $\mathbf b$ and set equal to 0:
+
+$$
+\frac{\partial SSE}{\partial \mathbf b} = -2 \mathbf X' \mathbf y + 2 \mathbf X' \mathbf{Xb} = 0
+$$
+
+Re-arrange the equation to get
+
+$$
+\mathbf X'\mathbf{Xb} = \mathbf X' \mathbf y \quad \implies \quad \mathbf b = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf y
+$$
+
+This means this value of $\mathbf b$ is the value of $\pmb\upbeta$ that minimises the error of the predicted $\hat{\mathbf y}$. Thus, this value is the **ordinary least squares estimate** of the unkown $\pmb\upbeta$:
+
+$$
+\hat{\pmb\upbeta} = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf y
+$$
+
+## Estimator Properties
+
+When we estimate $\upbeta$ (or any parameter), we typically use a sample of the population.
+
+-   What if we used a different sample to calculate the parameter? We would get a slightly different $\hat{\upbeta}$ estimate since the sample data is slightly different.
+
+**Sampling distribution** is the distribution of all estimated $\hat{\upbeta}$ from different samples, taking an infinite number of samples.
+
+-   Imagine you take one sample, and estimate $\hat{\upbeta}$. Then, take another sample and estimate $\hat{\upbeta}$. Then again and again. Plot all of the $\hat{\upbeta}$ in a distribution to get the sampling distribution.
+
+**Unbiasedness** is if the expected value of the sampling distribution equals the true population value of $\upbeta$. In other words: $\mathbb E[\hat{\pmb\upbeta}] = \pmb\upbeta$.
+
+**Standard Error** is the standard deviation of the sampling distribution.
+
+## Unbiasedness of OLS (1)
+
+Theorem: Part of the **Gauss-Markov Theorem** states that under 4 conditions, the OLS estimate of $\upbeta$ is **unbiased**: $\mathbb E[\hat{\pmb\upbeta}] = \pmb\upbeta$
+
+1.  The population model can be expressed as a linear model $\mathbf y = \mathbf X \pmb\upbeta + \pmb\upvarepsilon$.
+
+2.  Random Sampling of sample from the population.
+
+3.  No perfect multicollinearity - i.e. no exact linear correlations between any two independent variables $X_1, X_2, \dots, X_p$, or any linear combinations of the two. Basically, $\mathbf X$ must be full-rank.
+
+4.  **Strict Exogeneity**: Formally defined as $\mathbb E[\pmb\upvarepsilon|\mathbf X] = 0$. This implies that $Cov(\upvarepsilon, X_j) = 0$ for any explanatory variable $X_j = X_1, \dots, X_p$.
+
+Violations of strict exogeneity often caused by omitted confoudners (see causal frameworks).
+
+## Unbiasedness of OLS (2)
+
+Proof: start with our OLS solution.
+
+$$
+\hat{\pmb\upbeta} = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf y
+$$
+
+We know that $\mathbf y = \mathbf X \pmb\upbeta + \pmb\upvarepsilon$ (linear model). So plug in and simplify.
+
+$$
+\begin{split}
+\hat{\pmb\upbeta} & = (\mathbf X'\mathbf X)^{-1} \mathbf X'(\mathbf X \pmb\upbeta + \pmb\upvarepsilon) \\
+& = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf X \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon \\
+& = \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon
+\end{split}
+$$
+
+Now we want to prove $\mathbb E[\hat{\pmb\upbeta}] = \pmb\upbeta$. So we want to take the expected value of $\hat{\pmb\upbeta}$:
+
+$$
+\mathbb E[\hat{\pmb\upbeta}|\mathbf X] = \mathbb E[\pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon|\mathbf X]
+$$
+
+## Unbiasedness of OLS (3)
+
+1.  $\pmb\upbeta$ (true population value) is a constant, and the expected value of a constant is itself.
+2.  $(\mathbf X'\mathbf X)^{-1} \mathbf X'$ is also a constant (sample data values). We know that the expected value of a constant times a variable, equals the constant times the expected value of the variable.
+
+Thus we can rewrite the above to:
+
+$$
+\mathbb E[\hat{\pmb\upbeta}|\mathbf X] = \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbb E[\pmb\upvarepsilon|\mathbf X]
+$$
+
+Recall Gauss-Markov condition (4), strict exogeneity: $\mathbb E[\pmb\upvarepsilon|\mathbf X] = 0$. Thus:
+
+$$
+\mathbb E[\hat{\pmb\upbeta}|X] = \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'(0) = \pmb\upbeta
+$$
+
+Finally, law of iterated expecations (LIE) gets us:
+
+$$
+\mathbb E [\hat{\pmb\upbeta}]= \mathbb E [\mathbb E[\hat{\pmb\upbeta}]] = \pmb\upbeta
+$$
+
+## Variance of OLS (1)
+
+## Variance of OLS (2)
+
+## Hypothesis Testing

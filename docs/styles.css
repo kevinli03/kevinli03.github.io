@@ -16,6 +16,11 @@
   color: #666;
 }
 
+.grey {
+  font-size: 0.95em;
+  color: #666;
+}
+
 .button-square {
   display: inline-flex;
   flex-direction: column;     /* icon above text */
