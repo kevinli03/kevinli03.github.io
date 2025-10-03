@@ -1,7 +1,7 @@
 ---
 title: "Kevin Lingfeng Li"
 abstract-title: ""
-abstract: "Associate at PwC • Ex-UNDP Researcher"
+abstract: "Associate @ PwC • Political Economist and Musician"
 about:
   template: trestles
   image: kevinli.jpg
@@ -16,7 +16,7 @@ sidebar: side
 ---
 
 ::::::::::::::::::::::::::::::::: panel-tabset
-## Résumé
+## Cirriculum Vitae
 
 #### [• Experience •]{.smallcaps}
 
@@ -24,7 +24,7 @@ sidebar: side
 PwC (UK)
 
 ::: small
-Associate • Audit \| 09/2025 -
+Associate • 2025 -
 :::
 ::::
 
@@ -32,9 +32,9 @@ Associate • Audit \| 09/2025 -
 United Nations Development Programme
 
 ::: small
-Research Intern • Inclusive Growth \| [08/2023 - 08/2025]{.smallcaps}
+Researcher (Inclusive Growth) • 2023-2025
 
-Research Intern • Foresight \| 03/2023 - 08/2023
+Researcher (Foresight) • 2023
 :::
 ::::
 
@@ -44,9 +44,9 @@ Research Intern • Foresight \| 03/2023 - 08/2023
 London School of Economics
 
 ::: small
-Master of Science • Political Economy
+Master of Science • 2024-2025
 
-Distinction (82.7/100)
+Distinction (82.7)
 :::
 ::::
 
@@ -54,9 +54,9 @@ Distinction (82.7/100)
 King's College London
 
 ::: small
-Bachelor of Science • Political Economy
+Bachelor of Science • 2021-2024
 
-First Class Honours (74/100)
+First Class Honours (74)
 :::
 ::::
 
@@ -66,13 +66,33 @@ First Class Honours (74/100)
 ::: small
 Coding: R, Python, Stata, Julia (Learning)
 
-Computer Skills: Excel, LaTeX, Markdown, html, CSS
+Computer Skills: Excel, Alteryx, LaTeX, Markdown, html, CSS
 
-Languages: English, Chinese (Mandarin)
+Languages: English, Chinese
 :::
 ::::
 
-## Publications
+## Papers
+
+#### [• Working Papers •]{.smallcaps}
+
+:::: myclass
+::: small
+**Kevin Li** (2025). 'Conditional Cash Transfers. Perceptions of Political Institutions, and Turnout: Evidence from the California Earned Income Tax Credit'.
+:::
+::::
+
+:::: myclass
+::: small
+**Kevin Li** (2025). '[Causal Replication and Reppraisal of Tellez (2022) "Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia"](https://kevinli03.github.io/papers/my457/paper.pdf){style="color: gray;"}'.
+:::
+::::
+
+:::: myclass
+::: small
+**Kevin Li** (2025). '[Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences](https://kevinli03.github.io/papers/gv482/paper.pdf){style="color: gray;"}'.
+:::
+::::
 
 #### [• Published •]{.smallcaps}
 
@@ -88,26 +108,6 @@ Renata Rubian, Dajna Sorenson, Rishi Chakraborty, **Kevin Li**, and Jade Cooper 
 :::
 ::::
 
-#### [• Working Papers •]{.smallcaps}
-
-:::: myclass
-::: small
-**Kevin Li** (2025). 'Conditional Cash Transfers. Perceptions of Political Institutions, and Turnout: Evidence from the California Earned Income Tax Credit'.
-:::
-::::
-
-:::: myclass
-::: small
-**Kevin Li** (2025). '[Causal Replication and Reppraisal of Tellez (2022) 'Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia](https://kevinli03.github.io/papers/my457/paper.pdf){style="color: gray;"}'.
-:::
-::::
-
-:::: myclass
-::: small
-**Kevin Li** (2025). '[Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences](https://kevinli03.github.io/papers/gv482/paper.pdf){style="color: gray;"}'.
-:::
-::::
-
 #### [• Contributed •]{.smallcaps}
 
 :::: myclass
@@ -116,7 +116,7 @@ Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024
 :::
 ::::
 
-## Projects
+## Music & Projects
 
 #### [• Academic Projects •]{.smallcaps}
 
