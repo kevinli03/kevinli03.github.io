@@ -1,0 +1,213 @@
+---
+title: "Causal Frameworks"
+subtitle: "Applied Econometrics Resources"
+author: "Kevin Li"
+format:
+  beamer:
+    slide-number: true
+    aspectratio: 1610
+    theme: CambridgeUS
+header-includes: |
+  \usepackage{mathastext}
+  \usepackage{upgreek}
+  \setbeamertemplate{footline}[frame number]  % Forces slide numbers in footline
+  \setbeamertemplate{navigation symbols}{}   % Optional: Removes navigation symbols
+editor: visual
+---
+
+## Potential Outcomes
+
+We want to find the effect of a binary treatment $D$ on an outcome $Y$.
+
+Imagine two hypothetical worlds that are identical, except for treatment $D$:
+
+-   World 0: individual $i$ does not get the treatment. $D_i = 0$
+
+-   World 1: individual $i$ gets the treatment $D_i = 1$.
+
+Lets imagine their outcome values in each hypothetical world are as follows:
+
+-   World 0 no treatment: $Y_i (0)$.
+
+-   World 1 with treatment $Y_i(1)$.
+
+$Y_i(0)$ and $Y_i(1)$ are called the **potential outcomes** of the hypothetical worlds.
+
+## Causal Effect
+
+The two hypothetical worlds are identical except for treatment $D$.
+
+Thus, any difference in their outcome values $Y_i(0)$ and $Y_i(1)$ must be **caused** by the difference in treatment.
+
+$$
+\uptau_i = Y_i(1) - Y_i(0)
+$$
+
+**Issue**: there isn't actually two hypothetical worlds.
+
+-   In the real world, individual $i$ either has the treatment $D_i = 1$, or does not have the treatment $D_i = 0$.
+
+-   Thus, we always are missing one of $Y_i(1)$ or $Y_i(0)$. The one we observe is the real $Y_i$ value. The missing one is called a **counterfactual**.
+
+**Fundamental Problem of Causal Inference**: the causal effect requires us to know both potential outcomes, but we never see both.
+
+## Causal Estimands
+
+$\tau_i$ is the individual causal effect for individual $i$. We are often interested in group causal effects:
+
+1.  **Average Treatment Effect (ATE)**:
+
+    $\mathbb E[\uptau_i] = \mathbb E[Y_i(1) - Y_i(0)]$
+
+2.  **Average Treatment Effect on the Treated (ATT)**: average for only those who receive treatment.
+
+    $\mathbb E[\uptau_i| D_i = 1] = \mathbb E[Y_i(1) - Y_i(0)|D_i = 1]$
+
+3.  **Conditional/Local Average Treatment Effect (CATE/LATE)**: average based on some condition of $X$.
+
+    $\mathbb E[\uptau_i| X_i = 1] = \mathbb E[Y_i(1) - Y_i(0)|X_i = 1]$
+
+## Correlation not Causation
+
+Correlation $\uprho$ is when we don't consider potential outcomes, but simply compare those who are treated to those who are not treated. Mathematically:
+
+$$
+\begin{split}
+\rho_{D,Y} & = \mathbb E[Y_i|D_i = 1] - \mathbb E[Y_i|D_i = 0] \\
+& = \mathbb E[Y_i(1)|D_i = 1] - \mathbb E[Y_i(0)|D_i = 0] \\
+& = \mathbb E[Y_i(1)|D_i = 1] - \mathbb E[Y_i(0)|D_i = 0] + \mathbb E[Y_i(1)|D_i = 1] - \mathbb E[Y_i(1)|D_i = 1] \\
+& = \underbrace{\mathbb E[Y_i(1)|D_i = 1] - \mathbb E[Y_i(1)|D_i = 1]}_{ATT} + \underbrace{\mathbb E[Y_i(0)|D_i = 1] - \mathbb E[Y_i(0)|D_i = 0]}_\text{Selection Bias}
+\end{split}
+$$
+
+We can see that correrlation equals ATT + Selection Bias.
+
+-   Read: Correlation does not equal causation (ATT) unless selection bias equals 0.
+
+## Selection Bias
+
+Recall correlation = ATT + Selection bias. What is selection bias?
+
+$$
+\text{Selection Bias} = \mathbb E[Y_i(0)|D_i = 1] - \mathbb E[Y_i(0)|D_i = 0]
+$$
+
+What does this mean? The two parts:
+
+1.  Hypothetical $Y_i(0)$ for those who did receive the treatment $D_i = 0$.
+2.  Hypothetical $Y_i(0)$ for those who did not receive the treatment $D_i = 0$.
+
+Recall $Y_i(0)$ is hypothetical $Y_i$ without treatment. What this means is:
+
+-   Selection bias is the difference **before** (without) **treatment** between the treatment group $D_i = 1$ and treated group $D_i = 0$.
+
+## Confounders
+
+What causes selection bias?
+
+-   Read: what causes pre-existing differences between treatment $D_i =1$ and control $D_i = 0$?
+
+**Confounders**: a variable $X$ that meets two conditions:
+
+1.  $X$ causes $D$.
+
+    Read: individuals with different values of $X$ have different likelihoods of being assigned to $D_i = 1$ or $D_i = 0$
+
+2.  $X$ is correlated with $Y$.
+
+    Read: $X$ is associated with the values of $Y$.
+
+Thus, since $X$ is associated with $Y$, and different values of $X$ have different likelihoods of being assigned to $D$, then $D$ will have different $Y$ values if $X$ is a confounder.
+
+## Exogeneity (1)
+
+Recall OLS is only unbiased if strict exogeneity is met $Cov(X, \upvarepsilon) = 0$.
+
+Why would $X$ and $\upvarepsilon$ be correlated? Imagine this "true" regression with independent variables $X$ and $Z$ that are correlated:
+
+$$
+Y_i = \upbeta_0 + \upbeta_1X_i + \upbeta_2 Z_i + \upvarepsilon_i
+$$
+
+Now imagine we forget to include $Z$ in our regression:
+
+$$
+Y_i = \upgamma_0 + \upgamma_1 X_i + u_i
+$$
+
+Now the error term $u_i$ contains $Z_i$ (since error term is everything that explains $Y$ that is not in our regression).
+
+But $X$ and $Z$ are correlated. Since $Z$ is a part of $u_i$, then $X$ and $u_i$ are correlated, violating exogeneity. The estimate of $\upgamma_1$ would be biased.
+
+## Controlling
+
+Here is our regression of treatment $D$ on outcome $Y$:
+
+$$
+Y_i = \upalpha + \uptau D_i + \upvarepsilon_i
+$$
+
+Confounders $X$ is correlated with $D$ by definition.
+
+Thus, if we do not include confounder $X$ in our regression, it will be contained in $\upvarepsilon_i$, violating exogeneity, and thus creating a biased estimate.
+
+-   This matches with the idea of selection bias: not accounting for $X$ means correlation does not equal causation.
+
+Easy solution: add all confounders into regression to meet exogeneity and acheive unbiased estimates:
+
+$$
+Y_i = \upalpha + \uptau D_i + \upbeta X_i + \upvarepsilon_i
+$$
+
+## Unobservable Confounders
+
+Sounds simple, just control for all confounders $X$? Then we can get unbiased causal estimates?
+
+Unfortunately, we often run into issues:
+
+1.  Confounder $X$ might be impossible/difficult to measure (ex. happiness).
+
+2.  We might not have data on $X$.
+
+3.  We might not know all confounders $X$. There is no magic test to tell us what is a confounder.
+
+Even missing just one $X$ will bias our results.
+
+Thus, the field of **causal inference** exists to find creative ways to get causal estimates.
+
+## Random Experiments
+
+The "best" way to isolate causal effects is with random assignment of treatment $D_i$.
+
+-   Our issue is that confounders $X$ cause who gets treatment $D$.
+
+-   If we randomly assign people to treatment $D$, then it is randomness causing $D$, and no longer $X$.
+
+Thus, random assignment solves confounder problems and ensures exogeneity, allowing us to run a simple regression to find causal effects:
+
+$$
+Y_i = \upalpha + \uptau D_i + \upvarepsilon_i
+$$
+
+Issues:
+
+1.  You can't always run randomised experiments. You need to control $D$, and that can be costly/impractical.
+2.  Even if you randomly assign $D_i$, how do you force everyone to follow their assignment?
+
+## Observational Studies
+
+We saw random experiments can be difficult to run. Thus, the field of causal inference has designed different techniques to estimate causal effects.
+
+1.  **Difference-in-Differences** (DiD): exploiting variation in treatment adoption over time and between individuals.
+
+    DiD is the most popular method right now, and has seen rapid advancement in techniques in the past few years.
+
+2.  **Instrumental Variables** (IV): exploiting instruments to estimate causal effects.
+
+    Becoming less popular due to concerns over assumptions
+
+3.  **Regression Discontinuity Design** (RDD): exploiting cut-offs in treatment assignment to estimate causal effects.
+
+    Probably the most "convincing" method, but only applicable to certain scenarios.
+
+All methods require **assumptions**. We should always ask if these assumptions are met.

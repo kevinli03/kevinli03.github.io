@@ -1,6 +1,6 @@
 ---
 title: "Simple Econometric Theory Review"
-subtitle: "Kevin's Econometrics Resources"
+subtitle: "Applied Econometrics Resources"
 author: "Kevin Li"
 format:
   beamer:

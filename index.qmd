@@ -87,7 +87,7 @@ Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024
 ::: small
 -   [Simple Econometric Theory Review](https://kevinli03.github.io/resources/reg.pdf)
 
--   Causal Frameworks Slides
+-   [Causal Frameworks Slides](https://kevinli03.github.io/resources/causal.pdf)
 
 -   Fundamentals of Difference-in-Differences Slides
 
