@@ -89,15 +89,13 @@ Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024
 
 -   Causal Frameworks Slides
 
--   Generalised Difference-in-Differences Slides
+-   Fundamentals of Difference-in-Differences Slides
 
 -   Modern Advancements in Differences-in-Differences Slides
 
 -   Instrumental Variables and 2SLS Slides
 
 -   Regression Discontinuity Slides
-
--   Selection on Observables Slides
 
 -   Latent Variable Model Slides
 :::
