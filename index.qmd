@@ -13,7 +13,7 @@ about:
 sidebar: side
 ---
 
-::::::::::::::::::::::: panel-tabset
+::::::::::::::::::::: panel-tabset
 ## About
 
 ::: grey
@@ -80,43 +80,26 @@ Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024
 :::
 ::::
 
-## Econometrics
+## Projects
 
 #### [Applied Econometrics Resources]{.smallcaps}
 
 ::: small
 -   [Simple Econometric Theory Review](https://kevinli03.github.io/resources/reg.pdf)
-
--   [Causal Frameworks Slides](https://kevinli03.github.io/resources/causal.pdf)
-
--   Fundamentals of Difference-in-Differences Slides
-
--   Modern Advancements in Differences-in-Differences Slides
-
--   Instrumental Variables and 2SLS Slides
-
+-   [Causal Framework Basics Slides](https://kevinli03.github.io/resources/causal.pdf)
+-   Difference-in-Differences with Modern Advancements
+-   Difference-in-Differences Coding (R, Python) Resources
 -   Regression Discontinuity Slides
-
 -   Latent Variable Model Slides
 :::
 
-#### [Coding Resources]{.smallcaps}
-
 :::: myclass
 ::: small
--   [Difference-in-Differences (DiD) Resources](https://kevinli03.github.io/did/){.uri style="color: gray;"} • A page with R and python code for modern DiD estimators.
-:::
-::::
-
-:::: myclass
-::: small
- 
-
 *Thanks to Dr. Daniel de Kadt, Dr. Aliz Toth, Prof. Jouni Kuha, and Dr. Yiqing Xu for their instruction and resources that have helped me learn and create these slides.*
 :::
 ::::
 
-## Music
+#### [Music]{.smallcaps}
 
 :::: myclass
 ::: small
@@ -147,4 +130,4 @@ Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024
 -   [Cool Chamber Piece with CCA Orchestra](https://youtu.be/f3efaP1yKrQ){style="color: gray;"}
 :::
 ::::
-:::::::::::::::::::::::
+:::::::::::::::::::::
