@@ -23,7 +23,7 @@ I am currently an **Associate at PwC** in London.
 
 Previously, I was a researcher with the **United Nations Development Programme (UNDP)**, where I worked on inclusive growth, co-authoring several publications.
 
-I received a MSc from the **London School of Economics (LSE)** and a **BSc from King's College London**. In High School (in the United States), I received the **National AP Scholar** award for academic achievement.
+I did my masters at the **London School of Economics (LSE)**, receiving the **Prize for Best Overall Performance**. Prior to my masters, I completed a BSc from **King's College London**. In High School (in the United States), I received the **National AP Scholar** award for academic achievement.
 
 My main research interests lie in the application of **causal econometrics**, **latent variable modelling**, and **game theoretic modelling** in researching topics in **political economy**. I use **R**, **Python**, **Stata**, and **Julia** for data analysis.
 
