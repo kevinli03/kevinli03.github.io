@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Kevin Lingfeng Li",
     "section": "",
-    "text": "AboutPapersProjects\n\n\n\nHi, I’m Kevin.\nI am currently an Associate at PwC in London.\nPreviously, I was a researcher with the United Nations Development Programme (UNDP), where I worked on inclusive growth, co-authoring several publications.\nI did my masters at the London School of Economics (LSE), receiving the Prize for Best Overall Performance. Prior to my masters, I completed a BSc from King’s College London. In High School (in the United States), I received the National AP Scholar award for academic achievement.\nMy main research interests lie in the application of causal econometrics, latent variable modelling, and game theoretic modelling in researching topics in political economy. I use R, Python, Stata, and Julia for data analysis.\nAside from my work and research, I am also a violinist and pianist.\n \nI have included my papers/publications, econometrics resources, and music recordings in this portfolio.\nFor my CV, see my LinkedIn. Contact me at k.l.li1@lse.ac.uk.\n\n\n\n\nWorking Papers\n\n\nKevin Li (2025). ‘Conditional Cash Transfers. Perceptions of Political Institutions, and Turnout: Evidence from the California Earned Income Tax Credit’.\n\n\n\n\nKevin Li (2025). ‘Causal Replication and Reppraisal of Tellez (2022) “Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia”’.\n\n\n\n\nKevin Li (2025). ‘Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences’.\n\n\n\n\nPublished\n\n\nRenata Rubian, Dajna Sorenson, Rishi Chakraborty, and Kevin Li (2025). ‘Landlocked Developing Countries: Looking Back and Ahead’, United Nations Development Programme.\n\n\n\n\nRenata Rubian, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper (2024). ‘SIDS: Looking Back and Forward’, United Nations Development Programme.\n\n\n\n\nContributed\n\n\nAarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024). ‘Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam’, United Nations Development Programme.\n\n\n\n\n\n\nApplied Econometrics Resources\n\n\nSimple Econometric Theory Review\nCausal Framework Basics Slides\nDifference-in-Differences with Modern Advancements\nDifference-in-Differences Coding (R, Python) Resources\nRegression Discontinuity Slides\nLatent Variable Model Slides\n\n\n\n\nThanks to Dr. Daniel de Kadt, Dr. Aliz Toth, Prof. Jouni Kuha, and Dr. Yiqing Xu for their instruction and resources that have helped me learn and create these slides.\n\n\n\n\nMusic\n\n\n\nSalut d’Amour (Elgar)\nSalut d’Amour with my sister\nAdoration (Borowski)\nMy own composition (For CCA Conservatory)\nCover: I Will go to you like the first snow (Ailee)\nPrelude for 2 Violins (Shostakovich)\nViolin Concerto No. 5 (Mozart)\nZigunerweisen (Sarasate)\nCover: One Call Away (Charlie Puth)\nMvmt. 3, Bird Quartet\nMvmt. 4, Bird Quartet (Haydn)\nSleigh Ride (Anderson) with CCA Orchestra\nCool Chamber Piece with CCA Orchestra"
+    "text": "LinkedIn \n  kevinlingfengli@outlook.com\nWelcome to my portfolio! Here, you can learn more about me, and view my papers, projects, and recordings."
   },
   {
     "objectID": "election/us2024/prediction.html",
@@ -229,5 +229,201 @@
     "title": "Difference-in-Differences with Modern Advancements",
     "section": "More Time Periods",
     "text": "More Time Periods\nIn our example, we currently have only two time periods, \\(t=0,1\\).\nWe can have more time periods. These time periods will be split into two types:\n\nPre-treatment time periods (treated the same as \\(t=0\\))\nPost-treatment time periods (treated the same as \\(t=1\\)).\n\nWe will use the variable \\(R\\) to describe time periods:\n\nPre-treatment time periods are negative values of \\(R\\).\nPost-treatment time periods are 0 and positive values of \\(R\\).\n\\(R = 0\\) is the first year that treatment \\(G=1\\) adopts treatment.aw2"
+  },
+  {
+    "objectID": "resources/reg.html",
+    "href": "resources/reg.html",
+    "title": "Simple Econometric Theory Review",
+    "section": "",
+    "text": "For independent variables \\(X_1, X_2, \\dots, X_p\\), and outcome variable \\(Y\\) for units \\(i = 1, 2, \\dots, n\\):\n\\[\nY_i = \\underbrace{\\upbeta_0 + \\upbeta_1 X_{i1} + \\upbeta_2X_{i2} + \\dots + \\upbeta_p X_{ip}}_{\\mathbb E[Y_i|X_i]} + \\upvarepsilon_i\n\\]\n\\(\\upbeta_0, \\upbeta_1, \\dots, \\upbeta_p\\) are parameters that describe the deterministic part of the relationship between \\(Y\\) and \\(X_1, \\dots, X_p\\).\n\nRead: the part of \\(Y\\) explained by \\(X_1, \\dots, X_p\\).\n\n\\(\\upvarepsilon_i\\) error term is the non-deterministic relationship between \\(Y\\) and \\(X_1, \\dots, X_p\\).\n\nRead: part of \\(Y\\) not explained by \\(X_1, \\dots, X_p\\).\n\\(\\mathbb E[\\pmb\\upvarepsilon] = 0\\)"
+  },
+  {
+    "objectID": "resources/reg.html#model-specification",
+    "href": "resources/reg.html#model-specification",
+    "title": "Simple Econometric Theory Review",
+    "section": "",
+    "text": "For independent variables \\(X_1, X_2, \\dots, X_p\\), and outcome variable \\(Y\\) for units \\(i = 1, 2, \\dots, n\\):\n\\[\nY_i = \\underbrace{\\upbeta_0 + \\upbeta_1 X_{i1} + \\upbeta_2X_{i2} + \\dots + \\upbeta_p X_{ip}}_{\\mathbb E[Y_i|X_i]} + \\upvarepsilon_i\n\\]\n\\(\\upbeta_0, \\upbeta_1, \\dots, \\upbeta_p\\) are parameters that describe the deterministic part of the relationship between \\(Y\\) and \\(X_1, \\dots, X_p\\).\n\nRead: the part of \\(Y\\) explained by \\(X_1, \\dots, X_p\\).\n\n\\(\\upvarepsilon_i\\) error term is the non-deterministic relationship between \\(Y\\) and \\(X_1, \\dots, X_p\\).\n\nRead: part of \\(Y\\) not explained by \\(X_1, \\dots, X_p\\).\n\\(\\mathbb E[\\pmb\\upvarepsilon] = 0\\)"
+  },
+  {
+    "objectID": "resources/reg.html#matrix-form",
+    "href": "resources/reg.html#matrix-form",
+    "title": "Simple Econometric Theory Review",
+    "section": "Matrix Form",
+    "text": "Matrix Form\nCondensed form:\n\\[\ny_i = \\mathbf x_i' \\pmb\\upbeta + \\upvarepsilon_i, \\quad \\mathbf x_i = \\begin{pmatrix} 1 \\\\ x_{i1} \\\\ x_{i2} \\\\ \\vdots\n\\end{pmatrix}, \\quad \\pmb\\upbeta = \\begin{pmatrix} \\upbeta_0 \\\\ \\upbeta_1 \\\\ \\upbeta_2 \\\\ \\vdots\n\\end{pmatrix}\n\\]\nEven more condensed matrix form:\n\\[\n\\mathbf y = \\mathbf X \\pmb \\upbeta + \\pmb \\upvarepsilon, \\quad \\mathbf y = \\begin{pmatrix}y_1 \\\\ y_2 \\\\ \\vdots \\\\ y_n\\end{pmatrix}, \\mathbf X = \\begin{pmatrix} 1 & x_{11} & x_{12} & \\dots & x_{1p} \\\\ 1 & x_{21} & x_{22} & \\dots & x_{2p} \\\\ \\vdots & \\vdots & \\vdots & \\vdots & \\vdots \\\\ 1 & x_{n1} & x_{n2} & \\dots & x_{np} \\end{pmatrix}, \\pmb\\upbeta = \\begin{pmatrix} \\upbeta_0 \\\\ \\upbeta_1 \\\\ \\vdots \\\\ \\upbeta_p \\end{pmatrix}, \\pmb\\upvarepsilon = \\begin{pmatrix} \\upvarepsilon_1  \\\\ \\upvarepsilon_2 \\\\ \\vdots \\\\ \\upvarepsilon_n \\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "resources/reg.html#sum-of-squared-errors",
+    "href": "resources/reg.html#sum-of-squared-errors",
+    "title": "Simple Econometric Theory Review",
+    "section": "Sum of Squared Errors",
+    "text": "Sum of Squared Errors\nNaturally, we want to choose the values \\(b_0, \\dots, b_p\\) for the unknown \\(\\upbeta_0, \\dots, \\upbeta_p\\) that minimise the sum (squared) error of predicted \\(\\hat Y_i\\) in respect to the true population.\n\nActual true \\(Y\\) values: \\(Y_i\\), with unknown \\(\\upbeta\\)\nPredicted \\(\\hat Y\\) values, with some choice of \\(\\upbeta\\) value of \\(b\\).\n\nThus, the sum (squared) error is the sum of the differences between actual \\(Y_i\\) and predicted \\(\\hat Y_i\\):\n\\[\nSSE = \\sum(Y_i - \\hat Y_i)^2 = (\\mathbf y- \\hat{\\mathbf y})'(\\mathbf y- \\hat{\\mathbf y})\n\\]\nWhy squared?\n\ngets rid of direction, only keeps magnitude\nEasier for calculus as absolute value function is non-differentiable at vertex.\nNice properties (see later in the slides)."
+  },
+  {
+    "objectID": "resources/reg.html#ordinary-least-squares",
+    "href": "resources/reg.html#ordinary-least-squares",
+    "title": "Simple Econometric Theory Review",
+    "section": "Ordinary Least Squares",
+    "text": "Ordinary Least Squares\nRe-arrange SSE:\n\\[\n\\begin{split}\nSSE & = (\\mathbf y- \\hat{\\mathbf y})'(\\mathbf y- \\hat{\\mathbf y}) \\\\\n& = (\\mathbf y - \\mathbf{Xb})'(\\mathbf y - \\mathbf{Xb}) \\\\\n& = \\mathbf y' \\mathbf y - \\mathbf y' \\mathbf{Xb} - \\mathbf b' \\mathbf X' \\mathbf y + \\mathbf b' \\mathbf X' \\mathbf{Xb}\n\\end{split}\n\\]\nWe want to minimise the SSE, so take the derivative in respect to \\(\\mathbf b\\) and set equal to 0:\n\\[\n\\frac{\\partial SSE}{\\partial \\mathbf b} = -2 \\mathbf X' \\mathbf y + 2 \\mathbf X' \\mathbf{Xb} = 0\n\\]\nRe-arrange the equation to get\n\\[\n\\begin{split}\n\\mathbf b & = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbf y \\\\\n& \\implies \\hat{\\pmb\\upbeta} = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbf y\n\\end{split}\n\\]"
+  },
+  {
+    "objectID": "resources/reg.html#estimator-properties",
+    "href": "resources/reg.html#estimator-properties",
+    "title": "Simple Econometric Theory Review",
+    "section": "Estimator Properties",
+    "text": "Estimator Properties\nWhen we estimate \\(\\upbeta\\) (or any parameter), we typically use a sample of the population.\n\nWhat if we used a different sample to calculate the parameter? We would get a slightly different \\(\\hat{\\upbeta}\\) estimate since the sample data is slightly different.\n\nSampling distribution is the distribution of all estimated \\(\\hat{\\upbeta}\\) from different samples, taking an infinite number of samples.\n\nImagine you take one sample, and estimate \\(\\hat{\\upbeta}\\). Then, take another sample and estimate \\(\\hat{\\upbeta}\\). Then again and again. Plot all of the \\(\\hat{\\upbeta}\\) in a distribution to get the sampling distribution.\n\nUnbiasedness is if the expected value of the sampling distribution equals the true population value of \\(\\upbeta\\). In other words: \\(\\mathbb E[\\hat{\\pmb\\upbeta}] = \\pmb\\upbeta\\).\nStandard Error is the standard deviation of the sampling distribution."
+  },
+  {
+    "objectID": "resources/reg.html#unbiasedness-of-ols-1",
+    "href": "resources/reg.html#unbiasedness-of-ols-1",
+    "title": "Simple Econometric Theory Review",
+    "section": "Unbiasedness of OLS (1)",
+    "text": "Unbiasedness of OLS (1)\nTheorem: Part of the Gauss-Markov Theorem states that under 4 conditions, the OLS estimate of \\(\\upbeta\\) is unbiased: \\(\\mathbb E[\\hat{\\pmb\\upbeta}] = \\pmb\\upbeta\\)\n\nThe population model can be expressed as a linear model \\(\\mathbf y = \\mathbf X \\pmb\\upbeta + \\pmb\\upvarepsilon\\).\ni.i.d sampling from population.\nNo perfect multicollinearity. Basically, \\(\\mathbf X\\) must be full-rank.\nStrict Exogeneity: Formally defined as \\(\\mathbb E[\\pmb\\upvarepsilon|\\mathbf X] = 0\\).\nThis implies that \\(Cov(\\upvarepsilon, X_j) = 0\\) for any explanatory variable \\(X_j = X_1, \\dots, X_p\\).\n\nViolations of strict exogeneity often caused by omitted confounders (see causal frameworks)."
+  },
+  {
+    "objectID": "resources/reg.html#unbiasedness-of-ols-2",
+    "href": "resources/reg.html#unbiasedness-of-ols-2",
+    "title": "Simple Econometric Theory Review",
+    "section": "Unbiasedness of OLS (2)",
+    "text": "Unbiasedness of OLS (2)\nProof:\n\\[\n\\begin{split}\n\\hat{\\pmb\\upbeta} & = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbf y \\\\\n& = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'(\\mathbf X \\pmb\\upbeta + \\pmb\\upvarepsilon) \\\\\n& = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbf X \\pmb\\upbeta + (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\pmb\\upvarepsilon \\\\\n& = \\pmb\\upbeta + (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\pmb\\upvarepsilon\n\\end{split}\n\\]\nNow we want to prove \\(\\mathbb E[\\hat{\\pmb\\upbeta}] = \\pmb\\upbeta\\). So we want to take the expected value of \\(\\hat{\\pmb\\upbeta}\\):\n\\[\n\\begin{split}\n\\mathbb E[& \\hat{\\pmb\\upbeta}|\\mathbf X] = \\mathbb E[\\pmb\\upbeta + (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\pmb\\upvarepsilon|\\mathbf X] \\\\\n& \\implies \\mathbb E[\\hat{\\pmb\\upbeta}|\\mathbf X] = \\pmb\\upbeta + (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbb E[\\pmb\\upvarepsilon|\\mathbf X]\n\\end{split}\n\\]"
+  },
+  {
+    "objectID": "resources/reg.html#unbiasedness-of-ols-3",
+    "href": "resources/reg.html#unbiasedness-of-ols-3",
+    "title": "Simple Econometric Theory Review",
+    "section": "Unbiasedness of OLS (3)",
+    "text": "Unbiasedness of OLS (3)\n\\[\n\\mathbb E[\\hat{\\pmb\\upbeta}|\\mathbf X] = \\pmb\\upbeta + (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbb E[\\pmb\\upvarepsilon|\\mathbf X]\n\\]\nRecall Gauss-Markov condition (4), strict exogeneity: \\(\\mathbb E[\\pmb\\upvarepsilon|\\mathbf X] = 0\\). Thus:\n\\[\n\\mathbb E[\\hat{\\pmb\\upbeta}|X] = \\pmb\\upbeta + (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'(0) = \\pmb\\upbeta\n\\]\nFinally, law of iterated expecations (LIE) gets us:\n\\[\n\\mathbb E [\\hat{\\pmb\\upbeta}]= \\mathbb E [\\mathbb E[\\hat{\\pmb\\upbeta}]] = \\pmb\\upbeta\n\\]\nThus, we have shown \\(\\mathbb E[\\hat{\\pmb\\upbeta}] = \\pmb\\upbeta\\), proving OLS is an unbiased estimator of the true \\(\\upbeta\\) population parameters under 4 gauss-markov conditions."
+  },
+  {
+    "objectID": "resources/reg.html#variance-of-ols-1",
+    "href": "resources/reg.html#variance-of-ols-1",
+    "title": "Simple Econometric Theory Review",
+    "section": "Variance of OLS (1)",
+    "text": "Variance of OLS (1)\nStart with our solution:\n\\[\n\\begin{split}\n\\hat{\\pmb\\upbeta} & = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbf y \\\\\n& = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'(\\mathbf X \\pmb\\upbeta + \\pmb\\upvarepsilon) \\\\\n& = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbf X \\pmb\\upbeta + (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\pmb\\upvarepsilon \\\\\n& = \\pmb\\upbeta + (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\pmb\\upvarepsilon\n\\end{split}\n\\]\n\\(\\pmb\\upbeta\\) is a constant population value, so it is not the variance. Thus, the variance of the estimator comes from 2nd term:\n\\[\n\\begin{split}\nVar & [\\hat{\\pmb\\upbeta}|X]= Var[(\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\pmb\\upvarepsilon| X] \\\\\n& \\implies Var[\\hat{\\pmb\\upbeta}|X]=(\\mathbf X'\\mathbf X)^{-1} \\mathbf X'Var[\\pmb\\upvarepsilon|\\mathbf X] [(\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\pmb\\upvarepsilon]^{-1} \\\\\n&\\implies Var[\\hat{\\pmb\\upbeta}|X]= (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'Var[\\pmb\\upvarepsilon|\\mathbf X] \\mathbf X (\\mathbf X'\\mathbf X)^{-1}\n\\end{split}\n\\]"
+  },
+  {
+    "objectID": "resources/reg.html#variance-of-ols-2",
+    "href": "resources/reg.html#variance-of-ols-2",
+    "title": "Simple Econometric Theory Review",
+    "section": "Variance of OLS (2)",
+    "text": "Variance of OLS (2)\nHomoscedasticity assumption:\n\\[\nVar[\\pmb\\upvarepsilon|\\mathbf X] = \\sigma^2 \\mathbf I =\n\\begin{pmatrix}\n\\sigma^2 & 0 & 0 & \\dots \\\\\n0 & \\sigma^2 & 0 & \\dots \\\\\n0 & 0 & \\sigma^2 & \\vdots \\\\\n\\vdots & \\vdots & \\dots & \\ddots\n\\end{pmatrix}\n\\]\n\nRead: no matter the value of \\(\\mathbf X\\), the error term \\(\\upvarepsilon\\) has the same constant variance \\(\\sigma^2\\).\n\nIf homoscedasticity assumption is true, we can plug this into our OLS variance formula:\n\\[\n\\begin{split}\nVar[\\hat{\\pmb\\upbeta}|X] & = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'Var[\\pmb\\upvarepsilon|\\mathbf X] \\mathbf X (\\mathbf X'\\mathbf X)^{-1} \\\\\n& = (\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\sigma^2 \\mathbf I \\mathbf X (\\mathbf X'\\mathbf X)^{-1} \\\\\n& = \\sigma^2 (\\mathbf X' \\mathbf X)^{-1}\n\\end{split}\n\\]"
+  },
+  {
+    "objectID": "resources/reg.html#variance-of-ols-3",
+    "href": "resources/reg.html#variance-of-ols-3",
+    "title": "Simple Econometric Theory Review",
+    "section": "Variance of OLS (3)",
+    "text": "Variance of OLS (3)\nAlternatively, we can weaken this assumption to heteroscedasticity: where the error term variance depends on unit \\(i\\)’s \\(\\mathbf X\\) values:\n\\[\nVar[\\pmb\\upvarepsilon|\\mathbf X] = \\sigma^2 \\mathbf I =\n\\begin{pmatrix}\n\\sigma^2_1 & 0 & 0 & \\dots \\\\\n0 & \\sigma^2_2 & 0 & \\dots \\\\\n0 & 0 & \\sigma^2_i & \\vdots \\\\\n\\vdots & \\vdots & \\dots & \\ddots\n\\end{pmatrix}\n\\]\nOur variance of OLS once plugging in is:\n\\[\nVar[\\hat{\\pmb\\upbeta}|X]= (\\mathbf X'\\mathbf X)^{-1} \\mathbf X' \\begin{pmatrix}\n\\sigma^2_1 & 0 & 0 & \\dots \\\\\n0 & \\sigma^2_2 & 0 & \\dots \\\\\n0 & 0 & \\sigma^2_i & \\vdots \\\\\n\\vdots & \\vdots & \\dots & \\ddots\n\\end{pmatrix} \\mathbf X (\\mathbf X'\\mathbf X)^{-1}\n\\]"
+  },
+  {
+    "objectID": "resources/reg.html#hypothesis-testing",
+    "href": "resources/reg.html#hypothesis-testing",
+    "title": "Simple Econometric Theory Review",
+    "section": "Hypothesis Testing",
+    "text": "Hypothesis Testing\nWe do not know the values of \\(\\sigma^2\\) or \\(\\sigma_i^2\\). Thus, we use estimates of them involving our residuals \\(\\hat{\\upvarepsilon}_i\\).\nUsing these estimates, we can find the estimated variance and standard error. From this, we can conduct hypothesis testing with \\(t\\)-tests.\n\\[\nt = \\frac{\\hat{\\upbeta}_j - H_0}{\\widehat{se}(\\hat{\\upbeta}_j)}, \\quad \\text{for} \\quad \\hat{\\upbeta}_j \\in \\hat{\\upbeta}_0, \\dots, \\hat{\\upbeta}_p\n\\]\n\nWhere \\(H_0\\) is the null (usually 0).\n\nWe can then calculate p-value: probability the null is true given our estimate \\(\\hat{\\upbeta}_j\\).\nNote: hypothesis testing is only approximate if \\(\\upvarepsilon\\) is not normally distributed (will be achieved in large sample sizes due to CLM). Consider bootstrap inference for small samples."
+  },
+  {
+    "objectID": "resources/reg.html#geometrics-of-ols-1",
+    "href": "resources/reg.html#geometrics-of-ols-1",
+    "title": "Simple Econometric Theory Review",
+    "section": "Geometrics of OLS (1)",
+    "text": "Geometrics of OLS (1)\nOur predicted values of \\(\\hat Y_i\\) are defined as following:\n\\[\n\\hat{\\mathbf y} = \\mathbf{Xb} = \\mathbf X(\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\\mathbf y\n\\]\nLet us define projection matrix \\(\\mathbf P\\) as:\n\\[\n\\mathbf P:= \\mathbf X(\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\n\\]\n\n\\(\\mathbf P\\) is symmetrical \\(\\mathbf P' - \\mathbf P\\), and idempotent \\(\\mathbf{PP} = \\mathbf P\\).\n\nThus, we can rewrite our predicted values as:\n\\[\n\\hat{\\mathbf y} = \\mathbf{Py}\n\\]\nThus, \\(\\mathbf P\\) is projecting \\(\\mathbf y \\rightarrow \\hat{\\mathbf y}\\)."
+  },
+  {
+    "objectID": "resources/reg.html#geometrics-of-ols-2",
+    "href": "resources/reg.html#geometrics-of-ols-2",
+    "title": "Simple Econometric Theory Review",
+    "section": "Geometrics of OLS (2)",
+    "text": "Geometrics of OLS (2)\nLet us define residual maker matrix \\(\\mathbf M\\):\n\\[\n\\mathbf M:= \\mathbf I - \\mathbf P = \\mathbf I - \\mathbf X(\\mathbf X'\\mathbf X)^{-1} \\mathbf X'\n\\]\n\n\\(\\mathbf M\\) is also symmetrical and idempotent.\n\\(\\mathbf M\\) is orthogonal to \\(\\mathbf P\\) and \\(\\mathbf X\\), meaning \\(\\mathbf{PX} = \\mathbf{MX} = 0\\). You can prove this on your own, it is pretty simple.\n\nOur error between \\(Y_i\\) and \\(\\hat Y_i\\) is \\(\\hat{\\upvarepsilon}_i\\):\n\\[\n\\begin{split}\n\\hat{\\pmb\\upvarepsilon} & = \\mathbf y - \\hat{\\mathbf y} = \\mathbf y - \\mathbf{Py} \\\\\n&  = (\\mathbf I - \\mathbf P) \\mathbf y \\\\\n& = \\mathbf{My}\n\\end{split}\n\\]\nThus, \\(\\mathbf M\\) is projecting \\(\\mathbf y \\rightarrow \\hat{\\pmb\\upvarepsilon}\\)."
+  },
+  {
+    "objectID": "resources/reg.html#geometrics-of-ols-3",
+    "href": "resources/reg.html#geometrics-of-ols-3",
+    "title": "Simple Econometric Theory Review",
+    "section": "Geometrics of OLS (3)",
+    "text": "Geometrics of OLS (3)\nWe know that predicted \\(\\hat{\\mathbf y}\\) is some linear combination of \\(\\mathbf X\\) (explanatory variables \\(X_1, \\dots, X_p\\)), since \\(\\hat{\\mathbf y} = \\mathbf{Xb}\\).\nThus, \\(\\mathbf P\\) projects \\(\\mathbf y\\) into a vector \\(\\hat{\\mathbf y}\\) that is in a space spanned by \\(\\mathbf X\\) (column space of \\(\\mathbf X)\\).\n\n\n\n\n\n\\(\\mathbf M\\) projects vector \\(\\mathbf y\\) into vector \\(\\mathbf e\\) (error), which is perpendicular to the column space of \\(\\mathbf X\\).\n\nRead: strict exogeneity: error term should not be correlated with \\(\\mathbf X\\)."
+  },
+  {
+    "objectID": "index.html#pwc",
+    "href": "index.html#pwc",
+    "title": "Kevin Lingfeng Li",
+    "section": "PwC",
+    "text": "PwC\n\nAssociate · Banking & Capital Markets\n\nApr 2026 - Present\n\n\n\nAssociate · London Audit\n\nSep 2025 - Mar 2026"
+  },
+  {
+    "objectID": "index.html#united-nations-development-programme",
+    "href": "index.html#united-nations-development-programme",
+    "title": "Kevin Lingfeng Li",
+    "section": "United Nations Development Programme",
+    "text": "United Nations Development Programme\n\nResearch Intern · Inclusive Growth\n\nAug 2023 - Aug 2024\n\n\n\nResearch Intern · Strategic Foresight\n\nMar 2023 - Aug 2023"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Kevin Lingfeng Li",
+    "section": "Experience",
+    "text": "Experience\n\nAssociate · Banking & Capital Markets\n\nPwC · Apr 2026 - Present\n\nPerformed procedures for the year-end group audit, debt issuance opinions, and interim reviews of a global systemically important bank with total assets over $3tn\n\n\n\n\nAssociate · London Audit\n\nPwC · Sep 2025 - Mar 2026\n\nPwC prize winner for exceptional certificate level results\nPerformed substantive testing for statutory audits across technology, information services, and non-profit sectors.\n\n\n\n\nResearch Intern · Inclusive Growth\n\nUNDP · Aug 2023 - Aug 2024\n\nCo-authored 2 publications on small island developing states and landlocked countries\nCreated a database of social protection programmes of UNDP to faciliate knowledge sharing between country offices\n\n\n\n\nResearch Intern · Strategic Foresight\n\nUNDP · Mar 2023 - Aug 2023\n\nContributed to a publication on climate migration in Vietnam and Pakistan\nOrganised a public consultation with local stakeholders and experts around climate migration in Vietnam and Pakistan"
+  },
+  {
+    "objectID": "index.html#pwc-uk",
+    "href": "index.html#pwc-uk",
+    "title": "Kevin Lingfeng Li",
+    "section": "PwC (UK)",
+    "text": "PwC (UK)\n\nAssociate · Banking & Capital Markets\n\nApr 2026 - Present\n\n\n\nAssociate · London Audit\n\nSep 2025 - Mar 2026"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Kevin Lingfeng Li",
+    "section": "Education",
+    "text": "Education\n\nLondon School of Economics\n\nMSc Political Economy · Sep 2025\nDistinction · Prize for best overall performance\n\nModules included: Causal Inference, Multivariate Analysis, Econometrics, Regression, Game Theory, Macro and Micro Economics, and Quantitative analysis for Political Science\n\n\n\n\nKing’s College London\n\nBSc Politics · Jun 2024\nFirst Class with Honours\n\nModules included: Statistics II, Advanced Game Theory, Economic Policy, Policy Analysis, Research Methods, Elections and Voting Behaviour, and International Politics\n\n\n\n\nCanyon Crest Academy\n\nHigh School Diploma (USA) · Jun 2021\nACT 35/36 · National AP Scholar\n\nAP Exams: Calculus BC (5/5), Physics 1 (5/5), Statistics (5/5), Physics 2 (4/5), European History (5/5), World History (5/5), US History (5/5), English Language (5/5), Computer Science (4/5), Macroeconomics (4/5), Pyschology (4/5), Music Theory (5/5), Chinese (5/5)"
+  },
+  {
+    "objectID": "index.html#awards",
+    "href": "index.html#awards",
+    "title": "Kevin Lingfeng Li",
+    "section": "Awards",
+    "text": "Awards\n\nPwC Prize for Exceptional Certificate Level Results\n\nAwarded by PwC · 2026\n\nAwarded for obtaining an average of over 90% on the 6 certificate level ACA exams\n\n\n\n\nPrize for Best Overall Performance\n\nAwarded by the London School of Economics · 2025\n\nAwarded for obtaining the highest overall mark in the LSE programme\n\n\n\n\nNational AP Scholar\n\nAwarded by the College Board · 2020\n\nAwarded for taking more than 8 AP exams while maintaining an average above 4/5.\n\n\n\n\nPresident’s Volunteer Service Award (2x)\n\nOffice of the President of the United States · 2018 & 2019\n\nAwarded for performing more than 250 hours of community service in a year\n\n\n\n\nSCSBOA All Southern Orchestra\n\nSCSBOA · 2020\n\nWas selected to be 5th chair first violin for Southern California’s honour orchestra"
+  },
+  {
+    "objectID": "index.html#undp",
+    "href": "index.html#undp",
+    "title": "Kevin Lingfeng Li",
+    "section": "UNDP",
+    "text": "UNDP\n\nResearch Intern · Inclusive Growth\n\nAug 2023 - Aug 2024\n\n\n\nResearch Intern · Strategic Foresight\n\nMar 2023 - Aug 2023"
+  },
+  {
+    "objectID": "index.html#publications",
+    "href": "index.html#publications",
+    "title": "Kevin Lingfeng Li",
+    "section": "Publications",
+    "text": "Publications\n\nLandlocked Developing Countries: Looking Back and Ahead\n\nRenata Rubian, Dajna Sorenson, Rishi Chakraborty, and Kevin Li (2025)\n\nI co-authored this paper as part of my internship with the UNDP\nAccess Here\n\n\n\n\nSIDS: Looking Back and Forward\n\nRenata Rubian, Dajna Sorenson, Rishi Chakraborty, Kevin Li, and Jade Cooper (2024)\n\nI co-authored this paper as part of my internship with the UNDP\nAccess Here\n\n\n\n\nAnticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam\n\nAarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024)\n\nI contributed to the research behind this publication as part of my internship with UNDP\nAccess Here"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Kevin Lingfeng Li",
+    "section": "Projects",
+    "text": "Projects\n\nCausal Replication and Reppraisal of Tellez (2022)\n\nLand, Opportunism, and Displacement in Civil Wars: Evidence from Colombia\n\nI created this paper as part of my masters degree, using modern difference-in-differences methods to replicate and appraise an existing paper\nAccess Here\n\n\n\n\nLegalisation of LGBTQ+ Marriage and Right-wing Populism\n\nEvidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences\n\nI created this paper as part of my masters degree, under the guidance of Professor Stephane Wolton, who provided the topic and the data\nAccess Here\n\n\n\n\nSimple Econometric Theory Review\n\nApplied Econometrics Resources\n\nI created this deck as a summary of content on econometrics taught by Dr. Jörn-Steffen Pischke,Dr. Daniel de Kadt, and Dr. Aliz Toth\nAccess Here\n\n\n\n\nCausal Framework Basics\n\nApplied Econometrics Resources\n\nI created this deck as a summary of content on econometrics taught by Dr. Jörn-Steffen Pischke, Dr. Daniel de Kadt, and Dr. Aliz Toth\nAccess Here"
+  },
+  {
+    "objectID": "index.html#recordings",
+    "href": "index.html#recordings",
+    "title": "Kevin Lingfeng Li",
+    "section": "Recordings",
+    "text": "Recordings\n\nTsujii · Elegy for the Victims of the Earthquake and Tsunami\n\nKevin Li (Piano) · 2018\n\nJuyoung’s favourite song - I made this recording for Juyoung\nAccess Here\n\n\n\n\nElgar · Salut D’Amour\n\nKevin Li (Violin) · 2021\n\nAccess Here\n\n\n\n\nKevin Li · My Original Composition\n\nKevin Li (Violin & Piano) · 2021\n\nI composed and recorded this for a canyon crest academy music conservatory project.\nAccess Here\n\n\n\n\nDon’t Know What The Song Name Is\n\nKevin Li (Piano) · 2018\n\nI recorded this in a period when I was really sad in 2018, I don’t remember what the song is called (or perhaps I made it?)\nAccess Here\n\n\n\n\nAilee · I Will Go to You Like the First Snow\n\nKevin Li (Violin & Piano) · 2021\n\nI also created this arrangement of this song for violin and piano\nAccess Here\n\n\n\n\nShostakovitch · Five Pieces for Two Violins\n\nKevin Li (Violin & Piano) · 2020\n\nAccess Here\n\n\n\n\nBorowski · Adoration\n\nKevin Li (Violin & Piano) · 2021\n\nAccess Here\n\n\n\n\nPuth · One Call Away\n\nKevin Li (Violin & Piano) · 2021\n\nI also created this arrangement of this song for violin and piano\nAccess Here"
+  },
+  {
+    "objectID": "index.html#solo-recordings",
+    "href": "index.html#solo-recordings",
+    "title": "Kevin Lingfeng Li",
+    "section": "Solo Recordings",
+    "text": "Solo Recordings\n\nTsujii · Elegy for the Victims of the Earthquake and Tsunami\n\nKevin Li (Piano) · 2018\n\nJuyoung’s favourite song - I made this recording for Juyoung\nAccess Here\n\n\n\n\nElgar · Salut d’Amour\n\nKevin Li (Violin) · 2021\n\nAccess Here\n\n\n\n\nKevin Li · My Original Composition\n\nKevin Li (Violin & Piano) · 2021\n\nI composed and recorded this for a canyon crest academy music conservatory project.\nAccess Here\n\n\n\n\nDon’t Know What The Song Name Is\n\nKevin Li (Piano) · 2018\n\nI recorded this in a period when I was really sad in 2018, I don’t remember what the song is called (or perhaps I made it?)\nAccess Here\n\n\n\n\nAilee · I Will Go to You Like the First Snow\n\nKevin Li (Violin & Piano) · 2021\n\nI also created this arrangement of this song for violin and piano\nAccess Here\n\n\n\n\nShostakovitch · Five Pieces for Two Violins\n\nKevin Li (Violin & Piano) · 2020\n\nAccess Here\n\n\n\n\nBorowski · Adoration\n\nKevin Li (Violin & Piano) · 2021\n\nAccess Here\n\n\n\n\nPuth · One Call Away\n\nKevin Li (Violin & Piano) · 2021\n\nI also created this arrangement of this song for violin and piano\nAccess Here"
+  },
+  {
+    "objectID": "index.html#group-recordings",
+    "href": "index.html#group-recordings",
+    "title": "Kevin Lingfeng Li",
+    "section": "Group Recordings",
+    "text": "Group Recordings\n\nHaydn · Bird Quartet, Movement 4\n\nAudrey Park (Violin), Kevin Li (Violin), Layla Shapouri (Viola), Roxan Lim (Cello) · 2017\n\nAccess Here\n\n\n\n\nHaydn · Bird Quartet, Movement 3\n\nAudrey Park (Violin), Kevin Li (Violin), Layla Shapouri (Viola), Roxan Lim (Cello) · 2017\n\nAccess Here\n\n\n\n\nAnderson · Sleigh Ride\n\nCanyon Crest Academy Orchestra · 2017\n\nAccess Here\n\n\n\n\nSong I Do Not Know the Name of\n\nCanyon Crest Academy Orchestra · 2017\n\nAccess Here\n\n\n\n\n\n\n\n  LinkedIn \n  kevinlingfengli@outlook.com"
   }
 ]

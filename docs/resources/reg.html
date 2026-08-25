@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Li">
+
+<title>Simple Econometric Theory Review – Kevin Lingfeng Li</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="mathjax-config.js"></script>
+</head><body>\usepackage{mathastext}
+\usepackage{upgreek}
+\setbeamertemplate{footline}[frame number]  % Forces slide numbers in footline
+\setbeamertemplate{navigation symbols}{}   % Optional: Removes navigation symbols
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="reg.pdf"><i class="bi bi-file-pdf"></i>Beamer</a></li></ul></div></div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Simple Econometric Theory Review</h1>
+<p class="subtitle lead">Applied Econometrics Resources</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Li </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="model-specification" class="level2">
+<h2 class="anchored" data-anchor-id="model-specification">Model Specification</h2>
+<p>For independent variables <span class="math inline">\(X_1, X_2, \dots, X_p\)</span>, and outcome variable <span class="math inline">\(Y\)</span> for units <span class="math inline">\(i = 1, 2, \dots, n\)</span>:</p>
+<p><span class="math display">\[
+Y_i = \underbrace{\upbeta_0 + \upbeta_1 X_{i1} + \upbeta_2X_{i2} + \dots + \upbeta_p X_{ip}}_{\mathbb E[Y_i|X_i]} + \upvarepsilon_i
+\]</span></p>
+<p><span class="math inline">\(\upbeta_0, \upbeta_1, \dots, \upbeta_p\)</span> are parameters that describe the deterministic part of the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1, \dots, X_p\)</span>.</p>
+<ul>
+<li>Read: the part of <span class="math inline">\(Y\)</span> explained by <span class="math inline">\(X_1, \dots, X_p\)</span>.</li>
+</ul>
+<p><span class="math inline">\(\upvarepsilon_i\)</span> error term is the non-deterministic relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1, \dots, X_p\)</span>.</p>
+<ul>
+<li>Read: part of <span class="math inline">\(Y\)</span> <strong>not</strong> explained by <span class="math inline">\(X_1, \dots, X_p\)</span>.</li>
+<li><span class="math inline">\(\mathbb E[\pmb\upvarepsilon] = 0\)</span></li>
+</ul>
+</section>
+<section id="matrix-form" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-form">Matrix Form</h2>
+<p>Condensed form:</p>
+<p><span class="math display">\[
+y_i = \mathbf x_i' \pmb\upbeta + \upvarepsilon_i, \quad \mathbf x_i = \begin{pmatrix} 1 \\ x_{i1} \\ x_{i2} \\ \vdots
+\end{pmatrix}, \quad \pmb\upbeta = \begin{pmatrix} \upbeta_0 \\ \upbeta_1 \\ \upbeta_2 \\ \vdots
+\end{pmatrix}
+\]</span></p>
+<p>Even more condensed matrix form:</p>
+<p><span class="math display">\[
+\mathbf y = \mathbf X \pmb \upbeta + \pmb \upvarepsilon, \quad \mathbf y = \begin{pmatrix}y_1 \\ y_2 \\ \vdots \\ y_n\end{pmatrix}, \mathbf X = \begin{pmatrix} 1 &amp; x_{11} &amp; x_{12} &amp; \dots &amp; x_{1p} \\ 1 &amp; x_{21} &amp; x_{22} &amp; \dots &amp; x_{2p} \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ 1 &amp; x_{n1} &amp; x_{n2} &amp; \dots &amp; x_{np} \end{pmatrix}, \pmb\upbeta = \begin{pmatrix} \upbeta_0 \\ \upbeta_1 \\ \vdots \\ \upbeta_p \end{pmatrix}, \pmb\upvarepsilon = \begin{pmatrix} \upvarepsilon_1  \\ \upvarepsilon_2 \\ \vdots \\ \upvarepsilon_n \end{pmatrix}
+\]</span></p>
+</section>
+<section id="sum-of-squared-errors" class="level2">
+<h2 class="anchored" data-anchor-id="sum-of-squared-errors">Sum of Squared Errors</h2>
+<p>Naturally, we want to choose the values <span class="math inline">\(b_0, \dots, b_p\)</span> for the unknown <span class="math inline">\(\upbeta_0, \dots, \upbeta_p\)</span> that <strong>minimise</strong> the sum (squared) error of predicted <span class="math inline">\(\hat Y_i\)</span> in respect to the true population.</p>
+<ul>
+<li><p>Actual true <span class="math inline">\(Y\)</span> values: <span class="math inline">\(Y_i\)</span>, with unknown <span class="math inline">\(\upbeta\)</span></p></li>
+<li><p>Predicted <span class="math inline">\(\hat Y\)</span> values, with some choice of <span class="math inline">\(\upbeta\)</span> value of <span class="math inline">\(b\)</span>.</p></li>
+</ul>
+<p>Thus, the sum (squared) error is the sum of the differences between actual <span class="math inline">\(Y_i\)</span> and predicted <span class="math inline">\(\hat Y_i\)</span>:</p>
+<p><span class="math display">\[
+SSE = \sum(Y_i - \hat Y_i)^2 = (\mathbf y- \hat{\mathbf y})'(\mathbf y- \hat{\mathbf y})
+\]</span></p>
+<p>Why squared?</p>
+<ol type="1">
+<li>gets rid of direction, only keeps magnitude</li>
+<li>Easier for calculus as absolute value function is non-differentiable at vertex.</li>
+<li>Nice properties (see later in the slides).</li>
+</ol>
+</section>
+<section id="ordinary-least-squares" class="level2">
+<h2 class="anchored" data-anchor-id="ordinary-least-squares">Ordinary Least Squares</h2>
+<p>Re-arrange SSE:</p>
+<p><span class="math display">\[
+\begin{split}
+SSE &amp; = (\mathbf y- \hat{\mathbf y})'(\mathbf y- \hat{\mathbf y}) \\
+&amp; = (\mathbf y - \mathbf{Xb})'(\mathbf y - \mathbf{Xb}) \\
+&amp; = \mathbf y' \mathbf y - \mathbf y' \mathbf{Xb} - \mathbf b' \mathbf X' \mathbf y + \mathbf b' \mathbf X' \mathbf{Xb}
+\end{split}
+\]</span></p>
+<p>We want to minimise the SSE, so take the derivative in respect to <span class="math inline">\(\mathbf b\)</span> and set equal to 0:</p>
+<p><span class="math display">\[
+\frac{\partial SSE}{\partial \mathbf b} = -2 \mathbf X' \mathbf y + 2 \mathbf X' \mathbf{Xb} = 0
+\]</span></p>
+<p>Re-arrange the equation to get</p>
+<p><span class="math display">\[
+\begin{split}
+\mathbf b &amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf y \\
+&amp; \implies \hat{\pmb\upbeta} = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf y
+\end{split}
+\]</span></p>
+</section>
+<section id="estimator-properties" class="level2">
+<h2 class="anchored" data-anchor-id="estimator-properties">Estimator Properties</h2>
+<p>When we estimate <span class="math inline">\(\upbeta\)</span> (or any parameter), we typically use a sample of the population.</p>
+<ul>
+<li>What if we used a different sample to calculate the parameter? We would get a slightly different <span class="math inline">\(\hat{\upbeta}\)</span> estimate since the sample data is slightly different.</li>
+</ul>
+<p><strong>Sampling distribution</strong> is the distribution of all estimated <span class="math inline">\(\hat{\upbeta}\)</span> from different samples, taking an infinite number of samples.</p>
+<ul>
+<li>Imagine you take one sample, and estimate <span class="math inline">\(\hat{\upbeta}\)</span>. Then, take another sample and estimate <span class="math inline">\(\hat{\upbeta}\)</span>. Then again and again. Plot all of the <span class="math inline">\(\hat{\upbeta}\)</span> in a distribution to get the sampling distribution.</li>
+</ul>
+<p><strong>Unbiasedness</strong> is if the expected value of the sampling distribution equals the true population value of <span class="math inline">\(\upbeta\)</span>. In other words: <span class="math inline">\(\mathbb E[\hat{\pmb\upbeta}] = \pmb\upbeta\)</span>.</p>
+<p><strong>Standard Error</strong> is the standard deviation of the sampling distribution.</p>
+</section>
+<section id="unbiasedness-of-ols-1" class="level2">
+<h2 class="anchored" data-anchor-id="unbiasedness-of-ols-1">Unbiasedness of OLS (1)</h2>
+<p>Theorem: Part of the <strong>Gauss-Markov Theorem</strong> states that under 4 conditions, the OLS estimate of <span class="math inline">\(\upbeta\)</span> is <strong>unbiased</strong>: <span class="math inline">\(\mathbb E[\hat{\pmb\upbeta}] = \pmb\upbeta\)</span></p>
+<ol type="1">
+<li><p>The population model can be expressed as a linear model <span class="math inline">\(\mathbf y = \mathbf X \pmb\upbeta + \pmb\upvarepsilon\)</span>.</p></li>
+<li><p>i.i.d sampling from population.</p></li>
+<li><p>No perfect multicollinearity. Basically, <span class="math inline">\(\mathbf X\)</span> must be full-rank.</p></li>
+<li><p><strong>Strict Exogeneity</strong>: Formally defined as <span class="math inline">\(\mathbb E[\pmb\upvarepsilon|\mathbf X] = 0\)</span>.</p>
+<p>This implies that <span class="math inline">\(Cov(\upvarepsilon, X_j) = 0\)</span> for any explanatory variable <span class="math inline">\(X_j = X_1, \dots, X_p\)</span>.</p></li>
+</ol>
+<p>Violations of strict exogeneity often caused by omitted confounders (see causal frameworks).</p>
+</section>
+<section id="unbiasedness-of-ols-2" class="level2">
+<h2 class="anchored" data-anchor-id="unbiasedness-of-ols-2">Unbiasedness of OLS (2)</h2>
+<p>Proof:</p>
+<p><span class="math display">\[
+\begin{split}
+\hat{\pmb\upbeta} &amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf y \\
+&amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'(\mathbf X \pmb\upbeta + \pmb\upvarepsilon) \\
+&amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf X \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon \\
+&amp; = \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon
+\end{split}
+\]</span></p>
+<p>Now we want to prove <span class="math inline">\(\mathbb E[\hat{\pmb\upbeta}] = \pmb\upbeta\)</span>. So we want to take the expected value of <span class="math inline">\(\hat{\pmb\upbeta}\)</span>:</p>
+<p><span class="math display">\[
+\begin{split}
+\mathbb E[&amp; \hat{\pmb\upbeta}|\mathbf X] = \mathbb E[\pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon|\mathbf X] \\
+&amp; \implies \mathbb E[\hat{\pmb\upbeta}|\mathbf X] = \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbb E[\pmb\upvarepsilon|\mathbf X]
+\end{split}
+\]</span></p>
+</section>
+<section id="unbiasedness-of-ols-3" class="level2">
+<h2 class="anchored" data-anchor-id="unbiasedness-of-ols-3">Unbiasedness of OLS (3)</h2>
+<p><span class="math display">\[
+\mathbb E[\hat{\pmb\upbeta}|\mathbf X] = \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbb E[\pmb\upvarepsilon|\mathbf X]
+\]</span></p>
+<p>Recall Gauss-Markov condition (4), strict exogeneity: <span class="math inline">\(\mathbb E[\pmb\upvarepsilon|\mathbf X] = 0\)</span>. Thus:</p>
+<p><span class="math display">\[
+\mathbb E[\hat{\pmb\upbeta}|X] = \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'(0) = \pmb\upbeta
+\]</span></p>
+<p>Finally, law of iterated expecations (LIE) gets us:</p>
+<p><span class="math display">\[
+\mathbb E [\hat{\pmb\upbeta}]= \mathbb E [\mathbb E[\hat{\pmb\upbeta}]] = \pmb\upbeta
+\]</span></p>
+<p>Thus, we have shown <span class="math inline">\(\mathbb E[\hat{\pmb\upbeta}] = \pmb\upbeta\)</span>, proving OLS is an unbiased estimator of the true <span class="math inline">\(\upbeta\)</span> population parameters under 4 gauss-markov conditions.</p>
+</section>
+<section id="variance-of-ols-1" class="level2">
+<h2 class="anchored" data-anchor-id="variance-of-ols-1">Variance of OLS (1)</h2>
+<p>Start with our solution:</p>
+<p><span class="math display">\[
+\begin{split}
+\hat{\pmb\upbeta} &amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf y \\
+&amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'(\mathbf X \pmb\upbeta + \pmb\upvarepsilon) \\
+&amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf X \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon \\
+&amp; = \pmb\upbeta + (\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon
+\end{split}
+\]</span></p>
+<p><span class="math inline">\(\pmb\upbeta\)</span> is a constant population value, so it is not the variance. Thus, the variance of the estimator comes from 2nd term:</p>
+<p><span class="math display">\[
+\begin{split}
+Var &amp; [\hat{\pmb\upbeta}|X]= Var[(\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon| X] \\
+&amp; \implies Var[\hat{\pmb\upbeta}|X]=(\mathbf X'\mathbf X)^{-1} \mathbf X'Var[\pmb\upvarepsilon|\mathbf X] [(\mathbf X'\mathbf X)^{-1} \mathbf X'\pmb\upvarepsilon]^{-1} \\
+&amp;\implies Var[\hat{\pmb\upbeta}|X]= (\mathbf X'\mathbf X)^{-1} \mathbf X'Var[\pmb\upvarepsilon|\mathbf X] \mathbf X (\mathbf X'\mathbf X)^{-1}
+\end{split}
+\]</span></p>
+</section>
+<section id="variance-of-ols-2" class="level2">
+<h2 class="anchored" data-anchor-id="variance-of-ols-2">Variance of OLS (2)</h2>
+<p>Homoscedasticity assumption:</p>
+<p><span class="math display">\[
+Var[\pmb\upvarepsilon|\mathbf X] = \sigma^2 \mathbf I =
+\begin{pmatrix}
+\sigma^2 &amp; 0 &amp; 0 &amp; \dots \\
+0 &amp; \sigma^2 &amp; 0 &amp; \dots \\
+0 &amp; 0 &amp; \sigma^2 &amp; \vdots \\
+\vdots &amp; \vdots &amp; \dots &amp; \ddots
+\end{pmatrix}
+\]</span></p>
+<ul>
+<li>Read: no matter the value of <span class="math inline">\(\mathbf X\)</span>, the error term <span class="math inline">\(\upvarepsilon\)</span> has the same constant variance <span class="math inline">\(\sigma^2\)</span>.</li>
+</ul>
+<p>If homoscedasticity assumption is true, we can plug this into our OLS variance formula:</p>
+<p><span class="math display">\[
+\begin{split}
+Var[\hat{\pmb\upbeta}|X] &amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'Var[\pmb\upvarepsilon|\mathbf X] \mathbf X (\mathbf X'\mathbf X)^{-1} \\
+&amp; = (\mathbf X'\mathbf X)^{-1} \mathbf X'\sigma^2 \mathbf I \mathbf X (\mathbf X'\mathbf X)^{-1} \\
+&amp; = \sigma^2 (\mathbf X' \mathbf X)^{-1}
+\end{split}
+\]</span></p>
+</section>
+<section id="variance-of-ols-3" class="level2">
+<h2 class="anchored" data-anchor-id="variance-of-ols-3">Variance of OLS (3)</h2>
+<p>Alternatively, we can weaken this assumption to <strong>heteroscedasticity</strong>: where the error term variance depends on unit <span class="math inline">\(i\)</span>’s <span class="math inline">\(\mathbf X\)</span> values:</p>
+<p><span class="math display">\[
+Var[\pmb\upvarepsilon|\mathbf X] = \sigma^2 \mathbf I =
+\begin{pmatrix}
+\sigma^2_1 &amp; 0 &amp; 0 &amp; \dots \\
+0 &amp; \sigma^2_2 &amp; 0 &amp; \dots \\
+0 &amp; 0 &amp; \sigma^2_i &amp; \vdots \\
+\vdots &amp; \vdots &amp; \dots &amp; \ddots
+\end{pmatrix}
+\]</span></p>
+<p>Our variance of OLS once plugging in is:</p>
+<p><span class="math display">\[
+Var[\hat{\pmb\upbeta}|X]= (\mathbf X'\mathbf X)^{-1} \mathbf X' \begin{pmatrix}
+\sigma^2_1 &amp; 0 &amp; 0 &amp; \dots \\
+0 &amp; \sigma^2_2 &amp; 0 &amp; \dots \\
+0 &amp; 0 &amp; \sigma^2_i &amp; \vdots \\
+\vdots &amp; \vdots &amp; \dots &amp; \ddots
+\end{pmatrix} \mathbf X (\mathbf X'\mathbf X)^{-1}
+\]</span></p>
+</section>
+<section id="hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis Testing</h2>
+<p>We do not know the values of <span class="math inline">\(\sigma^2\)</span> or <span class="math inline">\(\sigma_i^2\)</span>. Thus, we use estimates of them involving our residuals <span class="math inline">\(\hat{\upvarepsilon}_i\)</span>.</p>
+<p>Using these estimates, we can find the estimated variance and standard error. From this, we can conduct hypothesis testing with <span class="math inline">\(t\)</span>-tests.</p>
+<p><span class="math display">\[
+t = \frac{\hat{\upbeta}_j - H_0}{\widehat{se}(\hat{\upbeta}_j)}, \quad \text{for} \quad \hat{\upbeta}_j \in \hat{\upbeta}_0, \dots, \hat{\upbeta}_p
+\]</span></p>
+<ul>
+<li>Where <span class="math inline">\(H_0\)</span> is the null (usually 0).</li>
+</ul>
+<p>We can then calculate p-value: probability the null is true given our estimate <span class="math inline">\(\hat{\upbeta}_j\)</span>.</p>
+<p>Note: hypothesis testing is only approximate if <span class="math inline">\(\upvarepsilon\)</span> is not normally distributed (will be achieved in large sample sizes due to CLM). Consider bootstrap inference for small samples.</p>
+</section>
+<section id="geometrics-of-ols-1" class="level2">
+<h2 class="anchored" data-anchor-id="geometrics-of-ols-1">Geometrics of OLS (1)</h2>
+<p>Our predicted values of <span class="math inline">\(\hat Y_i\)</span> are defined as following:</p>
+<p><span class="math display">\[
+\hat{\mathbf y} = \mathbf{Xb} = \mathbf X(\mathbf X'\mathbf X)^{-1} \mathbf X'\mathbf y
+\]</span></p>
+<p>Let us define projection matrix <span class="math inline">\(\mathbf P\)</span> as:</p>
+<p><span class="math display">\[
+\mathbf P:= \mathbf X(\mathbf X'\mathbf X)^{-1} \mathbf X'
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf P\)</span> is symmetrical <span class="math inline">\(\mathbf P' - \mathbf P\)</span>, and idempotent <span class="math inline">\(\mathbf{PP} = \mathbf P\)</span>.</li>
+</ul>
+<p>Thus, we can rewrite our predicted values as:</p>
+<p><span class="math display">\[
+\hat{\mathbf y} = \mathbf{Py}
+\]</span></p>
+<p>Thus, <span class="math inline">\(\mathbf P\)</span> is projecting <span class="math inline">\(\mathbf y \rightarrow \hat{\mathbf y}\)</span>.</p>
+</section>
+<section id="geometrics-of-ols-2" class="level2">
+<h2 class="anchored" data-anchor-id="geometrics-of-ols-2">Geometrics of OLS (2)</h2>
+<p>Let us define residual maker matrix <span class="math inline">\(\mathbf M\)</span>:</p>
+<p><span class="math display">\[
+\mathbf M:= \mathbf I - \mathbf P = \mathbf I - \mathbf X(\mathbf X'\mathbf X)^{-1} \mathbf X'
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathbf M\)</span> is also symmetrical and idempotent.</p></li>
+<li><p><span class="math inline">\(\mathbf M\)</span> is orthogonal to <span class="math inline">\(\mathbf P\)</span> and <span class="math inline">\(\mathbf X\)</span>, meaning <span class="math inline">\(\mathbf{PX} = \mathbf{MX} = 0\)</span>. You can prove this on your own, it is pretty simple.</p></li>
+</ul>
+<p>Our error between <span class="math inline">\(Y_i\)</span> and <span class="math inline">\(\hat Y_i\)</span> is <span class="math inline">\(\hat{\upvarepsilon}_i\)</span>:</p>
+<p><span class="math display">\[
+\begin{split}
+\hat{\pmb\upvarepsilon} &amp; = \mathbf y - \hat{\mathbf y} = \mathbf y - \mathbf{Py} \\
+&amp;  = (\mathbf I - \mathbf P) \mathbf y \\
+&amp; = \mathbf{My}
+\end{split}
+\]</span></p>
+<p>Thus, <span class="math inline">\(\mathbf M\)</span> is projecting <span class="math inline">\(\mathbf y \rightarrow \hat{\pmb\upvarepsilon}\)</span>.</p>
+</section>
+<section id="geometrics-of-ols-3" class="level2">
+<h2 class="anchored" data-anchor-id="geometrics-of-ols-3">Geometrics of OLS (3)</h2>
+<p>We know that predicted <span class="math inline">\(\hat{\mathbf y}\)</span> is some linear combination of <span class="math inline">\(\mathbf X\)</span> (explanatory variables <span class="math inline">\(X_1, \dots, X_p\)</span>), since <span class="math inline">\(\hat{\mathbf y} = \mathbf{Xb}\)</span>.</p>
+<p>Thus, <span class="math inline">\(\mathbf P\)</span> projects <span class="math inline">\(\mathbf y\)</span> into a vector <span class="math inline">\(\hat{\mathbf y}\)</span> that is in a space spanned by <span class="math inline">\(\mathbf X\)</span> (column space of <span class="math inline">\(\mathbf X)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
+</figure>
+</div>
+<p><span class="math inline">\(\mathbf M\)</span> projects vector <span class="math inline">\(\mathbf y\)</span> into vector <span class="math inline">\(\mathbf e\)</span> (error), which is perpendicular to the column space of <span class="math inline">\(\mathbf X\)</span>.</p>
+<ul>
+<li>Read: strict exogeneity: error term should not be correlated with <span class="math inline">\(\mathbf X\)</span>.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

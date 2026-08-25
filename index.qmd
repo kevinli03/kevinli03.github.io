@@ -1,133 +1,492 @@
 ---
 title: "Kevin Lingfeng Li"
+subtitle: "PwC · Banking & Capital Markets Audit"
 about:
-  template: trestles
+  template: jolla
   image: kevinli.jpg
-  links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/kevinlingfengli/
-    - icon: envelope-fill
-      text: k.l.li1@lse.ac.uk
-      href: mailto:k.l.li1@lse.ac.uk
 sidebar: side
 ---
 
-::::::::::::::::::::: panel-tabset
-## About
+::: {style="display: flex; gap: 10px; align-items: center; justify-content: center;"}
+<a href="https://www.linkedin.com/in/kevinlingfengli/" target="_blank" class="btn btn-outline-secondary btn-sm"> <i class="bi bi-linkedin"></i> LinkedIn </a>
+
+<a href="mailto:kevinlingfengli@outlook.com" class="btn btn-outline-secondary btn-sm"> <i class="bi bi-envelope-fill"></i> kevinlingfengli\@outlook.com </a>
+:::
+
+Welcome to my portfolio! Here, you can learn more about me, and view my papers, projects, and recordings.
+
+<br />
+
+------------------------------------------------------------------------
+
+<br />
+
+## Experience
+
+::::: myclass
+Associate · Banking & Capital Markets
+
+:::: small
+**PwC** · Apr 2026 - Present
 
 ::: grey
-#### Hi, I'm Kevin.
-
-I am currently an **Associate at PwC** in London.
-
-Previously, I was a researcher with the **United Nations Development Programme (UNDP)**, where I worked on inclusive growth, co-authoring several publications.
-
-I did my masters at the **London School of Economics (LSE)**, receiving the **Prize for Best Overall Performance**. Prior to my masters, I completed a BSc from **King's College London**. In High School (in the United States), I received the **National AP Scholar** award for academic achievement.
-
-My main research interests lie in the application of **causal econometrics**, **latent variable modelling**, and **game theoretic modelling** in researching topics in **political economy**. I use **R**, **Python**, **Stata**, and **Julia** for data analysis.
-
-Aside from my work and research, I am also a **violinist** and **pianist**.
-
- 
-
-I have included my papers/publications, econometrics resources, and music recordings in this portfolio.
-
-For my CV, see my [LinkedIn](https://www.linkedin.com/in/kevinlingfengli/). Contact me at [k.l.li1\@lse.ac.uk](mailto:k.l.li1@lse.ac.uk).
-:::
-
-## Papers
-
-#### [Working Papers]{.smallcaps}
-
-:::: myclass
-::: small
-**Kevin Li** (2025). 'Conditional Cash Transfers. Perceptions of Political Institutions, and Turnout: Evidence from the California Earned Income Tax Credit'.
+Performed procedures for the year-end group audit, debt issuance opinions, and interim reviews of a global systemically important bank with total assets over \$3tn
 :::
 ::::
+:::::
 
-:::: myclass
-::: small
-**Kevin Li** (2025). '[Causal Replication and Reppraisal of Tellez (2022) "Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia"](https://kevinli03.github.io/papers/my457/paper.pdf){style="color: gray;"}'.
+::::: myclass
+Associate · London Audit
+
+:::: small
+**PwC** · Sep 2025 - Mar 2026
+
+::: grey
+PwC prize winner for exceptional certificate level results
+
+Performed substantive testing for statutory audits across technology, information services, and non-profit sectors.
 :::
 ::::
+:::::
 
-:::: myclass
-::: small
-**Kevin Li** (2025). '[Legalisation of LGBTQ+ Marriage and Right-wing Populism: Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences](https://kevinli03.github.io/papers/gv482/paper.pdf){style="color: gray;"}'.
+::::: myclass
+Research Intern · Inclusive Growth
+
+:::: small
+**UNDP** · Aug 2023 - Aug 2024
+
+::: grey
+Co-authored 2 publications on small island developing states and landlocked countries
+
+Created a database of social protection programmes of UNDP to faciliate knowledge sharing between country offices
 :::
 ::::
+:::::
 
-#### [Published]{.smallcaps}
+::::: myclass
+Research Intern · Strategic Foresight
 
-:::: myclass
-::: small
-Renata Rubian, Dajna Sorenson, Rishi Chakraborty, and **Kevin Li** (2025). '[Landlocked Developing Countries: Looking Back and Ahead](https://www.undp.org/publications/landlocked-developing-countries-looking-back-and-ahead-accelerating-action-next-10-years){style="color: gray;"}', *United Nations Development Programme*.
+:::: small
+**UNDP** · Mar 2023 - Aug 2023
+
+::: grey
+Contributed to a publication on climate migration in Vietnam and Pakistan
+
+Organised a public consultation with local stakeholders and experts around climate migration in Vietnam and Pakistan
 :::
 ::::
+:::::
 
-:::: myclass
-::: small
-Renata Rubian, Dajna Sorenson, Rishi Chakraborty, **Kevin Li**, and Jade Cooper (2024). '[SIDS: Looking Back and Forward](https://www.undp.org/publications/sids-looking-back-and-forward){style="color: gray;"}', *United Nations Development Programme*.
+<br />
+
+------------------------------------------------------------------------
+
+<br />
+
+## Education
+
+::::: myclass
+London School of Economics
+
+:::: small
+MSc Political Economy · Sep 2025
+
+**Distinction** · Prize for best overall performance
+
+::: grey
+Modules included: Causal Inference, Multivariate Analysis, Econometrics, Regression, Game Theory, Macro and Micro Economics, and Quantitative analysis for Political Science
 :::
 ::::
+:::::
 
-#### [Contributed]{.smallcaps}
+::::: myclass
+King's College London
 
-:::: myclass
-::: small
-Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024). '[Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam](https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam){style="color: gray;"}', *United Nations Development Programme*.
+:::: small
+BSc Politics · Jun 2024
+
+**First Class with Honours**
+
+::: grey
+Modules included: Statistics II, Advanced Game Theory, Economic Policy, Policy Analysis, Research Methods, Elections and Voting Behaviour, and International Politics
 :::
 ::::
+:::::
+
+::::: myclass
+Canyon Crest Academy
+
+:::: small
+High School Diploma (USA) · Jun 2021
+
+ACT 35/36 · National AP Scholar
+
+::: grey
+AP Exams: Calculus BC (5/5), Physics 1 (5/5), Statistics (5/5), Physics 2 (4/5), European History (5/5), World History (5/5), US History (5/5), English Language (5/5), Computer Science (4/5), Macroeconomics (4/5), Pyschology (4/5), Music Theory (5/5), Chinese (5/5)
+:::
+::::
+:::::
+
+<br />
+
+------------------------------------------------------------------------
+
+<br />
+
+## Awards
+
+::::: myclass
+PwC Prize for Exceptional Certificate Level Results
+
+:::: small
+Awarded by PwC · 2026
+
+::: grey
+Awarded for obtaining an average of over 90% on the 6 certificate level ACA exams
+:::
+::::
+:::::
+
+::::: myclass
+Prize for Best Overall Performance
+
+:::: small
+Awarded by the London School of Economics · 2025
+
+::: grey
+Awarded for obtaining the highest overall mark in the LSE programme
+:::
+::::
+:::::
+
+::::: myclass
+National AP Scholar
+
+:::: small
+Awarded by the College Board · 2020
+
+::: grey
+Awarded for taking more than 8 AP exams while maintaining an average above 4/5.
+:::
+::::
+:::::
+
+::::: myclass
+President's Volunteer Service Award (2x)
+
+:::: small
+Office of the President of the United States · 2018 & 2019
+
+::: grey
+Awarded for performing more than 250 hours of community service in a year
+:::
+::::
+:::::
+
+::::: myclass
+SCSBOA All Southern Orchestra
+
+:::: small
+SCSBOA · 2020
+
+::: grey
+Was selected to be 5th chair first violin for Southern California's honour orchestra
+:::
+::::
+:::::
+
+<br />
+
+------------------------------------------------------------------------
+
+<br />
+
+## Publications
+
+::::: myclass
+Landlocked Developing Countries: Looking Back and Ahead
+
+:::: small
+Renata Rubian, Dajna Sorenson, Rishi Chakraborty, and **Kevin Li** (2025)
+
+::: grey
+I co-authored this paper as part of my internship with the UNDP
+
+[Access Here](https://www.undp.org/publications/landlocked-developing-countries-looking-back-and-ahead-accelerating-action-next-10-years){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+SIDS: Looking Back and Forward
+
+:::: small
+Renata Rubian, Dajna Sorenson, Rishi Chakraborty, **Kevin Li**, and Jade Cooper (2024)
+
+::: grey
+I co-authored this paper as part of my internship with the UNDP
+
+[Access Here](https://www.undp.org/publications/sids-looking-back-and-forward){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Anticipating the Impacts of Climate Change Related Human Mobility in Pakistan and Viet Nam
+
+:::: small
+Aarathi Krishnan, Beth Allen, Sophia Robele, Aaron Martin, and Wajiha Khan (2024)
+
+::: grey
+I contributed to the research behind this publication as part of my internship with UNDP
+
+[Access Here](https://www.undp.org/asia-pacific/publications/anticipating-impacts-of-climate-change-related-human-mobility-pakistan-and-viet-nam){style="color: gray;"}
+:::
+::::
+:::::
+
+<br />
+
+------------------------------------------------------------------------
+
+<br />
 
 ## Projects
 
-#### [Applied Econometrics Resources]{.smallcaps}
+::::: myclass
+Causal Replication and Reppraisal of Tellez (2022)
 
-::: small
--   [Simple Econometric Theory Review](https://kevinli03.github.io/resources/reg.pdf)
--   [Causal Framework Basics Slides](https://kevinli03.github.io/resources/causal.pdf)
--   Difference-in-Differences with Modern Advancements
--   Difference-in-Differences Coding (R, Python) Resources
--   Regression Discontinuity Slides
--   Latent Variable Model Slides
-:::
+:::: small
+Land, Opportunism, and Displacement in Civil Wars: Evidence from Colombia
 
-:::: myclass
-::: small
-*Thanks to Dr. Daniel de Kadt, Dr. Aliz Toth, Prof. Jouni Kuha, and Dr. Yiqing Xu for their instruction and resources that have helped me learn and create these slides.*
+::: grey
+I created this paper as part of my masters degree, using modern difference-in-differences methods to replicate and appraise an existing paper
+
+[Access Here](https://kevinli03.github.io/papers/my457/paper.pdf){style="color: gray;"}
 :::
 ::::
+:::::
 
-#### [Music]{.smallcaps}
+::::: myclass
+Legalisation of LGBTQ+ Marriage and Right-wing Populism
 
-:::: myclass
-::: small
--   [Salut d'Amour (Elgar)](https://youtu.be/QhHTsEqjC2U){style="color: gray;"}
+:::: small
+Evidence of the Cultural Backlash Hypothesis in Europe with Difference-in-Differences
 
--   [Salut d'Amour with my sister](https://youtu.be/j1bAfFD9AmQ){style="color: gray;"}
+::: grey
+I created this paper as part of my masters degree, under the guidance of Professor Stephane Wolton, who provided the topic and the data
 
--   [Adoration (Borowski)](https://youtu.be/rp4HV2AKm4A){style="color: gray;"}
-
--   [My own composition (For CCA Conservatory)](https://youtu.be/-VkJFQiv4ps){style="color: gray;"}
-
--   [Cover: I Will go to you like the first snow (Ailee)](https://youtu.be/DFyVmGi3_i8){style="color: gray;"}
-
--   [Prelude for 2 Violins (Shostakovich)](https://youtu.be/llQZ1jnh_ik){style="color: gray;"}
-
--   [Violin Concerto No. 5 (Mozart)](https://youtu.be/-YB5BJMvmJg){style="color: gray;"}
-
--   [Zigunerweisen (Sarasate)](https://youtu.be/-WIrp25443I){style="color: gray;"}
-
--   [Cover: One Call Away (Charlie Puth)](https://youtu.be/Rtt7LULcPmc){style="color: gray;"}
-
--   [Mvmt. 3, Bird Quartet](https://youtu.be/ytTFMK6Z8l8){style="color: gray;"}
-
--   [Mvmt. 4, Bird Quartet (Haydn)](https://youtu.be/PZg5tvuPPvg){style="color: gray;"}
-
--   [Sleigh Ride (Anderson) with CCA Orchestra](https://youtu.be/EIa9A11ASq0){style="color: gray;"}
-
--   [Cool Chamber Piece with CCA Orchestra](https://youtu.be/f3efaP1yKrQ){style="color: gray;"}
+[Access Here](https://kevinli03.github.io/papers/gv482/paper.pdf){style="color: gray;"}
 :::
 ::::
-:::::::::::::::::::::
+:::::
+
+::::: myclass
+Simple Econometric Theory Review
+
+:::: small
+Applied Econometrics Resources
+
+::: grey
+I created this deck as a summary of content on econometrics taught by Dr. Jörn-Steffen Pischke,Dr. Daniel de Kadt, and Dr. Aliz Toth
+
+[Access Here](https://kevinli03.github.io/resources/reg.pdf){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Causal Framework Basics
+
+:::: small
+Applied Econometrics Resources
+
+::: grey
+I created this deck as a summary of content on econometrics taught by Dr. Jörn-Steffen Pischke, Dr. Daniel de Kadt, and Dr. Aliz Toth
+
+[Access Here](https://kevinli03.github.io/resources/causal.pdf){style="color: gray;"}
+:::
+::::
+:::::
+
+<br />
+
+------------------------------------------------------------------------
+
+<br />
+
+## Solo Recordings
+
+::::: myclass
+Tsujii · Elegy for the Victims of the Earthquake and Tsunami
+
+:::: small
+Kevin Li (Piano) · 2018
+
+::: grey
+Juyoung's favourite song - I made this recording for Juyoung
+
+[Access Here](https://youtu.be/l7161U1yChc?si=tARVUNx4aRzMr9vg){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Elgar · Salut d'Amour
+
+:::: small
+Kevin Li (Violin) · 2021
+
+::: grey
+[Access Here](https://youtu.be/QhHTsEqjC2U?si=mNQ8KikZMAE6UH_Q){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Kevin Li · My Original Composition
+
+:::: small
+Kevin Li (Violin & Piano) · 2021
+
+::: grey
+I composed and recorded this for a canyon crest academy music conservatory project.
+
+[Access Here](https://youtu.be/-VkJFQiv4ps?si=-WbJJzjNrdABe6zI){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Don't Know What The Song Name Is
+
+:::: small
+Kevin Li (Piano) · 2018
+
+::: grey
+I recorded this in a period when I was really sad in 2018, I don't remember what the song is called (or perhaps I made it?)
+
+[Access Here](https://youtu.be/Z3p_jcH8l8A?si=7KU31TiEAtNsfTnx){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Ailee · I Will Go to You Like the First Snow
+
+:::: small
+Kevin Li (Violin & Piano) · 2021
+
+::: grey
+I also created this arrangement of this song for violin and piano
+
+[Access Here](https://youtu.be/DFyVmGi3_i8?si=n1J0JYKkysBqixIb){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Shostakovitch · Five Pieces for Two Violins
+
+:::: small
+Kevin Li (Violin & Piano) · 2020
+
+::: grey
+[Access Here](https://youtu.be/1g5EwOjBToo?si=qcGCsxOfXwe5H44z){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Borowski · Adoration
+
+:::: small
+Kevin Li (Violin & Piano) · 2021
+
+::: grey
+[Access Here](https://youtu.be/rp4HV2AKm4A?si=mWOklQcCah01tPyC){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Puth · One Call Away
+
+:::: small
+Kevin Li (Violin & Piano) · 2021
+
+::: grey
+I also created this arrangement of this song for violin and piano
+
+[Access Here](https://youtu.be/Rtt7LULcPmc?si=-0MKIKSKp7PP_X4o){style="color: gray;"}
+:::
+::::
+:::::
+
+<br />
+
+------------------------------------------------------------------------
+
+<br />
+
+## Group Recordings
+
+::::: myclass
+Haydn · Bird Quartet, Movement 4
+
+:::: small
+Audrey Park (Violin), Kevin Li (Violin), Layla Shapouri (Viola), Roxan Lim (Cello) · 2017
+
+::: grey
+[Access Here](https://youtu.be/PZg5tvuPPvg){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Haydn · Bird Quartet, Movement 3
+
+:::: small
+Audrey Park (Violin), Kevin Li (Violin), Layla Shapouri (Viola), Roxan Lim (Cello) · 2017
+
+::: grey
+[Access Here](https://youtu.be/ytTFMK6Z8l8){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Anderson · Sleigh Ride
+
+:::: small
+Canyon Crest Academy Orchestra · 2017
+
+::: grey
+[Access Here](https://youtu.be/EIa9A11ASq0){style="color: gray;"}
+:::
+::::
+:::::
+
+::::: myclass
+Song I Do Not Know the Name of
+
+:::: small
+Canyon Crest Academy Orchestra · 2017
+
+::: grey
+[Access Here](https://youtu.be/f3efaP1yKrQ){style="color: gray;"}
+:::
+::::
+:::::
+
+<br />
+
+------------------------------------------------------------------------
+
+<br />
+
+::: {style="display: flex; gap: 10px; align-items: center; justify-content: center;"}
+<a href="https://www.linkedin.com/in/kevinlingfengli/" target="_blank" class="btn btn-outline-secondary btn-sm"> <i class="bi bi-linkedin"></i> LinkedIn </a>
+
+<a href="mailto:kevinlingfengli@outlook.com" class="btn btn-outline-secondary btn-sm"> <i class="bi bi-envelope-fill"></i> kevinlingfengli\@outlook.com </a>
+:::
