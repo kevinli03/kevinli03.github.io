@@ -13,7 +13,8 @@ sidebar: side
 <a href="mailto:kevinlingfengli@outlook.com" class="btn btn-outline-secondary btn-sm"> <i class="bi bi-envelope-fill"></i> kevinlingfengli\@outlook.com </a>
 :::
 
-Welcome to my portfolio! Here, you can learn more about me, and view my papers, projects, and recordings.
+I currently work in audit. My interests include econometrics, data science and data analytics, classical music, and urban planning.
+
 
 <br />
 
@@ -21,7 +22,7 @@ Welcome to my portfolio! Here, you can learn more about me, and view my papers, 
 
 <br />
 
-## Experience
+## Experience {#experience}
 
 ::::: myclass
 Associate · Banking & Capital Markets
@@ -83,7 +84,7 @@ Organised a public consultation with local stakeholders and experts around clim
 
 <br />
 
-## Education
+## Education {#education}
 
 ::::: myclass
 London School of Economics
@@ -91,7 +92,7 @@ London School of Economics
 :::: small
 MSc Political Economy · Sep 2025
 
-**Distinction** · Prize for best overall performance
+Distinction · Prize for best overall performance
 
 ::: grey
 Modules included: Causal Inference, Multivariate Analysis, Econometrics, Regression, Game Theory, Macro and Micro Economics, and Quantitative analysis for Political Science
@@ -103,9 +104,9 @@ Modules included: Causal Inference, Multivariate Analysis, Econometrics, Regress
 King's College London
 
 :::: small
-BSc Politics · Jun 2024
+**BSc Politics** · Jun 2024
 
-**First Class with Honours**
+First Class with Honours
 
 ::: grey
 Modules included: Statistics II, Advanced Game Theory, Economic Policy, Policy Analysis, Research Methods, Elections and Voting Behaviour, and International Politics
@@ -117,7 +118,7 @@ Modules included: Statistics II, Advanced Game Theory, Economic Policy, Policy A
 Canyon Crest Academy
 
 :::: small
-High School Diploma (USA) · Jun 2021
+**High School Diploma** (USA) · Jun 2021
 
 ACT 35/36 · National AP Scholar
 
@@ -133,7 +134,7 @@ AP Exams: Calculus BC (5/5), Physics 1 (5/5), Statistics (5/5), Physics 2 (4/5),
 
 <br />
 
-## Awards
+## Awards {#awards}
 
 ::::: myclass
 PwC Prize for Exceptional Certificate Level Results
@@ -201,7 +202,7 @@ Was selected to be 5th chair first violin for Southern California's honour orche
 
 <br />
 
-## Publications
+## Publications {#publications}
 
 ::::: myclass
 Landlocked Developing Countries: Looking Back and Ahead
@@ -251,7 +252,7 @@ I contributed to the research behind this publication as part of my internship w
 
 <br />
 
-## Projects
+## Projects {#projects}
 
 ::::: myclass
 Causal Replication and Reppraisal of Tellez (2022)
@@ -315,7 +316,7 @@ I created this deck as a summary of content on econometrics taught by Dr. Jörn-
 
 <br />
 
-## Solo Recordings
+## Solo Recordings {#recordings}
 
 ::::: myclass
 Tsujii · Elegy for the Victims of the Earthquake and Tsunami
